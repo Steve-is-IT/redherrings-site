@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Red Herrings: every student gets a different case</title>
+<meta name="description" content="Red Herrings generates realistic, randomized digital forensics lab exercises. Unique evidence, worksheet, answer key and rubric per student. Runs locally, no hosting.">
+<style>
+  :root{
+    --accent:#E8482B; --accent-2:#FF6A4D; --ink:#12151c; --paper:#ffffff;
+    --muted:#5b6472; --line:#e7e9ee; --bg:#f6f7f9; --card:#ffffff;
+    --radius:14px; --maxw:1080px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#eef1f6; --paper:#0e1117; --muted:#9aa4b2; --line:#232838; --bg:#0b0d12; --card:#141824; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(1.4) blur(8px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:18px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+  .brand svg{display:block}
+  .nav .spacer{flex:1}
+  .nav a.link{color:var(--muted);font-weight:500;font-size:15px}
+  .nav a.link:hover{color:var(--ink)}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:10px;font-weight:600;border:0;cursor:pointer;transition:transform .06s ease,background .2s}
+  .btn:hover{background:var(--accent-2)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .hero{padding:84px 0 56px;text-align:center}
+  .kicker{display:inline-block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px}
+  .hero h1{font-size:clamp(34px,6vw,60px);line-height:1.05;margin:.1em 0 .3em;letter-spacing:-.02em}
+  .hero p.lede{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:680px;margin:0 auto 28px}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .code{font-family:var(--mono);font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;display:inline-block;color:var(--ink)}
+  .shot{margin:44px auto 0;max-width:960px;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18);background:var(--card)}
+  .shot img{display:block;width:100%}
+  .shot .placeholder{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--mono);font-size:14px}
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.01em;margin:0 0 8px;text-align:center}
+  .sub{color:var(--muted);text-align:center;max-width:620px;margin:0 auto 40px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .card h3{margin:.2em 0 .4em;font-size:18px;display:flex;align-items:center;gap:10px}
+  .card p{color:var(--muted);margin:0;font-size:15px}
+  .ic{width:34px;height:34px;border-radius:9px;background:color-mix(in srgb,var(--accent) 14%,transparent);display:flex;align-items:center;justify-content:center;color:var(--accent);flex:none}
+  .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+  .step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin-bottom:12px}
+  .step h4{margin:0 0 6px;font-size:16px}
+  .step p{margin:0;color:var(--muted);font-size:14px}
+  .tabs{display:flex;gap:8px;justify-content:center;margin-bottom:26px;flex-wrap:wrap}
+  .tab{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:600;color:var(--muted)}
+  .tab[aria-selected=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.prices{grid-template-columns:1fr}}
+  .price{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+  .price.feature{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 20%,transparent)}
+  .price h3{margin:0 0 2px;font-size:20px}
+  .price .amt{font-size:32px;font-weight:800;margin:6px 0 2px}
+  .price .amt span{font-size:14px;font-weight:600;color:var(--muted)}
+  .price ul{list-style:none;padding:0;margin:16px 0 22px;color:var(--muted);font-size:14px}
+  .price li{padding:6px 0;border-bottom:1px dashed var(--line)}
+  .price .btn{margin-top:auto;text-align:center}
+  .price small{color:var(--muted)}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:2px 18px;margin-bottom:12px}
+  summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  details p{color:var(--muted);margin:0 0 16px}
+  .note{text-align:center;color:var(--muted);font-size:13px;margin-top:18px}
+  footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);text-align:center;font-size:14px}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path fill="var(--accent)" d="M2 16c5-8 15-11 22-8-2 3-2 5 0 8-2 3-2 5 0 8-7 3-17 0-22-8Z"/><path fill="var(--accent)" d="M24 8c3-1 6 0 6 8s-3 9-6 8c2-5 2-11 0-16Z"/><circle cx="9" cy="14" r="1.6" fill="#fff"/></svg>
+      Red Herrings
+    </div>
+    <div class="spacer"></div>
+    <a class="link" href="#features">Features</a>
+    <a class="link" href="#how">How it works</a>
+    <a class="link" href="#pricing">Pricing</a>
+    <a class="link" href="#faq">FAQ</a>
+    <a class="btn" href="#pricing">Get a license</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero" style="border-top:0">
+    <span class="kicker">Digital forensics lab generator</span>
+    <h1>Every student gets a different case.</h1>
+    <p class="lede">Red Herrings builds realistic, randomized forensics labs from one scenario: unique evidence, a worksheet, an answer key computed from that evidence, and a rubric, for every single student. Labs cannot be copied between students or reused across semesters.</p>
+    <div class="cta-row">
+      <a class="btn" href="#pricing">Start a free trial</a>
+      <a class="btn ghost" href="sample/LAB-insider-usb-student-001.zip">Download a sample lab</a>
+    </div>
+    <div style="margin-top:22px"><span class="code">redherrings generate insider-usb --students 25 --seed fall2025</span></div>
+    <div class="shot"><picture><img src="img/library.png" alt="Red Herrings scenario library" onerror="this.closest('.shot').innerHTML='<div class=&quot;placeholder&quot;>app screenshot</div>'"></picture></div>
+  </section>
+
+  <section id="features">
+    <h2>Built to be trusted, and to be sold</h2>
+    <p class="sub">Realistic artifacts that open in the tools your students already use, and a verification pass that proves every answer is really there.</p>
+    <div class="grid">
+      <div class="card"><h3><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></span>Real artifacts</h3><p>Disk images, registry hives, EVTX logs, Prefetch, LNK and jump lists, Chrome and Firefox history, email, memory exports and mobile databases, in the real on-disk formats.</p></div>
+      <div class="card"><h3><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span>Fresh Catch verification</h3><p>After generation, every artifact is re-opened with an independent parser and every answer is confirmed present. No hand-waving: if it is on the key, it is in the evidence.</p></div>
+      <div class="card"><h3><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span>One case, many variants</h3><p>Names, timestamps, hashes, IPs and answers differ per student from a single seed. Same seed and roster reproduce the exact same labs on any machine.</p></div>
+      <div class="card"><h3><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg></span>Auto-grading</h3><p>Import a student's answers and score against their variant with sensible tolerances: hashes case-insensitive, timestamps within seconds, text fuzzy-matched with a review flag.</p></div>
+      <div class="card"><h3><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>Anti-collusion report</h3><p>See, per question, how many distinct answers were handed out, and which student pairs look most alike. Copied answers stand out.</p></div>
+      <div class="card"><h3><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></span>Fully white-label</h3><p>One Settings screen rebrands every screen and every document: your name, logo, colors and footer. Or strip the branding entirely.</p></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="sub">Local software. No hosting, and no runtime network call. Double-click to launch; it opens in your browser.</p>
+    <div class="steps">
+      <div class="step"><h4>Choose a scenario</h4><p>Five are included; build your own in the visual editor or install a pack.</p></div>
+      <div class="step"><h4>Set the class</h4><p>A number of students or a roster CSV, a difficulty, and a seed.</p></div>
+      <div class="step"><h4>Generate</h4><p>Per-student evidence, worksheet, answer key and rubric, verified as it goes.</p></div>
+      <div class="step"><h4>Hand out and grade</h4><p>One zip per student, an instructor package, and a built-in grader.</p></div>
+    </div>
+  </section>
+
+  <section id="scenarios">
+    <h2>Five scenarios, ready to teach</h2>
+    <p class="sub">Each has 8 to 15 questions across easy, medium and hard, with points and per-tool answer walkthroughs.</p>
+    <div class="grid">
+      <div class="card"><h3>Insider data theft via USB</h3><p>USBSTOR device history, shortcuts to a removable drive, an archiving tool, and a staged archive on disk.</p></div>
+      <div class="card"><h3>Phishing to malware to C2</h3><p>A spoofed email with a real Received path, a downloaded payload, persistence, and a remote-controlled process in memory.</p></div>
+      <div class="card"><h3>Ransomware precursor</h3><p>Tool staging, a new admin account, a persistence service, and a cleared Security log to work around.</p></div>
+      <div class="card"><h3>Web shell on a server</h3><p>A web shell in the web root, the worker process spawning commands, and a second-stage agent reaching out.</p></div>
+      <div class="card"><h3>Employee misconduct</h3><p>Browser history, searches and a data export, plus a phone extraction with incriminating messages.</p></div>
+      <div class="card"><h3>Bring your own</h3><p>The visual editor validates live and previews a resolved answer key. Export a pack to share or sell.</p></div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <p class="sub">Buy per instructor for teaching, per seat for business. A 14-day free trial, no card required.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="edu">Education</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="ind">Individuals</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="biz">Business</button>
+    </div>
+    <div class="prices" data-group="edu">
+      <div class="price"><h3>Trial</h3><div class="amt">Free<span> / 14 days</span></div><ul><li>3 scenarios</li><li>Up to 5 students per lab</li><li>Watermarked documents</li></ul><a class="btn ghost" href="#">Start trial</a></div>
+      <div class="price feature"><h3>Educator</h3><div class="amt">$499<span> / year</span></div><ul><li>25 students per lab</li><li>Auto-grader and rubric</li><li>Anti-collusion report</li><li>Core pack plus one</li></ul><a class="btn" href="#">Buy Educator</a></div>
+      <div class="price"><h3>Department</h3><div class="amt">$2,490<span> / year</span></div><ul><li>3 instructors, 150 students per lab</li><li>CTF mode and scenario editor</li><li>All packs, institution logo</li><li>Priority support</li></ul><a class="btn ghost" href="#">Contact sales</a></div>
+    </div>
+    <div class="prices hide" data-group="ind">
+      <div class="price"><h3>Trial</h3><div class="amt">Free<span> / 14 days</span></div><ul><li>3 scenarios</li><li>Up to 5 students per lab</li><li>Watermarked documents</li></ul><a class="btn ghost" href="#">Start trial</a></div>
+      <div class="price feature"><h3>Personal</h3><div class="amt">$129<span> / year</span></div><ul><li>Non-commercial self-practice</li><li>Core scenario pack</li><li>Self-check grader</li><li>$69 for verified students</li></ul><a class="btn" href="#">Buy Personal</a></div>
+      <div class="price"><h3>Consultant</h3><div class="amt">$199<span> / month</span></div><ul><li>One Business seat, monthly</li><li>Commercial use rights</li><li>For paid workshops</li></ul><a class="btn ghost" href="#">Start monthly</a></div>
+    </div>
+    <div class="prices hide" data-group="biz">
+      <div class="price"><h3>Team</h3><div class="amt">$1,990<span> / seat / year</span></div><ul><li>Commercial use rights</li><li>100 participants per lab</li><li>CTF mode and editor</li><li>Core pack plus two</li></ul><a class="btn ghost" href="#">Buy Team</a></div>
+      <div class="price feature"><h3>Pro</h3><div class="amt">$7,500<span> / year</span></div><ul><li>3 seats, unlimited participants</li><li>Full white-label</li><li>Author and resell packs</li><li>1 business day support</li></ul><a class="btn" href="#">Buy Pro</a></div>
+      <div class="price"><h3>Enterprise</h3><div class="amt">Custom</div><ul><li>Pooled seats</li><li>On-premises license server</li><li>Air-gapped activation, SLA</li></ul><a class="btn ghost" href="#">Contact sales</a></div>
+    </div>
+    <p class="note">Prices are placeholders for launch planning and are subject to change. Scenario packs are available as add-ons.</p>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently asked</h2>
+    <div style="max-width:760px;margin:0 auto">
+      <details open><summary>Does it phone home or upload student data?</summary><p>No. Generation and grading run entirely on your machine with no network call. The only time the software contacts a server is to activate, refresh or deactivate a license, when it sends just the license key, a derived machine id, the hostname and the app version. Air-gapped labs activate offline.</p></details>
+      <details><summary>How do I know the answer key is correct?</summary><p>After generating each lab, Red Herrings re-opens every artifact with an independent parser (The Sleuth Kit, python-registry, python-evtx and others) and confirms each answer is present in the evidence. The result is the green "Fresh Catch" checklist. Answers are computed from the generated evidence, never hard-coded.</p></details>
+      <details><summary>Which tools do the artifacts work with?</summary><p>The evidence is written in real on-disk formats, so it opens in Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Volatility-style workflows, and standard SQLite and email tools.</p></details>
+      <details><summary>Can I make my own scenarios?</summary><p>Yes. The visual editor validates live and previews a resolved answer key, so you can see exactly what a student will get. Export a pack to share or sell it.</p></details>
+      <details><summary>Can I remove your branding?</summary><p>Yes, with a white-label license. One setting rebrands every screen and document with your institution or company identity.</p></details>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Red Herrings. Every student gets a different case. redherrings.app</p>
+  </div>
+</footer>
+<script>
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected', x===t ? 'true':'false');});
+      var g=t.getAttribute('data-tab');
+      document.querySelectorAll('.prices').forEach(function(p){ p.classList.toggle('hide', p.getAttribute('data-group')!==g); });
+    });
+  });
+</script>
+</body>
+</html>
