@@ -243,14 +243,19 @@
     <h2 id="dl-h">Download, paste your key, teach</h2>
     <p class="sub">Red Herrings is a desktop app. There is no account to create and nothing to host: download it, activate it with the key we email you, and it runs on your machine.</p>
     <div class="steps">
-      <div class="step"><h4>Download the app</h4><p>Get the build for Windows, macOS or Linux. Unzip it and run RedHerrings. It opens in your browser.</p></div>
+      <div class="step"><h4>Download the app</h4><p>Click the button for your computer below. Unzip the file and double-click RedHerrings. It opens in your web browser, no install wizard needed.</p></div>
       <div class="step"><h4>Start the free trial</h4><p>It runs as a 14-day trial right away, no key needed, so you can generate labs before you buy.</p></div>
       <div class="step"><h4>Buy a plan</h4><p>Pick a plan below. Your license key arrives by email within a minute of checkout.</p></div>
       <div class="step"><h4>Activate</h4><p>In the app, open <strong>Settings, then Licensing</strong>, paste the key, and click Activate. Air-gapped machines can activate offline.</p></div>
     </div>
     <div class="cta-row" style="margin-top:28px">
-      <button class="btn" data-action="trial">Download for Windows, macOS or Linux</button>
+      <a class="btn" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-windows.zip">Download for Windows</a>
+      <a class="btn" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-macos.zip">Download for macOS</a>
+      <a class="btn" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-linux.zip">Download for Linux</a>
+    </div>
+    <div class="cta-row" style="margin-top:12px">
       <a class="btn ghost" href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
+      <a class="btn ghost" href="mailto:sales@redherrings.app?subject=Install%20help">Need install help?</a>
     </div>
     <p class="note">Each license activates on a set number of machines. Deactivate from Settings to move it to a new one.</p>
   </section>
@@ -355,7 +360,7 @@
     team:       "https://buy.stripe.com/9B6cN507T52wanV31f1Fe03",
     pro:        "https://buy.stripe.com/9B69AT6whamQdA79pD1Fe04"
   };
-  var DOWNLOAD_URL = "https://github.com/Steve-is-IT/redherrings-site/releases/latest";  // desktop builds (Windows, macOS, Linux)
+  var DOWNLOAD_URL = "#download";               // trial buttons jump to the per-OS download buttons
   var SALES_EMAIL  = "sales@redherrings.app";
 
   function go(url){ window.location.href = url; }
