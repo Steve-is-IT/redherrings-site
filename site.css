@@ -212,16 +212,21 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .chips{display:flex;gap:6px;flex-wrap:wrap}
 .chip{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:color-mix(in srgb,var(--card) 60%,transparent);font-weight:500}
 .chip.trk{font-weight:600}
-/* Per-track colors: cool hues, distinct from the easy/medium/hard/expert tags */
-.chip.trk-foundations{--c:#6b7a90}
-.chip.trk-windows{--c:#3b82f6}
-.chip.trk-mobile{--c:#14b8a6}
-.chip.trk-network{--c:#0ea5e9}
-.chip.trk-advanced{--c:#7c6cf0}
-.chip.trk-foundations,.chip.trk-windows,.chip.trk-mobile,.chip.trk-network,.chip.trk-advanced{
+/* Per-track colors: a varied palette, distinct from the easy/medium/hard/expert tags.
+   Foundations is a neutral white tint; the rest take a distinct hue. */
+.chip.trk-windows{--c:#2f80ed}
+.chip.trk-mobile{--c:#1fa85b}
+.chip.trk-network{--c:#8b5cf6}
+.chip.trk-advanced{--c:#db2777}
+.chip.trk-windows,.chip.trk-mobile,.chip.trk-network,.chip.trk-advanced{
   color:var(--c);
   border-color:color-mix(in srgb,var(--c) 42%,transparent);
   background:color-mix(in srgb,var(--c) 13%,transparent);
+}
+.chip.trk-foundations{
+  color:var(--ink);
+  border-color:color-mix(in srgb,var(--ink) 24%,transparent);
+  background:color-mix(in srgb,var(--ink) 9%,transparent);
 }
 .emptymsg{text-align:center;color:var(--muted);padding:44px 0;grid-column:1/-1}
 
@@ -315,8 +320,8 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .lms-byline strong{color:var(--ink);font-weight:700}
 
 /* Active cert-path filter takes its track's color (matches the chips) */
-.fp.track[data-track="foundations"][aria-pressed=true]{background:#6b7a90;border-color:#6b7a90;color:#fff}
-.fp.track[data-track="windows-forensics"][aria-pressed=true]{background:#3b82f6;border-color:#3b82f6;color:#fff}
-.fp.track[data-track="mobile-forensics"][aria-pressed=true]{background:#14b8a6;border-color:#14b8a6;color:#fff}
-.fp.track[data-track="network-forensics"][aria-pressed=true]{background:#0ea5e9;border-color:#0ea5e9;color:#fff}
-.fp.track[data-track="advanced-ir"][aria-pressed=true]{background:#7c6cf0;border-color:#7c6cf0;color:#fff}
+.fp.track[data-track="foundations"][aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.fp.track[data-track="windows-forensics"][aria-pressed=true]{background:#2f80ed;border-color:#2f80ed;color:#fff}
+.fp.track[data-track="mobile-forensics"][aria-pressed=true]{background:#1fa85b;border-color:#1fa85b;color:#fff}
+.fp.track[data-track="network-forensics"][aria-pressed=true]{background:#8b5cf6;border-color:#8b5cf6;color:#fff}
+.fp.track[data-track="advanced-ir"][aria-pressed=true]{background:#db2777;border-color:#db2777;color:#fff}
