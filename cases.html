@@ -567,6 +567,25 @@
     <details class="ccard" data-diff="hard" data-tracks="advanced-ir">
       <summary>
         <div class="top"><span class="tag hard">Hard</span></div>
+        <h3><span>Injected Code in Memory</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">A memory capture with code injection. Find the process holding the injected region, the DLL that was reflectively loaded, and where it calls home.</p>
+        <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+        <div class="meta"><span>9 questions</span><span>~75 min</span><span>116.0 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>A workstation tripped an alert for an outbound connection to a flagged address, but nothing obvious was on disk. Its memory was captured and the standard Volatility plugins were run before it was reimaged. Whatever is running is living in memory: one process holds a region of executable, writable memory a normal program would never allocate, and a module is loaded into it that is not linked the way a legitimately loaded DLL would be. Find the process, the injected module, and the server it is talking to.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the PID of the process holding an injected (PAGE_EXECUTE_READWRITE) memory region?</li><li>What image name is that process running as, and what is its parent?</li><li>Which loaded module is unlinked from the init-order list (a sign of injection)?</li><li>What remote IP and port is the process connected to?</li></ol>
+        <p class="qmore">Plus 5 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">Volatility</span><span class="chip">text editor</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="hard" data-tracks="advanced-ir">
+      <summary>
+        <div class="top"><span class="tag hard">Hard</span></div>
         <h3><span>Cloud Account Compromise: Stolen Access Key</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
         <p class="summary">A developer&#x27;s leaked access key was used to sign in from abroad, add a second key and a new IAM user, and pull customer data out of a storage bucket.</p>
         <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
