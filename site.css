@@ -352,18 +352,18 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .chip.trk-macos{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20x%3D%274%27%20y%3D%275%27%20width%3D%2716%27%20height%3D%2711%27%20rx%3D%271%27%2F%3E%3Cpath%20d%3D%27M2%2020h20%27%2F%3E%3C%2Fsvg%3E")}
 
 /* LMS compatibility logo strip (theme-adaptive monochrome) */
-.lms{padding:52px 0}
-.lms .kick{text-align:center;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:0 0 28px}
-.lms .logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:28px 56px;max-width:900px;margin:0 auto}
-.lms .logos img{height:26px;width:auto;filter:brightness(0);opacity:.5;transition:opacity .15s ease}
-.lms .logos img.bb{height:29px}
-.lms .logos img.mo{height:27px}
-.lms .logos img.d2l{height:37px}
-.lms .logos img:hover{opacity:.78}
-.lms .tm{text-align:center;font-size:10px;line-height:1.5;color:var(--faint);max-width:520px;margin:22px auto 0;opacity:.42}
+.lmsband{padding:52px 0}
+.lmsband .kick{text-align:center;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:0 0 28px}
+.lmsband .logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:28px 56px;max-width:900px;margin:0 auto}
+.lmsband .logos img{height:26px;width:auto;filter:brightness(0);opacity:.5;transition:opacity .15s ease}
+.lmsband .logos img.bb{height:29px}
+.lmsband .logos img.mo{height:27px}
+.lmsband .logos img.d2l{height:37px}
+.lmsband .logos img:hover{opacity:.78}
+.lmsband .tm{text-align:center;font-size:9.5px;font-weight:400;line-height:1.5;color:var(--faint);max-width:520px;margin:22px auto 0;opacity:.38}
 @media (prefers-color-scheme:dark){
-  .lms .logos img{filter:brightness(0) invert(1);opacity:.64}
-  .lms .logos img:hover{opacity:.95}
+  .lmsband .logos img{filter:brightness(0) invert(1);opacity:.64}
+  .lmsband .logos img:hover{opacity:.95}
 }
 
 /* Split hero (copy left, product right) */
@@ -386,3 +386,23 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
   .hero-split .cta-row{justify-content:center}
   .hero-media::before{display:none}
 }
+
+/* ---- Pathways page ---- */
+.pwgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:20px;margin-top:8px}
+.pwc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.pwc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.pwc-head h3{margin:0;font-size:19px;letter-spacing:-.01em}
+.pwc-aligned{margin:3px 0 0;font-size:12.5px;color:var(--faint);font-weight:600}
+.pwc-kind{flex:none;font-size:11px;font-weight:700;border:1px solid;border-radius:999px;padding:4px 10px}
+.pwc-kind.cert{color:#0891b2;border-color:color-mix(in srgb,#0891b2 40%,transparent);background:color-mix(in srgb,#0891b2 12%,transparent)}
+.pwc-kind.role{color:#db2777;border-color:color-mix(in srgb,#db2777 40%,transparent);background:color-mix(in srgb,#db2777 12%,transparent)}
+.pwc-blurb{color:var(--muted);font-size:14px;line-height:1.55;margin:12px 0 6px}
+.pwc-meta{font-family:var(--mono);font-size:12px;color:var(--faint);margin:0 0 14px}
+.pwc-steps{list-style:none;margin:0 0 4px;padding:0;display:flex;flex-direction:column;gap:8px}
+.pwc-step{display:flex;gap:12px;align-items:flex-start}
+.pwc-num{flex:none;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pwc-name{font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pwc-note{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.45}
+.pwc-cta{align-self:flex-start;margin-top:16px}
+.pwlead{margin-top:32px}
+.pwlead h2{text-align:left;font-size:22px;margin:0 0 16px;letter-spacing:-.01em}
