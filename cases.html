@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All 42 Cases | Red Herrings Digital Forensics Labs</title>
-<meta name="description" content="Browse all 42 Red Herrings digital forensics cases across Easy, Medium, Hard and Expert difficulty and five certification-prep tracks (GCFE, GCFA, GNFA, mobile and foundations). Open any case to read its briefing and investigation questions.">
+<title>All Cases | Red Herrings Digital Forensics Labs</title>
+<meta name="description" content="Browse the full Red Herrings catalog of dozens of digital forensics cases across Easy, Medium, Hard and Expert difficulty and five certification-prep tracks (GCFE, GCFA, GNFA, mobile and foundations). Open any case to read its briefing and investigation questions.">
 <link rel="canonical" href="https://redherrings.app/cases.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
-<meta property="og:title" content="All 42 Cases — Red Herrings">
+<meta property="og:title" content="All Cases — Red Herrings">
 <meta property="og:description" content="Every Red Herrings forensics case: disk, registry, event logs, memory, network, mobile and cloud, across difficulty levels and certification-prep tracks.">
 <meta property="og:url" content="https://redherrings.app/cases.html">
 <meta property="og:image" content="https://redherrings.app/img/library.png">
@@ -35,12 +35,12 @@
   <div class="pagehead">
     <div class="crumb"><a href="/">Home</a> / Cases</div>
     <h1>The case library</h1>
-    <p>All 42 cases, from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Open any case to read its briefing and questions; filter by difficulty or by the certification path it prepares you for.</p>
+    <p>Dozens of cases, from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Open any case to read its briefing and questions; filter by difficulty or by the certification path it prepares you for.</p>
   </div>
 
   <section style="border-top:0;padding-top:24px">
-    <div class="filterbar"><span class="flabel">Difficulty</span><button class="fp" data-diff="all" aria-pressed="true">All<span class="n">42</span></button><button class="fp" data-diff="easy" aria-pressed="false">Easy<span class="n">15</span></button><button class="fp" data-diff="medium" aria-pressed="false">Medium<span class="n">14</span></button><button class="fp" data-diff="hard" aria-pressed="false">Hard<span class="n">9</span></button><button class="fp" data-diff="expert" aria-pressed="false">Expert<span class="n">4</span></button></div>
-    <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths<span class="n">42</span></button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations<span class="n">15</span></button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics<span class="n">29</span></button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics<span class="n">13</span></button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics<span class="n">8</span></button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR<span class="n">14</span></button></div>
+    <div class="filterbar"><span class="flabel">Difficulty</span><button class="fp" data-diff="all" aria-pressed="true">All</button><button class="fp" data-diff="easy" aria-pressed="false">Easy</button><button class="fp" data-diff="medium" aria-pressed="false">Medium</button><button class="fp" data-diff="hard" aria-pressed="false">Hard</button><button class="fp" data-diff="expert" aria-pressed="false">Expert</button></div>
+    <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths</button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations</button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics</button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics</button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics</button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR</button></div>
     <p class="note" id="catcount" style="margin-top:14px"></p>
     <div class="caselist" id="caselist">
     <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics mobile-forensics">
@@ -823,7 +823,7 @@
       var vis = okd && okt; c.classList.toggle("hide", !vis); if(vis) shown++;
     });
     document.getElementById("empty").classList.toggle("hide", shown>0);
-    document.getElementById("catcount").textContent = shown+" of "+cards.length+" cases";
+    document.getElementById("catcount").textContent = (shown===cards.length ? "Dozens of cases" : shown+" case"+(shown===1?"":"s")+" shown");
   }
   document.querySelectorAll(".fp[data-diff]").forEach(function(b){
     b.addEventListener("click",function(){ diff=b.dataset.diff;

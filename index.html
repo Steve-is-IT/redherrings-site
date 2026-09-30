@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Red Herrings | Randomized Digital Forensics Labs with Auto-Grading</title>
-<meta name="description" content="Red Herrings generates a unique digital forensics lab for every student from one case — 42 cases across disk, registry, Windows event logs, memory, network (PCAP), mobile and cloud evidence, with verified answer keys, whole-class auto-grading, LMS export and certification-prep tracks (GCFE, GCFA, GNFA). Runs locally on Windows and Linux.">
+<meta name="description" content="Red Herrings generates a unique digital forensics lab for every student from one case — dozens of cases across disk, registry, Windows event logs, memory, network (PCAP), mobile and cloud evidence, with verified answer keys, whole-class auto-grading, LMS export and certification-prep tracks (GCFE, GCFA, GNFA). Runs locally on Windows and Linux.">
 <link rel="canonical" href="https://redherrings.app/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
@@ -36,7 +36,7 @@
       "url": "https://redherrings.app/",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Windows, Linux",
-      "description": "Digital forensics lab generator that produces a unique evidence set, worksheet, answer key and rubric for every student from one scenario. 42 cases across disk, registry, Windows event logs, memory, network (PCAP), mobile and cloud evidence, grouped into certification-prep tracks (GCFE, GCFA, GNFA). Independent verification, a guided learning mode, whole-class auto-grading and LMS export. Runs locally on Windows and Linux.",
+      "description": "Digital forensics lab generator that produces a unique evidence set, worksheet, answer key and rubric for every student from one scenario. Dozens of cases across disk, registry, Windows event logs, memory, network (PCAP), mobile and cloud evidence, grouped into certification-prep tracks (GCFE, GCFA, GNFA). Independent verification, a guided learning mode, whole-class auto-grading and LMS export. Runs locally on Windows and Linux.",
       "publisher": {"@id": "https://redherrings.app/#org"},
       "offers": {
         "@type": "AggregateOffer",
@@ -53,7 +53,7 @@
         {"@type": "Question", "name": "How do I know the answer key is correct?", "acceptedAnswer": {"@type": "Answer", "text": "After generating each lab, Red Herrings re-opens every artifact with an independent parser (The Sleuth Kit, python-registry, python-evtx, LnkParse3, dpkt and others) and confirms each answer is present in the evidence. Answers are computed from the generated evidence, never hard-coded."}},
         {"@type": "Question", "name": "Which forensic tools do the artifacts work with?", "acceptedAnswer": {"@type": "Answer", "text": "The evidence is written in real on-disk formats, so it opens in Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools."}},
         {"@type": "Question", "name": "Can I get grades into Canvas, Blackboard, Moodle or D2L?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Grade the whole class in Red Herrings, then export a grade file in Canvas, Blackboard, Moodle or D2L Brightspace format, with an optional per-student feedback note. You can also export a case as a Common Cartridge (.imscc) module that imports into any conformant LMS."}},
-        {"@type": "Question", "name": "Is there anything to help beginners learn?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time. An optional guided worksheet prints a hint under each question and a tool quick-start appendix. Forty-two cases run from first-look triage to multi-hour capstones, including a First Look on-ramp for every core skill (memory, packet captures, the registry, event logs, timelines and more)."}},
+        {"@type": "Question", "name": "Is there anything to help beginners learn?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time. An optional guided worksheet prints a hint under each question and a tool quick-start appendix. Dozens of cases run from first-look triage to multi-hour capstones, including a First Look on-ramp for every core skill (memory, packet captures, the registry, event logs, timelines and more)."}},
         {"@type": "Question", "name": "Can I write my own scenarios?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The visual scenario editor validates live and previews a resolved answer key. Export a pack to share or sell it."}},
         {"@type": "Question", "name": "Can I remove the Red Herrings branding?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with a white-label license. One setting rebrands every screen and every generated document with your institution or company identity."}}
       ]
@@ -98,7 +98,7 @@
       <span>Corporate security training</span>
       <span>Self-study and certification prep</span>
     </div>
-    <div class="shot"><picture><img src="img/hero.png" alt="Red Herrings case detail for a hard mobile forensics scenario, showing the briefing and per-question points, types and hints, over the 42-case library" width="1760" height="1173" loading="eager" onerror="this.closest('.shot').innerHTML='<div class=&quot;placeholder&quot;>app screenshot</div>'"></picture></div>
+    <div class="shot"><picture><img src="img/hero.png" alt="Red Herrings case detail for a hard mobile forensics scenario, showing the briefing and per-question points, types and hints, over the case library" width="1760" height="1173" loading="eager" onerror="this.closest('.shot').innerHTML='<div class=&quot;placeholder&quot;>app screenshot</div>'"></picture></div>
   </section>
 
   <section id="features" aria-labelledby="features-h">
@@ -122,7 +122,7 @@
     <h2 id="how-h">From zero to a graded class in four steps</h2>
     <p class="sub">Local software, no hosting and no runtime network call. Double-click to launch, it opens in your browser, and it runs air-gapped if it has to.</p>
     <div class="steps">
-      <div class="step"><h4>Pick a case</h4><p>Choose from forty-two built in, write your own in the visual editor, or install a pack.</p></div>
+      <div class="step"><h4>Pick a case</h4><p>Choose from dozens built in, write your own in the visual editor, or install a pack.</p></div>
       <div class="step"><h4>Set the class</h4><p>A head count or a roster CSV, a difficulty, and a seed. That is the whole setup.</p></div>
       <div class="step"><h4>Generate</h4><p>Per-student evidence, worksheet, answer key and rubric, each one verified as it is built.</p></div>
       <div class="step"><h4>Hand out and grade</h4><p>One zip per student, an instructor package, batch grading, and a grade file for your LMS.</p></div>
@@ -130,7 +130,7 @@
   </section>
 
   <section id="scenarios" aria-labelledby="cases-h">
-    <h2 id="cases-h">Forty-two cases, ready to teach</h2>
+    <h2 id="cases-h">Dozens of cases, ready to teach</h2>
     <p class="sub">From a first look at one log file to multi-hour capstones. Each case ships with 8 to 15 questions (more for Expert), point values, per-tool answer walkthroughs and a guided mode that eases beginners in. A second filter groups cases into certification-prep tracks aligned to the objectives of GCFE, GCFA, GNFA and vendor exams (ACE, EnCE, Cellebrite).</p>
     <div class="diffrow" aria-label="Difficulty levels">
       <span class="dpill easy">Easy</span>
@@ -146,7 +146,7 @@
       <a class="card" href="cases.html"><span class="tag hard">Hard</span><h3>Placing the Phone at the Scene</h3><p>An Android extraction with location history: put the phone at the scene, recover the text sent from there, and line it up on a timeline. Mobile forensics for GASF and Cellebrite prep.</p></a>
       <a class="card" href="cases.html"><span class="tag expert">Expert</span><h3>Municipal Breach: City Government</h3><p>A multi-hour capstone across police records, emergency management and finance: endpoint, memory, cloud and network, traced through the whole intrusion.</p></a>
     </div>
-    <div class="cta-row" style="margin-top:30px"><a class="btn" href="cases.html">Browse all 42 cases</a><a class="btn ghost" href="sample/LAB-insider-usb-student-001.zip">Download a sample lab</a></div>
+    <div class="cta-row" style="margin-top:30px"><a class="btn" href="cases.html">Browse all cases</a><a class="btn ghost" href="sample/LAB-insider-usb-student-001.zip">Download a sample lab</a></div>
     <p class="note">Every paid plan includes all Easy, Medium and Hard cases. Department and Business plans add the Expert capstones and the scenario editor. Build your own case and export it as a pack to share or sell.</p>
   </section>
 
@@ -203,7 +203,7 @@
       <details><summary>How do I know the answer key is correct?</summary><p>After generating each lab, Red Herrings re-opens every artifact with an independent parser (The Sleuth Kit, python-registry, python-evtx, LnkParse3, dpkt and others) and confirms each answer is present in the evidence. The result is the green Fresh Catch checklist. Answers are computed from the generated evidence, never hard-coded.</p></details>
       <details><summary>Which forensic tools do the artifacts work with?</summary><p>The evidence is written in real on-disk formats, so it opens in Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools.</p></details>
       <details><summary>Can I get grades into Canvas, Blackboard, Moodle or D2L?</summary><p>Yes. Grade the whole class in Red Herrings, then export a grade file in Canvas, Blackboard, Moodle or D2L Brightspace format, with an optional per-student feedback note listing what each learner missed. You can also export a case as a Common Cartridge (.imscc) content module that imports into any conformant LMS.</p></details>
-      <details><summary>Is there anything to help beginners learn?</summary><p>Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time, instead of showing everything at once. An optional guided worksheet prints a short hint under each question and a tool quick-start appendix, so students can start away from the app. Forty-two cases run from first-look triage to multi-hour capstones, with a First Look on-ramp for every core skill.</p></details>
+      <details><summary>Is there anything to help beginners learn?</summary><p>Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time, instead of showing everything at once. An optional guided worksheet prints a short hint under each question and a tool quick-start appendix, so students can start away from the app. Dozens of cases run from first-look triage to multi-hour capstones, with a First Look on-ramp for every core skill.</p></details>
       <details><summary>Can I write my own scenarios?</summary><p>Yes. The visual editor validates live and previews a resolved answer key, so you see exactly what a student will get. Export a pack to share or sell it.</p></details>
       <details><summary>Can I remove the Red Herrings branding?</summary><p>Yes, with a white-label license. One setting rebrands every screen and document with your institution or company identity.</p></details>
     </div>
@@ -230,7 +230,7 @@
       <div class="fcol">
         <h4>Product</h4>
         <a href="#features">Features</a>
-        <a href="cases.html">All 42 cases</a>
+        <a href="cases.html">All cases</a>
         <a href="#pricing">Pricing</a>
         <a href="#download">Download</a>
         <a href="sample/LAB-insider-usb-student-001.zip">Sample lab</a>
