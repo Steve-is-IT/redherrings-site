@@ -64,6 +64,14 @@ header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.6) blur(12px)
 .shot{margin:48px auto 0;max-width:960px;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--card)}
 .shot img,.shot video{display:block;width:100%;height:auto}
 .shot .placeholder{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--mono);font-size:14px}
+/* Alternating text + screenshot rows (How it works) */
+.mediarow{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;margin:34px 0}
+.mediarow.rev .mr-text{order:2}
+.mediarow .shot{margin:0;max-width:none}
+.mediarow .mr-text h2{margin:0 0 12px;text-align:left;font-size:clamp(23px,2.6vw,28px)}
+.mediarow .mr-text p{color:var(--muted);font-size:16px;line-height:1.7;margin:0 0 12px}
+.mediarow .mr-text .eyebrow-sm{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+@media(max-width:860px){.mediarow{grid-template-columns:1fr;gap:20px}.mediarow.rev .mr-text{order:0}}
 .audience{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:36px}
 .audience span{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:var(--card);box-shadow:var(--shadow-sm)}
 
@@ -225,3 +233,44 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .toolcard p{margin:0 0 10px}
 .toolcard pre{margin:0 0 14px}
 .toolcard .btn{width:100%}
+
+/* ---- Print / Save as PDF: force a clean light document regardless of the
+   viewer's OS dark-mode preference. Placed after the dark block so it wins. ---- */
+@media print {
+  :root{
+    --accent:#b5271f; --accent-2:#b5271f; --accent-ink:#ffffff;
+    --ink:#111418; --paper:#ffffff; --muted:#33383f; --faint:#555b63;
+    --line:#cfd3da; --line-2:#e2e5ea; --bg:#ffffff; --card:#ffffff; --card-2:#ffffff;
+    --teal:#0b6b62; --teal-2:#0b6b62;
+  }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; box-shadow:none !important; }
+  html, body{ background:#fff !important; color:#111418 !important; }
+  header, footer, .no-print, .cta-row, .cta-band{ display:none !important; }
+  .wrap, main.wrap{ max-width:100% !important; width:auto !important; padding:0 !important; }
+  a{ color:#111418 !important; text-decoration:none; }
+  .crumb, .crumb a{ color:#555b63 !important; }
+  .pagehead{ text-align:left !important; padding:0 0 6px !important; }
+  .pagehead h1{ font-size:24px; }
+  .pagehead p, .sub{ text-align:left !important; margin:0 0 6px !important; max-width:none !important; color:#33383f !important; font-size:14px; }
+  section{ padding:10px 0 !important; border-top:1px solid #dfe2e8 !important; }
+  section:first-of-type{ border-top:0 !important; }
+  h2{ text-align:left !important; font-size:17px; margin:14px 0 6px; }
+  h3{ font-size:14px; }
+  p, li{ font-size:12px; line-height:1.5; }
+  .doc{ max-width:100% !important; }
+  .doc .toc{ display:none !important; }
+  .mediarow{ display:block !important; margin:14px 0 !important; }
+  .mediarow .mr-text .eyebrow-sm{ color:#555b63 !important; }
+  .shot{ border:1px solid #cfd3da !important; margin:10px 0 !important; page-break-inside:avoid; break-inside:avoid; }
+  .shot video{ display:none !important; }
+  img{ max-width:100% !important; height:auto !important; page-break-inside:avoid; }
+  .callout{ background:#f4f5f7 !important; border:1px solid #cfd3da !important; }
+  .callout p{ color:#111418 !important; }
+  .card, .toolcard, .price, .step{ border:1px solid #cfd3da !important; break-inside:avoid; }
+  .grid, .toolset, .caselist, .steps{ display:block !important; }
+  .grid .card, .caselist>*{ margin:0 0 10px !important; }
+  code, pre{ background:#f4f5f7 !important; border:1px solid #dfe2e8 !important; color:#111418 !important; }
+  h2, h3, h4{ break-after:avoid; }
+  ul, ol, p{ orphans:3; widows:3; }
+  @page{ margin:16mm 14mm; }
+}
