@@ -285,3 +285,8 @@ dialog.lightbox img{display:block;max-width:96vw;max-height:90vh;width:auto;heig
 dialog.lightbox .lb-close{position:fixed;top:16px;right:20px;width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s ease}
 dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 @media print{dialog.lightbox{display:none !important}}
+
+/* ---- LMS wordmark strip (text, not official logos) ---- */
+.lms-cap{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+.lmsrow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.lms{font-weight:700;font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:9px 18px;background:var(--card);white-space:nowrap}
