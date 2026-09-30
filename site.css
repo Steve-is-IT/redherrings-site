@@ -204,3 +204,11 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .doc .toc a{display:inline-block;margin:4px 14px 4px 0;font-size:14px}
 .callout{background:color-mix(in srgb,var(--accent) 7%,transparent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:12px;padding:16px 20px;margin:18px 0}
 .callout p{color:var(--ink);margin:0;font-size:15px;line-height:1.6}
+/* tools & setup: install cards */
+.toolset{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 8px}
+@media(max-width:640px){.toolset{grid-template-columns:1fr}}
+.toolcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow-sm)}
+.toolcard h3{margin:0 0 6px;font-size:17px}
+.toolcard p{margin:0 0 10px}
+.toolcard pre{margin:0 0 14px}
+.toolcard .btn{width:100%}
