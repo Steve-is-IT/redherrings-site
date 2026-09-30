@@ -224,8 +224,11 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .chip.trk-windows{--c:#2f80ed}
 .chip.trk-mobile{--c:#1fa85b}
 .chip.trk-network{--c:#8b5cf6}
+.chip.trk-cloud{--c:#0891b2}
+.chip.trk-linux{--c:#ca8a04}
+.chip.trk-macos{--c:#64748b}
 .chip.trk-advanced{--c:#db2777}
-.chip.trk-windows,.chip.trk-mobile,.chip.trk-network,.chip.trk-advanced{
+.chip.trk-windows,.chip.trk-mobile,.chip.trk-network,.chip.trk-cloud,.chip.trk-linux,.chip.trk-macos,.chip.trk-advanced{
   color:var(--c);
   border-color:color-mix(in srgb,var(--c) 42%,transparent);
   background:color-mix(in srgb,var(--c) 13%,transparent);
@@ -332,6 +335,9 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .fp.track[data-track="mobile-forensics"][aria-pressed=true]{background:#1fa85b;border-color:#1fa85b;color:#fff}
 .fp.track[data-track="network-forensics"][aria-pressed=true]{background:#8b5cf6;border-color:#8b5cf6;color:#fff}
 .fp.track[data-track="advanced-ir"][aria-pressed=true]{background:#db2777;border-color:#db2777;color:#fff}
+.fp.track[data-track="cloud"][aria-pressed=true]{background:#0891b2;border-color:#0891b2;color:#fff}
+.fp.track[data-track="linux"][aria-pressed=true]{background:#ca8a04;border-color:#ca8a04;color:#fff}
+.fp.track[data-track="macos"][aria-pressed=true]{background:#64748b;border-color:#64748b;color:#fff}
 
 /* Per-track glyphs (mask-image, so each inherits its track color) */
 .chip.trk{display:inline-flex;align-items:center;gap:6px}
@@ -341,6 +347,9 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .chip.trk-mobile{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20x%3D%276%27%20y%3D%273%27%20width%3D%2712%27%20height%3D%2718%27%20rx%3D%272%27%2F%3E%3Cpath%20d%3D%27M10.5%2018h3%27%2F%3E%3C%2Fsvg%3E")}
 .chip.trk-network{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%275%27%20cy%3D%2712%27%20r%3D%272.2%27%2F%3E%3Ccircle%20cx%3D%2719%27%20cy%3D%276%27%20r%3D%272.2%27%2F%3E%3Ccircle%20cx%3D%2719%27%20cy%3D%2718%27%20r%3D%272.2%27%2F%3E%3Cpath%20d%3D%27M7%2011l10-4M7%2013l10%204%27%2F%3E%3C%2Fsvg%3E")}
 .chip.trk-advanced{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M12%203l9%2016H3z%27%2F%3E%3Cpath%20d%3D%27M12%209v5%27%2F%3E%3Cpath%20d%3D%27M12%2017h.01%27%2F%3E%3C%2Fsvg%3E")}
+.chip.trk-cloud{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M18%2010h-1.26A8%208%200%201%200%209%2020h9a5%205%200%200%200%200-10z%27%2F%3E%3C%2Fsvg%3E")}
+.chip.trk-linux{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20x%3D%273%27%20y%3D%274%27%20width%3D%2718%27%20height%3D%2716%27%20rx%3D%271%27%2F%3E%3Cpath%20d%3D%27M7%209l3%203-3%203M13%2015h4%27%2F%3E%3C%2Fsvg%3E")}
+.chip.trk-macos{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20x%3D%274%27%20y%3D%275%27%20width%3D%2716%27%20height%3D%2711%27%20rx%3D%271%27%2F%3E%3Cpath%20d%3D%27M2%2020h20%27%2F%3E%3C%2Fsvg%3E")}
 
 /* LMS compatibility logo strip (theme-adaptive monochrome) */
 .lms{padding:52px 0}
