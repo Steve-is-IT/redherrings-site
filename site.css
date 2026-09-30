@@ -194,7 +194,10 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .ccard>summary::-webkit-details-marker{display:none}
 .ccard>summary::after{display:none}
 .ccard>summary:hover{background:color-mix(in srgb,var(--accent) 4%,transparent)}
-.ccard .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+/* Difficulty moves below the meta line and reads as a dot + label, not a pill. */
+.ccard .top{order:6;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:2px}
+.ccard .top .tag{background:none;border:0;padding:0;font-size:11px;letter-spacing:.07em;font-weight:700;display:inline-flex;align-items:center}
+.ccard .top .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:7px;flex:none}
 .ccard h3{margin:0;font-size:17px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
 .ccard .chev{color:var(--faint);font-size:13px;font-weight:500;white-space:nowrap;flex:none;transition:color .15s ease}
 .ccard summary:hover .chev,.ccard[open] .chev{color:var(--muted)}
