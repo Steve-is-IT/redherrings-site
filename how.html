@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How It Works | Red Herrings</title>
+<meta name="description" content="How Red Herrings works: from one case it builds a unique, verified forensics lab for every student, then grades the whole class and exports to your LMS. Runs locally on Windows and Linux.">
+<link rel="canonical" href="https://redherrings.app/how.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:title" content="How Red Herrings works">
+<meta property="og:description" content="One case becomes a unique, verified lab for every student. Generate, hand out, grade and export, all on your own machine.">
+<meta property="og:url" content="https://redherrings.app/how.html">
+<meta property="og:image" content="https://redherrings.app/img/hero.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"How Red Herrings builds and grades a class set of forensics labs",
+  "step":[
+    {"@type":"HowToStep","name":"Pick a case","text":"Choose a built-in scenario, write your own in the editor, or install a pack."},
+    {"@type":"HowToStep","name":"Set the class","text":"Enter a head count or import a roster CSV, choose a difficulty, and set a seed."},
+    {"@type":"HowToStep","name":"Generate","text":"Each student gets a uniquely seeded evidence set, worksheet, answer key and rubric, verified as it is built."},
+    {"@type":"HowToStep","name":"Hand out and grade","text":"Give each student their own zip, then batch-grade and export to your LMS."}
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="how.html">How it works</a>
+    <a class="link" href="cases.html">Cases</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="btn" href="/#download">Start free trial</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="pagehead">
+    <div class="crumb"><a href="/">Home</a> / How it works</div>
+    <h1>How Red Herrings works</h1>
+    <p>One case becomes a different, individually verified lab for every student. You generate, hand out, grade and export to your LMS, all on your own machine.</p>
+  </div>
+
+  <section style="border-top:0;padding-top:20px">
+    <div class="shot" style="max-width:900px;margin:0 auto 8px">
+      <video autoplay muted loop playsinline preload="metadata" poster="img/demo-poster.jpg" width="1280" height="800" aria-label="Red Herrings generating and verifying a class set of forensics labs">
+        <source src="img/demo.webm" type="video/webm">
+        <source src="img/demo.mp4" type="video/mp4">
+        <img src="img/demo-poster.jpg" alt="Red Herrings results screen: student packages generated and verified">
+      </video>
+    </div>
+
+    <div class="doc">
+      <div class="toc">
+        <strong>On this page</strong><br>
+        <a href="#idea">The idea</a>
+        <a href="#steps">Four steps</a>
+        <a href="#verify">Why the keys are trustworthy</a>
+        <a href="#distinct">Every student is different</a>
+        <a href="#local">Runs on your machine</a>
+        <a href="#grade">Grading and your LMS</a>
+        <a href="#learn">Guided learning</a>
+      </div>
+
+      <h2 id="idea">One case, a lab for everyone</h2>
+      <p>Write or pick a case once. Red Herrings seeds it differently for each student, so every learner gets their own hostnames, users, timestamps, file names, hashes and answers, drawn from the same scenario. Nobody can copy a neighbor's answer, and you still only prepared one case.</p>
+
+      <h2 id="steps">From zero to a graded class in four steps</h2>
+      <ol>
+        <li><strong>Pick a case.</strong> Choose from the built-in library across disk, registry, Windows event logs, memory, network (PCAP), mobile and cloud evidence, grouped into certification-prep tracks. Or write your own in the visual editor, or install a pack.</li>
+        <li><strong>Set the class.</strong> Enter a head count or drop in a roster CSV, choose a difficulty (higher difficulty adds decoys and sharper distractors), and set a seed. The same seed and roster reproduce the exact same labs, so you can rebuild a lost package or regenerate on another machine.</li>
+        <li><strong>Generate.</strong> Each student gets a uniquely seeded evidence set in real formats, plus a worksheet, an answer key and a rubric. Every lab is verified as it is built (see below).</li>
+        <li><strong>Hand out and grade.</strong> Give each student only their own zip. Keep the instructor package with the keys. Batch-grade the whole class from the grading sheet, then export grades to your LMS.</li>
+      </ol>
+
+      <h2 id="verify">Why the answer keys are trustworthy</h2>
+      <p>After each lab is built, Red Herrings re-opens every artifact with an independent parser and confirms that the answer key is actually present in the evidence. That is the green <strong>Fresh Catch</strong> check on the results screen. If a fact cannot be found in the evidence, the lab is flagged before you ever hand it out, so you are never grading against an answer that is not really there.</p>
+
+      <h2 id="distinct">Every student gets a different case</h2>
+      <p>Because each variant is seeded independently, the answers differ from student to student. The built-in <strong>anti-collusion report</strong> shows, per question, how many distinct answers were handed out and which student pairs look most alike, so shared work stands out.</p>
+
+      <h2 id="local">It runs on your machine</h2>
+      <p>Red Herrings is local software for Windows and Linux. Double-click to launch and it opens in your browser. Generation and grading make <strong>no network call</strong>, and it runs air-gapped if it has to. The only time it contacts a server is to activate, refresh or deactivate a license, and air-gapped machines can do even that by file exchange. <strong>No student data ever leaves your computer.</strong></p>
+
+      <h2 id="grade">Grading and your LMS</h2>
+      <p>Import the grading sheet to auto-grade the whole class at once, with sensible tolerances and a reason shown for every score. Review class analytics and the per-question correct rate, then export grades in <strong>Canvas, Blackboard, Moodle or D2L Brightspace</strong> format, or download a case as a <strong>Common Cartridge (.imscc)</strong> module to import the assignment straight into your LMS.</p>
+
+      <h2 id="learn">Guided learning, when you want it</h2>
+      <p>For a stuck learner or self-study, guided mode steps through a question one hint at a time: from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer. You can also print a guided worksheet with a hint under each question and a tool quick-start appendix. You decide whether learners may reveal full solutions.</p>
+
+      <div class="cta-row" style="margin-top:36px;justify-content:flex-start">
+        <a class="btn" href="/#download">Start a free 14-day trial</a>
+        <a class="btn ghost" href="cases.html">Browse the cases</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC.</span>
+      <span><a href="/">Home</a> &middot; <a href="cases.html">Cases</a> &middot; <a href="help.html">Help</a> &middot; <a href="/#pricing">Pricing</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="mailto:sales@redherrings.app">sales@redherrings.app</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
