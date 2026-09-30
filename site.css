@@ -341,3 +341,18 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .chip.trk-mobile{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20x%3D%276%27%20y%3D%273%27%20width%3D%2712%27%20height%3D%2718%27%20rx%3D%272%27%2F%3E%3Cpath%20d%3D%27M10.5%2018h3%27%2F%3E%3C%2Fsvg%3E")}
 .chip.trk-network{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%275%27%20cy%3D%2712%27%20r%3D%272.2%27%2F%3E%3Ccircle%20cx%3D%2719%27%20cy%3D%276%27%20r%3D%272.2%27%2F%3E%3Ccircle%20cx%3D%2719%27%20cy%3D%2718%27%20r%3D%272.2%27%2F%3E%3Cpath%20d%3D%27M7%2011l10-4M7%2013l10%204%27%2F%3E%3C%2Fsvg%3E")}
 .chip.trk-advanced{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M12%203l9%2016H3z%27%2F%3E%3Cpath%20d%3D%27M12%209v5%27%2F%3E%3Cpath%20d%3D%27M12%2017h.01%27%2F%3E%3C%2Fsvg%3E")}
+
+/* LMS compatibility logo strip (theme-adaptive monochrome) */
+.lms{padding:52px 0}
+.lms .kick{text-align:center;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:0 0 28px}
+.lms .logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:28px 56px;max-width:900px;margin:0 auto}
+.lms .logos img{height:26px;width:auto;filter:brightness(0);opacity:.5;transition:opacity .15s ease}
+.lms .logos img.bb{height:29px}
+.lms .logos img.mo{height:27px}
+.lms .logos img.d2l{height:37px}
+.lms .logos img:hover{opacity:.78}
+.lms .tm{text-align:center;font-size:10px;line-height:1.5;color:var(--faint);max-width:520px;margin:22px auto 0;opacity:.42}
+@media (prefers-color-scheme:dark){
+  .lms .logos img{filter:brightness(0) invert(1);opacity:.64}
+  .lms .logos img:hover{opacity:.95}
+}
