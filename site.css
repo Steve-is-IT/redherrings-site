@@ -352,7 +352,7 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .chip.trk-macos{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20x%3D%274%27%20y%3D%275%27%20width%3D%2716%27%20height%3D%2711%27%20rx%3D%271%27%2F%3E%3Cpath%20d%3D%27M2%2020h20%27%2F%3E%3C%2Fsvg%3E")}
 
 /* LMS compatibility logo strip (theme-adaptive monochrome) */
-.lmsband{padding:52px 0}
+.lmsband{padding:44px 0 52px;border-top:0}
 .lmsband .kick{text-align:center;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:0 0 28px}
 .lmsband .logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:28px 56px;max-width:900px;margin:0 auto}
 .lmsband .logos img{height:26px;width:auto;filter:brightness(0);opacity:.5;transition:opacity .15s ease}
@@ -379,7 +379,9 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .hero-frame .bar{height:32px;display:flex;align-items:center;gap:7px;padding:0 13px;background:color-mix(in srgb,var(--card) 82%,#000);border-bottom:1px solid var(--line)}
 .hero-frame .bar i{width:10px;height:10px;border-radius:50%;display:inline-block}
 .hero-frame img,.hero-frame video{display:block;width:100%;height:auto}
-.audience-strip{margin-top:8px}
+.audience-strip{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px 0;margin:26px auto 0;max-width:880px}
+.audience-strip span{border:0;background:none;box-shadow:none;border-radius:0;padding:0;color:var(--faint);font-size:13.5px;font-weight:500;display:inline-flex;align-items:center;line-height:1.5}
+.audience-strip span:not(:last-child)::after{content:"·";margin:0 14px;color:color-mix(in srgb,var(--faint) 60%,transparent)}
 @media (max-width:900px){
   .hero-split{grid-template-columns:1fr;gap:30px;text-align:center;padding:52px 0 36px}
   .hero-split p.lede{margin-left:auto;margin-right:auto}
