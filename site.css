@@ -192,10 +192,12 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .ccard[open]{border-color:color-mix(in srgb,var(--accent) 32%,transparent)}
 .ccard>summary{list-style:none;cursor:pointer;padding:20px 22px 18px;display:flex;flex-direction:column;gap:11px}
 .ccard>summary::-webkit-details-marker{display:none}
+.ccard>summary::after{display:none}
 .ccard>summary:hover{background:color-mix(in srgb,var(--accent) 4%,transparent)}
 .ccard .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .ccard h3{margin:0;font-size:17px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
-.ccard .chev{color:var(--accent);font-size:13px;font-weight:600;white-space:nowrap;flex:none}
+.ccard .chev{color:var(--faint);font-size:13px;font-weight:500;white-space:nowrap;flex:none;transition:color .15s ease}
+.ccard summary:hover .chev,.ccard[open] .chev{color:var(--muted)}
 .ccard[open] .chev .more{display:none}
 .ccard .chev .less{display:none}
 .ccard[open] .chev .less{display:inline}
@@ -209,7 +211,18 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .ccard .qmore{margin:10px 0 0;font-size:12.5px;color:var(--faint);font-style:italic}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
 .chip{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:color-mix(in srgb,var(--card) 60%,transparent);font-weight:500}
-.chip.trk{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,transparent);background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.chip.trk{font-weight:600}
+/* Per-track colors: cool hues, distinct from the easy/medium/hard/expert tags */
+.chip.trk-foundations{--c:#6b7a90}
+.chip.trk-windows{--c:#3b82f6}
+.chip.trk-mobile{--c:#14b8a6}
+.chip.trk-network{--c:#0ea5e9}
+.chip.trk-advanced{--c:#7c6cf0}
+.chip.trk-foundations,.chip.trk-windows,.chip.trk-mobile,.chip.trk-network,.chip.trk-advanced{
+  color:var(--c);
+  border-color:color-mix(in srgb,var(--c) 42%,transparent);
+  background:color-mix(in srgb,var(--c) 13%,transparent);
+}
 .emptymsg{text-align:center;color:var(--muted);padding:44px 0;grid-column:1/-1}
 
 /* ---- help / docs prose ---- */
@@ -300,3 +313,10 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 /* ---- LMS byline (plain text, no third-party logos) ---- */
 .lms-byline{max-width:720px;margin:0 auto;text-align:center;color:var(--muted);font-size:16px;line-height:1.6}
 .lms-byline strong{color:var(--ink);font-weight:700}
+
+/* Active cert-path filter takes its track's color (matches the chips) */
+.fp.track[data-track="foundations"][aria-pressed=true]{background:#6b7a90;border-color:#6b7a90;color:#fff}
+.fp.track[data-track="windows-forensics"][aria-pressed=true]{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.fp.track[data-track="mobile-forensics"][aria-pressed=true]{background:#14b8a6;border-color:#14b8a6;color:#fff}
+.fp.track[data-track="network-forensics"][aria-pressed=true]{background:#0ea5e9;border-color:#0ea5e9;color:#fff}
+.fp.track[data-track="advanced-ir"][aria-pressed=true]{background:#7c6cf0;border-color:#7c6cf0;color:#fff}
