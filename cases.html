@@ -45,939 +45,318 @@
     <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths</button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations</button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics</button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics</button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics</button><button class="fp track" data-track="cloud" aria-pressed="false">Cloud &amp; SaaS</button><button class="fp track" data-track="linux" aria-pressed="false">Linux Forensics</button><button class="fp track" data-track="macos" aria-pressed="false">macOS Forensics</button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR</button></div>
     <p class="note" id="catcount" style="margin-top:14px"></p>
     <div class="caselist" id="caselist">
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>Employee Misconduct Investigation</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An employee is alleged to have run a side business on company time and passed internal pricing to an outside contact.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>11 questions</span><span>~75 min</span><span>87.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>HR at Granite Energy has a complaint about Sofia Davis (Account Manager): running a competing side business on work time, and possibly sharing internal pricing with someone outside the company. They have asked for a look at Sofia&#x27;s workstation browser history and a logical extraction of the company phone. What happened, and when?</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What incriminating search term did the user run?</li><li>When was that search performed (UTC)?</li><li>What competitor or external site did the user visit right after the search?</li><li>What is the SHA-256 of the downloaded data file (recovered from disk)?</li></ol>
-        <p class="qmore">Plus 7 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: A Deleted File</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One small disk image. Recover a deleted document, carve a file out of unallocated space, and catch a file hiding behind the wrong extension.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~50 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A departing employee at Willow Creek Foods handed back a laptop, WILLOW-WS30, with the Documents folder mostly empty. Their manager thinks a memo about a customer pricing dispute was deleted on the way out the door. You have a small image of the user&#x27;s data partition. Recover what was deleted, find a file that was carved out of unallocated space, and explain why one &quot;photo&quot; in Pictures is not a photo at all.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What was the name of the document that was deleted from Documents?</li><li>Recover the deleted memo from Documents. What is its SHA-256?</li><li>What is the full path of that untouched document on the image?</li><li>What is the SHA-256 of the file that was hiding behind the .jpg extension?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">FTK Imager</span><span class="chip">The Sleuth Kit</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations cloud">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: A Sign-In From Nowhere</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One Azure sign-in log. Spot the login that does not belong, where it came from, and whether it got in.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
-        <div class="meta"><span>8 questions</span><span>~40 min</span><span>96.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>The IT lead at Vantage Foods got a &quot;new sign-in&quot; alert for a staff member who says they were at their desk all week. You have the Azure sign-in log export for that account. Work out which sign-in came from somewhere the user was not, whether the first attempt failed, and when the attacker finally got in.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>Which user principal name do all of these sign-ins belong to?</li><li>What IP address did the suspicious sign-ins come from?</li><li>When was the first sign-in attempt from that address (UTC)?</li><li>When was the last normal sign-in after the compromise (UTC)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">jq</span><span class="chip">Spreadsheet</span><span class="chip">Timesketch</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Accounts and Services in the Logs</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">Security and System logs. Spot the new account someone created and the service that was installed right after.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Overnight, someone with admin access set up a foothold on KEYSTO-SRV51: they created a new local account and installed a service to run their own program. Both actions are recorded, but in different logs - account changes go to the Security log, service installs go to the System log. You have both. Work out which account was created, who created it, and what the new service runs.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the name of the new account that was created?</li><li>When was that account created (UTC)?</li><li>What executable does that service run (its ImagePath)?</li><li>How many accounts were created (4720 events) in the log?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: After-Hours Logon</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One Security event log. Find a remote logon, where it came from, and the failed attempts before it.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>88.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>IT flagged the Malik Russell account: it was used late at night, and not from the office. All you have is the Security event log from MERIDI-WS17. Find the remote logon, work out where it came from, and check whether anything failed before it succeeded.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>When did the successful remote logon occur (UTC)?</li><li>What account was used?</li><li>What logon type was used (a number)?</li><li>What IP did the failed attempts come from?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Building a Timeline</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">Two artifacts, one clock. Line up a browser download and a Security log to reconstruct the order things happened.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~55 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Paige Nguyen logged in to WILLOW-WS76, searched the web, downloaded a program, and ran it - and you need to prove that sequence, in order, from two different artifacts. The catch is that each artifact stamps time its own way: Chrome uses microseconds since 1601, the Security log uses its own format. You have the Chrome history and the Security event log. Convert everything to UTC, put the events on one timeline, and answer what happened, and in what order.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>When did the user log on (UTC)?</li><li>What was the name of the downloaded program?</li><li>Which happened first: the download or the execution?</li><li>What is the timestamp of the very first event on your timeline (UTC)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Timesketch</span><span class="chip">EvtxECmd</span><span class="chip">DB Browser for SQLite</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Phishing Triage</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One mailbox. Tell the real message from the fake and pull the sender details.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>86.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Someone at Falcon Energy forwarded a suspicious email to the help desk and it landed with you. You have the user&#x27;s inbox. Confirm which message is the phish, read the headers, and note who really sent it and where it came from. A genuine message from the same brand is in the inbox too, so do not just go by the display name.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the From address of the phishing email?</li><li>What domain did the phishing email actually come from?</li><li>What is the originating IP of the phishing email?</li><li>What is the subject line of the phishing email?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Thunderbird</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations network-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Reading a Packet Capture</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One packet capture. Follow a DNS lookup to a beacon, then read a login and a file transfer sent in the clear.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-network">Network Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~50 min</span><span>94.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A monitoring sensor recorded the traffic from FALCON-LT89 during the hour it looked compromised, and saved it as a single capture file. Open it in Wireshark. Somewhere in the noise the machine looks up a domain nobody recognizes, then connects back to that server again and again on a schedule. Later it logs in to another server and pushes a batch of data out - and none of it is encrypted, so you can read it straight off the wire. Work out what it contacted, how often, and what was sent.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What domain did the workstation look up that it should not have?</li><li>The workstation kept reconnecting to one server. What is its IP address?</li><li>A login was sent in cleartext. What username was used?</li><li>How many bytes were pushed out to the file server in the bulk transfer?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Wireshark</span><span class="chip">tshark</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Recent Files and Jump Lists</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">Shortcuts, jump lists and registry MRUs. Reconstruct what an employee opened, and which file came off a USB drive.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Before they left, Diego Jones is thought to have opened a confidential document straight off a USB stick. Windows keeps a trail of what a user opens even after the files are gone: LNK shortcuts in the Recent folder, jump lists for the apps they used, and MRU lists in the registry. From TIDEWA-LT73 you have the Recent folder, the jump lists and the NTUSER.DAT hive. Work out what was opened, and which item came from a removable drive.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What file did the user open from the USB drive (the full target path)?</li><li>What kind of drive was that file on (fixed or removable)?</li><li>What file size (in bytes) does the USB file&#x27;s shortcut record?</li><li>What filename appears in the RecentDocs MRU for spreadsheets (.xlsx)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">JLECmd</span><span class="chip">LECmd</span><span class="chip">Registry Explorer</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Recovered Phone</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One Android SMS extraction. Read the thread and pin down the contact, the message, and the times.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~40 min</span><span>82.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>HR received a complaint that Rebecca Hoang sent threatening texts to a coworker. The company phone was collected and a logical extraction was made. That is all you have. Identify the coworker, read what was sent and what came back, and note when.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What threatening message did the owner send?</li><li>When was the threatening message sent (UTC)?</li><li>What did the coworker reply?</li><li>How many SMS messages are in the extraction in total?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Suspicious Download</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One Chrome history database. Work out what the user searched for, where they went, and what they downloaded.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>86.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A coworker told IT that Dana had downloaded a program that has no business on a company machine. IT pulled the Chrome history from Dana Davis&#x27;s workstation at Blue Harbor Aerospace and sent it over. That is the only artifact. Find the search, the site, and the file, with times.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What did the user search for?</li><li>What website did the user download from?</li><li>When did the download start (UTC)?</li><li>How many bytes was the downloaded file?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">Browser History Viewer</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: USB Device History</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One registry hive. Work out which USB drive was plugged into the machine and when.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A staff member at Crescent Energy says they never used a personal USB drive on their work machine, CRESCE-WS97. IT thinks otherwise. You have the SYSTEM registry hive from the machine. Find out whether a USB storage device was connected, what it was, and the first and last times it was seen.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the make and model (FriendlyName) of the USB device?</li><li>When was the device first connected (UTC)?</li><li>What is the vendor of the device?</li><li>What is the product name of the device (the Prod_ portion of the key)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Registry Explorer</span><span class="chip">RegRipper</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: What Ran on This Machine</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One user profile. Work out which downloaded utility was run, how often, and when, using Prefetch, UserAssist and a shortcut.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>9 questions</span><span>~45 min</span><span>100.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A user at Keystone Dynamics says they downloaded a &quot;system cleaner&quot; once, decided it looked dodgy, and never ran it. The help desk found the download on their machine, DESKTOP-WJ26CPD, and wants a second opinion. You have the user&#x27;s NTUSER.DAT hive, the Prefetch folder, and the Recent folder. Work out whether the program ran, how many times, when it last ran, and what document was open around the same time.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the name of the executable the user claims never to have run?</li><li>How many times does Prefetch say that executable ran?</li><li>When did it last run (UTC)?</li><li>When was the utility first saved to Downloads, according to the shortcut (UTC)?</li></ol>
-        <p class="qmore">Plus 5 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">PECmd</span><span class="chip">Registry Explorer</span><span class="chip">LECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: What Runs at Startup</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">Two registry hives. Find the program set to launch itself at startup and the service quietly installed to keep it alive.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>BRIGHT-LT94 keeps reinfecting itself. Wipe the bad file and it comes back after a reboot, which means something is set to start it automatically. You have the machine&#x27;s SOFTWARE and SYSTEM registry hives and its Prefetch folder. Two classic footholds are in there: an entry under the Run key that launches a program at logon, and a Windows service pointed at the same kind of file. Find both, and confirm from Prefetch that the program actually ran.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the name of the Run key value that launches the malware at startup?</li><li>What program does that Run key launch (the full path in its data)?</li><li>Which registry hive holds the Run key you found (SOFTWARE, SYSTEM, SAM or NTUSER.DAT)?</li><li>When did that program last run (UTC)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Registry Explorer</span><span class="chip">RegRipper</span><span class="chip">PECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: What&#x27;s in Memory</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One memory capture. Find the process that shouldn&#x27;t be running, where it lives, and the server it phones home to.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A workstation, REDWOO-WS22, was pulled off the network after it kept reaching out to an address no one recognized. Before it was reimaged, someone captured its memory and ran the standard Volatility process and network plugins. You have those exports. Most of what is running is normal Windows. One process is not: it launched from a user&#x27;s temp folder and it is holding a connection open to the internet. Find it, and find where it is calling.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the name of the suspicious process (the one running from a temp folder)?</li><li>What is that process&#x27;s PID?</li><li>What is the full path the process ran from?</li><li>What remote IP address was the process connected to?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Volatility</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics mobile-forensics cloud">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Account Takeover: MFA Fatigue</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An attacker with a stolen password hammered a user with MFA prompts until one was approved, then signed in from abroad.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
-        <div class="meta"><span>9 questions</span><span>~85 min</span><span>80.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>An alert fired at Apex Engineering on Brianna Chen&#x27;s account: a sign-in from an unfamiliar location in the small hours. In the minutes before it, the account had taken a burst of failed sign-ins and a string of MFA prompts. Brianna says a late text from &quot;IT Support&quot; told them to approve the prompt to make the alerts stop, so they did.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>How many failed sign-in (4625) events are in the Security log?</li><li>From what IP address did the failed sign-ins and the successful sign-in originate?</li><li>When did the successful sign-in occur (UTC)?</li><li>What account was targeted?</li></ol>
-        <p class="qmore">Plus 5 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">EvtxECmd</span><span class="chip">Autopsy</span><span class="chip">Thunderbird</span><span class="chip">DB Browser for SQLite</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Business Email Compromise: Wire Fraud</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A finance controller wired money to an attacker&#x27;s account after a spoofed executive email and a lookalike vendor followed up with new bank details.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>10 questions</span><span>~100 min</span><span>92.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Silverline Dynamics found out that a 212,000 dollar payment meant for a long-standing vendor went to an account nobody recognises. The controller, Kiara Sanchez, says the request came from a company executive marked urgent, and that the vendor&#x27;s accounts team followed up with new bank details.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the display From address of the urgent executive email?</li><li>What is the originating IP of the spoofed executive email?</li><li>Did SPF pass or fail for the executive email?</li><li>What is the SHA-256 of the fraudulent remittance attachment?</li></ol>
-        <p class="qmore">Plus 6 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Thunderbird</span><span class="chip">Autopsy</span><span class="chip">DB Browser for SQLite</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Coordinating an After-Hours Theft</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An Android extraction. Two employees coordinated a warehouse theft by text - find the accomplice and the plan.</p>
-        <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~50 min</span><span>88.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Inventory went missing overnight. Suspicion fell on Camila Mitchell, whose company phone was extracted. Investigators think a second person on the inside helped. Work the SMS thread: identify the accomplice, the message that set the time to meet, and when the messages were exchanged.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the name of the accomplice the owner coordinated with?</li><li>What message set the plan (the outgoing one)?</li><li>How did the accomplice reply?</li><li>When did the accomplice confirm (UTC)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics cloud">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Exfiltration to a Personal Cloud Drive</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">Browser history, a shortcut, and a mailbox. Follow a customer export from the CRM to a personal cloud drive and a personal inbox.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
-        <div class="meta"><span>10 questions</span><span>~80 min</span><span>104.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A sales manager at Juniper Biotech gave two weeks&#x27; notice and, the same afternoon, the CRM logged a full customer export from JUNIPE-LT65. The company has a clear rule against personal cloud storage on work machines. You have the workstation&#x27;s Chrome history, the user&#x27;s Recent folder and the Sent items from the mailbox. Establish what was exported, where it was uploaded, whether a copy was also emailed out, and when each step happened. Some of the browsing is ordinary work, so do not treat every visit as evidence.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What did the user search for shortly before the export?</li><li>When did the download start (UTC)?</li><li>Which personal cloud storage service was visited after the export?</li><li>What is the SHA-256 of the attachment on that message?</li></ol>
-        <p class="qmore">Plus 6 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">LECmd</span><span class="chip">Thunderbird</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="network-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Exfiltration to a Personal Server</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One packet capture. An employee uploaded data to a personal server over plain HTTP - read the login and measure what left.</p>
-        <div class="chips"><span class="chip trk trk-network">Network Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~55 min</span><span>94.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A sensor captured TRILLI-WS47 talking to a server no one recognized. The employee had authenticated to a personal web host over plain HTTP and pushed a batch of data to it. Because it was not encrypted, you can read the login straight off the wire and measure exactly how much left. Work out the domain, the credentials, and the size of the upload.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What domain did the workstation contact to upload the data?</li><li>What username was used to log in (from the HTTP Basic Authorization header)?</li><li>About how many bytes were uploaded to the server?</li><li>What is the server&#x27;s IP address (the upload destination)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Wireshark</span><span class="chip">tshark</span><span class="chip">NetworkMiner</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Gift Card Scam: CEO Impersonation</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An employee was talked into buying gift cards by someone posing as the CEO over email and text.</p>
-        <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>9 questions</span><span>~60 min</span><span>96.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Vantage Biotech is out real money. An assistant, Mark Nakamura, bought several hundred dollars of gift cards and sent the codes to someone they believed was the CEO. The request came by email and was pushed along by text. Neither was really the CEO. You have the assistant&#x27;s mailbox and phone extraction. Show how the scam ran: the spoofed email, the texts, the amount, and who the codes actually went to.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the From address of the email posing as the CEO?</li><li>What dollar amount of gift cards was requested?</li><li>What phone number was used to pressure the assistant and collect the codes?</li><li>When were the codes texted out (UTC)?</li></ol>
-        <p class="qmore">Plus 5 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Thunderbird</span><span class="chip">DB Browser for SQLite</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Insider Data Leak via AI Assistant</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An engineer pasted confidential source and customer data into a public AI chatbot and sent an export of customer records to a personal account.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>9 questions</span><span>~90 min</span><span>84.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>The DLP team at Trillium Aerospace flagged Luis Nelson (Software Engineer) for heavy clipboard and upload traffic to a public AI assistant site, followed a short while later by a customer records export. Leadership wants to know what went out, when, and whether it left the company.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What public AI assistant domain did the user access during the incident?</li><li>What search shows intent to evade monitoring?</li><li>When was that search performed (UTC)?</li><li>What is the SHA-256 of the exported file recovered from disk?</li></ol>
-        <p class="qmore">Plus 5 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">Thunderbird</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Paper Trail</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="case-sub">Insider Data Theft via USB</p>
-        <p class="summary">An engineer is suspected of copying proprietary designs to a personal USB drive before resigning.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>15 questions</span><span>~90 min</span><span>147.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Meridian Logistics has referred this one to you. Sean Cooper, a Senior Design Engineer, handed in notice on a Friday afternoon. Over the weekend a manager noticed several confidential design documents had been opened from the shared drive outside normal hours. Security thinks Sean copied company property to a personal USB stick on the way out.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the username of the account under investigation?</li><li>When was the USB device first connected (UTC)?</li><li>What is the full path of the archive that was written to the removable drive (as recorded in the shortcut)?</li><li>What is the SHA-256 of the staged archive found on the disk image?</li></ol>
-        <p class="qmore">Plus 11 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">FTK Imager</span><span class="chip">PECmd</span><span class="chip">JLECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Rogue Admin Account</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">Security and System logs plus the registry. Find the account that should not exist, who made it, and the two ways it was set up to survive a reboot.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>11 questions</span><span>~75 min</span><span>114.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>During a routine review, the IT team at Northwind Dynamics noticed a local administrator on the file server, NORTHW-SRV48, that nobody remembers creating. You have the Security and System event logs, the SYSTEM and SOFTWARE hives, and the Prefetch folder. Work out what the account is called, when and by whom it was created, where the session that created it came from, and what was installed to keep access after the next restart.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the name of the account that was created?</li><li>When was it created (UTC)?</li><li>From what IP address did the session that created the account log on?</li><li>What executable does that service run?</li></ol>
-        <p class="qmore">Plus 7 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">PECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Snooping: Unauthorized Record Access</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A staff member pulled up records they had no reason to touch, then exported them.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~70 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A patient at Cedar Ridge Health Partners complained that a friend who works there seemed to know details from their file. The friend is Carmen Kowalski, who has access to the records system but no reason to open that record. You have the workstation logon events, the browser history, and a disk image. Show whether Carmen logged in, what they looked up, and whether anything was exported off the system.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>When did the user log on to the workstation (UTC)?</li><li>What record ID did the user open in the records system?</li><li>What is the SHA-256 of the exported file recovered from disk?</li><li>From what host was the record system accessed (the site domain)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">Event Viewer</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Texting Secrets to a Competitor</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An Android extraction. Find which outside contact a salesperson leaked pricing to, what was sent, and when.</p>
-        <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~55 min</span><span>88.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Alicia Owens in sales is suspected of feeding confidential pricing to a contact at a competitor. A logical extraction of the company phone was made. The thread you want is mixed in with ordinary texts to family and colleagues, so read carefully: identify the outside contact, the figures that were sent, and the timeline.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the name of the outside contact the pricing was leaked to?</li><li>When was the pricing sent (UTC)?</li><li>When did the reply arrive (UTC)?</li><li>How many SMS messages are in the extraction in total?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>The Deal on WhatsApp</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An Android extraction with a WhatsApp message store. Read the chat that coordinated the payoff and identify who.</p>
-        <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~55 min</span><span>90.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>The SMS threads on Alejandro Chang&#x27;s phone are clean, but the real conversation happened in WhatsApp. The extraction includes msgstore.db. Parse the messages table, follow the thread with the outside party, and work out what was arranged and in which direction each message went.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>In the WhatsApp thread, what did the owner first propose?</li><li>What is the WhatsApp JID (key_remote_jid) of the outside party?</li><li>Was the first proposal message incoming or outgoing?</li><li>Which messaging app held the conversation?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>The Texts They Deleted</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An Android extraction where the suspect wiped incriminating texts. Carve them back out of unallocated space.</p>
-        <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~55 min</span><span>92.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Before handing in the company phone, Olivia Rossi deleted the messages that mattered - but deleting a text does not erase it. The rows still sit in unallocated pages of mmssms.db until they are overwritten. Recover the deleted messages, work out who the surviving thread was with, and pin the timing.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>Recover the deleted message the owner sent proposing the arrangement. What did it say?</li><li>Where were the deleted messages recovered from?</li><li>What is the name of the vendor contact the thread was with?</li><li>When was the surviving (non-deleted) message sent (UTC)?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Web Shell on a Small Business Server</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A small business web server was compromised through a web shell used to run commands and install persistence.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>14 questions</span><span>~90 min</span><span>137.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Harbor Street Bakery runs a public web server, HSBSTR-WEB94. Their IT contractor noticed the site had slowed to a crawl and found a file in the web root that shouldn&#x27;t be there. Then the antivirus console showed the web server worker process spawning a command shell, which a healthy IIS box does not do.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the full path of the web shell in the web root?</li><li>What is the SHA-256 of the web shell file?</li><li>What parent process spawned the command shell (indicating web shell execution)?</li><li>When was the reconnaissance command executed (UTC)?</li></ol>
-        <p class="qmore">Plus 10 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">EvtxECmd</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span><span class="chip">PECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Ghost in the RAM</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="case-sub">Injected Code in Memory</p>
-        <p class="summary">A memory capture with code injection. Find the process holding the injected region, the DLL that was reflectively loaded, and where it calls home.</p>
-        <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>9 questions</span><span>~75 min</span><span>116.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A workstation tripped an alert for an outbound connection to a flagged address, but nothing obvious was on disk. Its memory was captured and the standard Volatility plugins were run before it was reimaged. Whatever is running is living in memory: one process holds a region of executable, writable memory a normal program would never allocate, and a module is loaded into it that is not linked the way a legitimately loaded DLL would be. Find the process, the injected module, and the server it is talking to.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the PID of the process holding an injected (PAGE_EXECUTE_READWRITE) memory region?</li><li>What image name is that process running as, and what is its parent?</li><li>Which loaded module is unlinked from the init-order list (a sign of injection)?</li><li>What remote IP and port is the process connected to?</li></ol>
-        <p class="qmore">Plus 5 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Volatility</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="hard" data-tracks="advanced-ir cloud">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Cloud Account Compromise: Stolen Access Key</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A developer&#x27;s leaked access key was used to sign in from abroad, add a second key and a new IAM user, and pull customer data out of a storage bucket.</p>
-        <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
-        <div class="meta"><span>10 questions</span><span>~110 min</span><span>104.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Keystone Energy runs everything in the cloud. One of their developers committed a long-lived access key to a public repository. Within hours the security team saw a sign-in from a country nobody works in, a second access key and a new admin user appearing, and a run of downloads from a bucket that holds customer data.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>From what IP address did the attacker sign in?</li><li>From what country (code) was the suspicious sign-in?</li><li>When was the new AWS access key created (UTC)?</li><li>When was the customer data exfiltrated (UTC)?</li></ol>
-        <p class="qmore">Plus 6 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">jq</span><span class="chip">Timesketch</span><span class="chip">Splunk</span><span class="chip">spreadsheet</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Credential Theft and Lateral Movement</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A dumping tool in memory, a stolen service account, and a cleartext login on the wire. Follow one harvested credential from the first host to a second.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>11 questions</span><span>~120 min</span><span>118.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>The security team at Brightline Aerospace found that a service account was signing in to servers it had no business touching. The trail starts on BRIGHT-LT25, a workstation an attacker reached first. From there they ran a tool that reads credentials out of memory, took a service account&#x27;s password, and used it to log on to a file server.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What credential dumping tool was run on the workstation?</li><li>When did that tool run (UTC)?</li><li>What is the full path of the tool as recorded in the process creation event?</li><li>What is the IP address of the server the stolen account logged on to?</li></ol>
-        <p class="qmore">Plus 7 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Wireshark</span><span class="chip">Registry Explorer</span><span class="chip">Event Viewer</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="windows-forensics mobile-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Cryptocurrency Theft: Clipboard Hijack</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A user&#x27;s cryptocurrency vanished after malware on the workstation swapped wallet addresses on the clipboard and captured a recovery phrase.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>10 questions</span><span>~110 min</span><span>103.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Kenji Silva reported that a crypto transfer went to the wrong address and the funds are gone. The working theory is clipboard-hijacking malware on IRONWO-LT38: something that watches for a copied wallet address and swaps in the attacker&#x27;s. There is also concern that a recovery phrase was captured.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the name of the clipboard-hijacking process seen in memory?</li><li>What is the full path of the malicious executable?</li><li>What IP was the malware connected to (memory)?</li><li>When was the malware first executed (Prefetch last run, UTC)?</li></ol>
-        <p class="qmore">Plus 6 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span><span class="chip">DB Browser for SQLite</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Phishing to Malware to Command and Control</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A finance employee opened a phishing attachment; the workstation later showed a remote-controlled process and persistence.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>15 questions</span><span>~120 min</span><span>142.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Falcon Capital escalated an endpoint alert from the finance floor. Anika Quinn (Accounts Payable Specialist) had complained that a supplier&#x27;s document &quot;would not open&quot; on DESKTOP-CLXJWF0. Not long after, the endpoint agent flagged an unfamiliar process making outbound connections over and over.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the From address of the phishing email?</li><li>What is the originating IP of the phishing email (first external Received hop)?</li><li>Did SPF pass or fail for the phishing email?</li><li>What is the SHA-256 of the email attachment?</li></ol>
-        <p class="qmore">Plus 11 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">Volatility</span><span class="chip">PECmd</span><span class="chip">Thunderbird</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Placing the Phone at the Scene</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An Android extraction with location history. Put the phone at the scene at the right time, and tie it to a text.</p>
-        <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~60 min</span><span>92.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Derek Jenkins says they were nowhere near the warehouse the night it was hit. Their phone&#x27;s location history says otherwise. The extraction has a location database and the SMS thread. Read the recorded fix at the scene, read its coordinates and time, and line it up with the message that gives away what they were doing there.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What latitude was recorded at the scene?</li><li>When was the phone at the scene (UTC)?</li><li>What label is attached to the scene location fix?</li><li>What text did the owner send from the scene?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="windows-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Ransomware Precursor: Staging and Log Clearing</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">An admin account was used to stage tools, add a hidden account, and clear the event logs ahead of an expected encryption run.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>12 questions</span><span>~110 min</span><span>127.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Juniper Health Partners took JUNIPE-SRV21, a file server, offline after backups started failing and night staff noticed admin activity nobody could account for. Nothing has been encrypted. Responders think they caught the operator mid-setup: tools staged, a foothold in place, and tracks partly covered.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>When was the Security event log cleared (UTC)?</li><li>Which user account cleared the Security log?</li><li>What is the ImagePath of the installed service?</li><li>How many times was the staging tool executed (Prefetch run count)?</li></ol>
-        <p class="qmore">Plus 8 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">PECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Double Cross</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="case-sub">Ransomware: Double Extortion</p>
-        <p class="summary">Ransomware hit a server. Data was exfiltrated first, shadow copies deleted, files encrypted, and a note left threatening to publish.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>14 questions</span><span>~130 min</span><span>137.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Lakeshore Foods came in to find its servers unusable and a ransom note on the shares. The note asks for payment twice over: once to decrypt, once to keep the stolen data off a leak site. The operators say they copied everything before they encrypted it.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What command deleted the volume shadow copies?</li><li>When were the shadow copies deleted (UTC)?</li><li>What IP was the encryptor connected to (exfiltration and negotiation)?</li><li>What is the SHA-256 of the encryptor binary on disk?</li></ol>
-        <p class="qmore">Plus 10 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">EvtxECmd</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span><span class="chip">PECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Trojanized Software Update</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A fake update installer, a service, a beacon and an injected process. Follow one download from the browser to the network and into memory.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>12 questions</span><span>~120 min</span><span>108.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A developer at Juniper Logistics saw a pop-up on a vendor&#x27;s site saying their design tool needed an urgent update, and clicked through. Two days later the network team flagged JUNIPE-WS89 for regular outbound connections to an address nobody recognized. The machine was captured before it was rebooted.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>From which domain was the installer downloaded?</li><li>When did the download start (UTC)?</li><li>What is the SHA-256 of the downloaded installer?</li><li>What is the full path of the installer as recorded in the process creation event?</li></ol>
-        <p class="qmore">Plus 8 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">Wireshark</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">PECmd</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>VPN Account Compromise and Beacon</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A VPN account was accessed from abroad and the workstation started beaconing out, with a password sent in the clear.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>10 questions</span><span>~100 min</span><span>120.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Westbrook Health Partners saw one of its VPN accounts log in from a country no one on staff was in. Not long after, WESTBR-WS78 started making the same outbound connection on a schedule, and a service password went across the wire in plain text. You have the packet capture, the event logs, the Azure sign-in logs, and a memory export. Work out where the login came from, what the machine was talking to and how often, and what credential leaked.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>From what IP did the successful VPN login originate?</li><li>From what country (code) was the login?</li><li>How many seconds apart were the beacons?</li><li>What domain did the beacon resolve before connecting?</li></ol>
-        <p class="qmore">Plus 6 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Wireshark</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">jq</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="expert" data-tracks="windows-forensics mobile-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag expert">Expert</span></div>
-        <h3><span>Expert: Inside Job (Insider and Collusion)</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A trusted insider with legitimate access sold customer data to an outside buyer over months, moving it out through personal cloud, personal email, and a USB drive, and coordinating by text.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>20 questions</span><span>~420 min</span><span>231.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Ironwood Foods learned that its customer database is for sale. Suspicion fell on Zach Edwards, a Senior Data Analyst with broad, legitimate access to exactly that data. There is no malware in this case. The insider used their own rights, which means the job is to prove intent and find the exfil channels inside activity that mostly looks like a normal day, and then tie the insider to the buyer.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What account is under investigation?</li><li>When did the after-hours logon occur (UTC)?</li><li>What is the SHA-256 of the exported file recovered from disk?</li><li>To what address did the M365 mailbox rule forward mail?</li></ol>
-        <p class="qmore">Plus 16 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">jq</span><span class="chip">Thunderbird</span><span class="chip">DB Browser for SQLite</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="expert" data-tracks="windows-forensics mobile-forensics network-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag expert">Expert</span></div>
-        <h3><span>Expert: Municipal Breach (City Government)</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A whole city government was breached across departments. Trace every foothold, from the clerk who got phished to police records, emergency management, finance, and the ransom.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>26 questions</span><span>~600 min</span><span>292.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>The City of Fairhaven called for help after residents reported their data for sale and the emergency dispatch system went dark for an afternoon. This was not one machine. The attacker moved through the city network for days, touching the clerk&#x27;s office, police records, emergency management, and finance, and left a ransom demand behind. Several city accounts were used, some legitimately and some not.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the sender address of the phishing email that started the breach?</li><li>What is the originating IP of the phishing email?</li><li>What is the SHA-256 of the phishing attachment?</li><li>Which city account was used to reach the police records system?</li></ol>
-        <p class="qmore">Plus 22 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">jq</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="expert" data-tracks="windows-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag expert">Expert</span></div>
-        <h3><span>Expert: Operation Ledger (Ransomware Intrusion)</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A full financially motivated intrusion, from spear-phish to cloud exfiltration to encryption, with the endpoint Security log cleared. Rebuild the whole chain from everything else.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>26 questions</span><span>~420 min</span><span>292.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Meridian Aerospace was hit by ransomware on MERIDI-FS76 and in the cloud accounts connected to it. Files are encrypted, there is a note, and the operators say they took data first. They also cleared the endpoint Security log on the way out, so the server&#x27;s own record of logons and process starts is gone.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the sender address of the phishing email that began the intrusion?</li><li>What is the originating IP of the phishing email?</li><li>What is the SHA-256 of the downloaded payload (recovered from disk)?</li><li>What port did the initial C2 connection use?</li></ol>
-        <p class="qmore">Plus 22 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">jq</span></div>
-      </div>
-    </details>
-    <details class="ccard" data-diff="expert" data-tracks="windows-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag expert">Expert</span></div>
-        <h3><span>Expert: Silent Harvest (Espionage Intrusion)</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A patient espionage actor got in through a web shell, dumped credentials, moved laterally, and quietly pulled mail and documents out over weeks. No encryption, and careful cleanup.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>20 questions</span><span>~480 min</span><span>237.0 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A third party told Summit Foods that its documents had been seen on an espionage actor&#x27;s infrastructure. Nothing was encrypted and nobody noticed anything. The intrusion started on the public web server SUMMIT-WEB59 and worked inward from there. The actor cleared the System log after installing persistence and otherwise took care to look like an administrator.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the full path of the web shell in the web root?</li><li>What is the SHA-256 of the web shell?</li><li>What parent process spawned the command shell (proving web shell execution)?</li><li>What C2 IP was the second-stage tool connected to?</li></ol>
-        <p class="qmore">Plus 16 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">jq</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="medium" data-tracks="cloud advanced-ir">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Reply All</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="case-sub">Microsoft 365 Account Takeover</p>
-        <p class="summary">An executive's Microsoft 365 account is taken over from abroad. Trace the sign-in, the hidden forwarding rules, the file pulled from SharePoint, and how the attacker kept access.</p>
-        <div class="chips"><span class="chip trk trk-cloud">Cloud &amp; SaaS</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>9 questions</span><span>~60 min</span><span>96 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Somebody signed in as the finance director from a country the company does not operate in, set up mail forwarding to keep reading the replies, pulled a file from SharePoint, and granted themselves a role so they would not be locked out. You have the Azure AD sign-in logs and the Microsoft 365 Unified Audit Log.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What Microsoft 365 operation did the attacker use to auto-forward the mailbox?</li><li>To what external address did the inbox rule forward mail?</li><li>From what IP address did the attacker sign in?</li><li>When did the attacker sign in (UTC)?</li></ol>
-        <p class="qmore">Plus 5 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">jq</span><span class="chip">Splunk</span><span class="chip">spreadsheet</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="hard" data-tracks="mobile-forensics">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Cold Caller</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="case-sub">Unwanted Contact: A Harassment Case</p>
-        <p class="summary">An Android extraction from a harassment complaint. Work the call log and messages: the repeated late-night calls, the one that was answered, the threat, and a reply that was deleted.</p>
-        <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-        <div class="meta"><span>9 questions</span><span>~70 min</span><span>94 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A complaint about a former colleague who will not stop calling. The call detail records tell most of the story: a run of missed late-night calls, one finally answered, and a call back the next day. There is a threatening text, and a reply the owner deleted — but deleted texts do not really leave.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What phone number did the calls come from?</li><li>When was the first call from that number (UTC)?</li><li>How long was the answered call?</li><li>What did the owner's deleted reply say?</li></ol>
-        <p class="qmore">Plus 5 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">ALEAPP</span><span class="chip">DB Browser for SQLite</span><span class="chip">Autopsy</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="easy" data-tracks="foundations linux">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Who Logged Into the Server</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">One Linux auth.log. Read the brute-force attempts, the login that finally worked, and what the attacker did once they were in.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-linux">Linux Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>80 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>A Linux web server was behaving oddly and the team pulled /var/log/auth.log. Something had been hammering SSH before one login finally succeeded. Find where the attempts came from, which account they got into, when, and what they did first.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>From what IP did the brute-force attempts and the successful login come?</li><li>Which account did the attacker log in as?</li><li>How many failed SSH attempts came from that IP?</li><li>What command did they run as root to read the password hashes?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">grep</span><span class="chip">Timesketch</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="medium" data-tracks="linux advanced-ir">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>Backdoors on a Linux Server</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A compromised Linux host. Find how the attacker stayed in: a new account, a cron job, an added SSH key, and the payload they pulled down.</p>
-        <div class="chips"><span class="chip trk trk-linux">Linux Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>8 questions</span><span>~70 min</span><span>92 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>The server keeps getting reinfected. You have auth.log, root's shell history, the cron directory, and root's authorized_keys. Work out the account they added, the scheduled job they planted, the SSH key they left behind, and what they downloaded to run.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What IP address did the attacker log in from?</li><li>What user account did the attacker add?</li><li>What command does the attacker's cron job run?</li><li>What is the comment on the extra SSH key added to root?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">grep</span><span class="chip">Timesketch</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="hard" data-tracks="linux network-forensics advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Rabbit Hole</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="case-sub">Web Shell on a Linux Web Server</p>
-        <p class="summary">A Linux web server breached through an uploaded web shell. Read the access log and shell history: the upload, the commands, the privilege escalation, and the data that left.</p>
-        <div class="chips"><span class="chip trk trk-linux">Linux Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>8 questions</span><span>~80 min</span><span>88 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>After an alert about odd traffic, the team pulled the Apache access log, auth.log, and the web user's shell history. Someone uploaded a web shell and used it to run commands, escalate to root, and pull the app's config and data. Reconstruct it end to end.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the path of the web shell the attacker uploaded?</li><li>From what IP was the web shell driven?</li><li>Which account was used to escalate to a root shell?</li><li>What command archived and exfiltrated the config?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">grep</span><span class="chip">Timesketch</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="easy" data-tracks="foundations macos">
-      <summary>
-        <div class="top"><span class="tag easy">Easy</span></div>
-        <h3><span>First Look: Where Did This Mac App Come From?</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A Mac triage set. A user installed something they shouldn't have. Use the quarantine database and Safari history to trace where the file came from and how they got there.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-macos">macOS Forensics</span></div>
-        <div class="meta"><span>8 questions</span><span>~45 min</span><span>80 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>On a Mac, every file downloaded through a browser is stamped in the LSQuarantine database with where it came from, and Safari keeps the pages that led there. Read the quarantine record and the Safari history: find the download URL, the page it came from, who downloaded it, and when.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What URL was the app downloaded from?</li><li>What page was the user on when they downloaded it?</li><li>Which application performed the download?</li><li>What download page did the user land on in Safari?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">mac_apt</span><span class="chip">DB Browser for SQLite</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="medium" data-tracks="macos advanced-ir">
-      <summary>
-        <div class="top"><span class="tag medium">Medium</span></div>
-        <h3><span>A Launch Agent That Shouldn't Be There</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A Mac with malware persistence. Trace the dropped file to a LaunchAgent that reruns it, using the quarantine record, the plist, the shell history, and the unified log.</p>
-        <div class="chips"><span class="chip trk trk-macos">macOS Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>8 questions</span><span>~65 min</span><span>92 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>The Mac keeps reinfecting itself after cleanup — usually a LaunchAgent relaunching the payload at login. Using the LSQuarantine database, the LaunchAgents folder, the zsh history, and a unified-log export, find the LaunchAgent, what it runs, where the payload came from, and when it first ran.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What is the Label of the LaunchAgent providing persistence?</li><li>What program does that LaunchAgent run?</li><li>What URL was the payload downloaded from?</li><li>What command registered the LaunchAgent?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">mac_apt</span><span class="chip">DB Browser for SQLite</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
-
-    <details class="ccard" data-diff="hard" data-tracks="macos advanced-ir">
-      <summary>
-        <div class="top"><span class="tag hard">Hard</span></div>
-        <h3><span>Mac Insider: Data Out the Back Door</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
-        <p class="summary">A departing employee's Mac. Reconstruct how they staged and moved company data off the machine, using the shell history, Safari, the quarantine record, and the unified log.</p>
-        <div class="chips"><span class="chip trk trk-macos">macOS Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-        <div class="meta"><span>8 questions</span><span>~80 min</span><span>96 pts</span></div>
-      </summary>
-      <div class="body">
-        <h4>Briefing</h4>
-        <p>Legal wants to know whether a departing employee took data. From the zsh history, Safari history, the LSQuarantine database, and a unified-log export, work out the tool they pulled down, how they archived the files, where they sent them, and the external volume the log shows being mounted.</p>
-        <h4>Sample questions</h4>
-        <ol class="qlist"><li>What command archived the company folders?</li><li>What command uploaded the archive off the machine?</li><li>What personal cloud site did the employee sign into?</li><li>What external volume does the unified log show being mounted?</li></ol>
-        <p class="qmore">Plus 4 more questions in the full case.</p>
-        <h4>Suggested tools</h4>
-        <div class="chips"><span class="chip">mac_apt</span><span class="chip">DB Browser for SQLite</span><span class="chip">text editor</span></div>
-      </div>
-    </details>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics mobile-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">11 Q &middot; 35 min</span></div>
+      <h3 class="cc-title">Employee Misconduct Investigation</h3>
+      <p class="cc-desc">An employee is alleged to have run a side business on company time and passed internal pricing to an outside contact.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: A Deleted File</h3>
+      <p class="cc-desc">One small disk image. Recover a deleted document, carve a file out of unallocated space, and catch a file hiding behind the wrong extension.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations cloud">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: A Sign-In From Nowhere</h3>
+      <p class="cc-desc">One Azure sign-in log. Spot the login that does not belong, where it came from, and whether it got in.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Accounts and Services in the Logs</h3>
+      <p class="cc-desc">Security and System logs. Spot the new account someone created and the service that was installed right after.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: After-Hours Logon</h3>
+      <p class="cc-desc">One Security event log. Find a remote logon, where it came from, and the failed attempts before it.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Building a Timeline</h3>
+      <p class="cc-desc">Two artifacts, one clock. Line up a browser download and a Security log to reconstruct the order things happened.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Phishing Triage</h3>
+      <p class="cc-desc">One mailbox. Tell the real message from the fake and pull the sender details.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations network-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Reading a Packet Capture</h3>
+      <p class="cc-desc">One packet capture. Follow a DNS lookup to a beacon, then read a login and a file transfer sent in the clear.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-network">Network Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Recent Files and Jump Lists</h3>
+      <p class="cc-desc">Shortcuts, jump lists and registry MRUs. Reconstruct what an employee opened, and which file came off a USB drive.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations mobile-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Recovered Phone</h3>
+      <p class="cc-desc">One Android SMS extraction. Read the thread and pin down the contact, the message, and the times.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Suspicious Download</h3>
+      <p class="cc-desc">One Chrome history database. Work out what the user searched for, where they went, and what they downloaded.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: USB Device History</h3>
+      <p class="cc-desc">One registry hive. Work out which USB drive was plugged into the machine and when.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">9 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: What Ran on This Machine</h3>
+      <p class="cc-desc">One user profile. Work out which downloaded utility was run, how often, and when, using Prefetch, UserAssist and a shortcut.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: What Runs at Startup</h3>
+      <p class="cc-desc">Two registry hives. Find the program set to launch itself at startup and the service quietly installed to keep it alive.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: What&#x27;s in Memory</h3>
+      <p class="cc-desc">One memory capture. Find the process that shouldn&#x27;t be running, where it lives, and the server it phones home to.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations macos">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Where Did This Mac App Come From?</h3>
+      <p class="cc-desc">A Mac triage set. A user installed something they shouldn&#x27;t have. Use the quarantine database and Safari history to trace where the file came from and how they got there.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-macos">macOS Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations linux">
+      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">8 Q &middot; 25 min</span></div>
+      <h3 class="cc-title">First Look: Who Logged Into the Server</h3>
+      <p class="cc-desc">One Linux auth.log. Read the brute-force attempts, the login that finally worked, and what the attacker did once they were in.</p>
+      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-linux">Linux Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics mobile-forensics cloud">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">9 Q &middot; 55 min</span></div>
+      <h3 class="cc-title">Account Takeover: MFA Fatigue</h3>
+      <p class="cc-desc">An attacker with a stolen password hammered a user with MFA prompts until one was approved, then signed in from abroad.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics mobile-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10 Q &middot; 60 min</span></div>
+      <h3 class="cc-title">Business Email Compromise: Wire Fraud</h3>
+      <p class="cc-desc">A finance controller wired money to an attacker&#x27;s account after a spoofed executive email and a lookalike vendor followed up with new bank details.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics cloud">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10 Q &middot; 60 min</span></div>
+      <h3 class="cc-title">Exfiltration to a Personal Cloud Drive</h3>
+      <p class="cc-desc">Browser history, a shortcut, and a mailbox. Follow a customer export from the CRM to a personal cloud drive and a personal inbox.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">9 Q &middot; 55 min</span></div>
+      <h3 class="cc-title">Insider Data Leak via AI Assistant</h3>
+      <p class="cc-desc">An engineer pasted confidential source and customer data into a public AI chatbot and sent an export of customer records to a personal account.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">15 Q &middot; 90 min</span></div>
+      <h3 class="cc-title">Paper Trail</h3>
+      <div class="cc-sub">Insider Data Theft via USB</div>
+      <p class="cc-desc">An engineer is suspected of copying proprietary designs to a personal USB drive before resigning.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">11 Q &middot; 65 min</span></div>
+      <h3 class="cc-title">Rogue Admin Account</h3>
+      <p class="cc-desc">Security and System logs plus the registry. Find the account that should not exist, who made it, and the two ways it was set up to survive a reboot.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">8 Q &middot; 50 min</span></div>
+      <h3 class="cc-title">Snooping: Unauthorized Record Access</h3>
+      <p class="cc-desc">A staff member pulled up records they had no reason to touch, then exported them.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">14 Q &middot; 85 min</span></div>
+      <h3 class="cc-title">Web Shell on a Small Business Server</h3>
+      <p class="cc-desc">A small business web server was compromised through a web shell used to run commands and install persistence.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">8 Q &middot; 50 min</span></div>
+      <h3 class="cc-title">Coordinating an After-Hours Theft</h3>
+      <p class="cc-desc">An Android extraction. Two employees coordinated a warehouse theft by text - find the accomplice and the plan.</p>
+      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">9 Q &middot; 55 min</span></div>
+      <h3 class="cc-title">Gift Card Scam: CEO Impersonation</h3>
+      <p class="cc-desc">An employee was talked into buying gift cards by someone posing as the CEO over email and text.</p>
+      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">8 Q &middot; 50 min</span></div>
+      <h3 class="cc-title">Texting Secrets to a Competitor</h3>
+      <p class="cc-desc">An Android extraction. Find which outside contact a salesperson leaked pricing to, what was sent, and when.</p>
+      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">8 Q &middot; 50 min</span></div>
+      <h3 class="cc-title">The Deal on WhatsApp</h3>
+      <p class="cc-desc">An Android extraction with a WhatsApp message store. Read the chat that coordinated the payoff and identify who.</p>
+      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">8 Q &middot; 50 min</span></div>
+      <h3 class="cc-title">The Texts They Deleted</h3>
+      <p class="cc-desc">An Android extraction where the suspect wiped incriminating texts. Carve them back out of unallocated space.</p>
+      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="network-forensics">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">8 Q &middot; 50 min</span></div>
+      <h3 class="cc-title">Exfiltration to a Personal Server</h3>
+      <p class="cc-desc">One packet capture. An employee uploaded data to a personal server over plain HTTP - read the login and measure what left.</p>
+      <div class="chips"><span class="chip trk trk-network">Network Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="cloud advanced-ir">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">9 Q &middot; 55 min</span></div>
+      <h3 class="cc-title">Reply All</h3>
+      <div class="cc-sub">Microsoft 365 Account Takeover</div>
+      <p class="cc-desc">An executive&#x27;s Microsoft 365 account is taken over from abroad. Trace the sign-in, the hidden forwarding rules, the file that was pulled from SharePoint, and how the attacker kept access.</p>
+      <div class="chips"><span class="chip trk trk-cloud">Cloud &amp; SaaS</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="linux advanced-ir">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">8 Q &middot; 50 min</span></div>
+      <h3 class="cc-title">Backdoors on a Linux Server</h3>
+      <p class="cc-desc">A compromised Linux host. Find how the attacker stayed in: a new account, a cron job, an added SSH key, and the payload they pulled down.</p>
+      <div class="chips"><span class="chip trk trk-linux">Linux Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="macos advanced-ir">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">8 Q &middot; 50 min</span></div>
+      <h3 class="cc-title">A Launch Agent That Shouldn&#x27;t Be There</h3>
+      <p class="cc-desc">A Mac with malware persistence. Trace the dropped file to a LaunchAgent that reruns it, using the quarantine record, the plist, the shell history, and the unified log.</p>
+      <div class="chips"><span class="chip trk trk-macos">macOS Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">11 Q &middot; 100 min</span></div>
+      <h3 class="cc-title">Credential Theft and Lateral Movement</h3>
+      <p class="cc-desc">A dumping tool in memory, a stolen service account, and a cleartext login on the wire. Follow one harvested credential from the first host to a second.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="windows-forensics mobile-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10 Q &middot; 90 min</span></div>
+      <h3 class="cc-title">Cryptocurrency Theft: Clipboard Hijack</h3>
+      <p class="cc-desc">A user&#x27;s cryptocurrency vanished after malware on the workstation swapped wallet addresses on the clipboard and captured a recovery phrase.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">15 Q &middot; 135 min</span></div>
+      <h3 class="cc-title">Phishing to Malware to Command and Control</h3>
+      <p class="cc-desc">A finance employee opened a phishing attachment; the workstation later showed a remote-controlled process and persistence.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="windows-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">12 Q &middot; 110 min</span></div>
+      <h3 class="cc-title">Ransomware Precursor: Staging and Log Clearing</h3>
+      <p class="cc-desc">An admin account was used to stage tools, add a hidden account, and clear the event logs ahead of an expected encryption run.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">14 Q &middot; 125 min</span></div>
+      <h3 class="cc-title">Double Cross</h3>
+      <div class="cc-sub">Ransomware: Double Extortion</div>
+      <p class="cc-desc">Ransomware hit a server. Data was exfiltrated first, shadow copies deleted, files encrypted, and a note left threatening to publish.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">12 Q &middot; 110 min</span></div>
+      <h3 class="cc-title">Trojanized Software Update</h3>
+      <p class="cc-desc">A fake update installer, a service, a beacon and an injected process. Follow one download from the browser to the network and into memory.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10 Q &middot; 90 min</span></div>
+      <h3 class="cc-title">VPN Account Compromise and Beacon</h3>
+      <p class="cc-desc">A VPN account was accessed from abroad and the workstation started beaconing out, with a password sent in the clear.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="mobile-forensics">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">8 Q &middot; 70 min</span></div>
+      <h3 class="cc-title">Placing the Phone at the Scene</h3>
+      <p class="cc-desc">An Android extraction with location history. Put the phone at the scene at the right time, and tie it to a text.</p>
+      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="mobile-forensics">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">9 Q &middot; 80 min</span></div>
+      <h3 class="cc-title">Cold Caller</h3>
+      <div class="cc-sub">Unwanted Contact: A Harassment Case</div>
+      <p class="cc-desc">An Android extraction from a harassment complaint. Work the call log and messages: the repeated late-night calls, the one that was answered, the threat, and a reply that was deleted.</p>
+      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="network-forensics linux advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">8 Q &middot; 70 min</span></div>
+      <h3 class="cc-title">Rabbit Hole</h3>
+      <div class="cc-sub">Web Shell on a Linux Web Server</div>
+      <p class="cc-desc">A Linux web server was breached through an uploaded web shell. Read the access log and shell history: the upload, the commands, the privilege escalation, and the data that left.</p>
+      <div class="chips"><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-linux">Linux Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="cloud advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10 Q &middot; 90 min</span></div>
+      <h3 class="cc-title">Cloud Account Compromise: Stolen Access Key</h3>
+      <p class="cc-desc">A developer&#x27;s leaked access key was used to sign in from abroad, add a second key and a new IAM user, and pull customer data out of a storage bucket.</p>
+      <div class="chips"><span class="chip trk trk-cloud">Cloud &amp; SaaS</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="macos advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">8 Q &middot; 70 min</span></div>
+      <h3 class="cc-title">Mac Insider: Data Out the Back Door</h3>
+      <p class="cc-desc">A departing employee&#x27;s Mac. Reconstruct how they staged and moved company data off the machine, using the shell history, Safari, the quarantine record, and the unified log.</p>
+      <div class="chips"><span class="chip trk trk-macos">macOS Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="advanced-ir">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">9 Q &middot; 80 min</span></div>
+      <h3 class="cc-title">Ghost in the RAM</h3>
+      <div class="cc-sub">Injected Code in Memory</div>
+      <p class="cc-desc">A memory capture with code injection. Find the process hosting the injected region, the DLL that was reflectively loaded, and where it calls home.</p>
+      <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="expert" data-tracks="windows-forensics mobile-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">20 Q &middot; 420 min</span></div>
+      <h3 class="cc-title">Expert: Inside Job (Insider and Collusion)</h3>
+      <p class="cc-desc">A trusted insider with legitimate access sold customer data to an outside buyer over months, moving it out through personal cloud, personal email, and a USB drive, and coordinating by text.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="expert" data-tracks="windows-forensics mobile-forensics network-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">26 Q &middot; 600 min</span></div>
+      <h3 class="cc-title">Expert: Municipal Breach (City Government)</h3>
+      <p class="cc-desc">A whole city government was breached across departments. Trace every foothold, from the clerk who got phished to police records, emergency management, finance, and the ransom.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="expert" data-tracks="windows-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">26 Q &middot; 420 min</span></div>
+      <h3 class="cc-title">Expert: Operation Ledger (Ransomware Intrusion)</h3>
+      <p class="cc-desc">A full financially motivated intrusion, from spear-phish to cloud exfiltration to encryption, with the endpoint Security log cleared. Rebuild the whole chain from everything else.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-diff="expert" data-tracks="windows-forensics advanced-ir">
+      <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">20 Q &middot; 480 min</span></div>
+      <h3 class="cc-title">Expert: Silent Harvest (Espionage Intrusion)</h3>
+      <p class="cc-desc">A patient espionage actor got in through a web shell, dumped credentials, moved laterally, and quietly pulled mail and documents out over weeks. No encryption, and careful cleanup.</p>
+      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
     </div>
     <p class="emptymsg hide" id="empty">No cases match those filters. <a href="#" id="clearf">Clear filters</a>.</p>
     <div class="cta-row" style="margin-top:40px"><a class="btn" href="/#download">Start a free 14-day trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>
@@ -1002,7 +381,7 @@
       var vis = okd && okt; c.classList.toggle("hide", !vis); if(vis) shown++;
     });
     document.getElementById("empty").classList.toggle("hide", shown>0);
-    document.getElementById("catcount").textContent = (shown===cards.length ? "Dozens of cases" : shown+" case"+(shown===1?"":"s")+" shown");
+    document.getElementById("catcount").textContent = (shown===cards.length ? cards.length+" cases" : shown+" of "+cards.length+" cases");
   }
   document.querySelectorAll(".fp[data-diff]").forEach(function(b){
     b.addEventListener("click",function(){ diff=b.dataset.diff;

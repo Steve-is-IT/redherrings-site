@@ -185,9 +185,22 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .fp.track{border-style:dashed}
 .fp.track[aria-pressed=true]{border-style:solid}
 .flabel{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);align-self:center;margin-right:2px;font-weight:600}
-.caselist{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px;align-items:start}
-@media(max-width:820px){.caselist{grid-template-columns:1fr}}
-.ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:0;margin:0;overflow:hidden;box-shadow:var(--shadow-sm);transition:border-color .18s ease,box-shadow .18s ease}
+.caselist{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;align-items:stretch}
+@media(max-width:980px){.caselist{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.caselist{grid-template-columns:1fr}}
+.caselist .cchead{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;margin:18px 0 2px}
+.caselist .cchead:first-child{margin-top:6px}
+.caselist .cchead h2{font-size:15px;text-align:left;margin:0;letter-spacing:.02em}
+.caselist .cchead span{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 17px;margin:0;display:flex;flex-direction:column;gap:9px;box-shadow:var(--shadow-sm);transition:border-color .18s ease,box-shadow .18s ease,transform .1s ease}
+.ccard:hover{transform:translateY(-2px)}
+.cc-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cc-meta{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+.cc-title{margin:0;font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.cc-sub{font-size:12px;font-weight:600;color:var(--muted);margin:-4px 0 0}
+.cc-desc{color:var(--muted);font-size:13px;line-height:1.5;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ccard .chips{margin-top:auto;padding-top:4px}
+.ccard-legacy{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:0;margin:0;overflow:hidden;box-shadow:var(--shadow-sm);transition:border-color .18s ease,box-shadow .18s ease}
 .ccard:hover{border-color:color-mix(in srgb,var(--accent) 32%,transparent);box-shadow:var(--shadow-md)}
 .ccard[open]{border-color:color-mix(in srgb,var(--accent) 32%,transparent)}
 .ccard>summary{list-style:none;cursor:pointer;padding:20px 22px 18px;display:flex;flex-direction:column;gap:11px}
