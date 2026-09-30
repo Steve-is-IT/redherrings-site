@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help &amp; Getting Started | Red Herrings</title>
+<meta name="description" content="Get started with Red Herrings: download and activate, generate a lab for a whole class, grade and export to your LMS, run guided mode and CTF mode, and troubleshoot activation. Step-by-step walkthroughs.">
+<link rel="canonical" href="https://redherrings.app/help.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:title" content="Help & Getting Started — Red Herrings">
+<meta property="og:description" content="Download, activate, generate, grade and export — step-by-step walkthroughs for Red Herrings.">
+<meta property="og:url" content="https://redherrings.app/help.html">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"Generate and grade a Red Herrings forensics lab",
+  "step":[
+    {"@type":"HowToStep","name":"Download and run","text":"Download the Windows or Linux build, unzip, and run RedHerrings. It opens in your browser."},
+    {"@type":"HowToStep","name":"Activate","text":"Open Settings then Licensing and paste your license key, or use the 14-day trial with no key."},
+    {"@type":"HowToStep","name":"Generate","text":"Pick a case, set a student count or roster and a seed, and generate a unique lab per student."},
+    {"@type":"HowToStep","name":"Grade","text":"Import the grading sheet to auto-grade the whole class and export grades to your LMS."}
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="/#features">Features</a>
+    <a class="link" href="cases.html">Cases</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="link" href="/#download">Download</a>
+    <a class="btn" href="/#pricing">Get a license</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="pagehead">
+    <div class="crumb"><a href="/">Home</a> / Help</div>
+    <h1>Help &amp; getting started</h1>
+    <p>Everything you need to go from download to a graded class. Most people are generating their first lab within five minutes.</p>
+  </div>
+
+  <section style="border-top:0;padding-top:20px">
+    <div class="doc">
+      <div class="toc">
+        <strong>On this page</strong><br>
+        <a href="#install">Install &amp; activate</a>
+        <a href="#generate">Generate a lab</a>
+        <a href="#distribute">Hand out to students</a>
+        <a href="#grade">Grade &amp; export</a>
+        <a href="#guided">Guided mode</a>
+        <a href="#tracks">Certification tracks</a>
+        <a href="#ctf">CTF mode</a>
+        <a href="#offline">Offline &amp; air-gapped</a>
+        <a href="#trouble">Troubleshooting</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <h2 id="install">1. Install &amp; activate</h2>
+      <ol>
+        <li>Download the build for your OS from the <a href="/#download">download section</a> — <strong>Windows</strong> or <strong>Linux</strong>.</li>
+        <li>Unzip it and run <code>RedHerrings</code> (Windows: <code>RedHerrings.exe</code>). It starts a local server and opens in your default browser — no installer, no admin rights needed.</li>
+        <li>It runs immediately as a <strong>14-day trial</strong> (3 cases, up to 5 students, watermarked documents) — no key required.</li>
+        <li>When you buy, your license key arrives by email within a minute. In the app, open <strong>Settings → Licensing</strong>, paste the key, and click <strong>Activate</strong>.</li>
+      </ol>
+      <div class="callout"><p>Verify your download: each release publishes <code>SHA256SUMS.txt</code>. On Linux run <code>sha256sum -c SHA256SUMS.txt</code>; on Windows run <code>Get-FileHash RedHerrings-windows.zip -Algorithm SHA256</code> and compare.</p></div>
+
+      <h2 id="generate">2. Generate a lab for the whole class</h2>
+      <ol>
+        <li>Open <strong>Case Library</strong> and pick a case. Filter by difficulty or by <a href="#tracks">certification track</a>; open a card to read the briefing and questions first.</li>
+        <li>Go to <strong>Generate Labs</strong> and set:
+          <ul>
+            <li><strong>Students</strong> — a head count (creates student-001, student-002, …) or import a roster CSV (any common column names work).</li>
+            <li><strong>Difficulty</strong> — higher difficulty injects more noise (decoy files, extra accounts, more background traffic).</li>
+            <li><strong>Seed</strong> — any text. The same seed and roster reproduce the exact same labs, so you can regenerate a lost package or rebuild on another machine. Use a new seed each term.</li>
+            <li><strong>Formats</strong> — PDF, DOCX, or both; optionally the guided worksheet.</li>
+          </ul>
+        </li>
+        <li>Click <strong>Generate</strong>. Each lab is built and then <strong>verified</strong> — every artifact is re-opened with an independent parser to confirm the answer key is really in the evidence (the green "Fresh Catch" check).</li>
+      </ol>
+
+      <h2 id="distribute">3. Hand out to students</h2>
+      <p>Each student gets a <code>LAB-&lt;case&gt;-&lt;student&gt;.zip</code> with their unique evidence, a worksheet, and a hash manifest. Hand each student only their own zip. The instructor package holds the answer keys, rubrics, and a grading sheet — keep that one.</p>
+
+      <h2 id="grade">4. Grade &amp; export to your LMS</h2>
+      <ol>
+        <li>Collect answers, fill the <strong>grading sheet</strong>, and import it under <strong>Grading</strong> to auto-grade the whole class at once. Tolerances are sensible: hashes case-insensitive, timestamps within seconds, text fuzzy-matched with a review flag. Every score shows why it was awarded.</li>
+        <li>Review the <strong>class analytics</strong> — mean, median, distribution, and the per-question correct rate that shows what tripped everyone up.</li>
+        <li>Export grades in <strong>Canvas, Blackboard, Moodle or D2L Brightspace</strong> format (or generic CSV), with an optional per-student feedback note listing missed questions. You can also export a case as a <strong>Common Cartridge (.imscc)</strong> module.</li>
+        <li>Run the <strong>anti-collusion report</strong> to see, per question, how many distinct answers were handed out and which student pairs look most alike.</li>
+      </ol>
+
+      <h2 id="guided">Guided mode (for stuck or self-study learners)</h2>
+      <p>On the <strong>Solution</strong> screen, guided mode steps a learner one question at a time: from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer — instead of revealing everything at once. Turn it into a printable <strong>guided worksheet</strong> at generation time to add a hint under each question plus a tool quick-start appendix. You control whether learners may reveal solutions.</p>
+
+      <h2 id="tracks">Certification-prep tracks</h2>
+      <p>The Case Library has a second filter — <strong>Cert path</strong> — that groups cases into tracks aligned to the published topics of popular DFIR certifications (topic alignment, not endorsement):</p>
+      <ul>
+        <li><strong>Foundations</strong> — entry-level fundamentals (AccessData ACE, CompTIA CySA+).</li>
+        <li><strong>Windows Forensics</strong> — GCFE, plus the disk domains of EnCE / ACE.</li>
+        <li><strong>Mobile Forensics</strong> — Cellebrite CCO/CCPA, Magnet, GASF.</li>
+        <li><strong>Network Forensics</strong> — GNFA.</li>
+        <li><strong>Advanced Forensics &amp; IR</strong> — GCFA.</li>
+      </ul>
+      <p>Pick a track to see the cases that prepare you for that exam's topics. <a href="cases.html">Browse the full catalog →</a></p>
+
+      <h2 id="ctf">CTF mode</h2>
+      <p>Run any case as a capture-the-flag: per-team flags and a CTFd import file, so you can drop a Red Herrings case straight into a competition or a class challenge.</p>
+
+      <h2 id="offline">Offline &amp; air-gapped use</h2>
+      <p>Generation and grading run entirely on your machine with <strong>no network call</strong>. The only time the app contacts a server is to activate, refresh or deactivate a license — and air-gapped machines can activate offline with a request/response file. No student data ever leaves your computer.</p>
+
+      <h2 id="trouble">Troubleshooting</h2>
+      <ul>
+        <li><strong>Windows SmartScreen warning:</strong> the app is unsigned for now. Choose <em>More info → Run anyway</em>, or verify the download against <code>SHA256SUMS.txt</code> first.</li>
+        <li><strong>"All seats in use":</strong> each license activates on a set number of machines. Open <strong>Settings → Licensing</strong> on a machine you no longer use and click <strong>Deactivate</strong> to free a seat.</li>
+        <li><strong>Lost your key:</strong> email <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">sales@redherrings.app</a> and we'll resend it.</li>
+        <li><strong>Browser didn't open:</strong> the terminal prints a local address (for example <code>http://127.0.0.1:PORT/</code>) — open it manually.</li>
+      </ul>
+
+      <h2 id="contact">Still stuck?</h2>
+      <p>Email <a href="mailto:sales@redherrings.app">sales@redherrings.app</a> — Department and Business plans include priority support. See also the <a href="/#faq">FAQ</a>.</p>
+
+      <div class="cta-row" style="margin-top:36px;justify-content:flex-start">
+        <a class="btn" href="/#download">Download &amp; start the trial</a>
+        <a class="btn ghost" href="cases.html">Browse all 42 cases</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings. Real Evidence. Real Skills. Real Fast.</span>
+      <span><a href="/">Home</a> &middot; <a href="cases.html">Cases</a> &middot; <a href="/#pricing">Pricing</a> &middot; <a href="mailto:sales@redherrings.app">sales@redherrings.app</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
