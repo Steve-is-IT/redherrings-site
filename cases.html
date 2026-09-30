@@ -54,8 +54,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>HR at Granite Energy has a complaint about Sofia Davis (Account Manager): running a competing side business on work time, and possibly sharing internal pricing with someone outside the company. They have asked for a look at Sofia&#x27;s workstation browser history and a logical extraction of the company phone. What happened, and when?</p>
-        <h4>Investigation questions (11)</h4>
-        <ol class="qlist"><li>What incriminating search term did the user run?</li><li>When was that search performed (UTC)?</li><li>What competitor or external site did the user visit right after the search?</li><li>What company data file was downloaded?</li><li>What is the SHA-256 of the downloaded data file (recovered from disk)?</li><li>What did the user offer to the outside contact in the outgoing message?</li><li>What is the name of the outside contact the message was sent to?</li><li>When was the outgoing message sent (UTC)?</li><li>How did the outside contact propose to receive the data (from their reply)?</li><li>Which browser was used for the activity?</li><li>How many SMS messages are in the extraction in total?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What incriminating search term did the user run?</li><li>When was that search performed (UTC)?</li><li>What competitor or external site did the user visit right after the search?</li><li>What is the SHA-256 of the downloaded data file (recovered from disk)?</li></ol>
+        <p class="qmore">Plus 7 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
       </div>
@@ -71,8 +72,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A departing employee at Willow Creek Foods handed back a laptop, WILLOW-WS30, with the Documents folder mostly empty. Their manager thinks a memo about a customer pricing dispute was deleted on the way out the door. You have a small image of the user&#x27;s data partition. Recover what was deleted, find a file that was carved out of unallocated space, and explain why one &quot;photo&quot; in Pictures is not a photo at all.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What was the name of the document that was deleted from Documents?</li><li>What is the SHA-256 of the whole disk image?</li><li>Recover the deleted memo from Documents. What is its SHA-256?</li><li>A PDF with no directory entry sits in unallocated space. What is its SHA-256?</li><li>One file in Pictures has a .jpg extension but is not an image. What is its true file type?</li><li>What is the SHA-256 of the document that was left untouched in Documents?</li><li>What is the full path of that untouched document on the image?</li><li>What is the SHA-256 of the file that was hiding behind the .jpg extension?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What was the name of the document that was deleted from Documents?</li><li>Recover the deleted memo from Documents. What is its SHA-256?</li><li>What is the full path of that untouched document on the image?</li><li>What is the SHA-256 of the file that was hiding behind the .jpg extension?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">FTK Imager</span><span class="chip">The Sleuth Kit</span></div>
       </div>
@@ -88,8 +90,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>The IT lead at Vantage Foods got a &quot;new sign-in&quot; alert for a staff member who says they were at their desk all week. You have the Azure sign-in log export for that account. Work out which sign-in came from somewhere the user was not, whether the first attempt failed, and when the attacker finally got in.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>Which user principal name do all of these sign-ins belong to?</li><li>What IP address did the suspicious sign-ins come from?</li><li>What country (two-letter code) did that address resolve to?</li><li>When was the first sign-in attempt from that address (UTC)?</li><li>Did that first attempt succeed or fail?</li><li>When did a sign-in from that address finally succeed (UTC)?</li><li>What country do the user&#x27;s normal sign-ins come from?</li><li>When was the last normal sign-in after the compromise (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>Which user principal name do all of these sign-ins belong to?</li><li>What IP address did the suspicious sign-ins come from?</li><li>When was the first sign-in attempt from that address (UTC)?</li><li>When was the last normal sign-in after the compromise (UTC)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">jq</span><span class="chip">Spreadsheet</span><span class="chip">Timesketch</span></div>
       </div>
@@ -105,8 +108,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Overnight, someone with admin access set up a foothold on KEYSTO-SRV51: they created a new local account and installed a service to run their own program. Both actions are recorded, but in different logs - account changes go to the Security log, service installs go to the System log. You have both. Work out which account was created, who created it, and what the new service runs.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What is the name of the new account that was created?</li><li>When was that account created (UTC)?</li><li>Which account created the new account?</li><li>What is the name of the service that was installed?</li><li>What executable does that service run (its ImagePath)?</li><li>Which log recorded the service install (Security, System or Application)?</li><li>Under what account is the new service configured to run?</li><li>How many accounts were created (4720 events) in the log?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the name of the new account that was created?</li><li>When was that account created (UTC)?</li><li>What executable does that service run (its ImagePath)?</li><li>How many accounts were created (4720 events) in the log?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span></div>
       </div>
@@ -122,8 +126,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>IT flagged the Malik Russell account: it was used late at night, and not from the office. All you have is the Security event log from MERIDI-WS17. Find the remote logon, work out where it came from, and check whether anything failed before it succeeded.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>When did the successful remote logon occur (UTC)?</li><li>What IP address did the successful logon come from?</li><li>What account was used?</li><li>What logon type was used (a number)?</li><li>How many failed logon (4625) events preceded the success?</li><li>When did the failed attempts begin (UTC)?</li><li>What IP did the failed attempts come from?</li><li>How many successful logon (4624) events are in the log for the investigation window?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>When did the successful remote logon occur (UTC)?</li><li>What account was used?</li><li>What logon type was used (a number)?</li><li>What IP did the failed attempts come from?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span></div>
       </div>
@@ -139,8 +144,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Paige Nguyen logged in to WILLOW-WS76, searched the web, downloaded a program, and ran it - and you need to prove that sequence, in order, from two different artifacts. The catch is that each artifact stamps time its own way: Chrome uses microseconds since 1601, the Security log uses its own format. You have the Chrome history and the Security event log. Convert everything to UTC, put the events on one timeline, and answer what happened, and in what order.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>When did the user log on (UTC)?</li><li>When was the program downloaded (UTC)?</li><li>What was the name of the downloaded program?</li><li>When was the program executed (UTC)?</li><li>Which happened first: the download or the execution?</li><li>What process launched the downloaded program (its parent)?</li><li>What account was logged on for all of this activity?</li><li>What is the timestamp of the very first event on your timeline (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>When did the user log on (UTC)?</li><li>What was the name of the downloaded program?</li><li>Which happened first: the download or the execution?</li><li>What is the timestamp of the very first event on your timeline (UTC)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Timesketch</span><span class="chip">EvtxECmd</span><span class="chip">DB Browser for SQLite</span></div>
       </div>
@@ -156,8 +162,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Someone at Falcon Energy forwarded a suspicious email to the help desk and it landed with you. You have the user&#x27;s inbox. Confirm which message is the phish, read the headers, and note who really sent it and where it came from. A genuine message from the same brand is in the inbox too, so do not just go by the display name.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What is the From address of the phishing email?</li><li>What domain did the phishing email actually come from?</li><li>What is the originating IP of the phishing email?</li><li>Did SPF pass or fail for the phishing email?</li><li>What Reply-To address was set on the phishing email?</li><li>What is the From address of the genuine message (not the phish)?</li><li>When did the phishing email arrive (UTC)?</li><li>What is the subject line of the phishing email?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the From address of the phishing email?</li><li>What domain did the phishing email actually come from?</li><li>What is the originating IP of the phishing email?</li><li>What is the subject line of the phishing email?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Thunderbird</span><span class="chip">text editor</span></div>
       </div>
@@ -173,8 +180,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A monitoring sensor recorded the traffic from FALCON-LT89 during the hour it looked compromised, and saved it as a single capture file. Open it in Wireshark. Somewhere in the noise the machine looks up a domain nobody recognizes, then connects back to that server again and again on a schedule. Later it logs in to another server and pushes a batch of data out - and none of it is encrypted, so you can read it straight off the wire. Work out what it contacted, how often, and what was sent.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What domain did the workstation look up that it should not have?</li><li>What IP address did that domain resolve to?</li><li>The workstation kept reconnecting to one server. What is its IP address?</li><li>How many times did it check in with that server?</li><li>Roughly how many seconds apart were the check-ins?</li><li>A login was sent in cleartext. What username was used?</li><li>What password was sent with that login?</li><li>How many bytes were pushed out to the file server in the bulk transfer?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What domain did the workstation look up that it should not have?</li><li>The workstation kept reconnecting to one server. What is its IP address?</li><li>A login was sent in cleartext. What username was used?</li><li>How many bytes were pushed out to the file server in the bulk transfer?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Wireshark</span><span class="chip">tshark</span></div>
       </div>
@@ -190,8 +198,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Before they left, Diego Jones is thought to have opened a confidential document straight off a USB stick. Windows keeps a trail of what a user opens even after the files are gone: LNK shortcuts in the Recent folder, jump lists for the apps they used, and MRU lists in the registry. From TIDEWA-LT73 you have the Recent folder, the jump lists and the NTUSER.DAT hive. Work out what was opened, and which item came from a removable drive.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What file did the user open from the USB drive (the full target path)?</li><li>What kind of drive was that file on (fixed or removable)?</li><li>What local document did the user open (full path)?</li><li>The Explorer jump list references a recently opened item. What is its target?</li><li>What file size (in bytes) does the USB file&#x27;s shortcut record?</li><li>According to UserAssist, how many times did the user run Excel?</li><li>What filename appears in the RecentDocs MRU for spreadsheets (.xlsx)?</li><li>When was the USB file opened (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What file did the user open from the USB drive (the full target path)?</li><li>What kind of drive was that file on (fixed or removable)?</li><li>What file size (in bytes) does the USB file&#x27;s shortcut record?</li><li>What filename appears in the RecentDocs MRU for spreadsheets (.xlsx)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">JLECmd</span><span class="chip">LECmd</span><span class="chip">Registry Explorer</span></div>
       </div>
@@ -207,8 +216,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>HR received a complaint that Rebecca Hoang sent threatening texts to a coworker. The company phone was collected and a logical extraction was made. That is all you have. Identify the coworker, read what was sent and what came back, and note when.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What threatening message did the owner send?</li><li>What is the name of the coworker the message was sent to?</li><li>What phone number received the threatening message?</li><li>When was the threatening message sent (UTC)?</li><li>What did the coworker reply?</li><li>When was the reply received (UTC)?</li><li>How many SMS messages are in the extraction in total?</li><li>Whose phone was extracted (the owner)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What threatening message did the owner send?</li><li>When was the threatening message sent (UTC)?</li><li>What did the coworker reply?</li><li>How many SMS messages are in the extraction in total?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
       </div>
@@ -224,8 +234,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A coworker told IT that Dana had downloaded a program that has no business on a company machine. IT pulled the Chrome history from Dana Davis&#x27;s workstation at Blue Harbor Aerospace and sent it over. That is the only artifact. Find the search, the site, and the file, with times.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What did the user search for?</li><li>When was the search performed (UTC)?</li><li>What website did the user download from?</li><li>What is the name of the downloaded file?</li><li>When did the download start (UTC)?</li><li>How many bytes was the downloaded file?</li><li>What is the SHA-256 recorded for the downloaded file?</li><li>What page title did the download site show?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What did the user search for?</li><li>What website did the user download from?</li><li>When did the download start (UTC)?</li><li>How many bytes was the downloaded file?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">Browser History Viewer</span></div>
       </div>
@@ -241,8 +252,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A staff member at Crescent Energy says they never used a personal USB drive on their work machine, CRESCE-WS97. IT thinks otherwise. You have the SYSTEM registry hive from the machine. Find out whether a USB storage device was connected, what it was, and the first and last times it was seen.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What is the make and model (FriendlyName) of the USB device?</li><li>What is the serial number of the device?</li><li>When was the device first connected (UTC)?</li><li>When was the device last connected (UTC)?</li><li>What is the vendor of the device?</li><li>What are the vendor and product IDs (VID and PID) for the device?</li><li>What account was logged in on this machine (registry owner)?</li><li>What is the product name of the device (the Prod_ portion of the key)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the make and model (FriendlyName) of the USB device?</li><li>When was the device first connected (UTC)?</li><li>What is the vendor of the device?</li><li>What is the product name of the device (the Prod_ portion of the key)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Registry Explorer</span><span class="chip">RegRipper</span></div>
       </div>
@@ -258,8 +270,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A user at Keystone Dynamics says they downloaded a &quot;system cleaner&quot; once, decided it looked dodgy, and never ran it. The help desk found the download on their machine, DESKTOP-WJ26CPD, and wants a second opinion. You have the user&#x27;s NTUSER.DAT hive, the Prefetch folder, and the Recent folder. Work out whether the program ran, how many times, when it last ran, and what document was open around the same time.</p>
-        <h4>Investigation questions (9)</h4>
-        <ol class="qlist"><li>What is the name of the executable the user claims never to have run?</li><li>How many times does Prefetch say that executable ran?</li><li>When did it last run (UTC)?</li><li>According to UserAssist, what was the full path of the program that ran?</li><li>What run count does UserAssist record for it?</li><li>What file does the shortcut in the Recent folder for the utility point at?</li><li>Which spreadsheet did the user open around the same time (from RecentDocs)?</li><li>When was the utility first saved to Downloads, according to the shortcut (UTC)?</li><li>Which user account&#x27;s profile are these artifacts from?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the name of the executable the user claims never to have run?</li><li>How many times does Prefetch say that executable ran?</li><li>When did it last run (UTC)?</li><li>When was the utility first saved to Downloads, according to the shortcut (UTC)?</li></ol>
+        <p class="qmore">Plus 5 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">PECmd</span><span class="chip">Registry Explorer</span><span class="chip">LECmd</span></div>
       </div>
@@ -275,8 +288,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>BRIGHT-LT94 keeps reinfecting itself. Wipe the bad file and it comes back after a reboot, which means something is set to start it automatically. You have the machine&#x27;s SOFTWARE and SYSTEM registry hives and its Prefetch folder. Two classic footholds are in there: an entry under the Run key that launches a program at logon, and a Windows service pointed at the same kind of file. Find both, and confirm from Prefetch that the program actually ran.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What is the name of the Run key value that launches the malware at startup?</li><li>What program does that Run key launch (the full path in its data)?</li><li>Which registry hive holds the Run key you found (SOFTWARE, SYSTEM, SAM or NTUSER.DAT)?</li><li>What is the name of the service that was installed for persistence?</li><li>What is the ImagePath (the executable the service runs)?</li><li>According to Prefetch, what executable was run (the .pf covers this program)?</li><li>How many times did that program run, according to Prefetch?</li><li>When did that program last run (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the name of the Run key value that launches the malware at startup?</li><li>What program does that Run key launch (the full path in its data)?</li><li>Which registry hive holds the Run key you found (SOFTWARE, SYSTEM, SAM or NTUSER.DAT)?</li><li>When did that program last run (UTC)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Registry Explorer</span><span class="chip">RegRipper</span><span class="chip">PECmd</span></div>
       </div>
@@ -292,8 +306,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A workstation, REDWOO-WS22, was pulled off the network after it kept reaching out to an address no one recognized. Before it was reimaged, someone captured its memory and ran the standard Volatility process and network plugins. You have those exports. Most of what is running is normal Windows. One process is not: it launched from a user&#x27;s temp folder and it is holding a connection open to the internet. Find it, and find where it is calling.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What is the name of the suspicious process (the one running from a temp folder)?</li><li>What is that process&#x27;s PID?</li><li>What is the name of its parent process?</li><li>What is the full path the process ran from?</li><li>What was the full command line used to launch it?</li><li>What remote IP address was the process connected to?</li><li>What remote port was that connection using?</li><li>When was the memory captured (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the name of the suspicious process (the one running from a temp folder)?</li><li>What is that process&#x27;s PID?</li><li>What is the full path the process ran from?</li><li>What remote IP address was the process connected to?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Volatility</span><span class="chip">text editor</span></div>
       </div>
@@ -309,8 +324,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>An alert fired at Apex Engineering on Brianna Chen&#x27;s account: a sign-in from an unfamiliar location in the small hours. In the minutes before it, the account had taken a burst of failed sign-ins and a string of MFA prompts. Brianna says a late text from &quot;IT Support&quot; told them to approve the prompt to make the alerts stop, so they did.</p>
-        <h4>Investigation questions (9)</h4>
-        <ol class="qlist"><li>How many failed sign-in (4625) events are in the Security log?</li><li>From what IP address did the failed sign-ins and the successful sign-in originate?</li><li>When did the successful sign-in occur (UTC)?</li><li>What account was targeted?</li><li>When did the failed sign-in burst begin (UTC)?</li><li>What IP did the new-location sign-in alert email report?</li><li>What did the fake IT Support message ask the user to do?</li><li>When was the fake IT Support SMS received (UTC)?</li><li>What is the sender address of the sign-in alert email?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>How many failed sign-in (4625) events are in the Security log?</li><li>From what IP address did the failed sign-ins and the successful sign-in originate?</li><li>When did the successful sign-in occur (UTC)?</li><li>What account was targeted?</li></ol>
+        <p class="qmore">Plus 5 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">EvtxECmd</span><span class="chip">Autopsy</span><span class="chip">Thunderbird</span><span class="chip">DB Browser for SQLite</span></div>
       </div>
@@ -326,8 +342,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Silverline Dynamics found out that a 212,000 dollar payment meant for a long-standing vendor went to an account nobody recognises. The controller, Kiara Sanchez, says the request came from a company executive marked urgent, and that the vendor&#x27;s accounts team followed up with new bank details.</p>
-        <h4>Investigation questions (10)</h4>
-        <ol class="qlist"><li>What is the display From address of the urgent executive email?</li><li>What Reply-To address was set on the spoofed executive email?</li><li>What is the originating IP of the spoofed executive email?</li><li>Did SPF pass or fail for the executive email?</li><li>From what lookalike domain did the fraudulent vendor email arrive?</li><li>What is the SHA-256 of the fraudulent remittance attachment?</li><li>What is the new (fraudulent) account number the attacker asked for, per the SMS?</li><li>When was the pressure SMS received (UTC)?</li><li>What did the controller search to try to verify the sender?</li><li>What is the From address of the genuine vendor email, the one that is not part of the fraud?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the display From address of the urgent executive email?</li><li>What is the originating IP of the spoofed executive email?</li><li>Did SPF pass or fail for the executive email?</li><li>What is the SHA-256 of the fraudulent remittance attachment?</li></ol>
+        <p class="qmore">Plus 6 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Thunderbird</span><span class="chip">Autopsy</span><span class="chip">DB Browser for SQLite</span></div>
       </div>
@@ -343,8 +360,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Inventory went missing overnight. Suspicion fell on Camila Mitchell, whose company phone was extracted. Investigators think a second person on the inside helped. Work the SMS thread: identify the accomplice, the message that set the time to meet, and when the messages were exchanged.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What is the name of the accomplice the owner coordinated with?</li><li>What phone number belongs to the accomplice?</li><li>What message set the plan (the outgoing one)?</li><li>When was the plan message sent (UTC)?</li><li>How did the accomplice reply?</li><li>When did the accomplice confirm (UTC)?</li><li>What direction was the plan message (incoming or outgoing)?</li><li>Whose phone was extracted?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the name of the accomplice the owner coordinated with?</li><li>What message set the plan (the outgoing one)?</li><li>How did the accomplice reply?</li><li>When did the accomplice confirm (UTC)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
       </div>
@@ -360,8 +378,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A sales manager at Juniper Biotech gave two weeks&#x27; notice and, the same afternoon, the CRM logged a full customer export from JUNIPE-LT65. The company has a clear rule against personal cloud storage on work machines. You have the workstation&#x27;s Chrome history, the user&#x27;s Recent folder and the Sent items from the mailbox. Establish what was exported, where it was uploaded, whether a copy was also emailed out, and when each step happened. Some of the browsing is ordinary work, so do not treat every visit as evidence.</p>
-        <h4>Investigation questions (10)</h4>
-        <ol class="qlist"><li>What did the user search for shortly before the export?</li><li>When was that search made (UTC)?</li><li>What is the file name of the customer export that was downloaded?</li><li>When did the download start (UTC)?</li><li>Which personal cloud storage service was visited after the export?</li><li>What is the full target path of the shortcut that shows the export was opened?</li><li>Which file does RecentDocs list under the .csv extension?</li><li>To which personal email address was a copy of the export sent?</li><li>What is the SHA-256 of the attachment on that message?</li><li>When was the export emailed out (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What did the user search for shortly before the export?</li><li>When did the download start (UTC)?</li><li>Which personal cloud storage service was visited after the export?</li><li>What is the SHA-256 of the attachment on that message?</li></ol>
+        <p class="qmore">Plus 6 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">LECmd</span><span class="chip">Thunderbird</span></div>
       </div>
@@ -377,8 +396,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A sensor captured TRILLI-WS47 talking to a server no one recognized. The employee had authenticated to a personal web host over plain HTTP and pushed a batch of data to it. Because it was not encrypted, you can read the login straight off the wire and measure exactly how much left. Work out the domain, the credentials, and the size of the upload.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What domain did the workstation contact to upload the data?</li><li>What IP did that domain resolve to?</li><li>What username was used to log in (from the HTTP Basic Authorization header)?</li><li>What password was used?</li><li>About how many bytes were uploaded to the server?</li><li>Was the login sent encrypted or in cleartext?</li><li>What is the server&#x27;s IP address (the upload destination)?</li><li>What HTTP authentication scheme carried the credentials?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What domain did the workstation contact to upload the data?</li><li>What username was used to log in (from the HTTP Basic Authorization header)?</li><li>About how many bytes were uploaded to the server?</li><li>What is the server&#x27;s IP address (the upload destination)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Wireshark</span><span class="chip">tshark</span><span class="chip">NetworkMiner</span></div>
       </div>
@@ -394,8 +414,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Vantage Biotech is out real money. An assistant, Mark Nakamura, bought several hundred dollars of gift cards and sent the codes to someone they believed was the CEO. The request came by email and was pushed along by text. Neither was really the CEO. You have the assistant&#x27;s mailbox and phone extraction. Show how the scam ran: the spoofed email, the texts, the amount, and who the codes actually went to.</p>
-        <h4>Investigation questions (9)</h4>
-        <ol class="qlist"><li>What is the From address of the email posing as the CEO?</li><li>What Reply-To address would have received the reply?</li><li>What dollar amount of gift cards was requested?</li><li>What brand of gift card was requested?</li><li>What did the assistant text back after buying the cards?</li><li>What phone number was used to pressure the assistant and collect the codes?</li><li>When were the codes texted out (UTC)?</li><li>When did the spoofed CEO email arrive (UTC)?</li><li>What contact name did the assistant save the scammer&#x27;s number under?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the From address of the email posing as the CEO?</li><li>What dollar amount of gift cards was requested?</li><li>What phone number was used to pressure the assistant and collect the codes?</li><li>When were the codes texted out (UTC)?</li></ol>
+        <p class="qmore">Plus 5 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Thunderbird</span><span class="chip">DB Browser for SQLite</span></div>
       </div>
@@ -411,8 +432,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>The DLP team at Trillium Aerospace flagged Luis Nelson (Software Engineer) for heavy clipboard and upload traffic to a public AI assistant site, followed a short while later by a customer records export. Leadership wants to know what went out, when, and whether it left the company.</p>
-        <h4>Investigation questions (9)</h4>
-        <ol class="qlist"><li>What public AI assistant domain did the user access during the incident?</li><li>What search shows intent to evade monitoring?</li><li>When was that search performed (UTC)?</li><li>What customer records file was exported?</li><li>What is the SHA-256 of the exported file recovered from disk?</li><li>What is the SHA-256 of the file attached to the outbound personal email?</li><li>To what personal email address was the export sent?</li><li>When was the export emailed out (UTC)?</li><li>When was the customer file exported (download time, UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What public AI assistant domain did the user access during the incident?</li><li>What search shows intent to evade monitoring?</li><li>When was that search performed (UTC)?</li><li>What is the SHA-256 of the exported file recovered from disk?</li></ol>
+        <p class="qmore">Plus 5 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">Thunderbird</span></div>
       </div>
@@ -428,8 +450,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Meridian Logistics has referred this one to you. Sean Cooper, a Senior Design Engineer, handed in notice on a Friday afternoon. Over the weekend a manager noticed several confidential design documents had been opened from the shared drive outside normal hours. Security thinks Sean copied company property to a personal USB stick on the way out.</p>
-        <h4>Investigation questions (15)</h4>
-        <ol class="qlist"><li>What is the username of the account under investigation?</li><li>What is the make and model (FriendlyName) of the USB device that was connected?</li><li>What is the serial number of the USB device?</li><li>When was the USB device first connected (UTC)?</li><li>When was the USB device last connected (UTC)?</li><li>What is the full path of the archive that was written to the removable drive (as recorded in the shortcut)?</li><li>Which archiving program was run according to UserAssist? Give the executable name.</li><li>How many times was the archiving tool executed according to Prefetch?</li><li>When was the archive created on the USB device (shortcut target creation, UTC)?</li><li>What is the SHA-256 of the staged archive found on the disk image?</li><li>At what time did the interactive logon occur (UTC)?</li><li>What is the SHA-256 of the confidential BOM spreadsheet on disk?</li><li>A document was deleted from the suspect&#x27;s Temp folder but is still recoverable. What is its SHA-256?</li><li>Unallocated space contains a carved document. What is its SHA-256?</li><li>A file stored with a .jpg extension is not actually an image. What is its true file type?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the username of the account under investigation?</li><li>When was the USB device first connected (UTC)?</li><li>What is the full path of the archive that was written to the removable drive (as recorded in the shortcut)?</li><li>What is the SHA-256 of the staged archive found on the disk image?</li></ol>
+        <p class="qmore">Plus 11 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">FTK Imager</span><span class="chip">PECmd</span><span class="chip">JLECmd</span></div>
       </div>
@@ -445,8 +468,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>During a routine review, the IT team at Northwind Dynamics noticed a local administrator on the file server, NORTHW-SRV48, that nobody remembers creating. You have the Security and System event logs, the SYSTEM and SOFTWARE hives, and the Prefetch folder. Work out what the account is called, when and by whom it was created, where the session that created it came from, and what was installed to keep access after the next restart.</p>
-        <h4>Investigation questions (11)</h4>
-        <ol class="qlist"><li>What is the name of the account that was created?</li><li>When was it created (UTC)?</li><li>Which existing account created it?</li><li>From what IP address did the session that created the account log on?</li><li>What logon type was that session?</li><li>When did the first failed logon attempt from that address happen (UTC)?</li><li>What service was installed for persistence?</li><li>What executable does that service run?</li><li>What is the name of the Run key that was added?</li><li>What command does that Run key launch?</li><li>What executable does Prefetch show was run from ProgramData?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the name of the account that was created?</li><li>When was it created (UTC)?</li><li>From what IP address did the session that created the account log on?</li><li>What executable does that service run?</li></ol>
+        <p class="qmore">Plus 7 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">PECmd</span></div>
       </div>
@@ -462,8 +486,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A patient at Cedar Ridge Health Partners complained that a friend who works there seemed to know details from their file. The friend is Carmen Kowalski, who has access to the records system but no reason to open that record. You have the workstation logon events, the browser history, and a disk image. Show whether Carmen logged in, what they looked up, and whether anything was exported off the system.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>When did the user log on to the workstation (UTC)?</li><li>What record ID did the user open in the records system?</li><li>What did the user search for around the time of the access?</li><li>What file was exported and downloaded?</li><li>What is the SHA-256 of the exported file recovered from disk?</li><li>When was the file exported (download time, UTC)?</li><li>Which user account did the activity occur under?</li><li>From what host was the record system accessed (the site domain)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>When did the user log on to the workstation (UTC)?</li><li>What record ID did the user open in the records system?</li><li>What is the SHA-256 of the exported file recovered from disk?</li><li>From what host was the record system accessed (the site domain)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">Event Viewer</span></div>
       </div>
@@ -479,8 +504,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Alicia Owens in sales is suspected of feeding confidential pricing to a contact at a competitor. A logical extraction of the company phone was made. The thread you want is mixed in with ordinary texts to family and colleagues, so read carefully: identify the outside contact, the figures that were sent, and the timeline.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What is the name of the outside contact the pricing was leaked to?</li><li>What phone number received the leaked pricing?</li><li>What was the full text of the message that leaked the pricing?</li><li>When was the pricing sent (UTC)?</li><li>What did the competitor contact reply?</li><li>When did the reply arrive (UTC)?</li><li>How many SMS messages are in the extraction in total?</li><li>Whose phone was extracted?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the name of the outside contact the pricing was leaked to?</li><li>When was the pricing sent (UTC)?</li><li>When did the reply arrive (UTC)?</li><li>How many SMS messages are in the extraction in total?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
       </div>
@@ -496,8 +522,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>The SMS threads on Alejandro Chang&#x27;s phone are clean, but the real conversation happened in WhatsApp. The extraction includes msgstore.db. Parse the messages table, follow the thread with the outside party, and work out what was arranged and in which direction each message went.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>In the WhatsApp thread, what did the owner first propose?</li><li>How did the outside broker reply?</li><li>What did the owner confirm in the final message?</li><li>What is the WhatsApp JID (key_remote_jid) of the outside party?</li><li>Was the first proposal message incoming or outgoing?</li><li>When was the broker&#x27;s reply sent (UTC)?</li><li>Which messaging app held the conversation?</li><li>What is the broker&#x27;s contact name (from contacts2.db)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>In the WhatsApp thread, what did the owner first propose?</li><li>What is the WhatsApp JID (key_remote_jid) of the outside party?</li><li>Was the first proposal message incoming or outgoing?</li><li>Which messaging app held the conversation?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
       </div>
@@ -513,8 +540,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Before handing in the company phone, Olivia Rossi deleted the messages that mattered - but deleting a text does not erase it. The rows still sit in unallocated pages of mmssms.db until they are overwritten. Recover the deleted messages, work out who the surviving thread was with, and pin the timing.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>Recover the deleted message the owner sent proposing the arrangement. What did it say?</li><li>Recover the deleted reply. What did the vendor agree to?</li><li>Where were the deleted messages recovered from?</li><li>Were the two incriminating messages still present in the live sms table?</li><li>What is the name of the vendor contact the thread was with?</li><li>What phone number was that thread with?</li><li>When was the surviving (non-deleted) message sent (UTC)?</li><li>Whose phone was extracted?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>Recover the deleted message the owner sent proposing the arrangement. What did it say?</li><li>Where were the deleted messages recovered from?</li><li>What is the name of the vendor contact the thread was with?</li><li>When was the surviving (non-deleted) message sent (UTC)?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
       </div>
@@ -530,8 +558,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Harbor Street Bakery runs a public web server, HSBSTR-WEB94. Their IT contractor noticed the site had slowed to a crawl and found a file in the web root that shouldn&#x27;t be there. Then the antivirus console showed the web server worker process spawning a command shell, which a healthy IIS box does not do.</p>
-        <h4>Investigation questions (14)</h4>
-        <ol class="qlist"><li>What is the full path of the web shell in the web root?</li><li>What is the SHA-256 of the web shell file?</li><li>What parent process spawned the command shell (indicating web shell execution)?</li><li>What reconnaissance command was executed through the shell?</li><li>When was the reconnaissance command executed (UTC)?</li><li>What attacker IP was the second-stage agent connected to (memory)?</li><li>What service was installed for persistence?</li><li>What is the ImagePath of the persistence service?</li><li>What is the SHA-256 of the second-stage tool on disk?</li><li>What is the name of the malicious child process seen in memory under the web server worker?</li><li>How many process-creation (4688) events are in the Security log?</li><li>A deleted IIS log fragment is recoverable from the log directory. What is the SHA-256 of the recovered file?</li><li>A second tool was recovered by carving unallocated space. What is its SHA-256?</li><li>A file in the web root is stored as a .png but is not an image. What is its true file type?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the full path of the web shell in the web root?</li><li>What is the SHA-256 of the web shell file?</li><li>What parent process spawned the command shell (indicating web shell execution)?</li><li>When was the reconnaissance command executed (UTC)?</li></ol>
+        <p class="qmore">Plus 10 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">EvtxECmd</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span><span class="chip">PECmd</span></div>
       </div>
@@ -547,8 +576,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Keystone Energy runs everything in the cloud. One of their developers committed a long-lived access key to a public repository. Within hours the security team saw a sign-in from a country nobody works in, a second access key and a new admin user appearing, and a run of downloads from a bucket that holds customer data.</p>
-        <h4>Investigation questions (10)</h4>
-        <ol class="qlist"><li>From what IP address did the attacker sign in?</li><li>From what country (code) was the suspicious sign-in?</li><li>When was the new AWS access key created (UTC)?</li><li>What is the access key ID that was created for persistence?</li><li>What new IAM user did the attacker create?</li><li>What storage bucket was the customer data downloaded from?</li><li>What object key (file) was downloaded from the bucket?</li><li>What mailbox operation did the attacker perform in Microsoft 365?</li><li>To what external address did the attacker forward mail?</li><li>When was the customer data exfiltrated (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>From what IP address did the attacker sign in?</li><li>From what country (code) was the suspicious sign-in?</li><li>When was the new AWS access key created (UTC)?</li><li>When was the customer data exfiltrated (UTC)?</li></ol>
+        <p class="qmore">Plus 6 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">jq</span><span class="chip">Timesketch</span><span class="chip">Splunk</span><span class="chip">spreadsheet</span></div>
       </div>
@@ -564,8 +594,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>The security team at Brightline Aerospace found that a service account was signing in to servers it had no business touching. The trail starts on BRIGHT-LT25, a workstation an attacker reached first. From there they ran a tool that reads credentials out of memory, took a service account&#x27;s password, and used it to log on to a file server.</p>
-        <h4>Investigation questions (11)</h4>
-        <ol class="qlist"><li>What credential dumping tool was run on the workstation?</li><li>When did that tool run (UTC)?</li><li>What is the full path of the tool as recorded in the process creation event?</li><li>Which module loaded by the tool process points to credential access (memory)?</li><li>Which service account&#x27;s credentials were used to log on elsewhere?</li><li>What server was that credential used against?</li><li>What is the cleartext password for that account, as seen on the wire?</li><li>What is the IP address of the server the stolen account logged on to?</li><li>What logon type did the stolen account use on the workstation log?</li><li>From what address did the attacker first reach the workstation?</li><li>When was the stolen credential first used against the file server (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What credential dumping tool was run on the workstation?</li><li>When did that tool run (UTC)?</li><li>What is the full path of the tool as recorded in the process creation event?</li><li>What is the IP address of the server the stolen account logged on to?</li></ol>
+        <p class="qmore">Plus 7 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Wireshark</span><span class="chip">Registry Explorer</span><span class="chip">Event Viewer</span></div>
       </div>
@@ -581,8 +612,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Kenji Silva reported that a crypto transfer went to the wrong address and the funds are gone. The working theory is clipboard-hijacking malware on IRONWO-LT38: something that watches for a copied wallet address and swaps in the attacker&#x27;s. There is also concern that a recovery phrase was captured.</p>
-        <h4>Investigation questions (10)</h4>
-        <ol class="qlist"><li>What is the name of the clipboard-hijacking process seen in memory?</li><li>What is the full path of the malicious executable?</li><li>What IP was the malware connected to (memory)?</li><li>What Run key value provides persistence for the malware?</li><li>What is the SHA-256 of the malware recovered from disk?</li><li>What is the attacker wallet address the malware swapped in (from the dropped note)?</li><li>When was the malware first executed (Prefetch last run, UTC)?</li><li>Which cryptocurrency exchange did the user log into?</li><li>What did the user search after the funds were lost?</li><li>What withdrawal code did the exchange SMS contain?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the name of the clipboard-hijacking process seen in memory?</li><li>What is the full path of the malicious executable?</li><li>What IP was the malware connected to (memory)?</li><li>When was the malware first executed (Prefetch last run, UTC)?</li></ol>
+        <p class="qmore">Plus 6 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span><span class="chip">DB Browser for SQLite</span></div>
       </div>
@@ -598,8 +630,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Falcon Capital escalated an endpoint alert from the finance floor. Anika Quinn (Accounts Payable Specialist) had complained that a supplier&#x27;s document &quot;would not open&quot; on DESKTOP-CLXJWF0. Not long after, the endpoint agent flagged an unfamiliar process making outbound connections over and over.</p>
-        <h4>Investigation questions (15)</h4>
-        <ol class="qlist"><li>What is the From address of the phishing email?</li><li>What is the originating IP of the phishing email (first external Received hop)?</li><li>Did SPF pass or fail for the phishing email?</li><li>What is the SHA-256 of the email attachment?</li><li>From what domain was the executable payload downloaded?</li><li>What is the SHA-256 of the downloaded executable payload?</li><li>What is the name of the malicious process observed in memory?</li><li>What is the C2 IP address the malicious process was connected to?</li><li>What destination port did the C2 connection use?</li><li>What is the name of the Run key value used for persistence?</li><li>What command does the persistence Run key launch?</li><li>When was the payload first executed (Prefetch last run, UTC)?</li><li>What search did the user run about the sender domain?</li><li>In the packet capture, what IP address did the C2 domain resolve to (DNS A record)?</li><li>How many seconds elapsed between the malware&#x27;s periodic check-ins to the C2 (beacon interval)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the From address of the phishing email?</li><li>What is the originating IP of the phishing email (first external Received hop)?</li><li>Did SPF pass or fail for the phishing email?</li><li>What is the SHA-256 of the email attachment?</li></ol>
+        <p class="qmore">Plus 11 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">Volatility</span><span class="chip">PECmd</span><span class="chip">Thunderbird</span></div>
       </div>
@@ -615,8 +648,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Derek Jenkins says they were nowhere near the warehouse the night it was hit. Their phone&#x27;s location history says otherwise. The extraction has a location database and the SMS thread. Read the recorded fix at the scene, read its coordinates and time, and line it up with the message that gives away what they were doing there.</p>
-        <h4>Investigation questions (8)</h4>
-        <ol class="qlist"><li>What latitude was recorded at the scene?</li><li>What longitude was recorded at the scene?</li><li>When was the phone at the scene (UTC)?</li><li>What label is attached to the scene location fix?</li><li>What text did the owner send from the scene?</li><li>Who did they text from the scene?</li><li>When was that text sent (UTC)?</li><li>Whose phone was extracted?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What latitude was recorded at the scene?</li><li>When was the phone at the scene (UTC)?</li><li>What label is attached to the scene location fix?</li><li>What text did the owner send from the scene?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
       </div>
@@ -632,8 +666,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Juniper Health Partners took JUNIPE-SRV21, a file server, offline after backups started failing and night staff noticed admin activity nobody could account for. Nothing has been encrypted. Responders think they caught the operator mid-setup: tools staged, a foothold in place, and tracks partly covered.</p>
-        <h4>Investigation questions (12)</h4>
-        <ol class="qlist"><li>When was the Security event log cleared (UTC)?</li><li>Which user account cleared the Security log?</li><li>What is the name of the new local account that was created?</li><li>What service was installed for persistence?</li><li>What is the ImagePath of the installed service?</li><li>What staging tool was executed (program name)?</li><li>How many times was the staging tool executed (Prefetch run count)?</li><li>What Run key value name was added for persistence?</li><li>What remote IP was the staging tool connected to (memory)?</li><li>What is the SHA-256 of the staged archive on disk?</li><li>From what source IP did the surviving administrator RDP logon originate?</li><li>What was the full command line of the staging tool (from memory)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>When was the Security event log cleared (UTC)?</li><li>Which user account cleared the Security log?</li><li>What is the ImagePath of the installed service?</li><li>How many times was the staging tool executed (Prefetch run count)?</li></ol>
+        <p class="qmore">Plus 8 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">PECmd</span></div>
       </div>
@@ -649,8 +684,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Lakeshore Foods came in to find its servers unusable and a ransom note on the shares. The note asks for payment twice over: once to decrypt, once to keep the stolen data off a leak site. The operators say they copied everything before they encrypted it.</p>
-        <h4>Investigation questions (14)</h4>
-        <ol class="qlist"><li>What command deleted the volume shadow copies?</li><li>When were the shadow copies deleted (UTC)?</li><li>What is the name of the encryptor process seen in memory?</li><li>What IP was the encryptor connected to (exfiltration and negotiation)?</li><li>What is the SHA-256 of the encryptor binary on disk?</li><li>What is the SHA-256 of the exfiltration archive on disk?</li><li>What leak or negotiation domain does the ransom note reference?</li><li>What case or victim ID does the ransom note assign?</li><li>What service was installed to run the encryptor?</li><li>What file extension were encrypted files given (from an affected file on disk)?</li><li>When was the encryptor executed (UTC)?</li><li>From what IP did the operator log on?</li><li>In the packet capture, what IP address did the leak/negotiation domain resolve to (DNS A record)?</li><li>How many bytes were sent to the exfiltration server in the bulk outbound transfer?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What command deleted the volume shadow copies?</li><li>When were the shadow copies deleted (UTC)?</li><li>What IP was the encryptor connected to (exfiltration and negotiation)?</li><li>What is the SHA-256 of the encryptor binary on disk?</li></ol>
+        <p class="qmore">Plus 10 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">EvtxECmd</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span><span class="chip">PECmd</span></div>
       </div>
@@ -666,8 +702,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A developer at Juniper Logistics saw a pop-up on a vendor&#x27;s site saying their design tool needed an urgent update, and clicked through. Two days later the network team flagged JUNIPE-WS89 for regular outbound connections to an address nobody recognized. The machine was captured before it was rebooted.</p>
-        <h4>Investigation questions (12)</h4>
-        <ol class="qlist"><li>From which domain was the installer downloaded?</li><li>When did the download start (UTC)?</li><li>What is the SHA-256 of the downloaded installer?</li><li>What is the full path of the installer as recorded in the process creation event?</li><li>What service did the installer create?</li><li>What is the ImagePath of that service?</li><li>What IP address did the command-and-control domain resolve to?</li><li>What is the SHA-256 of the second-stage file fetched over HTTP?</li><li>How many seconds apart are the beacon check-ins?</li><li>Which process in memory holds the connection to the C2 address?</li><li>What is the parent process of that connected process?</li><li>What remote port is the beacon connection using?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>From which domain was the installer downloaded?</li><li>When did the download start (UTC)?</li><li>What is the SHA-256 of the downloaded installer?</li><li>What is the full path of the installer as recorded in the process creation event?</li></ol>
+        <p class="qmore">Plus 8 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">Wireshark</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">PECmd</span></div>
       </div>
@@ -683,8 +720,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Westbrook Health Partners saw one of its VPN accounts log in from a country no one on staff was in. Not long after, WESTBR-WS78 started making the same outbound connection on a schedule, and a service password went across the wire in plain text. You have the packet capture, the event logs, the Azure sign-in logs, and a memory export. Work out where the login came from, what the machine was talking to and how often, and what credential leaked.</p>
-        <h4>Investigation questions (10)</h4>
-        <ol class="qlist"><li>From what IP did the successful VPN login originate?</li><li>From what country (code) was the login?</li><li>How many failed logons preceded the success?</li><li>What IP was the workstation beaconing to (from the capture)?</li><li>How many seconds apart were the beacons?</li><li>How many times did the workstation beacon out?</li><li>What service username was sent over cleartext FTP?</li><li>What password went across the wire in plain text?</li><li>What is the name of the beacon process in memory?</li><li>What domain did the beacon resolve before connecting?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>From what IP did the successful VPN login originate?</li><li>From what country (code) was the login?</li><li>How many seconds apart were the beacons?</li><li>What domain did the beacon resolve before connecting?</li></ol>
+        <p class="qmore">Plus 6 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Wireshark</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">jq</span></div>
       </div>
@@ -700,8 +738,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Ironwood Foods learned that its customer database is for sale. Suspicion fell on Zach Edwards, a Senior Data Analyst with broad, legitimate access to exactly that data. There is no malware in this case. The insider used their own rights, which means the job is to prove intent and find the exfil channels inside activity that mostly looks like a normal day, and then tie the insider to the buyer.</p>
-        <h4>Investigation questions (20)</h4>
-        <ol class="qlist"><li>What account is under investigation?</li><li>When did the after-hours logon occur (UTC)?</li><li>What customer data file was exported?</li><li>What is the SHA-256 of the exported file recovered from disk?</li><li>What is the SHA-256 of the file attached to the outbound personal email?</li><li>To what personal address was the export emailed?</li><li>To what personal cloud service did the user upload files?</li><li>What incriminating search did the user run before exporting?</li><li>What is the serial number of the USB device that was connected?</li><li>When was the USB device first connected (UTC)?</li><li>What archive was written to the removable drive (from the shortcut)?</li><li>What is the SHA-256 of the staged archive on disk?</li><li>What did the insider offer the buyer in the outgoing message?</li><li>What payment did the buyer agree to (from their reply)?</li><li>What is the buyer&#x27;s contact name in the phone?</li><li>From what internal IP were the bulk cloud file downloads made?</li><li>To what address did the M365 mailbox rule forward mail?</li><li>From what AWS bucket did the insider pull the export?</li><li>What object key did the insider download from that bucket?</li><li>When was the copy emailed to the personal address (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What account is under investigation?</li><li>When did the after-hours logon occur (UTC)?</li><li>What is the SHA-256 of the exported file recovered from disk?</li><li>To what address did the M365 mailbox rule forward mail?</li></ol>
+        <p class="qmore">Plus 16 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">jq</span><span class="chip">Thunderbird</span><span class="chip">DB Browser for SQLite</span></div>
       </div>
@@ -717,8 +756,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>The City of Fairhaven called for help after residents reported their data for sale and the emergency dispatch system went dark for an afternoon. This was not one machine. The attacker moved through the city network for days, touching the clerk&#x27;s office, police records, emergency management, and finance, and left a ransom demand behind. Several city accounts were used, some legitimately and some not.</p>
-        <h4>Investigation questions (26)</h4>
-        <ol class="qlist"><li>What is the sender address of the phishing email that started the breach?</li><li>What is the originating IP of the phishing email?</li><li>What is the SHA-256 of the phishing attachment?</li><li>From what IP was the clerk&#x27;s Microsoft 365 account used?</li><li>From what country (code) were the city accounts accessed?</li><li>Which city account was used to reach the police records system?</li><li>What police case file was downloaded from the city cloud?</li><li>What is the SHA-256 of the exfiltrated police case file (recovered from disk)?</li><li>What resident data file was exfiltrated from cloud storage?</li><li>What is the SHA-256 of the resident data file recovered from disk?</li><li>What host in emergency management did the attacker log on to?</li><li>What persistence service did the attacker install on the finance server?</li><li>What is the ImagePath of the persistence service?</li><li>What is the name of the payload process in memory?</li><li>What C2 IP was the finance server beaconing to (from the capture)?</li><li>How many seconds apart were the beacons?</li><li>What domain did the beacon resolve before connecting?</li><li>When was the finance server Security log cleared (UTC)?</li><li>What is the attacker&#x27;s ransom demand (amount and case ID) from the note?</li><li>What contact or leak domain does the ransom note reference?</li><li>What Case ID did the attacker assign to the city?</li><li>What did the attacker text to the emergency coordinator?</li><li>When was the police case file exfiltrated from the cloud (UTC)?</li><li>When was the payload executed on the finance server (Prefetch, UTC)?</li><li>What is the SHA-256 of the payload on the finance server disk?</li><li>What storage bucket held the resident data that was taken?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the sender address of the phishing email that started the breach?</li><li>What is the originating IP of the phishing email?</li><li>What is the SHA-256 of the phishing attachment?</li><li>Which city account was used to reach the police records system?</li></ol>
+        <p class="qmore">Plus 22 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">jq</span></div>
       </div>
@@ -734,8 +774,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>Meridian Aerospace was hit by ransomware on MERIDI-FS76 and in the cloud accounts connected to it. Files are encrypted, there is a note, and the operators say they took data first. They also cleared the endpoint Security log on the way out, so the server&#x27;s own record of logons and process starts is gone.</p>
-        <h4>Investigation questions (26)</h4>
-        <ol class="qlist"><li>What is the sender address of the phishing email that began the intrusion?</li><li>What is the originating IP of the phishing email?</li><li>What is the SHA-256 of the downloaded payload (recovered from disk)?</li><li>From what domain was the payload downloaded?</li><li>What is the name of the initial payload process in memory?</li><li>What C2 IP did the payload connect to?</li><li>What port did the initial C2 connection use?</li><li>What Run key value name provides persistence?</li><li>What service was installed during the intrusion?</li><li>What credential-theft module is loaded in the payload process (memory)?</li><li>From what IP did the attacker access the cloud console?</li><li>From what country (code) was the cloud sign-in?</li><li>What AWS access key ID did the attacker create for cloud persistence?</li><li>What new IAM user did the attacker create?</li><li>What storage bucket was customer data exfiltrated from?</li><li>What is the SHA-256 of the on-disk exfiltration archive?</li><li>What command deleted the volume shadow copies (from memory)?</li><li>What is the name of the encryptor process (memory)?</li><li>What is the SHA-256 of the encryptor on disk?</li><li>What file extension were encrypted files given?</li><li>What negotiation domain does the ransom note reference?</li><li>What Case ID does the ransom note assign?</li><li>When was the endpoint Security log cleared (UTC)?</li><li>When was the encryptor executed (Prefetch last run, UTC)?</li><li>When was data exfiltrated to cloud storage (UTC)?</li><li>What object key (file) was taken from the cloud bucket?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the sender address of the phishing email that began the intrusion?</li><li>What is the originating IP of the phishing email?</li><li>What is the SHA-256 of the downloaded payload (recovered from disk)?</li><li>What port did the initial C2 connection use?</li></ol>
+        <p class="qmore">Plus 22 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">jq</span></div>
       </div>
@@ -751,8 +792,9 @@
       <div class="body">
         <h4>Briefing</h4>
         <p>A third party told Summit Foods that its documents had been seen on an espionage actor&#x27;s infrastructure. Nothing was encrypted and nobody noticed anything. The intrusion started on the public web server SUMMIT-WEB59 and worked inward from there. The actor cleared the System log after installing persistence and otherwise took care to look like an administrator.</p>
-        <h4>Investigation questions (20)</h4>
-        <ol class="qlist"><li>What is the full path of the web shell in the web root?</li><li>What is the SHA-256 of the web shell?</li><li>What parent process spawned the command shell (proving web shell execution)?</li><li>What reconnaissance command was run through the web shell?</li><li>What is the name of the second-stage tool process in memory?</li><li>What C2 IP was the second-stage tool connected to?</li><li>What credential-theft module is loaded in the tool process?</li><li>The System log was cleared. From the registry, what persistence service did the actor install?</li><li>What is the ImagePath of that persistence service (from the registry)?</li><li>When was the System log cleared (UTC)?</li><li>What source IP performed the lateral-movement logon?</li><li>From what IP was the cloud mailbox accessed?</li><li>From what country (code) was the mailbox accessed?</li><li>To what external address did the attacker forward mail (M365 rule)?</li><li>What operation created the mail-forwarding persistence in M365?</li><li>What is the SHA-256 of the staged exfiltration archive on disk?</li><li>How many times was the second-stage tool executed (Prefetch run count)?</li><li>When was the tool most recently run (Prefetch, UTC)?</li><li>What is the SHA-256 of the second-stage tool on disk?</li><li>When did the lateral-movement logon occur (UTC)?</li></ol>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the full path of the web shell in the web root?</li><li>What is the SHA-256 of the web shell?</li><li>What parent process spawned the command shell (proving web shell execution)?</li><li>What C2 IP was the second-stage tool connected to?</li></ol>
+        <p class="qmore">Plus 16 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">jq</span></div>
       </div>
