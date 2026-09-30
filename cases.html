@@ -41,7 +41,7 @@
 
   <section style="border-top:0;padding-top:24px">
     <div class="filterbar"><span class="flabel">Difficulty</span><button class="fp" data-diff="all" aria-pressed="true">All</button><button class="fp" data-diff="easy" aria-pressed="false">Easy</button><button class="fp" data-diff="medium" aria-pressed="false">Medium</button><button class="fp" data-diff="hard" aria-pressed="false">Hard</button><button class="fp" data-diff="expert" aria-pressed="false">Expert</button></div>
-    <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths</button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations</button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics</button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics</button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics</button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR</button></div>
+    <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths</button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations</button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics</button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics</button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics</button><button class="fp track" data-track="cloud" aria-pressed="false">Cloud &amp; SaaS</button><button class="fp track" data-track="linux" aria-pressed="false">Linux Forensics</button><button class="fp track" data-track="macos" aria-pressed="false">macOS Forensics</button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR</button></div>
     <p class="note" id="catcount" style="margin-top:14px"></p>
     <div class="caselist" id="caselist">
     <details class="ccard" data-diff="easy" data-tracks="foundations windows-forensics mobile-forensics">
@@ -80,12 +80,12 @@
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">FTK Imager</span><span class="chip">The Sleuth Kit</span></div>
       </div>
     </details>
-    <details class="ccard" data-diff="easy" data-tracks="foundations">
+    <details class="ccard" data-diff="easy" data-tracks="foundations cloud">
       <summary>
         <div class="top"><span class="tag easy">Easy</span></div>
         <h3><span>First Look: A Sign-In From Nowhere</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
         <p class="summary">One Azure sign-in log. Spot the login that does not belong, where it came from, and whether it got in.</p>
-        <div class="chips"><span class="chip trk trk-foundations">Foundations</span></div>
+        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
         <div class="meta"><span>8 questions</span><span>~40 min</span><span>96.0 pts</span></div>
       </summary>
       <div class="body">
@@ -314,12 +314,12 @@
         <div class="chips"><span class="chip">Volatility</span><span class="chip">text editor</span></div>
       </div>
     </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics mobile-forensics">
+    <details class="ccard" data-diff="medium" data-tracks="windows-forensics mobile-forensics cloud">
       <summary>
         <div class="top"><span class="tag medium">Medium</span></div>
         <h3><span>Account Takeover: MFA Fatigue</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
         <p class="summary">An attacker with a stolen password hammered a user with MFA prompts until one was approved, then signed in from abroad.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
         <div class="meta"><span>9 questions</span><span>~85 min</span><span>80.0 pts</span></div>
       </summary>
       <div class="body">
@@ -368,12 +368,12 @@
         <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
       </div>
     </details>
-    <details class="ccard" data-diff="medium" data-tracks="windows-forensics">
+    <details class="ccard" data-diff="medium" data-tracks="windows-forensics cloud">
       <summary>
         <div class="top"><span class="tag medium">Medium</span></div>
         <h3><span>Exfiltration to a Personal Cloud Drive</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
         <p class="summary">Browser history, a shortcut, and a mailbox. Follow a customer export from the CRM to a personal cloud drive and a personal inbox.</p>
-        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
+        <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
         <div class="meta"><span>10 questions</span><span>~80 min</span><span>104.0 pts</span></div>
       </summary>
       <div class="body">
@@ -585,12 +585,12 @@
       </div>
     </details>
 
-    <details class="ccard" data-diff="hard" data-tracks="advanced-ir">
+    <details class="ccard" data-diff="hard" data-tracks="advanced-ir cloud">
       <summary>
         <div class="top"><span class="tag hard">Hard</span></div>
         <h3><span>Cloud Account Compromise: Stolen Access Key</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
         <p class="summary">A developer&#x27;s leaked access key was used to sign in from abroad, add a second key and a new IAM user, and pull customer data out of a storage bucket.</p>
-        <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+        <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
         <div class="meta"><span>10 questions</span><span>~110 min</span><span>104.0 pts</span></div>
       </summary>
       <div class="body">
@@ -817,6 +817,158 @@
         <p class="qmore">Plus 16 more questions in the full case.</p>
         <h4>Suggested tools</h4>
         <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">jq</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="medium" data-tracks="cloud advanced-ir">
+      <summary>
+        <div class="top"><span class="tag medium">Medium</span></div>
+        <h3><span>Microsoft 365 Account Takeover</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">An executive's Microsoft 365 account is taken over from abroad. Trace the sign-in, the hidden forwarding rules, the file pulled from SharePoint, and how the attacker kept access.</p>
+        <div class="chips"><span class="chip trk trk-cloud">Cloud &amp; SaaS</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+        <div class="meta"><span>9 questions</span><span>~60 min</span><span>96 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>Somebody signed in as the finance director from a country the company does not operate in, set up mail forwarding to keep reading the replies, pulled a file from SharePoint, and granted themselves a role so they would not be locked out. You have the Azure AD sign-in logs and the Microsoft 365 Unified Audit Log.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What Microsoft 365 operation did the attacker use to auto-forward the mailbox?</li><li>To what external address did the inbox rule forward mail?</li><li>From what IP address did the attacker sign in?</li><li>When did the attacker sign in (UTC)?</li></ol>
+        <p class="qmore">Plus 5 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">jq</span><span class="chip">Splunk</span><span class="chip">spreadsheet</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="hard" data-tracks="mobile-forensics">
+      <summary>
+        <div class="top"><span class="tag hard">Hard</span></div>
+        <h3><span>Unwanted Contact: A Harassment Case</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">An Android extraction from a harassment complaint. Work the call log and messages: the repeated late-night calls, the one that was answered, the threat, and a reply that was deleted.</p>
+        <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+        <div class="meta"><span>9 questions</span><span>~70 min</span><span>94 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>A complaint about a former colleague who will not stop calling. The call detail records tell most of the story: a run of missed late-night calls, one finally answered, and a call back the next day. There is a threatening text, and a reply the owner deleted — but deleted texts do not really leave.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What phone number did the calls come from?</li><li>When was the first call from that number (UTC)?</li><li>How long was the answered call?</li><li>What did the owner's deleted reply say?</li></ol>
+        <p class="qmore">Plus 5 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">ALEAPP</span><span class="chip">DB Browser for SQLite</span><span class="chip">Autopsy</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="easy" data-tracks="foundations linux">
+      <summary>
+        <div class="top"><span class="tag easy">Easy</span></div>
+        <h3><span>First Look: Who Logged Into the Server</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">One Linux auth.log. Read the brute-force attempts, the login that finally worked, and what the attacker did once they were in.</p>
+        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-linux">Linux Forensics</span></div>
+        <div class="meta"><span>8 questions</span><span>~45 min</span><span>80 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>A Linux web server was behaving oddly and the team pulled /var/log/auth.log. Something had been hammering SSH before one login finally succeeded. Find where the attempts came from, which account they got into, when, and what they did first.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>From what IP did the brute-force attempts and the successful login come?</li><li>Which account did the attacker log in as?</li><li>How many failed SSH attempts came from that IP?</li><li>What command did they run as root to read the password hashes?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">grep</span><span class="chip">Timesketch</span><span class="chip">text editor</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="medium" data-tracks="linux advanced-ir">
+      <summary>
+        <div class="top"><span class="tag medium">Medium</span></div>
+        <h3><span>Backdoors on a Linux Server</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">A compromised Linux host. Find how the attacker stayed in: a new account, a cron job, an added SSH key, and the payload they pulled down.</p>
+        <div class="chips"><span class="chip trk trk-linux">Linux Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+        <div class="meta"><span>8 questions</span><span>~70 min</span><span>92 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>The server keeps getting reinfected. You have auth.log, root's shell history, the cron directory, and root's authorized_keys. Work out the account they added, the scheduled job they planted, the SSH key they left behind, and what they downloaded to run.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What IP address did the attacker log in from?</li><li>What user account did the attacker add?</li><li>What command does the attacker's cron job run?</li><li>What is the comment on the extra SSH key added to root?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">grep</span><span class="chip">Timesketch</span><span class="chip">text editor</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="hard" data-tracks="linux network-forensics advanced-ir">
+      <summary>
+        <div class="top"><span class="tag hard">Hard</span></div>
+        <h3><span>Web Shell on a Linux Web Server</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">A Linux web server breached through an uploaded web shell. Read the access log and shell history: the upload, the commands, the privilege escalation, and the data that left.</p>
+        <div class="chips"><span class="chip trk trk-linux">Linux Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+        <div class="meta"><span>8 questions</span><span>~80 min</span><span>88 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>After an alert about odd traffic, the team pulled the Apache access log, auth.log, and the web user's shell history. Someone uploaded a web shell and used it to run commands, escalate to root, and pull the app's config and data. Reconstruct it end to end.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the path of the web shell the attacker uploaded?</li><li>From what IP was the web shell driven?</li><li>Which account was used to escalate to a root shell?</li><li>What command archived and exfiltrated the config?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">grep</span><span class="chip">Timesketch</span><span class="chip">text editor</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="easy" data-tracks="foundations macos">
+      <summary>
+        <div class="top"><span class="tag easy">Easy</span></div>
+        <h3><span>First Look: Where Did This Mac App Come From?</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">A Mac triage set. A user installed something they shouldn't have. Use the quarantine database and Safari history to trace where the file came from and how they got there.</p>
+        <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-macos">macOS Forensics</span></div>
+        <div class="meta"><span>8 questions</span><span>~45 min</span><span>80 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>On a Mac, every file downloaded through a browser is stamped in the LSQuarantine database with where it came from, and Safari keeps the pages that led there. Read the quarantine record and the Safari history: find the download URL, the page it came from, who downloaded it, and when.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What URL was the app downloaded from?</li><li>What page was the user on when they downloaded it?</li><li>Which application performed the download?</li><li>What download page did the user land on in Safari?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">mac_apt</span><span class="chip">DB Browser for SQLite</span><span class="chip">text editor</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="medium" data-tracks="macos advanced-ir">
+      <summary>
+        <div class="top"><span class="tag medium">Medium</span></div>
+        <h3><span>A Launch Agent That Shouldn't Be There</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">A Mac with malware persistence. Trace the dropped file to a LaunchAgent that reruns it, using the quarantine record, the plist, the shell history, and the unified log.</p>
+        <div class="chips"><span class="chip trk trk-macos">macOS Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+        <div class="meta"><span>8 questions</span><span>~65 min</span><span>92 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>The Mac keeps reinfecting itself after cleanup — usually a LaunchAgent relaunching the payload at login. Using the LSQuarantine database, the LaunchAgents folder, the zsh history, and a unified-log export, find the LaunchAgent, what it runs, where the payload came from, and when it first ran.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What is the Label of the LaunchAgent providing persistence?</li><li>What program does that LaunchAgent run?</li><li>What URL was the payload downloaded from?</li><li>What command registered the LaunchAgent?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">mac_apt</span><span class="chip">DB Browser for SQLite</span><span class="chip">text editor</span></div>
+      </div>
+    </details>
+
+    <details class="ccard" data-diff="hard" data-tracks="macos advanced-ir">
+      <summary>
+        <div class="top"><span class="tag hard">Hard</span></div>
+        <h3><span>Mac Insider: Data Out the Back Door</span><span class="chev"><span class="more">Read ▾</span><span class="less">Close ▴</span></span></h3>
+        <p class="summary">A departing employee's Mac. Reconstruct how they staged and moved company data off the machine, using the shell history, Safari, the quarantine record, and the unified log.</p>
+        <div class="chips"><span class="chip trk trk-macos">macOS Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+        <div class="meta"><span>8 questions</span><span>~80 min</span><span>96 pts</span></div>
+      </summary>
+      <div class="body">
+        <h4>Briefing</h4>
+        <p>Legal wants to know whether a departing employee took data. From the zsh history, Safari history, the LSQuarantine database, and a unified-log export, work out the tool they pulled down, how they archived the files, where they sent them, and the external volume the log shows being mounted.</p>
+        <h4>Sample questions</h4>
+        <ol class="qlist"><li>What command archived the company folders?</li><li>What command uploaded the archive off the machine?</li><li>What personal cloud site did the employee sign into?</li><li>What external volume does the unified log show being mounted?</li></ol>
+        <p class="qmore">Plus 4 more questions in the full case.</p>
+        <h4>Suggested tools</h4>
+        <div class="chips"><span class="chip">mac_apt</span><span class="chip">DB Browser for SQLite</span><span class="chip">text editor</span></div>
       </div>
     </details>
     </div>
