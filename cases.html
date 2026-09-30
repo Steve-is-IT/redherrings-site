@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All 42 Cases | Red Herrings Digital Forensics Labs</title>
+<meta name="description" content="Browse all 42 Red Herrings digital forensics cases across Easy, Medium, Hard and Expert difficulty and five certification-prep tracks (GCFE, GCFA, GNFA, mobile and foundations). Each case generates a unique, auto-graded lab per student.">
+<link rel="canonical" href="https://redherrings.app/cases.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:title" content="All 42 Cases — Red Herrings">
+<meta property="og:description" content="Every Red Herrings forensics case: disk, registry, event logs, memory, network, mobile and cloud, across difficulty levels and certification-prep tracks.">
+<meta property="og:url" content="https://redherrings.app/cases.html">
+<meta property="og:image" content="https://redherrings.app/img/library.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="/#features">Features</a>
+    <a class="link" href="/#how">How it works</a>
+    <a class="link" href="cases.html">Cases</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="link" href="help.html">Help</a>
+    <a class="btn" href="/#pricing">Get a license</a>
+  </div>
+</header>
+<main class="wrap">
+  <div class="pagehead">
+    <div class="crumb"><a href="/">Home</a> / Cases</div>
+    <h1>The case library</h1>
+    <p>All 42 cases, from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by difficulty or by the certification path it prepares you for.</p>
+  </div>
+
+  <section style="border-top:0;padding-top:24px">
+    <div class="filterbar"><span class="flabel">Difficulty</span><button class="fp" data-diff="all" aria-pressed="true">All<span class="n">42</span></button><button class="fp" data-diff="easy" aria-pressed="false">Easy<span class="n">15</span></button><button class="fp" data-diff="medium" aria-pressed="false">Medium<span class="n">14</span></button><button class="fp" data-diff="hard" aria-pressed="false">Hard<span class="n">9</span></button><button class="fp" data-diff="expert" aria-pressed="false">Expert<span class="n">4</span></button></div>
+    <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths<span class="n">42</span></button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations<span class="n">15</span></button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics<span class="n">16</span></button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics<span class="n">6</span></button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics<span class="n">8</span></button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR<span class="n">25</span></button></div>
+    <p class="note" id="catcount" style="margin-top:14px"></p>
+    <div class="caselist" id="caselist">
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics" data-name="employee misconduct investigation">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>Employee Misconduct Investigation</h3>
+      <p class="summary">An employee is alleged to have run a side business on company time and passed internal pricing to an outside contact.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
+      <div class="meta"><span>11 questions</span><span>~75 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics" data-name="first look: a deleted file">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: A Deleted File</h3>
+      <p class="summary">One small disk image. Recover a deleted document, carve a file out of unallocated space, and catch a file hiding behind the wrong extension.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">FTK Imager</span><span class="chip">The Sleuth Kit</span></div>
+      <div class="meta"><span>8 questions</span><span>~50 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations advanced-ir" data-name="first look: a sign-in from nowhere">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: A Sign-In From Nowhere</h3>
+      <p class="summary">One Azure sign-in log. Spot the login that does not belong, where it came from, and whether it got in.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">jq</span><span class="chip">Spreadsheet</span><span class="chip">Timesketch</span></div>
+      <div class="meta"><span>8 questions</span><span>~40 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics advanced-ir" data-name="first look: accounts and services in the logs">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: Accounts and Services in the Logs</h3>
+      <p class="summary">Security and System logs. Spot the new account someone created and the service that was installed right after.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span></div>
+      <div class="meta"><span>8 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics" data-name="first look: after-hours logon">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: After-Hours Logon</h3>
+      <p class="summary">One Security event log. Find a remote logon, where it came from, and the failed attempts before it.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span></div>
+      <div class="meta"><span>8 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics advanced-ir" data-name="first look: building a timeline">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: Building a Timeline</h3>
+      <p class="summary">Two artifacts, one clock. Line up a browser download and a Security log to reconstruct the order things happened.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Timesketch</span><span class="chip">EvtxECmd</span><span class="chip">DB Browser for SQLite</span></div>
+      <div class="meta"><span>8 questions</span><span>~55 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations advanced-ir" data-name="first look: phishing triage">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: Phishing Triage</h3>
+      <p class="summary">One mailbox. Tell the real message from the fake and pull the sender details.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Thunderbird</span><span class="chip">text editor</span></div>
+      <div class="meta"><span>8 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations network-forensics" data-name="first look: reading a packet capture">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: Reading a Packet Capture</h3>
+      <p class="summary">One packet capture. Follow a DNS lookup to a beacon, then read a login and a file transfer sent in the clear.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Network Forensics</span></div>
+      <div class="chips"><span class="chip">Wireshark</span><span class="chip">tshark</span></div>
+      <div class="meta"><span>8 questions</span><span>~50 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics" data-name="first look: recent files and jump lists">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: Recent Files and Jump Lists</h3>
+      <p class="summary">Shortcuts, jump lists and registry MRUs. Reconstruct what an employee opened, and which file came off a USB drive.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">JLECmd</span><span class="chip">LECmd</span><span class="chip">Registry Explorer</span></div>
+      <div class="meta"><span>8 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations mobile-forensics" data-name="first look: recovered phone">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: Recovered Phone</h3>
+      <p class="summary">One Android SMS extraction. Read the thread and pin down the contact, the message, and the times.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Mobile Forensics</span></div>
+      <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
+      <div class="meta"><span>8 questions</span><span>~40 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics" data-name="first look: suspicious download">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: Suspicious Download</h3>
+      <p class="summary">One Chrome history database. Work out what the user searched for, where they went, and what they downloaded.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">Browser History Viewer</span></div>
+      <div class="meta"><span>8 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics" data-name="first look: usb device history">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: USB Device History</h3>
+      <p class="summary">One registry hive. Work out which USB drive was plugged into the machine and when.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">Registry Explorer</span><span class="chip">RegRipper</span></div>
+      <div class="meta"><span>8 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics" data-name="first look: what ran on this machine">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: What Ran on This Machine</h3>
+      <p class="summary">One user profile. Work out which downloaded utility was run, how often, and when, using Prefetch, UserAssist and a shortcut.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">PECmd</span><span class="chip">Registry Explorer</span><span class="chip">LECmd</span></div>
+      <div class="meta"><span>9 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics advanced-ir" data-name="first look: what runs at startup">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: What Runs at Startup</h3>
+      <p class="summary">Two registry hives. Find the program set to launch itself at startup and the service quietly installed to keep it alive.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Windows Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Registry Explorer</span><span class="chip">RegRipper</span><span class="chip">PECmd</span></div>
+      <div class="meta"><span>8 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="easy" data-tracks="foundations advanced-ir" data-name="first look: what&#x27;s in memory">
+      <div class="top"><span class="tag easy">Easy</span></div>
+      <h3>First Look: What&#x27;s in Memory</h3>
+      <p class="summary">One memory capture. Find the process that shouldn&#x27;t be running, where it lives, and the server it phones home to.</p>
+      <div class="chips"><span class="chip trk">Foundations</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Volatility</span><span class="chip">text editor</span></div>
+      <div class="meta"><span>8 questions</span><span>~45 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="advanced-ir" data-name="account takeover: mfa fatigue">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Account Takeover: MFA Fatigue</h3>
+      <p class="summary">An attacker with a stolen password hammered a user with MFA prompts until one was approved, then signed in from abroad.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">EvtxECmd</span><span class="chip">Autopsy</span><span class="chip">Thunderbird</span><span class="chip">DB Browser for SQLite</span></div>
+      <div class="meta"><span>9 questions</span><span>~85 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="advanced-ir" data-name="business email compromise: wire fraud">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Business Email Compromise: Wire Fraud</h3>
+      <p class="summary">A finance controller wired money to an attacker&#x27;s account after a spoofed executive email and a lookalike vendor followed up with new bank details.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Thunderbird</span><span class="chip">Autopsy</span><span class="chip">DB Browser for SQLite</span></div>
+      <div class="meta"><span>10 questions</span><span>~100 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics" data-name="coordinating an after-hours theft">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Coordinating an After-Hours Theft</h3>
+      <p class="summary">An Android extraction. Two employees coordinated a warehouse theft by text - find the accomplice and the plan.</p>
+      <div class="chips"><span class="chip trk">Mobile Forensics</span></div>
+      <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
+      <div class="meta"><span>8 questions</span><span>~50 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir" data-name="exfiltration to a personal cloud drive">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Exfiltration to a Personal Cloud Drive</h3>
+      <p class="summary">Browser history, a shortcut, and a mailbox. Follow a customer export from the CRM to a personal cloud drive and a personal inbox.</p>
+      <div class="chips"><span class="chip trk">Windows Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">LECmd</span><span class="chip">Thunderbird</span></div>
+      <div class="meta"><span>10 questions</span><span>~80 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="network-forensics" data-name="exfiltration to a personal server">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Exfiltration to a Personal Server</h3>
+      <p class="summary">One packet capture. An employee uploaded data to a personal server over plain HTTP - read the login and measure what left.</p>
+      <div class="chips"><span class="chip trk">Network Forensics</span></div>
+      <div class="chips"><span class="chip">Wireshark</span><span class="chip">tshark</span><span class="chip">NetworkMiner</span></div>
+      <div class="meta"><span>8 questions</span><span>~55 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="advanced-ir" data-name="gift card scam: ceo impersonation">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Gift Card Scam: CEO Impersonation</h3>
+      <p class="summary">An employee was talked into buying gift cards by someone posing as the CEO over email and text.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Thunderbird</span><span class="chip">DB Browser for SQLite</span></div>
+      <div class="meta"><span>9 questions</span><span>~60 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir" data-name="insider data leak via ai assistant">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Insider Data Leak via AI Assistant</h3>
+      <p class="summary">An engineer pasted confidential source and customer data into a public AI chatbot and sent an export of customer records to a personal account.</p>
+      <div class="chips"><span class="chip trk">Windows Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">DB Browser for SQLite</span><span class="chip">Thunderbird</span></div>
+      <div class="meta"><span>9 questions</span><span>~90 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics" data-name="insider data theft via usb">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Insider Data Theft via USB</h3>
+      <p class="summary">An engineer is suspected of copying proprietary designs to a personal USB drive before resigning.</p>
+      <div class="chips"><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">FTK Imager</span><span class="chip">PECmd</span></div>
+      <div class="meta"><span>15 questions</span><span>~90 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir" data-name="rogue admin account">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Rogue Admin Account</h3>
+      <p class="summary">Security and System logs plus the registry. Find the account that should not exist, who made it, and the two ways it was set up to survive a reboot.</p>
+      <div class="chips"><span class="chip trk">Windows Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Event Viewer</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span><span class="chip">PECmd</span></div>
+      <div class="meta"><span>11 questions</span><span>~75 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="windows-forensics" data-name="snooping: unauthorized record access">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Snooping: Unauthorized Record Access</h3>
+      <p class="summary">A staff member pulled up records they had no reason to touch, then exported them.</p>
+      <div class="chips"><span class="chip trk">Windows Forensics</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Browser History Viewer</span><span class="chip">Event Viewer</span></div>
+      <div class="meta"><span>8 questions</span><span>~70 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics" data-name="texting secrets to a competitor">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Texting Secrets to a Competitor</h3>
+      <p class="summary">An Android extraction. Find which outside contact a salesperson leaked pricing to, what was sent, and when.</p>
+      <div class="chips"><span class="chip trk">Mobile Forensics</span></div>
+      <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span></div>
+      <div class="meta"><span>8 questions</span><span>~55 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics" data-name="the deal on whatsapp">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>The Deal on WhatsApp</h3>
+      <p class="summary">An Android extraction with a WhatsApp message store. Read the chat that coordinated the payoff and identify who.</p>
+      <div class="chips"><span class="chip trk">Mobile Forensics</span></div>
+      <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
+      <div class="meta"><span>8 questions</span><span>~55 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics" data-name="the texts they deleted">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>The Texts They Deleted</h3>
+      <p class="summary">An Android extraction where the suspect wiped incriminating texts. Carve them back out of unallocated space.</p>
+      <div class="chips"><span class="chip trk">Mobile Forensics</span></div>
+      <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
+      <div class="meta"><span>8 questions</span><span>~55 min</span></div>
+    </article>
+    <article class="ccard" data-diff="medium" data-tracks="network-forensics advanced-ir" data-name="web shell on a small business server">
+      <div class="top"><span class="tag medium">Medium</span></div>
+      <h3>Web Shell on a Small Business Server</h3>
+      <p class="summary">A small business web server was compromised through a web shell used to run commands and install persistence.</p>
+      <div class="chips"><span class="chip trk">Network Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">EvtxECmd</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span></div>
+      <div class="meta"><span>14 questions</span><span>~90 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="advanced-ir" data-name="cloud account compromise: stolen access key">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>Cloud Account Compromise: Stolen Access Key</h3>
+      <p class="summary">A developer&#x27;s leaked access key was used to sign in from abroad, add a second key and a new IAM user, and pull customer data out of a storage bucket.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">jq</span><span class="chip">Timesketch</span><span class="chip">Splunk</span><span class="chip">spreadsheet</span></div>
+      <div class="meta"><span>10 questions</span><span>~110 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="network-forensics advanced-ir" data-name="credential theft and lateral movement">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>Credential Theft and Lateral Movement</h3>
+      <p class="summary">A dumping tool in memory, a stolen service account, and a cleartext login on the wire. Follow one harvested credential from the first host to a second.</p>
+      <div class="chips"><span class="chip trk">Network Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Wireshark</span><span class="chip">Registry Explorer</span></div>
+      <div class="meta"><span>11 questions</span><span>~120 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="advanced-ir" data-name="cryptocurrency theft: clipboard hijack">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>Cryptocurrency Theft: Clipboard Hijack</h3>
+      <p class="summary">A user&#x27;s cryptocurrency vanished after malware on the workstation swapped wallet addresses on the clipboard and captured a recovery phrase.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span><span class="chip">DB Browser for SQLite</span></div>
+      <div class="meta"><span>10 questions</span><span>~110 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="advanced-ir" data-name="phishing to malware to command and control">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>Phishing to Malware to Command and Control</h3>
+      <p class="summary">A finance employee opened a phishing attachment; the workstation later showed a remote-controlled process and persistence.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">Volatility</span><span class="chip">PECmd</span></div>
+      <div class="meta"><span>15 questions</span><span>~120 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="mobile-forensics" data-name="placing the phone at the scene">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>Placing the Phone at the Scene</h3>
+      <p class="summary">An Android extraction with location history. Put the phone at the scene at the right time, and tie it to a text.</p>
+      <div class="chips"><span class="chip trk">Mobile Forensics</span></div>
+      <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">ALEAPP</span><span class="chip">Autopsy</span></div>
+      <div class="meta"><span>8 questions</span><span>~60 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="advanced-ir" data-name="ransomware precursor: staging and log clearing">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>Ransomware Precursor: Staging and Log Clearing</h3>
+      <p class="summary">An admin account was used to stage tools, add a hidden account, and clear the event logs ahead of an expected encryption run.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span></div>
+      <div class="meta"><span>12 questions</span><span>~110 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="advanced-ir" data-name="ransomware: double extortion">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>Ransomware: Double Extortion</h3>
+      <p class="summary">Ransomware hit a server. Data was exfiltrated first, shadow copies deleted, files encrypted, and a note left threatening to publish.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">EvtxECmd</span><span class="chip">Volatility</span><span class="chip">Registry Explorer</span></div>
+      <div class="meta"><span>14 questions</span><span>~130 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="network-forensics advanced-ir" data-name="trojanized software update">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>Trojanized Software Update</h3>
+      <p class="summary">A fake update installer, a service, a beacon and an injected process. Follow one download from the browser to the network and into memory.</p>
+      <div class="chips"><span class="chip trk">Network Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">DB Browser for SQLite</span><span class="chip">Wireshark</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span></div>
+      <div class="meta"><span>12 questions</span><span>~120 min</span></div>
+    </article>
+    <article class="ccard" data-diff="hard" data-tracks="network-forensics advanced-ir" data-name="vpn account compromise and beacon">
+      <div class="top"><span class="tag hard">Hard</span></div>
+      <h3>VPN Account Compromise and Beacon</h3>
+      <p class="summary">A VPN account was accessed from abroad and the workstation started beaconing out, with a password sent in the clear.</p>
+      <div class="chips"><span class="chip trk">Network Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Wireshark</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">jq</span></div>
+      <div class="meta"><span>10 questions</span><span>~100 min</span></div>
+    </article>
+    <article class="ccard" data-diff="expert" data-tracks="windows-forensics advanced-ir" data-name="expert: inside job (insider and collusion)">
+      <div class="top"><span class="tag expert">Expert</span></div>
+      <h3>Expert: Inside Job (Insider and Collusion)</h3>
+      <p class="summary">A trusted insider with legitimate access sold customer data to an outside buyer over months, moving it out through personal cloud, personal email, and a USB drive, and coordinating by text.</p>
+      <div class="chips"><span class="chip trk">Windows Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Registry Explorer</span><span class="chip">jq</span><span class="chip">Thunderbird</span></div>
+      <div class="meta"><span>20 questions</span><span>~420 min</span></div>
+    </article>
+    <article class="ccard" data-diff="expert" data-tracks="network-forensics advanced-ir" data-name="expert: municipal breach (city government)">
+      <div class="top"><span class="tag expert">Expert</span></div>
+      <h3>Expert: Municipal Breach (City Government)</h3>
+      <p class="summary">A whole city government was breached across departments. Trace every foothold, from the clerk who got phished to police records, emergency management, finance, and the ransom.</p>
+      <div class="chips"><span class="chip trk">Network Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span></div>
+      <div class="meta"><span>26 questions</span><span>~600 min</span></div>
+    </article>
+    <article class="ccard" data-diff="expert" data-tracks="advanced-ir" data-name="expert: operation ledger (ransomware intrusion)">
+      <div class="top"><span class="tag expert">Expert</span></div>
+      <h3>Expert: Operation Ledger (Ransomware Intrusion)</h3>
+      <p class="summary">A full financially motivated intrusion, from spear-phish to cloud exfiltration to encryption, with the endpoint Security log cleared. Rebuild the whole chain from everything else.</p>
+      <div class="chips"><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span></div>
+      <div class="meta"><span>26 questions</span><span>~420 min</span></div>
+    </article>
+    <article class="ccard" data-diff="expert" data-tracks="network-forensics advanced-ir" data-name="expert: silent harvest (espionage intrusion)">
+      <div class="top"><span class="tag expert">Expert</span></div>
+      <h3>Expert: Silent Harvest (Espionage Intrusion)</h3>
+      <p class="summary">A patient espionage actor got in through a web shell, dumped credentials, moved laterally, and quietly pulled mail and documents out over weeks. No encryption, and careful cleanup.</p>
+      <div class="chips"><span class="chip trk">Network Forensics</span><span class="chip trk">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip">Autopsy</span><span class="chip">Volatility</span><span class="chip">EvtxECmd</span><span class="chip">Registry Explorer</span></div>
+      <div class="meta"><span>20 questions</span><span>~480 min</span></div>
+    </article>
+      <p class="emptymsg hide" id="empty">No cases match those filters. <a href="#" id="clearf">Clear filters</a>.</p>
+    </div>
+    <div class="cta-row" style="margin-top:40px"><button class="btn" data-buy>Start a free 14-day trial</button><a class="btn ghost" href="/#pricing">See pricing</a></div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings. Real Evidence. Real Skills. Real Fast.</span>
+      <span><a href="/">Home</a> &middot; <a href="help.html">Help</a> &middot; <a href="/#pricing">Pricing</a> &middot; <a href="mailto:sales@redherrings.app">sales@redherrings.app</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+  var diff="all", track="all";
+  var cards=[].slice.call(document.querySelectorAll(".ccard"));
+  function apply(){
+    var shown=0;
+    cards.forEach(function(c){
+      var okd = diff==="all" || c.dataset.diff===diff;
+      var okt = track==="all" || (" "+c.dataset.tracks+" ").indexOf(" "+track+" ")>=0;
+      var vis = okd && okt; c.classList.toggle("hide", !vis); if(vis) shown++;
+    });
+    document.getElementById("empty").classList.toggle("hide", shown>0);
+    document.getElementById("catcount").textContent = shown+" of "+cards.length+" cases";
+  }
+  document.querySelectorAll(".fp[data-diff]").forEach(function(b){
+    b.addEventListener("click",function(){ diff=b.dataset.diff;
+      document.querySelectorAll(".fp[data-diff]").forEach(function(x){x.setAttribute("aria-pressed", x===b?"true":"false");}); apply(); });
+  });
+  document.querySelectorAll(".fp[data-track]").forEach(function(b){
+    b.addEventListener("click",function(){ track=b.dataset.track;
+      document.querySelectorAll(".fp[data-track]").forEach(function(x){x.setAttribute("aria-pressed", x===b?"true":"false");}); apply(); });
+  });
+  document.getElementById("clearf").addEventListener("click",function(e){e.preventDefault(); diff="all"; track="all";
+    document.querySelectorAll(".fp").forEach(function(x){x.setAttribute("aria-pressed", (x.dataset.diff==="all"||x.dataset.track==="all")?"true":"false");}); apply(); });
+  document.querySelector("[data-buy]").addEventListener("click",function(){ window.location.href="/#pricing"; });
+  apply();
+</script>
+</body>
+</html>
