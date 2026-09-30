@@ -151,8 +151,10 @@ details p{color:var(--muted);margin:0 0 17px}
 .cta-band{text-align:center;padding:64px 0;border-top:1px solid var(--line)}
 .cta-band h2{margin-bottom:10px}
 footer{padding:44px 0 36px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-footer .cols{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}
-footer .fcol{min-width:150px}
+footer .cols{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1fr;gap:28px 32px;align-items:start}
+footer .fcol{min-width:0}
+@media (max-width:920px){footer .cols{grid-template-columns:1fr 1fr 1fr}footer .cols>div:first-child{grid-column:1 / -1}}
+@media (max-width:560px){footer .cols{grid-template-columns:1fr 1fr}}
 footer .fcol h4{margin:0 0 12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
 footer .fcol a{display:block;color:var(--muted);margin:0 0 9px;transition:color .15s ease}
 footer .fcol a:hover{color:var(--ink)}
