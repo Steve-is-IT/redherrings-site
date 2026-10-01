@@ -42,9 +42,16 @@
 
   <section style="border-top:0;padding-top:24px">
     <div class="filterbar"><span class="flabel">Difficulty</span><button class="fp" data-diff="all" aria-pressed="true">All</button><button class="fp" data-diff="easy" aria-pressed="false">Easy</button><button class="fp" data-diff="medium" aria-pressed="false">Medium</button><button class="fp" data-diff="hard" aria-pressed="false">Hard</button><button class="fp" data-diff="expert" aria-pressed="false">Expert</button></div>
-    <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths</button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations</button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics</button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics</button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics</button><button class="fp track" data-track="cloud" aria-pressed="false">Cloud &amp; SaaS</button><button class="fp track" data-track="linux" aria-pressed="false">Linux Forensics</button><button class="fp track" data-track="macos" aria-pressed="false">macOS Forensics</button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR</button></div>
+    <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths</button><button class="fp track" data-track="red-ball" aria-pressed="false">Red Ball</button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations</button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics</button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics</button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics</button><button class="fp track" data-track="cloud" aria-pressed="false">Cloud &amp; SaaS</button><button class="fp track" data-track="linux" aria-pressed="false">Linux Forensics</button><button class="fp track" data-track="macos" aria-pressed="false">macOS Forensics</button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR</button></div>
     <p class="note" id="catcount" style="margin-top:14px"></p>
     <div class="caselist" id="caselist">
+    <article class="ccard" data-diff="expert" data-tracks="red-ball advanced-ir">
+      <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">Up to 24 Q &middot; ~360 min</span></div>
+      <h3 class="cc-title">Nakatomi Plaza</h3>
+      <div class="cc-sub">Holiday Heist at Nakatomi Plaza</div>
+      <p class="cc-desc">A Red Ball capstone. On Christmas Eve a crew dressed a quiet data theft up as an activist attack on Nakatomi Corporation. Work the whole arc — phish, foothold, a freshly minted account, the vault, the exfil, and the misdirection — across every artifact. An early clue is the key to the end.</p>
+      <div class="chips"><span class="chip trk trk-redball">Red Ball</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
     <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics mobile-forensics">
       <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">Up to 11 Q &middot; ~35 min</span></div>
       <h3 class="cc-title">Side Hustle</h3>
@@ -331,7 +338,7 @@
       <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
     </article>
     <article class="ccard" data-diff="hard" data-tracks="network-forensics linux advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">Up to 8 Q &middot; ~70 min</span></div>
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">Up to 13 Q &middot; ~70 min</span></div>
       <h3 class="cc-title">Rabbit Hole</h3>
       <div class="cc-sub">Web Shell on a Linux Web Server</div>
       <p class="cc-desc">A Linux web server was breached through an uploaded web shell. Read the access log and shell history: the upload, the commands, the privilege escalation, and the data that left.</p>

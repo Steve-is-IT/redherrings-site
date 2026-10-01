@@ -240,8 +240,9 @@ footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10
 .chip.trk-cloud{--c:#0891b2}
 .chip.trk-linux{--c:#ca8a04}
 .chip.trk-macos{--c:#64748b}
+.chip.trk-redball{--c:#e5382f}
 .chip.trk-advanced{--c:#db2777}
-.chip.trk-windows,.chip.trk-mobile,.chip.trk-network,.chip.trk-cloud,.chip.trk-linux,.chip.trk-macos,.chip.trk-advanced{
+.chip.trk-windows,.chip.trk-mobile,.chip.trk-network,.chip.trk-cloud,.chip.trk-linux,.chip.trk-macos,.chip.trk-redball,.chip.trk-advanced{
   color:var(--c);
   border-color:color-mix(in srgb,var(--c) 42%,transparent);
   background:color-mix(in srgb,var(--c) 13%,transparent);
@@ -351,6 +352,8 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .fp.track[data-track="cloud"][aria-pressed=true]{background:#0891b2;border-color:#0891b2;color:#fff}
 .fp.track[data-track="linux"][aria-pressed=true]{background:#ca8a04;border-color:#ca8a04;color:#fff}
 .fp.track[data-track="macos"][aria-pressed=true]{background:#64748b;border-color:#64748b;color:#fff}
+.fp.track[data-track="red-ball"][aria-pressed=true]{background:#e5382f;border-color:#e5382f;color:#fff}
+.chip.trk-redball{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23000%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%278%27%2F%3E%3C%2Fsvg%3E")}
 
 /* Per-track glyphs (mask-image, so each inherits its track color) */
 .chip.trk{display:inline-flex;align-items:center;gap:6px}
