@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run a forensics exam students can't copy | Red Herrings</title>
+<meta name="description" content="Shared answer keys and copied answers are the quiet problem in hands-on DFIR courses. Here's how to run a digital forensics exam where every student gets a genuinely different case - in the browser or through your LMS.">
+<link rel="canonical" href="https://redherrings.app/blog/forensics-exam-students-cant-copy.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Run a forensics exam students can't copy">
+<meta property="og:description" content="Every student gets a genuinely different case, graded automatically, in the browser or through your LMS.">
+<meta property="og:url" content="https://redherrings.app/blog/forensics-exam-students-cant-copy.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../site.css">
+<style>
+.post{max-width:720px;margin:0 auto}
+.post h2{margin-top:34px}
+.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
+.post ul{padding-left:20px}
+.post .lede{font-size:19px;color:var(--ink,#12151c)}
+.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
+.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
+.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Run a forensics exam students can't copy","description":"Every student gets a genuinely different digital forensics case, graded automatically, in the browser or through your LMS.","datePublished":"2026-10-01","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/forensics-exam-students-cant-copy.html"}
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="../how.html">How it works</a>
+    <a class="link" href="../cases.html">Cases</a>
+    <a class="link" href="../student-portal.html">Student portal</a>
+    <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="post">
+    <div class="pagehead" style="border:0">
+      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Exam integrity</div>
+      <div class="byline">Red Herrings &middot; DFIR teaching notes</div>
+      <h1>Run a forensics exam students can't copy</h1>
+      <p class="lede">The quiet problem with hands-on forensics assessment isn't grading. It's that two students staring at the same disk image get the same answers &mdash; so an "exam" becomes a test of who sat next to whom.</p>
+    </div>
+
+    <p>If you teach digital forensics, you already know the drill. You build a case, hand out the same evidence to the whole class, and write an answer key. It works once. Then the key leaks, or two students compare notes, and next term you are rebuilding the entire case from scratch to stay ahead of last year's cohort.</p>
+
+    <p>The root cause is that the evidence is identical. When every student analyzes the same <code>image.E01</code>, the "answer" to "what is the attacker's IP?" is one string. Share it once and the assessment is done. No amount of proctoring fixes an exam whose answers are a short, copyable list.</p>
+
+    <h2>Make the evidence different, not the questions</h2>
+    <p>The fix is to change what everyone is looking at. Give each student a case built from the same scenario but seeded differently: their own hostnames, usernames, timestamps, file hashes, IP addresses and therefore their own answers. The questions read the same; the answers don't match anyone else's. Copying a neighbour's "203.0.113.47" is simply wrong, because their attacker used a different address.</p>
+
+    <blockquote>If the answer key is a list of facts, a unique-evidence exam turns that list into a per-student list &mdash; and a copied answer is a wrong answer.</blockquote>
+
+    <p>That is exactly what Red Herrings does: you write or pick one scenario, and it generates an individually seeded evidence set, worksheet and answer key for every student, verifying each one against its own evidence before you ever hand it out. You prepared one case; the class gets thirty different ones.</p>
+
+    <h2>Let students work it in the browser</h2>
+    <p>Unique evidence solves copying. The next friction is logistics: distributing zips, collecting submissions, grading by hand. So students can now open their lab in the browser and answer it there:</p>
+    <ul>
+      <li><strong>Practice mode</strong> gives instant per-question feedback and optional hints &mdash; good for homework and self-study, nothing locked.</li>
+      <li><strong>Timed exam mode</strong> starts a countdown when the student opens their link, captures and locks their answers on submit, and flags anything turned in late.</li>
+    </ul>
+    <p>Crucially, the answer key never reaches the browser. A single answer is graded on your machine and only "right" or "wrong" comes back, so the page a student loads can't be mined for solutions. Per-question checking is bounded and turned off entirely during exams, so the feedback can't be scripted into an answer oracle.</p>
+
+    <h2>Grade the whole class, then see where they struggled</h2>
+    <p>As submissions come in, a dashboard shows the class average and median, the score distribution, and a per-question breakdown sorted hardest-first &mdash; including the most common wrong answer and a flag for any question nobody got, which usually means a mis-keyed answer rather than a hard one. It is the fastest way to find the one question that confused everyone.</p>
+
+    <h2>Or run it straight from your LMS</h2>
+    <p>If your institution lives in Canvas, Blackboard, Moodle or D2L, Red Herrings can connect as an LTI 1.3 tool: add a case from inside the assignment editor, pull the roster automatically, and have each student's score post back to the gradebook when they submit. No CSV round-trips. (It is an optional connected mode &mdash; the desktop app otherwise runs fully offline, with no student data leaving your machine.)</p>
+
+    <div class="cta">
+      <strong>Want to see it on your own class?</strong>
+      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can hand out your first copy-resistant lab in minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="/#download" data-goatcounter-click="cta-trial-blog">Start a free 14-day trial</a>
+        <a class="btn ghost" href="../student-portal.html">See the student portal</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC.</span>
+      <span><a href="/">Home</a> &middot; <a href="../cases.html">Cases</a> &middot; <a href="../help.html">Help</a> &middot; <a href="/#pricing">Pricing</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
