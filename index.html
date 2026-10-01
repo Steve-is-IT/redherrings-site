@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Red Herrings | Randomized Digital Forensics Labs with Auto-Grading</title>
-<meta name="description" content="Red Herrings generates a unique digital forensics lab for every student from one case — dozens of cases across disk, registry, Windows event logs, memory, network (PCAP), mobile, cloud, Linux and macOS evidence, with verified answer keys, whole-class auto-grading, an in-browser student solve portal (practice or timed exam), LMS launch and grade passback over LTI 1.3, and certification-prep tracks (GCFE, GCFA, GNFA, GCFR). Runs locally on Windows and Linux.">
+<meta name="description" content="Red Herrings generates a unique digital forensics or incident response lab for every student from one case — dozens of cases across disk, registry, Windows event logs, memory, network (PCAP), mobile, cloud, EDR and SIEM evidence, with verified answer keys, whole-class auto-grading, an in-browser student solve portal (practice or timed exam), LMS launch and grade passback over LTI 1.3, certification-prep tracks (GCFE, GCFA, GNFA, GCFR) and incident-response cases mapped to MITRE ATT&CK. Runs locally on Windows and Linux.">
 <link rel="canonical" href="https://redherrings.app/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
@@ -190,20 +190,22 @@
 
   <section id="scenarios" aria-labelledby="cases-h">
     <h2 id="cases-h">Dozens of cases, ready to teach</h2>
-    <p class="sub">From a first look at one log file to multi-hour capstones. You choose how many questions each student gets, up to the case's pool, drawn as a naturally balanced set across every artifact and unique per student, with point values, per-tool answer walkthroughs and a guided mode that eases beginners in. A second filter groups cases into certification-prep tracks aligned to the objectives of GCFE, GCFA, GNFA, GCFR, the SANS macOS and Linux tracks, and vendor exams (ACE, EnCE, Cellebrite).</p>
+    <p class="sub">Two disciplines in one generator &mdash; <strong>Digital Forensics</strong> and <strong>Incident Response</strong> &mdash; from a first look at one log file to multi-hour capstones. You choose how many questions each student gets, up to the case's pool, drawn as a naturally balanced set across every artifact and unique per student, with point values, per-tool answer walkthroughs and a guided mode that eases beginners in. Forensics cases filter by certification path (GCFE, GCFA, GNFA, GCFR, the SANS macOS and Linux tracks, and vendor exams &mdash; ACE, EnCE, Cellebrite); incident-response cases filter by MITRE ATT&amp;CK tactic and work the responder's own tooling &mdash; EDR and SIEM feeds &mdash; from triage to containment, mapped to ATT&amp;CK and the NIST 800-61 phases.</p>
     <div class="diffrow" aria-label="Difficulty levels">
+      <span class="dpill cat-firstlook">First Look</span>
       <span class="dpill easy">Easy</span>
       <span class="dpill medium">Medium</span>
       <span class="dpill hard">Hard</span>
       <span class="dpill expert">Expert</span>
+      <span class="dpill cat-marquee">Marquee</span>
     </div>
     <div class="grid">
       <a class="card" href="cases.html"><span class="tag easy">Easy</span><h3>First Look: USB Device History</h3><p>USB device history, shortcuts to a removable drive, and the files opened from it. A single-tool triage for week one.</p></a>
       <a class="card" href="cases.html"><span class="tag easy">Easy</span><h3>First Look: Phishing Triage</h3><p>Read the headers on a suspicious email, trace the real Received path, and pull the indicators worth escalating.</p></a>
       <a class="card" href="cases.html"><span class="tag medium">Medium</span><h3>Insider Data Theft via USB</h3><p>USBSTOR history, shortcuts to a removable drive, an archiving tool, and a staged archive on disk. Connect the dots.</p></a>
-      <a class="card" href="cases.html"><span class="tag hard">Hard</span><h3>Phishing to Malware to Command and Control</h3><p>A spoofed email with a real Received path, a downloaded payload, persistence, and a remote-controlled process in memory.</p></a>
+      <a class="card" href="cases.html"><span class="tag hard">Hard · IR</span><h3>Ransomware Before Coffee</h3><p>Incident response from the EDR console: triage the detection feed, scope a live ransomware chain from phishing to encryption, pull the IOCs, map it to ATT&amp;CK and make the containment call &mdash; before the next host falls.</p></a>
       <a class="card" href="cases.html"><span class="tag hard">Hard</span><h3>Placing the Phone at the Scene</h3><p>An Android extraction with location history: put the phone at the scene, recover the text sent from there, and line it up on a timeline. Mobile forensics for GASF and Cellebrite prep.</p></a>
-      <a class="card" href="cases.html"><span class="tag expert">Expert</span><h3>Municipal Breach: City Government</h3><p>A multi-hour capstone across police records, emergency management and finance: endpoint, memory, cloud and network, traced through the whole intrusion.</p></a>
+      <a class="card" href="cases.html"><span class="tag expert">Expert · IR</span><h3>Operation Nightfall</h3><p>The full incident-response capstone: a double-extortion ransomware campaign worked across SIEM, EDR and host logs through every NIST 800-61 phase &mdash; detection, containment, eradication, recovery and the breach report.</p></a>
     </div>
     <div class="cta-row" style="margin-top:30px"><a class="btn" href="cases.html">Browse all cases</a><a class="btn ghost" href="sample/LAB-insider-usb-student-001.zip">Download a sample lab</a></div>
     <p class="note">Every paid plan includes all Easy, Medium and Hard cases. Department and Business plans add the Expert capstones and the scenario editor. Build your own case and export it as a pack to share or sell.</p>
@@ -290,6 +292,7 @@
         <h4>Product</h4>
         <a href="#features">Features</a>
         <a href="cases.html">All cases</a>
+        <a href="attack.html">MITRE ATT&amp;CK coverage</a>
         <a href="student-portal.html">Student portal &amp; LMS</a>
         <a href="pathways.html">Learning pathways</a>
         <a href="#pricing">Pricing</a>

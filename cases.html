@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All Cases | Red Herrings Digital Forensics Labs</title>
-<meta name="description" content="Browse the full Red Herrings catalog of dozens of digital forensics cases across Easy, Medium, Hard, Expert and Marquee difficulty, with certification-prep tracks for Foundations, Windows, Mobile, Network, Cloud, Linux, macOS and Advanced IR (aligned to GCFE, GCFA, GNFA and GCFR). Open any case to read its briefing and investigation questions.">
+<title>All Cases | Red Herrings DFIR Labs</title>
+<meta name="description" content="Browse the full Red Herrings catalog of 58 digital forensics and incident response cases, across First Look, Easy, Medium, Hard, Expert and Marquee difficulty. Digital Forensics cases map to certification tracks (GCFE, GCFA, GNFA, GCFR); Incident Response cases map to MITRE ATT&CK tactics. Open any case to read its briefing and investigation questions.">
 <link rel="canonical" href="https://redherrings.app/cases.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <meta property="og:title" content="All Cases — Red Herrings">
-<meta property="og:description" content="Every Red Herrings forensics case: disk, registry, event logs, memory, network, mobile and cloud, across difficulty levels and certification-prep tracks.">
+<meta property="og:description" content="Every Red Herrings case: digital forensics across disk, registry, logs, memory, network, mobile and cloud, plus incident response mapped to MITRE ATT&CK.">
 <meta property="og:url" content="https://redherrings.app/cases.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -39,364 +39,417 @@
   <div class="pagehead">
     <div class="crumb"><a href="/">Home</a> / Cases</div>
     <h1>The case library</h1>
-    <p>Dozens of cases, from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Open any case to read its briefing and questions; filter by difficulty or by the certification path it prepares you for.</p>
+    <p>58 cases across two disciplines &mdash; <strong>Digital Forensics</strong> (43) and <strong>Incident Response</strong> (15) &mdash; from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by discipline, by difficulty, and by the certification path (forensics) or <a href="attack.html">MITRE ATT&amp;CK tactic</a> (incident response) it exercises.</p>
   </div>
 
   <section style="border-top:0;padding-top:24px">
-    <div class="filterbar"><span class="flabel">Difficulty</span><button class="fp" data-diff="all" aria-pressed="true">All</button><button class="fp" data-diff="easy" aria-pressed="false">Easy</button><button class="fp" data-diff="medium" aria-pressed="false">Medium</button><button class="fp" data-diff="hard" aria-pressed="false">Hard</button><button class="fp" data-diff="expert" aria-pressed="false">Expert</button><button class="fp" data-diff="marquee" aria-pressed="false">Marquee</button></div>
-    <div class="filterbar"><span class="flabel">Cert path</span><button class="fp track" data-track="all" aria-pressed="true">All paths</button><button class="fp track" data-track="foundations" aria-pressed="false">Foundations</button><button class="fp track" data-track="windows-forensics" aria-pressed="false">Windows Forensics</button><button class="fp track" data-track="mobile-forensics" aria-pressed="false">Mobile Forensics</button><button class="fp track" data-track="network-forensics" aria-pressed="false">Network Forensics</button><button class="fp track" data-track="cloud" aria-pressed="false">Cloud &amp; SaaS</button><button class="fp track" data-track="linux" aria-pressed="false">Linux Forensics</button><button class="fp track" data-track="macos" aria-pressed="false">macOS Forensics</button><button class="fp track" data-track="advanced-ir" aria-pressed="false">Advanced Forensics &amp; IR</button></div>
+    <div class="filterrow">
+      <label class="fsel"><span class="fsel-l">Discipline</span>
+        <select id="fDisc">
+          <option value="all">All disciplines</option>
+          <option value="digital-forensics">Digital Forensics</option>
+          <option value="incident-response">Incident Response</option>
+        </select></label>
+      <label class="fsel"><span class="fsel-l">Difficulty</span>
+        <select id="fDiff"><option value="all">All difficulty</option><option value="first-look">First Look</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option><option value="expert">Expert</option><option value="marquee">Marquee</option></select></label>
+      <label class="fsel"><span class="fsel-l" id="fTopicLabel">Cert path</span>
+        <select id="fTopic"><option value="all">All paths</option></select></label>
+      <button type="button" class="fclear" id="clearf">Clear</button>
+    </div>
     <p class="note" id="catcount" style="margin-top:14px"></p>
     <div class="caselist" id="caselist">
-    <article class="ccard" data-diff="marquee" data-tracks="advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="marquee" data-tracks="advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill cat-marquee">Marquee</span><span class="cc-meta">10&ndash;24 Q &middot; ~360 min</span></div>
       <h3 class="cc-title">Nakatomi Plaza</h3>
       <div class="cc-sub">Holiday Heist at Nakatomi Plaza</div>
       <p class="cc-desc">A Marquee capstone that runs the whole arc. On Christmas Eve a crew seized Nakatomi Corporation&#x27;s systems and announced themselves as activists — cover for a heist of the bearer bonds behind the vault. Reconstruct the break-in, the leader&#x27;s borrowed identity, who opened the vault, where the bonds went, and the note that pointed everyone the wrong way.</p>
-      <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
     </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics mobile-forensics">
+    <article class="ccard" data-discipline="incident-response" data-diff="marquee" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="initial-access execution defense-evasion credential-access discovery lateral-movement collection command-and-control exfiltration impact">
+      <div class="cc-top"><span class="dpill cat-marquee">Marquee</span><span class="cc-meta">10&ndash;20 Q &middot; ~170 min</span></div>
+      <h3 class="cc-title">Nightfall</h3>
+      <div class="cc-sub">Operation Nightfall</div>
+      <p class="cc-desc">The full incident, start to finish. At 02:14 the ransom notes appeared across Mercy Regional and systems began locking ward by ward. You are the incident commander: work the SIEM, the EDR feed and the host logs to reconstruct the whole operation - phishing in, credential theft, domain-wide spread, data stolen for double extortion, then encryption - pull every indicator, map the campaign to ATT&amp;CK, run the response through all of NIST&#x27;s phases, and produce the incident report. The attacker may still be inside.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Defense Evasion</span><span class="chip trk-ir">Credential Access</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: A Deleted File</h3>
+      <p class="cc-desc">One small disk image. Recover a deleted document, carve a file out of unallocated space, and catch a file hiding behind the wrong extension.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations cloud" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: A Sign-In From Nowhere</h3>
+      <p class="cc-desc">One Azure sign-in log. Spot the login that does not belong, where it came from, and whether it got in.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-cloud">Cloud &amp; SaaS</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Accounts and Services in the Logs</h3>
+      <p class="cc-desc">Security and System logs. Spot the new account someone created and the service that was installed right after.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;11 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: After-Hours Logon</h3>
+      <p class="cc-desc">One Security event log. Find a remote logon, where it came from, and the failed attempts before it.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Building a Timeline</h3>
+      <p class="cc-desc">Two artifacts, one clock. Line up a browser download and a Security log to reconstruct the order things happened.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations network-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Reading a Packet Capture</h3>
+      <p class="cc-desc">One packet capture. Follow a DNS lookup to a beacon, then read a login and a file transfer sent in the clear.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-network">Network Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Recent Files and Jump Lists</h3>
+      <p class="cc-desc">Shortcuts, jump lists and registry MRUs. Reconstruct what an employee opened, and which file came off a USB drive.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations mobile-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Recovered Phone</h3>
+      <p class="cc-desc">One Android SMS extraction. Read the thread and pin down the contact, the message, and the times.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Suspicious Download</h3>
+      <p class="cc-desc">One Chrome history database. Work out what the user searched for, where they went, and what they downloaded.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: USB Device History</h3>
+      <p class="cc-desc">One registry hive. Work out which USB drive was plugged into the machine and when.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: What Ran on This Machine</h3>
+      <p class="cc-desc">One user profile. Work out which downloaded utility was run, how often, and when, using Prefetch, UserAssist and a shortcut.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: What Runs at Startup</h3>
+      <p class="cc-desc">Two registry hives. Find the program set to launch itself at startup and the service quietly installed to keep it alive.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: What&#x27;s in Memory</h3>
+      <p class="cc-desc">One memory capture. Find the process that shouldn&#x27;t be running, where it lives, and the server it phones home to.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations macos" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Where Did This Mac App Come From?</h3>
+      <p class="cc-desc">A Mac triage set. A user installed something they shouldn&#x27;t have. Use the quarantine database and Safari history to trace where the file came from and how they got there.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-macos">macOS Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations linux" data-tactics="">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;11 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Who Logged Into the Server</h3>
+      <p class="cc-desc">One Linux auth.log. Read the brute-force attempts, the login that finally worked, and what the attacker did once they were in.</p>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-linux">Linux Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="first-look" data-tracks="foundations" data-tactics="initial-access execution">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">First Look: Phishing Triage</h3>
+      <p class="cc-desc">One mailbox. Tell the real message from the fake and pull the sender details.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="first-look" data-tracks="foundations advanced-ir" data-tactics="execution persistence privilege-escalation defense-evasion">
+      <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">7 Q &middot; ~25 min</span></div>
+      <h3 class="cc-title">The Queue</h3>
+      <div class="cc-sub">First Look: Reading an EDR Alert</div>
+      <p class="cc-desc">Your first shift on the SOC queue. One endpoint threw a short stack of EDR detections. Read the feed the way a responder does - triage by severity, read the process tree and the ATT&amp;CK technique on each one - and decide whether this is a real incident or noise.</p>
+      <div class="chips"><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="easy" data-tracks="foundations windows-forensics mobile-forensics" data-tactics="">
       <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;12 Q &middot; ~35 min</span></div>
       <h3 class="cc-title">Side Hustle</h3>
       <div class="cc-sub">Employee Misconduct Investigation</div>
       <p class="cc-desc">An employee is alleged to have run a side business on company time and passed internal pricing to an outside contact.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
+      <div class="chips"><span class="chip trk-foundations">Foundations</span><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-mobile">Mobile Forensics</span></div>
     </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: A Deleted File</h3>
-      <p class="cc-desc">One small disk image. Recover a deleted document, carve a file out of unallocated space, and catch a file hiding behind the wrong extension.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations cloud">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: A Sign-In From Nowhere</h3>
-      <p class="cc-desc">One Azure sign-in log. Spot the login that does not belong, where it came from, and whether it got in.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Accounts and Services in the Logs</h3>
-      <p class="cc-desc">Security and System logs. Spot the new account someone created and the service that was installed right after.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;11 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: After-Hours Logon</h3>
-      <p class="cc-desc">One Security event log. Find a remote logon, where it came from, and the failed attempts before it.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Building a Timeline</h3>
-      <p class="cc-desc">Two artifacts, one clock. Line up a browser download and a Security log to reconstruct the order things happened.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Phishing Triage</h3>
-      <p class="cc-desc">One mailbox. Tell the real message from the fake and pull the sender details.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations network-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Reading a Packet Capture</h3>
-      <p class="cc-desc">One packet capture. Follow a DNS lookup to a beacon, then read a login and a file transfer sent in the clear.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-network">Network Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Recent Files and Jump Lists</h3>
-      <p class="cc-desc">Shortcuts, jump lists and registry MRUs. Reconstruct what an employee opened, and which file came off a USB drive.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations mobile-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Recovered Phone</h3>
-      <p class="cc-desc">One Android SMS extraction. Read the thread and pin down the contact, the message, and the times.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Suspicious Download</h3>
-      <p class="cc-desc">One Chrome history database. Work out what the user searched for, where they went, and what they downloaded.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: USB Device History</h3>
-      <p class="cc-desc">One registry hive. Work out which USB drive was plugged into the machine and when.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: What Ran on This Machine</h3>
-      <p class="cc-desc">One user profile. Work out which downloaded utility was run, how often, and when, using Prefetch, UserAssist and a shortcut.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations windows-forensics">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: What Runs at Startup</h3>
-      <p class="cc-desc">Two registry hives. Find the program set to launch itself at startup and the service quietly installed to keep it alive.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: What&#x27;s in Memory</h3>
-      <p class="cc-desc">One memory capture. Find the process that shouldn&#x27;t be running, where it lives, and the server it phones home to.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations macos">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Where Did This Mac App Come From?</h3>
-      <p class="cc-desc">A Mac triage set. A user installed something they shouldn&#x27;t have. Use the quarantine database and Safari history to trace where the file came from and how they got there.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-macos">macOS Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="easy" data-tracks="foundations linux">
-      <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;11 Q &middot; ~25 min</span></div>
-      <h3 class="cc-title">First Look: Who Logged Into the Server</h3>
-      <p class="cc-desc">One Linux auth.log. Read the brute-force attempts, the login that finally worked, and what the attacker did once they were in.</p>
-      <div class="chips"><span class="chip trk trk-foundations">Foundations</span><span class="chip trk trk-linux">Linux Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="windows-forensics mobile-forensics cloud">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
-      <h3 class="cc-title">Push Comes to Shove</h3>
-      <div class="cc-sub">Account Takeover: MFA Fatigue</div>
-      <p class="cc-desc">An attacker with a stolen password hammered a user with MFA prompts until one was approved, then signed in from abroad.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="windows-forensics mobile-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~60 min</span></div>
-      <h3 class="cc-title">Wire Act</h3>
-      <div class="cc-sub">Business Email Compromise: Wire Fraud</div>
-      <p class="cc-desc">A finance controller wired money to an attacker&#x27;s account after a spoofed executive email and a lookalike vendor followed up with new bank details.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="windows-forensics cloud">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~60 min</span></div>
-      <h3 class="cc-title">Cloud Cover</h3>
-      <div class="cc-sub">Exfiltration to a Personal Cloud Drive</div>
-      <p class="cc-desc">Browser history, a shortcut, and a mailbox. Follow a customer export from the CRM to a personal cloud drive and a personal inbox.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-cloud">Cloud &amp; SaaS</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="windows-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
-      <h3 class="cc-title">Loose Lips</h3>
-      <div class="cc-sub">Insider Data Leak via AI Assistant</div>
-      <p class="cc-desc">An engineer pasted confidential source and customer data into a public AI chatbot and sent an export of customer records to a personal account.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="windows-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;15 Q &middot; ~90 min</span></div>
-      <h3 class="cc-title">Paper Trail</h3>
-      <div class="cc-sub">Insider Data Theft via USB</div>
-      <p class="cc-desc">An engineer is suspected of copying proprietary designs to a personal USB drive before resigning.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~65 min</span></div>
-      <h3 class="cc-title">Field Promotion</h3>
-      <div class="cc-sub">Rogue Admin Account</div>
-      <p class="cc-desc">Security and System logs plus the registry. Find the account that should not exist, who made it, and the two ways it was set up to survive a reboot.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="windows-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~50 min</span></div>
-      <h3 class="cc-title">Need to Know</h3>
-      <div class="cc-sub">Snooping: Unauthorized Record Access</div>
-      <p class="cc-desc">A staff member pulled up records they had no reason to touch, then exported them.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="windows-forensics advanced-ir">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;14 Q &middot; ~85 min</span></div>
-      <h3 class="cc-title">Trapdoor</h3>
-      <div class="cc-sub">Web Shell on a Small Business Server</div>
-      <p class="cc-desc">A small business web server was compromised through a web shell used to run commands and install persistence.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10 Q &middot; ~50 min</span></div>
-      <h3 class="cc-title">Night Shift</h3>
-      <div class="cc-sub">Coordinating an After-Hours Theft</div>
-      <p class="cc-desc">An Android extraction. Two employees coordinated a warehouse theft by text - find the accomplice and the plan.</p>
-      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
-      <h3 class="cc-title">Corner Office</h3>
-      <div class="cc-sub">Gift Card Scam: CEO Impersonation</div>
-      <p class="cc-desc">An employee was talked into buying gift cards by someone posing as the CEO over email and text.</p>
-      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;11 Q &middot; ~50 min</span></div>
-      <h3 class="cc-title">Open Secret</h3>
-      <div class="cc-sub">Texting Secrets to a Competitor</div>
-      <p class="cc-desc">An Android extraction. Find which outside contact a salesperson leaked pricing to, what was sent, and when.</p>
-      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;11 Q &middot; ~50 min</span></div>
-      <h3 class="cc-title">Off the Record</h3>
-      <div class="cc-sub">The Deal on WhatsApp</div>
-      <p class="cc-desc">An Android extraction with a WhatsApp message store. Read the chat that coordinated the payoff and identify who.</p>
-      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="mobile-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10 Q &middot; ~50 min</span></div>
-      <h3 class="cc-title">Second Thoughts</h3>
-      <div class="cc-sub">The Texts They Deleted</div>
-      <p class="cc-desc">An Android extraction where the suspect wiped incriminating texts. Carve them back out of unallocated space.</p>
-      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="network-forensics">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10 Q &middot; ~50 min</span></div>
-      <h3 class="cc-title">Open Channel</h3>
-      <div class="cc-sub">Exfiltration to a Personal Server</div>
-      <p class="cc-desc">One packet capture. An employee uploaded data to a personal server over plain HTTP - read the login and measure what left.</p>
-      <div class="chips"><span class="chip trk trk-network">Network Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="cloud advanced-ir">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
-      <h3 class="cc-title">Reply All</h3>
-      <div class="cc-sub">Microsoft 365 Account Takeover</div>
-      <p class="cc-desc">An executive&#x27;s Microsoft 365 account is taken over from abroad. Trace the sign-in, the hidden forwarding rules, the file that was pulled from SharePoint, and how the attacker kept access.</p>
-      <div class="chips"><span class="chip trk trk-cloud">Cloud &amp; SaaS</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="linux advanced-ir">
-      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~50 min</span></div>
-      <h3 class="cc-title">House Keys</h3>
-      <div class="cc-sub">Backdoors on a Linux Server</div>
-      <p class="cc-desc">A compromised Linux host. Find how the attacker stayed in: a new account, a cron job, an added SSH key, and the payload they pulled down.</p>
-      <div class="chips"><span class="chip trk trk-linux">Linux Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="medium" data-tracks="macos advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="macos advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;11 Q &middot; ~50 min</span></div>
       <h3 class="cc-title">Login Loop</h3>
       <div class="cc-sub">A Launch Agent That Shouldn&#x27;t Be There</div>
       <p class="cc-desc">A Mac with malware persistence. Trace the dropped file to a LaunchAgent that reruns it, using the quarantine record, the plist, the shell history, and the unified log.</p>
-      <div class="chips"><span class="chip trk trk-macos">macOS Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-macos">macOS Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
     </article>
-    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="linux advanced-ir" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~50 min</span></div>
+      <h3 class="cc-title">House Keys</h3>
+      <div class="cc-sub">Backdoors on a Linux Server</div>
+      <p class="cc-desc">A compromised Linux host. Find how the attacker stayed in: a new account, a cron job, an added SSH key, and the payload they pulled down.</p>
+      <div class="chips"><span class="chip trk-linux">Linux Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="mobile-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10 Q &middot; ~50 min</span></div>
+      <h3 class="cc-title">Night Shift</h3>
+      <div class="cc-sub">Coordinating an After-Hours Theft</div>
+      <p class="cc-desc">An Android extraction. Two employees coordinated a warehouse theft by text - find the accomplice and the plan.</p>
+      <div class="chips"><span class="chip trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="linux advanced-ir" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
+      <h3 class="cc-title">Free Electricity</h3>
+      <div class="cc-sub">Cryptominer on a Web Server</div>
+      <p class="cc-desc">A public web server is pegged at 100% CPU. Using the Apache access log, root&#x27;s shell history, the cron directory and authorized_keys, trace it back: the request that got the attacker in, the miner they pulled down, the cron job that keeps it running, and the SSH key they left for later.</p>
+      <div class="chips"><span class="chip trk-linux">Linux Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="windows-forensics cloud" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~60 min</span></div>
+      <h3 class="cc-title">Cloud Cover</h3>
+      <div class="cc-sub">Exfiltration to a Personal Cloud Drive</div>
+      <p class="cc-desc">Browser history, a shortcut, and a mailbox. Follow a customer export from the CRM to a personal cloud drive and a personal inbox.</p>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-cloud">Cloud &amp; SaaS</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="network-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10 Q &middot; ~50 min</span></div>
+      <h3 class="cc-title">Open Channel</h3>
+      <div class="cc-sub">Exfiltration to a Personal Server</div>
+      <p class="cc-desc">One packet capture. An employee uploaded data to a personal server over plain HTTP - read the login and measure what left.</p>
+      <div class="chips"><span class="chip trk-network">Network Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="mobile-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
+      <h3 class="cc-title">Corner Office</h3>
+      <div class="cc-sub">Gift Card Scam: CEO Impersonation</div>
+      <p class="cc-desc">An employee was talked into buying gift cards by someone posing as the CEO over email and text.</p>
+      <div class="chips"><span class="chip trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
+      <h3 class="cc-title">Loose Lips</h3>
+      <div class="cc-sub">Insider Data Leak via AI Assistant</div>
+      <p class="cc-desc">An engineer pasted confidential source and customer data into a public AI chatbot and sent an export of customer records to a personal account.</p>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;15 Q &middot; ~90 min</span></div>
+      <h3 class="cc-title">Paper Trail</h3>
+      <div class="cc-sub">Insider Data Theft via USB</div>
+      <p class="cc-desc">An engineer is suspected of copying proprietary designs to a personal USB drive before resigning.</p>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="cloud advanced-ir" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
+      <h3 class="cc-title">Reply All</h3>
+      <div class="cc-sub">Microsoft 365 Account Takeover</div>
+      <p class="cc-desc">An executive&#x27;s Microsoft 365 account is taken over from abroad. Trace the sign-in, the hidden forwarding rules, the file that was pulled from SharePoint, and how the attacker kept access.</p>
+      <div class="chips"><span class="chip trk-cloud">Cloud &amp; SaaS</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="windows-forensics advanced-ir" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~65 min</span></div>
+      <h3 class="cc-title">Field Promotion</h3>
+      <div class="cc-sub">Rogue Admin Account</div>
+      <p class="cc-desc">Security and System logs plus the registry. Find the account that should not exist, who made it, and the two ways it was set up to survive a reboot.</p>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="windows-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~50 min</span></div>
+      <h3 class="cc-title">Need to Know</h3>
+      <div class="cc-sub">Snooping: Unauthorized Record Access</div>
+      <p class="cc-desc">A staff member pulled up records they had no reason to touch, then exported them.</p>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="mobile-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;11 Q &middot; ~50 min</span></div>
+      <h3 class="cc-title">Open Secret</h3>
+      <div class="cc-sub">Texting Secrets to a Competitor</div>
+      <p class="cc-desc">An Android extraction. Find which outside contact a salesperson leaked pricing to, what was sent, and when.</p>
+      <div class="chips"><span class="chip trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="mobile-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;11 Q &middot; ~50 min</span></div>
+      <h3 class="cc-title">Off the Record</h3>
+      <div class="cc-sub">The Deal on WhatsApp</div>
+      <p class="cc-desc">An Android extraction with a WhatsApp message store. Read the chat that coordinated the payoff and identify who.</p>
+      <div class="chips"><span class="chip trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="medium" data-tracks="mobile-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10 Q &middot; ~50 min</span></div>
+      <h3 class="cc-title">Second Thoughts</h3>
+      <div class="cc-sub">The Texts They Deleted</div>
+      <p class="cc-desc">An Android extraction where the suspect wiped incriminating texts. Carve them back out of unallocated space.</p>
+      <div class="chips"><span class="chip trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="medium" data-tracks="windows-forensics mobile-forensics cloud" data-tactics="initial-access persistence privilege-escalation defense-evasion credential-access">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~55 min</span></div>
+      <h3 class="cc-title">Push Comes to Shove</h3>
+      <div class="cc-sub">Account Takeover: MFA Fatigue</div>
+      <p class="cc-desc">An attacker with a stolen password hammered a user with MFA prompts until one was approved, then signed in from abroad.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="medium" data-tracks="windows-forensics mobile-forensics" data-tactics="initial-access collection impact">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~60 min</span></div>
+      <h3 class="cc-title">Wire Act</h3>
+      <div class="cc-sub">Business Email Compromise: Wire Fraud</div>
+      <p class="cc-desc">A finance controller wired money to an attacker&#x27;s account after a spoofed executive email and a lookalike vendor followed up with new bank details.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Collection</span><span class="chip trk-ir">Impact</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="medium" data-tracks="windows-forensics advanced-ir" data-tactics="execution persistence privilege-escalation discovery lateral-movement">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~60 min</span></div>
+      <h3 class="cc-title">Hands on Keyboard</h3>
+      <div class="cc-sub">Lateral Move to the File Server</div>
+      <p class="cc-desc">A foothold on one workstation becomes access to the file server. Using the Security and System logs, the registry and Prefetch, trace the remote-service execution: where the session came from, the service that ran the attacker&#x27;s tool, the command it launched, and the Run key left to survive a reboot.</p>
+      <div class="chips"><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Discovery</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="medium" data-tracks="windows-forensics advanced-ir" data-tactics="initial-access execution persistence">
+      <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;14 Q &middot; ~85 min</span></div>
+      <h3 class="cc-title">Trapdoor</h3>
+      <div class="cc-sub">Web Shell on a Small Business Server</div>
+      <p class="cc-desc">A small business web server was compromised through a web shell used to run commands and install persistence.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~100 min</span></div>
       <h3 class="cc-title">Pivot Point</h3>
       <div class="cc-sub">Credential Theft and Lateral Movement</div>
       <p class="cc-desc">A dumping tool in memory, a stolen service account, and a cleartext login on the wire. Follow one harvested credential from the first host to a second.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-network">Network Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
     </article>
-    <article class="ccard" data-diff="hard" data-tracks="windows-forensics mobile-forensics advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="hard" data-tracks="windows-forensics mobile-forensics advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~90 min</span></div>
       <h3 class="cc-title">Sleight of Hand</h3>
       <div class="cc-sub">Cryptocurrency Theft: Clipboard Hijack</div>
       <p class="cc-desc">A user&#x27;s cryptocurrency vanished after malware on the workstation swapped wallet addresses on the clipboard and captured a recovery phrase.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-mobile">Mobile Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
     </article>
-    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;15 Q &middot; ~135 min</span></div>
-      <h3 class="cc-title">Patient Zero</h3>
-      <div class="cc-sub">Phishing to Malware to Command and Control</div>
-      <p class="cc-desc">A finance employee opened a phishing attachment; the workstation later showed a remote-controlled process and persistence.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="windows-forensics advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~110 min</span></div>
-      <h3 class="cc-title">Dry Run</h3>
-      <div class="cc-sub">Ransomware Precursor: Staging and Log Clearing</div>
-      <p class="cc-desc">An admin account was used to stage tools, add a hidden account, and clear the event logs ahead of an expected encryption run.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;14 Q &middot; ~125 min</span></div>
-      <h3 class="cc-title">Double Cross</h3>
-      <div class="cc-sub">Ransomware: Double Extortion</div>
-      <p class="cc-desc">Ransomware hit a server. Data was exfiltrated first, shadow copies deleted, files encrypted, and a note left threatening to publish.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~110 min</span></div>
-      <h3 class="cc-title">Trust Fall</h3>
-      <div class="cc-sub">Trojanized Software Update</div>
-      <p class="cc-desc">A fake update installer, a service, a beacon and an injected process. Follow one download from the browser to the network and into memory.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~90 min</span></div>
-      <h3 class="cc-title">Tunnel Vision</h3>
-      <div class="cc-sub">VPN Account Compromise and Beacon</div>
-      <p class="cc-desc">A VPN account was accessed from abroad and the workstation started beaconing out, with a password sent in the clear.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="mobile-forensics">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10 Q &middot; ~70 min</span></div>
-      <h3 class="cc-title">Alibi</h3>
-      <div class="cc-sub">Placing the Phone at the Scene</div>
-      <p class="cc-desc">An Android extraction with location history. Put the phone at the scene at the right time, and tie it to a text.</p>
-      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="mobile-forensics">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~80 min</span></div>
-      <h3 class="cc-title">Cold Caller</h3>
-      <div class="cc-sub">Unwanted Contact: A Harassment Case</div>
-      <p class="cc-desc">An Android extraction from a harassment complaint. Work the call log and messages: the repeated late-night calls, the one that was answered, the threat, and a reply that was deleted.</p>
-      <div class="chips"><span class="chip trk trk-mobile">Mobile Forensics</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="network-forensics linux advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;13 Q &middot; ~70 min</span></div>
-      <h3 class="cc-title">Rabbit Hole</h3>
-      <div class="cc-sub">Web Shell on a Linux Web Server</div>
-      <p class="cc-desc">A Linux web server was breached through an uploaded web shell. Read the access log and shell history: the upload, the commands, the privilege escalation, and the data that left.</p>
-      <div class="chips"><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-linux">Linux Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="cloud advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~90 min</span></div>
-      <h3 class="cc-title">Skeleton Key</h3>
-      <div class="cc-sub">Cloud Account Compromise: Stolen Access Key</div>
-      <p class="cc-desc">A developer&#x27;s leaked access key was used to sign in from abroad, add a second key and a new IAM user, and pull customer data out of a storage bucket.</p>
-      <div class="chips"><span class="chip trk trk-cloud">Cloud &amp; SaaS</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="macos advanced-ir">
-      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~70 min</span></div>
-      <h3 class="cc-title">Parting Gift</h3>
-      <div class="cc-sub">Mac Insider: Data Out the Back Door</div>
-      <p class="cc-desc">A departing employee&#x27;s Mac. Reconstruct how they staged and moved company data off the machine, using the shell history, Safari, the quarantine record, and the unified log.</p>
-      <div class="chips"><span class="chip trk trk-macos">macOS Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
-    </article>
-    <article class="ccard" data-diff="hard" data-tracks="advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="hard" data-tracks="advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10 Q &middot; ~80 min</span></div>
       <h3 class="cc-title">Ghost in the RAM</h3>
       <div class="cc-sub">Injected Code in Memory</div>
       <p class="cc-desc">A memory capture with code injection. Find the process hosting the injected region, the DLL that was reflectively loaded, and where it calls home.</p>
-      <div class="chips"><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
     </article>
-    <article class="ccard" data-diff="expert" data-tracks="windows-forensics advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="hard" data-tracks="macos advanced-ir" data-tactics="">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~70 min</span></div>
+      <h3 class="cc-title">Parting Gift</h3>
+      <div class="cc-sub">Mac Insider: Data Out the Back Door</div>
+      <p class="cc-desc">A departing employee&#x27;s Mac. Reconstruct how they staged and moved company data off the machine, using the shell history, Safari, the quarantine record, and the unified log.</p>
+      <div class="chips"><span class="chip trk-macos">macOS Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="hard" data-tracks="mobile-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10 Q &middot; ~70 min</span></div>
+      <h3 class="cc-title">Alibi</h3>
+      <div class="cc-sub">Placing the Phone at the Scene</div>
+      <p class="cc-desc">An Android extraction with location history. Put the phone at the scene at the right time, and tie it to a text.</p>
+      <div class="chips"><span class="chip trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="hard" data-tracks="mobile-forensics" data-tactics="">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~80 min</span></div>
+      <h3 class="cc-title">Cold Caller</h3>
+      <div class="cc-sub">Unwanted Contact: A Harassment Case</div>
+      <p class="cc-desc">An Android extraction from a harassment complaint. Work the call log and messages: the repeated late-night calls, the one that was answered, the threat, and a reply that was deleted.</p>
+      <div class="chips"><span class="chip trk-mobile">Mobile Forensics</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="hard" data-tracks="network-forensics linux advanced-ir" data-tactics="">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;13 Q &middot; ~70 min</span></div>
+      <h3 class="cc-title">Rabbit Hole</h3>
+      <div class="cc-sub">Web Shell on a Linux Web Server</div>
+      <p class="cc-desc">A Linux web server was breached through an uploaded web shell. Read the access log and shell history: the upload, the commands, the privilege escalation, and the data that left.</p>
+      <div class="chips"><span class="chip trk-network">Network Forensics</span><span class="chip trk-linux">Linux Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="cloud advanced-ir" data-tactics="initial-access persistence privilege-escalation defense-evasion credential-access exfiltration">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~90 min</span></div>
+      <h3 class="cc-title">Skeleton Key</h3>
+      <div class="cc-sub">Cloud Account Compromise: Stolen Access Key</div>
+      <p class="cc-desc">A developer&#x27;s leaked access key was used to sign in from abroad, add a second key and a new IAM user, and pull customer data out of a storage bucket.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="initial-access execution persistence privilege-escalation command-and-control">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;15 Q &middot; ~135 min</span></div>
+      <h3 class="cc-title">Patient Zero</h3>
+      <div class="cc-sub">Phishing to Malware to Command and Control</div>
+      <p class="cc-desc">A finance employee opened a phishing attachment; the workstation later showed a remote-controlled process and persistence.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics advanced-ir" data-tactics="initial-access execution defense-evasion credential-access lateral-movement command-and-control impact">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;14 Q &middot; ~55 min</span></div>
+      <h3 class="cc-title">First Call</h3>
+      <div class="cc-sub">Ransomware Before Coffee</div>
+      <p class="cc-desc">You are the on-call responder. The EDR console lit up at 06:48 with a chain of detections on a finance workstation, ending in a running locker. Triage the detection feed and the host&#x27;s own event logs, scope the intrusion from first access to impact, pull the indicators, map it to ATT&amp;CK, and make the containment call - fast.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Defense Evasion</span><span class="chip trk-ir">Credential Access</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics advanced-ir" data-tactics="execution persistence credential-access discovery">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~110 min</span></div>
+      <h3 class="cc-title">Dry Run</h3>
+      <div class="cc-sub">Ransomware Precursor: Staging and Log Clearing</div>
+      <p class="cc-desc">An admin account was used to stage tools, add a hidden account, and clear the event logs ahead of an expected encryption run.</p>
+      <div class="chips"><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Credential Access</span><span class="chip trk-ir">Discovery</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="lateral-movement exfiltration impact">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;14 Q &middot; ~125 min</span></div>
+      <h3 class="cc-title">Double Cross</h3>
+      <div class="cc-sub">Ransomware: Double Extortion</div>
+      <p class="cc-desc">Ransomware hit a server. Data was exfiltrated first, shadow copies deleted, files encrypted, and a note left threatening to publish.</p>
+      <div class="chips"><span class="chip trk-ir">Lateral Movement</span><span class="chip trk-ir">Exfiltration</span><span class="chip trk-ir">Impact</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="initial-access execution persistence command-and-control">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~110 min</span></div>
+      <h3 class="cc-title">Trust Fall</h3>
+      <div class="cc-sub">Trojanized Software Update</div>
+      <p class="cc-desc">A fake update installer, a service, a beacon and an injected process. Follow one download from the browser to the network and into memory.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Command &amp; Control</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="initial-access persistence privilege-escalation defense-evasion lateral-movement command-and-control">
+      <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~90 min</span></div>
+      <h3 class="cc-title">Tunnel Vision</h3>
+      <div class="cc-sub">VPN Account Compromise and Beacon</div>
+      <p class="cc-desc">A VPN account was accessed from abroad and the workstation started beaconing out, with a password sent in the clear.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+    </article>
+    <article class="ccard" data-discipline="digital-forensics" data-diff="expert" data-tracks="windows-forensics advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">10&ndash;20 Q &middot; ~480 min</span></div>
       <h3 class="cc-title">Silent Harvest</h3>
       <div class="cc-sub">Espionage Intrusion</div>
       <p class="cc-desc">A patient espionage actor got in through a web shell, dumped credentials, moved laterally, and quietly pulled mail and documents out over weeks. No encryption, and careful cleanup.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
     </article>
-    <article class="ccard" data-diff="expert" data-tracks="windows-forensics mobile-forensics advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="expert" data-tracks="windows-forensics mobile-forensics advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">10&ndash;20 Q &middot; ~420 min</span></div>
       <h3 class="cc-title">Inside Job</h3>
       <div class="cc-sub">Insider and Collusion</div>
       <p class="cc-desc">A trusted insider with legitimate access sold customer data to an outside buyer over months, moving it out through personal cloud, personal email, and a USB drive, and coordinating by text.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-mobile">Mobile Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
     </article>
-    <article class="ccard" data-diff="expert" data-tracks="windows-forensics mobile-forensics network-forensics advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="expert" data-tracks="windows-forensics mobile-forensics network-forensics advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">10&ndash;26 Q &middot; ~600 min</span></div>
       <h3 class="cc-title">Open Records</h3>
       <div class="cc-sub">Municipal Breach</div>
       <p class="cc-desc">A whole city government was breached across departments. Trace every foothold, from the clerk who got phished to police records, emergency management, finance, and the ransom.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-mobile">Mobile Forensics</span><span class="chip trk trk-network">Network Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-mobile">Mobile Forensics</span><span class="chip trk-network">Network Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
     </article>
-    <article class="ccard" data-diff="expert" data-tracks="windows-forensics advanced-ir">
+    <article class="ccard" data-discipline="digital-forensics" data-diff="expert" data-tracks="windows-forensics advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">10&ndash;26 Q &middot; ~420 min</span></div>
       <h3 class="cc-title">Operation Ledger</h3>
       <div class="cc-sub">Ransomware Intrusion</div>
       <p class="cc-desc">A full financially motivated intrusion, from spear-phish to cloud exfiltration to encryption, with the endpoint Security log cleared. Rebuild the whole chain from everything else.</p>
-      <div class="chips"><span class="chip trk trk-windows">Windows Forensics</span><span class="chip trk trk-advanced">Advanced Forensics &amp; IR</span></div>
+      <div class="chips"><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span></div>
+    </article>
+    <article class="ccard" data-discipline="incident-response" data-diff="expert" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="initial-access persistence privilege-escalation defense-evasion credential-access discovery lateral-movement collection command-and-control exfiltration">
+      <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">10&ndash;16 Q &middot; ~110 min</span></div>
+      <h3 class="cc-title">Low and Slow</h3>
+      <div class="cc-sub">The Long Quiet Weekend</div>
+      <p class="cc-desc">Over a quiet weekend a valid VPN account logged in from a new country and never left. By Monday the SIEM has a weekend&#x27;s worth of correlated alerts - enumeration, kerberoasting, RDP across to a jump host, a staged archive, and a large upload to external cloud storage still in progress. Work the SIEM queue, the EDR feed and the host logs; scope the intrusion end to end; pull the indicators; map it to ATT&amp;CK; and run the response from containment to lessons learned.</p>
+      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
     </article>
     </div>
-    <p class="emptymsg hide" id="empty">No cases match those filters. <a href="#" id="clearf">Clear filters</a>.</p>
+    <p class="emptymsg hide" id="empty">No cases match those filters. Use <strong>Clear</strong> to reset.</p>
     <div class="cta-row" style="margin-top:40px"><a class="btn" href="/#download">Start a free 14-day trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>
   </section>
 </main>
@@ -404,36 +457,43 @@
   <div class="wrap">
     <div class="fbottom">
       <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC.</span>
-      <span><a href="/">Home</a> &middot; <a href="help.html">Help</a> &middot; <a href="student-portal.html">Student portal</a> &middot; <a href="blog/">Blog</a> &middot; <a href="/#pricing">Pricing</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="eula.html">EULA</a> &middot; <a href="refund.html">Refunds</a> &middot; <a href="mailto:sales@redherrings.app">sales@redherrings.app</a></span>
+      <span><a href="/">Home</a> &middot; <a href="help.html">Help</a> &middot; <a href="student-portal.html">Student portal</a> &middot; <a href="blog/">Blog</a> &middot; <a href="attack.html">ATT&amp;CK</a> &middot; <a href="/#pricing">Pricing</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="eula.html">EULA</a> &middot; <a href="refund.html">Refunds</a> &middot; <a href="mailto:sales@redherrings.app">sales@redherrings.app</a></span>
     </div>
   </div>
 </footer>
 <script>
-  var diff="all", track="all";
+  var TRACKS=[{"v": "foundations", "l": "Foundations"}, {"v": "windows-forensics", "l": "Windows Forensics"}, {"v": "mobile-forensics", "l": "Mobile Forensics"}, {"v": "network-forensics", "l": "Network Forensics"}, {"v": "cloud", "l": "Cloud & SaaS"}, {"v": "linux", "l": "Linux Forensics"}, {"v": "macos", "l": "macOS Forensics"}, {"v": "advanced-ir", "l": "Advanced Forensics & IR"}];
+  var TACTICS=[{"v": "initial-access", "l": "Initial Access"}, {"v": "execution", "l": "Execution"}, {"v": "persistence", "l": "Persistence"}, {"v": "privilege-escalation", "l": "Privilege Escalation"}, {"v": "defense-evasion", "l": "Defense Evasion"}, {"v": "credential-access", "l": "Credential Access"}, {"v": "discovery", "l": "Discovery"}, {"v": "lateral-movement", "l": "Lateral Movement"}, {"v": "collection", "l": "Collection"}, {"v": "command-and-control", "l": "Command & Control"}, {"v": "exfiltration", "l": "Exfiltration"}, {"v": "impact", "l": "Impact"}];
   var cards=[].slice.call(document.querySelectorAll(".ccard"));
-  function apply(){
-    var shown=0;
-    cards.forEach(function(c){
+  var fDisc=document.getElementById("fDisc"), fDiff=document.getElementById("fDiff"),
+      fTopic=document.getElementById("fTopic"), fTopicLabel=document.getElementById("fTopicLabel");
+  function isIR() { return fDisc.value==="incident-response"; }
+  function fillTopic() {
+    var ir=isIR(), items=ir?TACTICS:TRACKS;
+    fTopicLabel.textContent = ir ? "ATT&CK tactic" : "Cert path";
+    var opts='<option value="all">'+(ir?"All tactics":"All paths")+'</option>';
+    items.forEach(function(o) { opts+='<option value="'+o.v+'">'+o.l+'</option>'; });
+    fTopic.innerHTML=opts; fTopic.value="all";
+  }
+  function apply() {
+    var disc=fDisc.value, diff=fDiff.value, topic=fTopic.value, ir=isIR(), shown=0;
+    cards.forEach(function(c) {
+      var okdisc = disc==="all" || c.dataset.discipline===disc;
       var okd = diff==="all" || c.dataset.diff===diff;
-      var okt = track==="all" || (" "+c.dataset.tracks+" ").indexOf(" "+track+" ")>=0;
-      var vis = okd && okt; c.classList.toggle("hide", !vis); if(vis) shown++;
+      var field = ir ? c.dataset.tactics : c.dataset.tracks;
+      var okt = topic==="all" || (" "+field+" ").indexOf(" "+topic+" ")>=0;
+      var vis = okdisc && okd && okt; c.classList.toggle("hide", !vis); if(vis) shown++;
     });
     document.getElementById("empty").classList.toggle("hide", shown>0);
     document.getElementById("catcount").textContent = (shown===cards.length ? cards.length+" cases" : shown+" of "+cards.length+" cases");
   }
-  document.querySelectorAll(".fp[data-diff]").forEach(function(b){
-    b.addEventListener("click",function(){ diff=b.dataset.diff;
-      document.querySelectorAll(".fp[data-diff]").forEach(function(x){x.setAttribute("aria-pressed", x===b?"true":"false");}); apply(); });
-  });
-  document.querySelectorAll(".fp[data-track]").forEach(function(b){
-    b.addEventListener("click",function(){ track=b.dataset.track;
-      document.querySelectorAll(".fp[data-track]").forEach(function(x){x.setAttribute("aria-pressed", x===b?"true":"false");}); apply(); });
-  });
-  document.getElementById("clearf").addEventListener("click",function(e){e.preventDefault(); diff="all"; track="all";
-    document.querySelectorAll(".fp").forEach(function(x){x.setAttribute("aria-pressed", (x.dataset.diff==="all"||x.dataset.track==="all")?"true":"false");}); apply(); });
-  apply();
+  fDisc.addEventListener("change", function() { fillTopic(); apply(); });
+  fDiff.addEventListener("change", apply);
+  fTopic.addEventListener("change", apply);
+  document.getElementById("clearf").addEventListener("click", function() {
+    fDisc.value="all"; fDiff.value="all"; fillTopic(); apply(); });
+  fillTopic(); apply();
 </script>
-<!-- Analytics: GoatCounter (cookieless, no personal data). Activate by registering the "redherrings" code at goatcounter.com. -->
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="theme.js" defer></script>
 </body>

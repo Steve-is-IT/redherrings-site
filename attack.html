@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MITRE ATT&CK Coverage | Red Herrings Incident Response Labs</title>
+<meta name="description" content="Red Herrings incident-response cases are mapped to MITRE ATT&CK tactics and techniques. See which tactics the case library covers — from Initial Access to Impact — and generate a unique, auto-graded IR lab for every student, worked from real EDR and SIEM evidence.">
+<link rel="canonical" href="https://redherrings.app/attack.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:title" content="MITRE ATT&CK Coverage — Red Herrings">
+<meta property="og:description" content="Incident-response cases mapped to MITRE ATT&CK tactics, worked from EDR and SIEM evidence. A unique auto-graded lab per student.">
+<meta property="og:url" content="https://redherrings.app/attack.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="site.css">
+  <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="how.html">How it works</a>
+    <a class="link" href="cases.html">Cases</a>
+    <a class="link" href="pathways.html">Pathways</a>
+    <a class="link" href="student-portal.html">Student portal</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+  </div>
+</header>
+<main class="wrap">
+  <div class="pagehead">
+    <div class="crumb"><a href="/">Home</a> / ATT&amp;CK coverage</div>
+    <h1>Mapped to MITRE ATT&amp;CK</h1>
+    <p>Red Herrings incident-response cases are built around the MITRE ATT&amp;CK framework. Every IR case declares the tactics and techniques it exercises, so you can pick a case by the behaviour you want students to recognise &mdash; and every answer that names a technique is graded against the evidence. Students work from the responder's own tooling: EDR detection feeds and SIEM alert exports, corroborated by host logs, from first triage through containment, eradication and recovery (the NIST 800-61 lifecycle). Here is what the library covers today.</p>
+  </div>
+  <section style="border-top:0;padding-top:12px">
+    <div class="grid">
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Initial Access</span><span class="cc-meta">TA0001 &middot; 11 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">How the intruder first got in: phishing, valid accounts, exposed services, supply chain.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Execution</span><span class="cc-meta">TA0002 &middot; 9 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Running attacker code: scripting, LOLBins, scheduled tasks, service execution.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Persistence</span><span class="cc-meta">TA0003 &middot; 10 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Keeping a foothold across reboots: Run keys, services, tasks, accounts, startup items.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Privilege Escalation</span><span class="cc-meta">TA0004 &middot; 7 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Gaining higher rights: token theft, UAC bypass, exploit, abused privileges.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Defense Evasion</span><span class="cc-meta">TA0005 &middot; 7 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Hiding the activity: log clearing, masquerading, disabling tools, timestomping.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Credential Access</span><span class="cc-meta">TA0006 &middot; 6 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Stealing secrets: LSASS dumping, kerberoasting, browser and cached credentials.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Discovery</span><span class="cc-meta">TA0007 &middot; 4 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Learning the environment: host, account, network and share enumeration.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Lateral Movement</span><span class="cc-meta">TA0008 &middot; 6 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Moving host to host: remote services, RDP, SMB/admin shares, remote execution.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Collection</span><span class="cc-meta">TA0009 &middot; 3 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Staging data of interest: archives, local/network shares, screen or input capture.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Command &amp; Control</span><span class="cc-meta">TA0011 &middot; 6 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Attacker channel: beacons, web protocols, DNS, remote-access tools.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Exfiltration</span><span class="cc-meta">TA0010 &middot; 4 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">Getting data out: over the C2 channel, to cloud storage, or to an alternate protocol.</p>
+      </article>
+      <article class="card">
+        <div class="cc-top"><span class="chip trk-ir">Impact</span><span class="cc-meta">TA0040 &middot; 4 cases</span></div>
+        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">The damage done: ransomware encryption, data destruction, account lockout, defacement.</p>
+      </article>
+    </div>
+    <p class="note" style="margin-top:18px">ATT&amp;CK&reg; and MITRE ATT&amp;CK&reg; are registered trademarks of The MITRE Corporation. Red Herrings maps to published ATT&amp;CK tactics and techniques for teaching; it is not affiliated with or endorsed by MITRE.</p>
+    <div class="cta-row" style="margin-top:28px"><a class="btn" href="cases.html">Browse incident-response cases</a><a class="btn ghost" href="/#download">Start a free 14-day trial</a></div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC.</span>
+      <span><a href="/">Home</a> &middot; <a href="help.html">Help</a> &middot; <a href="student-portal.html">Student portal</a> &middot; <a href="blog/">Blog</a> &middot; <a href="/#pricing">Pricing</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="eula.html">EULA</a> &middot; <a href="refund.html">Refunds</a> &middot; <a href="mailto:sales@redherrings.app">sales@redherrings.app</a></span>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="theme.js" defer></script>
+</body>
+</html>
