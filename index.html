@@ -84,8 +84,9 @@
 <main class="wrap">
   <section class="hero hero-split" style="border-top:0">
     <div class="hero-copy">
-      <h1>Real Evidence. Real Skills. Real Fast.</h1>
-      <p class="lede">Red Herrings turns one case into a different lab for every student: unique evidence, a worksheet, an answer key computed from that evidence, and a rubric. Nothing to share, nothing to reuse next semester, and the whole class grades in minutes.</p>
+      <span class="kicker" style="color:var(--accent)">Real Evidence. Real Skills. Real Fast.</span>
+      <h1>Turn anyone into a real forensic investigator.</h1>
+      <p class="lede">Red Herrings builds a complete, true-to-life digital forensics case &mdash; disk, memory, network, mobile and cloud evidence &mdash; unique to every student and graded the moment they finish. They do the real work in the real tools. No two labs alike, nothing to copy, and you never build or hand-grade a case again.</p>
       <div class="cta-row">
         <button class="btn" data-action="trial" data-goatcounter-click="trial">Start a free 14-day trial</button>
         <a class="btn ghost" href="sample/LAB-insider-usb-student-001.zip" data-goatcounter-click="sample">Download a sample lab</a>
@@ -122,63 +123,53 @@
   </section>
 
   <section id="features" aria-labelledby="features-h">
-    <div class="lead center">
-      <h2 class="opener" id="features-h">Real evidence. Verified answers. <em>Grading that does itself.</em></h2>
-      <p class="osub">Artifacts that open in the tools your students will use on the job, a verification pass that proves every answer is really there, and everything an instructor needs to hand out, grade and report.</p>
+    <div class="secthead">
+      <h2 class="opener" id="features-h">Evidence you can open. Answers you can trust. <em>Grading that does itself.</em></h2>
+      <p class="osub">Not multiple-choice quizzes dressed up as forensics. Red Herrings makes the real thing: authentic artifacts in the formats of the job, a verification pass that proves every answer is actually there, and a different investigation for every learner.</p>
     </div>
-    <div class="movements">
-      <div class="movement">
-        <div class="mn">01</div>
-        <div>
-          <h3>Ten kinds of real evidence, in genuine on-disk formats</h3>
-          <ul class="pts">
-            <li>Disk images, Windows event logs, registry hives, memory captures for Volatility-style analysis (processes, injected code, unlinked modules, connections), network captures (PCAP), Prefetch, LNK and jump lists, browser history, email, cloud audit logs and mobile databases.</li>
-            <li><strong>Opens in the tools of the trade</strong> &mdash; Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools.</li>
-          </ul>
-        </div>
+    <div class="rows-list">
+      <div class="rowitem">
+        <div class="n">01</div>
+        <h3>Real evidence, in the formats they'll meet on the job</h3>
+        <ul class="pts body">
+          <li>Disk images, Windows event logs, registry hives, memory captures for Volatility-style analysis (processes, injected code, unlinked modules, connections), network captures (PCAP), Prefetch, LNK and jump lists, browser history, email, cloud audit logs and mobile databases &mdash; all in genuine on-disk formats.</li>
+          <li><strong>Opens in the tools of the trade</strong> &mdash; Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools.</li>
+        </ul>
       </div>
-      <div class="movement">
-        <div class="mn">02</div>
-        <div>
-          <h3>Every answer is proven to be in the evidence</h3>
-          <ul class="pts">
-            <li>After generation, each artifact is re-opened with a separate parser and every answer on the key is confirmed present. If it is on the key, it is in the file. We call it the <strong>Fresh Catch check</strong>.</li>
-            <li>Answers are computed from the generated evidence, <strong>never hard-coded</strong>, so the key can never drift from the files a student actually gets.</li>
-          </ul>
-        </div>
+      <div class="rowitem">
+        <div class="n">02</div>
+        <h3>A different investigation for every student</h3>
+        <ul class="pts body">
+          <li>Names, timestamps, hashes, IPs and answers all change per student from a single seed, so no two people get the same lab, and the same seed reproduces the exact labs on any machine. A copied answer is simply the wrong answer.</li>
+          <li><strong>Catch collusion, not just cheating</strong> &mdash; a per-question report shows how many distinct answers went out and which student pairs look most alike. Copied work has nowhere to hide.</li>
+        </ul>
       </div>
-      <div class="movement">
-        <div class="mn">03</div>
-        <div>
-          <h3>One case becomes a different lab for every student</h3>
-          <ul class="pts">
-            <li>Names, timestamps, hashes, IPs and answers all change per student from a single seed. Shared answers stand out instantly, and the same seed reproduces the exact labs on any machine.</li>
-            <li><strong>Catch collusion, not just cheating</strong> &mdash; a per-question report shows how many distinct answers were handed out and which student pairs look most alike. Copied work has nowhere to hide.</li>
-          </ul>
-        </div>
+      <div class="rowitem">
+        <div class="n">03</div>
+        <h3>Every answer is proven to be in the evidence</h3>
+        <ul class="pts body">
+          <li>After generation, each artifact is re-opened with a separate parser and every answer on the key is confirmed present. If it is on the key, it is in the file &mdash; we call it the <strong>Fresh Catch check</strong>.</li>
+          <li>Answers are computed from the generated evidence, <strong>never hard-coded</strong>, so the key can never drift from the files a student actually receives.</li>
+        </ul>
       </div>
-      <div class="movement">
-        <div class="mn">04</div>
-        <div>
-          <h3>Grading that does itself, and goes where you need it</h3>
-          <ul class="pts">
-            <li><strong>Auto-grading with sensible tolerances</strong> &mdash; hashes compare case-insensitively, timestamps within seconds, free text by fuzzy match with a review flag. Every score shows why it was awarded, so you can override with one click.</li>
-            <li><strong>Grade the whole class at once</strong> from one sheet, with a gradebook and analytics: mean, median and per-question correct rate. Export grades to Canvas, Blackboard, Moodle or D2L, or package a case as a Common Cartridge module.</li>
-            <li><strong><a href="student-portal.html">Students can solve in the browser</a></strong> &mdash; a private link for practice with instant feedback or a timed, locked exam, with the answer key never reaching the page. Or launch straight from your LMS over LTI 1.3, with grades posting back automatically.</li>
-          </ul>
-        </div>
+      <div class="rowitem">
+        <div class="n">04</div>
+        <h3>You never build or hand-grade a lab again</h3>
+        <ul class="pts body">
+          <li><strong>Auto-grading with sensible tolerances</strong> &mdash; hashes compare case-insensitively, timestamps within seconds, free text by fuzzy match with a review flag. Every score shows why it was awarded, so you can override with one click.</li>
+          <li><strong>Grade the whole class at once</strong> from one sheet, with a gradebook and analytics: mean, median and per-question correct rate. Export grades to Canvas, Blackboard, Moodle or D2L, or package a case as a Common Cartridge module.</li>
+          <li><strong><a href="student-portal.html">Students can solve in the browser</a></strong> too &mdash; a private link, graded on your machine, with the answer key never reaching the page. Optional, and covered on its own page.</li>
+        </ul>
       </div>
-      <div class="movement">
-        <div class="mn">05</div>
-        <div>
-          <h3>Built for how forensics is actually taught</h3>
-          <ul class="pts">
-            <li><strong>A learning on-ramp</strong> &mdash; guided mode steps a stuck learner from where to look, to how to work it with the right tool, to the answer, one question at a time. Reveal a full walkthrough, or run any case as a capture-the-flag with per-team flags and a CTFd import.</li>
-            <li><strong>Investigation report &amp; chain of custody</strong> &mdash; a court-ready template with the evidence manifest and SHA-256 hashes pre-filled, a chain-of-custody transfer log and a finding-per-question write-up. The discipline employers hire for, that most courses skip.</li>
-            <li><strong>Certification-prep tracks</strong> &mdash; filter the library by cert path (Foundations, Windows, Mobile, Network, Cloud, Linux, macOS, Advanced Forensics &amp; IR), aligned to GCFE, GCFA, GNFA, GCFR, the SANS macOS and Linux tracks and vendor exams (ACE, EnCE, Cellebrite, Magnet).</li>
-            <li><strong>Your brand on every document</strong> &mdash; one settings screen puts your name, logo, colors and footer on every screen and every generated worksheet, key and rubric. Or strip the branding entirely.</li>
-          </ul>
-        </div>
+      <div class="rowitem">
+        <div class="n">05</div>
+        <h3>Built for how forensics is actually taught</h3>
+        <ul class="pts body">
+          <li><strong>A learning on-ramp</strong> &mdash; guided mode walks a stuck learner from where to look, to how to work it with the right tool, to the answer, one question at a time. Reveal a full walkthrough, or run any case as a capture-the-flag with per-team flags and a CTFd import.</li>
+          <li><strong>Investigation report &amp; chain of custody</strong> &mdash; a court-ready template with the evidence manifest and SHA-256 hashes pre-filled, a transfer log and a finding-per-question write-up. The discipline employers hire for, that most courses skip.</li>
+          <li><strong>Certification-prep tracks</strong> &mdash; filter the library by cert path (Foundations, Windows, Mobile, Network, Cloud, Linux, macOS, Advanced Forensics &amp; IR), aligned to GCFE, GCFA, GNFA, GCFR, the SANS macOS and Linux tracks and vendor exams (ACE, EnCE, Cellebrite, Magnet).</li>
+          <li><strong>Your brand on every document</strong>, or none &mdash; one setting puts your institution's name, logo and colors on every screen and generated document, or strips the branding entirely.</li>
+        </ul>
       </div>
     </div>
   </section>
