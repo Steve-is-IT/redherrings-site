@@ -404,7 +404,6 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 
 /* Split hero (copy left, product right) */
 .hero-split{display:grid;grid-template-columns:1fr 1.32fr;gap:40px;align-items:start;text-align:left;padding:0}
-.hero-media{margin-top:15px}
 .hero-media .hero-proof{text-align:center;margin:18px auto 0;max-width:100%;font-size:15.5px}
 /* Full-width centered CTA row beneath the hero */
 .hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:46px auto 0}
