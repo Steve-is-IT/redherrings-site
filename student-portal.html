@@ -18,39 +18,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="site.css">
 <style>
-/* Scoped styles for the animated solve-flow demo. The site .shot wrapper
-   provides the frame (border, radius, shadow); these only style its contents. */
-.sp-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg)}
-.sp-dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
-.sp-url{margin-left:10px;font:12px/1 var(--mono);color:var(--muted)}
-.sp-body{padding:22px 22px 24px;position:relative;min-height:300px;background:var(--card)}
-.sp-kicker{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.sp-q{font-weight:700;margin:4px 0 2px;color:var(--ink)}
-.sp-meta{font-size:12px;color:var(--muted);margin-bottom:14px}
-.sp-input{border:1px solid var(--line);border-radius:9px;padding:10px 12px;font:14px/1.4 var(--mono);color:var(--ink);background:var(--bg);min-height:40px;display:flex;align-items:center}
-.sp-caret{display:inline-block;width:1px;height:16px;background:var(--ink);margin-left:1px;animation:sp-blink 1s steps(1) infinite}
-@keyframes sp-blink{50%{opacity:0}}
-.sp-btn{margin-top:14px;display:inline-block;background:var(--accent);color:var(--accent-ink,#fff);border-radius:9px;padding:9px 16px;font-weight:600;font-size:14px}
-.sp-fb{margin-top:12px;font-weight:600;font-size:14px;padding:8px 12px;border-radius:8px;opacity:0}
-.sp-ok{color:#15803d;background:color-mix(in srgb,#15803d 15%,transparent)}
-.sp-stage{position:absolute;inset:22px 22px 24px;opacity:0}
-.sp-stage.s1{animation:sp-s1 11s ease-in-out infinite}
-.sp-stage.s2{animation:sp-s2 11s ease-in-out infinite}
-@keyframes sp-s1{0%{opacity:0}3%{opacity:1}43%{opacity:1}48%{opacity:0}100%{opacity:0}}
-@keyframes sp-s2{0%,49%{opacity:0}54%{opacity:1}95%{opacity:1}99%{opacity:0}100%{opacity:0}}
-.sp-typed{opacity:0;animation:sp-type 11s ease-in-out infinite}
-@keyframes sp-type{0%,8%{opacity:0}14%{opacity:1}48%{opacity:1}100%{opacity:0}}
-.sp-press{animation:sp-press 11s ease-in-out infinite}
-@keyframes sp-press{0%,24%{transform:none;filter:none}27%{transform:scale(.96);filter:brightness(.9)}30%{transform:none}100%{transform:none}}
-.sp-reveal{animation:sp-reveal 11s ease-in-out infinite}
-@keyframes sp-reveal{0%,30%{opacity:0;transform:translateY(4px)}36%{opacity:1;transform:none}48%{opacity:1}52%{opacity:0}100%{opacity:0}}
-.sp-ring{width:84px;height:84px;margin:4px auto 10px;border-radius:50%;background:conic-gradient(#15803d var(--p,0%),var(--line) 0);display:grid;place-items:center;animation:sp-ring 11s ease-in-out infinite}
-.sp-ring>span{width:64px;height:64px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-weight:800;color:#15803d}
-@keyframes sp-ring{0%,52%{--p:0%}70%{--p:92%}95%{--p:92%}100%{--p:0%}}
-@media (prefers-reduced-motion: reduce){
-  .sp-stage,.sp-typed,.sp-press,.sp-reveal,.sp-ring,.sp-caret{animation:none}
-  .sp-stage.s1{opacity:1}.sp-stage.s2{display:none}.sp-typed{opacity:1}
-}
+/* --- mini analytics visual for the media row --- */
+.an{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-md);padding:22px;display:flex;flex-direction:column;gap:16px}
+.an-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.an-tile{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.an-tile .v{font-size:23px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.an-tile .l{font-size:11px;color:var(--muted);margin-top:3px}
+.an-bars{display:flex;flex-direction:column;gap:10px}
+.an-cap{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--faint)}
+.an-row{display:flex;align-items:center;gap:11px;font-size:12px;color:var(--muted)}
+.an-row .lbl{width:70px;flex:none}
+.an-row .track{flex:1;height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.an-row .fill{height:100%;background:color-mix(in srgb,var(--accent) 62%,transparent)}
+.an-row .n{width:18px;text-align:right;font-variant-numeric:tabular-nums}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Student Portal & LMS for Red Herrings","description":"Students solve forensics labs in the browser with instant practice feedback or a timed, locked exam; scores post to the LMS over LTI 1.3."}
@@ -74,95 +54,158 @@
 </header>
 
 <main class="wrap">
-  <div class="pagehead">
-    <div class="crumb"><a href="/">Home</a> / Student portal &amp; LMS</div>
-    <h1>Students solve in the browser. You still can't be copied.</h1>
-    <p>Hand each student a private link to work their lab online, or launch it straight from your LMS. Practice mode gives instant feedback; exam mode is timed and locked. Everyone gets a different case, the answer key never leaves your machine, and scores post back to your gradebook.</p>
-    <div class="cta-row" style="margin-top:14px">
-      <a class="btn" href="/#download" data-goatcounter-click="cta-trial-portal">Start a free 14-day trial</a>
-      <a class="btn ghost" href="how.html">How it works</a>
-    </div>
-  </div>
-
-  <div class="shot" style="max-width:520px" aria-hidden="true">
-    <div class="sp-bar"><span class="sp-dot"></span><span class="sp-dot"></span><span class="sp-dot"></span><span class="sp-url">labs.yourschool.edu/solve</span></div>
-    <div class="sp-body">
-      <div class="sp-stage s1">
-        <div class="sp-kicker">Question 4 &middot; Practice</div>
-        <div class="sp-q">What is the source IP of the after-hours logon?</div>
-        <div class="sp-meta">IP address &middot; 10 pts</div>
-        <div class="sp-input"><span class="sp-typed">203.0.113.47</span><span class="sp-caret"></span></div>
-        <div class="sp-btn sp-press">Check</div>
-        <div class="sp-fb sp-ok sp-reveal">Correct.</div>
+  <section class="hero hero-split" style="border-top:0">
+    <div class="hero-copy">
+      <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / Student portal &amp; LMS</div>
+      <h1>Students solve in the browser. You still can't be copied.</h1>
+      <p class="lede">Hand each student a private link to work their lab online, or launch it straight from your LMS. Practice mode gives instant feedback; exam mode is timed and locked, and every student gets a different case.</p>
+      <div class="cta-row">
+        <a class="btn" href="/#download" data-goatcounter-click="cta-trial-portal">Start a free 14-day trial</a>
+        <a class="btn ghost" href="how.html">How it works</a>
       </div>
-      <div class="sp-stage s2">
-        <div class="sp-kicker">Submitted</div>
-        <div class="sp-ring"><span>92%</span></div>
-        <div style="text-align:center">
-          <div class="sp-q" style="font-size:15px">Your answers are in</div>
-          <div class="sp-meta">11 of 12 correct &middot; posted to your gradebook</div>
+      <p class="hero-proof">The answer key <strong>never leaves your machine</strong> &middot; scores post to your gradebook &middot; runs fully offline</p>
+    </div>
+    <div class="hero-media">
+      <div class="hero-frame" aria-hidden="true">
+        <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <div class="sp-shot">
+          <div class="kick">Question 4 &middot; Practice</div>
+          <div class="q">What is the source IP of the after-hours logon?</div>
+          <div class="meta">IP address &middot; 10 pts</div>
+          <div class="field">203.0.113.47</div>
+          <span class="ok">Correct</span>
+          <div class="prog">
+            <span class="dots"><i></i><i></i><i></i><i class="now"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i></span>
+            <span class="lab">4 of 12 &middot; answers saved as you go</span>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <div class="audience audience-strip" aria-label="How instructors use it">
+    <span>Practice &amp; homework</span>
+    <span>Timed, in-class exams</span>
+    <span>Self-study</span>
+    <span>LMS-integrated courses</span>
   </div>
 
   <section>
-    <h2>Two ways to run it</h2>
-    <p class="sub">One switch at generation time. The paper worksheet is always included too, so nothing about your offline workflow changes.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Practice</h3>
-        <p>Students answer in the browser and check each question as they go: a quiet "not quite" or "correct", with optional hints. Nothing is locked. Ideal for homework, labs and self-study.</p>
+    <div class="lead">
+      <p class="opener">Two ways to run it, <em>one switch</em> at generation time.</p>
+      <p class="osub">The paper worksheet is always included too, so nothing about your offline workflow changes.</p>
+    </div>
+    <div class="bigcards" style="margin-top:clamp(32px,5vw,48px)">
+      <div class="bigcard">
+        <div class="fh">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+          <h3>Practice</h3>
+        </div>
+        <p>Students answer in the browser and check their work as they go. Low-stakes, nothing locked, ideal for homework and labs.</p>
+        <ul>
+          <li>Instant per-question feedback</li>
+          <li>Optional hints when a learner is stuck</li>
+          <li>Open until you say otherwise</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Timed exam</h3>
-        <p>A countdown starts when the student opens their link. Answers are captured and locked on submit, late submissions are flagged, and scores stay yours until you release them. Checking is off, and the answer key is never sent to the browser.</p>
-      </div>
-      <div class="card">
-        <h3>Still copy-resistant</h3>
-        <p>Every link resolves to that student's own seeded variant, and you can shuffle the question order per student. Copying a neighbour's answer gets the wrong result, because it was never the same question.</p>
+      <div class="bigcard">
+        <div class="fh">
+          <span class="ic t"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
+          <h3>Timed exam</h3>
+        </div>
+        <p>A real assessment. The clock starts when the student opens their link, and answers lock on submit.</p>
+        <ul>
+          <li>Server-enforced countdown; late work flagged</li>
+          <li>Answer key never sent to the browser</li>
+          <li>Scores stay yours until you release them</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Trustworthy by construction</h2>
-    <p class="sub">The portal keeps the integrity story that makes Red Herrings worth using, with nothing to host for the offline mode.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>The key never leaves your computer</h3>
-        <p>The portal is served by Red Herrings on your own machine. A single answer is graded locally and only "right" or "wrong" comes back, so the page a student loads can't be mined for solutions.</p>
+    <div class="lead">
+      <p class="opener">The answer key <em>never leaves</em> your machine.</p>
+      <p class="osub">The portal is served by Red Herrings on your own computer. Students answer in the browser, grading happens locally, and only right-or-wrong comes back. Nothing to host, and no student data anywhere else.</p>
+    </div>
+    <div class="stmts">
+      <div class="stmt">
+        <div class="n">01</div>
+        <div>
+          <h3>The page can't be mined for solutions</h3>
+          <p>Answers are checked on your machine and only the verdict is returned, so there is nothing in the browser to read, scrape or share. Reveal the full walkthrough yourself, when you choose to.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>No student data leaves</h3>
-        <p>Submissions stay with you. There is no account to create and nothing to upload; a student just opens their link and answers.</p>
+      <div class="stmt">
+        <div class="n">02</div>
+        <div>
+          <h3>A different case for every student</h3>
+          <p>Each private link resolves to that student's own seeded variant, with the question order optionally shuffled. A copied answer is simply the wrong answer.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>A refresh never loses work</h3>
-        <p>Answers are saved in the student's browser as they type, so a reload mid-exam picks up exactly where they left off.</p>
+      <div class="stmt">
+        <div class="n">03</div>
+        <div>
+          <h3>A refresh never loses work</h3>
+          <p>Answers are saved in the student's own browser as they type, so a reload mid-exam picks up exactly where they left off. That draft never leaves their device.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>See the whole class at a glance</h2>
-    <p class="sub">As students submit, an instructor dashboard shows how the class is doing, all on your machine.</p>
-    <div class="grid">
-      <div class="card"><h3>Score distribution</h3><p>Class average, median and pass rate, and how many students landed in each band.</p></div>
-      <div class="card"><h3>Hardest questions first</h3><p>Per-question correct rate, the most common wrong answer, and a flag for any question nobody got, which often means a mis-keyed answer rather than a hard one.</p></div>
-      <div class="card"><h3>By difficulty</h3><p>Correct rate across easy, medium and hard, so you can see where the class is really struggling.</p></div>
+    <div class="mediarow">
+      <div class="mr-text">
+        <div class="eyebrow-sm">For the instructor</div>
+        <h2>See the whole class at a glance</h2>
+        <p>As students submit, a dashboard shows how the class is doing, all on your machine: the score distribution, the questions that tripped most people up, and a flag for any item nobody got, which usually means a mis-keyed answer rather than a hard one.</p>
+      </div>
+      <div class="an" aria-hidden="true">
+        <div class="an-tiles">
+          <div class="an-tile"><div class="v">83%</div><div class="l">Class average</div></div>
+          <div class="an-tile"><div class="v">88%</div><div class="l">Pass rate</div></div>
+          <div class="an-tile"><div class="v">2</div><div class="l">To review</div></div>
+        </div>
+        <div class="an-bars">
+          <div class="an-cap">Score distribution</div>
+          <div class="an-row"><span class="lbl">90&ndash;100%</span><span class="track"><span class="fill" style="width:72%"></span></span><span class="n">13</span></div>
+          <div class="an-row"><span class="lbl">80&ndash;89%</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="n">9</span></div>
+          <div class="an-row"><span class="lbl">70&ndash;79%</span><span class="track"><span class="fill" style="width:28%"></span></span><span class="n">5</span></div>
+          <div class="an-row"><span class="lbl">Below 70</span><span class="track"><span class="fill" style="width:17%"></span></span><span class="n">3</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section>
-    <h2>Or launch it from your LMS</h2>
-    <p class="sub">Deployed as a hosted tool, Red Herrings connects to your LMS over LTI 1.3 Advantage.</p>
-    <div class="grid">
-      <div class="card"><h3>Deep Linking</h3><p>Add a Red Herrings case from inside your assignment editor and pick practice or a timed exam, with no copy-pasting links.</p></div>
-      <div class="card"><h3>Names &amp; Roles</h3><p>The roster comes straight from the course. No CSV to export and import.</p></div>
-      <div class="card"><h3>Grade passback</h3><p>When a student submits, the score posts directly to your gradebook over Assignment &amp; Grade Services.</p></div>
+    <div class="lead">
+      <p class="opener">Or launch it <em>from your LMS</em>.</p>
+      <p class="osub">Deployed as a hosted tool, Red Herrings connects over LTI 1.3 Advantage, with one-click install via Dynamic Registration. Three things happen automatically once it's connected.</p>
     </div>
-    <div class="lmsband" style="margin-top:20px">
+    <div class="stmts" style="margin-top:clamp(30px,5vw,46px)">
+      <div class="stmt">
+        <div class="n">01</div>
+        <div>
+          <h3>Deep Linking</h3>
+          <p>Add a Red Herrings case from inside your assignment editor and pick practice or a timed exam. No copy-pasting links.</p>
+        </div>
+      </div>
+      <div class="stmt">
+        <div class="n">02</div>
+        <div>
+          <h3>Names &amp; Roles</h3>
+          <p>The roster comes straight from the course over NRPS. No CSV to export and import.</p>
+        </div>
+      </div>
+      <div class="stmt">
+        <div class="n">03</div>
+        <div>
+          <h3>Grade passback</h3>
+          <p>When a student submits, the score posts directly to your gradebook over Assignment &amp; Grade Services.</p>
+        </div>
+      </div>
+    </div>
+    <div class="lmsband" style="margin-top:clamp(34px,5vw,48px)">
       <p class="kick" id="lms-h">Launch and grade through Canvas, Blackboard, Moodle or D2L, or keep it fully offline</p>
       <div class="logos">
         <img src="img/lms/canvas.svg" alt="Canvas" width="80" height="26" loading="lazy">
@@ -175,7 +218,7 @@
   </section>
 
   <section style="text-align:center">
-    <h2>Give it a try with your own class</h2>
+    <h2>Try it with your own class</h2>
     <p class="sub">Start the free 14-day trial. Nothing to host for the offline portal, and it runs entirely on your machine.</p>
     <div class="cta-row" style="justify-content:center">
       <a class="btn" href="/#download">Start a free 14-day trial</a>
