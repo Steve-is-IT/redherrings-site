@@ -43,9 +43,8 @@
     btn.addEventListener("click", function () {
       set(effective() === "dark" ? "light" : "dark");
     });
-    // Place it just before the primary call-to-action in the nav, if present.
-    var cta = nav.querySelector("a.btn, button.btn, .btn");
-    if (cta) nav.insertBefore(btn, cta); else nav.appendChild(btn);
+    // Place it at the end of the nav, after the primary call-to-action.
+    nav.appendChild(btn);
     refresh();
 
     // Follow OS changes while the viewer has made no explicit choice.
