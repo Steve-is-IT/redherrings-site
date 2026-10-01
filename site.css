@@ -403,7 +403,8 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 }
 
 /* Split hero (copy left, product right) */
-.hero-split{display:grid;grid-template-columns:1fr 1.32fr;gap:40px;align-items:center;text-align:left;padding:76px 0 60px}
+.hero-split{display:grid;grid-template-columns:1fr 1.32fr;gap:40px;align-items:start;text-align:left;padding:76px 0 60px}
+.hero-media .hero-proof{text-align:center;margin:18px auto 0;max-width:100%;font-size:15.5px}
 .hero-split h1{margin:0 0 18px}
 .hero-split p.lede{margin:0 0 26px;max-width:560px}
 .hero-split .cta-row{justify-content:flex-start}
