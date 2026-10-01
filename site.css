@@ -520,3 +520,21 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .sp-shot .dots i.now{background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
 .sp-shot .dots i.todo{background:var(--line)}
 .sp-shot .prog .lab{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* ---- Hero with a full-width headline spanning across the top (over the
+        product shot), then a copy + image row beneath it ---- */
+.hero-top{padding:56px 0 60px;text-align:left}
+.hero-top .hero-head{margin-bottom:clamp(26px,4vw,44px)}
+.hero-top .hero-head .kicker{display:inline-block;margin-bottom:14px}
+.hero-top .hero-head h1{font-size:clamp(40px,7.4vw,82px);line-height:1.0;letter-spacing:-.035em;margin:0;font-weight:800;text-wrap:pretty;max-width:20ch}
+.hero-top .hero-lower{display:grid;grid-template-columns:1fr 1.14fr;gap:clamp(28px,5vw,58px);align-items:center}
+.hero-top .hero-copy p.lede{margin:0 0 26px;max-width:52ch}
+.hero-top .hero-copy .cta-row{justify-content:flex-start}
+.hero-top .hero-proof{margin-top:22px}
+.hero-top .hero-media::before{inset:-12% -8% -12% 0}
+@media (max-width:900px){
+  .hero-top{padding:40px 0 36px}
+  .hero-top .hero-head h1{font-size:clamp(34px,8.5vw,52px);max-width:none}
+  .hero-top .hero-lower{grid-template-columns:1fr;gap:30px}
+  .hero-top .hero-copy p.lede{margin-left:0;margin-right:0;max-width:none}
+}
