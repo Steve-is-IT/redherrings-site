@@ -16,18 +16,32 @@
   --ring:0 0 0 3px color-mix(in srgb,var(--accent) 32%,transparent);
   --ok:#1a7f4b; --warn:#b26a00; --bad:#c62828; --pro:#6d3bd1;
   --teal:#0d9488;
+  color-scheme:light;
 }
+/* Dark palette as a single source, applied in two cases:
+   (1) the OS asks for dark and the viewer has not forced light, and
+   (2) the viewer explicitly chose dark with the header toggle. */
 @media (prefers-color-scheme: dark){
-  :root{
+  :root:not([data-theme="light"]){
     --ink:#eef1f6; --paper:#0e1117; --muted:#9aa4b2; --faint:#727c8c;
     --line:#242a3a; --line-2:#1c2130; --bg:#0a0c11; --card:#141824; --card-2:#171c2a;
     --shadow-sm:0 1px 2px rgba(0,0,0,.4);
     --shadow-md:0 8px 24px rgba(0,0,0,.45);
     --shadow-lg:0 28px 70px rgba(0,0,0,.6);
     --ok:#43c78a; --warn:#e0a044; --bad:#f0736b; --pro:#a785f0;
-    --teal:#2dd4bf;
+    --teal:#2dd4bf; color-scheme:dark;
   }
 }
+:root[data-theme="dark"]{
+  --ink:#eef1f6; --paper:#0e1117; --muted:#9aa4b2; --faint:#727c8c;
+  --line:#242a3a; --line-2:#1c2130; --bg:#0a0c11; --card:#141824; --card-2:#171c2a;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+  --shadow-md:0 8px 24px rgba(0,0,0,.45);
+  --shadow-lg:0 28px 70px rgba(0,0,0,.6);
+  --ok:#43c78a; --warn:#e0a044; --bad:#f0736b; --pro:#a785f0;
+  --teal:#2dd4bf; color-scheme:dark;
+}
+:root[data-theme="light"]{color-scheme:light}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"cv02","cv03","cv04","cv11"}
@@ -46,6 +60,12 @@ header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.6) blur(12px)
 .nav a.link{color:var(--muted);font-weight:500;font-size:15px;transition:color .15s ease}
 .nav a.link:hover{color:var(--ink)}
 @media(max-width:680px){.nav a.link{display:none}}
+/* theme toggle (injected into .nav by theme.js) */
+.themetoggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;padding:0;transition:color .15s ease,border-color .15s ease,background .15s ease}
+.themetoggle:hover{color:var(--ink);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.themetoggle svg{width:18px;height:18px;display:block}
+.themetoggle[data-eff="light"] .sun{display:none}
+.themetoggle[data-eff="dark"] .moon{display:none}
 
 /* ---- buttons ---- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--accent-ink);padding:11px 20px;border-radius:11px;font-weight:600;border:1px solid transparent;cursor:pointer;font-size:15px;font-family:inherit;line-height:1;box-shadow:var(--shadow-sm);transition:transform .08s ease,background .2s ease,box-shadow .2s ease,border-color .2s ease}
