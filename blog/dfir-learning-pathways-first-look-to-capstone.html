@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Run a forensics exam students can't copy | Red Herrings</title>
-<meta name="description" content="Shared answer keys and copied answers are the quiet problem in hands-on DFIR courses. Here's how to run a digital forensics exam where every student gets a genuinely different case - in the browser or through your LMS.">
-<link rel="canonical" href="https://redherrings.app/blog/forensics-exam-students-cant-copy.html">
+<title>From first look to capstone: building a DFIR learning pathway | Red Herrings</title>
+<meta name="description" content="A good DFIR course is a ladder, not a pile of labs. Here's how to build a pathway from a First Look on-ramp through the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in at every step.">
+<link rel="canonical" href="https://redherrings.app/blog/dfir-learning-pathways-first-look-to-capstone.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Run a forensics exam students can't copy">
-<meta property="og:description" content="Every student gets a genuinely different case, graded automatically, in the browser or through your LMS.">
-<meta property="og:url" content="https://redherrings.app/blog/forensics-exam-students-cant-copy.html">
+<meta property="og:title" content="From first look to capstone: building a DFIR learning pathway">
+<meta property="og:description" content="Build a pathway from a First Look on-ramp through the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in.">
+<meta property="og:url" content="https://redherrings.app/blog/dfir-learning-pathways-first-look-to-capstone.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
@@ -29,7 +29,7 @@
 .post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Run a forensics exam students can't copy","description":"Every student gets a genuinely different digital forensics case, graded automatically, in the browser or through your LMS.","datePublished":"2026-10-01","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/forensics-exam-students-cant-copy.html"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"From first look to capstone: building a DFIR learning pathway","description":"Build a pathway from a First Look on-ramp through the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/dfir-learning-pathways-first-look-to-capstone.html"}
 </script>
   <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -53,43 +53,42 @@
 <main class="wrap">
   <article class="post">
     <div class="pagehead" style="border:0">
-      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Exam integrity</div>
+      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Course design</div>
       <div class="byline">Red Herrings &middot; DFIR teaching notes</div>
-      <h1>Run a forensics exam students can't copy</h1>
-      <p class="lede">The quiet problem with hands-on forensics assessment isn't grading. It's that two students staring at the same disk image get the same answers &mdash; so an "exam" becomes a test of who sat next to whom.</p>
+      <h1>From first look to capstone: building a DFIR learning pathway</h1>
+      <p class="lede">A pile of labs isn't a curriculum. A pathway is: an on-ramp that assumes nothing, a difficulty ladder that builds one rung at a time, and a capstone that proves it all came together.</p>
     </div>
 
-    <p>If you teach digital forensics, you already know the drill. You build a case, hand out the same evidence to the whole class, and write an answer key. It works once. Then the key leaks, or two students compare notes, and next term you are rebuilding the entire case from scratch to stay ahead of last year's cohort.</p>
+    <p>The hardest moment in a DFIR course is the first one. Drop a beginner into a full disk image with twenty questions and they don't know which tool to open, let alone what to look for. Skip the on-ramp and you lose people in week one. Over-scaffold and your advanced students are bored by October. A pathway solves both by sequencing the work.</p>
 
-    <p>The root cause is that the evidence is identical. When every student analyzes the same <code>image.E01</code>, the "answer" to "what is the attacker's IP?" is one string. Share it once and the assessment is done. No amount of proctoring fixes an exam whose answers are a short, copyable list.</p>
+    <h2>Start with a First Look</h2>
+    <p>Every core skill in Red Herrings has a First Look case: a short, single-artifact triage that teaches one thing with one tool. A First Look at USB device history. A First Look at a suspicious email's headers. A First Look at a single memory capture, a packet capture, the registry, an event log, or a timeline. The point isn't to challenge; it's to get a learner to a first correct answer so the next case isn't terrifying.</p>
 
-    <h2>Make the evidence different, not the questions</h2>
-    <p>The fix is to change what everyone is looking at. Give each student a case built from the same scenario but seeded differently: their own hostnames, usernames, timestamps, file hashes, IP addresses and therefore their own answers. The questions read the same; the answers don't match anyone else's. Copying a neighbour's "203.0.113.47" is simply wrong, because their attacker used a different address.</p>
+    <blockquote>The job of the first lab isn't to test anyone. It's to get a beginner to one correct answer, with one tool, so the second lab feels possible.</blockquote>
 
-    <blockquote>If the answer key is a list of facts, a unique-evidence exam turns that list into a per-student list &mdash; and a copied answer is a wrong answer.</blockquote>
-
-    <p>That is exactly what Red Herrings does: you write or pick one scenario, and it generates an individually seeded evidence set, worksheet and answer key for every student, verifying each one against its own evidence before you ever hand it out. You prepared one case; the class gets thirty different ones.</p>
-
-    <h2>Let students work it in the browser</h2>
-    <p>Unique evidence solves copying. The next friction is logistics: distributing zips, collecting submissions, grading by hand. So students can now open their lab in the browser and answer it there:</p>
+    <h2>Climb the difficulty ladder</h2>
+    <p>From there the cases step up through a clear ladder &mdash; First Look, Easy, Medium, Hard, Expert, and the Marquee capstones. Each rung adds an artifact or a pivot: one tool becomes two, a single question becomes a chain, a clean scenario grows the noise and dead ends of a real one. Because the levels are explicit, you can map them straight onto your weeks and know a student is never asked to make two jumps at once.</p>
     <ul>
-      <li><strong>Practice mode</strong> gives instant per-question feedback and optional hints &mdash; good for homework and self-study, nothing locked.</li>
-      <li><strong>Timed exam mode</strong> starts a countdown when the student opens their link, captures and locks their answers on submit, and flags anything turned in late.</li>
+      <li><strong>First Look and Easy</strong> &mdash; one artifact, one tool, a handful of questions. Confidence and tool familiarity.</li>
+      <li><strong>Medium and Hard</strong> &mdash; several artifacts that have to be correlated, a timeline to build, indicators to connect across evidence families.</li>
+      <li><strong>Expert and Marquee</strong> &mdash; multi-hour investigations and capstones that pull disk, memory, network, logs and more into one case, worked end to end.</li>
     </ul>
-    <p>Crucially, the answer key never reaches the browser. A single answer is graded on your machine and only "right" or "wrong" comes back, so the page a student loads can't be mined for solutions. Per-question checking is bounded and turned off entirely during exams, so the feedback can't be scripted into an answer oracle.</p>
 
-    <h2>Grade the whole class, then see where they struggled</h2>
-    <p>As submissions come in, a dashboard shows the class average and median, the score distribution, and a per-question breakdown sorted hardest-first &mdash; including the most common wrong answer and a flag for any question nobody got, which usually means a mis-keyed answer rather than a hard one. It is the fastest way to find the one question that confused everyone.</p>
+    <h2>Follow a pathway to a goal</h2>
+    <p>The ladder tells you how hard; a pathway tells you toward what. Red Herrings groups cases into certification-prep pathways on both sides of the house &mdash; Digital Forensics tracks aligned to the published objectives of the GCFE (Windows), GASF (mobile), GNFA (network), the SANS FOR577 Linux and FOR518 macOS exams, and Incident Response tracks aligned to the GCIH, CompTIA CySA+, GCFR and GCFA. There are role-based paths too &mdash; DFIR Analyst Onboarding, Insider-Threat Investigator and Ransomware IR &mdash; for when the goal is a job, not an exam. Pick a pathway and the cases arrive in a sensible order, already climbing the ladder. The <a href="../pathways.html">pathways page</a> lays each one out.</p>
 
-    <h2>Or run it straight from your LMS</h2>
-    <p>If your institution lives in Canvas, Blackboard, Moodle or D2L, Red Herrings can connect as an LTI 1.3 tool: add a case from inside the assignment editor, pull the roster automatically, and have each student's score post back to the gradebook when they submit. No CSV round-trips. (It is an optional connected mode &mdash; the desktop app otherwise runs fully offline, with no student data leaving your machine.)</p>
+    <h2>Guided mode at every rung</h2>
+    <p>A ladder only works if students can climb it without you standing beside each one. On the Solution screen, guided mode steps a stuck learner from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer, one question at a time &mdash; so the support is there when a case is at the edge of someone's ability, and absent when it isn't. An optional guided worksheet prints those hints under each question with a tool quick-start appendix, so a student can begin away from the app. The scaffolding fades as the learner climbs.</p>
+
+    <h2>Different for every student, all the way up</h2>
+    <p>At every rung, each student gets their own individually seeded evidence &mdash; their own hostnames, accounts, IPs, timestamps and hashes &mdash; so a copied answer is the wrong answer from the First Look to the capstone, and every generated variant is independently re-solved and verified before release. You build the pathway once; the whole class climbs it on evidence that's new every time, and you grade all of it from one sheet.</p>
 
     <div class="cta">
-      <strong>Want to see it on your own class?</strong>
-      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can hand out your first copy-resistant lab in minutes.</p>
+      <strong>Want to build a pathway for your course?</strong>
+      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can generate a First Look on-ramp for every student in minutes.</p>
       <div class="cta-row">
         <a class="btn" href="/#download" data-goatcounter-click="cta-trial-blog">Start a free 14-day trial</a>
-        <a class="btn ghost" href="../student-portal.html">See the student portal</a>
+        <a class="btn ghost" href="../pathways.html">Explore the pathways</a>
       </div>
     </div>
   </article>

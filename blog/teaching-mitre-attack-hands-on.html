@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Run a forensics exam students can't copy | Red Herrings</title>
-<meta name="description" content="Shared answer keys and copied answers are the quiet problem in hands-on DFIR courses. Here's how to run a digital forensics exam where every student gets a genuinely different case - in the browser or through your LMS.">
-<link rel="canonical" href="https://redherrings.app/blog/forensics-exam-students-cant-copy.html">
+<title>Teach MITRE ATT&amp;CK with hands-on labs, not slides | Red Herrings</title>
+<meta name="description" content="Students memorize the ATT&CK matrix for an exam and forget it by the next. Here's how to teach it from ATT&CK-tagged incident response cases, where a technique is something you find in the evidence and then detect, not a cell on a chart.">
+<link rel="canonical" href="https://redherrings.app/blog/teaching-mitre-attack-hands-on.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Run a forensics exam students can't copy">
-<meta property="og:description" content="Every student gets a genuinely different case, graded automatically, in the browser or through your LMS.">
-<meta property="og:url" content="https://redherrings.app/blog/forensics-exam-students-cant-copy.html">
+<meta property="og:title" content="Teach MITRE ATT&amp;CK with hands-on labs, not slides">
+<meta property="og:description" content="Teach ATT&CK from tagged incident response cases, where a technique is something you find in the evidence and detect, not a cell on a chart.">
+<meta property="og:url" content="https://redherrings.app/blog/teaching-mitre-attack-hands-on.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
@@ -29,7 +29,7 @@
 .post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Run a forensics exam students can't copy","description":"Every student gets a genuinely different digital forensics case, graded automatically, in the browser or through your LMS.","datePublished":"2026-10-01","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/forensics-exam-students-cant-copy.html"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Teach MITRE ATT&CK with hands-on labs, not slides","description":"Teach ATT&CK from tagged incident response cases, where a technique is something you find in the evidence and detect, not a cell on a chart.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/teaching-mitre-attack-hands-on.html"}
 </script>
   <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -53,43 +53,42 @@
 <main class="wrap">
   <article class="post">
     <div class="pagehead" style="border:0">
-      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Exam integrity</div>
+      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Threat-informed teaching</div>
       <div class="byline">Red Herrings &middot; DFIR teaching notes</div>
-      <h1>Run a forensics exam students can't copy</h1>
-      <p class="lede">The quiet problem with hands-on forensics assessment isn't grading. It's that two students staring at the same disk image get the same answers &mdash; so an "exam" becomes a test of who sat next to whom.</p>
+      <h1>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h1>
+      <p class="lede">A student can recite that T1547 is persistence and still not spot a malicious Run key in front of them. ATT&amp;CK taught from the matrix is a vocabulary quiz. Taught from evidence, it's a lens.</p>
     </div>
 
-    <p>If you teach digital forensics, you already know the drill. You build a case, hand out the same evidence to the whole class, and write an answer key. It works once. Then the key leaks, or two students compare notes, and next term you are rebuilding the entire case from scratch to stay ahead of last year's cohort.</p>
+    <p>The ATT&amp;CK matrix is a wonderful reference and a terrible lecture. Walk a class through fourteen tactics and a few hundred techniques on slides, and what sticks is the shape of the grid, not the behavior behind each cell. Students learn to match a name to a definition. They don't learn to look at a process tree and say "that's credential dumping" &mdash; which is the whole point.</p>
 
-    <p>The root cause is that the evidence is identical. When every student analyzes the same <code>image.E01</code>, the "answer" to "what is the attacker's IP?" is one string. Share it once and the assessment is done. No amount of proctoring fixes an exam whose answers are a short, copyable list.</p>
+    <p>The fix is to make a technique something you <em>find</em>, not something you memorize. Every incident response case in Red Herrings is mapped to the ATT&amp;CK tactics and techniques it contains, so a student works real evidence and then names what they're seeing in ATT&amp;CK's terms &mdash; the reference becomes the output of the investigation, not the input.</p>
 
-    <h2>Make the evidence different, not the questions</h2>
-    <p>The fix is to change what everyone is looking at. Give each student a case built from the same scenario but seeded differently: their own hostnames, usernames, timestamps, file hashes, IP addresses and therefore their own answers. The questions read the same; the answers don't match anyone else's. Copying a neighbour's "203.0.113.47" is simply wrong, because their attacker used a different address.</p>
-
-    <blockquote>If the answer key is a list of facts, a unique-evidence exam turns that list into a per-student list &mdash; and a copied answer is a wrong answer.</blockquote>
-
-    <p>That is exactly what Red Herrings does: you write or pick one scenario, and it generates an individually seeded evidence set, worksheet and answer key for every student, verifying each one against its own evidence before you ever hand it out. You prepared one case; the class gets thirty different ones.</p>
-
-    <h2>Let students work it in the browser</h2>
-    <p>Unique evidence solves copying. The next friction is logistics: distributing zips, collecting submissions, grading by hand. So students can now open their lab in the browser and answer it there:</p>
+    <h2>A technique is a thing in the evidence</h2>
+    <p>When a student finds a scheduled task that re-launches a payload at logon, the lab doesn't ask them to recall a cell on a chart. It asks them to recognize persistence, identify the specific technique, and point to the artifact that proves it. The abstraction and the evidence are welded together from the first time they meet it:</p>
     <ul>
-      <li><strong>Practice mode</strong> gives instant per-question feedback and optional hints &mdash; good for homework and self-study, nothing locked.</li>
-      <li><strong>Timed exam mode</strong> starts a countdown when the student opens their link, captures and locks their answers on submit, and flags anything turned in late.</li>
+      <li><strong>Initial access and execution</strong> &mdash; the phishing attachment, the spawned shell, the suspicious command line in the EDR feed.</li>
+      <li><strong>Persistence and privilege escalation</strong> &mdash; the Run key, the service install, the scheduled task, seen in the registry and event logs.</li>
+      <li><strong>Defense evasion, credential access, discovery</strong> &mdash; cleared logs, dumped credentials, the recon commands that precede lateral movement.</li>
+      <li><strong>Lateral movement, collection, exfiltration, impact</strong> &mdash; the remote logons, the staged archive, the bulk transfer, the encryption.</li>
     </ul>
-    <p>Crucially, the answer key never reaches the browser. A single answer is graded on your machine and only "right" or "wrong" comes back, so the page a student loads can't be mined for solutions. Per-question checking is bounded and turned off entirely during exams, so the feedback can't be scripted into an answer oracle.</p>
 
-    <h2>Grade the whole class, then see where they struggled</h2>
-    <p>As submissions come in, a dashboard shows the class average and median, the score distribution, and a per-question breakdown sorted hardest-first &mdash; including the most common wrong answer and a flag for any question nobody got, which usually means a mis-keyed answer rather than a hard one. It is the fastest way to find the one question that confused everyone.</p>
+    <blockquote>ATT&amp;CK should be the answer a student gives after reading the evidence, not the thing they memorize instead of reading it.</blockquote>
 
-    <h2>Or run it straight from your LMS</h2>
-    <p>If your institution lives in Canvas, Blackboard, Moodle or D2L, Red Herrings can connect as an LTI 1.3 tool: add a case from inside the assignment editor, pull the roster automatically, and have each student's score post back to the gradebook when they submit. No CSV round-trips. (It is an optional connected mode &mdash; the desktop app otherwise runs fully offline, with no student data leaving your machine.)</p>
+    <h2>Exploit versus detect, made concrete</h2>
+    <p>ATT&amp;CK describes adversary behavior; the responder's job is to detect it. Because the cases hand a student the defender's own tooling &mdash; an EDR detection feed and a SIEM alert export &mdash; the framing is always exploit-versus-detect. For each technique in play, a student answers the question that matters on the job: what did the adversary do, and what in my telemetry reveals it? That turns ATT&amp;CK from a catalog of attacker tricks into a map of what to hunt for.</p>
+
+    <h2>Coverage you can see and plan around</h2>
+    <p>Because every case carries its technique mappings, you can build a curriculum that spans the matrix on purpose rather than by accident. Filter the library by tactic, see which techniques a case exercises, and assemble a sequence that walks a cohort across the kill chain &mdash; from initial access early in the term to a capstone that touches a dozen techniques at once. The IR cases are tagged with the NIST 800-61 phases too, so a student always knows which phase of the response their next action belongs to. Our <a href="../attack.html">ATT&amp;CK coverage page</a> lays out which tactics and techniques the library reaches.</p>
+
+    <h2>Different for every student, verified before it ships</h2>
+    <p>Each case is individually seeded, so every student investigates their own incident &mdash; their own hostnames, accounts, IPs and timestamps &mdash; and reaches the same techniques by their own evidence. A copied answer is the wrong answer, but the ATT&amp;CK mapping is the same lesson for everyone. And every generated variant is independently re-solved and verified before release, so the technique on the key is genuinely present in that student's feed.</p>
 
     <div class="cta">
-      <strong>Want to see it on your own class?</strong>
-      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can hand out your first copy-resistant lab in minutes.</p>
+      <strong>Want to teach ATT&amp;CK from the evidence?</strong>
+      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can generate an ATT&amp;CK-tagged incident for every student in minutes.</p>
       <div class="cta-row">
         <a class="btn" href="/#download" data-goatcounter-click="cta-trial-blog">Start a free 14-day trial</a>
-        <a class="btn ghost" href="../student-portal.html">See the student portal</a>
+        <a class="btn ghost" href="../attack.html">See the ATT&amp;CK coverage</a>
       </div>
     </div>
   </article>
