@@ -147,6 +147,76 @@
     </div>
   </section>
 
+  <section id="evidence">
+    <div class="secthead">
+      <h2 class="opener">Authentic evidence, <em>in the formats of the job</em></h2>
+      <p class="osub">This is the part that matters: the evidence is not screenshots or tidy CSVs standing in for forensics. Each artifact is written in its real on-disk format &mdash; the same bytes the tool expects &mdash; so a case opens in Autopsy, Registry Explorer, Wireshark, Volatility or DB Browser exactly as a real one would, and every answer on the key is proven to be present in it. Here is what a case can hand a student, and what they open it with.</p>
+    </div>
+    <div class="grid" style="max-width:1060px;margin:0 auto">
+      <div class="card">
+        <h3>Disk images</h3>
+        <p>A real FAT/exFAT volume with a live file system, directory structure and deleted entries &mdash; carve and examine it, don't just read a listing.</p>
+        <div class="chips"><span class="chip">raw / .img volume</span><span class="chip">Autopsy</span><span class="chip">FTK Imager</span><span class="chip">The Sleuth Kit</span></div>
+      </div>
+      <div class="card">
+        <h3>Windows registry</h3>
+        <p>NTUSER.DAT, SYSTEM and SOFTWARE hives in the binary REGF format, carrying the keys that USB history, execution and persistence analysis actually live in.</p>
+        <div class="chips"><span class="chip">REGF hives</span><span class="chip">Registry Explorer</span><span class="chip">RegRipper</span></div>
+      </div>
+      <div class="card">
+        <h3>Windows event logs</h3>
+        <p>Security.evtx and System.evtx as genuine binary EVTX &mdash; logon (4624/4625), process-creation (4688) and service events with the fields and IDs you expect, correlated by logon session.</p>
+        <div class="chips"><span class="chip">.evtx</span><span class="chip">EvtxECmd</span><span class="chip">Event Viewer</span></div>
+      </div>
+      <div class="card">
+        <h3>Execution &amp; shortcut artifacts</h3>
+        <p>Prefetch written MAM/Xpress-Huffman-compressed like Windows 10/11, LNK shortcuts, and jump lists in the real CFB layout.</p>
+        <div class="chips"><span class="chip">.pf Prefetch</span><span class="chip">.lnk</span><span class="chip">PECmd</span><span class="chip">LECmd / JLECmd</span></div>
+      </div>
+      <div class="card">
+        <h3>Memory</h3>
+        <p>A real Windows minidump plus Volatility-style process, DLL, module and connection listings &mdash; spot the injected code, the unlinked module and the hidden network connection.</p>
+        <div class="chips"><span class="chip">.dmp minidump</span><span class="chip">Volatility-style</span></div>
+      </div>
+      <div class="card">
+        <h3>Network captures</h3>
+        <p>A genuine packet capture with real TCP handshakes, a passive-FTP data channel, and an HTTP POST whose wire bytes and SHA-256 match the file carved from disk.</p>
+        <div class="chips"><span class="chip">.pcap</span><span class="chip">Wireshark</span><span class="chip">tshark</span><span class="chip">Zeek</span></div>
+      </div>
+      <div class="card">
+        <h3>Browser history</h3>
+        <p>The browser's own SQLite history database &mdash; visits, downloads and timestamps to decode and line up on a timeline.</p>
+        <div class="chips"><span class="chip">SQLite</span><span class="chip">DB Browser for SQLite</span></div>
+      </div>
+      <div class="card">
+        <h3>Email</h3>
+        <p>A full mbox mailbox with real headers &mdash; the Received chain, SPF and DKIM results &mdash; to trace a phishing message back to where it really came from.</p>
+        <div class="chips"><span class="chip">.mbox / .eml</span><span class="chip">Thunderbird</span><span class="chip">any mail client</span></div>
+      </div>
+      <div class="card">
+        <h3>Mobile &mdash; Android &amp; iPhone</h3>
+        <p>Android SMS, contacts, call-log, location-cache and WhatsApp stores, and iPhone <code style="padding:1px 5px">sms.db</code> and AddressBook &mdash; real SQLite from an extraction, Apple Cocoa-time stamps and all.</p>
+        <div class="chips"><span class="chip">SQLite .db / .sqlitedb</span><span class="chip">DB Browser</span><span class="chip">ALEAPP / iLEAPP</span><span class="chip">Cellebrite / Magnet</span></div>
+      </div>
+      <div class="card">
+        <h3>Cloud audit logs</h3>
+        <p>AWS CloudTrail, Microsoft 365 unified audit and Entra sign-in logs in their real JSON/CSV shapes, with the access-key and session fields that thread an attack together.</p>
+        <div class="chips"><span class="chip">CloudTrail JSON</span><span class="chip">M365 / Entra</span><span class="chip">jq / Splunk</span></div>
+      </div>
+      <div class="card">
+        <h3>Linux &amp; macOS hosts</h3>
+        <p>Linux auth.log, syslog and shell history with PID-correlated PAM and systemd lines; macOS unified-log output, property lists and the LSQuarantine download record.</p>
+        <div class="chips"><span class="chip">auth.log / syslog</span><span class="chip">log show</span><span class="chip">plist</span></div>
+      </div>
+      <div class="card">
+        <h3>EDR &amp; SIEM &mdash; incident response</h3>
+        <p>Per-vendor EDR detections (CrowdStrike Falcon, Microsoft Defender, SentinelOne) and SIEM exports (Splunk ES, Microsoft Sentinel) in each product's real export shape, mapped to MITRE ATT&amp;CK.</p>
+        <div class="chips"><span class="chip">EDR JSON / CSV</span><span class="chip">Splunk ES</span><span class="chip">Microsoft Sentinel</span></div>
+      </div>
+    </div>
+    <p class="note" style="text-align:center;max-width:720px;margin:22px auto 0">A case mixes the families its investigation needs, and a student README lists every file with its SHA-256. You pick exactly which artifact types a lab includes when you generate it.</p>
+  </section>
+
   <section>
     <h2>Built for the classroom</h2>
     <p class="sub">Real evidence, trustworthy keys, and grading that lands in your gradebook, without sending a byte of student data anywhere.</p>
@@ -181,6 +251,18 @@
         <img class="d2l" src="img/lms/d2l-brightspace.png" alt="D2L Brightspace" width="100" height="37" loading="lazy">
       </div>
       <p class="tm">Trademarks are the property of their respective owners and are shown to indicate compatibility, not endorsement.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="mediarow">
+      <div class="mr-text">
+        <div class="eyebrow-sm">Working solo</div>
+        <h2>No class, and no LMS required</h2>
+        <p>Everything above is there when you want it, but none of it is mandatory. On a <strong>Personal license, Red Herrings runs in single-user mode</strong>: it builds one lab seeded just for you &mdash; the same authentic evidence and the same verified answer key &mdash; with no roster, no server and no LMS in the loop.</p>
+        <p>Work the case in the real tools, then <strong>self-check with the built-in grader</strong> and reveal the guided, step-by-step solution when you get stuck. It is the straightforward way to practise for GCFE, GCFA, GNFA, GCFR, GCIH, CySA+ and the vendor exams on your own schedule. Change your seed and generate again for a fresh variant any time.</p>
+      </div>
+      <div class="shot"><img src="img/how-solution.jpg" width="1280" height="800" alt="The Solution screen revealing a case answer key one step at a time for a solo learner" loading="lazy"></div>
     </div>
   </section>
 
