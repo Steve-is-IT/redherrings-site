@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Try a sample case | Red Herrings DFIR Labs</title>
-<meta name="description" content="Work a real Red Herrings forensics case in your browser, no install required: read the briefing, analyse the evidence, answer the questions and check your work. See how a hands-on, auto-graded digital forensics lab feels in two minutes.">
+<meta name="description" content="Work a real Red Herrings forensics case in your browser, no install and no sign-up. Read the evidence right on the page, answer the questions and check your work. An easy Linux SSH log case anyone can try in a couple of minutes.">
 <link rel="canonical" href="https://redherrings.app/try.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <meta property="og:title" content="Try a sample forensics case &mdash; Red Herrings">
-<meta property="og:description" content="Work a real DFIR case in your browser and check your answers. No install.">
+<meta property="og:description" content="Read a real Linux SSH log in your browser, answer the questions and check yourself. No install, no sign-up.">
 <meta property="og:url" content="https://redherrings.app/try.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -22,6 +22,12 @@
 .casebox .ev{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
 .casebox .ev .chip{font-size:12px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--muted)}
 .brief{color:var(--muted);font-size:16px;line-height:1.7;white-space:pre-line;margin:16px 0 0}
+.evwrap{margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg)}
+.evhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--card)}
+.evhead .fn{font-family:var(--mono,ui-monospace,monospace);font-size:13px;font-weight:700;color:var(--ink)}
+.evhead .dl{font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--ink)}
+.evhead .dl:hover{border-color:var(--accent);color:var(--accent)}
+.evlog{margin:0;padding:14px;max-height:360px;overflow:auto;font-family:var(--mono,ui-monospace,monospace);font-size:12.5px;line-height:1.55;color:var(--ink);white-space:pre;tab-size:4}
 .qlist{margin-top:28px;display:flex;flex-direction:column;gap:16px}
 .q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
 .q-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
@@ -57,6 +63,7 @@
     <a class="link" href="cases.html">Cases</a>
     <a class="link" href="pathways.html">Pathways</a>
     <a class="link" href="student-portal.html">Student portal</a>
+    <a class="link" href="try.html">Try it</a>
     <a class="link" href="/#pricing">Pricing</a>
     <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
   </div>
@@ -65,23 +72,31 @@
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Try a sample</div>
   <div class="secthead">
     <h1 class="opener">Work a real case, <em>right here</em></h1>
-    <p class="osub">This is one genuine Red Herrings forensics case. Read the briefing, think it through, type your answers and check them &mdash; no install, no sign-up. In the real app every student gets a <strong>different</strong> seeded version of this case, and the answer key is never sent to their browser.</p>
+    <p class="osub">This is one genuine Red Herrings case, an easy one. The evidence is right below &mdash; read it, type your answers and check them. No install, no sign-up, nothing to set up. In the real app every student gets a <strong>different</strong> version of the case, and the answer key is never sent to their browser.</p>
   </div>
 
   <section style="border-top:0">
     <div class="casebox">
-      <div class="eyebrow-sm">Sample case &middot; Medium</div>
-      <h2 style="text-align:left;margin:6px 0 0">Insider Data Theft via USB</h2>
+      <div class="eyebrow-sm">Sample case &middot; Easy &middot; Linux</div>
+      <h2 style="text-align:left;margin:6px 0 0">First Look: Who Logged Into the Server</h2>
       <p class="brief" id="brief"></p>
       <div class="ev">
-        <span class="chip">Disk image</span>
-        <span class="chip">Windows registry &amp; Prefetch</span>
-        <span class="chip">Event logs</span>
+        <span class="chip">Linux /var/log/auth.log</span>
+        <span class="chip">No tools required</span>
+        <span class="chip">~2 minutes</span>
+      </div>
+
+      <div class="evwrap">
+        <div class="evhead">
+          <span class="fn">evidence/var/log/auth.log</span>
+          <a class="dl" href="sample/auth.log" download="auth.log" data-goatcounter-click="try-download-evidence">Download the log</a>
+        </div>
+        <pre class="evlog" id="evlog" tabindex="0" aria-label="Evidence: auth.log"></pre>
       </div>
     </div>
 
     <div class="trybar">
-      <span class="tryscore" id="score">0 of 6 correct</span>
+      <span class="tryscore" id="score">0 of 7 correct</span>
       <button class="btn ghost" id="revealAll" type="button">Reveal all answers</button>
     </div>
 
@@ -89,9 +104,9 @@
 
     <div class="sampnote">
       This online sample shows the answers so you can check yourself. In a real lab the
-      evidence, the answers and the hashes are all different for every student, grading
-      happens on the instructor's machine, and nothing is ever revealed in the browser &mdash;
-      so a copied answer is simply wrong.
+      evidence, the attacker's address, the account and the times are all different for every
+      student, grading happens on the instructor's machine, and nothing is ever revealed in the
+      browser &mdash; so a copied answer is simply wrong.
     </div>
 
     <div class="cta-row" style="margin-top:34px">
@@ -116,6 +131,7 @@
         <a href="attack.html">MITRE ATT&amp;CK coverage</a>
         <a href="incident-response.html">Incident response</a>
         <a href="pathways.html">Learning pathways</a>
+        <a href="student-portal.html">Student portal &amp; LMS</a>
         <a href="/#pricing">Pricing</a>
         <a href="/#download">Download</a>
       </div>
@@ -153,24 +169,87 @@
   </div>
 </footer>
 <script>
-const BRIEF = "Meridian Analytics has referred this one to you. Keisha Thomas, a Senior Design Engineer, handed in notice on a Friday afternoon. Over the weekend a manager noticed several confidential design documents had been opened from the shared drive outside normal hours. Security thinks Keisha copied company property to a personal USB stick on the way out.\n\nYou have a forensic image and the extracted Windows artifacts from Keisha's workstation, DESKTOP-23ZC1AK. Was a USB device connected? What was copied, and when? Build a timeline you could defend.";
-const TYPELABEL = {text:"Short answer", timestamp:"Timestamp (UTC)", path:"File path", int:"Number", ip:"IP address", domain:"Domain", hash:"Hash", email:"Email"};
+const BRIEF = "A small company's Linux web server, app-prod-01, was behaving oddly and the team pulled /var/log/auth.log. Something had been hammering SSH before one login finally succeeded. Read the log below: find where the attempts came from, which account they got into, when, and what they did once they were in. Ordinary staff logins are in the file too.";
+const LOG = [
+"Mar 17 12:14:08 app-prod-01 sshd[28469]: Accepted publickey for deploy from 172.17.93.214 port 44716 ssh2: RSA SHA256:pEVZI57XhmhWKgKnzj8wqLLJCoCxDanZ",
+"Mar 17 17:11:17 app-prod-01 sshd[15885]: Accepted publickey for backup from 172.17.93.187 port 48512 ssh2: RSA SHA256:73QdW277L0+xD//1Hdavg1VLwjl24Om3",
+"Mar 17 19:19:09 app-prod-01 sshd[29704]: Accepted publickey for deploy from 172.17.93.39 port 47059 ssh2: RSA SHA256:HApFqNd21oNJSyyrYp2lUovGFnJCJMf5",
+"Mar 17 22:55:34 app-prod-01 sshd[14484]: Accepted publickey for www-data from 172.17.93.72 port 40250 ssh2: RSA SHA256:+f4lsyCJFKrf7cyZhLfypV/IsgV6dPSY",
+"Mar 17 23:05:35 app-prod-01 sshd[3451]: Accepted publickey for deploy from 172.17.93.82 port 34235 ssh2: RSA SHA256:NzSzDYupluFhKLfWxFnAIzlQ2/OA8gAA",
+"Mar 17 23:36:26 app-prod-01 sshd[22737]: Accepted publickey for admin from 172.17.93.181 port 31257 ssh2: RSA SHA256:W3Xuh/koyqOoJ7adOMtw7+liS3GdmmYY",
+"Mar 18 03:09:06 app-prod-01 sshd[7905]: Accepted publickey for www-data from 172.17.93.21 port 57591 ssh2: RSA SHA256:jgsv2U+owR+IJN6Embp5aJbdXf5Mj2ix",
+"Mar 18 03:31:47 app-prod-01 sshd[20151]: Accepted publickey for backup from 172.17.93.175 port 49003 ssh2: RSA SHA256:MXQh0Nd6jHh4KNCrKzkwooHB1FVyVCOV",
+"Mar 18 03:55:19 app-prod-01 sshd[23749]: Accepted publickey for admin from 172.17.93.238 port 44978 ssh2: RSA SHA256:y9F6qilPduOlAmK/lCwZcJfWQ7pfeq/D",
+"Mar 18 05:14:36 app-prod-01 sshd[29882]: Accepted publickey for backup from 172.17.93.153 port 43082 ssh2: RSA SHA256:271M+AK+4RN4zerZoACjoaz+vU4nKY+5",
+"Mar 18 10:00:07 app-prod-01 sshd[22238]: Failed password for root from 62.157.110.146 port 39671 ssh2",
+"Mar 18 10:00:11 app-prod-01 sshd[2258]: Failed password for root from 62.157.110.146 port 42138 ssh2",
+"Mar 18 10:00:13 app-prod-01 sshd[4827]: Failed password for root from 62.157.110.146 port 52581 ssh2",
+"Mar 18 10:00:15 app-prod-01 sshd[25092]: Failed password for root from 62.157.110.146 port 46240 ssh2",
+"Mar 18 10:00:19 app-prod-01 sshd[17949]: Failed password for root from 62.157.110.146 port 45980 ssh2",
+"Mar 18 10:00:22 app-prod-01 sshd[26830]: Failed password for root from 62.157.110.146 port 38606 ssh2",
+"Mar 18 10:00:22 app-prod-01 sshd[28920]: Failed password for root from 62.157.110.146 port 36814 ssh2",
+"Mar 18 10:00:25 app-prod-01 sshd[29580]: Failed password for root from 62.157.110.146 port 35504 ssh2",
+"Mar 18 10:00:25 app-prod-01 sshd[14341]: Failed password for root from 62.157.110.146 port 57913 ssh2",
+"Mar 18 10:00:27 app-prod-01 sshd[10615]: Failed password for root from 62.157.110.146 port 47096 ssh2",
+"Mar 18 10:00:28 app-prod-01 sshd[22830]: Failed password for root from 62.157.110.146 port 48845 ssh2",
+"Mar 18 10:00:29 app-prod-01 sshd[21283]: Failed password for root from 62.157.110.146 port 45847 ssh2",
+"Mar 18 10:00:31 app-prod-01 sshd[8049]: Failed password for root from 62.157.110.146 port 50309 ssh2",
+"Mar 18 10:00:32 app-prod-01 sshd[1170]: Failed password for root from 62.157.110.146 port 30647 ssh2",
+"Mar 18 10:00:38 app-prod-01 sshd[4974]: Failed password for root from 62.157.110.146 port 41604 ssh2",
+"Mar 18 10:00:41 app-prod-01 sshd[22724]: Failed password for root from 62.157.110.146 port 48275 ssh2",
+"Mar 18 10:00:42 app-prod-01 sshd[16312]: Failed password for root from 62.157.110.146 port 36612 ssh2",
+"Mar 18 10:00:43 app-prod-01 sshd[19288]: Failed password for root from 62.157.110.146 port 53429 ssh2",
+"Mar 18 10:00:43 app-prod-01 sshd[24253]: Failed password for root from 62.157.110.146 port 30147 ssh2",
+"Mar 18 10:00:44 app-prod-01 sshd[18891]: Failed password for root from 62.157.110.146 port 31740 ssh2",
+"Mar 18 10:00:45 app-prod-01 sshd[3754]: Failed password for root from 62.157.110.146 port 54661 ssh2",
+"Mar 18 10:00:49 app-prod-01 sshd[7469]: Failed password for root from 62.157.110.146 port 32528 ssh2",
+"Mar 18 10:00:49 app-prod-01 sshd[3653]: Failed password for root from 62.157.110.146 port 33661 ssh2",
+"Mar 18 10:00:59 app-prod-01 sshd[11002]: Failed password for root from 62.157.110.146 port 56368 ssh2",
+"Mar 18 10:01:07 app-prod-01 sshd[6365]: Failed password for root from 62.157.110.146 port 41824 ssh2",
+"Mar 18 10:01:11 app-prod-01 sshd[10745]: Failed password for root from 62.157.110.146 port 58266 ssh2",
+"Mar 18 10:01:13 app-prod-01 sshd[17716]: Failed password for root from 62.157.110.146 port 37395 ssh2",
+"Mar 18 10:01:13 app-prod-01 sshd[24440]: Failed password for root from 62.157.110.146 port 33002 ssh2",
+"Mar 18 10:01:15 app-prod-01 sshd[1193]: Failed password for root from 62.157.110.146 port 42374 ssh2",
+"Mar 18 10:01:16 app-prod-01 sshd[13099]: Failed password for root from 62.157.110.146 port 33674 ssh2",
+"Mar 18 10:01:19 app-prod-01 sshd[4458]: Failed password for root from 62.157.110.146 port 42610 ssh2",
+"Mar 18 10:01:19 app-prod-01 sshd[8863]: Failed password for root from 62.157.110.146 port 42150 ssh2",
+"Mar 18 10:01:25 app-prod-01 sshd[2062]: Failed password for root from 62.157.110.146 port 48152 ssh2",
+"Mar 18 10:01:25 app-prod-01 sshd[16935]: Failed password for root from 62.157.110.146 port 45602 ssh2",
+"Mar 18 10:01:31 app-prod-01 sshd[2410]: Failed password for root from 62.157.110.146 port 31598 ssh2",
+"Mar 18 10:01:37 app-prod-01 sshd[22362]: Failed password for root from 62.157.110.146 port 34443 ssh2",
+"Mar 18 10:01:55 app-prod-01 sshd[14164]: Failed password for root from 62.157.110.146 port 37329 ssh2",
+"Mar 18 10:02:01 app-prod-01 sshd[22525]: Failed password for root from 62.157.110.146 port 57692 ssh2",
+"Mar 18 10:02:03 app-prod-01 sshd[2990]: Failed password for root from 62.157.110.146 port 50128 ssh2",
+"Mar 18 10:02:15 app-prod-01 sshd[9521]: Failed password for root from 62.157.110.146 port 45914 ssh2",
+"Mar 18 10:06:14 app-prod-01 sshd[5781]: Accepted password for root from 62.157.110.146 port 32725 ssh2: RSA SHA256:DDfb0HIiXup0Rl9uHOEO1Srepzrei5J5",
+"Mar 18 10:10:27 app-prod-01 sudo: root : TTY=pts/1 ; PWD=/home/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow",
+"Mar 18 10:15:56 app-prod-01 useradd[29273]: new user: name=webadmin2, UID=1095, GID=1061, home=/home/webadmin2, shell=/bin/bash"
+].join("\n");
+
+const TYPELABEL = {text:"Short answer", timestamp:"Time", ip:"IP address", int:"Number"};
 const QS = [
- {id:"q1", type:"text", points:5, prompt:"What is the username of the account under investigation?", answer:"kthomas", how:"The profile path C:\\Users\\<user> and the loaded NTUSER.DAT identify the account.", where:"Start from the case briefing and the evidence inventory, then narrow down by time."},
- {id:"q2", type:"text", points:8, prompt:"What is the make and model (FriendlyName) of the USB device that was connected?", answer:"SanDisk Ultra_Fit USB Device", how:"SYSTEM hive: ControlSet001\\Enum\\USBSTOR, read the FriendlyName value under the device key. In Registry Explorer use the USBSTOR bookmark.", where:"The Windows registry hives (SYSTEM), under USBSTOR."},
- {id:"q3", type:"text", points:10, prompt:"What is the serial number of the USB device?", answer:"95A6681846DA6E4F06CF", how:"SYSTEM\\ControlSet001\\Enum\\USBSTOR\\Disk&Ven_...&Prod_...\\ : the subkey name is the device serial (the trailing &0 is the interface).", where:"The Windows registry hives (SYSTEM), under USBSTOR."},
- {id:"q4", type:"timestamp", points:10, prompt:"When was the USB device first connected (UTC)?", answer:"2025-02-06 00:50:21 UTC", how:"USBSTOR device Properties {83da6326-...}\\0064 holds the first install (connect) time as a FILETIME. Registry Explorer decodes it.", where:"The SYSTEM hive device Properties keys, decoded as FILETIME."},
- {id:"q6", type:"path", points:10, prompt:"What is the full path of the archive that was written to the removable drive (as recorded in the shortcut)?", answer:"E:\\q2_export.7z", how:"The LNK file in Recent\\ resolves to the target on E:. Parse it with LECmd or view the Local Base Path.", where:"The Windows shortcuts (LNK) in the Recent folder."},
- {id:"q8", type:"int", points:8, prompt:"How many times was the archiving tool executed according to Prefetch?", answer:"3", how:"Parse 7ZFM.EXE-*.pf with PECmd; read the run count.", where:"The Windows Prefetch files."}
+ {id:"q1", type:"ip", points:10, prompt:"From what IP address did the brute-force attempts and the successful login come?", answer:"62.157.110.146", how:"The repeated 'Failed password for root from <ip>' lines all share one address, and the 'Accepted password' line uses the same one.", where:"The repeated Failed password lines and the Accepted line."},
+ {id:"q2", type:"text", points:8, prompt:"Which account did the attacker log in as?", answer:"root", how:"Read the 'Accepted password for <user>' line: the account is named right after 'for'.", where:"The Accepted password line."},
+ {id:"q3", type:"text", points:8, prompt:"What authentication method did the successful break-in use?", answer:"password", how:"'Accepted <method> for ...'. The staff logins above use publickey; the attacker's line says password.", where:"The word right after 'Accepted' on the break-in line."},
+ {id:"q4", type:"int", points:10, prompt:"How many failed SSH attempts came from that IP before the login finally worked?", answer:"40", how:"Count the 'Failed password for root from 62.157.110.146' lines that come before the Accepted line.", where:"The block of Failed password lines."},
+ {id:"q5", type:"timestamp", points:12, prompt:"At what time did the successful login happen? (as shown in the log, e.g. 10:06:14)", answer:"2025-03-18 10:06:14 UTC", how:"The syslog timestamp at the start of the 'Accepted password' line: Mar 18 10:06:14.", where:"The start of the Accepted password line."},
+ {id:"q6", type:"text", points:12, prompt:"What command did the attacker run as root to read the password hashes?", answer:"/usr/bin/cat /etc/shadow", how:"The sudo line records COMMAND=<value>. Read the full command after COMMAND=.", where:"The sudo line (COMMAND= value)."},
+ {id:"q7", type:"text", points:10, prompt:"What backdoor account did the attacker create?", answer:"webadmin2", how:"The useradd line reads 'new user: name=<user>'. That name is the new account.", where:"The useradd line."}
 ];
 
 function norm(s){return (s||"").toString().trim().toLowerCase().replace(/\s+/g," ");}
+function hms(s){const m=(s||"").match(/\d{1,2}:\d{2}:\d{2}/); return m?m[0]:null;}
 function matches(type, user, correct){
   const u=norm(user), c=norm(correct);
   if(!u) return null;
   if(type==="int"){ const nu=parseInt(u.replace(/[^0-9-]/g,""),10), nc=parseInt(c.replace(/[^0-9-]/g,""),10); return !isNaN(nu)&&nu===nc; }
-  if(type==="path"){ return u.replace(/\\/g,"/")===c.replace(/\\/g,"/"); }
-  if(type==="timestamp"){ const cu=u.replace(/utc/g,"").trim(), cc=c.replace(/utc/g,"").trim(); return cu===cc || (cu.length>=16 && cc.startsWith(cu)); }
+  if(type==="timestamp"){
+    const hu=hms(u), hc=hms(c);
+    if(hu && hc && hu===hc) return true;           // match on the HH:MM:SS shown in the log
+    const cu=u.replace(/utc/g,"").trim(), cc=c.replace(/utc/g,"").trim();
+    return cu===cc || (cu.length>=16 && cc.startsWith(cu));
+  }
+  if(type==="ip"){ return u.replace(/\s/g,"")===c.replace(/\s/g,""); }
   return u===c;
 }
 
@@ -182,6 +261,7 @@ function updateScore(){
 function el(t, a, ...kids){const n=document.createElement(t); for(const k in (a||{})){ if(k==="class")n.className=a[k]; else if(k==="html")n.innerHTML=a[k]; else n.setAttribute(k,a[k]); } kids.forEach(k=>n.append(k)); return n;}
 
 document.getElementById("brief").textContent = BRIEF;
+document.getElementById("evlog").textContent = LOG;
 const list = document.getElementById("qlist");
 QS.forEach((q, i) => {
   const input = el("input", {type:"text", placeholder:"Type your answer", "aria-label":"Answer for question "+(i+1)});
@@ -195,7 +275,7 @@ QS.forEach((q, i) => {
     if(r===null){ fb.className="q-fb"; return; }
     state[q.id] = r;
     fb.className = "q-fb " + (r ? "ok" : "no");
-    fb.textContent = r ? "Correct." : "Not quite \u2014 check the exact form and try again, or Show how.";
+    fb.textContent = r ? "Correct." : "Not quite. Check the exact form in the log and try again, or use Show how.";
     updateScore();
   };
   checkBtn.onclick = doCheck;
@@ -203,7 +283,7 @@ QS.forEach((q, i) => {
   list.append(el("div", {class:"q"},
     el("div", {class:"q-top"},
       el("div", {class:"q-prompt"}, (i+1)+". "+q.prompt),
-      el("div", {class:"q-meta"}, (TYPELABEL[q.type]||q.type)+" \u00b7 "+q.points+" pts")),
+      el("div", {class:"q-meta"}, (TYPELABEL[q.type]||q.type)+" · "+q.points+" pts")),
     el("div", {class:"q-row"}, input, checkBtn),
     fb, reveal, how));
 });
