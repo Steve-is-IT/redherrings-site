@@ -190,6 +190,7 @@ TEMPLATE = '''<!doctype html>
     <a class="link" href="cases.html">Cases</a>
     <a class="link" href="pathways.html">Pathways</a>
     <a class="link" href="student-portal.html">Student portal</a>
+    <a class="link" href="try.html">Try it</a>
     <a class="link" href="/#pricing">Pricing</a>
     <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
   </div>
@@ -242,6 +243,7 @@ TEMPLATE = '''<!doctype html>
         <h4>Product</h4>
         <a href="how.html">How it works</a>
         <a href="cases.html">All cases</a>
+        <a href="try.html">Try a sample</a>
         <a href="attack.html">MITRE ATT&amp;CK coverage</a>
         <a href="pathways.html">Learning pathways</a>
         <a href="student-portal.html">Student portal &amp; LMS</a>
