@@ -134,10 +134,10 @@ TEMPLATE = '''<!doctype html>
   </div>
 </header>
 <main class="wrap">
-  <div class="pagehead">
-    <div class="crumb"><a href="/">Home</a> / Pathways</div>
-    <h1>Learning pathways</h1>
-    <p>Ordered, case-by-case curricula that take a learner from first-look triage to a capstone, across both disciplines &mdash; <strong>Digital Forensics</strong> and <strong>Incident Response</strong>. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student.</p>
+  <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Pathways</div>
+  <div class="secthead">
+    <h1 class="opener">Learning <em>pathways</em></h1>
+    <p class="osub">Ordered, case-by-case curricula that take a learner from first-look triage to a capstone, across both disciplines &mdash; <strong>Digital Forensics</strong> and <strong>Incident Response</strong>. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student.</p>
   </div>
   <div class="pwfilter" role="group" aria-label="Filter pathways by discipline">
     <button type="button" class="pwtab on" data-disc="all">All pathways</button>
