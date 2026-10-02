@@ -111,16 +111,21 @@
       <h2 id="guided">Guided mode (for stuck or self-study learners)</h2>
       <p>On the <strong>Solution</strong> screen, guided mode steps a learner one question at a time: from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer — instead of revealing everything at once. Turn it into a printable <strong>guided worksheet</strong> at generation time to add a hint under each question plus a tool quick-start appendix. You control whether learners may reveal solutions.</p>
 
-      <h2 id="tracks">Certification-prep tracks</h2>
-      <p>The Case Library has a second filter — <strong>Cert path</strong> — that groups cases into tracks aligned to the published topics of popular DFIR certifications (topic alignment, not endorsement):</p>
+      <h2 id="tracks">Disciplines and certification-prep tracks</h2>
+      <p>The Case Library filters first by <strong>discipline</strong> — <strong>Digital Forensics</strong> or <strong>Incident Response</strong> — then by difficulty and by the path a case exercises. Digital Forensics cases group into <strong>Cert path</strong> tracks; Incident Response cases group by <a href="attack.html">MITRE ATT&amp;CK</a> tactic. Tracks are aligned to the published topics of popular DFIR certifications (topic alignment, not endorsement):</p>
+      <p><strong>Digital Forensics tracks</strong></p>
       <ul>
-        <li><strong>Foundations</strong> — entry-level fundamentals (AccessData ACE, CompTIA CySA+).</li>
+        <li><strong>Foundations</strong> — entry-level fundamentals (AccessData ACE, CompTIA Security+).</li>
         <li><strong>Windows Forensics</strong> — GCFE, plus the disk domains of EnCE / ACE.</li>
         <li><strong>Mobile Forensics</strong> — Cellebrite CCO/CCPA, Magnet, GASF.</li>
         <li><strong>Network Forensics</strong> — GNFA.</li>
+        <li><strong>Cloud &amp; SaaS</strong> — identity and cloud audit logs (GCFR).</li>
+        <li><strong>Linux Forensics</strong> — SANS FOR577.</li>
+        <li><strong>macOS Forensics</strong> — SANS FOR518.</li>
         <li><strong>Advanced Forensics &amp; IR</strong> — GCFA.</li>
       </ul>
-      <p>Pick a track to see the cases that prepare you for that exam's topics. <a href="cases.html">Browse the full catalog →</a></p>
+      <p><strong>Incident Response tracks</strong> work the responder's own EDR and SIEM feeds, mapped to MITRE ATT&amp;CK tactics and the NIST 800-61 phases — with learning pathways for Incident Handling (GCIH), SOC Analyst &amp; Triage (CompTIA CySA+), Cloud &amp; Enterprise IR (GCFR) and Advanced Forensics &amp; IR (GCFA).</p>
+      <p>Pick a discipline and track to see the cases that prepare you for that exam's topics. <a href="cases.html">Browse the full catalog →</a> or follow a <a href="pathways.html">learning pathway</a>.</p>
 
       <h2 id="ctf">CTF mode</h2>
       <p>Run any case as a capture-the-flag: per-team flags and a CTFd import file, so you can drop a Red Herrings case straight into a competition or a class challenge.</p>
@@ -149,9 +154,50 @@
 
 <footer>
   <div class="wrap">
+    <div class="cols">
+      <div style="max-width:320px">
+        <div class="brand" style="margin-bottom:8px"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="color:var(--ink);font-size:16px">Red Herrings</span></div>
+        <p style="margin:0 0 10px">Real Evidence. Real Skills. Real Fast.</p>
+        <p style="margin:0;font-size:13px">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="how.html">How it works</a>
+        <a href="cases.html">All cases</a>
+        <a href="attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="pathways.html">Learning pathways</a>
+        <a href="student-portal.html">Student portal &amp; LMS</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#download">Download</a>
+      </div>
+      <div class="fcol">
+        <h4>Support</h4>
+        <a href="/#download">Activate a key</a>
+        <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
+        <a href="help.html">Help &amp; getting started</a>
+        <a href="tools.html">Tools &amp; setup</a>
+        <a href="blog/">Blog</a>
+        <a href="/#faq">FAQ</a>
+        <a href="mailto:sales@redherrings.app">sales@redherrings.app</a>
+      </div>
+      <div class="fcol">
+        <h4>Buy</h4>
+        <a href="/#pricing">Educators</a>
+        <a href="/#pricing">Departments</a>
+        <a href="/#pricing">Business and training</a>
+        <a href="mailto:sales@redherrings.app?subject=Enterprise%20inquiry">Enterprise and government</a>
+      </div>
+      <div class="fcol">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="eula.html">License agreement</a>
+        <a href="refund.html">Refund Policy</a>
+      </div>
+    </div>
     <div class="fbottom">
-      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC.</span>
-      <span><a href="/">Home</a> &middot; <a href="cases.html">Cases</a> &middot; <a href="student-portal.html">Student portal</a> &middot; <a href="blog/">Blog</a> &middot; <a href="/#pricing">Pricing</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="eula.html">EULA</a> &middot; <a href="refund.html">Refunds</a> &middot; <a href="mailto:sales@redherrings.app">sales@redherrings.app</a></span>
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC. All rights reserved.</span>
+      <span>Prices in USD. Institutional purchase orders welcome.</span>
     </div>
   </div>
 </footer>
