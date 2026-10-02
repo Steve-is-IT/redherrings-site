@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Learning Pathways | Red Herrings Digital Forensics Labs</title>
-<meta name="description" content="Guided Red Herrings learning pathways: ordered, case-by-case curricula from first-look triage to a capstone. Certification-prep paths for GCFE, GCFA, GNFA, GCFR, GASF and the SANS macOS/Linux tracks, plus role paths for analysts, insider-threat and ransomware IR.">
+<title>Learning Pathways | Red Herrings Digital Forensics &amp; Incident Response Labs</title>
+<meta name="description" content="Guided Red Herrings learning pathways across two disciplines: Digital Forensics (GCFE, GASF, GNFA, SANS FOR577/FOR518) and Incident Response (GCIH, CompTIA CySA+, GCFR, GCFA). Ordered, case-by-case curricula from first-look triage to a capstone, plus analyst, insider-threat and ransomware IR role paths.">
 <link rel="canonical" href="https://redherrings.app/pathways.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
-<meta property="og:title" content="Learning Pathways — Red Herrings">
-<meta property="og:description" content="Ordered, case-by-case curricula from first-look triage to a capstone — certification prep and role paths.">
+<meta property="og:title" content="Learning Pathways &mdash; Red Herrings">
+<meta property="og:description" content="Ordered, case-by-case curricula across Digital Forensics and Incident Response &mdash; certification prep and role paths.">
 <meta property="og:url" content="https://redherrings.app/pathways.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -39,15 +39,21 @@
   <div class="pagehead">
     <div class="crumb"><a href="/">Home</a> / Pathways</div>
     <h1>Learning pathways</h1>
-    <p>Ordered, case-by-case curricula that take a learner from first-look triage to a capstone. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student.</p>
+    <p>Ordered, case-by-case curricula that take a learner from first-look triage to a capstone, across both disciplines &mdash; <strong>Digital Forensics</strong> and <strong>Incident Response</strong>. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student.</p>
   </div>
-  <section class="pwlead" style="border-top:0;padding-top:8px">
-    <h2>Certification prep</h2>
+  <div class="pwfilter" role="group" aria-label="Filter pathways by discipline">
+    <button type="button" class="pwtab on" data-disc="all">All pathways</button>
+    <button type="button" class="pwtab" data-disc="digital-forensics">Digital Forensics</button>
+    <button type="button" class="pwtab" data-disc="incident-response">Incident Response</button>
+  </div>
+  <section class="pwdisc" data-disc="digital-forensics">
+    <div class="pwdisc-head"><h2>Digital Forensics</h2><p class="pwdisc-sub">Disk, registry, logs, memory, network, mobile and cloud, mapped to certification tracks.</p></div>
+    <h3 class="pwsub">Certification prep</h3>
     <div class="pwgrid">
     <div class="pwc">
       <div class="pwc-head"><div><h3>Windows Forensics (GCFE)</h3><p class="pwc-aligned">Aligned to GIAC GCFE</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">Registry, execution, USB, browser and event-log analysis on a Windows host, from first look to a full intrusion.</p>
-      <p class="pwc-meta">9 cases  ·  ~14.2 h</p>
+      <p class="pwc-meta">9 cases  &middot;  ~14.2 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: What Ran on This Machine</span><span class="tag easy">EASY</span></div><div class="pwc-note">Execution: Prefetch, UserAssist, Amcache.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>First Look: Recent Files and Jump Lists</span><span class="tag easy">EASY</span></div><div class="pwc-note">Recent files, LNK and jump lists.</div></div></li>
@@ -64,7 +70,7 @@
     <div class="pwc">
       <div class="pwc-head"><div><h3>Mobile Forensics (GASF)</h3><p class="pwc-aligned">Aligned to GIAC GASF</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">Messages, app data, deleted records and device activity from mobile extractions.</p>
-      <p class="pwc-meta">7 cases  ·  ~12.4 h</p>
+      <p class="pwc-meta">7 cases  &middot;  ~12.4 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: Recovered Phone</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read SMS, contacts and call logs from an extraction.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Off the Record</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">App data: reconstruct a WhatsApp conversation.</div></div></li>
@@ -79,7 +85,7 @@
     <div class="pwc">
       <div class="pwc-head"><div><h3>Network Forensics (GNFA)</h3><p class="pwc-aligned">Aligned to GIAC GNFA</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">Reading packet captures: DNS, beacons, cleartext credentials and exfiltration.</p>
-      <p class="pwc-meta">6 cases  ·  ~16.8 h</p>
+      <p class="pwc-meta">6 cases  &middot;  ~16.8 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: Reading a Packet Capture</span><span class="tag easy">EASY</span></div><div class="pwc-note">Follow streams and read protocols in a capture.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Open Channel</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Spot data leaving over HTTP to a personal server.</div></div></li>
@@ -91,37 +97,9 @@
       <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
     </div>
     <div class="pwc">
-      <div class="pwc-head"><div><h3>Advanced Forensics &amp; IR (GCFA)</h3><p class="pwc-aligned">Aligned to GIAC GCFA</p></div><span class="pwc-kind cert">Cert prep</span></div>
-      <p class="pwc-blurb">Memory, persistence, anti-forensics and full-intrusion timelines — the incident-response capstone track.</p>
-      <p class="pwc-meta">7 cases  ·  ~15.4 h</p>
-      <ol class="pwc-steps">
-<li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: What&#x27;s in Memory</span><span class="tag easy">EASY</span></div><div class="pwc-note">Baseline: processes and connections in memory.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Field Promotion</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">A rogue admin account across host artifacts.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Ghost in the RAM</span><span class="tag hard">HARD</span></div><div class="pwc-note">Injected code and unlinked modules in memory.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Dry Run</span><span class="tag hard">HARD</span></div><div class="pwc-note">Staging and log-clearing before the payload.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Pivot Point</span><span class="tag hard">HARD</span></div><div class="pwc-note">Credential theft and lateral movement.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">6</span><div><div class="pwc-name"><span>Double Cross</span><span class="tag hard">HARD</span></div><div class="pwc-note">Full double-extortion ransomware case.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">7</span><div><div class="pwc-name"><span>Operation Ledger</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: a complete ransomware intrusion.</div></div></li>
-      </ol>
-      <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
-    </div>
-    <div class="pwc">
-      <div class="pwc-head"><div><h3>Cloud &amp; Enterprise IR (GCFR)</h3><p class="pwc-aligned">Aligned to GIAC GCFR</p></div><span class="pwc-kind cert">Cert prep</span></div>
-      <p class="pwc-blurb">Investigating identity and cloud audit logs: sign-ins, token abuse, and data pulled from the cloud.</p>
-      <p class="pwc-meta">5 cases  ·  ~4.8 h</p>
-      <ol class="pwc-steps">
-<li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: A Sign-In From Nowhere</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read a cloud sign-in log and spot the anomaly.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Push Comes to Shove</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">An MFA-fatigue account takeover.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Reply All</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Identity IR in Microsoft 365: sign-in, forwarding rules and role abuse.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Cloud Cover</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Data moved to a personal cloud drive.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Skeleton Key</span><span class="tag hard">HARD</span></div><div class="pwc-note">Capstone: a stolen access key used across a cloud tenant.</div></div></li>
-      </ol>
-      <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
-    </div>
-    <div class="pwc">
       <div class="pwc-head"><div><h3>Linux Forensics</h3><p class="pwc-aligned">Aligned to SANS FOR577</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">Investigating a Linux host and server: logins, persistence, and web-server intrusion.</p>
-      <p class="pwc-meta">3 cases  ·  ~2.4 h</p>
+      <p class="pwc-meta">3 cases  &middot;  ~2.4 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: Who Logged Into the Server</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read auth.log: brute force, the login that worked, and what followed.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>House Keys</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Find backdoors: a new account, cron, an SSH key, a dropped payload.</div></div></li>
@@ -132,7 +110,7 @@
     <div class="pwc">
       <div class="pwc-head"><div><h3>macOS Forensics</h3><p class="pwc-aligned">Aligned to SANS FOR518</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">Investigating an Apple endpoint: download provenance, persistence, and insider exfiltration.</p>
-      <p class="pwc-meta">3 cases  ·  ~2.4 h</p>
+      <p class="pwc-meta">3 cases  &middot;  ~2.4 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: Where Did This Mac App Come From?</span><span class="tag easy">EASY</span></div><div class="pwc-note">Trace a download with the quarantine database and Safari history.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Login Loop</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Find a LaunchAgent relaunching a dropped payload.</div></div></li>
@@ -141,14 +119,12 @@
       <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
     </div>
     </div>
-  </section>
-  <section class="pwlead">
-    <h2>By role</h2>
+    <h3 class="pwsub">By role</h3>
     <div class="pwgrid">
     <div class="pwc">
       <div class="pwc-head"><div><h3>DFIR Analyst Onboarding</h3></div><span class="pwc-kind role">Role path</span></div>
       <p class="pwc-blurb">The first-look triage skills across every evidence family, in the order a new analyst should meet them.</p>
-      <p class="pwc-meta">10 cases  ·  ~4.3 h</p>
+      <p class="pwc-meta">10 cases  &middot;  ~4.3 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: What Ran on This Machine</span><span class="tag easy">EASY</span></div><div class="pwc-note">Start with execution artifacts: what ran on a machine.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>First Look: Suspicious Download</span><span class="tag easy">EASY</span></div><div class="pwc-note">Trace a file from the browser that put it there.</div></div></li>
@@ -166,7 +142,7 @@
     <div class="pwc">
       <div class="pwc-head"><div><h3>Insider-Threat Investigator</h3></div><span class="pwc-kind role">Role path</span></div>
       <p class="pwc-blurb">Data theft, snooping and policy violations by people who already had access.</p>
-      <p class="pwc-meta">6 cases  ·  ~12.1 h</p>
+      <p class="pwc-meta">6 cases  &middot;  ~12.1 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>Need to Know</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Snooping: unauthorized record access.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Paper Trail</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Data walked out on a USB drive.</div></div></li>
@@ -177,15 +153,82 @@
       </ol>
       <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
     </div>
+    </div>
+  </section>
+  <section class="pwdisc" data-disc="incident-response">
+    <div class="pwdisc-head"><h2>Incident Response</h2><p class="pwdisc-sub">Detection and response from the responder&#x27;s own tooling - EDR, SIEM and host logs - mapped to MITRE ATT&amp;CK.</p></div>
+    <h3 class="pwsub">Certification prep</h3>
+    <div class="pwgrid">
+    <div class="pwc">
+      <div class="pwc-head"><div><h3>Incident Handling (GCIH)</h3><p class="pwc-aligned">Aligned to GIAC GCIH</p></div><span class="pwc-kind cert">Cert prep</span></div>
+      <p class="pwc-blurb">The incident-handling kill chain from the responder&#x27;s own tooling: detection and triage through containment to a full-arc capstone, mapped to MITRE ATT&amp;CK.</p>
+      <p class="pwc-meta">7 cases  &middot;  ~8.8 h</p>
+      <ol class="pwc-steps">
+<li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>The Queue</span><span class="tag easy">EASY</span></div><div class="pwc-note">Triage your first EDR detection: process tree, technique, severity.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>First Look: Phishing Triage</span><span class="tag easy">EASY</span></div><div class="pwc-note">Work a reported phish: header, link and payload.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Trapdoor</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Initial access and foothold on an internet-facing server.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Hands on Keyboard</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Follow the move from the beachhead to a file server.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Dry Run</span><span class="tag hard">HARD</span></div><div class="pwc-note">Spot staging and log-clearing before the payload.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">6</span><div><div class="pwc-name"><span>First Call</span><span class="tag hard">HARD</span></div><div class="pwc-note">A live ransomware outbreak worked from the EDR feed.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">7</span><div><div class="pwc-name"><span>Nightfall</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: double extortion through every NIST phase.</div></div></li>
+      </ol>
+      <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
+    </div>
+    <div class="pwc">
+      <div class="pwc-head"><div><h3>SOC Analyst &amp; Triage (CySA+)</h3><p class="pwc-aligned">Aligned to CompTIA CySA+</p></div><span class="pwc-kind cert">Cert prep</span></div>
+      <p class="pwc-blurb">The SOC analyst&#x27;s daily queue: reading and triaging detections from EDR and SIEM, correlating entities, and escalating a real incident.</p>
+      <p class="pwc-meta">6 cases  &middot;  ~5.6 h</p>
+      <ol class="pwc-steps">
+<li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>The Queue</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read an EDR alert and decide what it means.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>First Look: Phishing Triage</span><span class="tag easy">EASY</span></div><div class="pwc-note">Triage a phishing report end to end.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Push Comes to Shove</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">An MFA-fatigue account takeover in the sign-in logs.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Wire Act</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Business email compromise behind a fraudulent wire.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Hands on Keyboard</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Correlate host and log evidence to track lateral movement.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">6</span><div><div class="pwc-name"><span>Low and Slow</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: a slow, quiet exfiltration across a long weekend.</div></div></li>
+      </ol>
+      <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
+    </div>
+    <div class="pwc">
+      <div class="pwc-head"><div><h3>Cloud &amp; Enterprise IR (GCFR)</h3><p class="pwc-aligned">Aligned to GIAC GCFR</p></div><span class="pwc-kind cert">Cert prep</span></div>
+      <p class="pwc-blurb">Investigating identity and cloud audit logs: sign-ins, token abuse, and data pulled from the cloud.</p>
+      <p class="pwc-meta">5 cases  &middot;  ~4.8 h</p>
+      <ol class="pwc-steps">
+<li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: A Sign-In From Nowhere</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read a cloud sign-in log and spot the anomaly.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Push Comes to Shove</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">An MFA-fatigue account takeover.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Reply All</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Identity IR in Microsoft 365: sign-in, forwarding rules and role abuse.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Cloud Cover</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Data moved to a personal cloud drive.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Skeleton Key</span><span class="tag hard">HARD</span></div><div class="pwc-note">Capstone: a stolen access key used across a cloud tenant.</div></div></li>
+      </ol>
+      <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
+    </div>
+    <div class="pwc">
+      <div class="pwc-head"><div><h3>Advanced Forensics &amp; IR (GCFA)</h3><p class="pwc-aligned">Aligned to GIAC GCFA</p></div><span class="pwc-kind cert">Cert prep</span></div>
+      <p class="pwc-blurb">Memory, persistence, anti-forensics and full-intrusion timelines: the host-based incident-response capstone track.</p>
+      <p class="pwc-meta">7 cases  &middot;  ~15.4 h</p>
+      <ol class="pwc-steps">
+<li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: What&#x27;s in Memory</span><span class="tag easy">EASY</span></div><div class="pwc-note">Baseline: processes and connections in memory.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Field Promotion</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">A rogue admin account across host artifacts.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Ghost in the RAM</span><span class="tag hard">HARD</span></div><div class="pwc-note">Injected code and unlinked modules in memory.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Dry Run</span><span class="tag hard">HARD</span></div><div class="pwc-note">Staging and log-clearing before the payload.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Pivot Point</span><span class="tag hard">HARD</span></div><div class="pwc-note">Credential theft and lateral movement.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">6</span><div><div class="pwc-name"><span>Double Cross</span><span class="tag hard">HARD</span></div><div class="pwc-note">Full double-extortion ransomware case.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">7</span><div><div class="pwc-name"><span>Operation Ledger</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: a complete ransomware intrusion.</div></div></li>
+      </ol>
+      <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
+    </div>
+    </div>
+    <h3 class="pwsub">By role</h3>
+    <div class="pwgrid">
     <div class="pwc">
       <div class="pwc-head"><div><h3>Ransomware Incident Response</h3></div><span class="pwc-kind role">Role path</span></div>
-      <p class="pwc-blurb">The ransomware kill chain end to end, from initial access to extortion.</p>
-      <p class="pwc-meta">4 cases  ·  ~13.2 h</p>
+      <p class="pwc-blurb">The ransomware kill chain end to end, from initial access to double-extortion and recovery.</p>
+      <p class="pwc-meta">5 cases  &middot;  ~9.9 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>Patient Zero</span><span class="tag hard">HARD</span></div><div class="pwc-note">Initial access: phishing to command-and-control.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Dry Run</span><span class="tag hard">HARD</span></div><div class="pwc-note">Staging, credential access and log-clearing.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Double Cross</span><span class="tag hard">HARD</span></div><div class="pwc-note">Encryption plus data-theft extortion.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Operation Ledger</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: the full intrusion, start to finish.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>First Call</span><span class="tag hard">HARD</span></div><div class="pwc-note">A fast-moving outbreak worked live from the EDR feed.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Double Cross</span><span class="tag hard">HARD</span></div><div class="pwc-note">Encryption plus data-theft extortion.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Nightfall</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: the full double-extortion incident, start to finish.</div></div></li>
       </ol>
       <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
     </div>
@@ -200,6 +243,17 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".pwtab"));
+  var secs = Array.prototype.slice.call(document.querySelectorAll(".pwdisc"));
+  function pick(disc){
+    tabs.forEach(function(t){ t.classList.toggle("on", t.getAttribute("data-disc")===disc); });
+    secs.forEach(function(s){ s.classList.toggle("hide", disc!=="all" && s.getAttribute("data-disc")!==disc); });
+  }
+  tabs.forEach(function(t){ t.addEventListener("click", function(){ pick(t.getAttribute("data-disc")); }); });
+})();
+</script>
 <!-- Analytics: GoatCounter (cookieless, no personal data). Activate by registering the "redherrings" code at goatcounter.com. -->
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="theme.js" defer></script>
