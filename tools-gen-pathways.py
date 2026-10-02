@@ -161,6 +161,7 @@ TEMPLATE = '''<!doctype html>
         <a href="cases.html">All cases</a>
         <a href="try.html">Try a sample</a>
         <a href="attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="incident-response.html">Incident response</a>
         <a href="pathways.html">Learning pathways</a>
         <a href="student-portal.html">Student portal &amp; LMS</a>
         <a href="/#pricing">Pricing</a>
@@ -171,6 +172,7 @@ TEMPLATE = '''<!doctype html>
         <a href="/#download">Activate a key</a>
         <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
         <a href="help.html">Help &amp; getting started</a>
+        <a href="trust.html">Security &amp; trust</a>
         <a href="tools.html">Tools &amp; setup</a>
         <a href="blog/">Blog</a>
         <a href="/#faq">FAQ</a>
@@ -189,6 +191,7 @@ TEMPLATE = '''<!doctype html>
         <a href="terms.html">Terms of Service</a>
         <a href="eula.html">License agreement</a>
         <a href="refund.html">Refund Policy</a>
+        <a href="accessibility.html">Accessibility</a>
       </div>
     </div>
     <div class="fbottom">

@@ -7,6 +7,8 @@
   <url><loc>https://redherrings.app/cases.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://redherrings.app/pathways.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://redherrings.app/attack.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/incident-response.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/trust.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://redherrings.app/tools.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/help.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -15,4 +17,5 @@
   <url><loc>https://redherrings.app/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://redherrings.app/refund.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://redherrings.app/eula.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://redherrings.app/accessibility.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

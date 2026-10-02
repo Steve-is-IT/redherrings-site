@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility | Red Herrings</title>
+<meta name="description" content="Red Herrings is built to work for everyone: keyboard navigation, a skip link, visible focus, ARIA landmarks, reduced-motion support and server-side grading. Our accessibility statement covers our WCAG 2.1 AA effort, the measures in place, known limits, and how to request a VPAT.">
+<link rel="canonical" href="https://redherrings.app/accessibility.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:title" content="Accessibility &mdash; Red Herrings">
+<meta property="og:description" content="Our accessibility statement: WCAG 2.1 AA effort, the measures in place (keyboard, skip link, focus, ARIA, reduced motion), known limits, and how to request a VPAT.">
+<meta property="og:url" content="https://redherrings.app/accessibility.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Accessibility | Red Herrings","description":"Red Herrings' accessibility statement: our WCAG 2.1 AA conformance effort, the measures in place (keyboard navigation, skip link, visible focus, ARIA landmarks, reduced-motion support, server-side grading), known limitations, and how to request a VPAT or an accessibility questionnaire."}
+</script>
+  <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="how.html">How it works</a>
+    <a class="link" href="cases.html">Cases</a>
+    <a class="link" href="pathways.html">Pathways</a>
+    <a class="link" href="student-portal.html">Student portal</a>
+    <a class="link" href="try.html">Try it</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero hero-split" style="border-top:0">
+    <div class="hero-copy">
+      <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / Accessibility</div>
+      <h1>Built to be used <em>by everyone</em></h1>
+      <p class="lede">We want Red Herrings to work for every student and every instructor, including those who navigate by keyboard, use a screen reader, or need reduced motion. We build toward the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA, and this page sets out plainly what is in place today, where we fall short, and how to reach us.</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:sales@redherrings.app?subject=Accessibility%20%2F%20VPAT%20request">Request a VPAT</a>
+        <a class="btn ghost" href="mailto:sales@redherrings.app?subject=Accessibility%20feedback">Report a barrier</a>
+      </div>
+      <p class="hero-proof">Keyboard navigable &middot; visible focus &middot; ARIA landmarks &middot; reduced-motion aware &middot; server-side grading</p>
+    </div>
+    <div class="hero-media">
+      <div class="hero-frame">
+        <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <img src="img/results.png" width="1280" height="800" alt="The Red Herrings app, navigable by keyboard with a visible focus ring on the active control">
+      </div>
+    </div>
+  </section>
+
+  <div class="audience audience-strip" aria-label="Who this is for">
+    <span>Students</span>
+    <span>Instructors</span>
+    <span>Disability services</span>
+    <span>Procurement</span>
+  </div>
+
+  <section>
+    <div class="secthead">
+      <h2 class="opener">Our <em>commitment</em></h2>
+      <p class="osub">We treat accessibility as part of the product, not an afterthought. We measure our work against WCAG 2.1 AA and improve it as we ship.</p>
+    </div>
+    <p class="body" style="max-width:760px">Red Herrings is a desktop application whose interface runs in your browser, plus a static marketing site. We aim for both to substantially conform to WCAG 2.1 Level AA. We have not yet completed a formal third-party audit, so we do not claim full, certified conformance. What follows is an honest account of the measures in place and the areas we are still working on. If something on this page gets out of date, the email addresses below reach a person who can help.</p>
+  </section>
+
+  <section>
+    <div class="secthead">
+      <h2 class="opener">What is <em>in place today</em></h2>
+      <p class="osub">Concrete measures across the app and the site, the things an evaluator checks first.</p>
+    </div>
+    <div class="rows-list">
+      <div class="rowitem">
+        <div class="n">01</div>
+        <h3>Full keyboard operation</h3>
+        <p class="body">The app is operable without a mouse. A "Skip to main content" link is the first focusable element, interactive controls are reachable in a logical order, and keyboard shortcuts are documented in the in-app help.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">02</div>
+        <h3>Visible focus</h3>
+        <p class="body">A clear focus ring marks the focused control, driven by the browser's focus-visible behaviour, so keyboard users can always see where they are on the page.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">03</div>
+        <h3>Landmarks and current state</h3>
+        <p class="body">Navigation, main and complementary regions are marked with ARIA landmarks, the current section is announced with aria-current, and status changes use polite live regions so assistive technology is kept informed.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">04</div>
+        <h3>Reduced motion</h3>
+        <p class="body">When your system is set to reduce motion, the interface honours it: animations are collapsed, iteration counts are capped and smooth scrolling is turned off.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">05</div>
+        <h3>Readable structure and contrast</h3>
+        <p class="body">Pages use real headings in order, labelled form controls and descriptive link text. The colour system is built for AA contrast in both the light and dark themes, and the theme preference is remembered.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">06</div>
+        <h3>Works at zoom and on small screens</h3>
+        <p class="body">Layouts reflow rather than break: text stays readable when zoomed and the app and site adapt down to small and mobile viewports without a loss of content or function.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">07</div>
+        <h3>Grading does not depend on the browser</h3>
+        <p class="body">Answers are graded on your machine and only the result returns, so the solve experience does not rely on fragile client-side scripting or hidden visual cues to tell a student whether they were right.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">08</div>
+        <h3>Documents you can work with</h3>
+        <p class="body">Student worksheets are generated as tagged PDF and DOCX with real headings and text, so they can be read with assistive technology or enlarged, rather than delivered as flat images.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="secthead">
+      <h2 class="opener">Where we <em>fall short</em></h2>
+      <p class="osub">We would rather tell you than let you find out. These are the areas we know need more work.</p>
+    </div>
+    <div class="rows-list">
+      <div class="rowitem">
+        <div class="n">01</div>
+        <h3>No formal audit yet</h3>
+        <p class="body">Our conformance is based on our own testing against WCAG 2.1 AA, not an independent third-party audit. A VPAT (Voluntary Product Accessibility Template) is available on request and reflects that same basis.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">02</div>
+        <h3>Some evidence is inherently visual</h3>
+        <p class="body">A few artefacts in advanced cases, such as screenshots or packet-capture views, are visual by nature. Where a case depends on one we will work with you and your disability-services team on an equivalent; tell us the case and we will help.</p>
+      </div>
+      <div class="rowitem">
+        <div class="n">03</div>
+        <h3>Ongoing work</h3>
+        <p class="body">Accessibility is never finished. We retest as the interface changes and we prioritise fixes reported to us by real users of assistive technology.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align:center">
+    <h2>Request a VPAT or tell us about a barrier</h2>
+    <p class="sub" style="max-width:720px;margin:0 auto 24px">Need our VPAT or an accessibility questionnaire completed for a procurement or Section 508 review? Email <a href="mailto:sales@redherrings.app?subject=Accessibility%20%2F%20VPAT%20request">sales@redherrings.app</a> and tell us what your review needs. If you hit an accessibility barrier using Red Herrings, please report it to the same address with the page or case and what happened, and we will respond and work with you on a fix or an equivalent.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn" href="mailto:sales@redherrings.app?subject=Accessibility%20%2F%20VPAT%20request">Request a VPAT</a>
+      <a class="btn ghost" href="mailto:sales@redherrings.app?subject=Accessibility%20feedback">Report a barrier</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div style="max-width:320px">
+        <div class="brand" style="margin-bottom:8px"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="color:var(--ink);font-size:16px">Red Herrings</span></div>
+        <p style="margin:0 0 10px">Real Evidence. Real Skills. Real Fast.</p>
+        <p style="margin:0;font-size:13px">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="how.html">How it works</a>
+        <a href="cases.html">All cases</a>
+        <a href="try.html">Try a sample</a>
+        <a href="attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="incident-response.html">Incident response</a>
+        <a href="pathways.html">Learning pathways</a>
+        <a href="student-portal.html">Student portal &amp; LMS</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#download">Download</a>
+      </div>
+      <div class="fcol">
+        <h4>Support</h4>
+        <a href="/#download">Activate a key</a>
+        <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
+        <a href="help.html">Help &amp; getting started</a>
+        <a href="trust.html">Security &amp; trust</a>
+        <a href="tools.html">Tools &amp; setup</a>
+        <a href="blog/">Blog</a>
+        <a href="/#faq">FAQ</a>
+        <a href="mailto:sales@redherrings.app">sales@redherrings.app</a>
+      </div>
+      <div class="fcol">
+        <h4>Buy</h4>
+        <a href="/#pricing">Educators</a>
+        <a href="/#pricing">Departments</a>
+        <a href="/#pricing">Business and training</a>
+        <a href="mailto:sales@redherrings.app?subject=Enterprise%20inquiry">Enterprise and government</a>
+      </div>
+      <div class="fcol">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="eula.html">License agreement</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="accessibility.html">Accessibility</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC. All rights reserved.</span>
+      <span>Prices in USD. Institutional purchase orders welcome.</span>
+    </div>
+  </div>
+</footer>
+<!-- Analytics: GoatCounter (cookieless, no personal data). -->
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="theme.js" defer></script>
+</body>
+</html>
