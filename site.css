@@ -550,3 +550,18 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .fclear{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:11px 18px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer}
 .fclear:hover{color:var(--ink);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
 @media(max-width:620px){.fsel,.fsel select{width:100%}.filterrow{align-items:stretch}}
+
+/* ATT&CK tactic chips: one hue per tactic (like the DF track chips) */
+.chip.tac-initial-access{--c:#2f80ed}
+.chip.tac-execution{--c:#8b5cf6}
+.chip.tac-persistence{--c:#0891b2}
+.chip.tac-privilege-escalation{--c:#d97706}
+.chip.tac-defense-evasion{--c:#64748b}
+.chip.tac-credential-access{--c:#db2777}
+.chip.tac-discovery{--c:#0d9488}
+.chip.tac-lateral-movement{--c:#7c3aed}
+.chip.tac-collection{--c:#ca8a04}
+.chip.tac-command-and-control{--c:#e5484d}
+.chip.tac-exfiltration{--c:#ea580c}
+.chip.tac-impact{--c:#b4232a}
+.chip[class*="tac-"]{color:var(--c);border-color:color-mix(in srgb,var(--c) 42%,transparent);background:color-mix(in srgb,var(--c) 13%,transparent)}
