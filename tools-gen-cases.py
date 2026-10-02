@@ -195,10 +195,10 @@ TEMPLATE = '''<!doctype html>
   </div>
 </header>
 <main class="wrap">
-  <div class="pagehead">
-    <div class="crumb"><a href="/">Home</a> / Cases</div>
-    <h1>The case library</h1>
-    <p>{n} cases across two disciplines &mdash; <strong>Digital Forensics</strong> ({n_df}) and <strong>Incident Response</strong> ({n_ir}) &mdash; from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by discipline, by difficulty, and by the certification path (forensics) or <a href="attack.html">MITRE ATT&amp;CK tactic</a> (incident response) it exercises.</p>
+  <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Cases</div>
+  <div class="secthead">
+    <h1 class="opener">The <em>case library</em></h1>
+    <p class="osub">{n} cases across two disciplines &mdash; <strong>Digital Forensics</strong> ({n_df}) and <strong>Incident Response</strong> ({n_ir}) &mdash; from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by discipline, by difficulty, and by the certification path (forensics) or <a href="attack.html">MITRE ATT&amp;CK tactic</a> (incident response) it exercises.</p>
   </div>
 
   <section style="border-top:0;padding-top:24px">
