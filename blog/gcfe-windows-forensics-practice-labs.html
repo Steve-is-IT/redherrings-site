@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GCFE practice: a different Windows forensics case for every student | Red Herrings</title>
+<meta name="description" content="Registry, prefetch, USB history and event-log analysis are the core of the GCFE objectives. Here's how to give every student their own Windows case to practice on, with answers that can't be copied and a key that's provably correct.">
+<link rel="canonical" href="https://redherrings.app/blog/gcfe-windows-forensics-practice-labs.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GCFE practice: a different Windows forensics case for every student">
+<meta property="og:description" content="Give every student their own registry, prefetch, USB and event-log case to practice the GCFE objectives on, with a verified answer key.">
+<meta property="og:url" content="https://redherrings.app/blog/gcfe-windows-forensics-practice-labs.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../site.css">
+<style>
+.post{max-width:720px;margin:0 auto}
+.post h2{margin-top:34px}
+.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
+.post ul{padding-left:20px}
+.post .lede{font-size:19px;color:var(--ink,#12151c)}
+.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
+.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
+.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"GCFE practice: a different Windows forensics case for every student","description":"Give every student their own registry, prefetch, USB and event-log case to practice the GCFE objectives on, with a verified answer key.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/gcfe-windows-forensics-practice-labs.html"}
+</script>
+  <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="../how.html">How it works</a>
+    <a class="link" href="../cases.html">Cases</a>
+    <a class="link" href="../pathways.html">Pathways</a>
+    <a class="link" href="../student-portal.html">Student portal</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="post">
+    <div class="pagehead" style="border:0">
+      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Windows forensics</div>
+      <div class="byline">Red Herrings &middot; DFIR teaching notes</div>
+      <h1>GCFE practice: a different Windows forensics case for every student</h1>
+      <p class="lede">The GCFE objectives live in a handful of Windows artifacts &mdash; the registry, Prefetch, LNK and jump lists, USB device history, and the event logs. The hard part of teaching them isn't the content. It's giving every student enough genuinely different evidence to practice on.</p>
+    </div>
+
+    <p>If you prep students for the GCFE, you spend most of your time in the same places: <code>SYSTEM</code> and <code>SOFTWARE</code> hives, the <code>USBSTOR</code> and <code>MountedDevices</code> keys, Prefetch run counts and timestamps, shortcut and jump-list targets, and the Security and System event logs. Those artifacts are where the exam lives, and they're where a Windows investigation actually gets solved.</p>
+
+    <p>The problem is repetition. A student who works one registry hive has seen one <code>USBSTOR</code> layout, one set of serial numbers, one last-write time. To build real fluency they need to do it again and again on evidence that is actually different each time &mdash; not the same disk image with the question numbers shuffled. Authoring that many cases by hand is where most courses give up.</p>
+
+    <h2>One case, a different Windows box for every student</h2>
+    <p>Red Herrings takes one authored Windows scenario and generates an individually seeded machine for every student. Each student's box has its own hostname, user accounts, drive letters, device serial numbers, run counts, file hashes and timestamps &mdash; so each student's answers are their own. Ask "what is the serial number of the USB device first connected on the day of the incident?" and thirty students get thirty different correct answers. A copied answer is simply wrong.</p>
+
+    <blockquote>Fluency in Windows forensics comes from reps. Per-student evidence turns one case into thirty different sets of reps &mdash; and makes a copied answer the wrong answer.</blockquote>
+
+    <p>The evidence is written in real on-disk formats, so students work it in the tools they'll use on the job and on exam day: Registry Explorer for the hives, PECmd for Prefetch, LnkParse and JLECmd for shortcuts and jump lists, EvtxECmd for the event logs. Nothing is a screenshot or a multiple-choice stand-in. If a key is on the answer sheet, it is in the hive.</p>
+
+    <h2>What a GCFE-aligned case covers</h2>
+    <p>A single Windows case can exercise the whole spread of artifacts the objectives care about:</p>
+    <ul>
+      <li><strong>Registry</strong> &mdash; account activity, time-zone and network settings, autostart entries, and the <code>USBSTOR</code>, <code>MountedDevices</code> and <code>MountPoints2</code> trail that ties a removable drive to a user.</li>
+      <li><strong>Program execution</strong> &mdash; Prefetch first- and last-run times and run counts, plus the Amcache and shimcache evidence that corroborates them.</li>
+      <li><strong>File and folder access</strong> &mdash; LNK targets, jump lists, and the MFT and Recycle Bin entries that show what was opened, moved or deleted.</li>
+      <li><strong>Event logs</strong> &mdash; logon types in the Security log, service installs and system events, and the timeline you can build by correlating them with the artifacts above.</li>
+    </ul>
+    <p>Every generated variant is independently re-solved and verified before it's released &mdash; we call it the Fresh Catch pass &mdash; so the answer key is provably correct against the exact evidence a student receives. The key is never hand-written and never drifts from the files.</p>
+
+    <h2>Guided mode for students who are still learning the tools</h2>
+    <p>Pointing a beginner at a raw hive and saying "find the USB serial" rarely works the first time. On the Solution screen, guided mode walks a student from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer, one question at a time &mdash; so a learner who is stuck gets unstuck without being handed the solution. An optional guided worksheet prints the hints under each question with a tool quick-start appendix, so students can begin away from the app.</p>
+
+    <h2>Where it fits in the pathway</h2>
+    <p>The GCFE Windows track in Red Herrings is a ladder of these cases, aligned to the published objectives of the exam, that climbs from a First Look at a single artifact to full multi-artifact investigations. Students practice the same skills the exam tests, on evidence that's new every time, and you grade the whole class at once &mdash; with a dashboard that shows which artifact tripped the most people up.</p>
+
+    <div class="cta">
+      <strong>Want to run a GCFE-aligned Windows case on your own class?</strong>
+      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can generate a per-student registry-and-event-log case in minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="/#download" data-goatcounter-click="cta-trial-blog">Start a free 14-day trial</a>
+        <a class="btn ghost" href="../pathways.html">See the learning pathways</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div style="max-width:320px">
+        <div class="brand" style="margin-bottom:8px"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="color:var(--ink);font-size:16px">Red Herrings</span></div>
+        <p style="margin:0 0 10px">Real Evidence. Real Skills. Real Fast.</p>
+        <p style="margin:0;font-size:13px">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="/#features">Features</a>
+        <a href="../cases.html">All cases</a>
+        <a href="../attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="../student-portal.html">Student portal &amp; LMS</a>
+        <a href="../pathways.html">Learning pathways</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#download">Download</a>
+        <a href="../sample/LAB-insider-usb-student-001.zip">Sample lab</a>
+      </div>
+      <div class="fcol">
+        <h4>Support</h4>
+        <a href="/#download">Activate a key</a>
+        <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
+        <a href="../help.html">Help &amp; getting started</a>
+        <a href="../tools.html">Tools &amp; setup</a>
+        <a href="index.html">Blog</a>
+        <a href="/#faq">FAQ</a>
+        <a href="mailto:sales@redherrings.app">sales@redherrings.app</a>
+      </div>
+      <div class="fcol">
+        <h4>Buy</h4>
+        <a href="/#pricing">Educators</a>
+        <a href="/#pricing">Departments</a>
+        <a href="/#pricing">Business and training</a>
+        <a href="mailto:sales@redherrings.app?subject=Enterprise%20inquiry">Enterprise and government</a>
+      </div>
+      <div class="fcol">
+        <h4>Legal</h4>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../eula.html">License agreement</a>
+        <a href="../refund.html">Refund Policy</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC. All rights reserved.</span>
+      <span>Prices in USD. Institutional purchase orders welcome.</span>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="../theme.js" defer></script>
+</body>
+</html>

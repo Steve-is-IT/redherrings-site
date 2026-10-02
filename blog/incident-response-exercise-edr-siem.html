@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run an incident response exercise from real EDR and SIEM evidence | Red Herrings</title>
+<meta name="description" content="Tabletop exercises talk about incident response; they don't make students work it. Here's how to run an IR exercise from a real EDR detection feed and SIEM alert export, mapped to MITRE ATT&CK and the NIST 800-61 phases, with time pressure built into the case.">
+<link rel="canonical" href="https://redherrings.app/blog/incident-response-exercise-edr-siem.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Run an incident response exercise from real EDR and SIEM evidence">
+<meta property="og:description" content="An IR exercise worked from a real EDR detection feed and SIEM alerts, mapped to MITRE ATT&CK and the NIST 800-61 phases, with time pressure built in.">
+<meta property="og:url" content="https://redherrings.app/blog/incident-response-exercise-edr-siem.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../site.css">
+<style>
+.post{max-width:720px;margin:0 auto}
+.post h2{margin-top:34px}
+.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
+.post ul{padding-left:20px}
+.post .lede{font-size:19px;color:var(--ink,#12151c)}
+.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
+.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
+.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Run an incident response exercise from real EDR and SIEM evidence","description":"An IR exercise worked from a real EDR detection feed and SIEM alerts, mapped to MITRE ATT&CK and the NIST 800-61 phases, with time pressure built in.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/incident-response-exercise-edr-siem.html"}
+</script>
+  <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="../how.html">How it works</a>
+    <a class="link" href="../cases.html">Cases</a>
+    <a class="link" href="../pathways.html">Pathways</a>
+    <a class="link" href="../student-portal.html">Student portal</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="post">
+    <div class="pagehead" style="border:0">
+      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Incident response</div>
+      <div class="byline">Red Herrings &middot; DFIR teaching notes</div>
+      <h1>Run an incident response exercise from real EDR and SIEM evidence</h1>
+      <p class="lede">Most "incident response exercises" are a slide deck and a discussion. The responder's actual job &mdash; reading a detection feed, pivoting through alerts, scoping the chain and making the containment call &mdash; never happens. You can run it for real instead.</p>
+    </div>
+
+    <p>Incident response is a discipline you learn by doing, under pressure, from the tooling you'd actually have. A tabletop is useful for decision-making, but it skips the part that makes someone a responder: looking at a noisy EDR console and a pile of SIEM alerts and figuring out what's real, what's connected, and what to do next while the clock runs.</p>
+
+    <p>Red Herrings treats Incident Response as its own discipline, separate from the forensics track. An IR case hands the student the responder's view of an incident &mdash; not a disk image to carve offline, but the live tooling a SOC analyst sees first.</p>
+
+    <h2>Work it from the tools a responder actually has</h2>
+    <p>An IR case is built from the evidence a responder works from on the job:</p>
+    <ul>
+      <li><strong>An EDR detection feed</strong> &mdash; process trees, command lines, parent/child relationships, and the detections that fired, with the benign noise you have to rule out around them.</li>
+      <li><strong>A SIEM alert export</strong> &mdash; correlated alerts across hosts and users that you pivot through to scope the incident, find the first affected host and trace lateral movement.</li>
+      <li>Supporting host evidence &mdash; event logs, registry and network data &mdash; to confirm what the feeds suggest and pull the indicators worth escalating.</li>
+    </ul>
+    <p>The student's task is the responder's task: triage the feed, scope the chain from initial access to impact, extract the IOCs, and make the containment call. Because the case is a live incident rather than a post-mortem, the work order matches real life &mdash; you decide what to contain before you've fully reconstructed how it started.</p>
+
+    <blockquote>A responder's first hour isn't carving a disk image. It's reading an EDR console and a SIEM full of alerts and deciding what to touch first. That's the skill an IR exercise should build.</blockquote>
+
+    <h2>Mapped to ATT&amp;CK and the NIST 800-61 phases</h2>
+    <p>Every IR case is mapped to the MITRE ATT&amp;CK tactics and techniques it exercises, and tagged with the NIST 800-61 phases &mdash; detection and analysis, containment, eradication, recovery, and the post-incident report. That gives the exercise a shared vocabulary: a student doesn't just find a malicious scheduled task, they recognize it as persistence, place it on the ATT&amp;CK matrix, and know which 800-61 phase their next action belongs to. It also makes coverage legible to you &mdash; you can see at a glance which tactics a case touches and build a set that spans the matrix.</p>
+
+    <h2>Time pressure that's part of the story</h2>
+    <p>Real incidents have a clock, and so do these cases. The scenario itself creates the urgency &mdash; a ransomware chain spreading host to host, an exfiltration in progress &mdash; so the pressure is diegetic rather than an arbitrary timer bolted on top. When you want a graded, timed assessment, the student portal adds a server-side countdown: it starts when the student opens their link, locks their answers on submit, and flags anything turned in late. The answer key never reaches the browser, and grading happens on your machine.</p>
+
+    <h2>Different for every responder, verified before it ships</h2>
+    <p>Like every Red Herrings case, an IR exercise is individually seeded per student: each responder gets their own hostnames, usernames, IPs, timestamps and hashes, so the IOCs on one student's worksheet don't match anyone else's. And every generated variant is independently re-solved and verified before release, so the answer key is provably correct against the exact feed each student receives.</p>
+
+    <h2>Where it fits in the pathway</h2>
+    <p>These cases anchor the Incident Response pathways &mdash; GCIH Incident Handling and the CompTIA CySA+ SOC Analyst track among them &mdash; aligned to the published objectives of those exams, plus role paths like Ransomware IR and Insider-Threat Investigator. Students build the habit of working from their own tooling under pressure, and you grade the whole class from one sheet.</p>
+
+    <div class="cta">
+      <strong>Want to run a live IR exercise with your class?</strong>
+      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can generate a per-student EDR-and-SIEM incident in minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="/#download" data-goatcounter-click="cta-trial-blog">Start a free 14-day trial</a>
+        <a class="btn ghost" href="../cases.html">Browse the IR cases</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div style="max-width:320px">
+        <div class="brand" style="margin-bottom:8px"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="color:var(--ink);font-size:16px">Red Herrings</span></div>
+        <p style="margin:0 0 10px">Real Evidence. Real Skills. Real Fast.</p>
+        <p style="margin:0;font-size:13px">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="/#features">Features</a>
+        <a href="../cases.html">All cases</a>
+        <a href="../attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="../student-portal.html">Student portal &amp; LMS</a>
+        <a href="../pathways.html">Learning pathways</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#download">Download</a>
+        <a href="../sample/LAB-insider-usb-student-001.zip">Sample lab</a>
+      </div>
+      <div class="fcol">
+        <h4>Support</h4>
+        <a href="/#download">Activate a key</a>
+        <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
+        <a href="../help.html">Help &amp; getting started</a>
+        <a href="../tools.html">Tools &amp; setup</a>
+        <a href="index.html">Blog</a>
+        <a href="/#faq">FAQ</a>
+        <a href="mailto:sales@redherrings.app">sales@redherrings.app</a>
+      </div>
+      <div class="fcol">
+        <h4>Buy</h4>
+        <a href="/#pricing">Educators</a>
+        <a href="/#pricing">Departments</a>
+        <a href="/#pricing">Business and training</a>
+        <a href="mailto:sales@redherrings.app?subject=Enterprise%20inquiry">Enterprise and government</a>
+      </div>
+      <div class="fcol">
+        <h4>Legal</h4>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../eula.html">License agreement</a>
+        <a href="../refund.html">Refund Policy</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC. All rights reserved.</span>
+      <span>Prices in USD. Institutional purchase orders welcome.</span>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="../theme.js" defer></script>
+</body>
+</html>
