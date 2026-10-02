@@ -59,12 +59,41 @@
   </div>
 
   <section style="border-top:0;padding-top:16px" class="no-print">
-    <div class="shot" style="max-width:900px;margin:0 auto">
-      <video autoplay muted loop playsinline preload="metadata" poster="img/demo-poster.jpg" width="1280" height="800" aria-label="Red Herrings generating and verifying a class set of forensics labs">
-        <source src="img/demo.webm" type="video/webm">
-        <source src="img/demo.mp4" type="video/mp4">
-        <img src="img/demo-poster.jpg" alt="Red Herrings results screen: student packages generated and verified">
-      </video>
+    <div class="hero-frame" style="max-width:940px;margin:0 auto">
+      <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+      <div class="hero-slider" data-slider aria-roledescription="carousel" aria-label="A tour of the Red Herrings app">
+        <div class="hs-viewport">
+          <div class="hs-track">
+            <figure class="hs-slide is-active" data-label="Case library" aria-hidden="false">
+              <img decoding="async" src="img/slides/slide-library.jpg" width="1600" height="1000" alt="The Red Herrings case library: 64 cases across Digital Forensics and Incident Response, filterable by discipline, difficulty and certification path.">
+              <figcaption class="hs-cap">A library that teaches &mdash; 63 cases across two disciplines</figcaption>
+            </figure>
+            <figure class="hs-slide" data-label="Open a case" aria-hidden="true">
+              <img decoding="async" src="img/slides/slide-case.jpg" width="1600" height="1000" alt="A case opened in Red Herrings, showing the briefing and the investigation questions with points, answer type and difficulty.">
+              <figcaption class="hs-cap">Open any case &mdash; real briefing, verified questions</figcaption>
+            </figure>
+            <figure class="hs-slide" data-label="Generate labs" aria-hidden="true">
+              <img decoding="async" src="img/slides/slide-generate.jpg" width="1600" height="1000" alt="The generate screen: pick a case, set the class and seed, and build an individually seeded lab for every student.">
+              <figcaption class="hs-cap">A different lab for every student, from one case</figcaption>
+            </figure>
+            <figure class="hs-slide" data-label="Verified answers" aria-hidden="true">
+              <img decoding="async" src="img/slides/slide-results.jpg" width="1600" height="1000" alt="The results screen: student packages generated and verified, with the green Fresh Catch panel showing every check passed.">
+              <figcaption class="hs-cap">Every answer proven in the evidence &mdash; the Fresh Catch check</figcaption>
+            </figure>
+            <figure class="hs-slide" data-label="Grade the class" aria-hidden="true">
+              <img decoding="async" src="img/slides/slide-grading.jpg" width="1600" height="1000" alt="The grading screen: grade a single student or a whole class from one sheet, with answers imported from CSV.">
+              <figcaption class="hs-cap">Grade the whole class at once</figcaption>
+            </figure>
+            <figure class="hs-slide" data-label="Certification pathways" aria-hidden="true">
+              <img decoding="async" src="img/slides/slide-pathways.jpg" width="1600" height="1000" alt="Learning pathways: ordered, case-by-case curricula mapped to certification tracks such as GCFE and GASF.">
+              <figcaption class="hs-cap">Follow a certification-prep pathway, case by case</figcaption>
+            </figure>
+          </div>
+        </div>
+        <button class="hs-arrow hs-prev" type="button" aria-label="Previous screen">&#8249;</button>
+        <button class="hs-arrow hs-next" type="button" aria-label="Next screen">&#8250;</button>
+        <div class="hs-dots" role="tablist" aria-label="Choose a screen"></div>
+      </div>
     </div>
   </section>
 
@@ -86,7 +115,7 @@
         <h2>63 cases across two disciplines, ready to run</h2>
         <p>Cases span two disciplines. <strong>Digital Forensics</strong> covers disk, registry, Windows event logs, memory, network captures (PCAP), mobile, cloud, Linux and macOS evidence, grouped into certification-prep tracks for GCFE, GCFA, GNFA, GCFR and the SANS macOS/Linux tracks. <strong>Incident Response</strong> cases work from the responder's own EDR and SIEM feeds and are mapped to <a href="attack.html">MITRE ATT&amp;CK</a> tactics, with tracks for GCIH and CompTIA CySA+. Filter by discipline, difficulty or track, open a case to read the briefing and questions, or build your own in the visual editor.</p>
       </div>
-      <div class="shot"><img src="img/how-library.jpg" width="1280" height="820" alt="The Red Herrings case library, cases grouped by difficulty and certification track"></div>
+      <div class="shot"><img src="img/how-library.jpg" width="1280" height="800" alt="The Red Herrings case library, filtered by discipline, difficulty and certification path"></div>
     </div>
 
     <div class="mediarow rev">
@@ -95,7 +124,7 @@
         <h2>Your roster, your evidence, one click</h2>
         <p>Enter a head count or drop in a roster CSV, pick a difficulty (higher difficulty adds decoys and sharper distractors), choose your output formats, and set a seed. The same seed and roster reproduce the exact same labs, so you can rebuild a lost package or regenerate on another machine. Then generate a uniquely seeded lab for every student at once.</p>
       </div>
-      <div class="shot"><img src="img/how-generate.jpg" width="1280" height="820" alt="The Generate screen: choose a case, set the roster, difficulty, evidence types and seed"></div>
+      <div class="shot"><img src="img/how-generate.jpg" width="1280" height="800" alt="The Generate screen: choose a case, set the roster, difficulty, evidence types and seed"></div>
     </div>
 
     <div class="mediarow">
@@ -105,7 +134,7 @@
         <p>After each lab is built, Red Herrings re-opens every artifact with an independent parser and confirms the answer key is actually in the evidence. That is the green <strong>Fresh Catch</strong> check. A fact that cannot be found is flagged before you ever hand the lab out.</p>
         <p>Each student gets only their own zip; the instructor package holds the keys and per-student notes. Because every variant is seeded independently, the built-in anti-collusion report flags shared work.</p>
       </div>
-      <div class="shot"><img src="img/how-results.jpg" width="1280" height="820" alt="The results screen showing the Fresh Catch verification at 170 of 170 checks passed and per-student packages"></div>
+      <div class="shot"><img src="img/how-results.jpg" width="1280" height="800" alt="The results screen showing the green Fresh Catch verification with every check passed and per-student packages"></div>
     </div>
 
     <div class="mediarow rev">
@@ -114,7 +143,7 @@
         <h2>Hints when they are stuck, not the whole answer</h2>
         <p>For a stuck learner or self-study, guided mode steps through a question one hint at a time: from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer. Print a guided worksheet with a hint under each question and a tool quick-start appendix, and decide whether learners may reveal full solutions at all.</p>
       </div>
-      <div class="shot"><img src="img/how-solution.jpg" width="1280" height="820" alt="The Solution screen revealing a case answer key one step at a time"></div>
+      <div class="shot"><img src="img/how-solution.jpg" width="1280" height="800" alt="The Solution screen revealing a case answer key one step at a time"></div>
     </div>
   </section>
 
@@ -219,6 +248,7 @@
   </div>
 </footer>
 <script src="lightbox.js" defer></script>
+<script src="slider.js" defer></script>
 <!-- Analytics: GoatCounter (cookieless, no personal data). Activate by registering the "redherrings" code at goatcounter.com. -->
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="theme.js" defer></script>

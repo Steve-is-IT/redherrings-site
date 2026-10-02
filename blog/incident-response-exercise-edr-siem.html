@@ -45,6 +45,7 @@
     <a class="link" href="../cases.html">Cases</a>
     <a class="link" href="../pathways.html">Pathways</a>
     <a class="link" href="../student-portal.html">Student portal</a>
+    <a class="link" href="../try.html">Try it</a>
     <a class="link" href="/#pricing">Pricing</a>
     <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
   </div>
@@ -54,7 +55,7 @@
   <article class="post">
     <div class="pagehead" style="border:0">
       <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Incident response</div>
-      <div class="byline">Red Herrings &middot; DFIR teaching notes</div>
+      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 6 min read</div>
       <h1>Run an incident response exercise from real EDR and SIEM evidence</h1>
       <p class="lede">Most "incident response exercises" are a slide deck and a discussion. The responder's actual job &mdash; reading a detection feed, pivoting through alerts, scoping the chain and making the containment call &mdash; never happens. You can run it for real instead.</p>
     </div>
@@ -75,13 +76,13 @@
     <blockquote>A responder's first hour isn't carving a disk image. It's reading an EDR console and a SIEM full of alerts and deciding what to touch first. That's the skill an IR exercise should build.</blockquote>
 
     <h2>Mapped to ATT&amp;CK and the NIST 800-61 phases</h2>
-    <p>Every IR case is mapped to the MITRE ATT&amp;CK tactics and techniques it exercises, and tagged with the NIST 800-61 phases &mdash; detection and analysis, containment, eradication, recovery, and the post-incident report. That gives the exercise a shared vocabulary: a student doesn't just find a malicious scheduled task, they recognize it as persistence, place it on the ATT&amp;CK matrix, and know which 800-61 phase their next action belongs to. It also makes coverage legible to you &mdash; you can see at a glance which tactics a case touches and build a set that spans the matrix.</p>
+    <p>Every IR case is mapped to the <a href="../attack.html">MITRE ATT&amp;CK</a> tactics and techniques it exercises, and tagged with the NIST 800-61 phases &mdash; detection and analysis, containment, eradication, recovery, and the post-incident report. That gives the exercise a shared vocabulary: a student doesn't just find a malicious scheduled task, they recognize it as persistence, place it on the ATT&amp;CK matrix, and know which 800-61 phase their next action belongs to. It also makes coverage legible to you &mdash; you can see at a glance which tactics a case touches and build a set that spans the matrix.</p>
 
     <h2>Time pressure that's part of the story</h2>
     <p>Real incidents have a clock, and so do these cases. The scenario itself creates the urgency &mdash; a ransomware chain spreading host to host, an exfiltration in progress &mdash; so the pressure is diegetic rather than an arbitrary timer bolted on top. When you want a graded, timed assessment, the student portal adds a server-side countdown: it starts when the student opens their link, locks their answers on submit, and flags anything turned in late. The answer key never reaches the browser, and grading happens on your machine.</p>
 
     <h2>Different for every responder, verified before it ships</h2>
-    <p>Like every Red Herrings case, an IR exercise is individually seeded per student: each responder gets their own hostnames, usernames, IPs, timestamps and hashes, so the IOCs on one student's worksheet don't match anyone else's. And every generated variant is independently re-solved and verified before release, so the answer key is provably correct against the exact feed each student receives.</p>
+    <p>Like every Red Herrings case, an IR exercise is individually seeded per student: each responder gets their own hostnames, usernames, IPs, timestamps and hashes, so the IOCs on one student's worksheet don't match anyone else's. And every generated variant is independently re-solved and verified before release by the <a href="../how.html">Fresh Catch check</a>, so the answer key is provably correct against the exact feed each student receives.</p>
 
     <h2>Where it fits in the pathway</h2>
     <p>These cases anchor the Incident Response pathways &mdash; GCIH Incident Handling and the CompTIA CySA+ SOC Analyst track among them &mdash; aligned to the published objectives of those exams, plus role paths like Ransomware IR and Insider-Threat Investigator. Students build the habit of working from their own tooling under pressure, and you grade the whole class from one sheet.</p>

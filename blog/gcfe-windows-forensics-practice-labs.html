@@ -45,6 +45,7 @@
     <a class="link" href="../cases.html">Cases</a>
     <a class="link" href="../pathways.html">Pathways</a>
     <a class="link" href="../student-portal.html">Student portal</a>
+    <a class="link" href="../try.html">Try it</a>
     <a class="link" href="/#pricing">Pricing</a>
     <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
   </div>
@@ -54,7 +55,7 @@
   <article class="post">
     <div class="pagehead" style="border:0">
       <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Windows forensics</div>
-      <div class="byline">Red Herrings &middot; DFIR teaching notes</div>
+      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 5 min read</div>
       <h1>GCFE practice: a different Windows forensics case for every student</h1>
       <p class="lede">The GCFE objectives live in a handful of Windows artifacts &mdash; the registry, Prefetch, LNK and jump lists, USB device history, and the event logs. The hard part of teaching them isn't the content. It's giving every student enough genuinely different evidence to practice on.</p>
     </div>
@@ -78,7 +79,7 @@
       <li><strong>File and folder access</strong> &mdash; LNK targets, jump lists, and the MFT and Recycle Bin entries that show what was opened, moved or deleted.</li>
       <li><strong>Event logs</strong> &mdash; logon types in the Security log, service installs and system events, and the timeline you can build by correlating them with the artifacts above.</li>
     </ul>
-    <p>Every generated variant is independently re-solved and verified before it's released &mdash; we call it the Fresh Catch pass &mdash; so the answer key is provably correct against the exact evidence a student receives. The key is never hand-written and never drifts from the files.</p>
+    <p>Every generated variant is independently re-solved and verified before it's released. We call it the <a href="../how.html">Fresh Catch check</a>: a separate parser pass (Registry Explorer's underlying python-registry, python-evtx, PECmd and the rest) re-derives every answer from the student's own files, so the key is provably correct against the exact evidence they receive. It is never hand-written, and it never drifts from the files.</p>
 
     <h2>Guided mode for students who are still learning the tools</h2>
     <p>Pointing a beginner at a raw hive and saying "find the USB serial" rarely works the first time. On the Solution screen, guided mode walks a student from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer, one question at a time &mdash; so a learner who is stuck gets unstuck without being handed the solution. An optional guided worksheet prints the hints under each question with a tool quick-start appendix, so students can begin away from the app.</p>
