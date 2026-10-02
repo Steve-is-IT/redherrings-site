@@ -187,7 +187,9 @@ footer .fcol{min-width:0}
 footer .fcol h4{margin:0 0 12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
 footer .fcol a{display:block;color:var(--muted);margin:0 0 9px;transition:color .15s ease}
 footer .fcol a:hover{color:var(--ink)}
-footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
+footer .fbottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--faint)}
+footer .fbottom a{color:var(--muted)}
+footer .fbottom a:hover{color:var(--ink)}
 .hide{display:none!important}
 
 /* ---- shared page intro (catalog / help) ---- */
