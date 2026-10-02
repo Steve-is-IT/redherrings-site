@@ -70,7 +70,7 @@
     <div class="pwc">
       <div class="pwc-head"><div><h3>Mobile Forensics (GASF)</h3><p class="pwc-aligned">Aligned to GIAC GASF</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">Messages, app data, deleted records and device activity from mobile extractions.</p>
-      <p class="pwc-meta">7 cases  &middot;  ~12.4 h</p>
+      <p class="pwc-meta">7 cases  &middot;  ~12.7 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: Recovered Phone</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read SMS, contacts and call logs from an extraction.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Off the Record</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">App data: reconstruct a WhatsApp conversation.</div></div></li>
@@ -85,7 +85,7 @@
     <div class="pwc">
       <div class="pwc-head"><div><h3>Network Forensics (GNFA)</h3><p class="pwc-aligned">Aligned to GIAC GNFA</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">Reading packet captures: DNS, beacons, cleartext credentials and exfiltration.</p>
-      <p class="pwc-meta">6 cases  &middot;  ~16.8 h</p>
+      <p class="pwc-meta">6 cases  &middot;  ~17.1 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: Reading a Packet Capture</span><span class="tag easy">EASY</span></div><div class="pwc-note">Follow streams and read protocols in a capture.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Open Channel</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Spot data leaving over HTTP to a personal server.</div></div></li>
@@ -162,29 +162,34 @@
     <div class="pwc">
       <div class="pwc-head"><div><h3>Incident Handling (GCIH)</h3><p class="pwc-aligned">Aligned to GIAC GCIH</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">The incident-handling kill chain from the responder&#x27;s own tooling: detection and triage through containment to a full-arc capstone, mapped to MITRE ATT&amp;CK.</p>
-      <p class="pwc-meta">7 cases  &middot;  ~8.8 h</p>
+      <p class="pwc-meta">9 cases  &middot;  ~9.9 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>The Queue</span><span class="tag easy">EASY</span></div><div class="pwc-note">Triage your first EDR detection: process tree, technique, severity.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>First Look: Phishing Triage</span><span class="tag easy">EASY</span></div><div class="pwc-note">Work a reported phish: header, link and payload.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Trapdoor</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Initial access and foothold on an internet-facing server.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Hands on Keyboard</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Follow the move from the beachhead to a file server.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Dry Run</span><span class="tag hard">HARD</span></div><div class="pwc-note">Spot staging and log-clearing before the payload.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">6</span><div><div class="pwc-name"><span>First Call</span><span class="tag hard">HARD</span></div><div class="pwc-note">A live ransomware outbreak worked from the EDR feed.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">7</span><div><div class="pwc-name"><span>Nightfall</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: double extortion through every NIST phase.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>The Queue</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read a SIEM alert queue and find the one that matters.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>First Look: Phishing Triage</span><span class="tag easy">EASY</span></div><div class="pwc-note">Work a reported phish: header, link and payload.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>One Click</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Follow the phish through to the payload running on the host.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Trapdoor</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Initial access and foothold on an internet-facing server.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">6</span><div><div class="pwc-name"><span>Hands on Keyboard</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Follow the move from the beachhead to a file server.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">7</span><div><div class="pwc-name"><span>Dry Run</span><span class="tag hard">HARD</span></div><div class="pwc-note">Spot staging and log-clearing before the payload.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">8</span><div><div class="pwc-name"><span>First Call</span><span class="tag hard">HARD</span></div><div class="pwc-note">A live ransomware outbreak worked from the EDR feed.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">9</span><div><div class="pwc-name"><span>Nightfall</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: double extortion through every NIST phase.</div></div></li>
       </ol>
       <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
     </div>
     <div class="pwc">
       <div class="pwc-head"><div><h3>SOC Analyst &amp; Triage (CySA+)</h3><p class="pwc-aligned">Aligned to CompTIA CySA+</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">The SOC analyst&#x27;s daily queue: reading and triaging detections from EDR and SIEM, correlating entities, and escalating a real incident.</p>
-      <p class="pwc-meta">6 cases  &middot;  ~5.6 h</p>
+      <p class="pwc-meta">9 cases  &middot;  ~7 h</p>
       <ol class="pwc-steps">
-<li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>The Queue</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read an EDR alert and decide what it means.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>First Look: Phishing Triage</span><span class="tag easy">EASY</span></div><div class="pwc-note">Triage a phishing report end to end.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Push Comes to Shove</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">An MFA-fatigue account takeover in the sign-in logs.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>Wire Act</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Business email compromise behind a fraudulent wire.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Hands on Keyboard</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Correlate host and log evidence to track lateral movement.</div></div></li>
-<li class="pwc-step"><span class="pwc-num">6</span><div><div class="pwc-name"><span>Low and Slow</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: a slow, quiet exfiltration across a long weekend.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>The Queue</span><span class="tag easy">EASY</span></div><div class="pwc-note">Triage the SIEM alert queue: rule, severity, entities, technique.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>The Queue</span><span class="tag easy">EASY</span></div><div class="pwc-note">Read an EDR alert and decide what it means.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">3</span><div><div class="pwc-name"><span>Nowhere and Back</span><span class="tag easy">EASY</span></div><div class="pwc-note">Spot the impossible-travel sign-in in the cloud logs.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">4</span><div><div class="pwc-name"><span>First Look: Phishing Triage</span><span class="tag easy">EASY</span></div><div class="pwc-note">Triage a phishing report end to end.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">5</span><div><div class="pwc-name"><span>Open the Ticket</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Work an EDR detection from alert to a severity verdict.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">6</span><div><div class="pwc-name"><span>Push Comes to Shove</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">An MFA-fatigue account takeover in the sign-in logs.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">7</span><div><div class="pwc-name"><span>Wire Act</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Business email compromise behind a fraudulent wire.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">8</span><div><div class="pwc-name"><span>Hands on Keyboard</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">Correlate host and log evidence to track lateral movement.</div></div></li>
+<li class="pwc-step"><span class="pwc-num">9</span><div><div class="pwc-name"><span>Low and Slow</span><span class="tag expert">EXPERT</span></div><div class="pwc-note">Capstone: a slow, quiet exfiltration across a long weekend.</div></div></li>
       </ol>
       <a class="btn ghost pwc-cta" href="cases.html">Browse the cases &rarr;</a>
     </div>
@@ -204,7 +209,7 @@
     <div class="pwc">
       <div class="pwc-head"><div><h3>Advanced Forensics &amp; IR (GCFA)</h3><p class="pwc-aligned">Aligned to GIAC GCFA</p></div><span class="pwc-kind cert">Cert prep</span></div>
       <p class="pwc-blurb">Memory, persistence, anti-forensics and full-intrusion timelines: the host-based incident-response capstone track.</p>
-      <p class="pwc-meta">7 cases  &middot;  ~15.4 h</p>
+      <p class="pwc-meta">7 cases  &middot;  ~15.7 h</p>
       <ol class="pwc-steps">
 <li class="pwc-step"><span class="pwc-num">1</span><div><div class="pwc-name"><span>First Look: What&#x27;s in Memory</span><span class="tag easy">EASY</span></div><div class="pwc-note">Baseline: processes and connections in memory.</div></div></li>
 <li class="pwc-step"><span class="pwc-num">2</span><div><div class="pwc-name"><span>Field Promotion</span><span class="tag medium">MEDIUM</span></div><div class="pwc-note">A rogue admin account across host artifacts.</div></div></li>
