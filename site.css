@@ -565,3 +565,69 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .chip.tac-exfiltration{--c:#ea580c}
 .chip.tac-impact{--c:#b4232a}
 .chip[class*="tac-"]{color:var(--c);border-color:color-mix(in srgb,var(--c) 42%,transparent);background:color-mix(in srgb,var(--c) 13%,transparent)}
+
+/* ===== Catalog pills v2: distinct palettes + chip polish + lightbox ===== */
+/* DF cert-track chips (flat, cool-leaning, 8 distinct hues) */
+.chip.trk-foundations{--c:#64748b}
+.chip.trk-windows{--c:#3b82f6}
+.chip.trk-mobile{--c:#22c55e}
+.chip.trk-network{--c:#a855f7}
+.chip.trk-cloud{--c:#06b6d4}
+.chip.trk-linux{--c:#eab308}
+.chip.trk-macos{--c:#f97316}
+.chip.trk-advanced{--c:#ec4899}
+.chip.trk-foundations,.chip.trk-windows,.chip.trk-mobile,.chip.trk-network,.chip.trk-cloud,.chip.trk-linux,.chip.trk-macos,.chip.trk-advanced{
+  color:var(--c);border:1px solid color-mix(in srgb,var(--c) 46%,transparent);
+  background:color-mix(in srgb,var(--c) 12%,transparent);box-shadow:none}
+/* IR ATT&CK tactic chips (kill-chain rainbow, gradient + glow so they read as a different family) */
+.chip.tac-initial-access{--c:#ef4444}
+.chip.tac-execution{--c:#f97316}
+.chip.tac-persistence{--c:#f59e0b}
+.chip.tac-privilege-escalation{--c:#eab308}
+.chip.tac-defense-evasion{--c:#84cc16}
+.chip.tac-credential-access{--c:#22c55e}
+.chip.tac-discovery{--c:#14b8a6}
+.chip.tac-lateral-movement{--c:#06b6d4}
+.chip.tac-collection{--c:#3b82f6}
+.chip.tac-command-and-control{--c:#6366f1}
+.chip.tac-exfiltration{--c:#a855f7}
+.chip.tac-impact{--c:#d946ef}
+.chip[class*="tac-"]{
+  color:var(--c);font-weight:650;
+  border:1px solid color-mix(in srgb,var(--c) 60%,transparent);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--c) 22%,transparent),color-mix(in srgb,var(--c) 10%,transparent));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 8%,transparent),0 1px 11px -5px color-mix(in srgb,var(--c) 85%,transparent)}
+
+/* Clickable case cards */
+.ccard{cursor:pointer;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
+.ccard:hover{border-color:color-mix(in srgb,var(--accent) 42%,transparent);transform:translateY(-2px);box-shadow:0 14px 34px -18px rgba(0,0,0,.55)}
+.ccard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cc-more{display:inline-block;margin-top:12px;font-size:12.5px;font-weight:600;color:var(--accent);opacity:.72;transition:opacity .15s ease}
+.ccard:hover .cc-more,.ccard:focus-visible .cc-more{opacity:1}
+
+/* Lightbox */
+.cmodal[hidden]{display:none}
+.cmodal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
+.cmodal-backdrop{position:absolute;inset:0;background:rgba(5,8,14,.72);backdrop-filter:blur(4px)}
+.cmodal-panel{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;max-width:720px;width:100%;max-height:86vh;overflow:auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+.cmodal-body{padding:30px 34px}
+.cmodal-x{position:absolute;top:12px;right:14px;z-index:2;background:transparent;border:0;color:var(--muted);font-size:28px;line-height:1;cursor:pointer;width:36px;height:36px;border-radius:8px}
+.cmodal-x:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.cm-head{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.cm-disc{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid}
+.cm-disc.disc-df{color:#3b82f6;border-color:color-mix(in srgb,#3b82f6 40%,transparent);background:color-mix(in srgb,#3b82f6 12%,transparent)}
+.cm-disc.disc-ir{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,transparent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.cmodal-body h2{font-size:26px;margin:0 0 2px;line-height:1.15}
+.cm-sub{color:var(--muted);font-weight:600;margin:0 0 10px}
+.cm-meta{font-family:var(--mono);font-size:12px;color:var(--faint);margin:0 0 14px}
+.cm-chips{margin-bottom:4px}
+.cmodal-body h3{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin:22px 0 10px}
+.cmodal-body p{color:var(--muted);line-height:1.6;margin:0 0 10px}
+.cm-q{list-style:none;padding:0;margin:0;counter-reset:q}
+.cm-q li{counter-increment:q;border:1px solid var(--line);border-radius:10px;padding:12px 14px 12px 44px;margin-bottom:8px;position:relative}
+.cm-q li::before{content:"Q" counter(q);position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:700}
+.cm-qtext{display:block;color:var(--ink);font-size:14px;line-height:1.5}
+.cm-qmeta{display:block;margin-top:6px;font-family:var(--mono);font-size:11px;color:var(--faint);text-transform:capitalize}
+.cm-note{font-size:13px;color:var(--faint)}
+.cm-cta{margin-top:24px}
+@media(max-width:560px){.cmodal-body{padding:24px 20px}.cmodal-body h2{font-size:22px}}
