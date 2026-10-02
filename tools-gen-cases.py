@@ -6,11 +6,21 @@ Produces the 3-axis taxonomy: Discipline (DF | IR) -> Difficulty -> topic row
 with the real builtin library.
 """
 import html
+import json
 import sys
 sys.path.insert(0, "/home/user/redherrings")
-from redherrings import packs, tracks, attack  # noqa: E402
+from redherrings import packs, tracks, attack, paths  # noqa: E402
+from redherrings.engine.dsl import load_scenario  # noqa: E402
+from redherrings.engine.variant import Variant  # noqa: E402
 
 E = lambda s: html.escape(str(s or ""), quote=True)
+
+EVIDENCE_LABEL = {
+    "edr": "EDR detections", "siem": "SIEM alerts", "eventlog": "Windows event logs",
+    "windows": "Windows artifacts", "memory": "Memory image", "network": "Packet capture",
+    "mobile": "Mobile extraction", "cloud": "Cloud audit logs", "browser": "Browser history",
+    "email": "Email / mailbox", "linux": "Linux host", "macos": "macOS host", "disk": "Disk image",
+}
 
 DIFF_RANK = {"first-look": 0, "easy": 1, "medium": 2, "hard": 3, "expert": 4, "marquee": 5}
 DIFF_LABEL = {"first-look": "First Look", "easy": "Easy", "medium": "Medium",
@@ -30,6 +40,55 @@ TACTICS = {t["slug"]: t["label"] for t in attack.catalog()}
 
 def eff_diff(s):
     return s.get("category") or s.get("difficulty") or "medium"
+
+
+def _scenario_map():
+    """id -> Scenario for every builtin case (for briefing + sample questions)."""
+    out = {}
+    for p in sorted(paths.builtin_scenarios_dir().glob("*.yaml")):
+        try:
+            sc = load_scenario(p)
+            out[sc.id] = sc
+        except Exception:
+            pass
+    return out
+
+
+def _render_preview(sc, text):
+    try:
+        return Variant(sc.raw, {"id": "preview-001", "name": "Preview Student"}, "preview").render(text)
+    except Exception:
+        return text
+
+
+def build_detail(meta, sc):
+    """Public-facing detail payload for the lightbox: briefing + sample questions,
+    with no answers or answer keys."""
+    disc = meta.get("discipline", "digital-forensics")
+    ir = disc == "incident-response"
+    ed = eff_diff(meta)
+    story = _render_preview(sc, sc.raw.get("story", "")) if sc else meta.get("summary", "")
+    briefing = [p.replace("\n", " ").strip() for p in story.split("\n\n") if p.strip()]
+    qs = []
+    for q in (sc.questions if sc else [])[:6]:
+        qs.append({"prompt": _render_preview(sc, q.prompt), "type": q.type,
+                   "points": q.points, "phase": getattr(q, "phase", "")})
+    total_q = len(sc.questions) if sc else meta.get("questions", 0)
+    if ir:
+        chips = [{"label": TACTICS.get(t, t), "cls": "tac-" + t} for t in (meta.get("tactics") or [])]
+    else:
+        chips = [{"label": TRACK_CHIP.get(t, ("", t))[1], "cls": TRACK_CHIP.get(t, ("", t))[0]} for t in (meta.get("tracks") or [])]
+    return {
+        "title": meta.get("codename") or meta.get("name"),
+        "sub": meta.get("name") if meta.get("codename") else "",
+        "disc": "Incident Response" if ir else "Digital Forensics",
+        "discCls": "ir" if ir else "df",
+        "diff": DIFF_LABEL.get(ed, ed.title()), "diffCls": DIFF_PILLCLASS.get(ed, ed),
+        "est": meta.get("estimated_minutes"), "qcount": total_q, "points": round(meta.get("points") or 0),
+        "evidence": [EVIDENCE_LABEL.get(a, a.title()) for a in (meta.get("artifact_types") or [])],
+        "tools": meta.get("tools") or [], "chips": chips,
+        "briefing": briefing, "questions": qs, "moreq": max(0, total_q - len(qs)),
+    }
 
 
 def card(s):
@@ -52,13 +111,15 @@ def card(s):
         chips = "".join(f'<span class="chip {TRACK_CHIP.get(t, ("", t))[0]}">{E(TRACK_CHIP.get(t, ("", t))[1])}</span>' for t in tracks_list)
     sub_html = f'\n      <div class="cc-sub">{E(sub)}</div>' if sub else ""
     return (
-        f'    <article class="ccard" data-discipline="{E(disc)}" data-diff="{E(ed)}" '
+        f'    <article class="ccard" data-id="{E(s.get("id"))}" tabindex="0" role="button" '
+        f'aria-label="Open {E(title)}" data-discipline="{E(disc)}" data-diff="{E(ed)}" '
         f'data-tracks="{E(" ".join(tracks_list))}" data-tactics="{E(" ".join(tactics_list))}">\n'
         f'      <div class="cc-top"><span class="dpill {pill_cls}">{E(pill_lbl)}</span>'
         f'<span class="cc-meta">{meta}</span></div>\n'
         f'      <h3 class="cc-title">{E(title)}</h3>{sub_html}\n'
         f'      <p class="cc-desc">{E(s.get("summary"))}</p>\n'
         f'      <div class="chips">{chips}</div>\n'
+        f'      <span class="cc-more">View case &amp; sample questions &rarr;</span>\n'
         f'    </article>'
     )
 
@@ -75,17 +136,21 @@ def main():
     n_ir = sum(1 for s in scen if s.get("discipline") == "incident-response")
     n_df = n - n_ir
 
-    import json
+    smap = _scenario_map()
+    details = {s["id"]: build_detail(s, smap.get(s["id"])) for s in scen}
+
     diff_opts = "".join(f'<option value="{k}">{E(v)}</option>' for k, v in
                         [("first-look", "First Look"), ("easy", "Easy"), ("medium", "Medium"),
                          ("hard", "Hard"), ("expert", "Expert"), ("marquee", "Marquee")])
     tracks_json = json.dumps([{"v": sl, "l": lbl} for sl, (_, lbl) in TRACK_CHIP.items()])
     tactics_json = json.dumps([{"v": t["slug"], "l": t["label"]} for t in attack.catalog()])
+    details_json = json.dumps(details)
 
     html_doc = TEMPLATE.format(
         n=n, n_df=n_df, n_ir=n_ir, cards=cards, diff_opts=diff_opts,
-        tracks_json=tracks_json, tactics_json=tactics_json)
+        tracks_json=tracks_json, tactics_json=tactics_json, details_json=details_json)
     html_doc = html_doc.replace("<<SP>>", " ")
+    html_doc = html_doc.replace("<!--MODALJS-->", MODAL_JS.replace("__DATA__", details_json))
     out = "/home/user/redherrings-site/cases.html"
     with open(out, "w") as f:
         f.write(html_doc)
@@ -158,6 +223,13 @@ TEMPLATE = '''<!doctype html>
     <div class="cta-row" style="margin-top:40px"><a class="btn" href="/#download">Start a free 14-day trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>
   </section>
 </main>
+<div class="cmodal" id="cmodal" hidden>
+  <div class="cmodal-backdrop" data-close></div>
+  <div class="cmodal-panel" role="dialog" aria-modal="true" aria-labelledby="cm-title">
+    <button class="cmodal-x" data-close aria-label="Close">&times;</button>
+    <div class="cmodal-body" id="cmodal-body"></div>
+  </div>
+</div>
 <footer>
   <div class="wrap">
     <div class="fbottom">
@@ -199,11 +271,53 @@ TEMPLATE = '''<!doctype html>
     fDisc.value="all"; fDiff.value="all"; fillTopic(); apply(); }});
   fillTopic(); apply();
 </script>
+<!--MODALJS-->
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="theme.js" defer></script>
 </body>
 </html>
 '''
+
+MODAL_JS = r'''<script>
+(function(){
+  var CASES = __DATA__;
+  var modal=document.getElementById("cmodal"), body=document.getElementById("cmodal-body"), lastFocus=null;
+  function esc(s){ var d=document.createElement("div"); d.textContent=(s==null?"":String(s)); return d.innerHTML; }
+  function openCase(id){
+    var c=CASES[id]; if(!c) return;
+    var chips=(c.chips||[]).map(function(x){return '<span class="chip '+x.cls+'">'+esc(x.label)+'</span>';}).join("");
+    var meta=[]; if(c.est)meta.push("~"+c.est+" min"); meta.push(c.qcount+" questions"); if(c.points)meta.push(c.points+" points");
+    var ev=(c.evidence||[]).map(function(x){return '<span class="chip">'+esc(x)+'</span>';}).join("");
+    var tools=(c.tools||[]).map(function(x){return '<span class="chip tool">'+esc(x)+'</span>';}).join("");
+    var brief=(c.briefing||[]).map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
+    var qs=(c.questions||[]).map(function(q){
+      var ph=q.phase?' &middot; '+esc(q.phase.replace(/-/g," ")):"";
+      return '<li><span class="cm-qtext">'+esc(q.prompt)+'</span><span class="cm-qmeta">'+esc(q.type)+' &middot; '+q.points+' pts'+ph+'</span></li>';
+    }).join("");
+    var more=c.moreq>0?'<p class="cm-note">+ '+c.moreq+' more questions in the full case &mdash; you choose how many each student gets, drawn as a unique set per student.</p>':"";
+    body.innerHTML =
+      '<div class="cm-head"><span class="dpill '+c.diffCls+'">'+esc(c.diff)+'</span>'+
+        '<span class="cm-disc disc-'+c.discCls+'">'+esc(c.disc)+'</span></div>'+
+      '<h2 id="cm-title">'+esc(c.title)+'</h2>'+(c.sub?'<p class="cm-sub">'+esc(c.sub)+'</p>':"")+
+      '<p class="cm-meta">'+meta.join(" &middot; ")+'</p>'+
+      (chips?'<div class="chips cm-chips">'+chips+'</div>':"")+
+      '<h3>Briefing</h3>'+(brief||'<p class="cm-note">No briefing preview.</p>')+
+      '<h3>Sample questions</h3><ol class="cm-q">'+qs+'</ol>'+more+
+      (ev?'<h3>Evidence</h3><div class="chips">'+ev+'</div>':"")+
+      (tools?'<h3>Suggested tools</h3><div class="chips">'+tools+'</div>':"")+
+      '<div class="cta-row cm-cta"><a class="btn" href="/#download">Start a free trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>';
+    lastFocus=document.activeElement; modal.hidden=false; document.body.style.overflow="hidden";
+    body.scrollTop=0; modal.querySelector(".cmodal-x").focus();
+  }
+  function closeCase(){ modal.hidden=true; document.body.style.overflow=""; if(lastFocus&&lastFocus.focus)lastFocus.focus(); }
+  [].forEach.call(document.querySelectorAll(".ccard"), function(c){
+    c.addEventListener("click", function(){ openCase(c.dataset.id); });
+    c.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); openCase(c.dataset.id); } });
+  });
+  modal.addEventListener("click", function(e){ if(e.target.hasAttribute("data-close")) closeCase(); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape"&&!modal.hidden) closeCase(); });
+})();
+</script>'''
 
 if __name__ == "__main__":
     main()
