@@ -41,26 +41,56 @@
 </header>
 
 <main class="wrap">
-  <section class="hero hero-split" style="border-top:0">
-    <div class="hero-copy">
+  <section class="hero" style="border-top:0">
+    <div class="hero-split">
+      <div class="hero-copy">
       <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / Incident response</div>
       <h1>Incident response you can <em>actually run</em></h1>
-      <p class="lede">Nineteen of the 63 cases are full incident-response investigations, worked the way a responder works a real one &mdash; from the EDR detection feed and the SIEM alert export, corroborated by host event logs. Every case is mapped to MITRE ATT&amp;CK and tagged with the NIST 800-61 phases, every student gets a different variant, and grading runs on your machine.</p>
-      <div class="cta-row">
-        <a class="btn" href="try.html" data-goatcounter-click="cta-try-ir">Try a sample case</a>
-        <a class="btn ghost" href="cases.html">Browse incident-response cases</a>
-      </div>
-      <p class="hero-proof"><strong>19 incident-response cases</strong> &middot; mapped to MITRE ATT&amp;CK &middot; tagged by NIST 800-61 phase &middot; graded on your machine</p>
+      <p class="lede">Twenty of the 63 cases are full incident-response investigations, worked the way a responder works a real one &mdash; from the EDR detection feed and the SIEM alert export, corroborated by host event logs. Every case is mapped to MITRE ATT&amp;CK and tagged with the NIST 800-61 phases, every student gets a different variant, and grading runs on your machine.</p>
     </div>
     <div class="hero-media">
       <div class="hero-frame">
         <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
-        <video autoplay muted loop playsinline preload="metadata" poster="img/demo-poster.jpg" width="1280" height="800" aria-label="Red Herrings generating and verifying a class set of incident-response labs">
-          <source src="img/demo.webm" type="video/webm">
-          <source src="img/demo.mp4" type="video/mp4">
-          <img src="img/demo-poster.jpg" alt="Red Herrings results screen: student incident-response packages generated and verified">
-        </video>
+        <div class="hero-slider" data-slider aria-roledescription="carousel" aria-label="A tour of the Red Herrings app">
+          <div class="hs-viewport">
+            <div class="hs-track">
+              <figure class="hs-slide is-active" data-label="Case library" aria-hidden="false">
+                <img decoding="async" src="img/slides/slide-library.jpg" width="1600" height="1000" alt="The Red Herrings case library: 64 cases across Digital Forensics and Incident Response, filterable by discipline, difficulty and certification path.">
+                <figcaption class="hs-cap">A library that teaches &mdash; 63 cases across two disciplines</figcaption>
+              </figure>
+              <figure class="hs-slide" data-label="Open a case" aria-hidden="true">
+                <img decoding="async" src="img/slides/slide-case.jpg" width="1600" height="1000" alt="A case opened in Red Herrings, showing the briefing and the investigation questions with points, answer type and difficulty.">
+                <figcaption class="hs-cap">Open any case &mdash; real briefing, verified questions</figcaption>
+              </figure>
+              <figure class="hs-slide" data-label="Generate labs" aria-hidden="true">
+                <img decoding="async" src="img/slides/slide-generate.jpg" width="1600" height="1000" alt="The generate screen: pick a case, set the class and seed, and build an individually seeded lab for every student.">
+                <figcaption class="hs-cap">A different lab for every student, from one case</figcaption>
+              </figure>
+              <figure class="hs-slide" data-label="Verified answers" aria-hidden="true">
+                <img decoding="async" src="img/slides/slide-results.jpg" width="1600" height="1000" alt="The results screen: student packages generated and verified, with the green Fresh Catch panel showing every check passed.">
+                <figcaption class="hs-cap">Every answer proven in the evidence &mdash; the Fresh Catch check</figcaption>
+              </figure>
+              <figure class="hs-slide" data-label="Grade the class" aria-hidden="true">
+                <img decoding="async" src="img/slides/slide-grading.jpg" width="1600" height="1000" alt="The grading screen: grade a single student or a whole class from one sheet, with answers imported from CSV.">
+                <figcaption class="hs-cap">Grade the whole class at once</figcaption>
+              </figure>
+              <figure class="hs-slide" data-label="Certification pathways" aria-hidden="true">
+                <img decoding="async" src="img/slides/slide-pathways.jpg" width="1600" height="1000" alt="Learning pathways: ordered, case-by-case curricula mapped to certification tracks including GCIH and CompTIA CySA+.">
+                <figcaption class="hs-cap">Follow a certification-prep pathway, case by case</figcaption>
+              </figure>
+            </div>
+          </div>
+          <button class="hs-arrow hs-prev" type="button" aria-label="Previous screen">&#8249;</button>
+          <button class="hs-arrow hs-next" type="button" aria-label="Next screen">&#8250;</button>
+          <div class="hs-dots" role="tablist" aria-label="Choose a screen"></div>
+        </div>
       </div>
+      <p class="hero-proof"><strong>20 incident-response cases</strong> &middot; mapped to MITRE ATT&amp;CK &middot; tagged by NIST 800-61 phase &middot; graded on your machine</p>
+    </div>
+    </div>
+    <div class="cta-row hero-cta">
+      <a class="btn" href="try.html" data-goatcounter-click="cta-try-ir">Try a sample case<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="M12 5l7 7-7 7"/></svg></a>
+      <a class="btn ghost" href="cases.html">Browse incident-response cases</a>
     </div>
   </section>
 
@@ -245,5 +275,6 @@
 <!-- Analytics: GoatCounter (cookieless, no personal data). -->
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="theme.js" defer></script>
+<script src="slider.js" defer></script>
 </body>
 </html>

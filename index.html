@@ -94,13 +94,41 @@
       <div class="hero-media">
         <div class="hero-frame">
           <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
-          <video autoplay muted loop playsinline preload="metadata" poster="img/demo-poster.jpg" width="1280" height="800" aria-label="Red Herrings generating and verifying a class set of forensics labs, ending on the Fresh Catch check with 255 of 255 answers confirmed in the evidence">
-            <source src="img/demo.webm" type="video/webm">
-            <source src="img/demo.mp4" type="video/mp4">
-            <img src="img/demo-poster.jpg" alt="Red Herrings results screen: three student packages generated and verified, Fresh Catch 255/255 checks passed">
-          </video>
+          <div class="hero-slider" data-slider aria-roledescription="carousel" aria-label="A tour of the Red Herrings app">
+            <div class="hs-viewport">
+              <div class="hs-track">
+                <figure class="hs-slide is-active" data-label="Case library" aria-hidden="false">
+                  <img decoding="async" src="img/slides/slide-library.jpg" width="1600" height="1000" alt="The Red Herrings case library: 64 cases across Digital Forensics and Incident Response, filterable by discipline, difficulty and certification path.">
+                  <figcaption class="hs-cap">A library that teaches &mdash; 63 cases across two disciplines</figcaption>
+                </figure>
+                <figure class="hs-slide" data-label="Open a case" aria-hidden="true">
+                  <img decoding="async" src="img/slides/slide-case.jpg" width="1600" height="1000" alt="A case opened in Red Herrings, showing the briefing and the investigation questions with points, answer type and difficulty.">
+                  <figcaption class="hs-cap">Open any case &mdash; real briefing, verified questions</figcaption>
+                </figure>
+                <figure class="hs-slide" data-label="Generate labs" aria-hidden="true">
+                  <img decoding="async" src="img/slides/slide-generate.jpg" width="1600" height="1000" alt="The generate screen: pick a case, set the class and seed, and build an individually seeded lab for every student.">
+                  <figcaption class="hs-cap">A different lab for every student, from one case</figcaption>
+                </figure>
+                <figure class="hs-slide" data-label="Verified answers" aria-hidden="true">
+                  <img decoding="async" src="img/slides/slide-results.jpg" width="1600" height="1000" alt="The results screen: three student packages generated and verified, with the green Fresh Catch panel showing 255 of 255 checks passed.">
+                  <figcaption class="hs-cap">Every answer proven in the evidence &mdash; the Fresh Catch check</figcaption>
+                </figure>
+                <figure class="hs-slide" data-label="Grade the class" aria-hidden="true">
+                  <img decoding="async" src="img/slides/slide-grading.jpg" width="1600" height="1000" alt="The grading screen: grade a single student or a whole class from one sheet, with answers imported from CSV.">
+                  <figcaption class="hs-cap">Grade the whole class at once</figcaption>
+                </figure>
+                <figure class="hs-slide" data-label="Certification pathways" aria-hidden="true">
+                  <img decoding="async" src="img/slides/slide-pathways.jpg" width="1600" height="1000" alt="Learning pathways: ordered, case-by-case curricula mapped to certification tracks such as GCFE and GASF.">
+                  <figcaption class="hs-cap">Follow a certification-prep pathway, case by case</figcaption>
+                </figure>
+              </div>
+            </div>
+            <button class="hs-arrow hs-prev" type="button" aria-label="Previous screen">&#8249;</button>
+            <button class="hs-arrow hs-next" type="button" aria-label="Next screen">&#8250;</button>
+            <div class="hs-dots" role="tablist" aria-label="Choose a screen"></div>
+          </div>
         </div>
-        <p class="hero-proof"><strong>50+ case themes, infinite per-student variations</strong> across Windows, Linux and macOS &mdash; disk, memory, network, mobile and cloud evidence &middot; air-gapped after a one-time activation &middot; maps to GIAC, CompTIA, EnCase &amp; Cellebrite tracks &middot; works with any LMS</p>
+        <p class="hero-proof"><strong>63 cases, infinite per-student variations</strong> across Windows, Linux and macOS &mdash; disk, memory, network, mobile and cloud evidence &middot; air-gapped after a one-time activation &middot; maps to GIAC, CompTIA, EnCE &amp; Cellebrite tracks &middot; works with any LMS</p>
       </div>
     </div>
     <div class="cta-row hero-cta">
@@ -388,5 +416,6 @@
 <!-- Analytics: GoatCounter (cookieless, no personal data). Activate by registering the "redherrings" code at goatcounter.com. -->
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="theme.js" defer></script>
+<script src="slider.js" defer></script>
 </body>
 </html>

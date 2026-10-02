@@ -45,6 +45,7 @@
     <a class="link" href="../cases.html">Cases</a>
     <a class="link" href="../pathways.html">Pathways</a>
     <a class="link" href="../student-portal.html">Student portal</a>
+    <a class="link" href="../try.html">Try it</a>
     <a class="link" href="/#pricing">Pricing</a>
     <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
   </div>
@@ -54,7 +55,7 @@
   <article class="post">
     <div class="pagehead" style="border:0">
       <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Network forensics</div>
-      <div class="byline">Red Herrings &middot; DFIR teaching notes</div>
+      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 5 min read</div>
       <h1>Spotting C2 beaconing in a packet capture</h1>
       <p class="lede">A compromised host checking in with its command-and-control server doesn't look dramatic in a capture. It looks like a small, boring request that repeats. The skill is learning to notice the rhythm.</p>
     </div>
@@ -79,7 +80,7 @@
     <p>The hard part of a realistic capture is the noise. Red Herrings network cases don't hand a student a clean two-host PCAP with nothing but the beacon in it. They include benign background traffic &mdash; ordinary web browsing, DNS, software that legitimately polls on a timer &mdash; so the student has to rule things out, not just spot the one obvious flow. Real captures carry DNS, HTTP transfers, cleartext credentials and bulk exfil alongside the C2, and the work is separating signal from the rest.</p>
 
     <h2>A different capture for every student</h2>
-    <p>Each student gets their own seeded PCAP: their own internal and C2 addresses, their own beacon interval and jitter, their own timestamps and payload sizes. The destination IP one student reports as the C2 server won't match anyone else's, so a copied answer is the wrong answer &mdash; and every generated capture is independently re-solved and verified before release, so the answer key is provably correct against that student's packets. Guided mode can walk a learner from "look at the conversation list" to "sort by destination and watch the timing" to the answer, one question at a time.</p>
+    <p>Each student gets their own seeded PCAP: their own internal and C2 addresses, their own beacon interval and jitter, their own timestamps and payload sizes. The destination IP one student reports as the C2 server won't match anyone else's, so a copied answer is the wrong answer &mdash; and every generated capture is independently re-solved and verified by the <a href="../how.html">Fresh Catch check</a> before release, so the answer key is provably correct against that student's packets. Guided mode can walk a learner from "look at the conversation list" to "sort by destination and watch the timing" to the answer, one question at a time.</p>
 
     <h2>Where it fits in the pathway</h2>
     <p>These captures anchor the network-forensics track, aligned to the published objectives of the GNFA, and they show up in the incident-response cases too, where beaconing is one technique among many in a larger chain. Students build the one habit that makes a network analyst &mdash; reading traffic by its behavior over time &mdash; and you grade the whole class at once.</p>
