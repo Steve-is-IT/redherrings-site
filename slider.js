@@ -12,7 +12,7 @@
     var dotsWrap = root.querySelector(".hs-dots");
     var prev = root.querySelector(".hs-prev");
     var next = root.querySelector(".hs-next");
-    var i = 0, timer = null, DELAY = 5000;
+    var i = 0, timer = null, DELAY = 6000;
 
     // Build dots
     var dots = [];
