@@ -47,7 +47,7 @@ def card(s):
     tracks_list = s.get("tracks") or []
     tactics_list = s.get("tactics") or []
     if ir:
-        chips = "".join(f'<span class="chip trk-ir">{E(TACTICS.get(t, t))}</span>' for t in tactics_list[:4])
+        chips = "".join(f'<span class="chip tac-{E(t)}">{E(TACTICS.get(t, t))}</span>' for t in tactics_list[:4])
     else:
         chips = "".join(f'<span class="chip {TRACK_CHIP.get(t, ("", t))[0]}">{E(TRACK_CHIP.get(t, ("", t))[1])}</span>' for t in tracks_list)
     sub_html = f'\n      <div class="cc-sub">{E(sub)}</div>' if sub else ""

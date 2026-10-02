@@ -70,7 +70,7 @@
       <h3 class="cc-title">Nightfall</h3>
       <div class="cc-sub">Operation Nightfall</div>
       <p class="cc-desc">The full incident, start to finish. At 02:14 the ransom notes appeared across Mercy Regional and systems began locking ward by ward. You are the incident commander: work the SIEM, the EDR feed and the host logs to reconstruct the whole operation - phishing in, credential theft, domain-wide spread, data stolen for double extortion, then encryption - pull every indicator, map the campaign to ATT&amp;CK, run the response through all of NIST&#x27;s phases, and produce the incident report. The attacker may still be inside.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Defense Evasion</span><span class="chip trk-ir">Credential Access</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-execution">Execution</span><span class="chip tac-defense-evasion">Defense Evasion</span><span class="chip tac-credential-access">Credential Access</span></div>
     </article>
     <article class="ccard" data-discipline="digital-forensics" data-diff="first-look" data-tracks="foundations windows-forensics" data-tactics="">
       <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10 Q &middot; ~25 min</span></div>
@@ -166,14 +166,14 @@
       <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
       <h3 class="cc-title">First Look: Phishing Triage</h3>
       <p class="cc-desc">One mailbox. Tell the real message from the fake and pull the sender details.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-execution">Execution</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="first-look" data-tracks="foundations advanced-ir" data-tactics="execution persistence privilege-escalation defense-evasion">
       <div class="cc-top"><span class="dpill cat-firstlook">First Look</span><span class="cc-meta">10&ndash;12 Q &middot; ~25 min</span></div>
       <h3 class="cc-title">The Queue</h3>
       <div class="cc-sub">First Look: Reading an EDR Alert</div>
       <p class="cc-desc">Your first shift on the SOC queue. One endpoint threw a short stack of EDR detections. Read the feed the way a responder does - triage by severity, read the process tree and the ATT&amp;CK technique on each one - and decide whether this is a real incident or noise.</p>
-      <div class="chips"><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+      <div class="chips"><span class="chip tac-execution">Execution</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-privilege-escalation">Privilege Escalation</span><span class="chip tac-defense-evasion">Defense Evasion</span></div>
     </article>
     <article class="ccard" data-discipline="digital-forensics" data-diff="easy" data-tracks="foundations windows-forensics mobile-forensics" data-tactics="">
       <div class="cc-top"><span class="dpill easy">Easy</span><span class="cc-meta">10&ndash;12 Q &middot; ~35 min</span></div>
@@ -292,28 +292,28 @@
       <h3 class="cc-title">Push Comes to Shove</h3>
       <div class="cc-sub">Account Takeover: MFA Fatigue</div>
       <p class="cc-desc">An attacker with a stolen password hammered a user with MFA prompts until one was approved, then signed in from abroad.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-privilege-escalation">Privilege Escalation</span><span class="chip tac-defense-evasion">Defense Evasion</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="medium" data-tracks="windows-forensics mobile-forensics" data-tactics="initial-access collection impact">
       <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~60 min</span></div>
       <h3 class="cc-title">Wire Act</h3>
       <div class="cc-sub">Business Email Compromise: Wire Fraud</div>
       <p class="cc-desc">A finance controller wired money to an attacker&#x27;s account after a spoofed executive email and a lookalike vendor followed up with new bank details.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Collection</span><span class="chip trk-ir">Impact</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-collection">Collection</span><span class="chip tac-impact">Impact</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="medium" data-tracks="windows-forensics advanced-ir" data-tactics="execution persistence privilege-escalation discovery lateral-movement">
       <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;12 Q &middot; ~60 min</span></div>
       <h3 class="cc-title">Hands on Keyboard</h3>
       <div class="cc-sub">Lateral Move to the File Server</div>
       <p class="cc-desc">A foothold on one workstation becomes access to the file server. Using the Security and System logs, the registry and Prefetch, trace the remote-service execution: where the session came from, the service that ran the attacker&#x27;s tool, the command it launched, and the Run key left to survive a reboot.</p>
-      <div class="chips"><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Discovery</span></div>
+      <div class="chips"><span class="chip tac-execution">Execution</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-privilege-escalation">Privilege Escalation</span><span class="chip tac-discovery">Discovery</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="medium" data-tracks="windows-forensics advanced-ir" data-tactics="initial-access execution persistence">
       <div class="cc-top"><span class="dpill medium">Medium</span><span class="cc-meta">10&ndash;14 Q &middot; ~85 min</span></div>
       <h3 class="cc-title">Trapdoor</h3>
       <div class="cc-sub">Web Shell on a Small Business Server</div>
       <p class="cc-desc">A small business web server was compromised through a web shell used to run commands and install persistence.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-execution">Execution</span><span class="chip tac-persistence">Persistence</span></div>
     </article>
     <article class="ccard" data-discipline="digital-forensics" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~100 min</span></div>
@@ -369,49 +369,49 @@
       <h3 class="cc-title">Skeleton Key</h3>
       <div class="cc-sub">Cloud Account Compromise: Stolen Access Key</div>
       <p class="cc-desc">A developer&#x27;s leaked access key was used to sign in from abroad, add a second key and a new IAM user, and pull customer data out of a storage bucket.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-privilege-escalation">Privilege Escalation</span><span class="chip tac-defense-evasion">Defense Evasion</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="initial-access execution persistence privilege-escalation command-and-control">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;15 Q &middot; ~135 min</span></div>
       <h3 class="cc-title">Patient Zero</h3>
       <div class="cc-sub">Phishing to Malware to Command and Control</div>
       <p class="cc-desc">A finance employee opened a phishing attachment; the workstation later showed a remote-controlled process and persistence.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-execution">Execution</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-privilege-escalation">Privilege Escalation</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics advanced-ir" data-tactics="initial-access execution defense-evasion credential-access lateral-movement command-and-control impact">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;15 Q &middot; ~55 min</span></div>
       <h3 class="cc-title">First Call</h3>
       <div class="cc-sub">Ransomware Before Coffee</div>
       <p class="cc-desc">You are the on-call responder. The EDR console lit up at 06:48 with a chain of detections on a finance workstation, ending in a running locker. Triage the detection feed and the host&#x27;s own event logs, scope the intrusion from first access to impact, pull the indicators, map it to ATT&amp;CK, and make the containment call - fast.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Defense Evasion</span><span class="chip trk-ir">Credential Access</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-execution">Execution</span><span class="chip tac-defense-evasion">Defense Evasion</span><span class="chip tac-credential-access">Credential Access</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics advanced-ir" data-tactics="execution persistence credential-access discovery">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~110 min</span></div>
       <h3 class="cc-title">Dry Run</h3>
       <div class="cc-sub">Ransomware Precursor: Staging and Log Clearing</div>
       <p class="cc-desc">An admin account was used to stage tools, add a hidden account, and clear the event logs ahead of an expected encryption run.</p>
-      <div class="chips"><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Credential Access</span><span class="chip trk-ir">Discovery</span></div>
+      <div class="chips"><span class="chip tac-execution">Execution</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-credential-access">Credential Access</span><span class="chip tac-discovery">Discovery</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="lateral-movement exfiltration impact">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;14 Q &middot; ~125 min</span></div>
       <h3 class="cc-title">Double Cross</h3>
       <div class="cc-sub">Ransomware: Double Extortion</div>
       <p class="cc-desc">Ransomware hit a server. Data was exfiltrated first, shadow copies deleted, files encrypted, and a note left threatening to publish.</p>
-      <div class="chips"><span class="chip trk-ir">Lateral Movement</span><span class="chip trk-ir">Exfiltration</span><span class="chip trk-ir">Impact</span></div>
+      <div class="chips"><span class="chip tac-lateral-movement">Lateral Movement</span><span class="chip tac-exfiltration">Exfiltration</span><span class="chip tac-impact">Impact</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="initial-access execution persistence command-and-control">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~110 min</span></div>
       <h3 class="cc-title">Trust Fall</h3>
       <div class="cc-sub">Trojanized Software Update</div>
       <p class="cc-desc">A fake update installer, a service, a beacon and an injected process. Follow one download from the browser to the network and into memory.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Execution</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Command &amp; Control</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-execution">Execution</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-command-and-control">Command &amp; Control</span></div>
     </article>
     <article class="ccard" data-discipline="incident-response" data-diff="hard" data-tracks="windows-forensics network-forensics advanced-ir" data-tactics="initial-access persistence privilege-escalation defense-evasion lateral-movement command-and-control">
       <div class="cc-top"><span class="dpill hard">Hard</span><span class="cc-meta">10&ndash;12 Q &middot; ~90 min</span></div>
       <h3 class="cc-title">Tunnel Vision</h3>
       <div class="cc-sub">VPN Account Compromise and Beacon</div>
       <p class="cc-desc">A VPN account was accessed from abroad and the workstation started beaconing out, with a password sent in the clear.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-privilege-escalation">Privilege Escalation</span><span class="chip tac-defense-evasion">Defense Evasion</span></div>
     </article>
     <article class="ccard" data-discipline="digital-forensics" data-diff="expert" data-tracks="windows-forensics advanced-ir" data-tactics="">
       <div class="cc-top"><span class="dpill expert">Expert</span><span class="cc-meta">10&ndash;20 Q &middot; ~480 min</span></div>
@@ -446,7 +446,7 @@
       <h3 class="cc-title">Low and Slow</h3>
       <div class="cc-sub">The Long Quiet Weekend</div>
       <p class="cc-desc">Over a quiet weekend a valid VPN account logged in from a new country and never left. By Monday the SIEM has a weekend&#x27;s worth of correlated alerts - enumeration, kerberoasting, RDP across to a jump host, a staged archive, and a large upload to external cloud storage still in progress. Work the SIEM queue, the EDR feed and the host logs; scope the intrusion end to end; pull the indicators; map it to ATT&amp;CK; and run the response from containment to lessons learned.</p>
-      <div class="chips"><span class="chip trk-ir">Initial Access</span><span class="chip trk-ir">Persistence</span><span class="chip trk-ir">Privilege Escalation</span><span class="chip trk-ir">Defense Evasion</span></div>
+      <div class="chips"><span class="chip tac-initial-access">Initial Access</span><span class="chip tac-persistence">Persistence</span><span class="chip tac-privilege-escalation">Privilege Escalation</span><span class="chip tac-defense-evasion">Defense Evasion</span></div>
     </article>
     </div>
     <p class="emptymsg hide" id="empty">No cases match those filters. Use <strong>Clear</strong> to reset.</p>
