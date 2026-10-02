@@ -1,0 +1,53 @@
+Mar 17 12:14:08 app-prod-01 sshd[28469]: Accepted publickey for deploy from 172.17.93.214 port 44716 ssh2: RSA SHA256:pEVZI57XhmhWKgKnzj8wqLLJCoCxDanZ
+Mar 17 17:11:17 app-prod-01 sshd[15885]: Accepted publickey for backup from 172.17.93.187 port 48512 ssh2: RSA SHA256:73QdW277L0+xD//1Hdavg1VLwjl24Om3
+Mar 17 19:19:09 app-prod-01 sshd[29704]: Accepted publickey for deploy from 172.17.93.39 port 47059 ssh2: RSA SHA256:HApFqNd21oNJSyyrYp2lUovGFnJCJMf5
+Mar 17 22:55:34 app-prod-01 sshd[14484]: Accepted publickey for www-data from 172.17.93.72 port 40250 ssh2: RSA SHA256:+f4lsyCJFKrf7cyZhLfypV/IsgV6dPSY
+Mar 17 23:05:35 app-prod-01 sshd[3451]: Accepted publickey for deploy from 172.17.93.82 port 34235 ssh2: RSA SHA256:NzSzDYupluFhKLfWxFnAIzlQ2/OA8gAA
+Mar 17 23:36:26 app-prod-01 sshd[22737]: Accepted publickey for admin from 172.17.93.181 port 31257 ssh2: RSA SHA256:W3Xuh/koyqOoJ7adOMtw7+liS3GdmmYY
+Mar 18 03:09:06 app-prod-01 sshd[7905]: Accepted publickey for www-data from 172.17.93.21 port 57591 ssh2: RSA SHA256:jgsv2U+owR+IJN6Embp5aJbdXf5Mj2ix
+Mar 18 03:31:47 app-prod-01 sshd[20151]: Accepted publickey for backup from 172.17.93.175 port 49003 ssh2: RSA SHA256:MXQh0Nd6jHh4KNCrKzkwooHB1FVyVCOV
+Mar 18 03:55:19 app-prod-01 sshd[23749]: Accepted publickey for admin from 172.17.93.238 port 44978 ssh2: RSA SHA256:y9F6qilPduOlAmK/lCwZcJfWQ7pfeq/D
+Mar 18 05:14:36 app-prod-01 sshd[29882]: Accepted publickey for backup from 172.17.93.153 port 43082 ssh2: RSA SHA256:271M+AK+4RN4zerZoACjoaz+vU4nKY+5
+Mar 18 10:00:07 app-prod-01 sshd[22238]: Failed password for root from 62.157.110.146 port 39671 ssh2
+Mar 18 10:00:11 app-prod-01 sshd[2258]: Failed password for root from 62.157.110.146 port 42138 ssh2
+Mar 18 10:00:13 app-prod-01 sshd[4827]: Failed password for root from 62.157.110.146 port 52581 ssh2
+Mar 18 10:00:15 app-prod-01 sshd[25092]: Failed password for root from 62.157.110.146 port 46240 ssh2
+Mar 18 10:00:19 app-prod-01 sshd[17949]: Failed password for root from 62.157.110.146 port 45980 ssh2
+Mar 18 10:00:22 app-prod-01 sshd[26830]: Failed password for root from 62.157.110.146 port 38606 ssh2
+Mar 18 10:00:22 app-prod-01 sshd[28920]: Failed password for root from 62.157.110.146 port 36814 ssh2
+Mar 18 10:00:25 app-prod-01 sshd[29580]: Failed password for root from 62.157.110.146 port 35504 ssh2
+Mar 18 10:00:25 app-prod-01 sshd[14341]: Failed password for root from 62.157.110.146 port 57913 ssh2
+Mar 18 10:00:27 app-prod-01 sshd[10615]: Failed password for root from 62.157.110.146 port 47096 ssh2
+Mar 18 10:00:28 app-prod-01 sshd[22830]: Failed password for root from 62.157.110.146 port 48845 ssh2
+Mar 18 10:00:29 app-prod-01 sshd[21283]: Failed password for root from 62.157.110.146 port 45847 ssh2
+Mar 18 10:00:31 app-prod-01 sshd[8049]: Failed password for root from 62.157.110.146 port 50309 ssh2
+Mar 18 10:00:32 app-prod-01 sshd[1170]: Failed password for root from 62.157.110.146 port 30647 ssh2
+Mar 18 10:00:38 app-prod-01 sshd[4974]: Failed password for root from 62.157.110.146 port 41604 ssh2
+Mar 18 10:00:41 app-prod-01 sshd[22724]: Failed password for root from 62.157.110.146 port 48275 ssh2
+Mar 18 10:00:42 app-prod-01 sshd[16312]: Failed password for root from 62.157.110.146 port 36612 ssh2
+Mar 18 10:00:43 app-prod-01 sshd[19288]: Failed password for root from 62.157.110.146 port 53429 ssh2
+Mar 18 10:00:43 app-prod-01 sshd[24253]: Failed password for root from 62.157.110.146 port 30147 ssh2
+Mar 18 10:00:44 app-prod-01 sshd[18891]: Failed password for root from 62.157.110.146 port 31740 ssh2
+Mar 18 10:00:45 app-prod-01 sshd[3754]: Failed password for root from 62.157.110.146 port 54661 ssh2
+Mar 18 10:00:49 app-prod-01 sshd[7469]: Failed password for root from 62.157.110.146 port 32528 ssh2
+Mar 18 10:00:49 app-prod-01 sshd[3653]: Failed password for root from 62.157.110.146 port 33661 ssh2
+Mar 18 10:00:59 app-prod-01 sshd[11002]: Failed password for root from 62.157.110.146 port 56368 ssh2
+Mar 18 10:01:07 app-prod-01 sshd[6365]: Failed password for root from 62.157.110.146 port 41824 ssh2
+Mar 18 10:01:11 app-prod-01 sshd[10745]: Failed password for root from 62.157.110.146 port 58266 ssh2
+Mar 18 10:01:13 app-prod-01 sshd[17716]: Failed password for root from 62.157.110.146 port 37395 ssh2
+Mar 18 10:01:13 app-prod-01 sshd[24440]: Failed password for root from 62.157.110.146 port 33002 ssh2
+Mar 18 10:01:15 app-prod-01 sshd[1193]: Failed password for root from 62.157.110.146 port 42374 ssh2
+Mar 18 10:01:16 app-prod-01 sshd[13099]: Failed password for root from 62.157.110.146 port 33674 ssh2
+Mar 18 10:01:19 app-prod-01 sshd[4458]: Failed password for root from 62.157.110.146 port 42610 ssh2
+Mar 18 10:01:19 app-prod-01 sshd[8863]: Failed password for root from 62.157.110.146 port 42150 ssh2
+Mar 18 10:01:25 app-prod-01 sshd[2062]: Failed password for root from 62.157.110.146 port 48152 ssh2
+Mar 18 10:01:25 app-prod-01 sshd[16935]: Failed password for root from 62.157.110.146 port 45602 ssh2
+Mar 18 10:01:31 app-prod-01 sshd[2410]: Failed password for root from 62.157.110.146 port 31598 ssh2
+Mar 18 10:01:37 app-prod-01 sshd[22362]: Failed password for root from 62.157.110.146 port 34443 ssh2
+Mar 18 10:01:55 app-prod-01 sshd[14164]: Failed password for root from 62.157.110.146 port 37329 ssh2
+Mar 18 10:02:01 app-prod-01 sshd[22525]: Failed password for root from 62.157.110.146 port 57692 ssh2
+Mar 18 10:02:03 app-prod-01 sshd[2990]: Failed password for root from 62.157.110.146 port 50128 ssh2
+Mar 18 10:02:15 app-prod-01 sshd[9521]: Failed password for root from 62.157.110.146 port 45914 ssh2
+Mar 18 10:06:14 app-prod-01 sshd[5781]: Accepted password for root from 62.157.110.146 port 32725 ssh2: RSA SHA256:DDfb0HIiXup0Rl9uHOEO1Srepzrei5J5
+Mar 18 10:10:27 app-prod-01 sudo: root : TTY=pts/1 ; PWD=/home/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Mar 18 10:15:56 app-prod-01 useradd[29273]: new user: name=webadmin2, UID=1095, GID=1061, home=/home/webadmin2, shell=/bin/bash
