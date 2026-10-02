@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot | Red Herrings</title>
+<meta name="description" content="A hands-on teaching lab for lateral movement: match a Type 3 or Type 10 logon (4624) to the processes it spawned (4688) by logon session, read SubjectUserName against TargetUserName correctly, and trace an attacker host to host.">
+<link rel="canonical" href="https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot">
+<meta property="og:description" content="Match a remote logon (4624) to the processes it spawned (4688) by logon session, read the subject and target fields correctly, and trace an attacker host to host.">
+<meta property="og:url" content="https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../site.css">
+<style>
+.post{max-width:720px;margin:0 auto}
+.post h2{margin-top:34px}
+.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
+.post ul{padding-left:20px}
+.post .lede{font-size:19px;color:var(--ink,#12151c)}
+.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
+.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
+.post pre{background:var(--panel,#f6f7f9);border:1px solid var(--line,#e7e9ee);border-radius:12px;padding:16px;overflow:auto;font-size:14px;line-height:1.55}
+.post pre code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot","description":"Match a remote logon (4624) to the processes it spawned (4688) by logon session, read the subject and target fields correctly, and trace an attacker host to host.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html"}
+</script>
+  <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <div class="spacer"></div>
+    <a class="link" href="../how.html">How it works</a>
+    <a class="link" href="../cases.html">Cases</a>
+    <a class="link" href="../pathways.html">Pathways</a>
+    <a class="link" href="../student-portal.html">Student portal</a>
+    <a class="link" href="../try.html">Try it</a>
+    <a class="link" href="/#pricing">Pricing</a>
+    <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="post">
+    <div class="pagehead" style="border:0">
+      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Windows forensics</div>
+      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 7 min read</div>
+      <h1>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h1>
+      <p class="lede">Lateral movement leaves a two-part trail in the Windows Security log: a remote logon lands on a host, and then that logon session runs something. Teaching students to tie those two halves together is the core skill, and it hinges on one field almost everyone reads wrong at first.</p>
+    </div>
+
+    <p>Once an attacker has a foothold, the interesting part of the investigation is where they went next. In a Windows environment, moving from one host to another almost always produces a successful logon on the destination, and whatever they did after landing produces process-creation events under that same logon. The whole technique of tracing lateral movement comes down to connecting those two records and then repeating it across hosts. It is a perfect teaching problem because the evidence is concrete, the logic is strict, and the common mistakes are specific enough to grade.</p>
+
+    <h2>Two event IDs carry the story</h2>
+    <p>Almost everything a student needs lives in two Security-log events:</p>
+    <ul>
+      <li><strong>4624, a successful logon.</strong> The field that matters most is <code>LogonType</code>. Type 3 is a network logon, the kind SMB and tools like PsExec produce. Type 10 is RemoteInteractive, which is RDP. Type 2 is a local interactive logon at the keyboard, which is the benign baseline you are trying to rule out. A Type 3 or Type 10 logon from an internal workstation that has no business authenticating to a server is the opening move of lateral movement.</li>
+      <li><strong>4688, a process creation.</strong> With command-line auditing enabled, this records the full command line, the new process, and its parent. This is where you see what the attacker actually ran once they were in.</li>
+    </ul>
+    <p>The logon tells you someone arrived; the process events tell you what they did. The investigation is joining them.</p>
+
+    <h2>The field students read wrong</h2>
+    <p>Here is the trap. A 4624 event has both a <code>SubjectUserName</code> and a <code>TargetUserName</code>, and they do not mean the same thing. On a logon event, the <strong>subject</strong> is the account that requested the logon, which for a network logon is frequently the machine account or a blank, while the <strong>target</strong> is the account that actually logged on. The account you care about, the one that moved laterally, is <code>TargetUserName</code>.</p>
+
+    <blockquote>On a logon, the target is who logged on. On a process creation, the subject is who ran it. Point a student at the wrong field and they will confidently name the machine account as the attacker.</blockquote>
+
+    <p>On a 4688 process-creation event the convention flips: there is no target, and the <strong>subject</strong> is the actor, so <code>SubjectUserName</code> is who ran the process. A student who learns "always read SubjectUserName" from the process events and then applies it to the logon event names the wrong party. Teaching the subject-versus-target distinction explicitly, and making students prove which account moved by reading the correct field on each event, is half the value of the lab.</p>
+
+    <h2>The pivot: logon session to process</h2>
+    <p>The link that welds a logon to the processes it spawned is the <strong>logon ID</strong>. A 4624 event issues a <code>TargetLogonId</code>, a hex value that identifies that specific logon session. Every process started inside that session carries the same value as its <code>SubjectLogonId</code> on the 4688 event. Match them and you have turned "someone logged on remotely" into "this remote logon then ran these exact commands":</p>
+
+<pre><code>Step 1  Find the suspicious remote logon
+        4624  LogonType=3  TargetUserName=svc-backup
+              IpAddress=10.12.4.31  TargetLogonId=0x8F3A21
+
+Step 2  Pivot on the session into process creation
+        4688  SubjectLogonId=0x8F3A21  SubjectUserName=svc-backup
+              NewProcessName=...\cmd.exe
+        4688  SubjectLogonId=0x8F3A21  SubjectUserName=svc-backup
+              NewProcessName=...\reg.exe  CommandLine="reg save hklm\sam ..."</code></pre>
+
+    <p>That single hex value is the spine of the whole timeline. It is also how you separate the attacker's session from the dozens of benign logons happening on a busy server at the same moment. Two logons by the same username at nearly the same second are distinct sessions with distinct logon IDs, and only one of them ran <code>reg save hklm\sam</code>.</p>
+
+    <h2>Follow it across hosts</h2>
+    <p>Lateral movement is rarely a single hop, and the same two events let you chase it. The <code>IpAddress</code> and <code>WorkstationName</code> on the 4624 tell you where the logon came from, so the source of a Type 3 logon on the file server is the workstation the attacker is operating from. Find that workstation's own logs, and the process that initiated the outbound connection sits under its own logon session there. Walk it back far enough and you reach patient zero; walk it forward and you scope every host the credentials touched. A few supporting events sharpen the picture: 4672 flags a session granted administrator rights, 4648 marks a logon with explicitly supplied credentials (the <code>runas</code> pattern behind pass-the-hash), and a 7045 service install in the System log is the fingerprint PsExec leaves when it drops its service to execute.</p>
+
+    <h2>The tools, and the habit</h2>
+    <p>Students work this in the tools a responder uses. EvtxECmd renders the <code>.evtx</code> files to a single normalized CSV, and Timeline Explorer lets them filter to event ID 4624, sort by logon type, grab the logon ID of the suspicious session, and then filter 4688 to that same ID. The muscle memory to build is filter, pivot, corroborate: isolate the anomalous logon, pivot to the processes under its session, and confirm with a second artifact before calling it. That is the same loop whether the evidence is a raw event log in a forensics case or an <a href="../incident-response.html">EDR detection feed</a> in an incident-response case, where the logon-to-process chain is already assembled as a process tree.</p>
+
+    <p>The behavior maps cleanly onto <a href="../attack.html">MITRE ATT&amp;CK</a>: the remote logon is T1021 Remote Services, RDP as T1021.001 and SMB and admin shares as T1021.002, and a logon with supplied credentials points at T1550 Use Alternate Authentication Material. Naming the technique after finding it in the logs is how the framework becomes a lens rather than a chart to memorize.</p>
+
+    <h2>A different chain for every student</h2>
+    <p>The lateral-movement cases in Red Herrings generate real, MAM-compressed Windows event logs, individually seeded per student. Each student gets their own hostnames, account names, source IP addresses, logon IDs and timestamps, so the session every student has to pivot on is a different hex value and the account that moved is a different name. Ask "which account moved from the workstation to the domain controller, and what logon ID did that session use?" and thirty students produce thirty different, individually correct answers. A copied logon ID belongs to someone else's evidence, so it is wrong.</p>
+
+    <p>Every generated variant is re-solved and verified before release by the <a href="../how.html">Fresh Catch check</a>, an independent parser pass that reads the student's own event logs with python-evtx, performs the 4624-to-4688 pivot, and re-derives each answer from the correct field, so the key cannot drift from the evidence or quietly confuse the subject and target. The case sits on the Windows and incident-handling <a href="../pathways.html">pathways</a>, useful for GCFE and GCIH preparation alike.</p>
+
+    <div class="cta">
+      <strong>Want to run a lateral-movement lab on your class?</strong>
+      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can generate a per-student Windows event-log case with its own logon chain in minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="../try.html" data-goatcounter-click="cta-trial-blog">Try a sample case</a>
+        <a class="btn ghost" href="../cases.html">Browse the cases</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div style="max-width:320px">
+        <div class="brand" style="margin-bottom:8px"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="color:var(--ink);font-size:16px">Red Herrings</span></div>
+        <p style="margin:0 0 10px">Real Evidence. Real Skills. Real Fast.</p>
+        <p style="margin:0;font-size:13px">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="/#features">Features</a>
+        <a href="../cases.html">All cases</a>
+        <a href="../attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="../student-portal.html">Student portal &amp; LMS</a>
+        <a href="../pathways.html">Learning pathways</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#download">Download</a>
+        <a href="../sample/LAB-insider-usb-student-001.zip">Sample lab</a>
+      </div>
+      <div class="fcol">
+        <h4>Support</h4>
+        <a href="/#download">Activate a key</a>
+        <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
+        <a href="../help.html">Help &amp; getting started</a>
+        <a href="../tools.html">Tools &amp; setup</a>
+        <a href="index.html">Blog</a>
+        <a href="/#faq">FAQ</a>
+        <a href="mailto:sales@redherrings.app">sales@redherrings.app</a>
+      </div>
+      <div class="fcol">
+        <h4>Buy</h4>
+        <a href="/#pricing">Educators</a>
+        <a href="/#pricing">Departments</a>
+        <a href="/#pricing">Business and training</a>
+        <a href="mailto:sales@redherrings.app?subject=Enterprise%20inquiry">Enterprise and government</a>
+      </div>
+      <div class="fcol">
+        <h4>Legal</h4>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../eula.html">License agreement</a>
+        <a href="../refund.html">Refund Policy</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC. All rights reserved.</span>
+      <span>Prices in USD. Institutional purchase orders welcome.</span>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="../theme.js" defer></script>
+</body>
+</html>
