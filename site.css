@@ -745,3 +745,17 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 /* the utility link needs room; it also lives in the Platform panel + mobile sheet */
 @media(max-width:1060px){ .navutil{display:none} }
 body.navopen{overflow:hidden}
+
+/* ---- slim footer (brand + two columns + inline legal) ---- */
+footer .ftop{display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:30px 40px;align-items:start}
+footer .fbrand{max-width:340px}
+footer .fbrand .brand{margin-bottom:10px}
+footer .fbrand p{margin:0 0 9px;line-height:1.55}
+footer .fbrand .fsmall{font-size:13px;color:var(--muted)}
+footer .fbrand .fmail{color:var(--muted);font-size:13px;display:inline-block;margin-top:4px}
+footer .fbrand .fmail:hover{color:var(--ink)}
+footer .flegal{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center}
+footer .flegal a{color:var(--muted)}
+footer .flegal a:hover{color:var(--ink)}
+@media (max-width:760px){footer .ftop{grid-template-columns:1fr 1fr}footer .fbrand{grid-column:1 / -1;max-width:none}}
+@media (max-width:460px){footer .ftop{grid-template-columns:1fr}}
