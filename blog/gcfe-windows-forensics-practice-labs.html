@@ -18,16 +18,7 @@
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
-<style>
-.post{max-width:720px;margin:0 auto}
-.post h2{margin-top:34px}
-.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
-.post ul{padding-left:20px}
-.post .lede{font-size:19px;color:var(--ink,#12151c)}
-.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
-.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
-.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
-</style>
+<link rel="stylesheet" href="../blog.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"GCFE practice: a different Windows forensics case for every student","description":"Give every student their own registry, prefetch, USB and event-log case to practice the GCFE objectives on, with a verified answer key.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/gcfe-windows-forensics-practice-labs.html"}
 </script>
@@ -53,12 +44,10 @@
 
 <main class="wrap">
   <article class="post">
-    <div class="pagehead" style="border:0">
-      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Windows forensics</div>
-      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 5 min read</div>
-      <h1>GCFE practice: a different Windows forensics case for every student</h1>
-      <p class="lede">The GCFE objectives live in a handful of Windows artifacts &mdash; the registry, Prefetch, LNK and jump lists, USB device history, and the event logs. The hard part of teaching them isn't the content. It's giving every student enough genuinely different evidence to practice on.</p>
-    </div>
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>GCFE practice: a different Windows forensics case for every student</h1></header>
+    <p class="lede">The GCFE objectives live in a handful of Windows artifacts &mdash; the registry, Prefetch, LNK and jump lists, USB device history, and the event logs. The hard part of teaching them isn't the content. It's giving every student enough genuinely different evidence to practice on.</p>
 
     <p>If you prep students for the GCFE, you spend most of your time in the same places: <code>SYSTEM</code> and <code>SOFTWARE</code> hives, the <code>USBSTOR</code> and <code>MountedDevices</code> keys, Prefetch run counts and timestamps, shortcut and jump-list targets, and the Security and System event logs. Those artifacts are where the exam lives, and they're where a Windows investigation actually gets solved.</p>
 
@@ -95,6 +84,26 @@
         <a class="btn ghost" href="../pathways.html">See the learning pathways</a>
       </div>
     </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="incident-response-exercise-edr-siem.html">
+        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-ir">Incident response</span>
+        <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
+      </a>
+      <a class="rel" href="teaching-mitre-attack-hands-on.html">
+        <div class="cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-threat">Threat-informed teaching</span>
+        <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
+      </a>
+      <a class="rel" href="detect-c2-beaconing-packet-capture.html">
+        <div class="cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-network">Network forensics</span>
+        <h3>Spotting C2 beaconing in a packet capture</h3>
+      </a>
+      </div>
+    </section>
   </article>
 </main>
 

@@ -18,18 +18,7 @@
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
-<style>
-.post{max-width:720px;margin:0 auto}
-.post h2{margin-top:34px}
-.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
-.post ul{padding-left:20px}
-.post .lede{font-size:19px;color:var(--ink,#12151c)}
-.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
-.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
-.post pre{background:var(--panel,#f6f7f9);border:1px solid var(--line,#e7e9ee);border-radius:12px;padding:16px;overflow:auto;font-size:14px;line-height:1.55}
-.post pre code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
-</style>
+<link rel="stylesheet" href="../blog.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot","description":"Match a remote logon (4624) to the processes it spawned (4688) by logon session, read the subject and target fields correctly, and trace an attacker host to host.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html"}
 </script>
@@ -55,12 +44,10 @@
 
 <main class="wrap">
   <article class="post">
-    <div class="pagehead" style="border:0">
-      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Windows forensics</div>
-      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 7 min read</div>
-      <h1>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h1>
-      <p class="lede">Lateral movement leaves a two-part trail in the Windows Security log: a remote logon lands on a host, and then that logon session runs something. Teaching students to tie those two halves together is the core skill, and it hinges on one field almost everyone reads wrong at first.</p>
-    </div>
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/detect-lateral-movement-windows-event-logs.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h1></header>
+    <p class="lede">Lateral movement leaves a two-part trail in the Windows Security log: a remote logon lands on a host, and then that logon session runs something. Teaching students to tie those two halves together is the core skill, and it hinges on one field almost everyone reads wrong at first.</p>
 
     <p>Once an attacker has a foothold, the interesting part of the investigation is where they went next. In a Windows environment, moving from one host to another almost always produces a successful logon on the destination, and whatever they did after landing produces process-creation events under that same logon. The whole technique of tracing lateral movement comes down to connecting those two records and then repeating it across hosts. It is a perfect teaching problem because the evidence is concrete, the logic is strict, and the common mistakes are specific enough to grade.</p>
 
@@ -115,6 +102,26 @@ Step 2  Pivot on the session into process creation
         <a class="btn ghost" href="../cases.html">Browse the cases</a>
       </div>
     </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="gcfe-windows-forensics-practice-labs.html">
+        <div class="cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-windows">Windows forensics</span>
+        <h3>GCFE practice: a different Windows forensics case for every student</h3>
+      </a>
+      <a class="rel" href="incident-response-exercise-edr-siem.html">
+        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-ir">Incident response</span>
+        <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
+      </a>
+      <a class="rel" href="teaching-mitre-attack-hands-on.html">
+        <div class="cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-threat">Threat-informed teaching</span>
+        <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
+      </a>
+      </div>
+    </section>
   </article>
 </main>
 

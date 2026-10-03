@@ -18,16 +18,7 @@
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
-<style>
-.post{max-width:720px;margin:0 auto}
-.post h2{margin-top:34px}
-.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
-.post ul{padding-left:20px}
-.post .lede{font-size:19px;color:var(--ink,#12151c)}
-.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
-.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
-.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
-</style>
+<link rel="stylesheet" href="../blog.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Teach MITRE ATT&CK with hands-on labs, not slides","description":"Teach ATT&CK from tagged incident response cases, where a technique is something you find in the evidence and detect, not a cell on a chart.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/teaching-mitre-attack-hands-on.html"}
 </script>
@@ -53,12 +44,10 @@
 
 <main class="wrap">
   <article class="post">
-    <div class="pagehead" style="border:0">
-      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Threat-informed teaching</div>
-      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 5 min read</div>
-      <h1>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h1>
-      <p class="lede">A student can recite that T1547 is persistence and still not spot a malicious Run key in front of them. ATT&amp;CK taught from the matrix is a vocabulary quiz. Taught from evidence, it's a lens.</p>
-    </div>
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h1></header>
+    <p class="lede">A student can recite that T1547 is persistence and still not spot a malicious Run key in front of them. ATT&amp;CK taught from the matrix is a vocabulary quiz. Taught from evidence, it's a lens.</p>
 
     <p>The ATT&amp;CK matrix is a wonderful reference and a terrible lecture. Walk a class through fourteen tactics and a few hundred techniques on slides, and what sticks is the shape of the grid, not the behavior behind each cell. Students learn to match a name to a definition. They don't learn to look at a process tree and say "that's credential dumping" &mdash; which is the whole point.</p>
 
@@ -92,6 +81,26 @@
         <a class="btn ghost" href="../attack.html">See the ATT&amp;CK coverage</a>
       </div>
     </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="detect-c2-beaconing-packet-capture.html">
+        <div class="cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-network">Network forensics</span>
+        <h3>Spotting C2 beaconing in a packet capture</h3>
+      </a>
+      <a class="rel" href="dfir-learning-pathways-first-look-to-capstone.html">
+        <div class="cover"><img src="../img/blog/dfir-learning-pathways-first-look-to-capstone.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-course">Course design</span>
+        <h3>From first look to capstone: building a DFIR learning pathway</h3>
+      </a>
+      <a class="rel" href="forensics-exam-students-cant-copy.html">
+        <div class="cover"><img src="../img/blog/forensics-exam-students-cant-copy.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-exam">Exam integrity</span>
+        <h3>Run a forensics exam students can't copy</h3>
+      </a>
+      </div>
+    </section>
   </article>
 </main>
 

@@ -18,16 +18,7 @@
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
-<style>
-.post{max-width:720px;margin:0 auto}
-.post h2{margin-top:34px}
-.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
-.post ul{padding-left:20px}
-.post .lede{font-size:19px;color:var(--ink,#12151c)}
-.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
-.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
-.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
-</style>
+<link rel="stylesheet" href="../blog.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Run an incident response exercise from real EDR and SIEM evidence","description":"An IR exercise worked from a real EDR detection feed and SIEM alerts, mapped to MITRE ATT&CK and the NIST 800-61 phases, with time pressure built in.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/incident-response-exercise-edr-siem.html"}
 </script>
@@ -53,12 +44,10 @@
 
 <main class="wrap">
   <article class="post">
-    <div class="pagehead" style="border:0">
-      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Incident response</div>
-      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 6 min read</div>
-      <h1>Run an incident response exercise from real EDR and SIEM evidence</h1>
-      <p class="lede">Most "incident response exercises" are a slide deck and a discussion. The responder's actual job &mdash; reading a detection feed, pivoting through alerts, scoping the chain and making the containment call &mdash; never happens. You can run it for real instead.</p>
-    </div>
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Run an incident response exercise from real EDR and SIEM evidence</h1></header>
+    <p class="lede">Most "incident response exercises" are a slide deck and a discussion. The responder's actual job &mdash; reading a detection feed, pivoting through alerts, scoping the chain and making the containment call &mdash; never happens. You can run it for real instead.</p>
 
     <p>Incident response is a discipline you learn by doing, under pressure, from the tooling you'd actually have. A tabletop is useful for decision-making, but it skips the part that makes someone a responder: looking at a noisy EDR console and a pile of SIEM alerts and figuring out what's real, what's connected, and what to do next while the clock runs.</p>
 
@@ -95,6 +84,26 @@
         <a class="btn ghost" href="../cases.html">Browse the IR cases</a>
       </div>
     </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="teaching-mitre-attack-hands-on.html">
+        <div class="cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-threat">Threat-informed teaching</span>
+        <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
+      </a>
+      <a class="rel" href="detect-c2-beaconing-packet-capture.html">
+        <div class="cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-network">Network forensics</span>
+        <h3>Spotting C2 beaconing in a packet capture</h3>
+      </a>
+      <a class="rel" href="dfir-learning-pathways-first-look-to-capstone.html">
+        <div class="cover"><img src="../img/blog/dfir-learning-pathways-first-look-to-capstone.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-course">Course design</span>
+        <h3>From first look to capstone: building a DFIR learning pathway</h3>
+      </a>
+      </div>
+    </section>
   </article>
 </main>
 
