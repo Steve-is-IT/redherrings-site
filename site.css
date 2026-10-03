@@ -671,3 +671,77 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .cm-note{font-size:13px;color:var(--faint)}
 .cm-cta{margin-top:24px}
 @media(max-width:560px){.cmodal-body{padding:24px 20px}.cmodal-body h2{font-size:22px}}
+
+/* ============================================================
+   Mega-menu header (Direction A) — Platform / Solutions / Resources
+   Desktop: panels open on hover + keyboard focus (no JS needed).
+   Mobile (<900px): hamburger opens a full sheet (nav.js).
+   ============================================================ */
+.mainnav{display:flex;align-items:center;gap:2px;margin-left:10px}
+.mnitem{position:relative}
+.mntrig,.mnflat{appearance:none;background:transparent;border:0;font-family:inherit;cursor:pointer;
+  color:var(--muted);font-weight:500;font-size:15px;padding:9px 13px;border-radius:10px;
+  display:inline-flex;align-items:center;gap:5px;white-space:nowrap;transition:color .15s ease,background .15s ease;text-decoration:none;line-height:1}
+.mntrig:hover,.mnflat:hover,.mnitem.haspanel:hover .mntrig,.mnitem.haspanel:focus-within .mntrig{color:var(--ink);background:var(--line-2)}
+.mncaret{width:9px;height:9px;opacity:.65;transition:transform .2s ease}
+.mnitem.haspanel:hover .mncaret,.mnitem.haspanel:focus-within .mncaret{transform:rotate(180deg)}
+
+.megapanel{position:absolute;top:calc(100% + 10px);left:0;z-index:40;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);
+  padding:20px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:stretch;
+  min-width:648px;opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .16s ease,transform .16s ease,visibility .16s}
+.megapanel.nopromo{grid-template-columns:1fr;min-width:468px}
+.megapanel .mpcol{min-width:172px}
+.megapanel::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px}
+.mnitem.haspanel:hover .megapanel,.mnitem.haspanel:focus-within .megapanel{opacity:1;visibility:visible;transform:none}
+.mpcols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.mphead{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:2px 0 10px}
+.mlink{display:flex;gap:11px;align-items:flex-start;padding:8px 9px;margin:0 -9px;border-radius:10px;
+  text-decoration:none;transition:background .12s ease}
+.mlink:hover{background:var(--line-2)}
+.mlink .mi{width:30px;height:30px;border-radius:8px;flex:none;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
+.mlink .mi svg{width:16px;height:16px}
+.mlink .mt{display:block;color:var(--ink);font-weight:600;font-size:14px;line-height:1.3}
+.mlink .md{display:block;color:var(--muted);font-size:12.5px;line-height:1.4;margin-top:2px}
+.mppromo{display:flex;flex-direction:column;justify-content:flex-end;min-width:210px;max-width:240px;
+  padding:17px;border-radius:14px;text-decoration:none;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 15%,var(--card)),var(--card-2));
+  border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line))}
+.mppromo .eye{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.mppromo strong{display:block;margin:8px 0 5px;font-size:15.5px;color:var(--ink);line-height:1.25}
+.mppromo .pd{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-bottom:12px}
+.mppromo .go{font-size:13px;font-weight:600;color:var(--accent)}
+
+.navutil{white-space:nowrap}
+.navburger{display:none;align-items:center;justify-content:center;width:40px;height:40px;flex:none;
+  border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;padding:0}
+.navburger svg{width:20px;height:20px}
+
+/* mobile sheet */
+.mobilenav{display:none}
+@media(max-width:899px){
+  .mainnav,.navutil,.navcta{display:none}
+  .navburger{display:inline-flex}
+  .megapanel{display:none}
+  header{z-index:70}
+  .nav{position:relative;z-index:60}
+  .mobilenav{display:block;position:fixed;left:0;right:0;top:0;z-index:50;
+    max-height:100dvh;overflow-y:auto;background:var(--bg);
+    padding:76px 20px calc(28px + env(safe-area-inset-bottom,0px));
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg)}
+  .mobilenav[hidden]{display:none}
+  .mnsection{border-top:1px solid var(--line);padding:16px 0 6px}
+  .mnsection:first-of-type{border-top:0}
+  .mnsection>.mnsh{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+  .mobilenav .mlink{padding:10px 10px;margin:0 -10px}
+  .mnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .mnrow .btn{flex:1;justify-content:center}
+  .mnrow a.ghost{flex:1;justify-content:center;background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .mnflat.mnsolo{display:flex;width:100%;font-size:17px;font-weight:600;color:var(--ink);padding:14px 0}
+}
+@media(min-width:900px){ .mobilenav{display:none!important} }
+/* the utility link needs room; it also lives in the Platform panel + mobile sheet */
+@media(max-width:1060px){ .navutil{display:none} }
+body.navopen{overflow:hidden}
