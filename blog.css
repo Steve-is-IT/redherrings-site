@@ -17,6 +17,7 @@
 .cat.c-network{background:#0e9aa7}
 .cat.c-course{background:#c7891a}
 .cat.c-exam{background:#db2777}
+.cat.c-tool{background:#4f6b8f}
 
 /* ---- index meta row (date / reading time) ---- */
 .pmeta{display:flex;align-items:center;gap:9px;color:var(--faint);font-size:13.5px;flex-wrap:wrap}
