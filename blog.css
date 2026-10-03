@@ -30,6 +30,32 @@
 .blog-head h1{font-size:clamp(36px,5.6vw,54px);letter-spacing:-.035em;margin:.02em 0 .24em;line-height:1.0;color:var(--ink)}
 .blog-head p{color:var(--muted);font-size:18.5px;line-height:1.55;max-width:600px;margin:0}
 
+/* ---- index: two-column layout with category sidebar ---- */
+.blog-layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:48px;align-items:start;margin-top:8px}
+.blog-main{min-width:0}
+.blog-aside{position:sticky;top:90px}
+.aside-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:var(--shadow-sm)}
+.aside-card h4{margin:0 0 10px;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:0 10px}
+.catf{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:transparent;border:0;cursor:pointer;
+  font-family:inherit;font-size:14.5px;color:var(--muted);padding:9px 10px;border-radius:9px;transition:background .14s,color .14s}
+.catf:hover{background:var(--line-2);color:var(--ink)}
+.catf.active{background:color-mix(in srgb,var(--accent) 10%,var(--card));color:var(--ink);font-weight:600}
+.catf .cct{margin-left:auto;font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+.cdot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--accent)}
+.cdot.c-mobile{background:#1fa85b}.cdot.c-windows{background:#2f6fe0}.cdot.c-ir{background:#e5382f}
+.cdot.c-threat{background:#8b5cf6}.cdot.c-network{background:#0e9aa7}.cdot.c-course{background:#c7891a}
+.cdot.c-exam{background:#db2777}.cdot.c-tool{background:#4f6b8f}
+.noposts{color:var(--muted);padding:30px 0;text-align:center}
+.pcard[hidden],.feat[hidden]{display:none}
+@media(max-width:900px){
+  .blog-layout{grid-template-columns:1fr;gap:10px}
+  .blog-aside{position:static;order:-1}
+  .aside-card{display:flex;flex-wrap:wrap;gap:6px;padding:12px}
+  .aside-card h4{width:100%;padding:2px 6px 4px}
+  .catf{width:auto;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:13.5px}
+  .catf .cct{margin-left:5px}
+}
+
 /* ---- index: featured (newest) ---- */
 .feat{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;
   margin:34px 0 10px;text-decoration:none;color:inherit}

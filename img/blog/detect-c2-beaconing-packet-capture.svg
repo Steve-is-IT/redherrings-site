@@ -6,7 +6,7 @@
       <stop offset="1" stop-color="#0e9aa7"/>
     </linearGradient>
     <radialGradient id="glow1" cx="0.50" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.26"/>
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
       <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="0.89" cy="0.9" r="0.7">
@@ -16,25 +16,7 @@
   </defs>
   <rect width="1600" height="1000" fill="url(#g)"/>
   <rect width="1600" height="1000" fill="url(#glow2)"/>
-  <g>
-    <line x1="120" y1="600" x2="1480" y2="600" stroke="#fff" stroke-width="2" opacity="0.14"/>
-    <line x1="167" y1="600" x2="167" y2="499" stroke="#fff" stroke-width="4" opacity="0.20"/>
-    <circle cx="167" cy="499" r="7" fill="#fff" opacity="0.22"/>
-    <line x1="330" y1="600" x2="330" y2="463" stroke="#fff" stroke-width="4" opacity="0.20"/>
-    <circle cx="330" cy="463" r="7" fill="#fff" opacity="0.22"/>
-    <line x1="488" y1="600" x2="488" y2="487" stroke="#fff" stroke-width="4" opacity="0.20"/>
-    <circle cx="488" cy="487" r="7" fill="#fff" opacity="0.22"/>
-    <line x1="622" y1="600" x2="622" y2="441" stroke="#fff" stroke-width="4" opacity="0.20"/>
-    <circle cx="622" cy="441" r="7" fill="#fff" opacity="0.22"/>
-    <line x1="796" y1="600" x2="796" y2="442" stroke="#fff" stroke-width="4" opacity="0.20"/>
-    <circle cx="796" cy="442" r="7" fill="#fff" opacity="0.22"/>
-    <line x1="940" y1="600" x2="940" y2="442" stroke="#fff" stroke-width="4" opacity="0.20"/>
-    <circle cx="940" cy="442" r="7" fill="#fff" opacity="0.22"/>
-    <line x1="1117" y1="600" x2="1117" y2="432" stroke="#fff" stroke-width="4" opacity="0.20"/>
-    <circle cx="1117" cy="432" r="7" fill="#fff" opacity="0.22"/>
-    <line x1="1307" y1="600" x2="1307" y2="491" stroke="#fff" stroke-width="4" opacity="0.20"/>
-    <circle cx="1307" cy="491" r="7" fill="#fff" opacity="0.22"/>
-  </g>
+  <g transform="translate(541,284) scale(18)" fill="none" stroke="#ffffff" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" opacity="0.10"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></g>
   <rect width="1600" height="1000" fill="url(#glow1)"/>
   <g transform="translate(1270,700) scale(5.1)" opacity="0.10">
     <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#ffffff"/>
