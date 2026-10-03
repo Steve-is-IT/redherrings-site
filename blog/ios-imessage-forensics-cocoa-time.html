@@ -18,18 +18,7 @@
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
-<style>
-.post{max-width:720px;margin:0 auto}
-.post h2{margin-top:34px}
-.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
-.post ul{padding-left:20px}
-.post .lede{font-size:19px;color:var(--ink,#12151c)}
-.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
-.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
-.post pre{background:var(--panel,#f6f7f9);border:1px solid var(--line,#e7e9ee);border-radius:12px;padding:16px;overflow:auto;font-size:14px;line-height:1.55}
-.post pre code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
-</style>
+<link rel="stylesheet" href="../blog.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap","description":"Open an iPhone sms.db, join message, handle, chat and chat_message_join into a real thread, and decode Apple Cocoa time (nanoseconds since 2001) correctly.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/ios-imessage-forensics-cocoa-time.html"}
 </script>
@@ -55,12 +44,10 @@
 
 <main class="wrap">
   <article class="post">
-    <div class="pagehead" style="border:0">
-      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Mobile forensics</div>
-      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 7 min read</div>
-      <h1>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h1>
-      <p class="lede">An iPhone keeps its messages in a single SQLite file. Getting a readable thread out of it means joining four tables correctly and decoding a timestamp that is neither Unix seconds nor anything most tools guess right the first time.</p>
-    </div>
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h1></header>
+    <p class="lede">An iPhone keeps its messages in a single SQLite file. Getting a readable thread out of it means joining four tables correctly and decoding a timestamp that is neither Unix seconds nor anything most tools guess right the first time.</p>
 
     <p>Mobile forensics is where a lot of students meet their first real database. On an iPhone, the Messages app stores everything in <code>sms.db</code>, a standard SQLite file that lives at <code>/private/var/mobile/Library/SMS/sms.db</code> in a full file-system extraction. Open it in DB Browser for SQLite and you can read every table by hand. That accessibility is exactly why it makes such a good teaching artifact: nothing is locked behind a proprietary parser, so a student has to understand the schema rather than trust a tool's export.</p>
 
@@ -117,6 +104,26 @@ ORDER BY m.date;</code></pre>
         <a class="btn ghost" href="../cases.html">Browse the mobile cases</a>
       </div>
     </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="detect-lateral-movement-windows-event-logs.html">
+        <div class="cover"><img src="../img/blog/detect-lateral-movement-windows-event-logs.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-windows">Windows forensics</span>
+        <h3>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h3>
+      </a>
+      <a class="rel" href="gcfe-windows-forensics-practice-labs.html">
+        <div class="cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-windows">Windows forensics</span>
+        <h3>GCFE practice: a different Windows forensics case for every student</h3>
+      </a>
+      <a class="rel" href="incident-response-exercise-edr-siem.html">
+        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-ir">Incident response</span>
+        <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
+      </a>
+      </div>
+    </section>
   </article>
 </main>
 

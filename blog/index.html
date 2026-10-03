@@ -21,6 +21,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../blog.css">
   <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -42,60 +43,79 @@
 </header>
 
 <main class="wrap">
-  <div class="pagehead">
+  <div class="blog-head">
     <div class="crumb"><a href="/">Home</a> / Blog</div>
     <h1>Teaching notes</h1>
     <p>Short, practical notes on running hands-on digital forensics and incident response labs and exams that stay honest.</p>
   </div>
-  <section style="border-top:0">
-    <div class="grid" style="max-width:820px;margin:0 auto">
-      <a class="card" href="ios-imessage-forensics-cocoa-time.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="eyebrow-sm">Mobile forensics</div>
-        <h3>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h3>
-        <p>Join message, handle, chat and chat_message_join into a real thread, then decode Apple Cocoa time (nanoseconds since 2001) the way that trips students up.</p>
-        <div style="color:#8a92a3;font-size:13px;margin-top:10px">October 2, 2026 &middot; 7 min read</div>
+
+  <section style="border-top:0;padding:0">
+      <a class="feat" href="ios-imessage-forensics-cocoa-time.html">
+        <div class="cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-mobile">Mobile forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 7 min read</span></div>
+          <h2>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h2>
+          <p>Join message, handle, chat and chat_message_join into a real thread, then decode Apple Cocoa time (nanoseconds since 2001) the way that trips students up.</p>
+          <span class="more">Read the post &rarr;</span>
+        </div>
       </a>
-      <a class="card" href="detect-lateral-movement-windows-event-logs.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="eyebrow-sm">Windows forensics</div>
-        <h3>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h3>
-        <p>Match a remote logon to the processes it spawned by logon session, read subject against target correctly, and trace an attacker host to host.</p>
-        <div style="color:#8a92a3;font-size:13px;margin-top:10px">October 2, 2026 &middot; 7 min read</div>
+
+    <div class="posts">
+      <a class="pcard" href="detect-lateral-movement-windows-event-logs.html">
+        <div class="cover"><img src="../img/blog/detect-lateral-movement-windows-event-logs.svg" alt="" width="1600" height="1000"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-windows">Windows forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 7 min read</span></div>
+          <h3>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h3>
+          <p>Match a remote logon to the processes it spawned by logon session, read subject against target correctly, and trace an attacker host to host.</p>
+        </div>
       </a>
-      <a class="card" href="gcfe-windows-forensics-practice-labs.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="eyebrow-sm">Windows forensics</div>
-        <h3>GCFE practice: a different Windows forensics case for every student</h3>
-        <p>Registry, prefetch, USB history and event logs &mdash; one authored case becomes a per-student Windows box with a verified answer key.</p>
-        <div style="color:#8a92a3;font-size:13px;margin-top:10px">October 2, 2026 &middot; 5 min read</div>
+      <a class="pcard" href="gcfe-windows-forensics-practice-labs.html">
+        <div class="cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-windows">Windows forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
+          <h3>GCFE practice: a different Windows forensics case for every student</h3>
+          <p>Registry, prefetch, USB history and event logs &mdash; one authored case becomes a per-student Windows box with a verified answer key.</p>
+        </div>
       </a>
-      <a class="card" href="incident-response-exercise-edr-siem.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="eyebrow-sm">Incident response</div>
-        <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
-        <p>Work an IR case from the responder's own tooling, mapped to MITRE ATT&amp;CK and the NIST 800-61 phases, with time pressure built in.</p>
-        <div style="color:#8a92a3;font-size:13px;margin-top:10px">October 2, 2026 &middot; 6 min read</div>
+      <a class="pcard" href="incident-response-exercise-edr-siem.html">
+        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-ir">Incident response</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 6 min read</span></div>
+          <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
+          <p>Work an IR case from the responder's own tooling, mapped to MITRE ATT&amp;CK and the NIST 800-61 phases, with time pressure built in.</p>
+        </div>
       </a>
-      <a class="card" href="teaching-mitre-attack-hands-on.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="eyebrow-sm">Threat-informed teaching</div>
-        <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
-        <p>ATT&amp;CK-tagged cases make a technique something you find in the evidence and detect, not a cell to memorize on a chart.</p>
-        <div style="color:#8a92a3;font-size:13px;margin-top:10px">October 2, 2026 &middot; 5 min read</div>
+      <a class="pcard" href="teaching-mitre-attack-hands-on.html">
+        <div class="cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-threat">Threat-informed teaching</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
+          <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
+          <p>ATT&amp;CK-tagged cases make a technique something you find in the evidence and detect, not a cell to memorize on a chart.</p>
+        </div>
       </a>
-      <a class="card" href="detect-c2-beaconing-packet-capture.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="eyebrow-sm">Network forensics</div>
-        <h3>Spotting C2 beaconing in a packet capture</h3>
-        <p>Teach students to read a PCAP by timing &mdash; interval, jitter and payload &mdash; follow the stream, and tell the beacon from benign noise.</p>
-        <div style="color:#8a92a3;font-size:13px;margin-top:10px">October 2, 2026 &middot; 5 min read</div>
+      <a class="pcard" href="detect-c2-beaconing-packet-capture.html">
+        <div class="cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-network">Network forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
+          <h3>Spotting C2 beaconing in a packet capture</h3>
+          <p>Teach students to read a PCAP by timing &mdash; interval, jitter and payload &mdash; follow the stream, and tell the beacon from benign noise.</p>
+        </div>
       </a>
-      <a class="card" href="dfir-learning-pathways-first-look-to-capstone.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="eyebrow-sm">Course design</div>
-        <h3>From first look to capstone: building a DFIR learning pathway</h3>
-        <p>Sequence a course from a First Look on-ramp up the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in.</p>
-        <div style="color:#8a92a3;font-size:13px;margin-top:10px">October 2, 2026 &middot; 5 min read</div>
+      <a class="pcard" href="dfir-learning-pathways-first-look-to-capstone.html">
+        <div class="cover"><img src="../img/blog/dfir-learning-pathways-first-look-to-capstone.svg" alt="" width="1600" height="1000"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-course">Course design</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
+          <h3>From first look to capstone: building a DFIR learning pathway</h3>
+          <p>Sequence a course from a First Look on-ramp up the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in.</p>
+        </div>
       </a>
-      <a class="card" href="forensics-exam-students-cant-copy.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="eyebrow-sm">Exam integrity</div>
-        <h3>Run a forensics exam students can't copy</h3>
-        <p>Why shared evidence makes copying inevitable, and how per-student cases, an in-browser solve portal and LMS grade passback fix it.</p>
-        <div style="color:#8a92a3;font-size:13px;margin-top:10px">October 1, 2026 &middot; 5 min read</div>
+      <a class="pcard" href="forensics-exam-students-cant-copy.html">
+        <div class="cover"><img src="../img/blog/forensics-exam-students-cant-copy.svg" alt="" width="1600" height="1000"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-exam">Exam integrity</span><span class="pmeta">October 1, 2026 <i>&middot;</i> 5 min read</span></div>
+          <h3>Run a forensics exam students can't copy</h3>
+          <p>Why shared evidence makes copying inevitable, and how per-student cases, an in-browser solve portal and LMS grade passback fix it.</p>
+        </div>
       </a>
     </div>
   </section>
@@ -151,6 +171,7 @@
     </div>
   </div>
 </footer>
+
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="../theme.js" defer></script>
 </body>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Red Herrings">
+  <defs>
+    <linearGradient id="g" x1="0.991" y1="0.156" x2="0.009" y2="0.844">
+      <stop offset="0" stop-color="#0a1836"/>
+      <stop offset="0.62" stop-color="#2f6fe0"/>
+      <stop offset="1" stop-color="#2f6fe0"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.38" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.73" cy="0.9" r="0.7">
+      <stop offset="0" stop-color="#0a1836" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0a1836" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#glow2)"/>
+  <g>
+    <rect x="152" y="302" width="190" height="150" rx="12" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.11"/>
+    <line x1="152" y1="340" x2="342" y2="340" stroke="#fff" stroke-width="2.5" opacity="0.11"/>
+    <rect x="412" y="474" width="190" height="150" rx="12" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.09"/>
+    <line x1="412" y1="512" x2="602" y2="512" stroke="#fff" stroke-width="2.5" opacity="0.09"/>
+    <rect x="678" y="327" width="190" height="150" rx="12" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.08"/>
+    <line x1="678" y1="365" x2="868" y2="365" stroke="#fff" stroke-width="2.5" opacity="0.08"/>
+    <rect x="959" y="543" width="190" height="150" rx="12" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.08"/>
+    <line x1="959" y1="581" x2="1149" y2="581" stroke="#fff" stroke-width="2.5" opacity="0.08"/>
+    <rect x="1199" y="347" width="190" height="150" rx="12" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.06"/>
+    <line x1="1199" y1="385" x2="1389" y2="385" stroke="#fff" stroke-width="2.5" opacity="0.06"/>
+  </g>
+  <rect width="1600" height="1000" fill="url(#glow1)"/>
+  <g transform="translate(1270,700) scale(5.1)" opacity="0.10">
+    <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#ffffff"/>
+  </g>
+</svg>

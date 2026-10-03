@@ -18,16 +18,7 @@
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
-<style>
-.post{max-width:720px;margin:0 auto}
-.post h2{margin-top:34px}
-.post p,.post li{font-size:17px;line-height:1.7;color:var(--ink-2,#3a4150)}
-.post ul{padding-left:20px}
-.post .lede{font-size:19px;color:var(--ink,#12151c)}
-.post .byline{color:#8a92a3;font-size:14px;margin-bottom:6px}
-.post blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent,#E5382F);color:var(--ink,#12151c);font-size:18px}
-.post .cta{margin:34px 0 8px;padding:22px;border:1px solid var(--line,#e7e9ee);border-radius:14px;background:var(--panel,#fff)}
-</style>
+<link rel="stylesheet" href="../blog.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Spotting C2 beaconing in a packet capture","description":"Teach students to spot command-and-control beaconing in a PCAP by its timing, follow the stream, and tell it apart from benign traffic.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/detect-c2-beaconing-packet-capture.html"}
 </script>
@@ -53,12 +44,10 @@
 
 <main class="wrap">
   <article class="post">
-    <div class="pagehead" style="border:0">
-      <div class="crumb"><a href="/">Home</a> / <a href="index.html">Blog</a> / Network forensics</div>
-      <div class="byline">By <strong>The Red Herrings team</strong> &middot; October 2, 2026 &middot; 5 min read</div>
-      <h1>Spotting C2 beaconing in a packet capture</h1>
-      <p class="lede">A compromised host checking in with its command-and-control server doesn't look dramatic in a capture. It looks like a small, boring request that repeats. The skill is learning to notice the rhythm.</p>
-    </div>
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Spotting C2 beaconing in a packet capture</h1></header>
+    <p class="lede">A compromised host checking in with its command-and-control server doesn't look dramatic in a capture. It looks like a small, boring request that repeats. The skill is learning to notice the rhythm.</p>
 
     <p>Open a busy PCAP and the C2 traffic is not the loud thing. It's a handful of packets to one host, over and over, buried under the browsing, updates and DNS lookups of a normal workday. Students who are used to looking for the big transfer walk right past it. Teaching network forensics well means teaching them to look at <em>timing</em>, not just volume.</p>
 
@@ -93,6 +82,26 @@
         <a class="btn ghost" href="../pathways.html">See the network pathway</a>
       </div>
     </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="dfir-learning-pathways-first-look-to-capstone.html">
+        <div class="cover"><img src="../img/blog/dfir-learning-pathways-first-look-to-capstone.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-course">Course design</span>
+        <h3>From first look to capstone: building a DFIR learning pathway</h3>
+      </a>
+      <a class="rel" href="forensics-exam-students-cant-copy.html">
+        <div class="cover"><img src="../img/blog/forensics-exam-students-cant-copy.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-exam">Exam integrity</span>
+        <h3>Run a forensics exam students can't copy</h3>
+      </a>
+      <a class="rel" href="ios-imessage-forensics-cocoa-time.html">
+        <div class="cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-mobile">Mobile forensics</span>
+        <h3>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h3>
+      </a>
+      </div>
+    </section>
   </article>
 </main>
 
