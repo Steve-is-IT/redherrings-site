@@ -13,6 +13,13 @@
   <url><loc>https://redherrings.app/help.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/forensics-exam-students-cant-copy.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/detect-c2-beaconing-packet-capture.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/dfir-learning-pathways-first-look-to-capstone.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/gcfe-windows-forensics-practice-labs.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/incident-response-exercise-edr-siem.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/ios-imessage-forensics-cocoa-time.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/teaching-mitre-attack-hands-on.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://redherrings.app/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://redherrings.app/refund.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
