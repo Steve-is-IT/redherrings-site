@@ -100,11 +100,9 @@ THEMEBOOT = ("<script>(function(){try{var t=localStorage.getItem('rh-theme');"
 def card(p, featured=False):
     img = f'../img/blog/{p["slug"]}.svg'
     href = f'{p["slug"]}.html'
-    pm = p["read"] if p.get("nodate") else f'{p["date"]} <i>&middot;</i> {p["read"]}'
-    meta = (f'<span class="cat {p["cls"]}">{p["cat"]}</span>'
-            f'<span class="pmeta">{pm}</span>')
+    meta = f'<span class="cat {p["cls"]}">{p["cat"]}</span>'
     if featured:
-        return f'''      <a class="feat" href="{href}">
+        return f'''      <a class="feat" href="{href}" data-cat="{p["cat"]}">
         <div class="cover"><img src="{img}" alt="" width="1600" height="1000"></div>
         <div>
           <div class="meta-top">{meta}</div>
@@ -113,7 +111,7 @@ def card(p, featured=False):
           <span class="more">Read the post &rarr;</span>
         </div>
       </a>'''
-    return f'''      <a class="pcard" href="{href}">
+    return f'''      <a class="pcard" href="{href}" data-cat="{p["cat"]}">
         <div class="cover"><img src="{img}" alt="" width="1600" height="1000" loading="lazy"></div>
         <div>
           <div class="meta-top">{meta}</div>
@@ -123,9 +121,52 @@ def card(p, featured=False):
       </a>'''
 
 
+def sidebar():
+    # category order by first appearance, with per-category count and colour dot
+    order, counts, cls = [], {}, {}
+    for p in POSTS:
+        c = p["cat"]
+        if c not in counts:
+            order.append(c); cls[c] = p["cls"]
+        counts[c] = counts.get(c, 0) + 1
+    btns = [f'<button class="catf active" data-cat="all">All posts<span class="cct">{len(POSTS)}</span></button>']
+    for c in order:
+        btns.append(f'<button class="catf" data-cat="{c}"><span class="cdot {cls[c]}"></span>{c}'
+                    f'<span class="cct">{counts[c]}</span></button>')
+    return ('    <aside class="blog-aside">\n'
+            '      <div class="aside-card">\n'
+            '        <h4>Browse by category</h4>\n        '
+            + "\n        ".join(btns) +
+            '\n      </div>\n    </aside>')
+
+
+FILTER_JS = '''<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.feat,.pcard'));
+  var btns=[].slice.call(document.querySelectorAll('.catf'));
+  var empty=document.querySelector('.noposts');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      var c=b.getAttribute('data-cat'),shown=0;
+      cards.forEach(function(card){
+        var m=(c==='all'||card.getAttribute('data-cat')===c);
+        card.hidden=!m; if(m)shown++;
+      });
+      if(empty)empty.hidden=shown>0;
+    });
+  });
+})();
+</script>'''
+
+
 def build_index():
-    feat = card(POSTS[0], featured=True)
-    rest = "\n".join(card(p) for p in POSTS[1:])
+    import random
+    display = list(POSTS)
+    random.Random(7).shuffle(display)  # mix categories, stable per build
+    feat = card(display[0], featured=True)
+    rest = "\n".join(card(p) for p in display[1:])
     head = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -162,14 +203,19 @@ def build_index():
     <p>Short, practical notes on running hands-on digital forensics and incident response labs and exams that stay honest.</p>
   </div>
 
-  <section style="border-top:0;padding:0">
+  <div class="blog-layout">
+    <div class="blog-main">
 {feat}
-
-    <div class="posts">
+      <div class="posts">
 {rest}
+      </div>
+      <p class="noposts" hidden>No posts in this category yet.</p>
     </div>
-  </section>
+{sidebar()}
+  </div>
 </main>
+
+{FILTER_JS}
 
 {FOOTER}
 {TAIL}'''

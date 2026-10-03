@@ -6,7 +6,7 @@
       <stop offset="1" stop-color="#1fa85b"/>
     </linearGradient>
     <radialGradient id="glow1" cx="0.62" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.26"/>
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
       <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="0.75" cy="0.9" r="0.7">
@@ -16,15 +16,7 @@
   </defs>
   <rect width="1600" height="1000" fill="url(#g)"/>
   <rect width="1600" height="1000" fill="url(#glow2)"/>
-  <g>
-    <rect x="240" y="424" width="182" height="62" rx="31" fill="#fff" opacity="0.10"/>
-    <rect x="784" y="656" width="333" height="79" rx="39" fill="#fff" opacity="0.10"/>
-    <rect x="309" y="458" width="161" height="72" rx="36" fill="#fff" opacity="0.15"/>
-    <rect x="544" y="743" width="206" height="60" rx="30" fill="#fff" opacity="0.11"/>
-    <rect x="854" y="267" width="183" height="70" rx="35" fill="#fff" opacity="0.12"/>
-    <rect x="242" y="252" width="342" height="58" rx="29" fill="#fff" opacity="0.12"/>
-    <rect x="907" y="484" width="297" height="68" rx="34" fill="#fff" opacity="0.12"/>
-  </g>
+  <g transform="translate(604,272) scale(18)" fill="none" stroke="#ffffff" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" opacity="0.10"><rect x="6" y="2" width="12" height="20" rx="2.4"/><line x1="10.2" y1="18.4" x2="13.8" y2="18.4"/></g>
   <rect width="1600" height="1000" fill="url(#glow1)"/>
   <g transform="translate(1270,700) scale(5.1)" opacity="0.10">
     <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#ffffff"/>
