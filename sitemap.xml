@@ -13,6 +13,10 @@
   <url><loc>https://redherrings.app/tools.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/help.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/autopsy-disk-image-analysis-walkthrough.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/registry-explorer-windows-registry-forensics.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/evtxecmd-windows-event-log-timeline.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/volatility-3-memory-forensics-getting-started.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/forensics-exam-students-cant-copy.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/detect-c2-beaconing-packet-capture.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>

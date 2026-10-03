@@ -15,6 +15,22 @@ BLOG = os.path.join(ROOT, "blog")
 
 # newest -> oldest
 POSTS = [
+    dict(slug="autopsy-disk-image-analysis-walkthrough", cls="c-tool", cat="Tool guide", nodate=True,
+         date="October 3, 2026", read="6 min read",
+         title="Analyze a disk image in Autopsy: a beginner's walkthrough",
+         dek="Open a disk image in Autopsy, run the right ingest modules, and find the artifacts that answer the question. A walkthrough for students new to DFIR."),
+    dict(slug="registry-explorer-windows-registry-forensics", cls="c-tool", cat="Tool guide", nodate=True,
+         date="October 3, 2026", read="5 min read",
+         title="Read the Windows registry with Registry Explorer",
+         dek="Load a hive in Registry Explorer, use the forensic bookmarks, and read the keys that show USB use, program execution and persistence."),
+    dict(slug="evtxecmd-windows-event-log-timeline", cls="c-tool", cat="Tool guide", nodate=True,
+         date="October 3, 2026", read="5 min read",
+         title="Turn Windows event logs into a timeline with EvtxECmd",
+         dek="Parse Windows .evtx logs into a clean CSV with EvtxECmd, open them in Timeline Explorer, and read the Event IDs that matter."),
+    dict(slug="volatility-3-memory-forensics-getting-started", cls="c-tool", cat="Tool guide", nodate=True,
+         date="October 3, 2026", read="6 min read",
+         title="Getting started with memory forensics in Volatility 3",
+         dek="Install Volatility 3, list processes, follow them to network connections and command lines, and spot injected code in a memory image."),
     dict(slug="ios-imessage-forensics-cocoa-time", cls="c-mobile", cat="Mobile forensics",
          date="October 2, 2026", read="7 min read",
          title="Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap",
@@ -84,8 +100,9 @@ THEMEBOOT = ("<script>(function(){try{var t=localStorage.getItem('rh-theme');"
 def card(p, featured=False):
     img = f'../img/blog/{p["slug"]}.svg'
     href = f'{p["slug"]}.html'
+    pm = p["read"] if p.get("nodate") else f'{p["date"]} <i>&middot;</i> {p["read"]}'
     meta = (f'<span class="cat {p["cls"]}">{p["cat"]}</span>'
-            f'<span class="pmeta">{p["date"]} <i>&middot;</i> {p["read"]}</span>')
+            f'<span class="pmeta">{pm}</span>')
     if featured:
         return f'''      <a class="feat" href="{href}">
         <div class="cover"><img src="{img}" alt="" width="1600" height="1000"></div>
@@ -180,6 +197,11 @@ def related_block(slug):
 def transform_post(slug):
     s = read(slug)
     p = BY_SLUG[slug]
+
+    # Already in final form (new posts are written finished; old posts were
+    # transformed on a previous run). Skip so the build stays rerunnable.
+    if 'class="post-cover"' in s:
+        return
 
     # 1) add blog.css after site.css
     if "../blog.css" not in s:

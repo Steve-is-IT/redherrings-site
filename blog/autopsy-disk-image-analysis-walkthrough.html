@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog | Red Herrings</title>
-<meta name="description" content="Teaching notes and product updates from Red Herrings: running hands-on digital forensics and incident response labs and exams that stay honest.">
-<link rel="canonical" href="https://redherrings.app/blog/">
+<title>Analyze a disk image in Autopsy: a beginner's walkthrough | Red Herrings</title>
+<meta name="description" content="A step-by-step guide to opening a disk image in Autopsy, running the right ingest modules, and finding the artifacts that answer a forensics question. Written for students starting out in DFIR.">
+<link rel="canonical" href="https://redherrings.app/blog/autopsy-disk-image-analysis-walkthrough.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Red Herrings">
-<meta property="og:url" content="https://redherrings.app/blog/">
-<meta property="og:title" content="Red Herrings blog — DFIR teaching notes">
-<meta property="og:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Analyze a disk image in Autopsy: a beginner's walkthrough">
+<meta property="og:description" content="Open a disk image in Autopsy, run the right ingest modules, and find the artifacts that answer the question. A beginner's DFIR walkthrough.">
+<meta property="og:url" content="https://redherrings.app/blog/autopsy-disk-image-analysis-walkthrough.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Red Herrings blog — DFIR teaching notes">
-<meta name="twitter:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="../blog.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Analyze a disk image in Autopsy: a beginner's walkthrough","description":"Open a disk image in Autopsy, run the right ingest modules, and find the artifacts that answer the question. A beginner's DFIR walkthrough.","datePublished":"2026-10-03","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/autopsy-disk-image-analysis-walkthrough.html"}
+</script>
   <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -52,114 +52,67 @@
 </header>
 
 <main class="wrap">
-  <div class="blog-head">
-    <div class="crumb"><a href="/">Home</a> / Blog</div>
-    <h1>Teaching notes</h1>
-    <p>Short, practical notes on running hands-on digital forensics and incident response labs and exams that stay honest.</p>
-  </div>
+  <article class="post">
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/autopsy-disk-image-analysis-walkthrough.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Analyze a disk image in Autopsy: a beginner's walkthrough</h1></header>
+    <p class="lede">Autopsy is where most people start in digital forensics. It's a free, open-source front end for The Sleuth Kit, so you can open a disk image and look through the file system, deleted files, web history and registry without a license or a long setup. Here's how to work a case in it.</p>
 
-  <section style="border-top:0;padding:0">
-      <a class="feat" href="autopsy-disk-image-analysis-walkthrough.html">
-        <div class="cover"><img src="../img/blog/autopsy-disk-image-analysis-walkthrough.svg" alt="" width="1600" height="1000"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span><span class="pmeta">6 min read</span></div>
-          <h2>Analyze a disk image in Autopsy: a beginner's walkthrough</h2>
-          <p>Open a disk image in Autopsy, run the right ingest modules, and find the artifacts that answer the question. A walkthrough for students new to DFIR.</p>
-          <span class="more">Read the post &rarr;</span>
-        </div>
-      </a>
+    <h2>Get Autopsy</h2>
+    <p>Autopsy is free and open source. Download the installer from <a href="https://www.autopsy.com/">autopsy.com</a> and run it; on Windows it bundles everything you need. Our <a href="/tools.html">Tools &amp; setup</a> page lists it alongside the rest of the toolkit a case expects.</p>
+    <h2>Create a case and add the evidence</h2>
+    <p>Choose <strong>New Case</strong>, give it a name and a folder, then run <strong>Add Data Source</strong>. For a raw or E01 image (<code>.dd</code>, <code>.E01</code>), pick "Disk Image or VM File". For a folder of already-extracted artifacts, pick "Logical Files". The <a href="/sample.html">free sample lab</a> ships an <code>evidence.dd</code> that loads this way, so you can follow along on something real.</p>
+    <h2>Run the right ingest modules</h2>
+    <p>Ingest modules are the parsers Autopsy runs over the image. You don't need all of them on the first pass. These four cover most cases:</p>
+    <ul>
+      <li><strong>Recent Activity</strong>: web history, downloads, installed programs, USB device history.</li>
+      <li><strong>File Type Identification</strong> and <strong>Extension Mismatch Detector</strong>: flag a file whose contents don't match its extension.</li>
+      <li><strong>Hash Lookup</strong>: filter known-good files and flag known-bad ones.</li>
+      <li><strong>Keyword Search</strong>: find a filename, user or string anywhere on the image.</li>
+    </ul>
+    <p>They run in the background, and the tree on the left fills in as each one finishes.</p>
+    <h2>Where the answers usually are</h2>
+    <ul>
+      <li><strong>Data Artifacts, then Recent Activity</strong>: web history, downloads, USB history, programs that ran.</li>
+      <li><strong>File System tree</strong>: browse to a user's folder. The Deleted Files node pulls entries back out of unallocated space.</li>
+      <li><strong>Extension Mismatch</strong>: a <code>.jpg</code> that's really a <code>.7z</code> shows up here. It's a common way to hide a file.</li>
+      <li><strong>Keyword Search</strong>: locate a string whether it's allocated or not.</li>
+      <li><strong>Timeline</strong> (Tools, then Timeline): every file and artifact on one scrubber, in order.</li>
+    </ul>
+    <h2>Don't stop at the first hit</h2>
+    <p>One artifact on its own is weak. A prefetch entry, a LNK file and a USB device record that all line up tell a much better story. Our disk cases plant realistic background activity on purpose, so a good part of the work is ruling things out rather than grabbing the one obvious thing.</p>
+    <h2>How it fits a Red Herrings case</h2>
+    <p>Our Windows and disk cases are written in real on-disk formats, so Autopsy opens them with no special setup. Every student gets a different image with their own files, timestamps and answers, and each one is re-solved and verified before it goes out. The <a href="/pathways.html">learning pathways</a> start at First Look triage and build up to a capstone.</p>
 
-    <div class="posts">
-      <a class="pcard" href="registry-explorer-windows-registry-forensics.html">
-        <div class="cover"><img src="../img/blog/registry-explorer-windows-registry-forensics.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span><span class="pmeta">5 min read</span></div>
-          <h3>Read the Windows registry with Registry Explorer</h3>
-          <p>Load a hive in Registry Explorer, use the forensic bookmarks, and read the keys that show USB use, program execution and persistence.</p>
-        </div>
-      </a>
-      <a class="pcard" href="evtxecmd-windows-event-log-timeline.html">
-        <div class="cover"><img src="../img/blog/evtxecmd-windows-event-log-timeline.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span><span class="pmeta">5 min read</span></div>
-          <h3>Turn Windows event logs into a timeline with EvtxECmd</h3>
-          <p>Parse Windows .evtx logs into a clean CSV with EvtxECmd, open them in Timeline Explorer, and read the Event IDs that matter.</p>
-        </div>
-      </a>
-      <a class="pcard" href="volatility-3-memory-forensics-getting-started.html">
-        <div class="cover"><img src="../img/blog/volatility-3-memory-forensics-getting-started.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span><span class="pmeta">6 min read</span></div>
-          <h3>Getting started with memory forensics in Volatility 3</h3>
-          <p>Install Volatility 3, list processes, follow them to network connections and command lines, and spot injected code in a memory image.</p>
-        </div>
-      </a>
-      <a class="pcard" href="ios-imessage-forensics-cocoa-time.html">
-        <div class="cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-mobile">Mobile forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 7 min read</span></div>
-          <h3>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h3>
-          <p>Join message, handle, chat and chat_message_join into a real thread, then decode Apple Cocoa time (nanoseconds since 2001) the way that trips students up.</p>
-        </div>
-      </a>
-      <a class="pcard" href="detect-lateral-movement-windows-event-logs.html">
-        <div class="cover"><img src="../img/blog/detect-lateral-movement-windows-event-logs.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-windows">Windows forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 7 min read</span></div>
-          <h3>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h3>
-          <p>Match a remote logon to the processes it spawned by logon session, read subject against target correctly, and trace an attacker host to host.</p>
-        </div>
-      </a>
-      <a class="pcard" href="gcfe-windows-forensics-practice-labs.html">
-        <div class="cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-windows">Windows forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>GCFE practice: a different Windows forensics case for every student</h3>
-          <p>Registry, prefetch, USB history and event logs &mdash; one authored case becomes a per-student Windows box with a verified answer key.</p>
-        </div>
-      </a>
-      <a class="pcard" href="incident-response-exercise-edr-siem.html">
-        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-ir">Incident response</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 6 min read</span></div>
-          <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
-          <p>Work an IR case from the responder's own tooling, mapped to MITRE ATT&amp;CK and the NIST 800-61 phases, with time pressure built in.</p>
-        </div>
-      </a>
-      <a class="pcard" href="teaching-mitre-attack-hands-on.html">
-        <div class="cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-threat">Threat-informed teaching</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
-          <p>ATT&amp;CK-tagged cases make a technique something you find in the evidence and detect, not a cell to memorize on a chart.</p>
-        </div>
-      </a>
-      <a class="pcard" href="detect-c2-beaconing-packet-capture.html">
-        <div class="cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-network">Network forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>Spotting C2 beaconing in a packet capture</h3>
-          <p>Teach students to read a PCAP by timing &mdash; interval, jitter and payload &mdash; follow the stream, and tell the beacon from benign noise.</p>
-        </div>
-      </a>
-      <a class="pcard" href="dfir-learning-pathways-first-look-to-capstone.html">
-        <div class="cover"><img src="../img/blog/dfir-learning-pathways-first-look-to-capstone.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-course">Course design</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>From first look to capstone: building a DFIR learning pathway</h3>
-          <p>Sequence a course from a First Look on-ramp up the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in.</p>
-        </div>
-      </a>
-      <a class="pcard" href="forensics-exam-students-cant-copy.html">
-        <div class="cover"><img src="../img/blog/forensics-exam-students-cant-copy.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-exam">Exam integrity</span><span class="pmeta">October 1, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>Run a forensics exam students can't copy</h3>
-          <p>Why shared evidence makes copying inevitable, and how per-student cases, an in-browser solve portal and LMS grade passback fix it.</p>
-        </div>
-      </a>
+    <div class="cta">
+      <strong>Want to practice on real evidence?</strong>
+      <p style="margin:8px 0 14px">Download the free sample lab, or start the 14-day trial and generate a per-student case in a few minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="/sample.html">Get the free sample lab</a>
+        <a class="btn ghost" href="/#download">Start a free trial</a>
+      </div>
     </div>
-  </section>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="registry-explorer-windows-registry-forensics.html">
+        <div class="cover"><img src="../img/blog/registry-explorer-windows-registry-forensics.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Read the Windows registry with Registry Explorer</h3>
+      </a>
+      <a class="rel" href="evtxecmd-windows-event-log-timeline.html">
+        <div class="cover"><img src="../img/blog/evtxecmd-windows-event-log-timeline.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Turn Windows event logs into a timeline with EvtxECmd</h3>
+      </a>
+      <a class="rel" href="volatility-3-memory-forensics-getting-started.html">
+        <div class="cover"><img src="../img/blog/volatility-3-memory-forensics-getting-started.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Getting started with memory forensics in Volatility 3</h3>
+      </a>
+      </div>
+    </section>
+  </article>
 </main>
 
 <footer>
@@ -202,7 +155,6 @@
     </div>
   </div>
 </footer>
-
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="../nav.js" defer></script>
 <script src="../theme.js" defer></script>

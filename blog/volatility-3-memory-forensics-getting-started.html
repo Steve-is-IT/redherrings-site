@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog | Red Herrings</title>
-<meta name="description" content="Teaching notes and product updates from Red Herrings: running hands-on digital forensics and incident response labs and exams that stay honest.">
-<link rel="canonical" href="https://redherrings.app/blog/">
+<title>Getting started with memory forensics in Volatility 3 | Red Herrings</title>
+<meta name="description" content="A beginner's guide to Volatility 3: install it, list running processes, follow a process to its network connections and command line, and spot injected code in a memory image.">
+<link rel="canonical" href="https://redherrings.app/blog/volatility-3-memory-forensics-getting-started.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Red Herrings">
-<meta property="og:url" content="https://redherrings.app/blog/">
-<meta property="og:title" content="Red Herrings blog — DFIR teaching notes">
-<meta property="og:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting started with memory forensics in Volatility 3">
+<meta property="og:description" content="Install Volatility 3, list processes, follow them to network connections and command lines, and spot injected code in a memory image.">
+<meta property="og:url" content="https://redherrings.app/blog/volatility-3-memory-forensics-getting-started.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Red Herrings blog — DFIR teaching notes">
-<meta name="twitter:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="../blog.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Getting started with memory forensics in Volatility 3","description":"Install Volatility 3, list processes, follow them to network connections and command lines, and spot injected code in a memory image.","datePublished":"2026-10-03","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/volatility-3-memory-forensics-getting-started.html"}
+</script>
   <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -52,114 +52,64 @@
 </header>
 
 <main class="wrap">
-  <div class="blog-head">
-    <div class="crumb"><a href="/">Home</a> / Blog</div>
-    <h1>Teaching notes</h1>
-    <p>Short, practical notes on running hands-on digital forensics and incident response labs and exams that stay honest.</p>
-  </div>
+  <article class="post">
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/volatility-3-memory-forensics-getting-started.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Getting started with memory forensics in Volatility 3</h1></header>
+    <p class="lede">A memory image shows you things a disk never will: running processes, network connections, command lines, and injected code, all frozen at the moment of capture. Volatility 3 is the standard free tool for reading one, and unlike version 2 it works out the symbols on its own.</p>
 
-  <section style="border-top:0;padding:0">
-      <a class="feat" href="autopsy-disk-image-analysis-walkthrough.html">
-        <div class="cover"><img src="../img/blog/autopsy-disk-image-analysis-walkthrough.svg" alt="" width="1600" height="1000"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span><span class="pmeta">6 min read</span></div>
-          <h2>Analyze a disk image in Autopsy: a beginner's walkthrough</h2>
-          <p>Open a disk image in Autopsy, run the right ingest modules, and find the artifacts that answer the question. A walkthrough for students new to DFIR.</p>
-          <span class="more">Read the post &rarr;</span>
-        </div>
-      </a>
+    <h2>Get Volatility 3</h2>
+    <p>Volatility 3 is free, open source, and written in Python. Install it with <code>pip install volatility3</code>, or clone it from <a href="https://github.com/volatilityfoundation/volatility3">the project repo</a>. The main change from version 2 is that you no longer pass <code>--profile</code>; version 3 figures out the symbols itself.</p>
+    <h2>Start with the processes</h2>
+    <p>A memory case usually starts with what was running:</p>
+    <ul>
+      <li><code>vol -f memory.dmp windows.pslist</code>: the active process list.</li>
+      <li><code>vol -f memory.dmp windows.pstree</code>: the same list as a parent/child tree, so an odd pairing like a browser launching a shell stands out.</li>
+      <li><code>vol -f memory.dmp windows.psscan</code>: scans for processes, including hidden or exited ones.</li>
+    </ul>
+    <p>Our memory cases ship a real image you can run these against.</p>
+    <h2>Follow a process to the network and its command line</h2>
+    <ul>
+      <li><code>windows.netscan</code>: network connections and listening ports, tied back to a process.</li>
+      <li><code>windows.cmdline</code>: the exact command line a process was started with.</li>
+      <li><code>windows.dlllist</code>: the modules a process loaded.</li>
+    </ul>
+    <h2>Look for injected code</h2>
+    <p><code>windows.malfind</code> finds memory regions that are both executable and private, which usually means injected or unpacked code. That's often where the payload is.</p>
+    <h2>One common snag</h2>
+    <p>A lot of tutorials online are written for Volatility 2, where commands look like <code>--profile=Win10x64 pslist</code>. Those won't run in version 3. Use the <code>windows.&lt;plugin&gt;</code> form instead.</p>
+    <h2>How it fits a Red Herrings case</h2>
+    <p>Our memory cases ship a real minidump, so these plugins return real answers: a different malicious process, beacon and injected region for every student. The First Look memory case on the <a href="/pathways.html">pathways</a> page is a good start.</p>
 
-    <div class="posts">
-      <a class="pcard" href="registry-explorer-windows-registry-forensics.html">
-        <div class="cover"><img src="../img/blog/registry-explorer-windows-registry-forensics.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span><span class="pmeta">5 min read</span></div>
-          <h3>Read the Windows registry with Registry Explorer</h3>
-          <p>Load a hive in Registry Explorer, use the forensic bookmarks, and read the keys that show USB use, program execution and persistence.</p>
-        </div>
-      </a>
-      <a class="pcard" href="evtxecmd-windows-event-log-timeline.html">
-        <div class="cover"><img src="../img/blog/evtxecmd-windows-event-log-timeline.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span><span class="pmeta">5 min read</span></div>
-          <h3>Turn Windows event logs into a timeline with EvtxECmd</h3>
-          <p>Parse Windows .evtx logs into a clean CSV with EvtxECmd, open them in Timeline Explorer, and read the Event IDs that matter.</p>
-        </div>
-      </a>
-      <a class="pcard" href="volatility-3-memory-forensics-getting-started.html">
-        <div class="cover"><img src="../img/blog/volatility-3-memory-forensics-getting-started.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span><span class="pmeta">6 min read</span></div>
-          <h3>Getting started with memory forensics in Volatility 3</h3>
-          <p>Install Volatility 3, list processes, follow them to network connections and command lines, and spot injected code in a memory image.</p>
-        </div>
-      </a>
-      <a class="pcard" href="ios-imessage-forensics-cocoa-time.html">
-        <div class="cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-mobile">Mobile forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 7 min read</span></div>
-          <h3>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h3>
-          <p>Join message, handle, chat and chat_message_join into a real thread, then decode Apple Cocoa time (nanoseconds since 2001) the way that trips students up.</p>
-        </div>
-      </a>
-      <a class="pcard" href="detect-lateral-movement-windows-event-logs.html">
-        <div class="cover"><img src="../img/blog/detect-lateral-movement-windows-event-logs.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-windows">Windows forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 7 min read</span></div>
-          <h3>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h3>
-          <p>Match a remote logon to the processes it spawned by logon session, read subject against target correctly, and trace an attacker host to host.</p>
-        </div>
-      </a>
-      <a class="pcard" href="gcfe-windows-forensics-practice-labs.html">
-        <div class="cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-windows">Windows forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>GCFE practice: a different Windows forensics case for every student</h3>
-          <p>Registry, prefetch, USB history and event logs &mdash; one authored case becomes a per-student Windows box with a verified answer key.</p>
-        </div>
-      </a>
-      <a class="pcard" href="incident-response-exercise-edr-siem.html">
-        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-ir">Incident response</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 6 min read</span></div>
-          <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
-          <p>Work an IR case from the responder's own tooling, mapped to MITRE ATT&amp;CK and the NIST 800-61 phases, with time pressure built in.</p>
-        </div>
-      </a>
-      <a class="pcard" href="teaching-mitre-attack-hands-on.html">
-        <div class="cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-threat">Threat-informed teaching</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
-          <p>ATT&amp;CK-tagged cases make a technique something you find in the evidence and detect, not a cell to memorize on a chart.</p>
-        </div>
-      </a>
-      <a class="pcard" href="detect-c2-beaconing-packet-capture.html">
-        <div class="cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-network">Network forensics</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>Spotting C2 beaconing in a packet capture</h3>
-          <p>Teach students to read a PCAP by timing &mdash; interval, jitter and payload &mdash; follow the stream, and tell the beacon from benign noise.</p>
-        </div>
-      </a>
-      <a class="pcard" href="dfir-learning-pathways-first-look-to-capstone.html">
-        <div class="cover"><img src="../img/blog/dfir-learning-pathways-first-look-to-capstone.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-course">Course design</span><span class="pmeta">October 2, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>From first look to capstone: building a DFIR learning pathway</h3>
-          <p>Sequence a course from a First Look on-ramp up the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in.</p>
-        </div>
-      </a>
-      <a class="pcard" href="forensics-exam-students-cant-copy.html">
-        <div class="cover"><img src="../img/blog/forensics-exam-students-cant-copy.svg" alt="" width="1600" height="1000" loading="lazy"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-exam">Exam integrity</span><span class="pmeta">October 1, 2026 <i>&middot;</i> 5 min read</span></div>
-          <h3>Run a forensics exam students can't copy</h3>
-          <p>Why shared evidence makes copying inevitable, and how per-student cases, an in-browser solve portal and LMS grade passback fix it.</p>
-        </div>
-      </a>
+    <div class="cta">
+      <strong>Want to practice on real evidence?</strong>
+      <p style="margin:8px 0 14px">Download the free sample lab, or start the 14-day trial and generate a per-student case in a few minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="/sample.html">Get the free sample lab</a>
+        <a class="btn ghost" href="/#download">Start a free trial</a>
+      </div>
     </div>
-  </section>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="autopsy-disk-image-analysis-walkthrough.html">
+        <div class="cover"><img src="../img/blog/autopsy-disk-image-analysis-walkthrough.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Analyze a disk image in Autopsy: a beginner's walkthrough</h3>
+      </a>
+      <a class="rel" href="registry-explorer-windows-registry-forensics.html">
+        <div class="cover"><img src="../img/blog/registry-explorer-windows-registry-forensics.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Read the Windows registry with Registry Explorer</h3>
+      </a>
+      <a class="rel" href="evtxecmd-windows-event-log-timeline.html">
+        <div class="cover"><img src="../img/blog/evtxecmd-windows-event-log-timeline.svg" alt="" width="1600" height="1000"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Turn Windows event logs into a timeline with EvtxECmd</h3>
+      </a>
+      </div>
+    </section>
+  </article>
 </main>
 
 <footer>
@@ -202,7 +152,6 @@
     </div>
   </div>
 </footer>
-
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="../nav.js" defer></script>
 <script src="../theme.js" defer></script>

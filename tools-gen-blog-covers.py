@@ -22,6 +22,7 @@ CATS = {
     "network": ("#0e9aa7", "#042026", "beacon"),
     "course":  ("#c7891a", "#2e1d05", "ladder"),
     "exam":    ("#db2777", "#2e0819", "shield"),
+    "tools":   ("#4f6b8f", "#0c1622", "gears"),
 }
 
 # slug -> category
@@ -34,6 +35,10 @@ POSTS = {
     "detect-c2-beaconing-packet-capture": "network",
     "dfir-learning-pathways-first-look-to-capstone": "course",
     "forensics-exam-students-cant-copy": "exam",
+    "autopsy-disk-image-analysis-walkthrough": "tools",
+    "registry-explorer-windows-registry-forensics": "tools",
+    "evtxecmd-windows-event-log-timeline": "tools",
+    "volatility-3-memory-forensics-getting-started": "tools",
 }
 
 W, H = 1600, 1000
@@ -99,6 +104,18 @@ def motif(key, accent, s):
             x = 220 + i * 240; y = H - 230 - i * 110
             op = 0.07 + i * 0.03
             out.append(f'<rect x="{x}" y="{y}" width="190" height="70" rx="12" fill="#fff" opacity="{op:.2f}"/>')
+    elif key == "gears":  # tooling / how-to
+        for i in range(3):
+            cx = 300 + rnd(960); cy = 250 + rnd(480)
+            R = 92 + rnd(64)
+            op = 0.06 + rnd(0.07)
+            out.append(f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{R:.0f}" fill="none" stroke="#fff" stroke-width="10" opacity="{op:.2f}"/>')
+            out.append(f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{R*0.42:.0f}" fill="none" stroke="#fff" stroke-width="6" opacity="{op:.2f}"/>')
+            for t in range(10):
+                ang = t / 10.0 * 6.2832
+                x1 = cx + math.cos(ang) * R; y1 = cy + math.sin(ang) * R
+                x2 = cx + math.cos(ang) * (R + 22); y2 = cy + math.sin(ang) * (R + 22)
+                out.append(f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#fff" stroke-width="10" opacity="{op:.2f}"/>')
     elif key == "shield":  # exam integrity shield
         cx, cy = W * 0.5, H * 0.5
         out.append(

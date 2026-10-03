@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Red Herrings">
+  <defs>
+    <linearGradient id="g" x1="0.932" y1="0.083" x2="0.068" y2="0.917">
+      <stop offset="0" stop-color="#0c1622"/>
+      <stop offset="0.62" stop-color="#4f6b8f"/>
+      <stop offset="1" stop-color="#4f6b8f"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.77" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.53" cy="0.9" r="0.7">
+      <stop offset="0" stop-color="#0c1622" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0c1622" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#glow2)"/>
+  <g>
+    <circle cx="1089" cy="589" r="125" fill="none" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <circle cx="1089" cy="589" r="52" fill="none" stroke="#fff" stroke-width="6" opacity="0.09"/>
+    <line x1="1213" y1="589" x2="1235" y2="589" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="1190" y1="663" x2="1207" y2="676" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="1127" y1="708" x2="1134" y2="729" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="1050" y1="708" x2="1043" y2="729" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="988" y1="663" x2="970" y2="676" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="964" y1="589" x2="942" y2="589" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="988" y1="516" x2="970" y2="503" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="1050" y1="471" x2="1043" y2="450" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="1127" y1="471" x2="1134" y2="450" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <line x1="1190" y1="516" x2="1207" y2="503" stroke="#fff" stroke-width="10" opacity="0.09"/>
+    <circle cx="794" cy="702" r="135" fill="none" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <circle cx="794" cy="702" r="57" fill="none" stroke="#fff" stroke-width="6" opacity="0.12"/>
+    <line x1="929" y1="702" x2="951" y2="702" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="903" y1="781" x2="921" y2="794" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="836" y1="830" x2="843" y2="851" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="753" y1="830" x2="746" y2="851" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="685" y1="781" x2="667" y2="794" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="659" y1="702" x2="637" y2="702" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="685" y1="623" x2="667" y2="610" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="753" y1="574" x2="746" y2="553" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="836" y1="574" x2="843" y2="553" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <line x1="903" y1="623" x2="921" y2="610" stroke="#fff" stroke-width="10" opacity="0.12"/>
+    <circle cx="773" cy="498" r="107" fill="none" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <circle cx="773" cy="498" r="45" fill="none" stroke="#fff" stroke-width="6" opacity="0.13"/>
+    <line x1="881" y1="498" x2="903" y2="498" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="860" y1="561" x2="878" y2="574" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="806" y1="600" x2="813" y2="621" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="740" y1="600" x2="733" y2="621" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="686" y1="561" x2="668" y2="574" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="666" y1="498" x2="644" y2="498" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="686" y1="435" x2="668" y2="422" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="740" y1="396" x2="733" y2="375" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="806" y1="396" x2="813" y2="375" stroke="#fff" stroke-width="10" opacity="0.13"/>
+    <line x1="860" y1="435" x2="878" y2="422" stroke="#fff" stroke-width="10" opacity="0.13"/>
+  </g>
+  <rect width="1600" height="1000" fill="url(#glow1)"/>
+  <g transform="translate(1270,700) scale(5.1)" opacity="0.10">
+    <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#ffffff"/>
+  </g>
+</svg>
