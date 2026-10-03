@@ -54,7 +54,7 @@ L = {
     "tools": ("Tools &amp; setup", "Autopsy, Volatility, Wireshark and more", "/tools.html", "tools"),
     "trust": ("Trust &amp; security", "Runs locally; no student data leaves", "/trust.html", "trust"),
     "faq": ("FAQ", "Licensing, platforms, classroom use", "/#faq", "faq"),
-    "sample": ("Download a sample lab", "A full case ZIP to inspect offline", "/#download", "key"),
+    "sample": ("Download a sample lab", "A full case ZIP with a verified key", "/sample.html", "key"),
     "edu": ("Educators", "One instructor, auto-graded labs", "/#pricing", "edu"),
     "dept": ("Departments", "Multiple instructors, all packs", "/#pricing", "edu"),
     "student": ("Students", "Self-practice at the personal rate", "/#pricing", "portal"),
