@@ -135,7 +135,7 @@ def build_header():
       <a class="mnitem mnflat" href="/#pricing">Pricing</a>
     </nav>
     <div class="spacer"></div>
-    <a class="link navutil" href="{ACCOUNT_URL}">Sign in</a>
+    <a class="link navutil" href="{ACCOUNT_URL}" data-goatcounter-click="signin">Sign in</a>
     <a class="link navutil" href="/student-portal.html">Student portal</a>
     <a class="btn navcta" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
     {burger}
@@ -145,7 +145,7 @@ def build_header():
     {mobile}
     <div class="mnsection"><a class="mnflat mnsolo" href="/#pricing">Pricing</a></div>
     <div class="mnrow">
-      <a class="btn ghost" href="{ACCOUNT_URL}">Sign in</a>
+      <a class="btn ghost" href="{ACCOUNT_URL}" data-goatcounter-click="signin">Sign in</a>
       <a class="btn ghost" href="/student-portal.html">Student portal</a>
     </div>
     <div class="mnrow">
