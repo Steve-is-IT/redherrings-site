@@ -112,6 +112,11 @@ def mobile_section(label, cols):
             + "".join(mlink(k) for k in ordered) + "</div>")
 
 
+# Customer account portal (license server). Swap to a custom domain
+# (e.g. https://account.redherrings.app/account) once its CNAME is set up.
+ACCOUNT_URL = "https://redherrings-license.onrender.com/account"
+
+
 def build_header():
     desktop = "".join(desktop_item(lbl, cols, p) for lbl, cols, p in MENU)
     mobile = "".join(mobile_section(lbl, cols) for lbl, cols, _ in MENU)
@@ -130,6 +135,7 @@ def build_header():
       <a class="mnitem mnflat" href="/#pricing">Pricing</a>
     </nav>
     <div class="spacer"></div>
+    <a class="link navutil" href="{ACCOUNT_URL}">Sign in</a>
     <a class="link navutil" href="/student-portal.html">Student portal</a>
     <a class="btn navcta" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
     {burger}
@@ -139,7 +145,10 @@ def build_header():
     {mobile}
     <div class="mnsection"><a class="mnflat mnsolo" href="/#pricing">Pricing</a></div>
     <div class="mnrow">
+      <a class="btn ghost" href="{ACCOUNT_URL}">Sign in</a>
       <a class="btn ghost" href="/student-portal.html">Student portal</a>
+    </div>
+    <div class="mnrow">
       <a class="btn ghost" href="/#download">Activate a key</a>
     </div>
   </div>
