@@ -3,33 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spotting C2 beaconing in a packet capture | Red Herrings</title>
-<meta name="description" content="Command-and-control traffic hides in plain sight by looking like ordinary web requests. Here's how to teach students to spot beaconing in a PCAP by its timing, follow the stream, and separate it from benign background noise.">
-<link rel="canonical" href="https://redherrings.app/blog/detect-c2-beaconing-packet-capture.html">
+<title>Verify a Certificate | Red Herrings</title>
+<meta name="description" content="Check a Red Herrings certificate of completion. Enter the details printed on the certificate and its verification code to confirm the certificate has not been altered.">
+<link rel="canonical" href="https://redherrings.app/verify.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#E5382F">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spotting C2 beaconing in a packet capture">
-<meta property="og:description" content="Teach students to spot command-and-control beaconing in a PCAP by its timing, follow the stream, and tell it apart from benign traffic.">
-<meta property="og:url" content="https://redherrings.app/blog/detect-c2-beaconing-packet-capture.html">
+<meta property="og:title" content="Verify a Certificate — Red Herrings">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Red Herrings — randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<meta property="og:description" content="Confirm a Red Herrings certificate has not been altered.">
+<meta property="og:url" content="https://redherrings.app/verify.html">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="../site.css">
-<link rel="stylesheet" href="../blog.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Spotting C2 beaconing in a packet capture","description":"Teach students to spot command-and-control beaconing in a PCAP by its timing, follow the stream, and tell it apart from benign traffic.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/detect-c2-beaconing-packet-capture.html"}
-</script>
-  <script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="site.css">
+<style>
+  .vform{max-width:640px}
+  .vform label{display:block;font-size:13px;font-weight:600;margin:14px 0 4px}
+  .vform input{width:100%;padding:10px 12px;border:1px solid var(--line,#d7dae1);border-radius:10px;font:inherit;background:var(--panel,#fff);color:var(--ink,#12151c)}
+  .vresult{margin-top:20px;padding:16px 18px;border-radius:12px;font-weight:600;display:none}
+  .vresult.ok{display:block;background:rgba(34,153,84,.12);border:1px solid #2e9e5b;color:#1c7a43}
+  .vresult.bad{display:block;background:rgba(229,56,47,.1);border:1px solid #e5382f;color:#b22c25}
+  .vnote{color:var(--ink-2,#5b6472);font-size:14px}
+</style>
+<script>(function(){try{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
 <header>
@@ -62,70 +65,29 @@
     </div>
   </div>
 </header>
-
 <main class="wrap" id="main">
-  <article class="post">
-    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
-    <div class="post-cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000"></div>
-    <header class="post-head"><h1>Spotting C2 beaconing in a packet capture</h1></header>
-    <p class="lede">A compromised host checking in with its command-and-control server doesn't look dramatic in a capture. It looks like a small, boring request that repeats. The skill is learning to notice the rhythm.</p>
-
-    <p>Open a busy PCAP and the C2 traffic is not the loud thing. It's a handful of packets to one host, over and over, buried under the browsing, updates and DNS lookups of a normal workday. Students who are used to looking for the big transfer walk right past it. Teaching network forensics well means teaching them to look at <em>timing</em>, not just volume.</p>
-
-    <h2>Beaconing is a pattern in time</h2>
-    <p>Malware that beacons phones home on a schedule &mdash; every 60 seconds, every 5 minutes &mdash; to ask for instructions. In a capture, that shows up as connections to the same destination at suspiciously regular intervals. The giveaways a student learns to find:</p>
-    <ul>
-      <li><strong>Regular intervals.</strong> Human traffic is bursty and irregular; a beacon ticks like a metronome. Build a conversation list, sort by destination, and the repeat-offender endpoint stands out.</li>
-      <li><strong>Jitter.</strong> Smarter implants randomize the interval by a percentage to blend in, so the gaps aren't identical &mdash; but they still cluster around a mean. Learning to see a jittered beacon, not just a perfectly periodic one, is the real lesson.</li>
-      <li><strong>Small, consistent payloads.</strong> The check-in request and its "nothing to do" reply tend to be a similar, small size each time &mdash; until the one beacon that carries a tasking or stages data and suddenly isn't small.</li>
-      <li><strong>A destination that doesn't belong.</strong> A host no other machine on the network talks to, a raw IP with no DNS, or a domain that resolves oddly.</li>
-    </ul>
-
-    <blockquote>The loudest packet in a capture is rarely the important one. C2 hides in the rhythm, and rhythm is something you have to be taught to see.</blockquote>
-
-    <h2>Follow the stream</h2>
-    <p>Once a student has a candidate beacon, the next move is to reassemble it. In Wireshark, following the TCP or HTTP stream turns a scatter of packets into the actual conversation &mdash; the request headers, the user-agent the implant forges, the URI it calls, and whatever comes back. That's where a student confirms it's really C2 and not a noisy but benign service, and where the indicators worth escalating come from. The same reassembly skill pulls cleartext credentials out of an unencrypted login and reconstructs a file out of an HTTP transfer.</p>
-
-    <h2>Tell it apart from the background</h2>
-    <p>The hard part of a realistic capture is the noise. Red Herrings network cases don't hand a student a clean two-host PCAP with nothing but the beacon in it. They include benign background traffic &mdash; ordinary web browsing, DNS, software that legitimately polls on a timer &mdash; so the student has to rule things out, not just spot the one obvious flow. Real captures carry DNS, HTTP transfers, cleartext credentials and bulk exfil alongside the C2, and the work is separating signal from the rest.</p>
-
-    <h2>A different capture for every student</h2>
-    <p>Each student gets their own seeded PCAP: their own internal and C2 addresses, their own beacon interval and jitter, their own timestamps and payload sizes. The destination IP one student reports as the C2 server won't match anyone else's, so a copied answer is the wrong answer &mdash; and every generated capture is independently re-solved and verified by the <a href="../how.html">Fresh Catch check</a> before release, so the answer key is provably correct against that student's packets. Guided mode can walk a learner from "look at the conversation list" to "sort by destination and watch the timing" to the answer, one question at a time.</p>
-
-    <h2>Where it fits in the pathway</h2>
-    <p>These captures anchor the network-forensics track, aligned to the published objectives of the GNFA, and they show up in the incident-response cases too, where beaconing is one technique among many in a larger chain. Students build the one habit that makes a network analyst &mdash; reading traffic by its behavior over time &mdash; and you grade the whole class at once.</p>
-
-    <div class="cta">
-      <strong>Want to run a C2 beaconing case with your class?</strong>
-      <p style="margin:8px 0 14px">Start the free 14-day trial. It runs on your machine, and you can generate a per-student PCAP with its own beacon in minutes.</p>
-      <div class="cta-row">
-        <a class="btn" href="/#download" data-goatcounter-click="cta-trial-blog">Start a free 14-day trial</a>
-        <a class="btn ghost" href="../pathways.html">See the network pathway</a>
-      </div>
+  <section>
+    <h1>Verify a certificate</h1>
+    <p class="vnote" style="max-width:640px">Every Red Herrings certificate carries a <strong>verification code</strong> computed from the details printed on it. Type those details exactly as they appear, enter the code, and we'll confirm the certificate has not been altered &mdash; entirely in your browser, with nothing sent anywhere.</p>
+    <p class="vnote" style="max-width:640px;margin-top:8px">This confirms the printed fields match the code. It is an integrity check, not an accredited credential; to confirm a certificate was genuinely issued, contact the issuing instructor or institution.</p>
+    <div class="vform">
+      <label for="recipient">Recipient name</label>
+      <input id="recipient" autocomplete="off" placeholder="e.g. Jordan Lee">
+      <label for="achievement">Achievement (the bold line)</label>
+      <input id="achievement" autocomplete="off" placeholder="e.g. Who Is Watching the Screen?">
+      <label for="detail">Result line</label>
+      <input id="detail" autocomplete="off" placeholder="e.g. Final score: 92%">
+      <label for="issued">Date issued</label>
+      <input id="issued" autocomplete="off" placeholder="e.g. 2026-10-05">
+      <label for="issuer">Issued by</label>
+      <input id="issuer" autocomplete="off" placeholder="e.g. Red Herrings">
+      <label for="code">Verification code</label>
+      <input id="code" autocomplete="off" placeholder="e.g. 6F9DFC39A2">
+      <button class="btn primary" id="go" style="margin-top:18px">Verify</button>
+      <div class="vresult" id="out"></div>
     </div>
-    <section class="related">
-      <h2>More teaching notes</h2>
-      <div class="rel-grid">
-      <a class="rel" href="dfir-learning-pathways-first-look-to-capstone.html">
-        <div class="cover"><img src="../img/blog/dfir-learning-pathways-first-look-to-capstone.svg" alt="" width="1600" height="1000"></div>
-        <span class="cat c-course">Course design</span>
-        <h3>From first look to capstone: building a DFIR learning pathway</h3>
-      </a>
-      <a class="rel" href="forensics-exam-students-cant-copy.html">
-        <div class="cover"><img src="../img/blog/forensics-exam-students-cant-copy.svg" alt="" width="1600" height="1000"></div>
-        <span class="cat c-exam">Exam integrity</span>
-        <h3>Run a forensics exam students can't copy</h3>
-      </a>
-      <a class="rel" href="ios-imessage-forensics-cocoa-time.html">
-        <div class="cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
-        <span class="cat c-mobile">Mobile forensics</span>
-        <h3>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h3>
-      </a>
-      </div>
-    </section>
-  </article>
+  </section>
 </main>
-
 <footer>
   <div class="wrap">
     <div class="ftop">
@@ -167,8 +129,28 @@
     </div>
   </div>
 </footer>
-<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script src="../nav.js" defer></script>
-<script src="../theme.js" defer></script>
+<script>
+async function codeFor(parts){
+  const raw = parts.join("|");
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(raw));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("").slice(0, 10).toUpperCase();
+}
+const $ = id => document.getElementById(id);
+$("go").addEventListener("click", async () => {
+  const parts = ["recipient","achievement","detail","issued","issuer"].map(id => ($(id).value || "").trim());
+  const given = ($("code").value || "").trim().toUpperCase();
+  const out = $("out");
+  if (parts.some(p => !p) || !given){
+    out.className = "vresult bad"; out.textContent = "Fill in every field and the verification code.";
+    return;
+  }
+  const expect = await codeFor(parts);
+  if (expect === given){
+    out.className = "vresult ok"; out.textContent = "✓ Valid — these details match the verification code. The certificate has not been altered.";
+  } else {
+    out.className = "vresult bad"; out.textContent = "✗ No match — the code does not match these details. Check for typos (exact spelling, punctuation and the date), or the certificate may have been altered.";
+  }
+});
+</script>
 </body>
 </html>

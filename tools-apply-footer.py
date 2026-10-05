@@ -33,6 +33,7 @@ RESOURCES = [
     ("Blog", "/blog/"),
     ("FAQ", "/#faq"),
     ("Trust &amp; security", "/trust.html"),
+    ("Verify a certificate", "/verify.html"),
     ("Download", "/#download"),
 ]
 LEGAL = [
