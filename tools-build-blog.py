@@ -15,6 +15,10 @@ BLOG = os.path.join(ROOT, "blog")
 
 # newest -> oldest
 POSTS = [
+    dict(slug="whats-new-student-portal-certificates", cls="c-course", cat="Product update",
+         date="October 5, 2026", read="4 min read",
+         title="What's new: a student portal, certificates, and 71 cases",
+         dek="A self-serve account portal, printable certificates and badges, student and veteran pricing, and a library now 71 cases strong across digital forensics and incident response."),
     dict(slug="autopsy-disk-image-analysis-walkthrough", cls="c-tool", cat="Tool guide", nodate=True,
          date="October 3, 2026", read="6 min read",
          title="Analyze a disk image in Autopsy: a beginner's walkthrough",

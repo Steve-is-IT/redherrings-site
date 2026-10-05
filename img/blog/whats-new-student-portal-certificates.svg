@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Red Herrings">
+  <defs>
+    <linearGradient id="g" x1="0.946" y1="0.099" x2="0.054" y2="0.901">
+      <stop offset="0" stop-color="#2e1d05"/>
+      <stop offset="0.62" stop-color="#c7891a"/>
+      <stop offset="1" stop-color="#c7891a"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.57" cy="0.25" r="0.6">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.59" cy="0.9" r="0.7">
+      <stop offset="0" stop-color="#2e1d05" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2e1d05" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#glow2)"/>
+  <g transform="translate(603,276) scale(18)" fill="none" stroke="#ffffff" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" opacity="0.10"><path d="M12 3 L23 8 L12 13 L1 8 Z"/><path d="M5 10 V15.3 C5 17 8.1 18.3 12 18.3 C15.9 18.3 19 17 19 15.3 V10"/></g>
+  <rect width="1600" height="1000" fill="url(#glow1)"/>
+  <g transform="translate(1270,700) scale(5.1)" opacity="0.10">
+    <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#ffffff"/>
+  </g>
+</svg>

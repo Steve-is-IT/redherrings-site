@@ -40,6 +40,7 @@ GLYPHS = {
 
 # slug -> category
 POSTS = {
+    "whats-new-student-portal-certificates": "course",
     "ios-imessage-forensics-cocoa-time": "mobile",
     "detect-lateral-movement-windows-event-logs": "windows",
     "gcfe-windows-forensics-practice-labs": "windows",
