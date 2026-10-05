@@ -114,7 +114,7 @@ def mobile_section(label, cols):
 
 # Customer account portal (license server). Swap to a custom domain
 # (e.g. https://account.redherrings.app/account) once its CNAME is set up.
-ACCOUNT_URL = "https://redherrings-license.onrender.com/account"
+ACCOUNT_URL = "https://account.redherrings.app/account"
 
 
 def build_header():
