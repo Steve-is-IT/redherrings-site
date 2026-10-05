@@ -52,6 +52,8 @@ img{max-width:100%}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
 /* ---- header / nav ---- */
+.skip{position:absolute;left:8px;top:-48px;z-index:60;background:var(--accent);color:var(--accent-ink);padding:10px 16px;border-radius:0 0 10px 10px;font-weight:600;text-decoration:none;transition:top .15s ease}
+.skip:focus{top:0}
 header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.6) blur(12px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:20px;height:66px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.01em}

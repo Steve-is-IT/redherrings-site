@@ -9,7 +9,7 @@ at once.
 **Live site: https://redherrings.app**
 
 - How it works: https://redherrings.app/how.html
-- Case library (64 DF & IR cases): https://redherrings.app/cases.html
+- Case library (67 DF & IR cases): https://redherrings.app/cases.html
 - Learning pathways & certification prep: https://redherrings.app/pathways.html
 - MITRE ATT&CK coverage: https://redherrings.app/attack.html
 - Free sample lab — a real Windows insider-USB case (disk image, registry,

@@ -44,7 +44,7 @@ def icon(k):
 # link inventory: key -> (title, desc, href, icon)
 L = {
     "how": ("How it works", "Author once, generate a unique case per student", "/how.html", "how"),
-    "cases": ("Case library", "64 verified DF &amp; IR cases to browse", "/cases.html", "cases"),
+    "cases": ("Case library", "67 verified DF &amp; IR cases to browse", "/cases.html", "cases"),
     "attack": ("MITRE ATT&amp;CK coverage", "Techniques mapped to real evidence", "/attack.html", "attack"),
     "path": ("Learning pathways", "First Look on-ramp to cert-prep capstone", "/pathways.html", "path"),
     "ir": ("Incident response", "EDR, SIEM and triage exercises", "/incident-response.html", "ir"),
@@ -119,6 +119,7 @@ def build_header():
               'aria-controls="mobilenav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
               'stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>')
     return f'''<header>
+  <a class="skip" href="#main">Skip to content</a>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="Red Herrings home">
       {HOOK}
