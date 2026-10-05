@@ -44,7 +44,7 @@ def icon(k):
 # link inventory: key -> (title, desc, href, icon)
 L = {
     "how": ("How it works", "Author once, generate a unique case per student", "/how.html", "how"),
-    "cases": ("Case library", "70 verified DF &amp; IR cases to browse", "/cases.html", "cases"),
+    "cases": ("Case library", "71 verified DF &amp; IR cases to browse", "/cases.html", "cases"),
     "attack": ("MITRE ATT&amp;CK coverage", "Techniques mapped to real evidence", "/attack.html", "attack"),
     "path": ("Learning pathways", "First Look on-ramp to cert-prep capstone", "/pathways.html", "path"),
     "ir": ("Incident response", "EDR, SIEM and triage exercises", "/incident-response.html", "ir"),
