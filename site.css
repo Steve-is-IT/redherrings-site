@@ -37,8 +37,8 @@ body::before{content:"";position:absolute;left:0;right:0;top:0;height:760px;z-in
    left where the headline sits, fading out before the first section. */
 body.home::after{content:"";position:absolute;left:0;right:0;top:0;height:900px;z-index:-1;pointer-events:none;
   background:var(--hexdump) 0 64px/624px 384px repeat;
-  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.16) 0,rgba(0,0,0,.16) 40%,#000 64%),linear-gradient(180deg,#000 0,#000 40%,transparent 100%);
-  mask-image:linear-gradient(90deg,rgba(0,0,0,.16) 0,rgba(0,0,0,.16) 40%,#000 64%),linear-gradient(180deg,#000 0,#000 40%,transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.22) 0,rgba(0,0,0,.26) 30%,rgba(0,0,0,.7) 55%,#000 70%),linear-gradient(180deg,#000 0,#000 40%,transparent 100%);
+  mask-image:linear-gradient(90deg,rgba(0,0,0,.22) 0,rgba(0,0,0,.26) 30%,rgba(0,0,0,.7) 55%,#000 70%),linear-gradient(180deg,#000 0,#000 40%,transparent 100%);
   -webkit-mask-composite:source-in;mask-composite:intersect}
 @media (max-width:860px){body.home::after{height:620px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.28) 0,transparent 100%);mask-image:linear-gradient(180deg,rgba(0,0,0,.28) 0,transparent 100%)}}
 :focus-visible{outline:none;box-shadow:var(--ring);border-radius:8px}
