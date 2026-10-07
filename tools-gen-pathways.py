@@ -131,7 +131,7 @@ TEMPLATE = '''<!doctype html>
     <a class="link" href="student-portal.html">Student portal</a>
     <a class="link" href="try.html">Try it</a>
     <a class="link" href="/#pricing">Pricing</a>
-    <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
   </div>
 </header>
 <main class="wrap">
@@ -165,11 +165,11 @@ TEMPLATE = '''<!doctype html>
         <a href="pathways.html">Learning pathways</a>
         <a href="student-portal.html">Student portal &amp; LMS</a>
         <a href="/#pricing">Pricing</a>
-        <a href="/#download">Download</a>
+        <a href="/download.html">Download</a>
       </div>
       <div class="fcol">
         <h4>Support</h4>
-        <a href="/#download">Activate a key</a>
+        <a href="/download.html">Activate a key</a>
         <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
         <a href="help.html">Help &amp; getting started</a>
         <a href="trust.html">Security &amp; trust</a>

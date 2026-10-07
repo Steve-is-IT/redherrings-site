@@ -192,7 +192,7 @@ TEMPLATE = '''<!doctype html>
     <a class="link" href="student-portal.html">Student portal</a>
     <a class="link" href="try.html">Try it</a>
     <a class="link" href="/#pricing">Pricing</a>
-    <a class="btn" href="/#download" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
   </div>
 </header>
 <main class="wrap">
@@ -221,7 +221,7 @@ TEMPLATE = '''<!doctype html>
 {cards}
     </div>
     <p class="emptymsg hide" id="empty">No cases match those filters. Use <strong>Clear</strong> to reset.</p>
-    <div class="cta-row" style="margin-top:40px"><a class="btn" href="/#download">Start a free 14-day trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>
+    <div class="cta-row" style="margin-top:40px"><a class="btn" href="/download.html">Start a free 14-day trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>
   </section>
 </main>
 <div class="cmodal" id="cmodal" hidden>
@@ -249,11 +249,11 @@ TEMPLATE = '''<!doctype html>
         <a href="pathways.html">Learning pathways</a>
         <a href="student-portal.html">Student portal &amp; LMS</a>
         <a href="/#pricing">Pricing</a>
-        <a href="/#download">Download</a>
+        <a href="/download.html">Download</a>
       </div>
       <div class="fcol">
         <h4>Support</h4>
-        <a href="/#download">Activate a key</a>
+        <a href="/download.html">Activate a key</a>
         <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
         <a href="help.html">Help &amp; getting started</a>
         <a href="trust.html">Security &amp; trust</a>
@@ -351,7 +351,7 @@ MODAL_JS = r'''<script>
       '<h3>Sample questions</h3><ol class="cm-q">'+qs+'</ol>'+more+
       (ev?'<h3>Evidence</h3><div class="chips">'+ev+'</div>':"")+
       (tools?'<h3>Suggested tools</h3><div class="chips">'+tools+'</div>':"")+
-      '<div class="cta-row cm-cta"><a class="btn" href="/#download">Start a free trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>';
+      '<div class="cta-row cm-cta"><a class="btn" href="/download.html">Start a free trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>';
     lastFocus=document.activeElement; modal.hidden=false; document.body.style.overflow="hidden";
     body.scrollTop=0; modal.querySelector(".cmodal-x").focus();
   }
