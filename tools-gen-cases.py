@@ -166,7 +166,7 @@ TEMPLATE = '''<!doctype html>
 <meta name="description" content="Browse all {n} Red Herrings cases across Digital Forensics and Incident Response, from First Look triage to Marquee capstones. Forensics maps to GCFE/GCFA/GNFA/GCFR; incident response to MITRE ATT&CK tactics. Open any case to read its briefing and questions.">
 <link rel="canonical" href="https://redherrings.app/cases.html">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#E5382F">
+<meta name="theme-color" content="#e3362b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <meta property="og:title" content="All Cases — Red Herrings">
 <meta property="og:description" content="Every Red Herrings case: digital forensics across disk, registry, logs, memory, network, mobile and cloud, plus incident response mapped to MITRE ATT&CK.">
@@ -174,9 +174,8 @@ TEMPLATE = '''<!doctype html>
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="site.css">
-  <script>(function(){{try{{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
 </head>
 <body>
 <header>

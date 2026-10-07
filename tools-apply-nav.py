@@ -49,6 +49,7 @@ L = {
     "path": ("Learning pathways", "First Look on-ramp to cert-prep capstone", "/pathways.html", "path"),
     "ir": ("Incident response", "EDR, SIEM and triage exercises", "/incident-response.html", "ir"),
     "portal": ("Student portal &amp; LMS", "In-browser solve, grading, LMS passback", "/student-portal.html", "portal"),
+    "courses": ("Course packs", "Syllabus-ready 14-week and 8-week courses", "/courses.html", "path"),
     "packsite": ("Scenario packs", "Add-on case sets, install in one click", "/packs.html", "cases"),
     "blog": ("Blog", "DFIR teaching notes and updates", "/blog/", "blog"),
     "help": ("Help &amp; getting started", "Install, activate and run your first lab", "/help.html", "help"),
@@ -87,7 +88,7 @@ CARET = ('<svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentCo
 
 # menu structure (Direction A)
 MENU = [
-    ("Platform", [("Explore", ["how", "cases", "attack"]), ("Go deeper", ["path", "ir", "portal", "packsite"])], True),
+    ("Platform", [("Explore", ["how", "cases", "attack"]), ("Go deeper", ["path", "courses", "portal", "packsite"])], True),
     ("Solutions", [("By role", ["edu", "dept", "student"]), ("For organizations", ["team", "ent"])], False),
     ("Resources", [("Learn", ["blog", "help", "tools"]), ("Evaluate", ["trust", "faq", "sample"])], False),
 ]
