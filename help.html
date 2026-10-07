@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Red Herrings — randomized digital forensics and incident-response labs for the classroom.">
+<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <meta property="og:description" content="Download, activate, generate, grade and export — step-by-step walkthroughs for Red Herrings.">
@@ -30,7 +30,7 @@
   "@type":"HowTo",
   "name":"Generate and grade a Red Herrings forensics lab",
   "step":[
-    {"@type":"HowToStep","name":"Download and run","text":"Download the Windows or Linux build, unzip, and run RedHerrings. It opens in your browser."},
+    {"@type":"HowToStep","name":"Download and run","text":"Download the Windows, macOS or Linux build, unzip, and run RedHerrings. It opens in your browser."},
     {"@type":"HowToStep","name":"Activate","text":"Open Settings then Licensing and paste your license key, or use the 30-day trial with no key."},
     {"@type":"HowToStep","name":"Generate","text":"Pick a case, set a student count or roster and a seed, and generate a unique lab per student."},
     {"@type":"HowToStep","name":"Grade","text":"Import the grading sheet to auto-grade the whole class and export grades to your LMS."}
@@ -70,7 +70,7 @@
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Help</div>
   <div class="secthead">
     <h1 class="opener">Help &amp; <em>getting started</em></h1>
-    <p class="osub">Everything you need to go from download to a graded class. Most people are generating their first lab within five minutes.
+    <p class="osub">From download to a graded class. Most people generate their first lab within five minutes.
       </p>
   </div>
 
@@ -92,74 +92,75 @@
 
       <h2 id="install">1. Install &amp; activate</h2>
       <ol>
-        <li>Download the build for your OS from the <a href="/download.html">download page</a> — <strong>Windows</strong> or <strong>Linux</strong>.</li>
-        <li>Unzip it and run <code>RedHerrings</code> (Windows: <code>RedHerrings.exe</code>). It starts a local server and opens in your default browser — no installer, no admin rights needed.</li>
-        <li>It runs immediately as a <strong>30-day trial</strong>: five sample cases (three forensics at First Look, Medium and Hard; two incident response at First Look and Medium), up to 5 students per lab, and watermarked documents — no key required.</li>
+        <li>Download the build for your OS from the <a href="/download.html">download page</a>: <strong>Windows</strong>, <strong>macOS</strong> or <strong>Linux</strong>.</li>
+        <li>Unzip it and run <code>RedHerrings</code> (Windows: <code>RedHerrings.exe</code>). It starts a local server and opens in your browser. No installer, no admin rights.</li>
+        <li>On macOS, unzip, then right-click the app and choose <strong>Open</strong> the first time.</li>
+        <li>It runs as a <strong>30-day trial</strong> with no key: five sample cases (three forensics at First Look, Medium and Hard; two incident response at First Look and Medium), up to 5 students per lab, and watermarked documents.</li>
         <li>When you buy, your license key arrives by email within a minute. In the app, open <strong>Settings → Licensing</strong>, paste the key, and click <strong>Activate</strong>.</li>
       </ol>
-      <p>To work the cases you also need forensics tools (Autopsy, Volatility, Wireshark and friends). See <a href="tools.html">Tools &amp; setup</a> for one-run install scripts and the toolkit each certification track uses.</p>
-      <div class="callout"><p>Verify your download: each release publishes <code>SHA256SUMS.txt</code>. On Linux run <code>sha256sum -c SHA256SUMS.txt</code>; on Windows run <code>Get-FileHash RedHerrings-windows.zip -Algorithm SHA256</code> and compare.</p></div>
+      <p>Working the cases needs forensics tools (Autopsy, Volatility, Wireshark and friends). <a href="tools.html">Tools &amp; setup</a> has one-run install scripts and the toolkit for each certification track.</p>
+      <div class="callout"><p>Verify your download: each release publishes <code>SHA256SUMS.txt</code>. On Linux run <code>sha256sum -c SHA256SUMS.txt</code>; on macOS run <code>shasum -a 256 -c SHA256SUMS.txt</code>; on Windows run <code>Get-FileHash RedHerrings-windows.zip -Algorithm SHA256</code> and compare.</p></div>
 
       <h2 id="generate">2. Generate a lab for the whole class</h2>
       <ol>
         <li>Open <strong>Case Library</strong> and pick a case. Filter by difficulty or by <a href="#tracks">certification track</a>; open a card to read the briefing and questions first.</li>
         <li>Go to <strong>Generate Labs</strong> and set:
           <ul>
-            <li><strong>Students</strong> — a head count (creates student-001, student-002, …) or import a roster CSV (any common column names work).</li>
-            <li><strong>Difficulty</strong> — higher difficulty injects more noise (decoy files, extra accounts, more background traffic).</li>
-            <li><strong>Seed</strong> — any text. The same seed and roster reproduce the exact same labs, so you can regenerate a lost package or rebuild on another machine. Use a new seed each term.</li>
-            <li><strong>Formats</strong> — PDF, DOCX, or both; optionally the guided worksheet.</li>
+            <li><strong>Students</strong>: a head count (creates student-001, student-002, …) or import a roster CSV (any common column names work).</li>
+            <li><strong>Difficulty</strong>: higher difficulty injects more noise (decoy files, extra accounts, more background traffic).</li>
+            <li><strong>Seed</strong>: any text. The same seed and roster reproduce the same labs, so you can regenerate a lost package or rebuild on another machine. Use a new seed each term.</li>
+            <li><strong>Formats</strong>: PDF, DOCX, or both; optionally the guided worksheet.</li>
           </ul>
         </li>
-        <li>Click <strong>Generate</strong>. Each lab is built and then <strong>verified</strong> — every artifact is re-opened with an independent parser to confirm the answer key is really in the evidence (the green "Fresh Catch" check).</li>
+        <li>Click <strong>Generate</strong>. Each lab is built, then <strong>verified</strong>: every artifact is re-opened with an independent parser to confirm the answer key is in the evidence (the green "Fresh Catch" check).</li>
       </ol>
 
       <h2 id="distribute">3. Hand out to students</h2>
-      <p>Each student gets a <code>LAB-&lt;case&gt;-&lt;student&gt;.zip</code> with their unique evidence, a worksheet, and a hash manifest. Hand each student only their own zip. The instructor package holds the answer keys, rubrics, and a grading sheet — keep that one.</p>
+      <p>Each student gets a <code>LAB-&lt;case&gt;-&lt;student&gt;.zip</code> with their own evidence, a worksheet and a hash manifest. Hand each student only their own zip. The instructor package holds the answer keys, rubrics and grading sheet; keep that one.</p>
 
       <h2 id="grade">4. Grade &amp; export to your LMS</h2>
       <ol>
-        <li>Collect answers, fill the <strong>grading sheet</strong>, and import it under <strong>Grading</strong> to auto-grade the whole class at once. Tolerances are sensible: hashes case-insensitive, timestamps within seconds, text fuzzy-matched with a review flag. Every score shows why it was awarded.</li>
-        <li>Review the <strong>class analytics</strong> — mean, median, distribution, and the per-question correct rate that shows what tripped everyone up.</li>
+        <li>Collect answers, fill the <strong>grading sheet</strong>, and import it under <strong>Grading</strong> to grade the whole class at once. Tolerances: hashes case-insensitive, timestamps within seconds, text fuzzy-matched with a review flag. Every score shows why it was awarded.</li>
+        <li>Review the <strong>class analytics</strong>: mean, median, distribution, and the per-question correct rate that shows what tripped everyone up.</li>
         <li>Export grades in <strong>Canvas, Blackboard, Moodle or D2L Brightspace</strong> format (or generic CSV), with an optional per-student feedback note listing missed questions. You can also export a case as a <strong>Common Cartridge (.imscc)</strong> module.</li>
         <li>Run the <strong>anti-collusion report</strong> to see, per question, how many distinct answers were handed out and which student pairs look most alike.</li>
       </ol>
 
       <h2 id="guided">Guided mode (for stuck or self-study learners)</h2>
-      <p>On the <strong>Solution</strong> screen, guided mode steps a learner one question at a time: from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer — instead of revealing everything at once. Turn it into a printable <strong>guided worksheet</strong> at generation time to add a hint under each question plus a tool quick-start appendix. You control whether learners may reveal solutions.</p>
+      <p>On the <strong>Solution</strong> screen, guided mode steps a learner through one question at a time: a nudge about <em>where</em> to look, then <em>how</em> to work it with the right tool, then the answer. At generation time, the printable <strong>guided worksheet</strong> adds a hint under each question plus a tool quick-start appendix. You control whether learners may reveal solutions.</p>
 
       <h2 id="tracks">Disciplines and certification-prep tracks</h2>
-      <p>The Case Library filters first by <strong>discipline</strong> — <strong>Digital Forensics</strong> or <strong>Incident Response</strong> — then by difficulty and by the path a case exercises. Digital Forensics cases group into <strong>Cert path</strong> tracks; Incident Response cases group by <a href="attack.html">MITRE ATT&amp;CK</a> tactic. Tracks are aligned to the published topics of popular DFIR certifications (topic alignment, not endorsement):</p>
+      <p>The Case Library filters by <strong>discipline</strong> (<strong>Digital Forensics</strong> or <strong>Incident Response</strong>), then by difficulty and track. Digital Forensics cases group into <strong>Cert path</strong> tracks; Incident Response cases group by <a href="attack.html">MITRE ATT&amp;CK</a> tactic. Tracks follow the published topics of popular DFIR certifications (topic alignment, not endorsement):</p>
       <p><strong>Digital Forensics tracks</strong></p>
       <ul>
-        <li><strong>Foundations</strong> — entry-level fundamentals (AccessData ACE, CompTIA Security+).</li>
-        <li><strong>Windows Forensics</strong> — GCFE, plus the disk domains of EnCE / ACE.</li>
-        <li><strong>Mobile Forensics</strong> — Cellebrite CCO/CCPA, Magnet, GASF.</li>
-        <li><strong>Network Forensics</strong> — GNFA.</li>
-        <li><strong>Cloud &amp; SaaS</strong> — identity and cloud audit logs (GCFR).</li>
-        <li><strong>Linux Forensics</strong> — SANS FOR577.</li>
-        <li><strong>macOS Forensics</strong> — SANS FOR518.</li>
-        <li><strong>Advanced Forensics &amp; IR</strong> — GCFA.</li>
+        <li><strong>Foundations</strong>: entry-level fundamentals (AccessData ACE, CompTIA Security+).</li>
+        <li><strong>Windows Forensics</strong>: GCFE, plus the disk domains of EnCE / ACE.</li>
+        <li><strong>Mobile Forensics</strong>: Cellebrite CCO/CCPA, Magnet, GASF.</li>
+        <li><strong>Network Forensics</strong>: GNFA.</li>
+        <li><strong>Cloud &amp; SaaS</strong>: identity and cloud audit logs (GCFR).</li>
+        <li><strong>Linux Forensics</strong>: SANS FOR577.</li>
+        <li><strong>macOS Forensics</strong>: SANS FOR518.</li>
+        <li><strong>Advanced Forensics &amp; IR</strong>: GCFA.</li>
       </ul>
-      <p><strong>Incident Response tracks</strong> work the responder's own EDR and SIEM feeds, mapped to MITRE ATT&amp;CK tactics and the NIST 800-61 phases — with learning pathways for Incident Handling (GCIH), SOC Analyst &amp; Triage (CompTIA CySA+), Cloud &amp; Enterprise IR (GCFR) and Advanced Forensics &amp; IR (GCFA).</p>
-      <p>Pick a discipline and track to see the cases that prepare you for that exam's topics. <a href="cases.html">Browse the full catalog →</a> or follow a <a href="pathways.html">learning pathway</a>.</p>
+      <p><strong>Incident Response tracks</strong> work the responder's own EDR and SIEM feeds, mapped to MITRE ATT&amp;CK tactics and the NIST 800-61 phases, with learning pathways for Incident Handling (GCIH), SOC Analyst &amp; Triage (CompTIA CySA+), Cloud &amp; Enterprise IR (GCFR) and Advanced Forensics &amp; IR (GCFA).</p>
+      <p>Pick a discipline and track to see the cases for that exam's topics. <a href="cases.html">Browse the full catalog →</a> or follow a <a href="pathways.html">learning pathway</a>.</p>
 
       <h2 id="ctf">CTF mode</h2>
-      <p>Run any case as a capture-the-flag: per-team flags and a CTFd import file, so you can drop a Red Herrings case straight into a competition or a class challenge.</p>
+      <p>Run any case as a capture-the-flag: per-team flags and a CTFd import file drop it straight into a competition or class challenge.</p>
 
       <h2 id="offline">Offline &amp; air-gapped use</h2>
-      <p>Generation and grading run entirely on your machine with <strong>no network call</strong>. The only time the app contacts a server is to activate, refresh or deactivate a license — and air-gapped machines can activate offline with a request/response file. No student data ever leaves your computer.</p>
+      <p>Generation and grading run on your machine with <strong>no network call</strong>. The app contacts a server only to activate, refresh or deactivate a license, and air-gapped machines can activate offline with a request/response file. No student data leaves your computer.</p>
 
       <h2 id="trouble">Troubleshooting</h2>
       <ul>
         <li><strong>Windows SmartScreen warning:</strong> the app is unsigned for now. Choose <em>More info → Run anyway</em>, or verify the download against <code>SHA256SUMS.txt</code> first.</li>
         <li><strong>"All seats in use":</strong> each license activates on a set number of machines. Open <strong>Settings → Licensing</strong> on a machine you no longer use and click <strong>Deactivate</strong> to free a seat.</li>
         <li><strong>Lost your key:</strong> email <a href="/contact.html?topic=lost-key">sales@redherrings.app</a> and we'll resend it.</li>
-        <li><strong>Browser didn't open:</strong> the terminal prints a local address (for example <code>http://127.0.0.1:PORT/</code>) — open it manually.</li>
+        <li><strong>Browser didn't open:</strong> the terminal prints a local address (for example <code>http://127.0.0.1:PORT/</code>); open it manually.</li>
       </ul>
 
       <h2 id="contact">Still stuck?</h2>
-      <p>Email <a href="/contact.html">contact form</a> — Department and Business plans include priority support. See also the <a href="/#faq">FAQ</a>.</p>
+      <p>Use the <a href="/contact.html">contact form</a>. Department and Business plans include priority support. See also the <a href="/#faq">FAQ</a>.</p>
 
       <div class="cta-row" style="margin-top:36px;justify-content:flex-start">
         <a class="btn" href="/download.html">Download &amp; start the trial</a>
@@ -175,7 +176,7 @@
       <div class="fbrand">
         <div class="brand"><a href="/" aria-label="Red Herrings home" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="font-size:16px">Red Herrings</span></a></div>
         <p>Real Evidence. Real Skills. Real Fast.</p>
-        <p class="fsmall">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+        <p class="fsmall">Runs locally on Windows, macOS and Linux. No student data ever leaves your machine.</p>
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">

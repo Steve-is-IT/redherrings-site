@@ -65,7 +65,7 @@ FOOTER = f'''<footer>
       <div class="fbrand">
         <div class="brand"><a href="/" aria-label="Red Herrings home" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none">{BRAND_SVG}<span style="font-size:16px">Red Herrings</span></a></div>
         <p>Real Evidence. Real Skills. Real Fast.</p>
-        <p class="fsmall">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+        <p class="fsmall">Runs locally on Windows, macOS and Linux. No student data ever leaves your machine.</p>
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       {col("Product", PRODUCT)}
