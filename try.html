@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Try a sample case | Red Herrings DFIR Labs</title>
-<meta name="description" content="Work a real Red Herrings forensics case in your browser, no install and no sign-up. Read the evidence right on the page, answer the questions and check your work. An easy Linux SSH log case anyone can try in a couple of minutes.">
+<title>Try Two Cases in Your Browser | Red Herrings</title>
+<meta name="description" content="Work a real Red Herrings incident-response case and a digital forensics case in your browser, no install and no sign-up. Read an EDR detection feed and a USBSTOR registry key, answer the questions, then generate another student's variant and watch every answer change.">
 <link rel="canonical" href="https://redherrings.app/try.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#e3362b">
@@ -13,8 +13,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#e3362b">
-<meta property="og:title" content="Try a sample forensics case &mdash; Red Herrings">
-<meta property="og:description" content="Read a real Linux SSH log in your browser, answer the questions and check yourself. No install, no sign-up.">
+<meta property="og:title" content="Try two cases in your browser: incident response and forensics">
+<meta property="og:description" content="An EDR alert feed and a USB registry key, real questions, and a button that generates another student's variant so you can see why copied answers are wrong.">
 <meta property="og:url" content="https://redherrings.app/try.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
@@ -28,33 +28,69 @@
 .casebox{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(20px,3vw,30px);box-shadow:var(--shadow-sm)}
 .casebox .ev{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
 .casebox .ev .chip{font-size:12px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--muted)}
-.brief{color:var(--muted);font-size:16px;line-height:1.7;white-space:pre-line;margin:16px 0 0}
+.brief{color:var(--muted);font-size:16px;line-height:1.7;margin:16px 0 0}
+.brief b{color:var(--ink)}
+.ttabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 18px}
+.ttab{font:inherit;font-weight:700;font-size:14px;padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.ttab .d{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.ttab[aria-selected=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ttab[aria-selected=true] .d{background:var(--accent)}
+.variant{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 18px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card-2)}
+.variant .vs{font-family:var(--mono);font-size:13px;color:var(--ink)}.variant .vs b{color:var(--accent)}
+.variant .vl{color:var(--muted);font-size:13.5px;flex:1;min-width:220px}
 .evwrap{margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg)}
 .evhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--card)}
-.evhead .fn{font-family:var(--mono,ui-monospace,monospace);font-size:13px;font-weight:700;color:var(--ink)}
-.evhead .dl{font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--ink)}
+.evhead .fn{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink)}
+.evhead .dl{font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--ink);background:none;cursor:pointer;font-family:inherit}
 .evhead .dl:hover{border-color:var(--accent);color:var(--accent)}
-.evlog{margin:0;padding:14px;max-height:360px;overflow:auto;font-family:var(--mono,ui-monospace,monospace);font-size:12.5px;line-height:1.55;color:var(--ink);white-space:pre;tab-size:4}
+.edr{width:100%;border-collapse:collapse;font-size:13px}
+.edr th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--card)}
+.edr td{padding:10px 12px;border-bottom:1px solid var(--line-2);vertical-align:top;background:var(--card)}
+.edr tr.hl td{background:color-mix(in srgb,var(--accent) 4%,var(--card))}
+.edr .t{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--muted)}
+.sev{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+.sev.high{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+.sev.medium{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.sev.low{background:color-mix(in srgb,var(--blue) 12%,transparent);color:var(--blue)}
+.tree{font-family:var(--mono);font-size:12px;line-height:1.5}.tree .p{color:var(--faint)}.tree .c{color:var(--ink);font-weight:700}
+.tech{font-family:var(--mono);font-size:12px;color:var(--blue);white-space:nowrap}
+.cmd{font-family:var(--mono);font-size:11.5px;color:var(--ink);overflow-wrap:anywhere;margin-top:4px;background:var(--bg);border:1px solid var(--line-2);border-radius:6px;padding:5px 8px}
+.edr details summary{cursor:pointer;color:var(--blue);font-size:12px;font-weight:600;list-style:none}
+.edr details summary::-webkit-details-marker{display:none}
+.kv{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}.kv b{color:var(--ink);font-weight:600}
+.act{font-size:12px;font-weight:700;color:var(--warn)}
+.reg{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+@media(max-width:820px){.reg{grid-template-columns:1fr}.reg .rvals{border-left:0;border-top:1px solid var(--line)}.rvals .ty,.rvals th:nth-child(2){display:none}.rvals td:first-child{white-space:normal;min-width:7em}}
+.rtree{padding:12px 14px;font-family:var(--mono);font-size:12.5px;line-height:1.7;background:var(--card);overflow-x:auto;white-space:nowrap}
+.rtree div{padding-left:calc(var(--d,0)*16px)}
+.rtree .k::before{content:"\25B8  ";color:var(--faint)}.rtree .open::before{content:"\25BE  ";color:var(--faint)}
+.rtree .sel{background:color-mix(in srgb,var(--blue) 12%,transparent);border-radius:4px;color:var(--ink);font-weight:700}
+.rvals{border-left:1px solid var(--line);background:var(--card)}
+.rvals table{width:100%;border-collapse:collapse;font-size:12.5px}
+.rvals th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+.rvals td{padding:8px 12px;border-bottom:1px solid var(--line-2);font-family:var(--mono);vertical-align:top;overflow-wrap:anywhere}
+.rvals td:first-child{color:var(--muted);white-space:nowrap}
+.rvals .ty{color:var(--faint);font-size:11px;white-space:nowrap}
+.rpath{padding:9px 12px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--muted);background:var(--card);word-break:break-all}
+.lnk{padding:12px 14px;border-top:1px solid var(--line);background:var(--card)}
+.lnk h4{margin:0 0 6px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);word-break:break-all}
 .qlist{margin-top:28px;display:flex;flex-direction:column;gap:16px}
 .q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
 .q-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
 .q-prompt{font-weight:600;font-size:16px;line-height:1.5}
 .q-meta{flex:none;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}
 .q-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-.q-row input{flex:1;min-width:220px;font-family:var(--mono,ui-monospace,monospace);font-size:14px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
-.q-row input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
-.q-fb{margin-top:10px;font-size:14px;font-weight:600;display:none}
-.q-fb.ok{color:var(--ok);display:block}
-.q-fb.no{color:var(--bad);display:block}
-.q-how{margin-top:10px;padding:10px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent);border-radius:0 8px 8px 0;font-size:13.5px;color:var(--muted);display:none}
-.q-how.show{display:block}
-.q-how .ans{font-family:var(--mono,monospace);color:var(--accent);font-weight:700}
-.q-how .lk{display:block;margin-top:4px}
-.q-reveal{background:none;border:0;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;padding:0;margin-top:10px;text-decoration:underline}
-.q-reveal:hover{color:var(--ink)}
-.trybar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0 0}
-.tryscore{font-weight:700}
+.q-row input{flex:1;min-width:220px;font-family:var(--mono);font-size:14px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.q-row input:focus{outline:none;border-color:var(--blue);box-shadow:var(--ring)}
+.q-opts{display:grid;gap:8px;margin-top:12px}.q-opts label{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.45;cursor:pointer}
+.q-fb{margin-top:10px;font-size:14px;font-weight:600;display:none}.q-fb.ok{color:var(--ok);display:block}.q-fb.no{color:var(--bad);display:block}
+.q-how{margin-top:10px;padding:10px 12px;border-left:3px solid var(--blue);background:color-mix(in srgb,var(--blue) 6%,transparent);border-radius:0 8px 8px 0;font-size:13.5px;color:var(--muted);display:none}
+.q-how.show{display:block}.q-how .ans{font-family:var(--mono);color:var(--accent);font-weight:700;word-break:break-all}.q-how .lk{display:block;margin-top:4px}
+.q-reveal{background:none;border:0;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;padding:0;margin-top:10px;text-decoration:underline}.q-reveal:hover{color:var(--ink)}
+.trybar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0 0}.tryscore{font-weight:700}
 .sampnote{margin-top:22px;padding:14px 16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:13.5px}
+.flash{animation:flash 1.2s ease}@keyframes flash{0%{background:color-mix(in srgb,var(--accent) 22%,transparent)}100%{background:transparent}}
+@media (prefers-reduced-motion:reduce){.flash{animation:none}}
 </style>
 </head>
 <body>
@@ -66,7 +102,7 @@
       <span style="color:var(--ink)">Red Herrings</span>
     </a>
     <nav class="mainnav" aria-label="Primary">
-      <div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Platform <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel"><div class="mpcols"><div class="mpcol"><div class="mphead">Explore</div><a class="mlink" href="/how.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg></span><span><span class="mt">How it works</span><span class="md">Author once, generate a unique case per student</span></span></a><a class="mlink" href="/cases.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg></span><span><span class="mt">Case library</span><span class="md">71 verified DF &amp; IR cases to browse</span></span></a><a class="mlink" href="/attack.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">MITRE ATT&amp;CK coverage</span><span class="md">Techniques mapped to real evidence</span></span></a></div><div class="mpcol"><div class="mphead">Go deeper</div><a class="mlink" href="/pathways.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V9a3 3 0 0 1 3-3h8M16 3l4 3-4 3"/></svg></span><span><span class="mt">Learning pathways</span><span class="md">First Look on-ramp to cert-prep capstone</span></span></a><a class="mlink" href="/incident-response.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></span><span><span class="mt">Incident response</span><span class="md">EDR, SIEM and triage exercises</span></span></a><a class="mlink" href="/student-portal.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Student portal &amp; LMS</span><span class="md">In-browser solve, grading, LMS passback</span></span></a></div></div><a class="mppromo" href="/try.html"><span class="eye">Try it live</span><strong>Solve a case in the browser</strong><span class="pd">A real sample case with a verified answer key. No install.</span><span class="go">Open the demo &rarr;</span></a></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Solutions <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">By role</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Educators</span><span class="md">One instructor, auto-graded labs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Departments</span><span class="md">Multiple instructors, all packs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Students</span><span class="md">Self-practice at the personal rate</span></span></a></div><div class="mpcol"><div class="mphead">For organizations</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11a3 3 0 0 0 0-6M21 20a6 6 0 0 0-5-5.9"/></svg></span><span><span class="mt">Business &amp; training</span><span class="md">Commercial use, CTF mode, per seat</span></span></a><a class="mlink" href="/contact.html?topic=enterprise"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Enterprise &amp; government</span><span class="md">White-label, volume, procurement</span></span></a></div></div></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Resources <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">Learn</div><a class="mlink" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Blog</span><span class="md">DFIR teaching notes and updates</span></span></a><a class="mlink" href="/help.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">Help &amp; getting started</span><span class="md">Install, activate and run your first lab</span></span></a><a class="mlink" href="/tools.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5 5l-6 6 2 2 6-6a4 4 0 0 1 5-5z"/></svg></span><span><span class="mt">Tools &amp; setup</span><span class="md">Autopsy, Volatility, Wireshark and more</span></span></a></div><div class="mpcol"><div class="mphead">Evaluate</div><a class="mlink" href="/trust.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></span><span><span class="mt">Trust &amp; security</span><span class="md">Runs locally; no student data leaves</span></span></a><a class="mlink" href="/#faq"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">FAQ</span><span class="md">Licensing, platforms, classroom use</span></span></a><a class="mlink" href="/sample.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9l-2 2 2 2M11.5 12H21"/></svg></span><span><span class="mt">Download a sample lab</span><span class="md">A full case ZIP with a verified key</span></span></a></div></div></div></div>
+      <div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Platform <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel"><div class="mpcols"><div class="mpcol"><div class="mphead">Explore</div><a class="mlink" href="/how.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg></span><span><span class="mt">How it works</span><span class="md">Author once, generate a unique case per student</span></span></a><a class="mlink" href="/cases.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg></span><span><span class="mt">Case library</span><span class="md">71 verified DF &amp; IR cases to browse</span></span></a><a class="mlink" href="/attack.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">MITRE ATT&amp;CK coverage</span><span class="md">Techniques mapped to real evidence</span></span></a></div><div class="mpcol"><div class="mphead">Go deeper</div><a class="mlink" href="/pathways.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V9a3 3 0 0 1 3-3h8M16 3l4 3-4 3"/></svg></span><span><span class="mt">Learning pathways</span><span class="md">First Look on-ramp to cert-prep capstone</span></span></a><a class="mlink" href="/incident-response.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg></span><span><span class="mt">Incident response</span><span class="md">EDR, SIEM and triage exercises</span></span></a><a class="mlink" href="/student-portal.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Student portal &amp; LMS</span><span class="md">In-browser solve, grading, LMS passback</span></span></a></div></div><a class="mppromo" href="/try.html"><span class="eye">Try it live</span><strong>Work two cases in the browser</strong><span class="pd">An EDR alert and a USB registry key, with a button that generates another student&rsquo;s variant. No install.</span><span class="go">Open the demo &rarr;</span></a></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Solutions <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">By role</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Educators</span><span class="md">One instructor, auto-graded labs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Departments</span><span class="md">Multiple instructors, all packs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Students</span><span class="md">Self-practice at the personal rate</span></span></a></div><div class="mpcol"><div class="mphead">For organizations</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11a3 3 0 0 0 0-6M21 20a6 6 0 0 0-5-5.9"/></svg></span><span><span class="mt">Business &amp; training</span><span class="md">Commercial use, CTF mode, per seat</span></span></a><a class="mlink" href="/contact.html?topic=enterprise"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Enterprise &amp; government</span><span class="md">White-label, volume, procurement</span></span></a></div></div></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Resources <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">Learn</div><a class="mlink" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Blog</span><span class="md">DFIR teaching notes and updates</span></span></a><a class="mlink" href="/help.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">Help &amp; getting started</span><span class="md">Install, activate and run your first lab</span></span></a><a class="mlink" href="/tools.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5 5l-6 6 2 2 6-6a4 4 0 0 1 5-5z"/></svg></span><span><span class="mt">Tools &amp; setup</span><span class="md">Autopsy, Volatility, Wireshark and more</span></span></a></div><div class="mpcol"><div class="mphead">Evaluate</div><a class="mlink" href="/trust.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></span><span><span class="mt">Trust &amp; security</span><span class="md">Runs locally; no student data leaves</span></span></a><a class="mlink" href="/#faq"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">FAQ</span><span class="md">Licensing, platforms, classroom use</span></span></a><a class="mlink" href="/sample.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9l-2 2 2 2M11.5 12H21"/></svg></span><span><span class="mt">Download a sample lab</span><span class="md">A full case ZIP with a verified key</span></span></a></div></div></div></div>
       <a class="mnitem mnflat" href="/#pricing">Pricing</a>
     </nav>
     <div class="spacer"></div>
@@ -89,44 +125,35 @@
   </div>
 </header>
 <main class="wrap" id="main">
-  <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Try a sample</div>
+  <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Try a case</div>
   <div class="secthead">
-    <h1 class="opener">Work a real case, <em>right here</em></h1>
-    <p class="osub">This is one genuine Red Herrings case, an easy one. The evidence is right below &mdash; read it, type your answers and check them. No install, no sign-up, nothing to set up. In the real app every student gets a <strong>different</strong> version of the case, and the answer key is never sent to their browser.</p>
+    <h1 class="opener">Work two real cases, <em>right here</em></h1>
+    <p class="osub">Two genuine Red Herrings First Look cases, one from each discipline, rendered in the browser. Read the evidence, answer, check yourself. Then press <strong>Generate another student&rsquo;s variant</strong> and watch the hostnames, users, times, serials, hashes and every answer change. That is what every student in a class gets.</p>
   </div>
 
   <section style="border-top:0">
-    <div class="casebox">
-      <div class="eyebrow-sm">Sample case &middot; Easy &middot; Linux</div>
-      <h2 style="text-align:left;margin:6px 0 0">First Look: Who Logged Into the Server</h2>
-      <p class="brief" id="brief"></p>
-      <div class="ev">
-        <span class="chip">Linux /var/log/auth.log</span>
-        <span class="chip">No tools required</span>
-        <span class="chip">~2 minutes</span>
-      </div>
-
-      <div class="evwrap">
-        <div class="evhead">
-          <span class="fn">evidence/var/log/auth.log</span>
-          <a class="dl" href="sample/auth.log" download="auth.log" data-goatcounter-click="try-download-evidence">Download the log</a>
-        </div>
-        <pre class="evlog" id="evlog" tabindex="0" aria-label="Evidence: auth.log"></pre>
-      </div>
+    <div class="ttabs" role="tablist" aria-label="Choose a case">
+      <button class="ttab" role="tab" aria-selected="true" data-case="ir"><span class="d"></span>Incident response &middot; Reading an EDR Alert</button>
+      <button class="ttab" role="tab" aria-selected="false" data-case="df"><span class="d"></span>Digital forensics &middot; USB Device History</button>
     </div>
 
+    <div class="variant">
+      <span class="vs">Variant <b id="vseed"></b> &middot; student <b id="vname"></b></span>
+      <span class="vl" id="vlabel">Same case, this student&rsquo;s evidence. Every value below is derived from the seed, and so is every answer.</span>
+      <button class="btn" type="button" id="reseed" data-goatcounter-click="try-reseed">Generate another student&rsquo;s variant</button>
+    </div>
+
+    <div class="casebox" id="casebox"></div>
+
     <div class="trybar">
-      <span class="tryscore" id="score">0 of 7 correct</span>
+      <span class="tryscore" id="score"></span>
       <button class="btn ghost" id="revealAll" type="button">Reveal all answers</button>
     </div>
 
     <div class="qlist" id="qlist"></div>
 
     <div class="sampnote">
-      This online sample shows the answers so you can check yourself. In a real lab the
-      evidence, the attacker's address, the account and the times are all different for every
-      student, grading happens on the instructor's machine, and nothing is ever revealed in the
-      browser &mdash; so a copied answer is simply wrong.
+      This online sample lets you reveal the answers so you can check yourself. In a real lab the answer key is re-derived from the planted evidence and verified before anything ships, grading happens on the instructor&rsquo;s machine, and nothing is revealed in the browser. Because every student&rsquo;s variant differs, a copied answer is simply the wrong answer.
     </div>
 
     <div class="cta-row" style="margin-top:34px">
@@ -135,6 +162,8 @@
     </div>
   </section>
 </main>
+
+
 <footer>
   <div class="wrap">
     <div class="ftop">
@@ -178,136 +207,178 @@
   </div>
 </footer>
 <script>
-const BRIEF = "A small company's Linux web server, app-prod-01, was behaving oddly and the team pulled /var/log/auth.log. Something had been hammering SSH before one login finally succeeded. Read the log below: find where the attempts came from, which account they got into, when, and what they did once they were in. Ordinary staff logins are in the file too.";
-const LOG = [
-"Mar 17 11:02:52 app-prod-01 sshd[12604]: Accepted publickey for ansible from 172.17.93.86 port 45914 ssh2: RSA SHA256:UC41L+9nSXq9JxupePjzqNJiaKD5/iWzIIkUqt/tzJk",
-"Mar 17 11:43:22 app-prod-01 sshd[16942]: Accepted publickey for gitlab-runner from 172.17.93.202 port 60943 ssh2: RSA SHA256:8DF0IdDXeox4eCjQqys5MKKBwdRVclQjlWt1Ao4LL9k",
-"Mar 17 12:07:37 app-prod-01 sshd[27943]: Accepted publickey for gitlab-runner from 172.17.93.32 port 60753 ssh2: RSA SHA256:cJfWQ7pfeq/DJgd9Qjc0sw2LqZbhYSi31sRZwCM5UNs",
-"Mar 17 13:47:35 app-prod-01 sshd[11768]: Accepted publickey for ansible from 172.17.93.237 port 57153 ssh2: RSA SHA256:H4gk3oSZunlolt1d/kyPaLGy6svReqopT3bjpQJiv5Q",
-"Mar 17 14:56:02 app-prod-01 sshd[3738]: Accepted publickey for gitlab-runner from 172.17.93.216 port 58214 ssh2: RSA SHA256:AqfOPzCosskKgLENqdm9E1t17of5KMqjqCe2nTjLcO8",
-"Mar 17 16:17:05 app-prod-01 sshd[16541]: Accepted publickey for jenkins from 172.17.93.171 port 36102 ssh2: RSA SHA256:yLIFenT0mMSKACccCkWo13bWg0lLLKtinaVSi8YWckI",
-"Mar 17 23:12:37 app-prod-01 sshd[7299]: Accepted publickey for admin from 172.17.93.76 port 40083 ssh2: RSA SHA256:mmYYZgd9HtDRyAL9sLvHh+/Y2S/Ryd9clJd8Yk3k4xc",
-"Mar 18 01:50:34 app-prod-01 sshd[16296]: Accepted publickey for admin from 172.17.93.177 port 31889 ssh2: RSA SHA256:W277L0+xD//1Hdavg1VLwjl24Om3Lz8W5aRFWSOe14Y",
-"Mar 18 02:54:05 app-prod-01 sshd[16573]: Accepted publickey for gitlab-runner from 172.17.93.214 port 38211 ssh2: RSA SHA256:8gAA4czbvUz4Ar7hE3jN6tmgAKOhrP69Ticpj7mX6Ow",
-"Mar 18 07:58:30 app-prod-01 sshd[12107]: Accepted publickey for ansible from 172.17.93.48 port 39645 ssh2: RSA SHA256:ls3X8GCyA6rHOsj3FwKpsTgEVk+V0Jn/7AnOQlDNldQ",
-"Mar 18 10:00:07 app-prod-01 sshd[1948]: Failed password for root from 62.157.110.146 port 51003 ssh2",
-"Mar 18 10:00:11 app-prod-01 sshd[3727]: Failed password for root from 62.157.110.146 port 44220 ssh2",
-"Mar 18 10:00:13 app-prod-01 sshd[4713]: Failed password for root from 62.157.110.146 port 48131 ssh2",
-"Mar 18 10:00:14 app-prod-01 sshd[29273]: Failed password for root from 62.157.110.146 port 59622 ssh2",
-"Mar 18 10:00:17 app-prod-01 sshd[25385]: Failed password for root from 62.157.110.146 port 55777 ssh2",
-"Mar 18 10:00:19 app-prod-01 sshd[9916]: Failed password for root from 62.157.110.146 port 53358 ssh2",
-"Mar 18 10:00:19 app-prod-01 sshd[8758]: Failed password for root from 62.157.110.146 port 56268 ssh2",
-"Mar 18 10:00:19 app-prod-01 sshd[17920]: Failed password for root from 62.157.110.146 port 38987 ssh2",
-"Mar 18 10:00:25 app-prod-01 sshd[22238]: Failed password for root from 62.157.110.146 port 39671 ssh2",
-"Mar 18 10:00:31 app-prod-01 sshd[28920]: Failed password for root from 62.157.110.146 port 36814 ssh2",
-"Mar 18 10:00:33 app-prod-01 sshd[25092]: Failed password for root from 62.157.110.146 port 46240 ssh2",
-"Mar 18 10:00:34 app-prod-01 sshd[14341]: Failed password for root from 62.157.110.146 port 57913 ssh2",
-"Mar 18 10:00:39 app-prod-01 sshd[28104]: Failed password for root from 62.157.110.146 port 56787 ssh2",
-"Mar 18 10:00:40 app-prod-01 sshd[4827]: Failed password for root from 62.157.110.146 port 52581 ssh2",
-"Mar 18 10:00:41 app-prod-01 sshd[1170]: Failed password for root from 62.157.110.146 port 30647 ssh2",
-"Mar 18 10:00:45 app-prod-01 sshd[10615]: Failed password for root from 62.157.110.146 port 47096 ssh2",
-"Mar 18 10:00:47 app-prod-01 sshd[2258]: Failed password for root from 62.157.110.146 port 42138 ssh2",
-"Mar 18 10:00:47 app-prod-01 sshd[21283]: Failed password for root from 62.157.110.146 port 45847 ssh2",
-"Mar 18 10:00:49 app-prod-01 sshd[26830]: Failed password for root from 62.157.110.146 port 38606 ssh2",
-"Mar 18 10:00:52 app-prod-01 sshd[29580]: Failed password for root from 62.157.110.146 port 35504 ssh2",
-"Mar 18 10:00:55 app-prod-01 sshd[17949]: Failed password for root from 62.157.110.146 port 45980 ssh2",
-"Mar 18 10:00:55 app-prod-01 sshd[22830]: Failed password for root from 62.157.110.146 port 48845 ssh2",
-"Mar 18 10:00:58 app-prod-01 sshd[8049]: Failed password for root from 62.157.110.146 port 50309 ssh2",
-"Mar 18 10:01:03 app-prod-01 sshd[3754]: Failed password for root from 62.157.110.146 port 54661 ssh2",
-"Mar 18 10:01:07 app-prod-01 sshd[3653]: Failed password for root from 62.157.110.146 port 33661 ssh2",
-"Mar 18 10:01:10 app-prod-01 sshd[24253]: Failed password for root from 62.157.110.146 port 30147 ssh2",
-"Mar 18 10:01:16 app-prod-01 sshd[7469]: Failed password for root from 62.157.110.146 port 32528 ssh2",
-"Mar 18 10:01:19 app-prod-01 sshd[19288]: Failed password for root from 62.157.110.146 port 53429 ssh2",
-"Mar 18 10:01:34 app-prod-01 sshd[6365]: Failed password for root from 62.157.110.146 port 41824 ssh2",
-"Mar 18 10:01:35 app-prod-01 sshd[11002]: Failed password for root from 62.157.110.146 port 56368 ssh2",
-"Mar 18 10:01:40 app-prod-01 sshd[17716]: Failed password for root from 62.157.110.146 port 37395 ssh2",
-"Mar 18 10:01:43 app-prod-01 sshd[13099]: Failed password for root from 62.157.110.146 port 33674 ssh2",
-"Mar 18 10:01:46 app-prod-01 sshd[4458]: Failed password for root from 62.157.110.146 port 42610 ssh2",
-"Mar 18 10:01:47 app-prod-01 sshd[10745]: Failed password for root from 62.157.110.146 port 58266 ssh2",
-"Mar 18 10:01:51 app-prod-01 sshd[1193]: Failed password for root from 62.157.110.146 port 42374 ssh2",
-"Mar 18 10:01:52 app-prod-01 sshd[2062]: Failed password for root from 62.157.110.146 port 48152 ssh2",
-"Mar 18 10:01:58 app-prod-01 sshd[2410]: Failed password for root from 62.157.110.146 port 31598 ssh2",
-"Mar 18 10:02:04 app-prod-01 sshd[22362]: Failed password for root from 62.157.110.146 port 34443 ssh2",
-"Mar 18 10:02:31 app-prod-01 sshd[14164]: Failed password for root from 62.157.110.146 port 37329 ssh2",
-"Mar 18 10:02:39 app-prod-01 sshd[2990]: Failed password for root from 62.157.110.146 port 50128 ssh2",
-"Mar 18 10:06:14 app-prod-01 sshd[5781]: Accepted password for root from 62.157.110.146 port 32725 ssh2",
-"Mar 18 10:06:14 app-prod-01 sshd[5781]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)",
-"Mar 18 10:06:14 app-prod-01 systemd-logind[510]: New session 3 of user root.",
-"Mar 18 10:10:27 app-prod-01 sudo: root : TTY=pts/3 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow",
-"Mar 18 10:15:56 app-prod-01 useradd[8058]: new group: name=webadmin2, GID=1008",
-"Mar 18 10:15:56 app-prod-01 useradd[8058]: new user: name=webadmin2, UID=1008, GID=1008, home=/home/webadmin2, shell=/bin/bash"
-].join("\n");
+// ---------- seeded variant generator: a browser-side sketch of what the app does per student ----------
+function hash32(str){let h=2166136261>>>0;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)>>>0;}return h;}
+function rng(seed){let a=hash32(seed)||1;return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const pick=(r,arr)=>arr[Math.floor(r()*arr.length)];
+const hex=(r,n,upper)=>{let s="";for(let i=0;i<n;i++)s+=Math.floor(r()*16).toString(16);return upper?s.toUpperCase():s;};
+const pad=n=>String(n).padStart(2,"0");
+function fmt(d){return d.getUTCFullYear()+"-"+pad(d.getUTCMonth()+1)+"-"+pad(d.getUTCDate())+" "+pad(d.getUTCHours())+":"+pad(d.getUTCMinutes())+":"+pad(d.getUTCSeconds())+" UTC";}
+function iso(d){return d.toISOString().replace(/\.\d{3}Z$/,"Z");}
+function shown(d){return iso(d).replace("T"," ").replace("Z","");}
+const FIRST=["Jordan","Priya","Marcus","Elena","Tomas","Aisha","Noah","Mei","Daniel","Sofia","Kwame","Hannah","Luis","Yuki","Omar","Grace"];
+const LAST=["Lee","Patel","Okafor","Novak","Reyes","Khan","Brennan","Tanaka","Moreau","Alvarez","Mensah","Schulz","Costa","Nakamura","Haddad","Walsh"];
+const ORGS=["Harbor Point Logistics","Northwind Dental Group","Silverline Credit Union","Bluegrass Precision Machining","Cedar Ridge Insurance","Meridian Title Co.","Alder & Finch LLP","Kestrel Engineering"];
+function student(seed){const r=rng("student:"+seed);const f=pick(r,FIRST),l=pick(r,LAST);return {name:f+" "+l,user:(f[0]+l).toLowerCase()};}
+function site(r){return {org:pick(r,ORGS),host:pick(r,["WS","LT","PC","DESK"])+"-"+pick(r,["FIN","OPS","SALES","HR","ENG"])+"-"+pad(Math.floor(r()*90)+10)};}
+function when(r,hfrom,hto){const a=Date.UTC(2025,1,4),b=Date.UTC(2025,9,20);const d=new Date(a+Math.floor(r()*((b-a)/864e5))*864e5);d.setUTCHours(hfrom+Math.floor(r()*(hto-hfrom)),Math.floor(r()*60),Math.floor(r()*60));return d;}
+const plus=(d,s)=>new Date(d.getTime()+s*1000);
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 
-const TYPELABEL = {text:"Short answer", timestamp:"Time", ip:"IP address", int:"Number"};
-const QS = [
- {id:"q1", type:"ip", points:10, prompt:"From what IP address did the brute-force attempts and the successful login come?", answer:"62.157.110.146", how:"The repeated 'Failed password for root from <ip>' lines all share one address, and the 'Accepted password' line uses the same one.", where:"The repeated Failed password lines and the Accepted line."},
- {id:"q2", type:"text", points:8, prompt:"Which account did the attacker log in as?", answer:"root", how:"Read the 'Accepted password for <user>' line: the account is named right after 'for'.", where:"The Accepted password line."},
- {id:"q3", type:"text", points:8, prompt:"What authentication method did the successful break-in use?", answer:"password", how:"'Accepted <method> for ...'. The staff logins above use publickey; the attacker's line says password.", where:"The word right after 'Accepted' on the break-in line."},
- {id:"q4", type:"int", points:10, prompt:"How many failed SSH attempts came from that IP before the login finally worked?", answer:"40", how:"Count the 'Failed password for root from 62.157.110.146' lines that come before the Accepted line.", where:"The block of Failed password lines."},
- {id:"q5", type:"timestamp", points:12, prompt:"At what time did the successful login happen? (as shown in the log, e.g. 10:06:14)", answer:"2025-03-18 10:06:14 UTC", how:"The syslog timestamp at the start of the 'Accepted password' line: Mar 18 10:06:14.", where:"The start of the Accepted password line."},
- {id:"q6", type:"text", points:12, prompt:"What command did the attacker run as root to read the password hashes?", answer:"/usr/bin/cat /etc/shadow", how:"The sudo line records COMMAND=<value>. Read the full command after COMMAND=.", where:"The sudo line (COMMAND= value)."},
- {id:"q7", type:"text", points:10, prompt:"What backdoor account did the attacker create?", answer:"webadmin2", how:"The useradd line reads 'new user: name=<user>'. That name is the new account.", where:"The useradd line."}
-];
+// ---------- case 1: incident response, First Look: Reading an EDR Alert ----------
+function buildIR(seed){
+  const r=rng("ir:"+seed), st=student(seed), {org,host:hn}=site(r);
+  const t0=when(r,8,16), t1=plus(t0,20+Math.floor(r()*70)), t2=plus(t1,30+Math.floor(r()*90)), tb=plus(t0,-(600+Math.floor(r()*3000)));
+  const runKey=pick(r,["OneDriveStartup","SecurityHealthSvc","EdgeUpdateTask","AdobeARMsvc"]);
+  const payload=pick(r,["mon.exe","sysupd.exe","winhelper.exe","svc32.exe"]);
+  const shaReg=hex(r,64), shaPs=hex(r,64), shaGu=hex(r,64);
+  const enc=hex(r,18).replace(/[0-9]/g,c=>"ABCDEFGHIJ"[+c]);
+  const d=[
+    {id:"d_gu",time:tb,severity:"low",tactic:"Execution",technique:"T1204.002",process:"GoogleUpdate.exe",parent:"services.exe",cmd:"\"C:\\Program Files (x86)\\Google\\Update\\GoogleUpdate.exe\" /svc",user:"SYSTEM",action:"allowed",sha:shaGu,desc:"Signed updater launched by the service manager."},
+    {id:"d_ps",time:t0,severity:"high",tactic:"Execution",technique:"T1059.001",process:"powershell.exe",parent:"EXCEL.EXE",cmd:"powershell.exe -nop -w hidden -enc JABzAD0ATgBlAHcA"+enc,user:st.user,action:"detected",sha:shaPs,desc:"Office spawned a hidden, encoded PowerShell command."},
+    {id:"d_av",time:t1,severity:"high",tactic:"Defense Evasion",technique:"T1562.001",process:"powershell.exe",parent:"powershell.exe",cmd:"powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true",user:st.user,action:"detected",sha:shaPs,desc:"Defender real-time monitoring switched off from a script."},
+    {id:"d_run",time:t2,severity:"medium",tactic:"Persistence",technique:"T1547.001",process:"reg.exe",parent:"powershell.exe",cmd:"reg.exe add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v "+runKey+" /t REG_SZ /d C:\\Users\\"+st.user+"\\AppData\\Roaming\\"+payload+" /f",user:st.user,action:"detected",sha:shaReg,desc:"A Run key now points at an executable in the user's roaming profile."}
+  ].sort((a,b)=>a.time-b.time);
+  const byId=Object.fromEntries(d.map(x=>[x.id,x]));
+  const sev={high:3,medium:2,low:1};
+  const worst=d.reduce((m,x)=>sev[x.severity]>sev[m.severity]?x:m,d[0]).severity;
+  const first=d[0];
+  return {kind:"ir",seed,student:st,org,host:hn,d,
+    brief:"You are on the SOC queue at <b>"+esc(org)+"</b>. The EDR console for <b>"+esc(hn)+"</b> just lit up with a handful of detections in the last few minutes. Nobody has looked yet. Work it like a first responder: sort by severity, read each detection's process tree and the ATT&amp;CK technique it is tagged with, and tell the real activity from the background noise. The sensor only <em>detected</em>; it did not block.",
+    qs:[
+      {id:"q1",type:"severity",pts:6,prompt:"What is the highest severity among the detections?",answer:worst,how:"Scan the Severity column. The highest band present is the answer.",where:"EDR console, Severity column"},
+      {id:"q2",type:"mitre",pts:8,prompt:"What ATT&CK technique is the earliest detection?",answer:first.technique,how:"Sort by time. The first row's Technique column is the answer, even if it is low severity.",where:"EDR console, first row by time"},
+      {id:"q3",type:"int",pts:4,prompt:"How many detections are in the feed in total?",answer:String(d.length),how:"Count the rows.",where:"EDR console"},
+      {id:"q4",type:"mitre",pts:8,prompt:"One detection shows security tooling being tampered with. What ATT&CK technique is it?",answer:byId.d_av.technique,how:"The Set-MpPreference detection is tagged Defense Evasion. Read its technique id.",where:"The Defense Evasion row"},
+      {id:"q5",type:"text",pts:10,prompt:"What is the full command line that disabled Defender's real-time monitoring?",answer:byId.d_av.cmd,how:"Expand the Defense Evasion row and copy the command line exactly.",where:"Command line under the Set-MpPreference row"},
+      {id:"q6",type:"boolean",pts:6,prompt:"Is the GoogleUpdate.exe detection part of the attack? (yes/no)",answer:"no",how:"It is a signed updater launched by services.exe, before the Office-spawned PowerShell, with action allowed. Background noise.",where:"The GoogleUpdate.exe row"},
+      {id:"q8",type:"text",pts:4,prompt:"Which hostname did these detections fire on?",answer:hn,how:"The feed header carries the host. Copy it as shown.",where:"Feed header"},
+      {id:"q9",type:"text",pts:6,prompt:"Which user account was the activity running under on the first malicious detection?",answer:byId.d_ps.user,how:"The encoded PowerShell row (parent EXCEL.EXE) shows the user.",where:"User column on the T1059.001 row"},
+      {id:"q10",type:"text",pts:10,prompt:"What is the full command line of the Run-key persistence write (the reg.exe detection)?",answer:byId.d_run.cmd,how:"Expand the reg.exe row and copy its command line exactly, including the value name and the path.",where:"Command line under the reg.exe row"},
+      {id:"q11",type:"hash",pts:8,prompt:"What is the SHA-256 of the process that wrote the Run key? Add it to your notes as an indicator.",answer:byId.d_run.sha,how:"Expand the reg.exe row; the process hash is listed with the command line.",where:"SHA-256 under the reg.exe row"},
+      {id:"q12",type:"timestamp",pts:10,prompt:"When did the first detection fire (UTC)? This is the start of your timeline.",answer:fmt(first.time),how:"The earliest Time value, in UTC.",where:"Time column, first row"},
+      {id:"q7",type:"choice",pts:12,prompt:"You have confirmed real malicious activity that the sensor only detected. What do you do first?",answer:"Isolate the host from the network and escalate to the IR on-call",
+        options:["Re-run a full antivirus scan and wait for the result","Isolate the host from the network and escalate to the IR on-call","Email the user and ask what they opened","Close the detections as a false positive since the updater was benign"],
+        how:"Contain first. The sensor did not block, the chain reached persistence, and the attacker has a working foothold. Isolation stops the next step; the scan and the user interview come after.",where:"Judgement"}
+    ]};
+}
+function renderIR(c){
+  const rows=c.d.map(function(x){return '<tr class="'+(x.action==="detected"?"hl":"")+'"><td class="t">'+shown(x.time)+'</td><td><span class="sev '+x.severity+'">'+x.severity+'</span></td>'+
+    '<td><div class="tree"><span class="p">'+esc(x.parent)+'</span> &rsaquo; <span class="c">'+esc(x.process)+'</span></div><details><summary>command line &amp; hash</summary><div class="cmd">'+esc(x.cmd)+'</div><div class="kv"><b>sha256</b> '+x.sha+'</div></details></td>'+
+    '<td><span class="tech">'+x.technique+'</span><div style="font-size:11.5px;color:var(--muted)">'+x.tactic+'</div></td><td>'+esc(x.user)+'</td><td class="act">'+x.action+'</td></tr>';}).join("");
+  return '<div class="eyebrow-sm">Incident response &middot; First Look &middot; EDR</div>'+
+    '<h2 style="text-align:left;margin:6px 0 0">First Look: Reading an EDR Alert</h2>'+
+    '<p class="brief">'+c.brief+'</p>'+
+    '<div class="ev"><span class="chip">EDR detection feed</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">No tools required</span><span class="chip">~10 minutes</span></div>'+
+    '<div class="evwrap"><div class="evhead"><span class="fn">edr/detections.json &middot; host '+esc(c.host)+' &middot; Microsoft Defender</span><button class="dl" type="button" id="dlev">Download detections.json</button></div>'+
+    '<div style="overflow-x:auto"><table class="edr"><thead><tr><th>Time (UTC)</th><th>Severity</th><th>Process tree</th><th>Technique</th><th>User</th><th>Action</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+}
+function exportIR(c){return JSON.stringify({host:c.host,organization:c.org,vendor:"defender",detections:c.d.map(function(x){return {id:x.id,time:iso(x.time),severity:x.severity,tactic:x.tactic,technique:x.technique,process:x.process,parent:x.parent,command_line:x.cmd,sha256:x.sha,user:x.user,host:c.host,action:x.action,description:x.desc};})},null,2);}
 
+// ---------- case 2: digital forensics, First Look: USB Device History ----------
+function buildDF(seed){
+  const r=rng("df:"+seed), st=student(seed), {org,host:hn}=site(r);
+  const t0=when(r,9,16), t1=plus(t0,1200+Math.floor(r()*6000)), t2=plus(t1,60);
+  const serial=hex(r,20,true), vendor="SanDisk", product="Cruzer_Glide", rev="1.00", vid="0781", pid="5575";
+  const friendly="SanDisk Cruzer Glide USB Device", target="E:\\case-files\\evidence_copy.docx";
+  const devKey="Disk&Ven_"+vendor+"&Prod_"+product+"&Rev_"+rev;
+  const cid="{"+hex(r,8)+"-"+hex(r,4)+"-4e8f-9c21-"+hex(r,12)+"}", vol=hex(r,4,true)+"-"+hex(r,4,true);
+  return {kind:"df",seed,student:st,org,host:hn,serial,vendor,product,rev,vid,pid,friendly,t0,t1,t2,target,devKey,cid,vol,
+    brief:"A staff member at <b>"+esc(org)+"</b> says they never used a personal USB drive on their work machine, <b>"+esc(hn)+"</b>. IT thinks otherwise. You have the SYSTEM registry hive from the machine and one shortcut from the user's Recent folder. Find out whether a USB storage device was connected, what it was, and the first and last times it was seen.",
+    qs:[
+      {id:"q1",type:"text",pts:8,prompt:"What is the make and model (FriendlyName) of the USB device?",answer:friendly,how:"Select the serial-number key under USBSTOR. FriendlyName is a value on it.",where:"USBSTOR\\<device>\\<serial> &rarr; FriendlyName"},
+      {id:"q2",type:"text",pts:10,prompt:"What is the serial number of the device?",answer:serial,how:"The serial is the name of the subkey under the device key, not a value.",where:"USBSTOR\\<device>\\<serial>"},
+      {id:"q3",type:"timestamp",pts:10,prompt:"When was the device first connected (UTC)?",answer:fmt(t0),how:"Properties\\{83da6326-97a6-4088-9453-a1923f573b29}\\0064 holds the first install time.",where:"Properties &rarr; 0064"},
+      {id:"q4",type:"timestamp",pts:10,prompt:"When was the device last connected (UTC)?",answer:fmt(t1),how:"Property 0066 is the last arrival time.",where:"Properties &rarr; 0066"},
+      {id:"q5",type:"text",pts:4,prompt:"What is the vendor of the device?",answer:vendor,how:"Ven_ in the device key name.",where:"Device key name"},
+      {id:"q6",type:"text",pts:8,prompt:"What are the vendor and product IDs (VID and PID) for the device? Answer as VID_xxxx&PID_xxxx.",answer:"VID_"+vid+"&PID_"+pid,how:"The USB enumeration key under Enum\\USB mirrors the same serial under a VID_xxxx&PID_xxxx key.",where:"Enum\\USB\\VID_…&PID_…"},
+      {id:"q7",type:"text",pts:6,prompt:"What account was logged in on this machine (registry owner)?",answer:st.user,how:"The shortcut came from that user's Recent folder; the path shows the profile name.",where:"LNK panel, source path"},
+      {id:"q8",type:"text",pts:6,prompt:"What is the product name of the device (the Prod_ portion of the key)?",answer:product,how:"Prod_ in the device key name, exactly as written.",where:"Device key name"},
+      {id:"q9",type:"path",pts:10,prompt:"What file was opened from the removable drive (the LNK target)?",answer:target,how:"The shortcut's target path, drive letter included.",where:"LNK panel, Target"},
+      {id:"q10",type:"timestamp",pts:10,prompt:"When was that file last accessed from the USB (UTC)?",answer:fmt(t1),how:"The LNK stores the target's last-access time.",where:"LNK panel, Accessed"}
+    ]};
+}
+function renderDF(c){
+  const k=function(d,cls,txt){return '<div style="--d:'+d+'" class="'+cls+'">'+txt+'</div>';};
+  const tree=k(0,"k open","HKLM\\SYSTEM")+k(1,"k open","ControlSet001")+k(2,"k open","Enum")+
+    k(3,"k","USB")+k(4,"k","VID_"+c.vid+"&amp;PID_"+c.pid)+k(5,"k",c.serial)+
+    k(3,"k open","USBSTOR")+k(4,"k open",esc(c.devKey))+k(5,"k open sel",c.serial)+k(6,"k","Device Parameters")+k(6,"k open","Properties")+k(7,"k open","{83da6326-97a6-4088-9453-a1923f573b29}")+k(8,"","0064 &middot; 0065 &middot; 0066 &middot; 0067")+
+    k(3,"k","SCSI")+k(2,"k","Services")+k(1,"k","MountedDevices");
+  const row=function(a,b,v){return '<tr><td>'+a+'</td><td class="ty">'+b+'</td><td>'+v+'</td></tr>';};
+  const ft=function(d){return shown(d)+" UTC";};
+  const vals='<div class="rpath">HKLM\\SYSTEM\\ControlSet001\\Enum\\USBSTOR\\'+esc(c.devKey)+'\\'+c.serial+'</div>'+
+    '<table><thead><tr><th>Value</th><th>Type</th><th>Data</th></tr></thead><tbody>'+
+    row("FriendlyName","REG_SZ",esc(c.friendly))+row("Class","REG_SZ","DiskDrive")+row("ClassGUID","REG_SZ","{4d36e967-e325-11ce-bfc1-08002be10318}")+
+    row("HardwareID","REG_MULTI_SZ","USBSTOR\\Disk"+c.vendor+c.product+"1.00")+row("Service","REG_SZ","disk")+row("ContainerID","REG_SZ",c.cid)+
+    row("Properties\\…\\0064","FILETIME",ft(c.t0))+row("Properties\\…\\0065","FILETIME",ft(c.t0))+row("Properties\\…\\0066","FILETIME",ft(c.t1))+row("Properties\\…\\0067","FILETIME",ft(c.t2))+
+    '</tbody></table>'+
+    '<div class="lnk"><h4>Shortcut &middot; C:\\Users\\'+esc(c.student.user)+'\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\evidence_copy.lnk</h4>'+
+    '<table><tbody>'+row("Target","path",esc(c.target))+row("Drive type","","removable (E:)")+row("Volume serial","",c.vol)+row("Created","FILETIME",ft(c.t0))+row("Accessed","FILETIME",ft(c.t1))+'</tbody></table></div>';
+  return '<div class="eyebrow-sm">Digital forensics &middot; First Look &middot; Windows registry</div>'+
+    '<h2 style="text-align:left;margin:6px 0 0">First Look: USB Device History</h2>'+
+    '<p class="brief">'+c.brief+'</p>'+
+    '<div class="ev"><span class="chip">SYSTEM hive (USBSTOR)</span><span class="chip">One LNK file</span><span class="chip">Registry Explorer view</span><span class="chip">~10 minutes</span></div>'+
+    '<div class="evwrap"><div class="evhead"><span class="fn">registry/SYSTEM &middot; '+esc(c.host)+'</span><button class="dl" type="button" id="dlev">Download as .reg</button></div>'+
+    '<div class="reg"><div class="rtree">'+tree+'</div><div class="rvals">'+vals+'</div></div></div>';
+}
+function exportDF(c){
+  const ft=function(d){const v=BigInt(d.getTime())*10000n+116444736000000000n;let out=[];for(let i=0n;i<8n;i++)out.push(((v>>(8n*i))&255n).toString(16).padStart(2,"0"));return "hex(b):"+out.join(",");};
+  const base="HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Enum\\USBSTOR\\"+c.devKey+"\\"+c.serial, p=base+"\\Properties\\{83da6326-97a6-4088-9453-a1923f573b29}";
+  return "Windows Registry Editor Version 5.00\r\n\r\n["+base+"]\r\n\"FriendlyName\"=\""+c.friendly+"\"\r\n\"Class\"=\"DiskDrive\"\r\n\"Service\"=\"disk\"\r\n\"ContainerID\"=\""+c.cid+"\"\r\n\r\n["+p+"\\0064]\r\n\"\"="+ft(c.t0)+"\r\n\r\n["+p+"\\0066]\r\n\"\"="+ft(c.t1)+"\r\n\r\n["+p+"\\0067]\r\n\"\"="+ft(c.t2)+"\r\n";
+}
+
+// ---------- answer matching (mirrors the app's tolerant grader) ----------
 function norm(s){return (s||"").toString().trim().toLowerCase().replace(/\s+/g," ");}
-function hms(s){const m=(s||"").match(/\d{1,2}:\d{2}:\d{2}/); return m?m[0]:null;}
-function matches(type, user, correct){
-  const u=norm(user), c=norm(correct);
-  if(!u) return null;
-  if(type==="int"){ const nu=parseInt(u.replace(/[^0-9-]/g,""),10), nc=parseInt(c.replace(/[^0-9-]/g,""),10); return !isNaN(nu)&&nu===nc; }
-  if(type==="timestamp"){
-    const hu=hms(u), hc=hms(c);
-    if(hu && hc && hu===hc) return true;           // match on the HH:MM:SS shown in the log
-    const cu=u.replace(/utc/g,"").trim(), cc=c.replace(/utc/g,"").trim();
-    return cu===cc || (cu.length>=16 && cc.startsWith(cu));
-  }
-  if(type==="ip"){ return u.replace(/\s/g,"")===c.replace(/\s/g,""); }
+function hms(s){const m=(s||"").match(/\d{1,2}:\d{2}:\d{2}/);return m?m[0]:null;}
+function matches(type,user,correct){
+  const u=norm(user),c=norm(correct); if(!u) return null;
+  if(type==="int") return parseInt(u.replace(/[^0-9-]/g,""),10)===parseInt(c,10);
+  if(type==="timestamp"){const cu=u.replace(/utc/g,"").replace(/t/g," ").replace(/z/g,"").replace(/\s+/g," ").trim(),cc=c.replace(/utc/g,"").trim();if(cu===cc)return true;const hu=hms(u),hc=hms(c);return !!(hu&&hc&&hu===hc&&(u.length<=8||u.indexOf(cc.slice(0,10))>=0));}
+  if(type==="hash") return u.replace(/[^0-9a-f]/g,"")===c;
+  if(type==="mitre") return u.replace(/\s/g,"").toUpperCase()===c.toUpperCase();
+  if(type==="boolean") return /^(y|yes|true)$/.test(u)===(c==="yes");
+  if(type==="path") return u.replace(/\//g,"\\")===c.replace(/\//g,"\\");
   return u===c;
 }
+const TYPELABEL={text:"Short answer",timestamp:"Time (UTC)",int:"Number",hash:"SHA-256",mitre:"ATT&CK id",boolean:"Yes / no",path:"File path",severity:"Severity",choice:"Pick one"};
 
-const state = {};
-function updateScore(){
-  const n = Object.values(state).filter(Boolean).length;
-  document.getElementById("score").textContent = n + " of " + QS.length + " correct";
+// ---------- page state ----------
+let current="ir", seed=(new URLSearchParams(location.search).get("seed")||hex(rng(String(Date.now()+Math.random())),4)).replace(/[^0-9a-f]/g,"").slice(0,4)||"7f3a";
+const built={};
+function caseFor(kind){const key=kind+":"+seed;if(!built[key])built[key]=kind==="ir"?buildIR(seed):buildDF(seed);return built[key];}
+function el(t,a){const n=document.createElement(t);for(const k in (a||{})){if(k==="class")n.className=a[k];else if(k==="html")n.innerHTML=a[k];else n.setAttribute(k,a[k]);}for(let i=2;i<arguments.length;i++)n.append(arguments[i]);return n;}
+
+function render(flash){
+  const c=caseFor(current), box=document.getElementById("casebox");
+  box.innerHTML=current==="ir"?renderIR(c):renderDF(c);
+  document.getElementById("vseed").textContent=seed;
+  document.getElementById("vname").textContent=c.student.name;
+  document.getElementById("dlev").onclick=function(){const blob=new Blob([current==="ir"?exportIR(c):exportDF(c)],{type:current==="ir"?"application/json":"text/plain"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=current==="ir"?"detections.json":"USBSTOR-"+c.serial+".reg";document.body.append(a);a.click();a.remove();URL.revokeObjectURL(a.href);};
+  const list=document.getElementById("qlist"); list.innerHTML="";
+  const state={};
+  const updateScore=function(){document.getElementById("score").textContent=Object.values(state).filter(Boolean).length+" of "+c.qs.length+" correct";};
+  c.qs.forEach(function(q,i){
+    const fb=el("div",{class:"q-fb"});
+    const how=el("div",{class:"q-how",html:"<div>"+q.where+"</div><div style='margin-top:6px'>"+esc(q.how)+"</div><div class='lk'>Answer: <span class='ans'>"+esc(q.answer)+"</span></div>"});
+    const reveal=el("button",{class:"q-reveal",type:"button"},"Show how");
+    reveal.onclick=function(){how.classList.toggle("show");reveal.textContent=how.classList.contains("show")?"Hide":"Show how";};
+    let input,row;
+    const doCheck=function(){const v=q.type==="choice"?(row.querySelector("input:checked")||{}).value:input.value;const r=matches(q.type,v,q.answer);if(r===null){fb.className="q-fb";return;}state[q.id]=r;fb.className="q-fb "+(r?"ok":"no");fb.textContent=r?"Correct.":"Not quite. Check the exact form in the evidence and try again, or use Show how.";updateScore();};
+    if(q.type==="choice"){row=el("div",{class:"q-opts"});q.options.forEach(function(o,j){const inp=el("input",{type:"radio",name:q.id,value:o,id:q.id+"-"+j});inp.onchange=doCheck;row.append(el("label",{for:q.id+"-"+j},inp,o));});}
+    else{input=el("input",{type:"text",placeholder:"Type your answer","aria-label":"Answer for question "+(i+1)});const btn=el("button",{class:"btn",type:"button"},"Check");btn.onclick=doCheck;input.addEventListener("keydown",function(e){if(e.key==="Enter")doCheck();});row=el("div",{class:"q-row"},input,btn);}
+    list.append(el("div",{class:"q"},el("div",{class:"q-top"},el("div",{class:"q-prompt"},(i+1)+". "+q.prompt),el("div",{class:"q-meta"},(TYPELABEL[q.type]||q.type)+" \u00b7 "+q.pts+" pts")),row,fb,reveal,how));
+  });
+  updateScore();
+  const ra=document.getElementById("revealAll"); ra.textContent="Reveal all answers";
+  ra.onclick=function(){const show=this.textContent.indexOf("Reveal")===0;document.querySelectorAll(".q-how").forEach(function(h){h.classList.toggle("show",show);});document.querySelectorAll(".q-reveal").forEach(function(b){b.textContent=show?"Hide":"Show how";});this.textContent=show?"Hide all answers":"Reveal all answers";};
+  if(flash){box.classList.remove("flash");void box.offsetWidth;box.classList.add("flash");}
 }
-function el(t, a, ...kids){const n=document.createElement(t); for(const k in (a||{})){ if(k==="class")n.className=a[k]; else if(k==="html")n.innerHTML=a[k]; else n.setAttribute(k,a[k]); } kids.forEach(k=>n.append(k)); return n;}
-
-document.getElementById("brief").textContent = BRIEF;
-document.getElementById("evlog").textContent = LOG;
-const list = document.getElementById("qlist");
-QS.forEach((q, i) => {
-  const input = el("input", {type:"text", placeholder:"Type your answer", "aria-label":"Answer for question "+(i+1)});
-  const fb = el("div", {class:"q-fb"});
-  const how = el("div", {class:"q-how", html:"<div>"+q.where+"</div><div style='margin-top:6px'>"+q.how.replace(/</g,"&lt;")+"</div><div class='lk'>Answer: <span class='ans'>"+q.answer.replace(/</g,"&lt;")+"</span></div>"});
-  const reveal = el("button", {class:"q-reveal", type:"button"}, "Show how");
-  reveal.onclick = () => { how.classList.toggle("show"); reveal.textContent = how.classList.contains("show") ? "Hide" : "Show how"; };
-  const checkBtn = el("button", {class:"btn", type:"button"}, "Check");
-  const doCheck = () => {
-    const r = matches(q.type, input.value, q.answer);
-    if(r===null){ fb.className="q-fb"; return; }
-    state[q.id] = r;
-    fb.className = "q-fb " + (r ? "ok" : "no");
-    fb.textContent = r ? "Correct." : "Not quite. Check the exact form in the log and try again, or use Show how.";
-    updateScore();
-  };
-  checkBtn.onclick = doCheck;
-  input.addEventListener("keydown", e => { if(e.key==="Enter") doCheck(); });
-  list.append(el("div", {class:"q"},
-    el("div", {class:"q-top"},
-      el("div", {class:"q-prompt"}, (i+1)+". "+q.prompt),
-      el("div", {class:"q-meta"}, (TYPELABEL[q.type]||q.type)+" · "+q.points+" pts")),
-    el("div", {class:"q-row"}, input, checkBtn),
-    fb, reveal, how));
-});
-
-document.getElementById("revealAll").onclick = function(){
-  const show = this.textContent.indexOf("Reveal") === 0;
-  document.querySelectorAll(".q-how").forEach(h => h.classList.toggle("show", show));
-  document.querySelectorAll(".q-reveal").forEach(b => b.textContent = show ? "Hide" : "Show how");
-  this.textContent = show ? "Hide all answers" : "Reveal all answers";
-};
-updateScore();
+document.querySelectorAll(".ttab").forEach(function(b){b.onclick=function(){document.querySelectorAll(".ttab").forEach(function(x){x.setAttribute("aria-selected",x===b?"true":"false");});current=b.dataset.case;render(false);};});
+document.getElementById("reseed").onclick=function(){seed=hex(rng(seed+":"+Date.now()),4);document.getElementById("vlabel").textContent="New variant. Same case, same questions, different evidence: compare the host, user, times, serial and hashes with what you had a moment ago. Every answer changed with them.";render(true);try{history.replaceState(null,"","?seed="+seed);}catch(e){}};
+render(false);
 </script>
+
+
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="nav.js" defer></script>
 </body>
