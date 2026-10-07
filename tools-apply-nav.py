@@ -59,7 +59,7 @@ L = {
     "dept": ("Departments", "Multiple instructors, all packs", "/#pricing", "edu"),
     "student": ("Students", "Self-practice at the personal rate", "/#pricing", "portal"),
     "team": ("Business &amp; training", "Commercial use, CTF mode, per seat", "/#pricing", "team"),
-    "ent": ("Enterprise &amp; government", "White-label, volume, procurement", "mailto:sales@redherrings.app", "buy"),
+    "ent": ("Enterprise &amp; government", "White-label, volume, procurement", "/contact.html?topic=enterprise", "buy"),
 }
 
 

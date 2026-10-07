@@ -202,16 +202,16 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download Red Herrings {E(tag)} for Windows &amp; Linux | Red Herrings</title>
-<meta name="description" content="Download Red Herrings {E(tag)} for Windows or Linux: a 14-day free trial with no key needed. Checksums, system requirements and release notes for every version.">
+<meta name="description" content="Download Red Herrings {E(tag)} for Windows or Linux: a 30-day free trial with no key needed. Checksums, system requirements and release notes for every version.">
 <link rel="canonical" href="https://redherrings.app/download.html">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#E5382F">
+<meta name="theme-color" content="#e3362b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:title" content="Download Red Herrings {E(tag)}">
-<meta property="og:description" content="Windows and Linux builds, checksums, requirements and release notes. 14-day free trial, no key needed.">
+<meta property="og:description" content="Windows and Linux builds, checksums, requirements and release notes. 30-day free trial, no key needed.">
 <meta property="og:url" content="https://redherrings.app/download.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
@@ -222,7 +222,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"14-day free trial"}},"downloadUrl":"{DL}/RedHerrings-windows.zip","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
+{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"}},"downloadUrl":"{DL}/RedHerrings-windows.zip","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
 </script>
 <style>
   .dl-head{{margin:8px 0 22px}}
@@ -240,6 +240,11 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   .dl-verify pre{{margin:8px 0;padding:10px 12px;border-radius:8px;background:var(--panel2,rgba(127,127,127,.08));overflow:auto;font-size:12.5px}}
   .dl-verify p{{font-size:14px;color:var(--ink-2,#5b6472);margin:6px 0}}
   .dl-signed{{font-size:14px;font-weight:600;color:#1c7a43;margin:10px 0 0}}
+  .dl-lead{{margin:26px 0 0;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm)}}
+  .dl-leadtext{{display:flex;flex-direction:column;gap:3px;margin-bottom:12px}}.dl-leadtext span{{color:var(--muted);font-size:14px;line-height:1.5}}
+  .dl-leadrow{{display:flex;gap:10px;flex-wrap:wrap}}.dl-leadrow input[type=email]{{flex:1;min-width:220px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--card);color:var(--ink)}}
+  .dl-hp{{position:absolute;left:-9999px;top:-9999px;height:0}}
+  .dl-leadout{{display:none;margin-top:10px;font-weight:600;font-size:14px}}.dl-leadout.ok{{display:block;color:var(--ok)}}.dl-leadout.bad{{display:block;color:var(--bad)}}
   .dl-trust{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0}}
   .dl-trust div{{border-left:3px solid var(--accent,#E5382F);padding:4px 0 4px 14px;font-size:14px;color:var(--ink-2,#5b6472)}}
   .dl-trust strong{{display:block;color:var(--ink,#12151c);margin-bottom:2px}}
@@ -259,12 +264,22 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   <section>
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
-      <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>14-day free trial with no key needed</strong> &mdash; generate labs, run the student portal and grade a class before you buy.</p>
+      <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial with no key needed</strong> &mdash; generate labs, run the student portal and grade a class before you buy.</p>
       <div class="dl-ver"><span class="chip">{E(tag)}</span><span>Released {E(nice_date)}</span><span>&middot;</span><a href="#release-notes">Release notes</a><span>&middot;</span><a href="{RELEASES_PAGE}">All versions</a></div>
     </div>
 
     <div class="dl-grid">{win_card}{lin_card}
     </div>
+
+    <form class="dl-lead" id="dl-lead" novalidate>
+      <div class="dl-leadtext"><strong>Want the getting-started guide in your inbox?</strong><span>Optional. One email now with the four steps from download to a graded class, a note a week in, and a reminder three days before the trial ends. Unsubscribe in one click.</span></div>
+      <div class="dl-leadrow">
+        <input type="email" name="email" placeholder="you@university.edu" autocomplete="email" aria-label="Email address" required>
+        <input class="dl-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Send the guide</button>
+      </div>
+      <div class="dl-leadout" role="status" aria-live="polite"></div>
+    </form>
 
     <div class="dl-trust">
       <div><strong>Runs locally</strong>Generation and grading never leave your machine. The only network call is license activation. <a href="trust.html">Trust &amp; security</a></div>
@@ -283,6 +298,23 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     {"".join(notes_html)}
   </section>
 </main>
+<script>
+(function(){{
+  var f=document.getElementById('dl-lead');if(!f)return;
+  var out=f.querySelector('.dl-leadout'),btn=f.querySelector('button');
+  var plat=/Windows/i.test(navigator.userAgent)?'windows':/Linux/i.test(navigator.userAgent)?'linux':'';
+  f.addEventListener('submit',function(e){{
+    e.preventDefault();var email=f.email.value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){{out.className='dl-leadout bad';out.textContent='Please enter a valid email address.';return;}}
+    btn.disabled=true;
+    fetch('https://account.redherrings.app/api/v1/leads',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify({{email:email,platform:plat,website:f.website.value}})}})
+    .then(function(r){{if(!r.ok)throw 0;out.className='dl-leadout ok';out.textContent='Sent. Check your inbox for the guide.';f.email.value='';
+      if(window.goatcounter&&goatcounter.count)goatcounter.count({{path:'lead-download',event:true}});}})
+    .catch(function(){{out.className='dl-leadout bad';out.textContent='Could not send right now. The guide is also at /help.html.';}})
+    .finally(function(){{btn.disabled=false;}});
+  }});
+}})();
+</script>
 <footer></footer>
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="nav.js" defer></script>
