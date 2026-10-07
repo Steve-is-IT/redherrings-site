@@ -169,7 +169,7 @@ TEMPLATE = '''<!doctype html>
       </div>
       <div class="fcol">
         <h4>Support</h4>
-        <a href="/download.html">Activate a key</a>
+        <a href="https://account.redherrings.app/account" data-goatcounter-click="signin">Activate a key</a>
         <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
         <a href="help.html">Help &amp; getting started</a>
         <a href="trust.html">Security &amp; trust</a>
