@@ -3,32 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap | Red Herrings</title>
-<meta name="description" content="A hands-on iOS forensics lab: opening an iPhone sms.db in DB Browser and iLEAPP, joining message, handle, chat and chat_message_join into a real thread, and decoding Apple Cocoa time (nanoseconds since 2001) the way that trips most students up.">
-<link rel="canonical" href="https://redherrings.app/blog/ios-imessage-forensics-cocoa-time.html">
+<title>Scenario Packs | Red Herrings</title>
+<meta name="description" content="Add-on scenario packs for Red Herrings: drills, capstones and specialist cases from Red Herrings and independent authors. Install in one click in the Tackle Box. Author and sell your own.">
+<link rel="canonical" href="https://redherrings.app/packs.html">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#E5382F">
+<meta name="theme-color" content="#e3362b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#E5382F">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap">
-<meta property="og:description" content="Open an iPhone sms.db, join message, handle, chat and chat_message_join into a real thread, and decode Apple Cocoa time (nanoseconds since 2001) correctly.">
-<meta property="og:url" content="https://redherrings.app/blog/ios-imessage-forensics-cocoa-time.html">
+<meta property="og:title" content="Scenario packs for Red Herrings">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Red Herrings — randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<meta property="og:description" content="Add-on packs of verified cases. Install in the Tackle Box. Author and sell your own.">
+<meta property="og:url" content="https://redherrings.app/packs.html">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="../site.css">
-<link rel="stylesheet" href="../blog.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap","description":"Open an iPhone sms.db, join message, handle, chat and chat_message_join into a real thread, and decode Apple Cocoa time (nanoseconds since 2001) correctly.","datePublished":"2026-10-02","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/ios-imessage-forensics-cocoa-time.html"}
-</script>
+<link rel="stylesheet" href="site.css">
+<style>
+.pkgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:900px){.pkgrid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.pkgrid{grid-template-columns:1fr}}
+.pk{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow-sm)}
+.pk .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pk .disc{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.pk .price{font-family:var(--display);font-weight:700;font-size:20px}.pk .price.free{color:var(--ok)}
+.pk h3{margin:0;font-size:17px}.pk p{margin:0;color:var(--muted);font-size:14px;line-height:1.55;flex:1}
+.pk .meta{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+.pk form{display:flex;gap:8px;flex-wrap:wrap}.pk input[type=email]{flex:1;min-width:160px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--card);color:var(--ink)}
+.pk .out{font-size:13px;font-weight:600;display:none}.pk .out.ok{display:block;color:var(--ok)}.pk .out.bad{display:block;color:var(--bad)}
+.pkempty{border:1px dashed var(--line);border-radius:var(--radius);padding:28px;text-align:center;color:var(--muted)}
+.howsell{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:800px){.howsell{grid-template-columns:1fr}}
+.howsell div{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}.howsell b{display:block;font-family:var(--mono);color:var(--accent);font-size:12px;margin-bottom:6px}.howsell h4{margin:0 0 6px;font-size:15px}.howsell p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5}
+.purchased{margin:0 0 18px;padding:14px 16px;border-radius:12px;background:color-mix(in srgb,var(--ok) 12%,transparent);border:1px solid var(--ok);color:var(--ok);font-weight:600;display:none}
+</style>
 </head>
 <body>
 <header>
@@ -61,92 +70,73 @@
     </div>
   </div>
 </header>
-
 <main class="wrap" id="main">
-  <article class="post">
-    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
-    <div class="post-cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
-    <header class="post-head"><h1>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h1></header>
-    <p class="lede">An iPhone keeps its messages in a single SQLite file. Getting a readable thread out of it means joining four tables correctly and decoding a timestamp that is neither Unix seconds nor anything most tools guess right the first time.</p>
-
-    <p>Mobile forensics is where a lot of students meet their first real database. On an iPhone, the Messages app stores everything in <code>sms.db</code>, a standard SQLite file that lives at <code>/private/var/mobile/Library/SMS/sms.db</code> in a full file-system extraction. Open it in DB Browser for SQLite and you can read every table by hand. That accessibility is exactly why it makes such a good teaching artifact: nothing is locked behind a proprietary parser, so a student has to understand the schema rather than trust a tool's export.</p>
-
-    <p>It is also where two specific skills get tested at once. First, a message is not stored in one place: the text, the sender, the conversation and the ordering live in different tables that you have to join. Second, the timestamp is Apple's own epoch, and reading it as Unix time gives an answer that is wrong by thirty-one years. Both are worth teaching deliberately, because both show up on the job and on the mobile certification exams.</p>
-
-    <h2>The schema, in the order you need it</h2>
-    <p>Four tables carry the conversation, and each answers a different question:</p>
-    <ul>
-      <li><strong><code>message</code></strong> is the body. One row per message, with <code>text</code>, <code>date</code>, <code>is_from_me</code> (1 if the phone's owner sent it, 0 if they received it), <code>service</code> (iMessage or SMS), and a <code>handle_id</code> that points at the other party.</li>
-      <li><strong><code>handle</code></strong> is the address book of the conversation. Each row is one remote identity, with <code>id</code> holding the phone number in E.164 form or the Apple ID email. <code>message.handle_id</code> joins to <code>handle.ROWID</code>.</li>
-      <li><strong><code>chat</code></strong> is the thread itself, one row per conversation, with <code>chat_identifier</code> and an optional <code>display_name</code> for group chats.</li>
-      <li><strong><code>chat_message_join</code></strong> is the bridge. A message does not name its chat directly; this table maps <code>chat_id</code> to <code>message_id</code>, and it is the piece students most often forget.</li>
-    </ul>
-
-    <p>That last table is the crux. A beginner who selects straight from <code>message</code> gets a flat pile of texts with no sense of which conversation each belongs to, and in a group chat they cannot tell who said what. The join through <code>chat_message_join</code> is what turns the pile back into threads:</p>
-
-<pre><code>SELECT  datetime(m.date/1000000000 + 978307200, 'unixepoch') AS sent_utc,
-        CASE m.is_from_me WHEN 1 THEN 'owner' ELSE h.id END   AS sender,
-        m.service,
-        m.text
-FROM        message m
-JOIN        chat_message_join cmj ON cmj.message_id = m.ROWID
-JOIN        chat c                ON c.ROWID        = cmj.chat_id
-LEFT JOIN   handle h              ON h.ROWID        = m.handle_id
-WHERE   c.chat_identifier = '+15551234567'
-ORDER BY m.date;</code></pre>
-
-    <p>The <code>LEFT JOIN</code> on <code>handle</code> matters: an outbound message can have a <code>handle_id</code> of 0, so an inner join quietly drops every message the owner sent. Students who use an inner join here produce a transcript that is missing one side of the conversation, which is a subtle and very teachable mistake.</p>
-
-    <h2>The Cocoa-time trap</h2>
-    <p>Now the timestamp. On a modern iPhone, <code>message.date</code> is not Unix time. It is Apple's Cocoa Core Data timestamp: the number of <em>nanoseconds</em> since the Mac reference epoch of 2001-01-01 00:00:00 UTC. A single message date looks like <code>743800000000000000</code>, a number big enough that students assume it is already in milliseconds, or microseconds, and start dividing by guesses.</p>
-
-    <blockquote>Read an iPhone message date as Unix seconds and you land in 1970. Read it as Unix nanoseconds and you land tens of thousands of years in the future. The value is right there; the epoch is the whole exam.</blockquote>
-
-    <p>The correct decode has two steps. Divide by one billion to get seconds, then add <code>978307200</code>, the number of seconds between the Unix epoch of 1970 and the Mac epoch of 2001, to shift it onto Unix time. In SQLite that is the <code>datetime(m.date/1000000000 + 978307200, 'unixepoch')</code> expression above. The same transform applies to <code>date_read</code> and <code>date_delivered</code>, which lets a student prove not just when a message was sent but when it was actually read.</p>
-
-    <p>There is a historical wrinkle worth mentioning to a class: before iOS 11, <code>message.date</code> was stored in <em>seconds</em> since 2001, not nanoseconds. A student who finds a nine- or ten-digit date rather than an eighteen-digit one is looking at an older device, and the divide-by-a-billion step would push them back to 2001. Teaching the two formats side by side makes the point that a timestamp means nothing without its epoch and its unit.</p>
-
-    <h2>Putting a name to a number</h2>
-    <p>A phone number is an identifier, not a person. The second database in the extraction, <code>AddressBook.sqlitedb</code>, is where you resolve it: <code>ABPerson</code> holds the contact records and <code>ABMultiValue</code> holds their phone numbers and emails, so joining the <code>handle.id</code> from <code>sms.db</code> against the stored numbers turns <code>+15551234567</code> into a named contact. That cross-database correlation is the step that converts a raw thread into an investigative finding: this contact, under this saved name, sent this message at this time.</p>
-
-    <p>Students who prefer a guided tool can run the same extraction through <a href="../how.html">iLEAPP</a>, which parses <code>sms.db</code> and the address book into an HTML report with the timestamps already decoded. The teachable sequence is to have them answer the question by hand in DB Browser first, then confirm it in iLEAPP, so the automated parser is a check on their reasoning rather than a substitute for it. That is also how a real examiner validates a tool's output before putting it in a report.</p>
-
-    <h2>A different thread for every student</h2>
-    <p>The iPhone cases in Red Herrings plant a genuine <code>sms.db</code> with the real <code>message</code>, <code>handle</code>, <code>chat</code> and <code>chat_message_join</code> structure, alongside an <code>AddressBook.sqlitedb</code>, so students work the actual schema in the actual tools rather than a flattened export. And because every case is individually seeded, each student's phone has its own contacts, phone numbers, group membership, message text and timestamps. Ask "when did the suspect first message the burner number, in UTC?" and every student has to run their own join and their own Cocoa-time decode to reach their own answer. A copied timestamp is simply the wrong timestamp, because it belongs to someone else's phone.</p>
-
-    <p>Every generated variant is re-solved and verified before release by the <a href="../how.html">Fresh Catch check</a>, an independent parser pass that opens the student's own <code>sms.db</code>, performs the joins and decodes the dates, so the answer key is provably correct against the exact database each student receives. The iPhone family sits in the mobile forensics <a href="../pathways.html">pathway</a> alongside the Android cases, mapped to the GASF objectives and useful preparation for the Cellebrite and Magnet vendor exams.</p>
-
-    <div class="cta">
-      <strong>Want to put an iPhone sms.db in front of your class?</strong>
-      <p style="margin:8px 0 14px">Start the free 30-day trial. It runs on your machine, and you can generate a per-student iOS case with its own messages, contacts and timestamps in minutes.</p>
-      <div class="cta-row">
-        <a class="btn" href="../try.html" data-goatcounter-click="cta-trial-blog">Try a sample case</a>
-        <a class="btn ghost" href="../cases.html">Browse the mobile cases</a>
-      </div>
+  <section style="border-top:0">
+    <div class="crumb"><a href="/">Home</a> / Scenario packs</div>
+    <div class="secthead">
+      <h1 class="opener">Scenario packs, <em>install in one click</em></h1>
+      <p class="osub">Add-on sets of verified cases from Red Herrings and independent authors. Buy or claim a pack here, get a download link by email, and install it under Tackle Box in the app. Every case in a pack passes the same Fresh Catch check as the built-in library, and every student still gets their own variant.</p>
     </div>
-    <section class="related">
-      <h2>More teaching notes</h2>
-      <div class="rel-grid">
-      <a class="rel" href="detect-lateral-movement-windows-event-logs.html">
-        <div class="cover"><img src="../img/blog/detect-lateral-movement-windows-event-logs.svg" alt="" width="1600" height="1000"></div>
-        <span class="cat c-windows">Windows forensics</span>
-        <h3>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h3>
-      </a>
-      <a class="rel" href="gcfe-windows-forensics-practice-labs.html">
-        <div class="cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000"></div>
-        <span class="cat c-windows">Windows forensics</span>
-        <h3>GCFE practice: a different Windows forensics case for every student</h3>
-      </a>
-      <a class="rel" href="incident-response-exercise-edr-siem.html">
-        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000"></div>
-        <span class="cat c-ir">Incident response</span>
-        <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
-      </a>
-      </div>
-    </section>
-  </article>
-</main>
+    <div class="purchased" id="purchased" role="status">Thanks. Your download link is on its way to the email you used at checkout.</div>
+    <div class="pkgrid" id="packs"><div class="pkempty">Loading packs&hellip;</div></div>
+  </section>
 
+  <section>
+    <div class="secthead">
+      <h2 class="opener">Author a pack, <em>sell it here</em></h2>
+      <p class="osub">Pro licenses can author and resell packs. Build cases in the Scenario Editor, prove them with Verify draft, export the pack, and send it in. We list it with your name and publisher line, handle checkout and delivery, and pay out quarterly.</p>
+    </div>
+    <div class="howsell">
+      <div><b>01</b><h4>Build and verify</h4><p>Write the case in the editor. Verify draft generates one variant and runs the Fresh Catch check so every answer is proven before anyone sees it.</p></div>
+      <div><b>02</b><h4>Export and submit</h4><p>Export the pack from the Tackle Box with your publisher line and version, then send it through the contact form under Something else with the subject Pack submission.</p></div>
+      <div><b>03</b><h4>Listed and paid</h4><p>We test it on a clean machine, set the price with you, and list it. Buyers get a signed download; you get a statement and a payout each quarter.</p></div>
+    </div>
+    <div class="cta-row" style="margin-top:22px">
+      <a class="btn" href="/contact.html?topic=other" data-goatcounter-click="pack-submit">Submit a pack</a>
+      <a class="btn ghost" href="/#pricing">See the Pro plan</a>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+  var API='https://account.redherrings.app';
+  var grid=document.getElementById('packs');
+  var q=new URLSearchParams(location.search);
+  if(q.get('purchased')){document.getElementById('purchased').style.display='block';if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'pack-purchased-'+q.get('purchased'),event:true});}
+  function money(c){return c?('$'+(c/100).toFixed(c%100?2:0)):'Free';}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch];});}
+  function card(p){
+    var d=document.createElement('div');d.className='pk';
+    d.innerHTML='<div class="top"><span class="disc">'+esc(p.discipline||'digital forensics').replace('-',' ')+'</span><span class="price'+(p.free?' free':'')+'">'+money(p.price_cents)+'</span></div>'+
+      '<h3>'+esc(p.name)+'</h3><p>'+esc(p.description)+'</p>'+
+      '<div class="meta">'+(p.scenarios?esc(p.scenarios)+' cases · ':'')+'v'+esc(p.version)+(p.publisher?' · '+esc(p.publisher):'')+(p.tier_min?' · '+esc(p.tier_min)+' plan or above':'')+'</div>'+
+      (p.free?'<form novalidate><input type="email" placeholder="you@university.edu" aria-label="Email for the download link" required><button class="btn" type="submit">Email me the pack</button></form>':
+              '<form novalidate><button class="btn" type="submit">Buy '+money(p.price_cents)+'</button></form>')+
+      '<div class="out" role="status"></div>';
+    var f=d.querySelector('form'),out=d.querySelector('.out'),btn=f.querySelector('button');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();btn.disabled=true;
+      var body=p.free?{email:(f.querySelector('input')||{}).value||''}:{};
+      if(p.free&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(body.email)){out.className='out bad';out.textContent='Please enter a valid email address.';btn.disabled=false;return;}
+      fetch(API+'/api/v1/packs/'+encodeURIComponent(p.id)+(p.free?'/claim':'/checkout'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,j:j};});})
+      .then(function(x){
+        if(!x.ok){out.className='out bad';out.textContent=(x.j&&x.j.detail)||'Something went wrong.';return;}
+        if(p.free){out.className='out ok';out.textContent='Sent. Check your inbox for the download link.';if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'pack-claim-'+p.id,event:true});}
+        else if(x.j.url){if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'pack-buy-'+p.id,event:true});location.href=x.j.url;}
+      }).catch(function(){out.className='out bad';out.textContent='Could not reach the server. Try again in a minute.';})
+      .finally(function(){btn.disabled=false;});
+    });
+    return d;
+  }
+  fetch(API+'/api/v1/packs').then(function(r){return r.json();}).then(function(j){
+    grid.innerHTML='';
+    var packs=(j&&j.packs)||[];
+    if(!packs.length){grid.innerHTML='<div class="pkempty" style="grid-column:1/-1">The first packs are being prepared. Every plan already includes all 71 built-in cases; packs add specialist sets on top. Want to be told when one lands, or list your own? <a href="/contact.html?topic=other">Write to us</a>.</div>';return;}
+    packs.forEach(function(p){grid.append(card(p));});
+  }).catch(function(){grid.innerHTML='<div class="pkempty" style="grid-column:1/-1">Could not load the catalog right now. Every plan already includes all 71 built-in cases. <a href="/contact.html?topic=other">Write to us</a> about packs.</div>';});
+})();
+</script>
 <footer>
   <div class="wrap">
     <div class="ftop">
@@ -190,7 +180,6 @@ ORDER BY m.date;</code></pre>
     </div>
   </div>
 </footer>
-<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<script src="../nav.js" defer></script>
+<script src="nav.js" defer></script>
 </body>
 </html>

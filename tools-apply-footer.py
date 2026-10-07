@@ -25,6 +25,7 @@ PRODUCT = [
     ("Learning pathways", "/pathways.html"),
     ("MITRE ATT&amp;CK coverage", "/attack.html"),
     ("Student portal &amp; LMS", "/student-portal.html"),
+    ("Scenario packs", "/packs.html"),
     ("Pricing", "/#pricing"),
 ]
 RESOURCES = [
