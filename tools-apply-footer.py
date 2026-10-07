@@ -34,7 +34,7 @@ RESOURCES = [
     ("FAQ", "/#faq"),
     ("Trust &amp; security", "/trust.html"),
     ("Verify a certificate", "/verify.html"),
-    ("Download", "/#download"),
+    ("Download", "/download.html"),
 ]
 LEGAL = [
     ("Privacy", "/privacy.html"),
