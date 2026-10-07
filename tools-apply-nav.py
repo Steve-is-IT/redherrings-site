@@ -165,15 +165,10 @@ def apply(path, blog):
     if "<header>" not in s:
         return False
     s = HDR_RE.sub(lambda m: HEADER, s, count=1)
-    # wire nav.js in front of theme.js (idempotent)
-    if blog:
-        if '"../nav.js"' not in s:
-            s = s.replace('<script src="../theme.js" defer></script>',
-                          '<script src="../nav.js" defer></script>\n<script src="../theme.js" defer></script>', 1)
-    else:
-        if '"nav.js"' not in s:
-            s = s.replace('<script src="theme.js" defer></script>',
-                          '<script src="nav.js" defer></script>\n<script src="theme.js" defer></script>', 1)
+    # wire nav.js in before </body> (idempotent)
+    tag = '<script src="../nav.js" defer></script>' if blog else '<script src="nav.js" defer></script>'
+    if tag not in s:
+        s = s.replace("</body>", tag + "\n</body>", 1)
     with open(path, "w") as fh:
         fh.write(s)
     return True
