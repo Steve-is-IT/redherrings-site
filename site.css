@@ -406,7 +406,7 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .hero-cta .btn:not(.ghost):hover{transform:translateY(-1px)}
 .hero-cta .btn.ghost{background:var(--card);border:1px solid var(--line);color:var(--ink)}
 .hero-cta .btn.ghost:hover{border-color:color-mix(in srgb,var(--ink) 30%,var(--line))}
-.hero-split h1{margin:0 0 18px}
+.hero-split h1{margin:0 0 18px;font-size:clamp(30px,3.9vw,46px);line-height:1.08}
 .hero-split p.lede{margin:0 0 26px;max-width:560px}
 .hero-split .cta-row{justify-content:flex-start}
 .hero-proof{margin:20px 0 0;color:var(--faint);font-size:13.5px;font-weight:600;line-height:1.5}
