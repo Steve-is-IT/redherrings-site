@@ -58,7 +58,7 @@ L = {
     "edu": ("Educators", "One instructor, auto-graded labs", "/#pricing", "edu"),
     "dept": ("Departments", "Multiple instructors, all packs", "/#pricing", "edu"),
     "student": ("Students", "Self-practice at the personal rate", "/#pricing", "portal"),
-    "team": ("Business &amp; training", "Commercial use, CTF mode, per seat", "/#pricing", "team"),
+    "team": ("Security teams &amp; training", "45-minute incident drills, per seat", "/security-teams.html", "team"),
     "ent": ("Enterprise &amp; government", "White-label, volume, procurement", "/contact.html?topic=enterprise", "buy"),
 }
 
