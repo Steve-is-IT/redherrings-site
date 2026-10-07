@@ -221,7 +221,7 @@ TEMPLATE = '''<!doctype html>
 {cards}
     </div>
     <p class="emptymsg hide" id="empty">No cases match those filters. Use <strong>Clear</strong> to reset.</p>
-    <div class="cta-row" style="margin-top:40px"><a class="btn" href="/download.html">Start a free 14-day trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>
+    <div class="cta-row" style="margin-top:40px"><a class="btn" href="/download.html">Start a free 30-day trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>
   </section>
 </main>
 <div class="cmodal" id="cmodal" hidden>
@@ -254,20 +254,20 @@ TEMPLATE = '''<!doctype html>
       <div class="fcol">
         <h4>Support</h4>
         <a href="https://account.redherrings.app/account" data-goatcounter-click="signin">Activate a key</a>
-        <a href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
+        <a href="/contact.html?topic=lost-key">Lost your key?</a>
         <a href="help.html">Help &amp; getting started</a>
         <a href="trust.html">Security &amp; trust</a>
         <a href="tools.html">Tools &amp; setup</a>
         <a href="blog/">Blog</a>
         <a href="/#faq">FAQ</a>
-        <a href="mailto:sales@redherrings.app">sales@redherrings.app</a>
+        <a href="/contact.html">contact form</a>
       </div>
       <div class="fcol">
         <h4>Buy</h4>
         <a href="/#pricing">Educators</a>
         <a href="/#pricing">Departments</a>
         <a href="/#pricing">Business and training</a>
-        <a href="mailto:sales@redherrings.app?subject=Enterprise%20inquiry">Enterprise and government</a>
+        <a href="/contact.html?topic=enterprise">Enterprise and government</a>
       </div>
       <div class="fcol">
         <h4>Legal</h4>

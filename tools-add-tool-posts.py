@@ -23,7 +23,7 @@ TAIL = ('<script data-goatcounter="https://redherrings.goatcounter.com/count" as
 
 CTA = ('<div class="cta">\n'
        '      <strong>Want to practice on real evidence?</strong>\n'
-       '      <p style="margin:8px 0 14px">Download the free sample lab, or start the 14-day trial and generate a per-student case in a few minutes.</p>\n'
+       '      <p style="margin:8px 0 14px">Download the free sample lab, or start the 30-day trial and generate a per-student case in a few minutes.</p>\n'
        '      <div class="cta-row">\n'
        '        <a class="btn" href="/sample.html">Get the free sample lab</a>\n'
        '        <a class="btn ghost" href="/download.html">Start a free trial</a>\n'
