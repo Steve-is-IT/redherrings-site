@@ -33,6 +33,8 @@ PUBLISHER = "The Competence Collective, LLC"
 # no signing claim. Set this (e.g. "v1.7.0") when the first signed release
 # ships via packaging/scripts/release_windows_signed.ps1.
 SIGNED_SINCE = None
+# First release tag whose macOS zips were notarized in CI (see docs/CODE_SIGNING.md). None = not yet.
+MAC_NOTARIZED_SINCE = None
 
 E = lambda s: html.escape(str(s or ""), quote=True)
 
@@ -142,6 +144,8 @@ def page(latest, releases, notes, sums):
     win_sha = sums.get("RedHerrings-windows.zip", "")
     lin_sha = sums.get("RedHerrings-linux.zip", "")
     has_win = "RedHerrings-windows.zip" in latest["assets"]
+    mac_assets = [a for a in ("RedHerrings-macos-arm64.zip", "RedHerrings-macos-intel.zip") if a in latest["assets"]]
+    mac_notarized = bool(MAC_NOTARIZED_SINCE) and vt(tag) >= vt(MAC_NOTARIZED_SINCE)
 
     def sha_block(sha, label):
         if not sha:
@@ -178,6 +182,29 @@ def page(latest, releases, notes, sums):
 sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
           <p>It should print <code>RedHerrings-linux.zip: OK</code>.</p>
         </details>
+      </div>'''
+
+    mac_card = ""
+    if mac_assets:
+        links = "".join(
+            f'<a class="btn primary" href="{DL}/{a}" data-goatcounter-click="download-{a[len("RedHerrings-"):-4]}">'
+            f'Download for {"Apple silicon" if "arm64" in a else "Intel Mac"}{(" · " + mb(latest["assets"].get(a))) if latest["assets"].get(a) else ""}</a>'
+            for a in mac_assets)
+        shas = "".join(sha_block(sums.get(a, ""), a) for a in mac_assets)
+        gate = ('<p class="dl-signed">&#10003; Signed with a Developer ID certificate and notarized by Apple.</p>' if mac_notarized else
+                '<p class="dl-muted">First launch: right-click <code>RedHerrings</code> and choose <strong>Open</strong>, then Open again. macOS asks once for builds that are not yet notarized.</p>')
+        mac_card = f'''
+      <div class="dl-card">
+        <div class="dl-os">macOS</div>
+        <p class="dl-req">macOS 12 or newer. Pick the build for your Mac (Apple menu &rarr; About This Mac shows the chip). Unzip, then double-click <code>RedHerrings</code>; it opens Terminal and your browser.</p>
+        <div class="dl-row">{links}</div>
+        {shas}
+        <details class="dl-verify"><summary>Verify the download</summary>
+          <p>In Terminal, in the folder you downloaded to:</p>
+          <pre><code>shasum -a 256 RedHerrings-macos-*.zip</code></pre>
+          <p>The output must match the SHA-256 above.</p>
+        </details>
+        {gate}
       </div>'''
 
     it_signed = (f'allow it by <strong>publisher</strong> &mdash; an AppLocker, WDAC or Intune publisher rule for '
@@ -245,6 +272,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   .dl-leadrow{{display:flex;gap:10px;flex-wrap:wrap}}.dl-leadrow input[type=email]{{flex:1;min-width:220px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--card);color:var(--ink)}}
   .dl-hp{{position:absolute;left:-9999px;top:-9999px;height:0}}
   .dl-leadout{{display:none;margin-top:10px;font-weight:600;font-size:14px}}.dl-leadout.ok{{display:block;color:var(--ok)}}.dl-leadout.bad{{display:block;color:var(--bad)}}
+  .dl-row{{display:flex;gap:10px;flex-wrap:wrap}}
   .dl-trust{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0}}
   .dl-trust div{{border-left:3px solid var(--accent,#E5382F);padding:4px 0 4px 14px;font-size:14px;color:var(--ink-2,#5b6472)}}
   .dl-trust strong{{display:block;color:var(--ink,#12151c);margin-bottom:2px}}
@@ -268,7 +296,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
       <div class="dl-ver"><span class="chip">{E(tag)}</span><span>Released {E(nice_date)}</span><span>&middot;</span><a href="#release-notes">Release notes</a><span>&middot;</span><a href="{RELEASES_PAGE}">All versions</a></div>
     </div>
 
-    <div class="dl-grid">{win_card}{lin_card}
+    <div class="dl-grid">{win_card}{mac_card}{lin_card}
     </div>
 
     <form class="dl-lead" id="dl-lead" novalidate>
