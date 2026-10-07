@@ -238,12 +238,12 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:title" content="Download Red Herrings {E(tag)}">
-<meta property="og:description" content="Windows and Linux builds, checksums, requirements and release notes. 30-day free trial, no key needed.">
+<meta property="og:description" content="Windows, macOS and Linux builds, checksums, requirements and release notes. 30-day free trial, no key needed.">
 <meta property="og:url" content="https://redherrings.app/download.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Red Herrings — randomized digital forensics and incident-response labs for the classroom.">
+<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">

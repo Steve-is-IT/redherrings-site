@@ -152,7 +152,7 @@ TEMPLATE = '''<!doctype html>
       <div style="max-width:320px">
         <div class="brand" style="margin-bottom:8px"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="color:var(--ink);font-size:16px">Red Herrings</span></div>
         <p style="margin:0 0 10px">Real Evidence. Real Skills. Real Fast.</p>
-        <p style="margin:0;font-size:13px">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+        <p style="margin:0;font-size:13px">Runs locally on Windows, macOS and Linux. No student data ever leaves your machine.</p>
       </div>
       <div class="fcol">
         <h4>Product</h4>

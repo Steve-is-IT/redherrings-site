@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How It Works | Red Herrings Forensics &amp; IR Lab Generator</title>
-<meta name="description" content="How Red Herrings works: from one case it builds a unique, verified lab for every student across digital forensics and incident response, then grades the whole class and exports to your LMS. Runs locally on Windows and Linux.">
+<meta name="description" content="How Red Herrings works: from one case it builds a unique, verified lab for every student across digital forensics and incident response, then grades the whole class and exports to your LMS. Runs locally on Windows, macOS and Linux.">
 <link rel="canonical" href="https://redherrings.app/how.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Red Herrings — randomized digital forensics and incident-response labs for the classroom.">
+<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -32,7 +32,7 @@
   "step":[
     {"@type":"HowToStep","name":"Pick a case","text":"Choose a built-in scenario, write your own in the editor, or install a pack."},
     {"@type":"HowToStep","name":"Set the class","text":"Enter a head count or import a roster CSV, choose a difficulty, and set a seed."},
-    {"@type":"HowToStep","name":"Generate","text":"Each student gets a uniquely seeded evidence set, worksheet, answer key and rubric — plus an optional investigation report and chain-of-custody template — verified as it is built."},
+    {"@type":"HowToStep","name":"Generate","text":"Each student gets a uniquely seeded evidence set, worksheet, answer key and rubric, plus an optional investigation report and chain-of-custody template, verified as it is built."},
     {"@type":"HowToStep","name":"Hand out and grade","text":"Give each student their own zip, then batch-grade and export to your LMS."}
   ]
 }
@@ -70,7 +70,7 @@
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / How it works</div>
   <div class="secthead">
     <h1 class="opener">One case, <em>a verified lab for every student</em></h1>
-    <p class="osub">You write or pick a case once. Red Herrings generates, verifies, hands out, grades and exports to your LMS &mdash; all on your own machine.
+    <p class="osub">Pick or write a case once. Red Herrings generates, verifies, hands out, grades and exports to your LMS, all on your own machine.
       </p>
   </div>
 
@@ -79,7 +79,7 @@
       <div class="mr-text">
         <div class="eyebrow-sm">Pick a case</div>
         <h2>78 cases across two disciplines, ready to run</h2>
-        <p>Cases span two disciplines. <strong>Digital Forensics</strong> covers disk, registry, Windows event logs, memory, network captures (PCAP), mobile, cloud, Linux and macOS evidence, grouped into certification-prep tracks for GCFE, GCFA, GNFA, GCFR and the SANS macOS/Linux tracks. <strong>Incident Response</strong> cases work from the responder's own EDR and SIEM feeds and are mapped to <a href="attack.html">MITRE ATT&amp;CK</a> tactics, with tracks for GCIH and CompTIA CySA+. Filter by discipline, difficulty or track, open a case to read the briefing and questions, or build your own in the visual editor.</p>
+        <p><strong>Digital Forensics</strong> (49 cases) covers disk, registry, Windows event logs, memory, network captures (PCAP), mobile, cloud, Linux and macOS evidence, with certification-prep tracks for GCFE, GCFA, GNFA, GCFR and the SANS macOS/Linux tracks. <strong>Incident Response</strong> (29 cases) works from the responder's own EDR and SIEM feeds, mapped to <a href="attack.html">MITRE ATT&amp;CK</a>, with tracks for GCIH and CompTIA CySA+. Filter by discipline, difficulty or track, read the briefing and questions, or build your own in the visual editor.</p>
       </div>
       <div class="shot"><picture><source srcset="img/how-library.webp" type="image/webp"><img src="img/how-library.jpg" width="1280" height="800" alt="The Red Herrings case library, filtered by discipline, difficulty and certification path"></picture></div>
     </div>
@@ -88,7 +88,7 @@
       <div class="mr-text">
         <div class="eyebrow-sm">Set the class and generate</div>
         <h2>Your roster, your evidence, one click</h2>
-        <p>Enter a head count or drop in a roster CSV, pick a difficulty (higher difficulty adds decoys and sharper distractors), choose your output formats, and set a seed. The same seed and roster reproduce the exact same labs, so you can rebuild a lost package or regenerate on another machine. Then generate a uniquely seeded lab for every student at once.</p>
+        <p>Enter a head count or drop in a roster CSV, pick a difficulty (higher adds decoys and sharper distractors), choose output formats and set a seed. One click builds a differently seeded lab for every student. The same seed and roster reproduce the same labs, so you can rebuild a lost package on another machine.</p>
       </div>
       <div class="shot"><picture><source srcset="img/how-generate.webp" type="image/webp"><img src="img/how-generate.jpg" width="1280" height="800" alt="The Generate screen: choose a case, set the roster, difficulty, evidence types and seed"></picture></div>
     </div>
@@ -97,8 +97,8 @@
       <div class="mr-text">
         <div class="eyebrow-sm">Verified, then handed out</div>
         <h2>Every answer key is checked against the evidence</h2>
-        <p>After each lab is built, Red Herrings re-opens every artifact with an independent parser and confirms the answer key is actually in the evidence. That is the green <strong>Fresh Catch</strong> check. A fact that cannot be found is flagged before you ever hand the lab out.</p>
-        <p>Each student gets only their own zip; the instructor package holds the keys and per-student notes. Because every variant is seeded independently, the built-in anti-collusion report flags shared work.</p>
+        <p>After each lab is built, an independent parser re-opens every artifact and confirms the answer key is in the evidence. That is the green <strong>Fresh Catch</strong> check. A fact that cannot be found is flagged before the lab goes out.</p>
+        <p>Each student gets only their own zip; the instructor package holds the keys and per-student notes. The built-in anti-collusion report flags shared work.</p>
       </div>
       <div class="shot"><picture><source srcset="img/how-results.webp" type="image/webp"><img src="img/how-results.jpg" width="1280" height="800" alt="The results screen showing the green Fresh Catch verification with every check passed and per-student packages"></picture></div>
     </div>
@@ -107,7 +107,7 @@
       <div class="mr-text">
         <div class="eyebrow-sm">Guided learning</div>
         <h2>Hints when they are stuck, not the whole answer</h2>
-        <p>For a stuck learner or self-study, guided mode steps through a question one hint at a time: from a nudge about <em>where</em> to look, to <em>how</em> to work it with the right tool, to the answer. Print a guided worksheet with a hint under each question and a tool quick-start appendix, and decide whether learners may reveal full solutions at all.</p>
+        <p>Guided mode steps through a question one hint at a time: <em>where</em> to look, then <em>how</em> to work it with the right tool, then the answer. Print a guided worksheet with a hint under each question and a tool quick-start appendix, and decide whether learners may reveal full solutions at all.</p>
       </div>
       <div class="shot"><picture><source srcset="img/how-solution.webp" type="image/webp"><img src="img/how-solution.jpg" width="1280" height="800" alt="The Solution screen revealing a case answer key one step at a time"></picture></div>
     </div>
@@ -116,22 +116,22 @@
   <section id="evidence">
     <div class="secthead">
       <h2 class="opener">Authentic evidence, <em>in the formats of the job</em></h2>
-      <p class="osub">This is the part that matters: the evidence is not screenshots or tidy CSVs standing in for forensics. Each artifact is written in its real on-disk format &mdash; the same bytes the tool expects &mdash; so a case opens in Autopsy, Registry Explorer, Wireshark, Volatility or DB Browser exactly as a real one would, and every answer on the key is proven to be present in it. Here is what a case can hand a student, and what they open it with.</p>
+      <p class="osub">No screenshots or tidy CSVs standing in for forensics. Each artifact is written in its real on-disk format, the bytes the tool expects, so a case opens in Autopsy, Registry Explorer, Wireshark, Volatility or DB Browser like a real one. Here is what a case can hand a student, and what they open it with.</p>
     </div>
     <div class="grid" style="max-width:1060px;margin:0 auto">
       <div class="card">
         <h3>Disk images</h3>
-        <p>A real FAT/exFAT volume with a live file system, directory structure and deleted entries &mdash; carve and examine it, don't just read a listing.</p>
+        <p>A real FAT/exFAT volume with a live file system, directory structure and deleted entries: carve and examine it, don't just read a listing.</p>
         <div class="chips"><span class="chip">raw / .img volume</span><span class="chip">Autopsy</span><span class="chip">FTK Imager</span><span class="chip">The Sleuth Kit</span></div>
       </div>
       <div class="card">
         <h3>Windows registry</h3>
-        <p>NTUSER.DAT, SYSTEM and SOFTWARE hives in the binary REGF format, carrying the keys that USB history, execution and persistence analysis actually live in.</p>
+        <p>NTUSER.DAT, SYSTEM and SOFTWARE hives in the binary REGF format, carrying the keys where USB history, execution and persistence analysis live.</p>
         <div class="chips"><span class="chip">REGF hives</span><span class="chip">Registry Explorer</span><span class="chip">RegRipper</span></div>
       </div>
       <div class="card">
         <h3>Windows event logs</h3>
-        <p>Security.evtx and System.evtx as genuine binary EVTX &mdash; logon (4624/4625), process-creation (4688) and service events with the fields and IDs you expect, correlated by logon session.</p>
+        <p>Security.evtx and System.evtx as genuine binary EVTX: logon (4624/4625), process-creation (4688) and service events with the fields and IDs you expect, correlated by logon session.</p>
         <div class="chips"><span class="chip">.evtx</span><span class="chip">EvtxECmd</span><span class="chip">Event Viewer</span></div>
       </div>
       <div class="card">
@@ -141,7 +141,7 @@
       </div>
       <div class="card">
         <h3>Memory</h3>
-        <p>A real Windows minidump plus Volatility-style process, DLL, module and connection listings &mdash; spot the injected code, the unlinked module and the hidden network connection.</p>
+        <p>A real Windows minidump plus Volatility-style process, DLL, module and connection listings: spot the injected code, the unlinked module and the hidden network connection.</p>
         <div class="chips"><span class="chip">.dmp minidump</span><span class="chip">Volatility-style</span></div>
       </div>
       <div class="card">
@@ -151,17 +151,17 @@
       </div>
       <div class="card">
         <h3>Browser history</h3>
-        <p>The browser's own SQLite history database &mdash; visits, downloads and timestamps to decode and line up on a timeline.</p>
+        <p>The browser's own SQLite history database: visits, downloads and timestamps to decode and line up on a timeline.</p>
         <div class="chips"><span class="chip">SQLite</span><span class="chip">DB Browser for SQLite</span></div>
       </div>
       <div class="card">
         <h3>Email</h3>
-        <p>A full mbox mailbox with real headers &mdash; the Received chain, SPF and DKIM results &mdash; to trace a phishing message back to where it really came from.</p>
+        <p>A full mbox mailbox with real headers (the Received chain, SPF and DKIM results) to trace a phishing message back to where it really came from.</p>
         <div class="chips"><span class="chip">.mbox / .eml</span><span class="chip">Thunderbird</span><span class="chip">any mail client</span></div>
       </div>
       <div class="card">
-        <h3>Mobile &mdash; Android &amp; iPhone</h3>
-        <p>Android SMS, contacts, call-log, location-cache and WhatsApp stores, and iPhone <code style="padding:1px 5px">sms.db</code> and AddressBook &mdash; real SQLite from an extraction, Apple Cocoa-time stamps and all.</p>
+        <h3>Mobile: Android &amp; iPhone</h3>
+        <p>Android SMS, contacts, call-log, location-cache and WhatsApp stores, and iPhone <code style="padding:1px 5px">sms.db</code> and AddressBook: real SQLite from an extraction, Apple Cocoa-time stamps and all.</p>
         <div class="chips"><span class="chip">SQLite .db / .sqlitedb</span><span class="chip">DB Browser</span><span class="chip">ALEAPP / iLEAPP</span><span class="chip">Cellebrite / Magnet</span></div>
       </div>
       <div class="card">
@@ -175,12 +175,12 @@
         <div class="chips"><span class="chip">auth.log / syslog</span><span class="chip">log show</span><span class="chip">plist</span></div>
       </div>
       <div class="card">
-        <h3>EDR &amp; SIEM &mdash; incident response</h3>
+        <h3>EDR &amp; SIEM: incident response</h3>
         <p>Per-vendor EDR detections (CrowdStrike Falcon, Microsoft Defender, SentinelOne) and SIEM exports (Splunk ES, Microsoft Sentinel) in each product's real export shape, mapped to MITRE ATT&amp;CK.</p>
         <div class="chips"><span class="chip">EDR JSON / CSV</span><span class="chip">Splunk ES</span><span class="chip">Microsoft Sentinel</span></div>
       </div>
     </div>
-    <p class="note" style="text-align:center;max-width:720px;margin:22px auto 0">A case mixes the families its investigation needs, and a student README lists every file with its SHA-256. You pick exactly which artifact types a lab includes when you generate it.</p>
+    <p class="note" style="text-align:center;max-width:720px;margin:22px auto 0">A case mixes the families its investigation needs, and a student README lists every file with its SHA-256. You pick which artifact types a lab includes when you generate it.</p>
   </section>
 
   <section>
@@ -188,8 +188,8 @@
       <div class="mr-text">
         <div class="eyebrow-sm">Working solo</div>
         <h2>No class, and no LMS required</h2>
-        <p>Everything above is there when you want it, but none of it is mandatory. On a <strong>Personal license, Red Herrings runs in single-user mode</strong>: it builds one lab seeded just for you &mdash; the same authentic evidence and the same verified answer key &mdash; with no roster, no server and no LMS in the loop.</p>
-        <p>Work the case in the real tools, then <strong>self-check with the built-in grader</strong> and reveal the guided, step-by-step solution when you get stuck. It is the straightforward way to practise for GCFE, GCFA, GNFA, GCFR, GCIH, CySA+ and the vendor exams on your own schedule. Change your seed and generate again for a fresh variant any time.</p>
+        <p>None of the class machinery is mandatory. On a <strong>Personal license, Red Herrings runs in single-user mode</strong>: one lab seeded for you, with the same evidence and verified key, and no roster, server or LMS in the loop.</p>
+        <p>Work the case in the real tools, <strong>self-check with the built-in grader</strong> and reveal the guided solution when you get stuck. Practise for GCFE, GCFA, GNFA, GCFR, GCIH, CySA+ and the vendor exams on your own schedule, and change the seed for a fresh variant any time.</p>
       </div>
       <div class="shot"><picture><source srcset="img/how-solution.webp" type="image/webp"><img src="img/how-solution.jpg" width="1280" height="800" alt="The Solution screen revealing a case answer key one step at a time for a solo learner" loading="lazy"></picture></div>
     </div>
@@ -197,7 +197,7 @@
 
   <section style="text-align:center">
     <h2>See it on your own class</h2>
-    <p class="sub">Start the free 30-day trial. No key needed, nothing to host, and it runs entirely on your machine.</p>
+    <p class="sub">Start the free 30-day trial. No key needed and nothing to host.</p>
     <div class="cta-row" style="justify-content:center">
       <a class="btn" href="/download.html">Start a free 30-day trial</a>
       <a class="btn ghost" href="cases.html">Browse the cases</a>
@@ -211,7 +211,7 @@
       <div class="fbrand">
         <div class="brand"><a href="/" aria-label="Red Herrings home" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="font-size:16px">Red Herrings</span></a></div>
         <p>Real Evidence. Real Skills. Real Fast.</p>
-        <p class="fsmall">Runs locally on Windows and Linux. No student data ever leaves your machine.</p>
+        <p class="fsmall">Runs locally on Windows, macOS and Linux. No student data ever leaves your machine.</p>
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">
