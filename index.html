@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Red Herrings | Randomized Digital Forensics Labs with Auto-Grading</title>
-<meta name="description" content="One case becomes a unique, verified digital forensics or incident response lab for every student. 71 cases, whole-class auto-grading, an in-browser student portal and LMS passback over LTI 1.3. Runs locally on Windows and Linux.">
+<title>Red Herrings | Digital Forensics &amp; Incident Response Labs, Auto-Graded</title>
+<meta name="description" content="Hands-on digital forensics and incident response labs that grade themselves. 71 cases on real disk, memory, network, mobile, cloud, EDR and SIEM evidence; a different variant for every student; LMS passback over LTI 1.3. Runs locally on Windows and Linux. Free 14-day trial.">
 <link rel="canonical" href="https://redherrings.app/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#E5382F">
@@ -16,8 +16,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:url" content="https://redherrings.app/">
-<meta property="og:title" content="Red Herrings: Real Evidence. Real Skills. Real Fast.">
-<meta property="og:description" content="One case, a different lab for every student. Real evidence, verified answer keys, whole-class auto-grading, and grade export to Canvas, Blackboard, Moodle and D2L.">
+<meta property="og:title" content="Red Herrings: digital forensics and incident response labs that grade themselves">
+<meta property="og:description" content="One case, a different lab for every student. Real forensics and IR evidence, verified answer keys, whole-class auto-grading, and grade export to Canvas, Blackboard, Moodle and D2L.">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -27,46 +27,7 @@
 <meta name="twitter:description" content="One case, a different lab for every student. Real evidence, verified answer keys, auto-grading, LMS export. Runs locally.">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://redherrings.app/#org",
-      "name": "Red Herrings",
-      "url": "https://redherrings.app/",
-      "email": "sales@redherrings.app"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "Red Herrings",
-      "url": "https://redherrings.app/",
-      "applicationCategory": "EducationalApplication",
-      "operatingSystem": "Windows, Linux",
-      "description": "Digital forensics and incident response lab generator that produces a unique evidence set, worksheet, answer key and rubric for every student from one scenario. 71 cases across disk, registry, Windows event logs, memory, network (PCAP), mobile, cloud, Linux, macOS, EDR and SIEM evidence, grouped into certification-prep tracks (GCFE, GCFA, GNFA, GCFR, GCIH, CompTIA CySA+) with incident-response cases mapped to MITRE ATT&CK. Independent verification, a guided learning mode, whole-class auto-grading and LMS export. Runs locally on Windows and Linux.",
-      "publisher": {"@id": "https://redherrings.app/#org"},
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "USD",
-        "lowPrice": "129",
-        "highPrice": "7500",
-        "offerCount": "6"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type": "Question", "name": "Does Red Herrings phone home or upload student data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Generation and grading run entirely on your machine with no network call. The only server contact is license activation, refresh or deactivation, which sends only the license key, a derived machine id, the hostname and the app version. Air-gapped labs activate offline."}},
-        {"@type": "Question", "name": "How do I know the answer key is correct?", "acceptedAnswer": {"@type": "Answer", "text": "After generating each lab, Red Herrings re-opens every artifact with an independent parser (The Sleuth Kit, python-registry, python-evtx, LnkParse3, dpkt and others) and confirms each answer is present in the evidence. Answers are computed from the generated evidence, never hard-coded."}},
-        {"@type": "Question", "name": "Which forensic tools do the artifacts work with?", "acceptedAnswer": {"@type": "Answer", "text": "The evidence is written in real on-disk formats, so it opens in Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools."}},
-        {"@type": "Question", "name": "Can I get grades into Canvas, Blackboard, Moodle or D2L?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Grade the whole class in Red Herrings, then export a grade file in Canvas, Blackboard, Moodle or D2L Brightspace format, with an optional per-student feedback note. You can also export a case as a Common Cartridge (.imscc) module that imports into any conformant LMS."}},
-        {"@type": "Question", "name": "Is there anything to help beginners learn?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time. An optional guided worksheet prints a hint under each question and a tool quick-start appendix. Dozens of cases run from first-look triage to multi-hour capstones, including a First Look on-ramp for every core skill (memory, packet captures, the registry, event logs, timelines and more)."}},
-        {"@type": "Question", "name": "Can I write my own scenarios?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The visual scenario editor validates live and previews a resolved answer key. Export a pack to share or sell it."}},
-        {"@type": "Question", "name": "Can I remove the Red Herrings branding?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with a white-label license. One setting rebrands every screen and every generated document with your institution or company identity."}}
-      ]
-    }
-  ]
-}
+{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://redherrings.app/#org", "name": "Red Herrings", "url": "https://redherrings.app/", "email": "sales@redherrings.app"}, {"@type": "SoftwareApplication", "name": "Red Herrings", "url": "https://redherrings.app/", "applicationCategory": "EducationalApplication", "operatingSystem": "Windows, Linux", "description": "Digital forensics and incident response lab generator that produces a unique evidence set, worksheet, answer key and rubric for every student from one scenario. 71 cases across disk, registry, Windows event logs, memory, network (PCAP), mobile, cloud, Linux, macOS, EDR and SIEM evidence, grouped into certification-prep tracks (GCFE, GCFA, GNFA, GCFR, GCIH, CompTIA CySA+) with incident-response cases mapped to MITRE ATT&CK. Independent verification, a guided learning mode, whole-class auto-grading and LMS export. Runs locally on Windows and Linux.", "publisher": {"@id": "https://redherrings.app/#org"}, "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "129", "highPrice": "7500", "offerCount": "6"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Red Herrings phone home or upload student data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Generation and grading run entirely on your machine with no network call. The only server contact is license activation, refresh or deactivation, which sends only the license key, a derived machine id, the hostname and the app version. Air-gapped labs activate offline."}}, {"@type": "Question", "name": "How do I know the answer key is correct?", "acceptedAnswer": {"@type": "Answer", "text": "After generating each lab, Red Herrings re-opens every artifact with an independent parser (The Sleuth Kit, python-registry, python-evtx, LnkParse3, dpkt and others) and confirms each answer is present in the evidence. Answers are computed from the generated evidence, never hard-coded."}}, {"@type": "Question", "name": "Which forensic tools do the artifacts work with?", "acceptedAnswer": {"@type": "Answer", "text": "The evidence is written in real on-disk formats, so it opens in Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools."}}, {"@type": "Question", "name": "Can I get grades into Canvas, Blackboard, Moodle or D2L?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Grade the whole class in Red Herrings, then export a grade file in Canvas, Blackboard, Moodle or D2L Brightspace format, with an optional per-student feedback note. You can also export a case as a Common Cartridge (.imscc) module that imports into any conformant LMS."}}, {"@type": "Question", "name": "Is there anything to help beginners learn?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time. An optional guided worksheet prints a hint under each question and a tool quick-start appendix. Dozens of cases run from first-look triage to multi-hour capstones, including a First Look on-ramp for every core skill (memory, packet captures, the registry, event logs, timelines and more)."}}, {"@type": "Question", "name": "Can I write my own scenarios?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The visual scenario editor validates live and previews a resolved answer key. Export a pack to share or sell it."}}, {"@type": "Question", "name": "Can I remove the Red Herrings branding?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with a white-label license. One setting rebrands every screen and every generated document with your institution or company identity."}}]}], "mainEntity": [{"@type": "Question", "name": "Does it phone home or upload student data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Generation and grading run entirely on your machine with no network call. The only time the software contacts a server is to activate, refresh or deactivate a license, when it sends just the license key, a derived machine id, the hostname and the app version. Air-gapped labs activate offline."}}, {"@type": "Question", "name": "How do I know the answer key is correct?", "acceptedAnswer": {"@type": "Answer", "text": "After generating each lab, Red Herrings re-opens every artifact with an independent parser (The Sleuth Kit, python-registry, python-evtx, LnkParse3, dpkt and others) and confirms each answer is present in the evidence. The result is the green Fresh Catch checklist. Answers are computed from the generated evidence, never hard-coded."}}, {"@type": "Question", "name": "Which forensic tools do the artifacts work with?", "acceptedAnswer": {"@type": "Answer", "text": "The evidence is written in real on-disk formats, so it opens in Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools."}}, {"@type": "Question", "name": "Can I get grades into Canvas, Blackboard, Moodle or D2L?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Grade the whole class in Red Herrings, then export a grade file in Canvas, Blackboard, Moodle or D2L Brightspace format, with an optional per-student feedback note listing what each learner missed. You can also export a case as a Common Cartridge (.imscc) content module that imports into any conformant LMS."}}, {"@type": "Question", "name": "Is there anything to help beginners learn?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time, instead of showing everything at once. An optional guided worksheet prints a short hint under each question and a tool quick-start appendix, so students can start away from the app. Dozens of cases run from first-look triage to multi-hour capstones, with a First Look on-ramp for every core skill."}}, {"@type": "Question", "name": "Does it cover incident response, or only forensics?", "acceptedAnswer": {"@type": "Answer", "text": "Both. 48 cases are digital forensics (disk, registry, event logs, memory, network, mobile, cloud) and 23 are incident response, worked from EDR detection feeds and SIEM exports, mapped to MITRE ATT&CK and tagged with the NIST 800-61 phases. Every plan includes both."}}, {"@type": "Question", "name": "Do students need to install anything?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hand each student a zip to work in their own tools, or a private link to the student portal, where they read the evidence and answer in the browser. Grading runs on your machine either way."}}, {"@type": "Question", "name": "Can I write my own scenarios?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The visual editor validates live and previews a resolved answer key, so you see exactly what a student will get. Export a pack to share or sell it."}}, {"@type": "Question", "name": "Can I remove the Red Herrings branding?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with a white-label license. One setting rebrands every screen and document with your institution or company identity."}}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="site.css">
@@ -108,8 +69,8 @@
     <div class="hero-split">
       <div class="hero-copy">
         <span class="kicker" style="color:var(--accent)">Real Evidence. Real Skills. Real Fast.</span>
-        <h1>Learn the skills to become a DFIR pro.</h1>
-        <p class="lede">Red Herrings drops you into complete, true-to-life forensics cases &mdash; real disk, memory, network, mobile and cloud evidence, worked in the real tools. Every learner gets a different investigation, graded instantly against the evidence, from first-look triage to cert-prep capstones.</p>
+        <h1>Digital forensics and incident response labs that grade themselves.</h1>
+        <p class="lede">Real disk, memory, network, mobile and cloud evidence for forensics. Real EDR and SIEM feeds for incident response. Every student gets their own variant of the case, every answer is verified in the evidence, and the whole class is graded in one click &mdash; on your machine, with nothing to host.</p>
       </div>
       <div class="hero-media">
         <div class="hero-frame">
@@ -148,12 +109,12 @@
             <div class="hs-dots" role="tablist" aria-label="Choose a screen"></div>
           </div>
         </div>
-        <p class="hero-proof"><strong>71 cases, infinite per-student variations</strong> across Windows, Linux and macOS &mdash; disk, memory, network, mobile and cloud evidence &middot; air-gapped after a one-time activation &middot; maps to GIAC, CompTIA, EnCE &amp; Cellebrite tracks &middot; works with any LMS</p>
+        <p class="hero-proof"><strong>71 cases: 48 digital forensics, 23 incident response</strong> &middot; Windows, Linux, macOS, mobile and cloud &middot; mapped to GIAC, CompTIA, EnCE &amp; Cellebrite tracks and MITRE ATT&amp;CK &middot; works with any LMS &middot; runs offline</p>
       </div>
     </div>
     <div class="cta-row hero-cta">
       <button class="btn" data-action="trial" data-goatcounter-click="trial">Start a free 14-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="M12 5l7 7-7 7"/></svg></button>
-      <a class="btn ghost" href="try.html" data-goatcounter-click="try-hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>Try a sample case</a>
+      <a class="btn ghost" href="try.html" data-goatcounter-click="try-hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>Try a case in your browser</a>
     </div>
   </section>
   <div class="audience audience-strip" aria-label="Who uses Red Herrings">
@@ -177,50 +138,50 @@
   <section id="features" aria-labelledby="features-h">
     <div class="secthead">
       <h2 class="opener" id="features-h">Evidence you can open. Answers you can trust. <em>Grading that does itself.</em></h2>
-      <p class="osub">Not multiple-choice quizzes dressed up as forensics. Red Herrings makes the real thing: authentic artifacts in the formats of the job, a verification pass that proves every answer is actually there, and a different investigation for every learner.</p>
+      <p class="osub">Not multiple-choice quizzes dressed up as forensics. Red Herrings generates the real thing for both disciplines: authentic artifacts in the formats of the job, a verification pass that proves every answer is actually in the evidence, and a different investigation for every learner.</p>
     </div>
     <div class="rows-list">
       <div class="rowitem">
         <div class="n">01</div>
         <h3>Real evidence, in the formats they'll meet on the job</h3>
         <ul class="pts body">
-          <li>Disk images, Windows event logs, registry hives, memory captures for Volatility-style analysis (processes, injected code, unlinked modules, connections), network captures (PCAP), Prefetch, LNK and jump lists, browser history, email, cloud audit logs and mobile databases &mdash; all in genuine on-disk formats.</li>
-          <li><strong>Opens in the tools of the trade</strong> &mdash; Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools.</li>
+          <li><strong>Digital forensics:</strong> disk images, registry hives, Windows event logs, memory captures, PCAPs, Prefetch, LNK and jump lists, browser history, email, cloud audit logs and mobile databases, all in genuine on-disk formats.</li>
+            <li><strong>Incident response:</strong> EDR detection feeds, SIEM alert exports, proxy and firewall logs and host telemetry, mapped to MITRE ATT&amp;CK and tagged with the NIST 800-61 phases, so students respond the way a responder does.</li>
+          <li><strong>Opens in the tools of the trade:</strong> Autopsy, FTK Imager, Registry Explorer, EvtxECmd, Wireshark, Volatility and standard SQLite and email tools.</li>
         </ul>
       </div>
       <div class="rowitem">
         <div class="n">02</div>
         <h3>A different investigation for every student</h3>
         <ul class="pts body">
-          <li>Names, timestamps, hashes, IPs and answers all change per student from a single seed, so no two people get the same lab, and the same seed reproduces the exact labs on any machine. A copied answer is simply the wrong answer.</li>
-          <li><strong>Catch collusion, not just cheating</strong> &mdash; a per-question report shows how many distinct answers went out and which student pairs look most alike. Copied work has nowhere to hide.</li>
+          <li>Names, timestamps, hashes, IPs and answers all change per student from a single seed, so no two people get the same lab. A copied answer is simply the wrong answer.</li>
+          <li><strong>Catch collusion, not just cheating:</strong> a per-question report shows which student pairs look most alike.</li>
         </ul>
       </div>
       <div class="rowitem">
         <div class="n">03</div>
         <h3>Every answer is proven to be in the evidence</h3>
         <ul class="pts body">
-          <li>After generation, each artifact is re-opened with a separate parser and every answer on the key is confirmed present. If it is on the key, it is in the file &mdash; we call it the <strong>Fresh Catch check</strong>.</li>
-          <li>Answers are computed from the generated evidence, <strong>never hard-coded</strong>, so the key can never drift from the files a student actually receives.</li>
+          <li>After generation, each artifact is re-opened with an independent parser and every answer on the key is confirmed present in the file. We call it the <strong>Fresh Catch check</strong>.</li>
+          <li>Answers are computed from the generated evidence, <strong>never hard-coded</strong>, so the key cannot drift from the files a student receives.</li>
         </ul>
       </div>
       <div class="rowitem">
         <div class="n">04</div>
         <h3>You never build or hand-grade a lab again</h3>
         <ul class="pts body">
-          <li><strong>Auto-grading with sensible tolerances</strong> &mdash; hashes compare case-insensitively, timestamps within seconds, free text by fuzzy match with a review flag. Every score shows why it was awarded, so you can override with one click.</li>
-          <li><strong>Grade the whole class at once</strong> from one sheet, with a gradebook and analytics: mean, median and per-question correct rate. Export grades to Canvas, Blackboard, Moodle or D2L, or package a case as a Common Cartridge module.</li>
-          <li><strong><a href="student-portal.html">Students can solve in the browser</a></strong> too &mdash; a private link, graded on your machine, with the answer key never reaching the page. Optional, and covered on its own page.</li>
+          <li><strong>Auto-grading with sensible tolerances:</strong> hashes compare case-insensitively, timestamps within seconds, free text by fuzzy match with a review flag. Every score shows why, and you can override with one click.</li>
+          <li><strong>Grade the whole class at once,</strong> with class analytics and per-question correct rates. Export grades to Canvas, Blackboard, Moodle or D2L, or post them automatically over LTI 1.3.</li>
+          <li><strong><a href="student-portal.html">Students can solve in the browser:</a></strong> a private link per student, practice mode or a timed exam, graded on your machine with the answer key never reaching the page.</li>
         </ul>
       </div>
       <div class="rowitem">
         <div class="n">05</div>
         <h3>Built for how forensics is actually taught</h3>
         <ul class="pts body">
-          <li><strong>A learning on-ramp</strong> &mdash; guided mode walks a stuck learner from where to look, to how to work it with the right tool, to the answer, one question at a time. Reveal a full walkthrough, or run any case as a capture-the-flag with per-team flags and a CTFd import.</li>
-          <li><strong>Investigation report &amp; chain of custody</strong> &mdash; a court-ready template with the evidence manifest and SHA-256 hashes pre-filled, a transfer log and a finding-per-question write-up. The discipline employers hire for, that most courses skip.</li>
-          <li><strong>Certification-prep tracks</strong> &mdash; filter the library by cert path (Foundations, Windows, Mobile, Network, Cloud, Linux, macOS, Advanced Forensics &amp; IR), aligned to GCFE, GCFA, GNFA, GCFR, the SANS macOS and Linux tracks and vendor exams (ACE, EnCE, Cellebrite, Magnet).</li>
-          <li><strong>Your brand on every document</strong>, or none &mdash; one setting puts your institution's name, logo and colors on every screen and generated document, or strips the branding entirely.</li>
+          <li><strong>A learning on-ramp:</strong> guided mode walks a stuck learner from where to look, to how to work it with the right tool, to the answer, one question at a time. Or run any case as a capture-the-flag.</li>
+          <li><strong>Investigation report and chain of custody:</strong> a court-ready template with the evidence manifest and hashes pre-filled. The discipline employers hire for, that most courses skip.</li>
+          <li><strong>Certification-prep and ATT&amp;CK tracks:</strong> filter forensics cases by cert path (GCFE, GCFA, GNFA, GCFR, EnCE, Cellebrite, Magnet) and incident-response cases by MITRE ATT&amp;CK tactic, or <a href="pathways.html">follow a learning pathway</a> from first look to capstone.</li>
         </ul>
       </div>
     </div>
@@ -228,18 +189,18 @@
 
   <section id="how" aria-labelledby="how-h">
     <h2 id="how-h">From zero to a graded class in four steps</h2>
-    <p class="sub">Local software, no hosting and no runtime network call. Double-click to launch, it opens in your browser, and it runs air-gapped if it has to.</p>
+    <p class="sub">Desktop software, nothing to host. Double-click to launch, it opens in your browser, and it runs air-gapped if it has to.</p>
     <div class="steps">
-      <div class="step"><h4>Pick a case</h4><p>Choose from dozens built in, write your own in the visual editor, or install a pack.</p></div>
+      <div class="step"><h4>Pick a case</h4><p>Choose from 71 forensics and incident-response cases, write your own in the visual editor, or install a pack.</p></div>
       <div class="step"><h4>Set the class</h4><p>A head count or a roster CSV, a difficulty, and a seed. That is the whole setup.</p></div>
-      <div class="step"><h4>Generate</h4><p>Per-student evidence, worksheet, answer key and rubric — plus an optional investigation report &amp; chain-of-custody template — each one verified as it is built.</p></div>
-      <div class="step"><h4>Hand out and grade</h4><p>One zip per student, an instructor package, batch grading, and a grade file for your LMS.</p></div>
+      <div class="step"><h4>Generate</h4><p>Per-student evidence, worksheet, answer key and rubric, each one verified as it is built.</p></div>
+      <div class="step"><h4>Hand out and grade</h4><p>A zip or a private portal link per student, batch grading, and grades posted to your LMS.</p></div>
     </div>
   </section>
 
   <section id="scenarios" aria-labelledby="cases-h">
     <h2 id="cases-h">71 cases across two disciplines, ready to teach</h2>
-    <p class="sub">Two disciplines in one generator &mdash; <strong>Digital Forensics</strong> and <strong>Incident Response</strong> &mdash; from a first look at one log file to multi-hour capstones. You choose how many questions each student gets, up to the case's pool, drawn as a naturally balanced set across every artifact and unique per student, with point values, per-tool answer walkthroughs and a guided mode that eases beginners in. Forensics cases filter by certification path (GCFE, GCFA, GNFA, GCFR, the SANS macOS and Linux tracks, and vendor exams &mdash; ACE, EnCE, Cellebrite); incident-response cases filter by MITRE ATT&amp;CK tactic and work the responder's own tooling &mdash; EDR and SIEM feeds &mdash; from triage to containment, mapped to ATT&amp;CK and the NIST 800-61 phases. <a href="incident-response.html">See incident response training &rarr;</a></p>
+    <p class="sub">Two disciplines in one generator, <strong>Digital Forensics</strong> and <strong>Incident Response</strong>, from a first look at one log file to multi-hour capstones. Pick how many questions each student gets; the set is drawn fresh and unique per student, with point values and a per-tool walkthrough for every answer.</p>
     <div class="diffrow" aria-label="Difficulty levels">
       <span class="dpill cat-firstlook">First Look</span>
       <span class="dpill easy">Easy</span>
@@ -256,45 +217,34 @@
       <a class="card" href="cases.html"><span class="tag hard">Hard</span><h3>Placing the Phone at the Scene</h3><p>An Android extraction with location history: put the phone at the scene, recover the text sent from there, and line it up on a timeline. Mobile forensics for GASF and Cellebrite prep.</p></a>
       <a class="card" href="cases.html"><span class="tag expert">Expert · IR</span><h3>Operation Nightfall</h3><p>The full incident-response capstone: a double-extortion ransomware campaign worked across SIEM, EDR and host logs through every NIST 800-61 phase &mdash; detection, containment, eradication, recovery and the breach report.</p></a>
     </div>
-    <div class="cta-row" style="margin-top:30px"><a class="btn" href="cases.html">Browse all cases</a><a class="btn ghost" href="sample/LAB-insider-usb-student-001.zip">Download a sample lab</a></div>
-    <p class="note">Every paid plan includes all Easy, Medium and Hard cases. Department and Business plans add the Expert capstones and the scenario editor. Build your own case and export it as a pack to share or sell.</p>
+    <div class="cta-row" style="margin-top:30px"><a class="btn" href="cases.html">Browse all cases</a><a class="btn ghost" href="sample.html">Download a sample lab</a></div>
+    <p class="note">Every paid plan includes all First Look, Easy, Medium and Hard cases. Department and Business plans add the Expert and Marquee capstones and the scenario editor.</p>
   </section>
 
   <section id="download" aria-labelledby="dl-h">
-    <h2 id="dl-h">Download, paste your key, teach</h2>
-    <p class="sub">Red Herrings is a desktop app. There is no account to create and nothing to host: download it, activate it with the key we email you, and it runs on your machine.</p>
-    <div class="steps">
-      <div class="step"><h4>Download the app</h4><p>Click the button for your computer below. Unzip the file and double-click RedHerrings. It opens in your web browser, no install wizard needed.</p></div>
-      <div class="step"><h4>Start the free trial</h4><p>It runs as a 14-day trial right away, no key needed, so you can generate labs before you buy.</p></div>
-      <div class="step"><h4>Buy a plan</h4><p>Pick a plan below. Your license key arrives by email within a minute of checkout.</p></div>
-      <div class="step"><h4>Activate</h4><p>In the app, open <strong>Settings, then Licensing</strong>, paste the key, and click Activate. Air-gapped machines can activate offline.</p></div>
-    </div>
-    <div class="cta-row" style="margin-top:28px">
+    <h2 id="dl-h">Download, start the trial, teach</h2>
+    <p class="sub">Red Herrings is a desktop app for Windows and Linux. There is no account to create and nothing to host. Download it, and it runs as a 14-day trial right away, no key needed. When you buy, paste the key we email you into Settings and keep going.</p>
+    <div class="cta-row" style="margin-top:8px">
       <a class="btn" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Download for Windows</a>
       <a class="btn" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-linux.zip" data-goatcounter-click="download-linux">Download for Linux</a>
     </div>
-    <p class="note" style="margin-top:12px">Current version <strong data-dl-version>v1.6.0</strong> &middot; <a href="download.html">Release notes, checksums &amp; system requirements</a></p>
-    <div class="cta-row" style="margin-top:12px">
-      <a class="btn ghost" href="mailto:sales@redherrings.app?subject=Lost%20license%20key">Lost your key?</a>
-      <a class="btn ghost" href="tools.html">Tools &amp; setup</a>
-    </div>
-    <p class="note">Each license activates on a set number of machines. Deactivate from Settings to move it to a new one.</p>
+    <p class="note" style="margin-top:12px">Current version <strong data-dl-version>v1.6.0</strong> &middot; <a href="download.html">Release notes, checksums &amp; system requirements</a> &middot; <a href="tools.html">Free tools &amp; setup</a> &middot; <a href="https://account.redherrings.app/account" data-goatcounter-click="signin">Lost your key?</a></p>
   </section>
 
   <section id="pricing" aria-labelledby="pricing-h">
     <h2 id="pricing-h">Simple pricing, per instructor or per seat</h2>
-    <p class="sub">Start with a free 14-day trial, no card required. Every paid plan includes the auto-grader and unlimited lab generation.</p>
+    <p class="sub">Start with a free 14-day trial, no card required. Every paid plan includes both disciplines, the auto-grader, the student portal and unlimited lab generation.</p>
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="false" data-tab="edu">Education</button>
-      <button class="tab" role="tab" aria-selected="true" data-tab="ind">Individuals</button>
+      <button class="tab" role="tab" aria-selected="true" data-tab="edu">Education</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="ind">Individuals</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="biz">Business</button>
     </div>
-    <div class="prices hide" data-group="edu">
+    <div class="prices" data-group="edu">
       <div class="price"><h3>Trial</h3><p class="who">Try it with a real class</p><div class="amt">Free<span> / 14 days</span></div><ul><li>3 sample cases (one easy, one medium, one hard)</li><li>Up to 5 students per lab</li><li>Student portal, timed exams &amp; class analytics</li><li>Watermarked documents</li></ul><button class="btn ghost" data-action="trial" data-goatcounter-click="trial">Start free trial</button></div>
-      <div class="price feature"><h3>Educator</h3><p class="who">One instructor, one course at a time</p><div class="amt">$499<span> / year</span></div><ul><li>40 students per lab</li><li>Auto-grader, rubric and LMS export</li><li>Anti-collusion report</li><li>All Easy, Medium and Hard cases</li></ul><button class="btn" data-action="buy" data-plan="educator">Buy Educator</button></div>
+      <div class="price feature"><h3>Educator</h3><p class="who">One instructor, one course at a time</p><div class="amt">$499<span> / year</span></div><ul><li>40 students per lab</li><li>Auto-grader, rubric and LMS export</li><li>Anti-collusion report</li><li>All forensics and IR cases except Expert capstones</li><li>Student portal, timed exams and LMS passback</li></ul><button class="btn" data-action="buy" data-plan="educator">Buy Educator</button></div>
       <div class="price"><h3>Department</h3><p class="who">Programs with several instructors</p><div class="amt">$2,490<span> / year</span></div><ul><li>3 instructors, 150 students per lab</li><li>CTF mode and scenario editor</li><li>Every case including Expert capstones</li><li>Institution logo on documents</li><li>Priority support</li></ul><button class="btn ghost" data-action="sales" data-plan="department">Talk to us</button></div>
     </div>
-    <div class="prices" data-group="ind">
+    <div class="prices hide" data-group="ind">
       <div class="price"><h3>Trial</h3><p class="who">See it before you buy</p><div class="amt">Free<span> / 14 days</span></div><ul><li>3 sample cases (one easy, one medium, one hard)</li><li>Up to 5 students per lab</li><li>Student portal, timed exams &amp; class analytics</li><li>Watermarked documents</li></ul><button class="btn ghost" data-action="trial" data-goatcounter-click="trial">Start free trial</button></div>
       <div class="price feature"><h3>Personal</h3><p class="who">Self-study and certification prep</p><div class="amt">$129<span> / year</span></div><ul><li>Non-commercial self-practice</li><li>All Easy, Medium and Hard cases</li><li>Self-check grader and solution reveal</li><li>$69 for verified students &amp; U.S. veterans &mdash; <a href="https://account.redherrings.app/account" data-goatcounter-click="discount-verify">verify in your account</a></li></ul><button class="btn" data-action="buy" data-plan="personal">Buy Personal</button></div>
       <div class="price"><h3>Consultant</h3><p class="who">Paid workshops, month to month</p><div class="amt">$199<span> / month</span></div><ul><li>One Business seat, monthly</li><li>Commercial use rights</li><li>Cancel any time</li></ul><button class="btn ghost" data-action="buy" data-plan="consultant">Start monthly</button></div>
@@ -315,6 +265,8 @@
       <details><summary>Which forensic tools do the artifacts work with?</summary><p>The evidence is written in real on-disk formats, so it opens in Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility-style workflows, and standard SQLite and email tools.</p></details>
       <details><summary>Can I get grades into Canvas, Blackboard, Moodle or D2L?</summary><p>Yes. Grade the whole class in Red Herrings, then export a grade file in Canvas, Blackboard, Moodle or D2L Brightspace format, with an optional per-student feedback note listing what each learner missed. You can also export a case as a Common Cartridge (.imscc) content module that imports into any conformant LMS.</p></details>
       <details><summary>Is there anything to help beginners learn?</summary><p>Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time, instead of showing everything at once. An optional guided worksheet prints a short hint under each question and a tool quick-start appendix, so students can start away from the app. Dozens of cases run from first-look triage to multi-hour capstones, with a First Look on-ramp for every core skill.</p></details>
+      <details><summary>Does it cover incident response, or only forensics?</summary><p>Both. 48 cases are digital forensics (disk, registry, event logs, memory, network, mobile, cloud) and 23 are incident response, worked from EDR detection feeds and SIEM exports, mapped to MITRE ATT&amp;CK and tagged with the NIST 800-61 phases. Every plan includes both.</p></details>
+      <details><summary>Do students need to install anything?</summary><p>No. Hand each student a zip to work in their own tools, or a private link to the <a href="student-portal.html">student portal</a>, where they read the evidence and answer in the browser. Grading runs on your machine either way.</p></details>
       <details><summary>Can I write my own scenarios?</summary><p>Yes. The visual editor validates live and previews a resolved answer key, so you see exactly what a student will get. Export a pack to share or sell it.</p></details>
       <details><summary>Can I remove the Red Herrings branding?</summary><p>Yes, with a white-label license. One setting rebrands every screen and document with your institution or company identity.</p></details>
     </div>
