@@ -149,7 +149,7 @@ def build_header():
       <a class="btn ghost" href="/student-portal.html">Student portal</a>
     </div>
     <div class="mnrow">
-      <a class="btn ghost" href="/#download">Activate a key</a>
+      <a class="btn ghost" href="/download.html">Activate a key</a>
     </div>
   </div>
 </header>'''
