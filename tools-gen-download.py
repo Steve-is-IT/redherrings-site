@@ -32,7 +32,7 @@ PUBLISHER = "The Competence Collective, LLC"
 # Certum certificate. None = no signed build published yet, so the page makes
 # no signing claim. Set this (e.g. "v1.7.0") when the first signed release
 # ships via packaging/scripts/release_windows_signed.ps1.
-SIGNED_SINCE = None
+SIGNED_SINCE = "v1.7.0"
 # First release tag whose macOS zips were notarized in CI (see docs/CODE_SIGNING.md). None = not yet.
 MAC_NOTARIZED_SINCE = None
 
