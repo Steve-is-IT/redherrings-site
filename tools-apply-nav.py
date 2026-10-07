@@ -76,8 +76,8 @@ def mcol(head, keys):
 
 def promo():
     return ('<a class="mppromo" href="/try.html"><span class="eye">Try it live</span>'
-            '<strong>Solve a case in the browser</strong>'
-            '<span class="pd">A real sample case with a verified answer key. No install.</span>'
+            '<strong>Work two cases in the browser</strong>'
+            '<span class="pd">An EDR alert and a USB registry key, with a button that generates another student&rsquo;s variant. No install.</span>'
             '<span class="go">Open the demo &rarr;</span></a>')
 
 
