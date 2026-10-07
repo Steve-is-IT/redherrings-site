@@ -43,20 +43,20 @@ def icon(k):
 
 # link inventory: key -> (title, desc, href, icon)
 L = {
-    "how": ("How it works", "Author once, generate a unique case per student", "/how.html", "how"),
-    "cases": ("Case library", "78 verified DF &amp; IR cases to browse", "/cases.html", "cases"),
-    "attack": ("MITRE ATT&amp;CK coverage", "Techniques mapped to real evidence", "/attack.html", "attack"),
-    "path": ("Learning pathways", "First Look on-ramp to cert-prep capstone", "/pathways.html", "path"),
+    "how": ("How it works", "One case, a different variant for every student", "/how.html", "how"),
+    "cases": ("Case library", "78 verified forensics and IR cases", "/cases.html", "cases"),
+    "attack": ("ATT&amp;CK coverage", "Which techniques the cases exercise", "/attack.html", "attack"),
+    "path": ("Learning pathways", "From First Look to cert-prep capstone", "/pathways.html", "path"),
     "ir": ("Incident response", "EDR, SIEM and triage exercises", "/incident-response.html", "ir"),
-    "portal": ("Student portal &amp; LMS", "In-browser solve, grading, LMS passback", "/student-portal.html", "portal"),
-    "courses": ("Course packs", "Syllabus-ready 14-week and 8-week courses", "/courses.html", "path"),
-    "packsite": ("Scenario packs", "Add-on case sets, install in one click", "/packs.html", "cases"),
+    "portal": ("Student portal &amp; LMS", "Solve in the browser, auto-grade, LTI passback", "/student-portal.html", "portal"),
+    "courses": ("Course packs", "A 14-week DF and an 8-week IR syllabus, ready to run", "/courses.html", "edu"),
+    "packsite": ("Scenario packs", "Add-on case sets, one-click install", "/packs.html", "buy"),
     "blog": ("Blog", "DFIR teaching notes and updates", "/blog/", "blog"),
-    "help": ("Help &amp; getting started", "Install, activate and run your first lab", "/help.html", "help"),
-    "tools": ("Tools &amp; setup", "Autopsy, Volatility, Wireshark and more", "/tools.html", "tools"),
+    "help": ("Getting started", "Install, activate and run your first lab", "/help.html", "help"),
+    "tools": ("Tool setup", "Autopsy, Volatility, Wireshark and more", "/tools.html", "tools"),
     "trust": ("Trust &amp; security", "Runs locally; no student data leaves", "/trust.html", "trust"),
     "faq": ("FAQ", "Licensing, platforms, classroom use", "/#faq", "faq"),
-    "sample": ("Download a sample lab", "A full case ZIP with a verified key", "/sample.html", "key"),
+    "sample": ("Sample lab", "A full case ZIP with its verified answer key", "/sample.html", "key"),
     "edu": ("Educators", "One instructor, auto-graded labs", "/#pricing", "edu"),
     "dept": ("Departments", "Multiple instructors, all packs", "/#pricing", "edu"),
     "student": ("Students", "Self-practice at the personal rate", "/#pricing", "portal"),
@@ -78,8 +78,9 @@ def mcol(head, keys):
 
 def promo():
     return ('<a class="mppromo" href="/try.html"><span class="eye">Try it live</span>'
-            '<strong>Work two cases in the browser</strong>'
-            '<span class="pd">An EDR alert and a USB registry key, with a button that generates another student&rsquo;s variant. No install.</span>'
+            '<strong>Work two cases in your browser</strong>'
+            '<span class="pd">An EDR alert and a USB registry key. Press a button to see another student&rsquo;s variant. Nothing to install.</span>'
+            '<span class="pc"><span>EDR alert</span><span>USB registry</span></span>'
             '<span class="go">Open the demo &rarr;</span></a>')
 
 
@@ -88,9 +89,9 @@ CARET = ('<svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentCo
 
 # menu structure (Direction A)
 MENU = [
-    ("Platform", [("Explore", ["how", "cases", "attack"]), ("Go deeper", ["path", "courses", "portal", "packsite"])], True),
-    ("Solutions", [("By role", ["edu", "dept", "student"]), ("For organizations", ["team", "ent"])], False),
-    ("Resources", [("Learn", ["blog", "help", "tools"]), ("Evaluate", ["trust", "faq", "sample"])], False),
+    ("Platform", [("Product", ["how", "cases", "packsite"]), ("Teaching", ["path", "courses", "portal"])], True),
+    ("Solutions", [("Who it is for", ["edu", "dept", "student"]), ("Organizations", ["team", "ent"])], False),
+    ("Resources", [("Learn", ["help", "tools", "blog"]), ("Evaluate", ["sample", "attack", "trust", "faq"])], False),
 ]
 
 
@@ -138,7 +139,6 @@ def build_header():
     </nav>
     <div class="spacer"></div>
     <a class="link navutil" href="{ACCOUNT_URL}" data-goatcounter-click="signin">Sign in</a>
-    <a class="link navutil" href="/student-portal.html">Student portal</a>
     <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
     {burger}
   </div>
@@ -149,9 +149,6 @@ def build_header():
     <div class="mnrow">
       <a class="btn ghost" href="{ACCOUNT_URL}" data-goatcounter-click="signin">Sign in</a>
       <a class="btn ghost" href="/student-portal.html">Student portal</a>
-    </div>
-    <div class="mnrow">
-      <a class="btn ghost" href="{ACCOUNT_URL}" data-goatcounter-click="signin">Activate a key</a>
     </div>
   </div>
 </header>'''

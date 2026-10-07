@@ -696,13 +696,16 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .mlink .mi svg{width:16px;height:16px}
 .mlink .mt{display:block;color:var(--ink);font-weight:600;font-size:14px;line-height:1.3}
 .mlink .md{display:block;color:var(--muted);font-size:12.5px;line-height:1.4;margin-top:2px}
-.mppromo{display:flex;flex-direction:column;justify-content:flex-end;min-width:210px;max-width:240px;
-  padding:17px;border-radius:14px;text-decoration:none;
+.mppromo{display:flex;flex-direction:column;justify-content:center;min-width:236px;max-width:250px;
+  padding:18px;border-radius:14px;text-decoration:none;
   background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 15%,var(--card)),var(--card-2));
   border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line))}
 .mppromo .eye{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
 .mppromo strong{display:block;margin:8px 0 5px;font-size:15.5px;color:var(--ink);line-height:1.25}
 .mppromo .pd{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-bottom:12px}
+.mppromo .pc{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.mppromo .pc span{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:3px 8px;border-radius:999px;
+  color:var(--ink);background:var(--card);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line))}
 .mppromo .go{font-size:13px;font-weight:600;color:var(--blue)}
 
 .navutil{white-space:nowrap}
