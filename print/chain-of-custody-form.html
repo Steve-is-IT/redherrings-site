@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Chain of custody form</title>
+<link rel="stylesheet" href="fonts-local.css"><link rel="stylesheet" href="doc.css">
+<style>
+.f{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin-bottom:10px}
+.fld{border-bottom:1px solid var(--navy);padding:9px 0 3px;font-size:8pt;color:var(--muted)}
+.fld.w{grid-column:1/-1}
+table.log td{height:30px;border-bottom:1px solid var(--line)}
+table.log th{font-size:7.4pt}
+.sig{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:12px}
+.sig div{border-top:1px solid var(--navy);padding-top:4px;font-size:7.8pt;color:var(--muted)}
+</style></head><body>
+<section class="page">
+  <div class="top"><div class="brand"><img src="fish.svg" alt=""> Red Herrings</div><div class="kick">Classroom form &middot; chain of custody</div></div>
+  <h1>Evidence chain of custody</h1>
+  <p class="lede">One form per evidence item. Every transfer, examination and return is a row in the log, signed by the person releasing and the person receiving. Keep it with the evidence and attach it to the report.</p>
+  <h2>Case and item</h2>
+  <div class="f">
+    <div class="fld">Case number</div><div class="fld">Item number</div>
+    <div class="fld">Agency / organization / course</div><div class="fld">Examiner (print)</div>
+    <div class="fld w">Description of item (make, model, serial number, capacity, visible condition)</div>
+    <div class="fld">Collected by</div><div class="fld">Date and time collected (with time zone)</div>
+    <div class="fld w">Location collected from (address, room, desk, bag, device the item was attached to)</div>
+    <div class="fld">Acquisition method (write blocker, imaging tool, version)</div><div class="fld">Image file name and format (E01, raw, AFF4)</div>
+    <div class="fld">Hash algorithm</div><div class="fld">Hash of original / verification hash of image</div>
+  </div>
+  <h2>Custody log</h2>
+  <table class="log">
+    <thead><tr><th style="width:9%">Date / time</th><th style="width:19%">Released by (print and sign)</th><th style="width:19%">Received by (print and sign)</th><th style="width:28%">Purpose (transport, examination, storage, return)</th><th>Location / notes</th></tr></thead>
+    <tbody>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <h2 style="margin-top:12px">Final disposition</h2>
+  <div class="f">
+    <div class="fld">Returned to / retained by</div><div class="fld">Date and time</div>
+    <div class="fld w">Method of disposal or storage reference</div>
+  </div>
+  <div class="sig"><div>Examiner signature and date</div><div>Witness or instructor signature and date</div></div>
+  <div class="box tint" style="margin-top:12px"><b>Teaching note.</b> In a Red Herrings lab the generated evidence manifest lists every file with its hash. Have students copy those hashes onto this form, re-hash the files they received, and record the verification as the first row of the log. A mismatch is the first finding of the report, not a reason to skip the form.</div>
+  <div class="foot"><span><b>redherrings.app</b> &middot; free to copy and adapt for classroom use</span><span>The Competence Collective, LLC</span></div>
+</section>
+</body></html>

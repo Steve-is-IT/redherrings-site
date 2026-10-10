@@ -32,7 +32,9 @@ PRODUCT = [
 RESOURCES = [
     ("Help &amp; getting started", "/help.html"),
     ("Tools &amp; setup", "/tools.html"),
+    ("Free resources", "/resources.html"),
     ("Blog", "/blog/"),
+    ("Compare", "/compare.html"),
     ("FAQ", "/#faq"),
     ("Trust &amp; security", "/trust.html"),
     ("Verify a certificate", "/verify.html"),
@@ -86,6 +88,8 @@ FTR_RE = re.compile(r"<footer>.*?</footer>", re.S)
 def apply(path):
     with open(path) as fh:
         s = fh.read()
+    # pages opt in with a <footer>...</footer> block; an empty <footer></footer>
+    # placeholder is enough for a new page to pick up the canonical footer
     if "<footer>" not in s:
         return False
     s = FTR_RE.sub(lambda m: FOOTER, s, count=1)

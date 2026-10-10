@@ -56,6 +56,8 @@ L = {
     "tools": ("Tool setup", "Autopsy, Volatility, Wireshark and more", "/tools.html", "tools"),
     "trust": ("Trust &amp; security", "Runs locally; no student data leaves", "/trust.html", "trust"),
     "faq": ("FAQ", "Licensing, platforms, classroom use", "/#faq", "faq"),
+    "compare": ("Compare", "Hand-built labs, public images, ranges and us", "/compare.html", "attack"),
+    "resources": ("Free resources", "Forms, checklists, rubrics and syllabi", "/resources.html", "blog"),
     "sample": ("Sample lab", "A full case ZIP with its verified answer key", "/sample.html", "key"),
     "edu": ("Educators", "One instructor, auto-graded labs", "/#pricing", "edu"),
     "dept": ("Departments", "Multiple instructors, all packs", "/#pricing", "edu"),
@@ -91,7 +93,7 @@ CARET = ('<svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentCo
 MENU = [
     ("Platform", [("Product", ["how", "cases", "packsite"]), ("Teaching", ["path", "courses", "portal"])], True),
     ("Solutions", [("Who it is for", ["edu", "dept", "student"]), ("Organizations", ["team", "ent"])], False),
-    ("Resources", [("Learn", ["help", "tools", "blog"]), ("Evaluate", ["sample", "attack", "trust", "faq"])], False),
+    ("Resources", [("Learn", ["help", "tools", "resources", "blog"]), ("Evaluate", ["sample", "compare", "attack", "trust", "faq"])], False),
 ]
 
 
@@ -161,12 +163,15 @@ HDR_RE = re.compile(r"<header>.*?</header>", re.S)
 def apply(path, blog):
     with open(path) as fh:
         s = fh.read()
+    # pages opt in with a <header>...</header> block; an empty <header></header>
+    # placeholder is enough for a new page to pick up the canonical header
     if "<header>" not in s:
         return False
     s = HDR_RE.sub(lambda m: HEADER, s, count=1)
     # wire nav.js in before </body> (idempotent)
     tag = '<script src="../nav.js" defer></script>' if blog else '<script src="nav.js" defer></script>'
-    if tag not in s:
+    # a page may already carry a root-absolute copy (404.html is served from any path)
+    if tag not in s and '<script src="/nav.js" defer></script>' not in s:
         s = s.replace("</body>", tag + "\n</body>", 1)
     with open(path, "w") as fh:
         fh.write(s)

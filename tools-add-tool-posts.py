@@ -173,7 +173,7 @@ def related_html(slugs):
     for s in slugs:
         cls, cat, title = META[s]
         cards.append(f'''      <a class="rel" href="{s}.html">
-        <div class="cover"><img src="../img/blog/{s}.svg" alt="" width="1600" height="1000"></div>
+        <div class="cover"><img src="../img/blog/{s}.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <span class="cat {cls}">{cat}</span>
         <h3>{title}</h3>
       </a>''')
