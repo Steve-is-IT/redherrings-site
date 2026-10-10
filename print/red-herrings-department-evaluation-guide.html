@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Red Herrings: evaluation guide for departments</title>
+<link rel="stylesheet" href="fonts-local.css"><link rel="stylesheet" href="doc.css">
+<style>body{font-size:8.5pt;line-height:1.38}.lede{font-size:9pt;margin-bottom:9px}h2{margin-top:2px;font-size:10.2pt}table td,table th{padding:2px 5px}table{font-size:7.9pt}.plan ul{margin-bottom:2px}.plan{padding:6px 9px}.plans{gap:7px}li{margin-bottom:1.5px}</style>
+<style>.plans{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.plan{border:1px solid var(--line);border-radius:8px;padding:8px 10px}.plan h3{margin-bottom:2px}.plan .who{color:var(--faint);font-size:7.8pt;margin-bottom:5px}.plan ul{font-size:8.2pt;padding-left:13px}</style>
+</head><body>
+<section class="page">
+  <div class="top"><div class="brand"><img src="fish.svg" alt=""> Red Herrings</div><div class="kick">Evaluation guide for departments</div></div>
+  <h1>Evaluating Red Herrings for a forensics or incident response program</h1>
+  <p class="lede">A one-page summary for a chair, curriculum committee or purchasing office. It covers what the software does, how to check it in a free trial, what a purchase involves, and the answers security and procurement reviewers usually need.</p>
+
+  <div class="cols">
+    <div>
+      <h2>What it is</h2>
+      <p>A desktop application for Windows, macOS and Linux that generates digital forensics and incident response lab exercises. Each case ships as real evidence (disk images, registry hives, Windows event logs, memory captures, packet captures, mobile extractions, cloud audit logs, EDR and SIEM exports) with a worksheet, an answer key and a grading rubric.</p>
+      <p>The distinguishing feature is that <b>every student receives a different variant of the same case</b>: names, timestamps, hashes, addresses and answers all change per student from one seed. A copied answer is a wrong answer, and an anti-collusion report shows which submissions look alike. Every answer key is re-derived from the generated files by an independent parser before the lab is released.</p>
+
+      <h2>What the trial lets you check</h2>
+      <ul class="chk">
+        <li>Install without an account, generate a three-student lab in minutes, and open the evidence in Autopsy, Registry Explorer, EvtxECmd, Wireshark or Volatility.</li>
+        <li>Confirm two students' packages differ, and that the answer key for each matches its own evidence.</li>
+        <li>Grade a submission and read the per-answer explanation; export the scores as a CSV your LMS imports.</li>
+        <li>Open the 14-week forensics and 8-week incident response syllabi and map them to your catalogue.</li>
+        <li>Filter the library by GIAC, CompTIA, EnCE or Cellebrite objective and by MITRE ATT&amp;CK technique.</li>
+        <li>Run the student portal on the instructor's machine and submit answers as a student would.</li>
+      </ul>
+      <p class="small">The trial runs 30 days with five sample cases and up to five students per lab. Everything else behaves as it does on a license.</p>
+
+      <h2>How a purchase works</h2>
+      <ul>
+        <li>Card checkout on the website, or a purchase order sent to sales@redherrings.app. A W-9 and a vendor form are available on request.</li>
+        <li>Licenses are annual and renew unless cancelled. A license key arrives by email and is activated inside the app; air-gapped machines can activate by file.</li>
+        <li>Department licenses cover three instructors; ask us about larger programs.</li>
+        <li>Full refund within 14 days of purchase; see redherrings.app/refund.html.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Plans</h2>
+      <div class="plans" style="grid-template-columns:1fr">
+        <div class="plan"><h3>Educator</h3><div class="who">One instructor and their classes</div><ul><li>Up to 40 students per lab</li><li>Auto-grader, rubric and LMS export</li><li>Student portal, timed exams and LTI grade passback</li><li>Anti-collusion report and term analytics</li></ul></div>
+        <div class="plan"><h3>Department</h3><div class="who">Programs with several instructors</div><ul><li>Three instructors included, 150 students per lab</li><li>Every case, including the Expert capstones</li><li>CTF mode and the scenario editor for authoring your own cases</li><li>Institution logo on documents, priority support</li></ul></div>
+        
+      </div>
+      <p class="small" style="margin-top:4px">Individual and student plans, current pricing and the free trial: <b>redherrings.app/#pricing</b></p>
+
+      <h2>For security and procurement review</h2>
+      <table>
+        <tr><th>Question</th><th>Answer</th></tr>
+        <tr><td>Where does student data live?</td><td>On the instructor's computer. Generation, grading, rosters and submissions never leave it. No telemetry.</td></tr>
+        <tr><td>What network access is needed?</td><td>One activation call to the license server, then none. Optional, off by default: a once-daily version check and connected LMS (LTI 1.3) mode.</td></tr>
+        <tr><td>Does the vendor hold student records?</td><td>No. The only records held are the purchaser's email, license and payment status (card processing by Stripe).</td></tr>
+        <tr><td>Accessibility</td><td>Accessibility statement and VPAT at redherrings.app/accessibility.html.</td></tr>
+        <tr><td>Software integrity</td><td>Windows builds are code-signed (The Competence Collective, LLC); macOS builds are notarized. Licenses are Ed25519-signed.</td></tr>
+        <tr><td>Legal</td><td>EULA, privacy policy and terms at redherrings.app. Security questionnaires completed on request.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="foot"><span><b>redherrings.app</b> &middot; sales@redherrings.app</span><span>The Competence Collective, LLC &middot; Tallahassee, Florida</span></div>
+</section>
+</body></html>

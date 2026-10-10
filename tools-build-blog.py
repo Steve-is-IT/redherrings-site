@@ -92,13 +92,12 @@ TAIL = _src.split("</footer>", 1)[1]  # goatcounter + theme.js + </body></html>
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-         'family=Inter:wght@400;500;600;700;800&display=swap">')
+         'family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700'
+         '&family=JetBrains+Mono:wght@400;600&display=swap">')
 ICON = ('<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 '
         'viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 '
         '3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 '
         '51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">')
-THEMEBOOT = ("<script>(function(){try{var t=localStorage.getItem('rh-theme');"
-             "if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>")
 
 
 def card(p, featured=False):
@@ -116,7 +115,7 @@ def card(p, featured=False):
         </div>
       </a>'''
     return f'''      <a class="pcard" href="{href}" data-cat="{p["cat"]}">
-        <div class="cover"><img src="{img}" alt="" width="1600" height="1000" loading="lazy"></div>
+        <div class="cover"><img src="{img}" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <div>
           <div class="meta-top">{meta}</div>
           <h3>{p["title"]}</h3>
@@ -187,6 +186,9 @@ def build_index():
 <meta property="og:title" content="Red Herrings blog — DFIR teaching notes">
 <meta property="og:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Red Herrings blog — DFIR teaching notes">
 <meta name="twitter:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
@@ -195,7 +197,6 @@ def build_index():
 {FONTS}
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="../blog.css">
-  {THEMEBOOT}
 </head>
 <body>
 {HEADER}
@@ -233,7 +234,7 @@ def related_block(slug):
     cards = []
     for p in picks:
         cards.append(f'''      <a class="rel" href="{p["slug"]}.html">
-        <div class="cover"><img src="../img/blog/{p["slug"]}.svg" alt="" width="1600" height="1000" loading="lazy"></div>
+        <div class="cover"><img src="../img/blog/{p["slug"]}.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <span class="cat {p["cls"]}">{p["cat"]}</span>
         <h3>{p["title"]}</h3>
       </a>''')
