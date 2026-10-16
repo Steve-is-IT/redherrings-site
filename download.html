@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Download Red Herrings v1.7.0 for Windows &amp; Linux | Red Herrings</title>
-<meta name="description" content="Download Red Herrings v1.7.0 for Windows or Linux: a 30-day free trial with no key needed. Checksums, system requirements and release notes for every version.">
+<title>Download Red Herrings v1.8.0 for Windows &amp; Linux | Red Herrings</title>
+<meta name="description" content="Download Red Herrings v1.8.0 for Windows or Linux: a 30-day free trial with no key needed. Checksums, system requirements and release notes for every version.">
 <link rel="canonical" href="https://redherrings.app/download.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#e3362b">
@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta property="og:title" content="Download Red Herrings v1.7.0">
+<meta property="og:title" content="Download Red Herrings v1.8.0">
 <meta property="og:description" content="Windows, macOS and Linux builds, checksums, requirements and release notes. 30-day free trial, no key needed.">
 <meta property="og:url" content="https://redherrings.app/download.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"1.7.0","datePublished":"2026-10-07","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"},"downloadUrl":"https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-windows.zip","publisher":{"@type":"Organization","name":"The Competence Collective, LLC"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"1.8.0","datePublished":"2026-10-16","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"},"downloadUrl":"https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-Setup-1.8.0.exe","publisher":{"@type":"Organization","name":"The Competence Collective, LLC"}}
 </script>
 <style>
   .dl-head{margin:8px 0 22px}
@@ -93,27 +93,28 @@
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
       <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial with no key needed</strong> &mdash; generate labs, run the student portal and grade a class before you buy.</p>
-      <div class="dl-ver"><span class="chip">v1.7.0</span><span>Released October 7, 2026</span><span>&middot;</span><a href="#release-notes">Release notes</a><span>&middot;</span><a href="https://github.com/Steve-is-IT/redherrings-site/releases">All versions</a></div>
+      <div class="dl-ver"><span class="chip">v1.8.0</span><span>Released October 16, 2026</span><span>&middot;</span><a href="#release-notes">Release notes</a><span>&middot;</span><a href="https://github.com/Steve-is-IT/redherrings-site/releases">All versions</a></div>
     </div>
 
     <div class="dl-grid">
       <div class="dl-card">
         <div class="dl-os">Windows</div>
-        <p class="dl-req">Windows 10 or 11, 64-bit. No installer: unzip and run <code>RedHerrings.exe</code>; it opens in your browser.</p>
-        <a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Download for Windows · 43 MB</a>
-        <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>0d641dd4066ff19b4611dcefd09da120cf26bf51a8a4d1045fa378526c84f1cc</code></div>
+        <p class="dl-req">Windows 10 or 11, 64-bit. Run the installer; it adds a Start menu entry, needs no admin rights, and upgrades in place. The app opens in your browser.</p>
+        <a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-Setup-1.8.0.exe" data-goatcounter-click="download-windows-setup">Download the installer · 34 MB</a>
+        <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>f227973b792d25b856803839e64efacba09cf541d3a968c680faed3ec8221077</code></div>
+        <p class="dl-muted">Prefer no install? <a href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Portable zip · 43 MB</a>: unzip anywhere and run <code>RedHerrings.exe</code>.</p>
         <details class="dl-verify"><summary>Verify the download</summary>
           <p>In PowerShell, in the folder you downloaded to:</p>
-          <pre><code>(Get-FileHash .\RedHerrings-windows.zip -Algorithm SHA256).Hash</code></pre>
-          <p>The output must match the SHA-256 above (letter case doesn't matter).</p>
+          <pre><code>(Get-FileHash .\RedHerrings-Setup-1.8.0.exe -Algorithm SHA256).Hash</code></pre>
+          <p>The output must match the SHA-256 above (letter case doesn't matter). The portable zip's checksum is d02b533376f0bb774f40ae1b7d3e25a555f03fafd0a2a856db75fd5d600da35a.</p>
         </details>
-        <p class="dl-signed">&#10003; Authenticode-signed by The Competence Collective, LLC &mdash; Windows shows the publisher name on the run prompt.</p>
+        <p class="dl-signed">&#10003; Installer and app are Authenticode-signed by The Competence Collective, LLC &mdash; Windows shows the publisher name on the run prompt.</p>
       </div>
       <div class="dl-card">
         <div class="dl-os">macOS</div>
         <p class="dl-req">macOS 12 or newer. Pick the build for your Mac (Apple menu &rarr; About This Mac shows the chip). Unzip, then double-click <code>RedHerrings</code>; it opens Terminal and your browser.</p>
         <div class="dl-row"><a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-macos-arm64.zip" data-goatcounter-click="download-macos-arm64">Download for Apple silicon · 40 MB</a><a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-macos-intel.zip" data-goatcounter-click="download-macos-intel">Download for Intel Mac · 41 MB</a></div>
-        <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>28853a2ab05e2790546437f123beaa46e4aaf6517f0abd7fbaa6ec5532f76ff3</code></div><div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>31ac692d0b64eab8616167666bb5ad3d520ade2e1e4911f8b0fbb24e1ec0d676</code></div>
+        <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>5509a0ec8058390728cbce3f5ed143399bbd8a8205525594ef7f4a75e3c4bed7</code></div><div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>8a4d076e0695e6f8cf454af6d13f45d5d7db6037d4c498ec5b906c6765bf3608</code></div>
         <details class="dl-verify"><summary>Verify the download</summary>
           <p>In Terminal, in the folder you downloaded to:</p>
           <pre><code>shasum -a 256 RedHerrings-macos-*.zip</code></pre>
@@ -125,7 +126,7 @@
         <div class="dl-os">Linux</div>
         <p class="dl-req">64-bit Linux with a recent glibc (Ubuntu 22.04, Debian 12, Fedora 38 or newer). Unzip and run <code>./RedHerrings</code>.</p>
         <a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/RedHerrings-linux.zip" data-goatcounter-click="download-linux">Download for Linux · 71 MB</a>
-        <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>c90d0aafbf3f562a5ffc9a4b09f0a255f9e4872dc1c840e3a050986bd6c812ae</code></div>
+        <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>f5c2dce52d1b969a9c416f3f494b735e401d63a91393add9a3e7c621f6b46b34</code></div>
         <details class="dl-verify"><summary>Verify the download</summary>
           <p>In the folder you downloaded to:</p>
           <pre><code>curl -LO https://github.com/Steve-is-IT/redherrings-site/releases/latest/download/SHA256SUMS.txt
@@ -159,7 +160,15 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   <section id="release-notes">
     <h2>Release notes</h2>
     <p class="sub">What changed in each version. Every release keeps the full case library generating and verifying.</p>
-    <details class="dl-notes" open><summary><strong>v1.7.0</strong> <span class="dl-muted">October 7, 2026 &middot; <a href="https://github.com/Steve-is-IT/redherrings-site/releases/tag/v1.7.0">release</a></span></summary><div class="dl-notesbody"><p>The teaching-complete release: course packs, a first-run tour, exam integrity mode, report grading and self review, question sets, QTI export, term analytics, a verify-draft button in the editor, seven new cases, and macOS builds. Every scenario still generates and verifies (full suite green).</p>
+    <details class="dl-notes" open><summary><strong>v1.8.0</strong> <span class="dl-muted">October 10, 2026 &middot; <a href="https://github.com/Steve-is-IT/redherrings-site/releases/tag/v1.8.0">release</a></span></summary><div class="dl-notesbody"><p>A quality-of-life release for instructors who use the app every week: a way to reach us from inside the app, a command palette, a getting-started checklist, and release notes shown in the app after each update. The admin console gained contact handling and a dependency fix for CI. Every scenario still generates and verifies (full suite green, 379 tests).</p>
+<h4>In the app</h4>
+<ul><li><strong>Send feedback.</strong> A button in the sidebar and in Settings opens the contact form on redherrings.app with your note, app version and platform filled in. The app itself sends nothing; the only network call is the page you open.</li><li><strong>Command palette.</strong> Ctrl+K (Cmd+K on macOS) jumps to any screen, runs common actions, and searches every case by name, id, discipline, difficulty and tools. Arrow keys and Enter to pick, Esc to close.</li><li><strong>Getting started checklist.</strong> The Case Library shows five steps for a new install (tour, a real class, the student portal, grading, license or LMS), derived from what you have actually done. Dismiss it any time; bring it back from Settings.</li><li><strong>What&#x27;s new.</strong> The release notes for the running version appear once after an update, and are always available from Settings &gt; About.</li><li><strong>Updates, with your permission.</strong> On first launch the app asks once whether it may check github.com daily for a newer version; nothing is sent until you say yes, and the answer can be changed in Settings, which also gained a &quot;Check now&quot; button. When a newer version exists, &quot;Update now&quot; downloads it, verifies it against the published SHA256SUMS, unpacks it beside the current install and swaps it in on restart. Labs, settings and the license are never touched. Installs the app cannot write to fall back to the download link.</li><li>The welcome screen no longer quotes an exact case count.</li></ul>
+<h4>Windows</h4>
+<ul><li><strong>Installer.</strong> <code>RedHerrings-Setup-&lt;version&gt;.exe</code>, built with Inno Setup and signed with the same certificate as the app: per-user by default with no admin prompt, Start menu and Add/Remove Programs entries, in-place upgrades. The portable zip is still published for people who prefer it.</li><li>The executable now carries an icon and a version resource (Properties &gt; Details shows the product name, version and publisher).</li></ul>
+<h4>Admin console (account.redherrings.app)</h4>
+<ul><li>Contact messages can be closed, reopened and deleted; the badge counts open messages only.</li></ul>
+<h4>Build and CI</h4>
+<ul><li>The two-factor QR library is installed with the server extra, so the admin console tests run in CI.</li><li>CHANGELOG.md is bundled into the desktop build for the in-app release notes.</li></ul></div></details><details class="dl-notes"><summary><strong>v1.7.0</strong> <span class="dl-muted">October 7, 2026 &middot; <a href="https://github.com/Steve-is-IT/redherrings-site/releases/tag/v1.7.0">release</a></span></summary><div class="dl-notesbody"><p>The teaching-complete release: course packs, a first-run tour, exam integrity mode, report grading and self review, question sets, QTI export, term analytics, a verify-draft button in the editor, seven new cases, and macOS builds. Every scenario still generates and verifies (full suite green).</p>
 <h4>Getting started</h4>
 <ul><li><strong>First-run tour.</strong> On a fresh install the app offers to generate a three-student lab on *First Look: Reading an EDR Alert*, shows the verified result and the three things to do next. Dismissable; <code>welcome_tour</code> in settings.</li><li><strong>30-day trial with five sample cases</strong>: three digital forensics (First Look, Medium, Hard) and two incident response (First Look, Medium).</li><li><strong>macOS builds</strong> for Apple silicon and Intel, signed and notarized in CI when the Apple secrets are present.</li></ul>
 <h4>Teaching</h4>
