@@ -144,6 +144,12 @@ def page(latest, releases, notes, sums):
     win_sha = sums.get("RedHerrings-windows.zip", "")
     lin_sha = sums.get("RedHerrings-linux.zip", "")
     has_win = "RedHerrings-windows.zip" in latest["assets"]
+    # Installer (RedHerrings-Setup-<ver>.exe) ships from v1.8.0 on; when the
+    # release carries one it is the primary Windows download and the zip
+    # becomes the portable option.
+    setup_name = next((a for a in latest["assets"] if a.startswith("RedHerrings-Setup-") and a.endswith(".exe")), None)
+    setup_size = mb(latest["assets"].get(setup_name)) if setup_name else ""
+    setup_sha = sums.get(setup_name, "") if setup_name else ""
     mac_assets = [a for a in ("RedHerrings-macos-arm64.zip", "RedHerrings-macos-intel.zip") if a in latest["assets"]]
     mac_notarized = bool(MAC_NOTARIZED_SINCE) and vt(tag) >= vt(MAC_NOTARIZED_SINCE)
 
@@ -153,6 +159,19 @@ def page(latest, releases, notes, sums):
         return f'<div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>{E(sha)}</code></div>'
 
     win_card = f'''
+      <div class="dl-card">
+        <div class="dl-os">Windows</div>
+        <p class="dl-req">Windows 10 or 11, 64-bit. Run the installer; it adds a Start menu entry, needs no admin rights, and upgrades in place. The app opens in your browser.</p>
+        <a class="btn primary" href="{DL}/{setup_name}" data-goatcounter-click="download-windows-setup">Download the installer{(" · " + setup_size) if setup_size else ""}</a>
+        {sha_block(setup_sha, "the installer")}
+        <p class="dl-muted">Prefer no install? <a href="{DL}/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Portable zip{(" · " + win_size) if win_size else ""}</a>: unzip anywhere and run <code>RedHerrings.exe</code>.</p>
+        <details class="dl-verify"><summary>Verify the download</summary>
+          <p>In PowerShell, in the folder you downloaded to:</p>
+          <pre><code>(Get-FileHash .\\{setup_name} -Algorithm SHA256).Hash</code></pre>
+          <p>The output must match the SHA-256 above (letter case doesn't matter). The portable zip's checksum is {E(win_sha) if win_sha else "in SHA256SUMS.txt on the release"}.</p>
+        </details>
+        {('<p class="dl-signed">&#10003; Installer and app are Authenticode-signed by ' + E(PUBLISHER) + ' &mdash; Windows shows the publisher name on the run prompt.</p>') if signed else ''}
+      </div>''' if (has_win and setup_name) else f'''
       <div class="dl-card">
         <div class="dl-os">Windows</div>
         <p class="dl-req">Windows 10 or 11, 64-bit. No installer: unzip and run <code>RedHerrings.exe</code>; it opens in your browser.</p>
@@ -249,7 +268,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"}},"downloadUrl":"{DL}/RedHerrings-windows.zip","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
+{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"}},"downloadUrl":"{DL}/{setup_name or 'RedHerrings-windows.zip'}","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
 </script>
 <style>
   .dl-head{{margin:8px 0 22px}}
