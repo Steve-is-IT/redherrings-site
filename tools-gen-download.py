@@ -388,6 +388,8 @@ def main():
     idx = os.path.join(ROOT, "index.html")
     s = open(idx, encoding="utf-8").read()
     s2 = re.sub(r'(<strong data-dl-version>)[^<]*(</strong>)', rf'\g<1>{E(latest["tag"])}\g<2>', s)
+    # Keep the SoftwareApplication structured data on the home page in step.
+    s2 = re.sub(r'("softwareVersion": ")[^"]*(")', rf'\g<1>{E(latest["tag"].lstrip("v"))}\g<2>', s2)
     if s2 != s:
         open(idx, "w", encoding="utf-8").write(s2); print("index.html version updated")
 
