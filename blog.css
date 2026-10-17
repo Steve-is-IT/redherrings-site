@@ -52,7 +52,7 @@
   .blog-aside{position:static;order:-1}
   .aside-card{display:flex;flex-wrap:wrap;gap:6px;padding:12px}
   .aside-card h4{width:100%;padding:2px 6px 4px}
-  .catf{width:auto;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:13.5px}
+  .catf{width:auto;padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;min-height:40px}
   .catf .cct{margin-left:5px}
 }
 

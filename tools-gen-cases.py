@@ -197,7 +197,7 @@ TEMPLATE = '''<!doctype html>
     <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
   </div>
 </header>
-<main class="wrap">
+<main class="wrap" id="main">
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Cases</div>
   <div class="secthead">
     <h1 class="opener">Dozens of forensics and incident response cases <em>for the classroom</em></h1>
