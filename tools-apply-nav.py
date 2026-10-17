@@ -61,6 +61,7 @@ L = {
     "sample": ("Sample lab", "A full case ZIP with its verified answer key", "/sample.html", "key"),
     "edu": ("Educators", "One instructor, auto-graded labs", "/#pricing", "edu"),
     "dept": ("Departments", "Multiple instructors, all packs", "/#pricing", "edu"),
+    "programs": ("College and university programs", "Labs, syllabi and procurement for departments", "/programs.html", "edu"),
     "student": ("Students", "Self-practice at the personal rate", "/#pricing", "portal"),
     "team": ("Security teams &amp; training", "45-minute incident drills, per seat", "/security-teams.html", "team"),
     "ent": ("Enterprise &amp; government", "White-label, volume, procurement", "/contact.html?topic=enterprise", "buy"),
@@ -92,7 +93,7 @@ CARET = ('<svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentCo
 # menu structure (Direction A)
 MENU = [
     ("Platform", [("Product", ["how", "cases", "packsite"]), ("Teaching", ["path", "courses", "portal"])], True),
-    ("Solutions", [("Who it is for", ["edu", "dept", "student"]), ("Organizations", ["team", "ent"])], False),
+    ("Solutions", [("Who it is for", ["edu", "dept", "programs", "student"]), ("Organizations", ["team", "ent"])], False),
     ("Resources", [("Learn", ["help", "tools", "resources", "blog"]), ("Evaluate", ["sample", "compare", "attack", "trust", "faq"])], False),
 ]
 

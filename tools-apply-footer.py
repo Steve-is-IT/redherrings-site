@@ -24,6 +24,7 @@ PRODUCT = [
     ("All cases", "/cases.html"),
     ("Learning pathways", "/pathways.html"),
     ("Course packs", "/courses.html"),
+    ("For college programs", "/programs.html"),
     ("MITRE ATT&amp;CK coverage", "/attack.html"),
     ("Student portal &amp; LMS", "/student-portal.html"),
     ("Scenario packs", "/packs.html"),
