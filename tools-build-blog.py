@@ -41,8 +41,8 @@ POSTS = [
          dek="Fix the clock, write display filters, read Conversations before packets, follow the stream, export objects, learn the DNS and HTTP columns, and save a filtered subset."),
     dict(slug="whats-new-student-portal-certificates", cls="c-course", cat="Product update",
          date="October 5, 2026", read="4 min read",
-         title="What's new: a student portal, certificates, and 71 cases",
-         dek="A self-serve account portal, printable certificates and badges, student and veteran pricing, and a library now 71 cases strong across digital forensics and incident response."),
+         title="What's new: a student portal, certificates, and dozens more cases",
+         dek="A self-serve account portal, printable certificates and badges, student and veteran pricing, and a library now dozens of cases strong across digital forensics and incident response."),
     dict(slug="autopsy-disk-image-analysis-walkthrough", cls="c-tool", cat="Tool guide", nodate=True,
          date="October 3, 2026", read="6 min read",
          title="Analyze a disk image in Autopsy: a beginner's walkthrough",
@@ -209,14 +209,14 @@ def build_index():
 <meta property="og:url" content="https://redherrings.app/blog/">
 <meta property="og:title" content="Red Herrings blog: DFIR teaching notes">
 <meta property="og:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
-<meta property="og:image" content="https://redherrings.app/img/og-2026-10.png">
+<meta property="og:image" content="https://redherrings.app/img/og-2026-10b.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Red Herrings blog: DFIR teaching notes">
 <meta name="twitter:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
-<meta name="twitter:image" content="https://redherrings.app/img/og-2026-10.png">
+<meta name="twitter:image" content="https://redherrings.app/img/og-2026-10b.png">
 {ICON}
 {FONTS}
 <link rel="stylesheet" href="../site.css">
