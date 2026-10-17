@@ -162,7 +162,7 @@ TEMPLATE = '''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>78 Digital Forensics &amp; Incident Response Cases | Red Herrings</title>
+<title>78 Digital Forensics &amp; Incident Response Practice Cases with Answer Keys | Red Herrings</title>
 <meta name="description" content="Browse all {n} Red Herrings cases across Digital Forensics and Incident Response, from First Look triage to Marquee capstones. Forensics maps to GCFE/GCFA/GNFA/GCFR; incident response to MITRE ATT&CK tactics. Open any case to read its briefing and questions.">
 <link rel="canonical" href="https://redherrings.app/cases.html">
 <meta name="robots" content="index,follow">
@@ -200,7 +200,7 @@ TEMPLATE = '''<!doctype html>
 <main class="wrap">
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Cases</div>
   <div class="secthead">
-    <h1 class="opener">The <em>case library</em></h1>
+    <h1 class="opener">78 forensics and incident response cases <em>for the classroom</em></h1>
     <p class="osub">{n} cases across two disciplines &mdash; <strong>Digital Forensics</strong> ({n_df}) and <strong>Incident Response</strong> ({n_ir}) &mdash; from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by discipline, by difficulty, and by the certification path (forensics) or <a href="attack.html">MITRE ATT&amp;CK tactic</a> (incident response) it exercises.</p>
   </div>
 
