@@ -126,9 +126,9 @@ def card(s):
 
 def main():
     scen = [s for s in packs.all_scenarios() if "id" in s and not s.get("error")]
-    # Order: marquees first (showcase), then entry->expert ladder; IR after DF within a tier.
-    scen.sort(key=lambda s: (0 if eff_diff(s) == "marquee" else 1,
-                             DIFF_RANK.get(eff_diff(s), 9),
+    # Order: the difficulty ladder, first-look through marquee, the same order the
+    # app's Case Library uses; IR after DF within a tier.
+    scen.sort(key=lambda s: (DIFF_RANK.get(eff_diff(s), 9),
                              0 if s.get("discipline") != "incident-response" else 1,
                              s.get("name", "")))
     cards = "\n".join(card(s) for s in scen)
