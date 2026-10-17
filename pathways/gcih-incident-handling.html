@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Incident Handling (GCIH)","item":"https://redherrings.app/pathways/gcih-incident-handling.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gcih-incident-handling.html#course","name":"GCIH Practice Labs: an Incident Handling Pathway from First Alert to Capstone","url":"https://redherrings.app/pathways/gcih-incident-handling.html","description":"Ten incident handling labs aligned to the GCIH objectives: EDR and SIEM triage, phishing, web shells, lateral movement and ransomware, mapped to ATT&CK.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Triage your first EDR detection: process tree, technique, severity.","Read a SIEM alert queue and find the one that matters.","Timed drill: triage a live ransomware outbreak in 45 minutes.","Work a reported phish: header, link and payload.","Follow the phish through to the payload running on the host.","Initial access and foothold on an internet-facing server.","Follow the move from the beachhead to a file server.","Spot staging and log-clearing before the payload.","A live ransomware outbreak worked from the EDR feed.","Capstone: double extortion through every NIST phase."],"about":["Advanced Forensics & IR","Foundations","Network Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT10H40M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT10H40M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GCIH published objectives","targetName":"GIAC GCIH"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Incident Handling (GCIH)","item":"https://redherrings.app/pathways/gcih-incident-handling.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gcih-incident-handling.html#course","name":"GCIH Practice Labs: an Incident Handling Pathway from First Alert to Capstone","url":"https://redherrings.app/pathways/gcih-incident-handling.html","description":"Ten incident handling labs aligned to the GCIH objectives: EDR and SIEM triage, phishing, web shells, lateral movement and ransomware, mapped to ATT&CK.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Triage your first EDR detection: process tree, technique, severity.","Read a SIEM alert queue and find the one that matters.","Work a reported phish: header, link and payload.","Follow the phish through to the payload running on the host.","Initial access and foothold on an internet-facing server.","Follow the move from the beachhead to a file server.","Spot staging and log-clearing before the payload.","A live ransomware outbreak worked from the EDR feed.","Timed drill: triage a live ransomware outbreak in 45 minutes.","Capstone: double extortion through every NIST phase."],"about":["Advanced Forensics & IR","Foundations","Network Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT10H40M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT10H40M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GCIH published objectives","targetName":"GIAC GCIH"}}]}
 </script>
 </head>
 <body>
@@ -65,7 +65,7 @@
     <span class="kicker">Cert prep &middot; Incident Response &middot; aligned to the published GIAC GCIH objectives</span>
     <h1 style="max-width:18ch">GCIH practice labs, <em>one incident at a time</em></h1>
     <p class="lede" style="margin-left:0">The GCIH objectives expect a handler who can run an incident through its phases: triage a detection and decide what it means, trace the initial access, follow the move from a beachhead to the next host, spot staging before the payload, contain a live outbreak, and write up the lessons learned, with each behaviour named by its ATT&amp;CK technique.</p>
-    <p class="lede" style="margin-left:0;font-size:17px">This pathway follows the incident-handling kill chain from the responder&#x27;s own tooling. It opens with an EDR detection and a SIEM queue, puts the handler through a timed ransomware drill early, then works initial access, lateral movement and pre-ransomware staging as full cases. The capstone is a double-extortion incident worked through every NIST phase.</p>
+    <p class="lede" style="margin-left:0;font-size:17px">This pathway follows the incident-handling kill chain from the responder&#x27;s own tooling. It opens with an EDR detection and a SIEM queue, then works initial access, lateral movement and pre-ransomware staging as full cases, and closes the hard tier with a live outbreak and a timed ransomware drill. The capstone is a double-extortion incident worked through every NIST phase.</p>
     <div class="cta-row hero-cta" style="justify-content:flex-start;margin-top:26px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-gcih-incident-handling">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn ghost" href="/sample.html">Download the sample lab</a>
@@ -91,38 +91,38 @@
       </li>
       <li class="rowitem">
         <div class="n">03</div>
-        <h3><a href="/cases.html#drill-ransomware-45">Fire Drill</a> <span style="color:var(--faint);font-weight:500">(Drill: Ransomware, 45 Minutes)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Timed drill: triage a live ransomware outbreak in 45 minutes.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~45 min</span><span>12 questions</span></div></div>
-      </li>
-      <li class="rowitem">
-        <div class="n">04</div>
         <h3><a href="/cases.html#easy-phish-triage">First Look: Phishing Triage</a></h3>
         <div class="body"><p style="margin:0 0 10px">Work a reported phish: header, link and payload.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag easy">EASY</span><span>~25 min</span><span>13 questions</span></div></div>
       </li>
       <li class="rowitem">
-        <div class="n">05</div>
+        <div class="n">04</div>
         <h3><a href="/cases.html#ir-phish-to-foothold">One Click</a> <span style="color:var(--faint);font-weight:500">(Phishing to Foothold)</span></h3>
         <div class="body"><p style="margin:0 0 10px">Follow the phish through to the payload running on the host.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~40 min</span><span>14 questions</span></div></div>
       </li>
       <li class="rowitem">
-        <div class="n">06</div>
+        <div class="n">05</div>
         <h3><a href="/cases.html#web-shell">Trapdoor</a> <span style="color:var(--faint);font-weight:500">(Web Shell on a Small Business Server)</span></h3>
         <div class="body"><p style="margin:0 0 10px">Initial access and foothold on an internet-facing server.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 25 min</span><span>15 questions</span></div></div>
       </li>
       <li class="rowitem">
-        <div class="n">07</div>
+        <div class="n">06</div>
         <h3><a href="/cases.html#medium-lateral-psexec">Hands on Keyboard</a> <span style="color:var(--faint);font-weight:500">(Lateral Move to the File Server)</span></h3>
         <div class="body"><p style="margin:0 0 10px">Follow the move from the beachhead to a file server.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h</span><span>13 questions</span></div></div>
       </li>
       <li class="rowitem">
-        <div class="n">08</div>
+        <div class="n">07</div>
         <h3><a href="/cases.html#ransomware-precursor">Dry Run</a> <span style="color:var(--faint);font-weight:500">(Ransomware Precursor: Staging and Log Clearing)</span></h3>
         <div class="body"><p style="margin:0 0 10px">Spot staging and log-clearing before the payload.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~1 h 50 min</span><span>13 questions</span></div></div>
       </li>
       <li class="rowitem">
-        <div class="n">09</div>
+        <div class="n">08</div>
         <h3><a href="/cases.html#ir-ransomware-dawn">First Call</a> <span style="color:var(--faint);font-weight:500">(Ransomware Before Coffee)</span></h3>
         <div class="body"><p style="margin:0 0 10px">A live ransomware outbreak worked from the EDR feed.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~55 min</span><span>15 questions</span></div></div>
+      </li>
+      <li class="rowitem">
+        <div class="n">09</div>
+        <h3><a href="/cases.html#drill-ransomware-45">Fire Drill</a> <span style="color:var(--faint);font-weight:500">(Drill: Ransomware, 45 Minutes)</span></h3>
+        <div class="body"><p style="margin:0 0 10px">Timed drill: triage a live ransomware outbreak in 45 minutes.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~45 min</span><span>12 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">10</div>
