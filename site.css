@@ -552,6 +552,13 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .feature-wide p{margin:0;color:var(--muted);font-size:15px;line-height:1.6;max-width:56ch}
 .feature-wide .fw-aside{display:flex;flex-wrap:wrap;gap:9px;justify-content:flex-end}
 @media(max-width:760px){.feature-wide{grid-template-columns:1fr}.feature-wide .fw-aside{justify-content:flex-start}}
+/* featured Marquee slot on the catalog page */
+.fm-wrap{margin-top:26px}
+.fm-slot[hidden]{display:none}
+.feature-wide.marquee{margin-top:0;border-color:color-mix(in srgb,#d4a017 55%,var(--line));box-shadow:var(--shadow-md),0 0 0 1px color-mix(in srgb,#d4a017 22%,transparent);background:linear-gradient(135deg,color-mix(in srgb,#d4a017 7%,var(--card)),var(--card) 60%)}
+.feature-wide .fw-kick.gold{color:#8a6508}
+.feature-wide .fm-meta{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:10px;max-width:none}
+.feature-wide .fm-actions{align-self:center}
 
 /* ---- static student-portal hero visual (replaces the fragile CSS animation
         that froze to a single frame under prefers-reduced-motion) ---- */

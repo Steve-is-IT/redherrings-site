@@ -54,6 +54,47 @@
     <h1 class="opener">Dozens of forensics and incident response cases <em>for the classroom</em></h1>
     <p class="osub">Dozens of cases across two disciplines, <strong>Digital Forensics</strong> and <strong>Incident Response</strong>, from single-artifact First Look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by discipline, by difficulty, and by the certification path (forensics) or <a href="attack.html">MITRE ATT&amp;CK tactic</a> (incident response) it exercises.</p>
   </div>
+  <div class="fm-wrap">
+  <article class="feature-wide marquee fm-slot" data-i="0">
+    <div>
+      <p class="fw-kick gold">Featured Marquee case</p>
+      <h3>Nakatomi Plaza</h3>
+      <div class="cc-sub" style="margin:-4px 0 8px">Holiday Heist at Nakatomi Plaza</div>
+      <p>A Marquee capstone that runs the whole arc. On Christmas Eve a crew seized Nakatomi Corporation&#x27;s systems and announced themselves as activists, cover for a heist of the bearer bonds behind the vault. Reconstruct the break-in, the leader&#x27;s borrowed identity, who opened the vault, where the bonds went, and the note that pointed everyone the wrong way.</p>
+      <p class="fm-meta">24 questions &middot; ~360 min &middot; Digital Forensics</p>
+    </div>
+    <div class="fw-aside fm-actions">
+      <a class="btn" href="#marquee-nakatomi">View case</a>
+      <button type="button" class="btn ghost fm-next">Next marquee</button>
+    </div>
+  </article>
+  <article class="feature-wide marquee fm-slot" data-i="1" hidden>
+    <div>
+      <p class="fw-kick gold">Featured Marquee case</p>
+      <h3>Spared No Expense</h3>
+      <div class="cc-sub" style="margin:-4px 0 8px">Spared No Expense</div>
+      <p>A Marquee capstone that runs the whole arc. A trusted senior administrator at a dinosaur-park genetics company was bribed by a rival biotech to steal proprietary embryo and genome data. He wrote a backdoor that killed the park&#x27;s cameras and logging, staged the datasets inside an archive disguised as a photo, pushed them to the rival&#x27;s drop server and a cloud bucket, minted a rogue account to keep his way in, and blamed a tropical storm and power outage for the blackout. Reconstruct the night, follow the data, and see past the weather.</p>
+      <p class="fm-meta">26 questions &middot; ~360 min &middot; Digital Forensics</p>
+    </div>
+    <div class="fw-aside fm-actions">
+      <a class="btn" href="#marquee-spared-no-expense">View case</a>
+      <button type="button" class="btn ghost fm-next">Next marquee</button>
+    </div>
+  </article>
+  <article class="feature-wide marquee fm-slot" data-i="2" hidden>
+    <div>
+      <p class="fw-kick gold">Featured Marquee case</p>
+      <h3>Nightfall</h3>
+      <div class="cc-sub" style="margin:-4px 0 8px">Operation Nightfall</div>
+      <p>The full incident, start to finish. At 02:14 the ransom notes appeared across Mercy Regional and systems began locking ward by ward. You are the incident commander: work the SIEM, the EDR feed and the host logs to reconstruct the whole operation - phishing in, credential theft, domain-wide spread, data stolen for double extortion, then encryption - pull every indicator, map the campaign to ATT&amp;CK, run the response through all of NIST&#x27;s phases, and produce the incident report. The attacker may still be inside.</p>
+      <p class="fm-meta">26 questions &middot; ~170 min &middot; Incident Response</p>
+    </div>
+    <div class="fw-aside fm-actions">
+      <a class="btn" href="#ir-marquee-nightfall">View case</a>
+      <button type="button" class="btn ghost fm-next">Next marquee</button>
+    </div>
+  </article>
+  </div>
 
   <section style="border-top:0;padding-top:24px">
     <div class="filterrow">
@@ -817,6 +858,14 @@
   }
   window.addEventListener("hashchange", openFromHash);
   openFromHash();
+  // Featured Marquee slot: show one, rotate on each visit and on Next.
+  var slots=[].slice.call(document.querySelectorAll(".fm-slot"));
+  if(slots.length>1){
+    var idx=0; try{ idx=(parseInt(localStorage.getItem("rh-fm")||"0",10)||0)%slots.length; localStorage.setItem("rh-fm",String(idx+1)); }catch(e){}
+    function showSlot(i){ slots.forEach(function(s,j){ s.hidden=(j!==i); }); }
+    showSlot(idx);
+    slots.forEach(function(s){ var b=s.querySelector(".fm-next"); if(b) b.addEventListener("click", function(){ idx=(idx+1)%slots.length; showSlot(idx); try{localStorage.setItem("rh-fm",String(idx+1));}catch(e){} }); });
+  }
 })();
 </script>
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

@@ -124,6 +124,34 @@ def card(s):
     )
 
 
+def featured_block(scen):
+    """One wide card showing off a Marquee case. Every marquee is emitted; the
+    page script shows one and rotates to the next on each visit or on Next."""
+    ms = [s for s in scen if eff_diff(s) == "marquee"]
+    if not ms:
+        return ""
+    slots = []
+    for i, s in enumerate(ms):
+        disc = "Incident Response" if s.get("discipline") == "incident-response" else "Digital Forensics"
+        est = s.get("estimated_minutes")
+        meta = f'{s.get("questions")} questions' + (f' &middot; ~{est} min' if est else "") + f' &middot; {disc}'
+        slots.append(
+            f'  <article class="feature-wide marquee fm-slot" data-i="{i}"{"" if i == 0 else " hidden"}>\n'
+            f'    <div>\n'
+            f'      <p class="fw-kick gold">Featured Marquee case</p>\n'
+            f'      <h3>{E(s.get("codename") or s.get("name"))}</h3>\n'
+            + (f'      <div class="cc-sub" style="margin:-4px 0 8px">{E(s.get("name"))}</div>\n' if s.get("codename") else "")
+            + f'      <p>{E(s.get("summary"))}</p>\n'
+            f'      <p class="fm-meta">{meta}</p>\n'
+            f'    </div>\n'
+            f'    <div class="fw-aside fm-actions">\n'
+            f'      <a class="btn" href="#{E(s.get("id"))}">View case</a>\n'
+            + ('      <button type="button" class="btn ghost fm-next">Next marquee</button>\n' if len(ms) > 1 else "")
+            + f'    </div>\n'
+            f'  </article>')
+    return '  <div class="fm-wrap">\n' + "\n".join(slots) + '\n  </div>\n'
+
+
 def main():
     scen = [s for s in packs.all_scenarios() if "id" in s and not s.get("error")]
     # Order: the difficulty ladder, first-look through marquee, the same order the
@@ -132,6 +160,7 @@ def main():
                              0 if s.get("discipline") != "incident-response" else 1,
                              s.get("name", "")))
     cards = "\n".join(card(s) for s in scen)
+    featured = featured_block(scen)
     n = len(scen)
     n_ir = sum(1 for s in scen if s.get("discipline") == "incident-response")
     n_df = n - n_ir
@@ -147,6 +176,7 @@ def main():
     details_json = json.dumps(details)
 
     html_doc = TEMPLATE.format(
+        featured=featured,
         n=n, n_df=n_df, n_ir=n_ir, cards=cards, diff_opts=diff_opts,
         tracks_json=tracks_json, tactics_json=tactics_json, details_json=details_json)
     html_doc = html_doc.replace("<<SP>>", " ")
@@ -213,7 +243,7 @@ TEMPLATE = '''<!doctype html>
     <h1 class="opener">Dozens of forensics and incident response cases <em>for the classroom</em></h1>
     <p class="osub">Dozens of cases across two disciplines, <strong>Digital Forensics</strong> and <strong>Incident Response</strong>, from single-artifact First Look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by discipline, by difficulty, and by the certification path (forensics) or <a href="attack.html">MITRE ATT&amp;CK tactic</a> (incident response) it exercises.</p>
   </div>
-
+{featured}
   <section style="border-top:0;padding-top:24px">
     <div class="filterrow">
       <label class="fsel"><span class="fsel-l">Discipline</span>
@@ -377,6 +407,14 @@ MODAL_JS = r'''<script>
   }
   window.addEventListener("hashchange", openFromHash);
   openFromHash();
+  // Featured Marquee slot: show one, rotate on each visit and on Next.
+  var slots=[].slice.call(document.querySelectorAll(".fm-slot"));
+  if(slots.length>1){
+    var idx=0; try{ idx=(parseInt(localStorage.getItem("rh-fm")||"0",10)||0)%slots.length; localStorage.setItem("rh-fm",String(idx+1)); }catch(e){}
+    function showSlot(i){ slots.forEach(function(s,j){ s.hidden=(j!==i); }); }
+    showSlot(idx);
+    slots.forEach(function(s){ var b=s.querySelector(".fm-next"); if(b) b.addEventListener("click", function(){ idx=(idx+1)%slots.length; showSlot(idx); try{localStorage.setItem("rh-fm",String(idx+1));}catch(e){} }); });
+  }
 })();
 </script>'''
 
