@@ -377,7 +377,10 @@ def main():
     if not releases:
         sys.exit("no releases found")
     latest = releases[max(releases)]
-    notes = sorted(parse_changelog(CHANGELOG), key=lambda e: e[0], reverse=True)
+    # Only versions that have actually shipped: a CHANGELOG section for the
+    # next release is committed before the release is cut and must not show.
+    notes = sorted((e for e in parse_changelog(CHANGELOG) if e[0] <= max(releases)),
+                   key=lambda e: e[0], reverse=True)
     sums = fetch_sums(latest["tag"])
     out = os.path.join(ROOT, "download.html")
     with open(out, "w", encoding="utf-8") as fh:
