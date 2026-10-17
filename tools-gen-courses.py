@@ -61,7 +61,7 @@ def main():
     v = open(os.path.join(SITE, "contact.html")).read()
     head, tail = v[:v.index("<main")], v[v.index("</main>") + len("</main>"):]
     tail = re.sub(r"<script>\n\(function\(\)\{\n  var f=document\.getElementById\('cform'\).*?</script>\n", "", tail, count=1, flags=re.S)
-    head = head.replace("<title>Contact Red Herrings | Sales, Quotes, Support</title>", "<title>Course Packs: Syllabus-Ready DFIR Courses | Red Herrings</title>")
+    head = head.replace("<title>Contact Red Herrings | Sales, Quotes, Support</title>", "<title>Digital Forensics Course Curriculum &amp; Incident Response Syllabus, Ready to Teach | Red Herrings</title>")
     head = re.sub(r'<meta name="description" content="[^"]*">', lambda m: '<meta name="description" content="Two syllabus-ready courses built on Red Herrings: a 14-week Introduction to Digital Forensics and an 8-week Incident Response Fundamentals, with learning outcomes, a grading scheme, a week-by-week case plan and a downloadable syllabus PDF.">', head)
     head = head.replace("https://redherrings.app/contact.html", "https://redherrings.app/courses.html")
     head = re.sub(r'<meta property="og:title" content="[^"]*">', lambda m: '<meta property="og:title" content="Syllabus-ready DFIR course packs">', head)
@@ -82,7 +82,7 @@ def main():
   <section style="border-top:0">
     <div class="crumb"><a href="/">Home</a> / Course packs</div>
     <div class="secthead">
-      <h1 class="opener">Courses that drop <em>into a syllabus</em></h1>
+      <h1 class="opener">A digital forensics course and an incident response course, <em>ready to teach</em></h1>
       <p class="osub">Two complete courses built on the case library: learning outcomes, a grading scheme, the free tools, and a week-by-week plan that names the case, the mode and the time budget. Download the syllabus PDF, then generate every week's lab for your roster in one click from the Courses screen in the app. Every student still gets their own variant; every answer is still verified.</p>
     </div>
   </section>
