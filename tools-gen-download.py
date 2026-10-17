@@ -265,14 +265,17 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"}},"downloadUrl":"{DL}/{setup_name or 'RedHerrings-windows.zip'}","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
 </script>
 <style>
-  .dl-head{{margin:8px 0 22px}}
-  .dl-ver{{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:15px;color:var(--ink-2,#5b6472)}}
+  .dl-head{{margin:8px 0 22px;text-align:center}}
+  .dl-head h1{{font-size:clamp(30px,5vw,46px);letter-spacing:-.03em;line-height:1.1;margin:.2em 0 .3em;font-weight:800}}
+  .dl-head .sub{{margin-bottom:18px}}
+  .dl-ver{{display:inline-flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;font-size:15px;color:var(--muted)}}
+  .dl-ver .dl-sep{{white-space:nowrap}}
   .dl-ver .chip{{font-weight:700}}
   .dl-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:18px 0 10px}}
   .dl-card{{border:1px solid var(--line,#e7e9ee);border-radius:16px;padding:22px 22px 18px;background:var(--panel,#fff)}}
@@ -297,13 +300,12 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   .dl-trust strong{{display:block;color:var(--ink,#12151c);margin-bottom:2px}}
   .dl-notes{{border-top:1px solid var(--line,#e7e9ee);padding:14px 0}}
   .dl-notes summary{{cursor:pointer;font-size:17px}}
-  .dl-notesbody{{padding:8px 0 4px 2px;font-size:15px}}
+  .dl-notesbody{{padding:8px 0 4px 2px;font-size:15px;max-width:75ch}}
   .dl-notesbody h4{{margin:16px 0 6px;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3,#8a93a3)}}
   .dl-notesbody ul{{padding-left:20px}} .dl-notesbody li{{margin:6px 0}}
   .dl-muted{{color:var(--ink-3,#8a93a3);font-weight:400;font-size:14px}}
   .dl-it{{margin:30px 0 10px;padding:18px 20px;border:1px solid var(--line,#e7e9ee);border-radius:14px;font-size:15px}}
 </style>
-<script>(function(){{try{{var t=localStorage.getItem('rh-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
 </head>
 <body>
 <header></header>
@@ -312,7 +314,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
       <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial with no key needed</strong>: generate labs, run the student portal and grade a class before you buy.</p>
-      <div class="dl-ver"><span class="chip">{E(tag)}</span><span>Released {E(nice_date)}</span><span>&middot;</span><a href="#release-notes">Release notes</a><span>&middot;</span><a href="{RELEASES_PAGE}">All versions</a></div>
+      <div class="dl-ver"><span class="chip">{E(tag)}</span><span>Released {E(nice_date)}</span><span class="dl-sep">&middot; <a href="#release-notes">Release notes</a></span><span class="dl-sep">&middot; <a href="{RELEASES_PAGE}">All versions</a></span></div>
     </div>
 
     <div class="dl-grid">{win_card}{mac_card}{lin_card}

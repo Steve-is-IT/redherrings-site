@@ -30,6 +30,7 @@
 {"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://redherrings.app/#org", "name": "Red Herrings", "url": "https://redherrings.app/", "email": "sales@redherrings.app", "logo": "https://redherrings.app/img/icon-512.png", "sameAs": ["https://github.com/Steve-is-IT/redherrings-site"]}, {"@type": "SoftwareApplication", "name": "Red Herrings", "url": "https://redherrings.app/", "applicationCategory": "EducationalApplication", "operatingSystem": "Windows, macOS, Linux", "description": "Digital forensics and incident response lab generator that produces a unique evidence set, worksheet, answer key and rubric for every student from one scenario. Dozens of cases across disk, registry, Windows event logs, memory, network (PCAP), mobile, cloud, Linux, macOS, EDR and SIEM evidence, grouped into certification-prep tracks (GCFE, GCFA, GNFA, GCFR, GCIH, CompTIA CySA+) with incident-response cases mapped to MITRE ATT&CK. Independent verification, a guided learning mode, whole-class auto-grading and LMS export. Runs locally on Windows, macOS and Linux.", "publisher": {"@id": "https://redherrings.app/#org"}, "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "129", "highPrice": "7500", "offerCount": "6"}, "softwareVersion": "1.8.0", "downloadUrl": "https://redherrings.app/download.html", "screenshot": "https://redherrings.app/img/slides/slide-library.jpg"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it phone home or upload student data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Generation and grading run entirely on your machine with no network call. The only time the software contacts a server is to activate, refresh or deactivate a license, when it sends just the license key, a derived machine id, the hostname and the app version. Air-gapped labs activate offline."}}, {"@type": "Question", "name": "How do I know the answer key is correct?", "acceptedAnswer": {"@type": "Answer", "text": "After generating each lab, Red Herrings re-opens every artifact with an independent parser (The Sleuth Kit, python-registry, python-evtx, LnkParse3, dpkt and others) and confirms each answer is present in the evidence. The result is the green Fresh Catch checklist. Answers are computed from the generated evidence, never hard-coded."}}, {"@type": "Question", "name": "Which forensic tools do the artifacts work with?", "acceptedAnswer": {"@type": "Answer", "text": "The evidence is written in real on-disk formats, so it opens in Autopsy, FTK Imager, Registry Explorer, EvtxECmd, PECmd, JLECmd, Wireshark, Volatility 3, and standard SQLite and email tools."}}, {"@type": "Question", "name": "Can I get grades into Canvas, Blackboard, Moodle or D2L?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Grade the whole class in Red Herrings, then export a grade file in Canvas, Blackboard, Moodle or D2L Brightspace format, with an optional per-student feedback note listing what each learner missed. You can also export a case as a Common Cartridge (.imscc) content module that imports into any conformant LMS."}}, {"@type": "Question", "name": "Is there anything to help beginners learn?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Guided mode on the Solution screen steps a learner from a nudge about where to look, to how to work the question with the right tool, to the answer, one question at a time, instead of showing everything at once. An optional guided worksheet prints a short hint under each question and a tool quick-start appendix, so students can start away from the app."}}, {"@type": "Question", "name": "Does it cover incident response, or only forensics?", "acceptedAnswer": {"@type": "Answer", "text": "Both. Digital forensics cases cover disk, registry, event logs, memory, network, mobile and cloud evidence. Incident response cases are worked from EDR detection feeds and SIEM exports, mapped to MITRE ATT&CK and tagged with the NIST 800-61 phases. Every plan includes both."}}, {"@type": "Question", "name": "Do students need to install anything?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hand each student a zip to work in their own tools, or a private link to the student portal, where they read the evidence and answer in the browser. Grading runs on your machine either way."}}, {"@type": "Question", "name": "Can I write my own scenarios?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The visual editor validates live and previews a resolved answer key, so you see exactly what a student will get. Export a pack to share or sell it."}}, {"@type": "Question", "name": "Can I remove the Red Herrings branding?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with a white-label license. One setting rebrands every screen and document with your institution or company identity."}}]}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="preload" as="image" href="img/slides/slide-library.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="site.css">
 </head>
 <body class="home">
@@ -101,7 +102,7 @@
       </div>
     </div>
     <div class="cta-row hero-cta">
-      <button class="btn" data-action="trial" data-goatcounter-click="trial">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="M12 5l7 7-7 7"/></svg></button>
+      <a class="btn" href="download.html" data-action="trial" data-goatcounter-click="trial">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="M12 5l7 7-7 7"/></svg></a>
       <a class="btn ghost" href="try.html" data-goatcounter-click="try-hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>Try a case in your browser</a>
     </div>
   </section>
@@ -229,12 +230,12 @@
       <button class="tab" role="tab" aria-selected="false" data-tab="biz">Business</button>
     </div>
     <div class="prices" data-group="edu">
-      <div class="price"><h3>Trial</h3><p class="who">Try it with a real class</p><div class="amt">Free<span> / 30 days</span></div><ul><li>5 sample cases: 3 forensics (First Look, Medium, Hard) and 2 incident response (First Look, Medium)</li><li>Up to 5 students per lab</li><li>Student portal, timed exams &amp; class analytics</li><li><span>Watermarked documents. <a href="/contact.html?topic=trial">Need longer than 30 days? Ask.</a></span></li></ul><button class="btn ghost" data-action="trial" data-goatcounter-click="trial">Start free trial</button></div>
+      <div class="price"><h3>Trial</h3><p class="who">Try it with a real class</p><div class="amt">Free<span> / 30 days</span></div><ul><li>5 sample cases: 3 forensics (First Look, Medium, Hard) and 2 incident response (First Look, Medium)</li><li>Up to 5 students per lab</li><li>Student portal, timed exams &amp; class analytics</li><li><span>Watermarked documents. <a href="/contact.html?topic=trial">Need longer than 30 days? Ask.</a></span></li></ul><a class="btn ghost" href="download.html" data-action="trial" data-goatcounter-click="trial">Start free trial</a></div>
       <div class="price feature"><h3>Educator</h3><p class="who">One instructor, up to 40 students per lab. About $12 a student for a full class.</p><div class="amt">$499<span> / year</span></div><ul><li>40 students per lab</li><li>Auto-grader, rubric and LMS export</li><li>Anti-collusion report</li><li>All forensics and IR cases except Expert capstones</li><li>Student portal, timed exams and LMS passback</li></ul><button class="btn" data-action="buy" data-plan="educator">Buy Educator</button></div>
       <div class="price"><h3>Department</h3><p class="who">Programs with several instructors</p><div class="amt">$2,490<span> / year</span></div><ul><li>3 instructors, 150 students per lab</li><li>CTF mode and Scenario Editor</li><li>Every case including Expert capstones</li><li>Institution logo on documents</li><li>Priority support</li></ul><button class="btn ghost" data-action="buy" data-plan="department">Buy Department</button></div>
     </div>
     <div class="prices hide" data-group="ind">
-      <div class="price"><h3>Trial</h3><p class="who">See it before you buy</p><div class="amt">Free<span> / 30 days</span></div><ul><li>5 sample cases: 3 forensics (First Look, Medium, Hard) and 2 incident response (First Look, Medium)</li><li>Up to 5 students per lab</li><li>Student portal, timed exams &amp; class analytics</li><li>Watermarked documents</li></ul><button class="btn ghost" data-action="trial" data-goatcounter-click="trial">Start free trial</button></div>
+      <div class="price"><h3>Trial</h3><p class="who">See it before you buy</p><div class="amt">Free<span> / 30 days</span></div><ul><li>5 sample cases: 3 forensics (First Look, Medium, Hard) and 2 incident response (First Look, Medium)</li><li>Up to 5 students per lab</li><li>Student portal, timed exams &amp; class analytics</li><li>Watermarked documents</li></ul><a class="btn ghost" href="download.html" data-action="trial" data-goatcounter-click="trial">Start free trial</a></div>
       <div class="price feature"><h3>Personal</h3><p class="who">Self-study and certification prep</p><div class="amt">$129<span> / year</span></div><ul><li>Non-commercial self-practice</li><li>All Easy, Medium and Hard cases</li><li>Self-check grader and solution reveal</li><li>$69 for verified students &amp; U.S. veterans. <a href="https://account.redherrings.app/account" data-goatcounter-click="discount-verify">verify in your account</a></li></ul><button class="btn" data-action="buy" data-plan="personal">Buy Personal</button></div>
       <div class="price"><h3>Consultant</h3><p class="who">Paid workshops, month to month</p><div class="amt">$199<span> / month</span></div><ul><li>One Business seat, monthly</li><li>Commercial use rights</li><li>Cancel any time</li></ul><button class="btn ghost" data-action="buy" data-plan="consultant">Start monthly</button></div>
     </div>
@@ -265,7 +266,7 @@
     <h2 id="cta-h">Stop rebuilding the same lab every semester.</h2>
     <p class="sub" style="margin-bottom:24px">A new case for every student in minutes, graded when they hand it in.</p>
     <div class="cta-row">
-      <button class="btn" data-action="trial" data-goatcounter-click="trial">Start a free 30-day trial</button>
+      <a class="btn" href="download.html" data-action="trial" data-goatcounter-click="trial">Start a free 30-day trial</a>
       <a class="btn ghost" href="#pricing" data-goatcounter-click="pricing">See pricing</a>
     </div>
   </section>
@@ -367,11 +368,21 @@
   });
 
   // Pricing audience tabs.
-  document.querySelectorAll('.tab').forEach(function(t){
-    t.addEventListener('click',function(){
-      document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected', x===t ? 'true':'false');});
-      var g=t.getAttribute('data-tab');
-      document.querySelectorAll('.prices').forEach(function(p){ p.classList.toggle('hide', p.getAttribute('data-group')!==g); });
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function selectTab(t){
+    tabs.forEach(function(x){x.setAttribute('aria-selected', x===t ? 'true':'false');});
+    var g=t.getAttribute('data-tab');
+    document.querySelectorAll('.prices').forEach(function(p){ p.classList.toggle('hide', p.getAttribute('data-group')!==g); });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click',function(){ selectTab(t); });
+    // Left/Right arrows move between the audience tabs, as a tablist should.
+    t.addEventListener('keydown',function(e){
+      var d = e.key==='ArrowRight' ? 1 : e.key==='ArrowLeft' ? -1 : 0;
+      if(!d) return;
+      e.preventDefault();
+      var n = tabs[(i + d + tabs.length) % tabs.length];
+      n.focus(); selectTab(n);
     });
   });
 </script>

@@ -225,7 +225,7 @@ def build_index():
 <body>
 {HEADER}
 
-<main class="wrap">
+<main class="wrap" id="main">
   <div class="blog-head">
     <div class="crumb"><a href="/">Home</a> / Blog</div>
     <h1>Teaching notes</h1>
