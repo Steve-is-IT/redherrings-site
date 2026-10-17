@@ -111,7 +111,7 @@ def card(s):
         chips = "".join(f'<span class="chip {TRACK_CHIP.get(t, ("", t))[0]}">{E(TRACK_CHIP.get(t, ("", t))[1])}</span>' for t in tracks_list)
     sub_html = f'\n      <div class="cc-sub">{E(sub)}</div>' if sub else ""
     return (
-        f'    <article class="ccard" data-id="{E(s.get("id"))}" tabindex="0" role="button" '
+        f'    <article class="ccard" id="{E(s.get("id"))}" data-id="{E(s.get("id"))}" tabindex="0" role="button" '
         f'aria-label="Open {E(title)}" data-discipline="{E(disc)}" data-diff="{E(ed)}" '
         f'data-tracks="{E(" ".join(tracks_list))}" data-tactics="{E(" ".join(tactics_list))}">\n'
         f'      <div class="cc-top"><span class="dpill {pill_cls}">{E(pill_lbl)}</span>'
@@ -364,6 +364,15 @@ MODAL_JS = r'''<script>
   });
   modal.addEventListener("click", function(e){ if(e.target.hasAttribute("data-close")) closeCase(); });
   document.addEventListener("keydown", function(e){ if(e.key==="Escape"&&!modal.hidden) closeCase(); });
+  // Deep links: /cases.html#<case-id> scrolls to the card and opens its detail.
+  function openFromHash(){
+    var id=(location.hash||"").replace(/^#/,""); if(!id||!CASES[id]) return;
+    var card=document.getElementById(id);
+    if(card){ card.scrollIntoView({block:"center"}); card.classList.add("linked"); }
+    openCase(id);
+  }
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
 })();
 </script>'''
 
