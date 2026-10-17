@@ -162,13 +162,13 @@ TEMPLATE = '''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>78 Digital Forensics &amp; Incident Response Practice Cases with Answer Keys | Red Herrings</title>
-<meta name="description" content="Browse all {n} Red Herrings cases across Digital Forensics and Incident Response, from First Look triage to Marquee capstones. Forensics maps to GCFE/GCFA/GNFA/GCFR; incident response to MITRE ATT&CK tactics. Open any case to read its briefing and questions.">
+<title>Digital Forensics &amp; Incident Response Practice Cases with Answer Keys | Red Herrings</title>
+<meta name="description" content="Dozens of digital forensics and incident response cases, from First Look triage to Marquee capstones. Forensics aligned to GCFE, GCFA, GNFA and GCFR; incident response mapped to MITRE ATT&CK.">
 <link rel="canonical" href="https://redherrings.app/cases.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#e3362b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
-<meta property="og:title" content="All Cases — Red Herrings">
+<meta property="og:title" content="All cases | Red Herrings">
 <meta property="og:description" content="Every Red Herrings case: digital forensics across disk, registry, logs, memory, network, mobile and cloud, plus incident response mapped to MITRE ATT&CK.">
 <meta property="og:url" content="https://redherrings.app/cases.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
@@ -200,8 +200,8 @@ TEMPLATE = '''<!doctype html>
 <main class="wrap">
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Cases</div>
   <div class="secthead">
-    <h1 class="opener">78 forensics and incident response cases <em>for the classroom</em></h1>
-    <p class="osub">{n} cases across two disciplines &mdash; <strong>Digital Forensics</strong> ({n_df}) and <strong>Incident Response</strong> ({n_ir}) &mdash; from single-artifact first-look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by discipline, by difficulty, and by the certification path (forensics) or <a href="attack.html">MITRE ATT&amp;CK tactic</a> (incident response) it exercises.</p>
+    <h1 class="opener">Dozens of forensics and incident response cases <em>for the classroom</em></h1>
+    <p class="osub">Dozens of cases across two disciplines, <strong>Digital Forensics</strong> and <strong>Incident Response</strong>, from single-artifact First Look triage to multi-hour capstones. Every case generates a different, auto-graded lab for each student. Filter by discipline, by difficulty, and by the certification path (forensics) or <a href="attack.html">MITRE ATT&amp;CK tactic</a> (incident response) it exercises.</p>
   </div>
 
   <section style="border-top:0;padding-top:24px">
@@ -341,7 +341,7 @@ MODAL_JS = r'''<script>
       var ph=q.phase?' &middot; '+esc(q.phase.replace(/-/g," ")):"";
       return '<li><span class="cm-qtext">'+esc(q.prompt)+'</span><span class="cm-qmeta">'+esc(q.type)+' &middot; '+q.points+' pts'+ph+'</span></li>';
     }).join("");
-    var more=c.moreq>0?'<p class="cm-note">+ '+c.moreq+' more questions in the full case &mdash; you choose how many each student gets, drawn as a unique set per student.</p>':"";
+    var more=c.moreq>0?'<p class="cm-note">+ '+c.moreq+' more questions in the full case: you choose how many each student gets, drawn as a unique set per student.</p>':"";
     body.innerHTML =
       '<div class="cm-head"><span class="dpill '+c.diffCls+'">'+esc(c.diff)+'</span>'+
         '<span class="cm-disc disc-'+c.discCls+'">'+esc(c.disc)+'</span></div>'+

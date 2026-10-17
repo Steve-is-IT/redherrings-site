@@ -44,7 +44,7 @@ def icon(k):
 # link inventory: key -> (title, desc, href, icon)
 L = {
     "how": ("How it works", "One case, a different variant for every student", "/how.html", "how"),
-    "cases": ("Case library", "78 verified forensics and IR cases", "/cases.html", "cases"),
+    "cases": ("Case library", "Dozens of verified forensics and IR cases", "/cases.html", "cases"),
     "attack": ("ATT&amp;CK coverage", "Which techniques the cases exercise", "/attack.html", "attack"),
     "path": ("Learning pathways", "From First Look to cert-prep capstone", "/pathways.html", "path"),
     "ir": ("Incident response", "EDR, SIEM and triage exercises", "/incident-response.html", "ir"),
@@ -60,7 +60,7 @@ L = {
     "resources": ("Free resources", "Forms, checklists, rubrics and syllabi", "/resources.html", "blog"),
     "sample": ("Sample lab", "A full case ZIP with its verified answer key", "/sample.html", "key"),
     "edu": ("Educators", "One instructor, auto-graded labs", "/#pricing", "edu"),
-    "dept": ("Departments", "Multiple instructors, all packs", "/#pricing", "edu"),
+    "dept": ("Departments", "Several instructors, every case", "/#pricing", "edu"),
     "programs": ("College and university programs", "Labs, syllabi and procurement for departments", "/programs.html", "edu"),
     "student": ("Students", "Self-practice at the personal rate", "/#pricing", "portal"),
     "team": ("Security teams &amp; training", "45-minute incident drills, per seat", "/security-teams.html", "team"),

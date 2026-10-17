@@ -4,7 +4,7 @@ per-OS downloads with sizes and SHA-256 checksums, system requirements, a trust
 strip, and release notes from the product CHANGELOG.
 
 Sources of truth:
-  * CHANGELOG.md in the product repo (version headings `## vX.Y.Z — YYYY-MM-DD`)
+  * CHANGELOG.md in the product repo (version headings `## vX.Y.Z - YYYY-MM-DD`, dash of any kind)
   * the public GitHub releases on the site repo (dates, asset sizes)
   * the latest release's SHA256SUMS.txt (checksums)
 
@@ -170,7 +170,7 @@ def page(latest, releases, notes, sums):
           <pre><code>(Get-FileHash .\\{setup_name} -Algorithm SHA256).Hash</code></pre>
           <p>The output must match the SHA-256 above (letter case doesn't matter). The portable zip's checksum is {E(win_sha) if win_sha else "in SHA256SUMS.txt on the release"}.</p>
         </details>
-        {('<p class="dl-signed">&#10003; Installer and app are Authenticode-signed by ' + E(PUBLISHER) + ' &mdash; Windows shows the publisher name on the run prompt.</p>') if signed else ''}
+        {('<p class="dl-signed">&#10003; Installer and app are Authenticode-signed by ' + E(PUBLISHER) + '. Windows shows the publisher name on the run prompt.</p>') if signed else ''}
       </div>''' if (has_win and setup_name) else f'''
       <div class="dl-card">
         <div class="dl-os">Windows</div>
@@ -182,7 +182,7 @@ def page(latest, releases, notes, sums):
           <pre><code>(Get-FileHash .\\RedHerrings-windows.zip -Algorithm SHA256).Hash</code></pre>
           <p>The output must match the SHA-256 above (letter case doesn't matter).</p>
         </details>
-        {('<p class="dl-signed">&#10003; Authenticode-signed by ' + E(PUBLISHER) + ' &mdash; Windows shows the publisher name on the run prompt.</p>') if signed else ''}
+        {('<p class="dl-signed">&#10003; Authenticode-signed by ' + E(PUBLISHER) + '. Windows shows the publisher name on the run prompt.</p>') if signed else ''}
       </div>''' if has_win else f'''
       <div class="dl-card">
         <div class="dl-os">Windows</div>
@@ -226,8 +226,8 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
         {gate}
       </div>'''
 
-    it_signed = (f'allow it by <strong>publisher</strong> &mdash; an AppLocker, WDAC or Intune publisher rule for '
-                 f'<em>{E(PUBLISHER)}</em> covers every release &mdash; or by the SHA-256 above.'
+    it_signed = (f'allow it by <strong>publisher</strong> (an AppLocker, WDAC or Intune publisher rule for '
+                 f'<em>{E(PUBLISHER)}</em> covers every release) or by the SHA-256 above.'
                  if signed else
                  'allow it by the SHA-256 above (a per-release hash rule), or ask us about publisher-signed builds.')
 
@@ -247,8 +247,8 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Download Red Herrings {E(tag)} for Windows &amp; Linux | Red Herrings</title>
-<meta name="description" content="Download Red Herrings {E(tag)} for Windows or Linux: a 30-day free trial with no key needed. Checksums, system requirements and release notes for every version.">
+<title>Download Red Herrings {E(tag)} for Windows, macOS and Linux</title>
+<meta name="description" content="Download Red Herrings {E(tag)} for Windows, macOS or Linux. Free 30-day trial, no account or card required. Checksums, system requirements and release notes.">
 <link rel="canonical" href="https://redherrings.app/download.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#e3362b">
@@ -311,7 +311,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   <section>
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
-      <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial with no key needed</strong> &mdash; generate labs, run the student portal and grade a class before you buy.</p>
+      <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial with no key needed</strong>: generate labs, run the student portal and grade a class before you buy.</p>
       <div class="dl-ver"><span class="chip">{E(tag)}</span><span>Released {E(nice_date)}</span><span>&middot;</span><a href="#release-notes">Release notes</a><span>&middot;</span><a href="{RELEASES_PAGE}">All versions</a></div>
     </div>
 
@@ -335,7 +335,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     </div>
 
     <div class="dl-it">
-      <strong>Installing on a managed machine?</strong> Your IT team can {it_signed} The app needs no admin rights and no installer; it unzips to a folder and listens only on localhost. Full details on the <a href="trust.html">Trust &amp; security</a> page.
+      <strong>Installing on a managed machine?</strong> Your IT team can {it_signed} The app needs no admin rights (the installer is per-user, and the portable zip unzips to a folder) and listens only on localhost. Full details on the <a href="trust.html">Trust &amp; security</a> page.
     </div>
   </section>
 
