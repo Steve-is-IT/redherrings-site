@@ -365,7 +365,6 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <footer></footer>
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="nav.js" defer></script>
-<script src="theme.js" defer></script>
 </body>
 </html>
 '''
