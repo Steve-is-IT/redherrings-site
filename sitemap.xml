@@ -15,7 +15,13 @@
   <url><loc>https://redherrings.app/trust.html</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://redherrings.app/tools.html</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/help.html</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/</loc><lastmod>2026-10-05</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/</loc><lastmod>2026-10-17</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/how-to-grade-a-digital-forensics-lab.html</loc><lastmod>2026-10-17</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/prefetch-forensics-pecmd-walkthrough.html</loc><lastmod>2026-10-17</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/build-a-digital-forensics-course-syllabus.html</loc><lastmod>2026-10-17</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/chain-of-custody-in-the-classroom.html</loc><lastmod>2026-10-17</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/incident-response-tabletop-vs-hands-on-exercise.html</loc><lastmod>2026-10-17</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/wireshark-for-beginners-packet-capture-basics.html</loc><lastmod>2026-10-17</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/autopsy-disk-image-analysis-walkthrough.html</loc><lastmod>2026-10-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/registry-explorer-windows-registry-forensics.html</loc><lastmod>2026-10-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/evtxecmd-windows-event-log-timeline.html</loc><lastmod>2026-10-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>

@@ -40,6 +40,12 @@ GLYPHS = {
 
 # slug -> category
 POSTS = {
+    "how-to-grade-a-digital-forensics-lab": "course",
+    "prefetch-forensics-pecmd-walkthrough": "tools",
+    "build-a-digital-forensics-course-syllabus": "course",
+    "chain-of-custody-in-the-classroom": "course",
+    "incident-response-tabletop-vs-hands-on-exercise": "ir",
+    "wireshark-for-beginners-packet-capture-basics": "tools",
     "whats-new-student-portal-certificates": "course",
     "ios-imessage-forensics-cocoa-time": "mobile",
     "detect-lateral-movement-windows-event-logs": "windows",
