@@ -5,7 +5,7 @@
    icons, filters). Navy carries the footer and the closing band.
    ========================================================================= */
 :root{
-  --accent:#e3362b; --accent-2:#c92a20; --accent-ink:#ffffff;
+  --accent:#d32f26; --accent-2:#c92a20; --accent-ink:#ffffff;
   --blue:#1f5fbf; --blue-2:#17499a; --navy:#0f1b2d; --navy-ink:#dfe7f2; --navy-mut:#aab8cc;
   --ink:#111a26; --paper:#ffffff; --muted:#3e4a5a; --faint:#5c6a82;
   --line:#cfd8e4; --line-2:#e3e9f1; --bg:#f3f6fa; --card:#ffffff; --card-2:#f8fafc;
