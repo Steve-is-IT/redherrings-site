@@ -209,14 +209,14 @@ def build_index():
 <meta property="og:url" content="https://redherrings.app/blog/">
 <meta property="og:title" content="Red Herrings blog: DFIR teaching notes">
 <meta property="og:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
-<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta property="og:image" content="https://redherrings.app/img/og-2026-10.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Red Herrings blog: DFIR teaching notes">
 <meta name="twitter:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
-<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<meta name="twitter:image" content="https://redherrings.app/img/og-2026-10.png">
 {ICON}
 {FONTS}
 <link rel="stylesheet" href="../site.css">
