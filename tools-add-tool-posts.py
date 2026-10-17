@@ -208,9 +208,9 @@ def build(p):
 <meta property="og:title" content="{p["title"]}">
 <meta property="og:description" content="{p["ogdesc"]}">
 <meta property="og:url" content="https://redherrings.app/blog/{p["slug"]}.html">
-<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta property="og:image" content="https://redherrings.app/img/og-2026-10.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<meta name="twitter:image" content="https://redherrings.app/img/og-2026-10.png">
 {FONTS}
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="../blog.css">
