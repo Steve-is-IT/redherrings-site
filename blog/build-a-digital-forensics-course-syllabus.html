@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to build a digital forensics course syllabus | Red Herrings</title>
+<meta name="description" content="Week-by-week logic for a digital forensics course: a single-artifact First Look in week 1, a multi-artifact capstone, the assessment mix and tools to require.">
+<link rel="canonical" href="https://redherrings.app/blog/build-a-digital-forensics-course-syllabus.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to build a digital forensics course syllabus">
+<meta property="og:description" content="Sequence a forensics term from one artifact to a full capstone: weekly logic, assessment weights, required tools, and what to do in week one.">
+<meta property="og:url" content="https://redherrings.app/blog/build-a-digital-forensics-course-syllabus.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../blog.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to build a digital forensics course syllabus","description":"Sequence a forensics term from one artifact to a full capstone: weekly logic, assessment weights, required tools, and what to do in week one.","datePublished":"2026-10-17","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/build-a-digital-forensics-course-syllabus.html"}
+</script>
+</head>
+<body>
+<header>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Platform <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel"><div class="mpcols"><div class="mpcol"><div class="mphead">Product</div><a class="mlink" href="/how.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg></span><span><span class="mt">How it works</span><span class="md">One case, a different variant for every student</span></span></a><a class="mlink" href="/cases.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg></span><span><span class="mt">Case library</span><span class="md">78 verified forensics and IR cases</span></span></a><a class="mlink" href="/packs.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Scenario packs</span><span class="md">Add-on case sets, one-click install</span></span></a></div><div class="mpcol"><div class="mphead">Teaching</div><a class="mlink" href="/pathways.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V9a3 3 0 0 1 3-3h8M16 3l4 3-4 3"/></svg></span><span><span class="mt">Learning pathways</span><span class="md">From First Look to cert-prep capstone</span></span></a><a class="mlink" href="/courses.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Course packs</span><span class="md">A 14-week DF and an 8-week IR syllabus, ready to run</span></span></a><a class="mlink" href="/student-portal.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Student portal &amp; LMS</span><span class="md">Solve in the browser, auto-grade, LTI passback</span></span></a></div></div><a class="mppromo" href="/try.html"><span class="eye">Try it live</span><strong>Work two cases in your browser</strong><span class="pd">An EDR alert and a USB registry key. Press a button to see another student&rsquo;s variant. Nothing to install.</span><span class="pc"><span>EDR alert</span><span>USB registry</span></span><span class="go">Open the demo &rarr;</span></a></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Solutions <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">Who it is for</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Educators</span><span class="md">One instructor, auto-graded labs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Departments</span><span class="md">Multiple instructors, all packs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Students</span><span class="md">Self-practice at the personal rate</span></span></a></div><div class="mpcol"><div class="mphead">Organizations</div><a class="mlink" href="/security-teams.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11a3 3 0 0 0 0-6M21 20a6 6 0 0 0-5-5.9"/></svg></span><span><span class="mt">Security teams &amp; training</span><span class="md">45-minute incident drills, per seat</span></span></a><a class="mlink" href="/contact.html?topic=enterprise"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Enterprise &amp; government</span><span class="md">White-label, volume, procurement</span></span></a></div></div></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Resources <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">Learn</div><a class="mlink" href="/help.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">Getting started</span><span class="md">Install, activate and run your first lab</span></span></a><a class="mlink" href="/tools.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5 5l-6 6 2 2 6-6a4 4 0 0 1 5-5z"/></svg></span><span><span class="mt">Tool setup</span><span class="md">Autopsy, Volatility, Wireshark and more</span></span></a><a class="mlink" href="/resources.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Free resources</span><span class="md">Forms, checklists, rubrics and syllabi</span></span></a><a class="mlink" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Blog</span><span class="md">DFIR teaching notes and updates</span></span></a></div><div class="mpcol"><div class="mphead">Evaluate</div><a class="mlink" href="/sample.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9l-2 2 2 2M11.5 12H21"/></svg></span><span><span class="mt">Sample lab</span><span class="md">A full case ZIP with its verified answer key</span></span></a><a class="mlink" href="/compare.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">Compare</span><span class="md">Hand-built labs, public images, ranges and us</span></span></a><a class="mlink" href="/attack.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">ATT&amp;CK coverage</span><span class="md">Which techniques the cases exercise</span></span></a><a class="mlink" href="/trust.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></span><span><span class="mt">Trust &amp; security</span><span class="md">Runs locally; no student data leaves</span></span></a><a class="mlink" href="/#faq"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">FAQ</span><span class="md">Licensing, platforms, classroom use</span></span></a></div></div></div></div>
+      <a class="mnitem mnflat" href="/#pricing">Pricing</a>
+    </nav>
+    <div class="spacer"></div>
+    <a class="link navutil" href="https://account.redherrings.app/account" data-goatcounter-click="signin">Sign in</a>
+    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+    <button type="button" class="navburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilenav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobilenav" id="mobilenav" hidden>
+    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Start free trial</a>
+    <div class="mnsection"><div class="mnsh">Platform</div><a class="mlink" href="/how.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg></span><span><span class="mt">How it works</span><span class="md">One case, a different variant for every student</span></span></a><a class="mlink" href="/cases.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg></span><span><span class="mt">Case library</span><span class="md">78 verified forensics and IR cases</span></span></a><a class="mlink" href="/packs.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Scenario packs</span><span class="md">Add-on case sets, one-click install</span></span></a><a class="mlink" href="/pathways.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V9a3 3 0 0 1 3-3h8M16 3l4 3-4 3"/></svg></span><span><span class="mt">Learning pathways</span><span class="md">From First Look to cert-prep capstone</span></span></a><a class="mlink" href="/courses.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Course packs</span><span class="md">A 14-week DF and an 8-week IR syllabus, ready to run</span></span></a><a class="mlink" href="/student-portal.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Student portal &amp; LMS</span><span class="md">Solve in the browser, auto-grade, LTI passback</span></span></a></div><div class="mnsection"><div class="mnsh">Solutions</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Educators</span><span class="md">One instructor, auto-graded labs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Departments</span><span class="md">Multiple instructors, all packs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Students</span><span class="md">Self-practice at the personal rate</span></span></a><a class="mlink" href="/security-teams.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11a3 3 0 0 0 0-6M21 20a6 6 0 0 0-5-5.9"/></svg></span><span><span class="mt">Security teams &amp; training</span><span class="md">45-minute incident drills, per seat</span></span></a><a class="mlink" href="/contact.html?topic=enterprise"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Enterprise &amp; government</span><span class="md">White-label, volume, procurement</span></span></a></div><div class="mnsection"><div class="mnsh">Resources</div><a class="mlink" href="/help.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">Getting started</span><span class="md">Install, activate and run your first lab</span></span></a><a class="mlink" href="/tools.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5 5l-6 6 2 2 6-6a4 4 0 0 1 5-5z"/></svg></span><span><span class="mt">Tool setup</span><span class="md">Autopsy, Volatility, Wireshark and more</span></span></a><a class="mlink" href="/resources.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Free resources</span><span class="md">Forms, checklists, rubrics and syllabi</span></span></a><a class="mlink" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Blog</span><span class="md">DFIR teaching notes and updates</span></span></a><a class="mlink" href="/sample.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9l-2 2 2 2M11.5 12H21"/></svg></span><span><span class="mt">Sample lab</span><span class="md">A full case ZIP with its verified answer key</span></span></a><a class="mlink" href="/compare.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">Compare</span><span class="md">Hand-built labs, public images, ranges and us</span></span></a><a class="mlink" href="/attack.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">ATT&amp;CK coverage</span><span class="md">Which techniques the cases exercise</span></span></a><a class="mlink" href="/trust.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></span><span><span class="mt">Trust &amp; security</span><span class="md">Runs locally; no student data leaves</span></span></a><a class="mlink" href="/#faq"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">FAQ</span><span class="md">Licensing, platforms, classroom use</span></span></a></div>
+    <div class="mnsection"><a class="mnflat mnsolo" href="/#pricing">Pricing</a></div>
+    <div class="mnrow">
+      <a class="btn ghost" href="https://account.redherrings.app/account" data-goatcounter-click="signin">Sign in</a>
+      <a class="btn ghost" href="/student-portal.html">Student portal</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <article class="post">
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/build-a-digital-forensics-course-syllabus.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>How to build a digital forensics course syllabus</h1></header>
+    <p class="lede">A forensics course is a sequence problem. Every artifact is easy once the one before it is understood and bewildering if it arrives too early. Here is the ordering logic behind our 14-week syllabus, why memory and network come late, and what the first week should actually do.</p>
+
+    <h2>Start from the artifact, not the tool</h2>
+    <p>The most common syllabus mistake is to organize by tool: an Autopsy week, a Volatility week, a Wireshark week. Students learn menus. Organize by artifact instead, with one question per week that the artifact answers: what was plugged in, what ran, what was opened, what persists, who logged on. The tools follow from the artifact, and a student who understands what a Prefetch file records can learn any parser for it in ten minutes.</p>
+    <p>The second mistake is to begin with a full disk image. A beginner facing twenty questions and a 40 GB E01 does not know where to start, so they start nowhere. Begin with a single artifact and a single tool, and widen from there. We call that opening case a First Look, and the whole <a href="/pathways.html">pathway model</a> is built on it.</p>
+
+    <h2>The week-by-week logic</h2>
+    <p>This is the shape of the <a href="/courses.html#intro-digital-forensics-14">14-week Introduction to Digital Forensics</a> course pack, and the reasoning behind each step. The <a href="/resources.html">full syllabus PDF</a> is on the free resources page.</p>
+    <ul>
+      <li><strong>Week 1: evidence handling and one registry hive.</strong> Acquisition, hashing, chain of custody, then a SYSTEM hive and the question "what USB device was plugged in". One hive, one key, one answer. See below for why this week matters more than any other.</li>
+      <li><strong>Weeks 2 to 4: the Windows execution and file-use artifacts.</strong> Program execution (Prefetch, UserAssist, Amcache), then files the user touched (LNK, jump lists, MRUs), then persistence (Run keys, services, scheduled tasks). Each week adds one artifact family and reuses the hive-reading skill from week 1.</li>
+      <li><strong>Week 5: Windows event logs.</strong> The first artifact that is about accounts rather than files. Teach 4720, 4732, 7045 and 1102, and make a point of subject versus target: who acted versus who was acted on.</li>
+      <li><strong>Week 6: timelines.</strong> Now that students hold five artifact families, the week is about putting them on one axis. Normalize time zones, build a super-timeline, present it. <a href="/cases.html#easy-timeline">First Look: Building a Timeline</a> is the case.</li>
+      <li><strong>Week 7: midterm practical.</strong> One insider-theft case that needs weeks 1 to 6, timed. This is the first time students work multiple artifacts without being told which one holds the answer.</li>
+      <li><strong>Weeks 8 and 9: browser and cloud.</strong> Downloads traced from history to disk, then exfiltration proved from browser, LNK and email evidence together. These are correlation weeks: the Windows skills applied to a new question.</li>
+      <li><strong>Weeks 10 and 11: memory and network.</strong> One First Look each, Volatility 3 and Wireshark. See the pacing note below.</li>
+      <li><strong>Week 12: mobile.</strong> SQLite stores, message joins, Cocoa time. The last new evidence family, and a good one for showing that the method transfers.</li>
+      <li><strong>Weeks 13 and 14: capstone and report.</strong> A multi-artifact case worked end to end, then a written investigation report graded on a rubric.</li>
+    </ul>
+    <p>The pattern is: single artifact, then several of the same family, then correlation across families, then a new family, then a capstone that needs all of them. Every jump is one jump. The <a href="/blog/dfir-learning-pathways-first-look-to-capstone.html">pathways post</a> describes the difficulty ladder this maps onto.</p>
+
+    <blockquote>If a week's case can be solved without the previous week's skill, the two weeks are in the wrong order or one of them is a tool demo wearing a lab coat.</blockquote>
+
+    <h2>Why memory and network come late</h2>
+    <p>It is tempting to put packet captures early because Wireshark is colorful and students like it. Resist it. Memory and network evidence are abstract in a way disk evidence is not: there is no file to point at, timestamps are relative to the capture, and the question "what is suspicious here" has no answer until the student knows what normal looks like. By week 10, students have built six timelines from Windows artifacts and have a working sense of what a machine does when nobody is attacking it. That is the right moment to show them a process list or a conversation table and ask what does not belong.</p>
+    <p>Give each one a single First Look week, not two, and do not try to teach both in the same week. Memory in week 10 asks "which process is wrong and what was it talking to". Network in week 11 asks "follow this DNS lookup to a connection and read what crossed it". Both reuse the timeline skill from week 6. The capstone then expects a student to carry a finding from one family into the other, which is the whole point of the term.</p>
+
+    <h2>Assessment mix and tools</h2>
+    <p>The weighting we ship, which has held up in practice:</p>
+    <ul>
+      <li><strong>Weekly labs, 50 percent, best 10 of 12.</strong> The drop rule removes the incentive to cheat on a bad week.</li>
+      <li><strong>Midterm practical, 20 percent.</strong> Timed, multi-artifact, weeks 1 to 6.</li>
+      <li><strong>Capstone practical, 20 percent.</strong> Timed, every family.</li>
+      <li><strong>Investigation report, 10 percent.</strong> Rubric-graded prose on the capstone findings.</li>
+    </ul>
+    <p>Require free tools only, so no student is blocked by a license: Autopsy, Registry Explorer, PECmd, LECmd, JLECmd, EvtxECmd, Timeline Explorer, Volatility 3, Wireshark, DB Browser for SQLite. Every one has a setup note on our <a href="/tools.html">tools page</a>. Allow commercial tools for students who have them, but write questions that the free tools can answer.</p>
+    <p>If you want the practicals to be copy-resistant, give each student their own variant of the case. Red Herrings generates one from a single authored scenario, verifies every variant's answer key before release, grades the class with tolerances for hashes and timestamps, and exports the grade file to your LMS. Our <a href="/blog/how-to-grade-a-digital-forensics-lab.html">grading post</a> covers the tolerance rules in detail.</p>
+
+    <h2>What to do in week 1</h2>
+    <p>Week 1 sets every habit the rest of the term depends on, so do not spend it on history and definitions. Do this instead:</p>
+    <ol>
+      <li><strong>Hand out evidence as evidence.</strong> A ZIP with a hash beside it. The first thing every student does is verify the hash and write it on a chain of custody form. That form travels with every lab for the rest of the term.</li>
+      <li><strong>Open one hive in one tool.</strong> Registry Explorer, the SYSTEM hive, <code>USBSTOR</code>. Find one device serial. That is the lab.</li>
+      <li><strong>Write one finding in one sentence</strong> that names the artifact: "The SYSTEM hive records a SanDisk Cruzer, serial 4C53..., first connected 2026-03-14 09:26 UTC." Artifact, fact, time, zone. Students who can write that sentence in week 1 write defensible reports in week 14.</li>
+      <li><strong>Grade it the same day.</strong> A short lab with same-day feedback does more for week 2 attendance than any syllabus policy.</li>
+    </ol>
+    <p>The single-artifact start can feel too easy to an instructor who knows the field. It is not too easy for the person in the room meeting a registry hive for the first time. Get them to one correct answer, with one tool, and the next thirteen weeks have somewhere to stand.</p>
+
+    <div class="cta">
+      <strong>Want to practice on real evidence?</strong>
+      <p style="margin:8px 0 14px">Download the free sample lab, or start the 30-day trial and generate a per-student case in a few minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="/sample.html">Get the free sample lab</a>
+        <a class="btn ghost" href="/download.html">Start a free trial</a>
+      </div>
+    </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="chain-of-custody-in-the-classroom.html">
+        <div class="cover"><img src="../img/blog/chain-of-custody-in-the-classroom.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-course">Course design</span>
+        <h3>Teaching chain of custody in the forensics classroom</h3>
+      </a>
+      <a class="rel" href="incident-response-tabletop-vs-hands-on-exercise.html">
+        <div class="cover"><img src="../img/blog/incident-response-tabletop-vs-hands-on-exercise.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-ir">Incident response</span>
+        <h3>Incident response tabletop vs. hands-on exercise: what each measures</h3>
+      </a>
+      <a class="rel" href="wireshark-for-beginners-packet-capture-basics.html">
+        <div class="cover"><img src="../img/blog/wireshark-for-beginners-packet-capture-basics.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Wireshark for beginners: packet capture basics</h3>
+      </a>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fbrand">
+        <div class="brand"><a href="/" aria-label="Red Herrings home" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="font-size:16px">Red Herrings</span></a></div>
+        <p>Real Evidence. Real Skills. Real Fast.</p>
+        <p class="fsmall">Runs locally on Windows, macOS and Linux. No student data ever leaves your machine.</p>
+        <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="/how.html">How it works</a>
+        <a href="/cases.html">All cases</a>
+        <a href="/pathways.html">Learning pathways</a>
+        <a href="/courses.html">Course packs</a>
+        <a href="/attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="/student-portal.html">Student portal &amp; LMS</a>
+        <a href="/packs.html">Scenario packs</a>
+        <a href="/#pricing">Pricing</a>
+      </div>
+      <div class="fcol">
+        <h4>Resources</h4>
+        <a href="/help.html">Help &amp; getting started</a>
+        <a href="/tools.html">Tools &amp; setup</a>
+        <a href="/resources.html">Free resources</a>
+        <a href="/blog/">Blog</a>
+        <a href="/compare.html">Compare</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/trust.html">Trust &amp; security</a>
+        <a href="/verify.html">Verify a certificate</a>
+        <a href="/download.html">Download</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC. Prices in USD; institutional purchase orders welcome.</span>
+      <nav class="flegal" aria-label="Legal">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/eula.html">License agreement</a>
+        <a href="/refund.html">Refund</a>
+        <a href="/accessibility.html">Accessibility</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="../nav.js" defer></script>
+</body>
+</html>

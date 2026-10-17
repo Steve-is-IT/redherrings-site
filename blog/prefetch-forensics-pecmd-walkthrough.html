@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windows Prefetch forensics: a PECmd walkthrough | Red Herrings</title>
+<meta name="description" content="What a Windows Prefetch file records (run count, last eight run times, volumes, files loaded), how to parse it to CSV with PECmd, and the misreads to avoid.">
+<link rel="canonical" href="https://redherrings.app/blog/prefetch-forensics-pecmd-walkthrough.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows Prefetch forensics: a PECmd walkthrough">
+<meta property="og:description" content="Read Windows Prefetch files with PECmd: run counts, the last eight run times, volume and file references, and the common misreads.">
+<meta property="og:url" content="https://redherrings.app/blog/prefetch-forensics-pecmd-walkthrough.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../blog.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Windows Prefetch forensics: a PECmd walkthrough","description":"Read Windows Prefetch files with PECmd: run counts, the last eight run times, volume and file references, and the common misreads.","datePublished":"2026-10-17","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/prefetch-forensics-pecmd-walkthrough.html"}
+</script>
+</head>
+<body>
+<header>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Platform <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel"><div class="mpcols"><div class="mpcol"><div class="mphead">Product</div><a class="mlink" href="/how.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg></span><span><span class="mt">How it works</span><span class="md">One case, a different variant for every student</span></span></a><a class="mlink" href="/cases.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg></span><span><span class="mt">Case library</span><span class="md">78 verified forensics and IR cases</span></span></a><a class="mlink" href="/packs.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Scenario packs</span><span class="md">Add-on case sets, one-click install</span></span></a></div><div class="mpcol"><div class="mphead">Teaching</div><a class="mlink" href="/pathways.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V9a3 3 0 0 1 3-3h8M16 3l4 3-4 3"/></svg></span><span><span class="mt">Learning pathways</span><span class="md">From First Look to cert-prep capstone</span></span></a><a class="mlink" href="/courses.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Course packs</span><span class="md">A 14-week DF and an 8-week IR syllabus, ready to run</span></span></a><a class="mlink" href="/student-portal.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Student portal &amp; LMS</span><span class="md">Solve in the browser, auto-grade, LTI passback</span></span></a></div></div><a class="mppromo" href="/try.html"><span class="eye">Try it live</span><strong>Work two cases in your browser</strong><span class="pd">An EDR alert and a USB registry key. Press a button to see another student&rsquo;s variant. Nothing to install.</span><span class="pc"><span>EDR alert</span><span>USB registry</span></span><span class="go">Open the demo &rarr;</span></a></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Solutions <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">Who it is for</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Educators</span><span class="md">One instructor, auto-graded labs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Departments</span><span class="md">Multiple instructors, all packs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Students</span><span class="md">Self-practice at the personal rate</span></span></a></div><div class="mpcol"><div class="mphead">Organizations</div><a class="mlink" href="/security-teams.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11a3 3 0 0 0 0-6M21 20a6 6 0 0 0-5-5.9"/></svg></span><span><span class="mt">Security teams &amp; training</span><span class="md">45-minute incident drills, per seat</span></span></a><a class="mlink" href="/contact.html?topic=enterprise"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Enterprise &amp; government</span><span class="md">White-label, volume, procurement</span></span></a></div></div></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Resources <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">Learn</div><a class="mlink" href="/help.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">Getting started</span><span class="md">Install, activate and run your first lab</span></span></a><a class="mlink" href="/tools.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5 5l-6 6 2 2 6-6a4 4 0 0 1 5-5z"/></svg></span><span><span class="mt">Tool setup</span><span class="md">Autopsy, Volatility, Wireshark and more</span></span></a><a class="mlink" href="/resources.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Free resources</span><span class="md">Forms, checklists, rubrics and syllabi</span></span></a><a class="mlink" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Blog</span><span class="md">DFIR teaching notes and updates</span></span></a></div><div class="mpcol"><div class="mphead">Evaluate</div><a class="mlink" href="/sample.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9l-2 2 2 2M11.5 12H21"/></svg></span><span><span class="mt">Sample lab</span><span class="md">A full case ZIP with its verified answer key</span></span></a><a class="mlink" href="/compare.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">Compare</span><span class="md">Hand-built labs, public images, ranges and us</span></span></a><a class="mlink" href="/attack.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">ATT&amp;CK coverage</span><span class="md">Which techniques the cases exercise</span></span></a><a class="mlink" href="/trust.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></span><span><span class="mt">Trust &amp; security</span><span class="md">Runs locally; no student data leaves</span></span></a><a class="mlink" href="/#faq"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">FAQ</span><span class="md">Licensing, platforms, classroom use</span></span></a></div></div></div></div>
+      <a class="mnitem mnflat" href="/#pricing">Pricing</a>
+    </nav>
+    <div class="spacer"></div>
+    <a class="link navutil" href="https://account.redherrings.app/account" data-goatcounter-click="signin">Sign in</a>
+    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+    <button type="button" class="navburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilenav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobilenav" id="mobilenav" hidden>
+    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Start free trial</a>
+    <div class="mnsection"><div class="mnsh">Platform</div><a class="mlink" href="/how.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg></span><span><span class="mt">How it works</span><span class="md">One case, a different variant for every student</span></span></a><a class="mlink" href="/cases.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg></span><span><span class="mt">Case library</span><span class="md">78 verified forensics and IR cases</span></span></a><a class="mlink" href="/packs.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Scenario packs</span><span class="md">Add-on case sets, one-click install</span></span></a><a class="mlink" href="/pathways.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V9a3 3 0 0 1 3-3h8M16 3l4 3-4 3"/></svg></span><span><span class="mt">Learning pathways</span><span class="md">From First Look to cert-prep capstone</span></span></a><a class="mlink" href="/courses.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Course packs</span><span class="md">A 14-week DF and an 8-week IR syllabus, ready to run</span></span></a><a class="mlink" href="/student-portal.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Student portal &amp; LMS</span><span class="md">Solve in the browser, auto-grade, LTI passback</span></span></a></div><div class="mnsection"><div class="mnsh">Solutions</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Educators</span><span class="md">One instructor, auto-graded labs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Departments</span><span class="md">Multiple instructors, all packs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Students</span><span class="md">Self-practice at the personal rate</span></span></a><a class="mlink" href="/security-teams.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11a3 3 0 0 0 0-6M21 20a6 6 0 0 0-5-5.9"/></svg></span><span><span class="mt">Security teams &amp; training</span><span class="md">45-minute incident drills, per seat</span></span></a><a class="mlink" href="/contact.html?topic=enterprise"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Enterprise &amp; government</span><span class="md">White-label, volume, procurement</span></span></a></div><div class="mnsection"><div class="mnsh">Resources</div><a class="mlink" href="/help.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">Getting started</span><span class="md">Install, activate and run your first lab</span></span></a><a class="mlink" href="/tools.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5 5l-6 6 2 2 6-6a4 4 0 0 1 5-5z"/></svg></span><span><span class="mt">Tool setup</span><span class="md">Autopsy, Volatility, Wireshark and more</span></span></a><a class="mlink" href="/resources.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Free resources</span><span class="md">Forms, checklists, rubrics and syllabi</span></span></a><a class="mlink" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Blog</span><span class="md">DFIR teaching notes and updates</span></span></a><a class="mlink" href="/sample.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9l-2 2 2 2M11.5 12H21"/></svg></span><span><span class="mt">Sample lab</span><span class="md">A full case ZIP with its verified answer key</span></span></a><a class="mlink" href="/compare.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">Compare</span><span class="md">Hand-built labs, public images, ranges and us</span></span></a><a class="mlink" href="/attack.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">ATT&amp;CK coverage</span><span class="md">Which techniques the cases exercise</span></span></a><a class="mlink" href="/trust.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></span><span><span class="mt">Trust &amp; security</span><span class="md">Runs locally; no student data leaves</span></span></a><a class="mlink" href="/#faq"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">FAQ</span><span class="md">Licensing, platforms, classroom use</span></span></a></div>
+    <div class="mnsection"><a class="mnflat mnsolo" href="/#pricing">Pricing</a></div>
+    <div class="mnrow">
+      <a class="btn ghost" href="https://account.redherrings.app/account" data-goatcounter-click="signin">Sign in</a>
+      <a class="btn ghost" href="/student-portal.html">Student portal</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <article class="post">
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/prefetch-forensics-pecmd-walkthrough.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Windows Prefetch forensics: a PECmd walkthrough</h1></header>
+    <p class="lede">Prefetch is the closest thing Windows has to a receipt that a program ran. One file per executable, a run count, the last eight run times, and a list of what it touched on the way up. PECmd turns the whole folder into a CSV in a few seconds. The hard part is reading it correctly.</p>
+
+    <h2>What Prefetch records, and where it lives</h2>
+    <p>Windows watches the first ten seconds or so of an application's launch and writes a note of which files and directories it loaded, so the next launch can be read from disk more efficiently. That note is a Prefetch file. They live in <code>C:\Windows\Prefetch</code>, one per executable, named after the program in upper case with a hash appended: <code>NOTEPAD.EXE-D8414F97.pf</code>.</p>
+    <p>Each file carries:</p>
+    <ul>
+      <li><strong>The executable name</strong>, as it was at launch.</li>
+      <li><strong>Run count.</strong> How many times Windows has recorded that executable starting since the file was created.</li>
+      <li><strong>Run times.</strong> Windows 8 and later keep the last eight; Windows 7 and earlier keep only the most recent. Stored in UTC.</li>
+      <li><strong>Volume information.</strong> The device path, creation time and serial number of each volume the program loaded from. A program that ran from a USB stick leaves the stick's volume serial here.</li>
+      <li><strong>File and directory references.</strong> Everything loaded during that first stretch: DLLs, configuration files, and often the documents the program opened. This is why Prefetch for a text editor can tell you which file it was editing.</li>
+    </ul>
+    <p>Windows 10 and 11 compress these files, so a hex editor shows <code>MAM</code> at the start rather than the <code>SCCA</code> signature. PECmd handles the decompression; you do not need to.</p>
+
+    <h2>Parse the folder with PECmd</h2>
+    <p>PECmd is one of Eric Zimmerman's free tools and needs the .NET runtime. Download it from <a href="https://ericzimmerman.github.io/">ericzimmerman.github.io</a>; the <a href="/tools.html">Tools &amp; setup</a> page lists it alongside the rest of the kit. One file at a time, to the console:</p>
+    <p><code>PECmd.exe -f "C:\evidence\Prefetch\NOTEPAD.EXE-D8414F97.pf"</code></p>
+    <p>The whole folder, to CSV:</p>
+    <p><code>PECmd.exe -d "C:\evidence\Prefetch" --csv C:\out --csvf prefetch.csv</code></p>
+    <p>You get two files. <code>prefetch.csv</code> has one row per Prefetch file with the run count, the eight run times in their own columns, and the volume and file lists. <code>prefetch_Timeline.csv</code> flattens every run time into its own row, which is the one to drop into a timeline. Open either in Timeline Explorer, sort by the last run column, and the recent activity on the machine is on the screen in front of you.</p>
+    <p>Two flags worth knowing: <code>--mp</code> prints timestamps to the millisecond, which matters when you are lining up a run against a 4688 event, and <code>-k "keyword1,keyword2"</code> highlights any file reference that matches, so you can hunt for a document name across every Prefetch file at once.</p>
+
+    <h2>Reading a row</h2>
+    <p>Take a utility a student is asked about in <a href="/cases.html#easy-program-execution">First Look: What Ran on This Machine</a>: one user profile, a downloaded tool, and the questions "was it run, how often, and when". The Prefetch row answers all three directly. The executable name is in the filename, the run count is a column, and the last run column is the most recent execution. The eight run times tell you the pattern: once at 02:14 is different from eight times across a working day.</p>
+    <p>Then read down into the references. The volume list tells you where it ran from. If the volume serial does not match the system drive, cross-check it against <code>USBSTOR</code> and <code>MountedDevices</code> in the SYSTEM hive; the <a href="/blog/registry-explorer-windows-registry-forensics.html">Registry Explorer guide</a> walks those keys. The file references often include the thing the tool operated on: an archive it compressed, a document it opened, a DLL it sideloaded. Prefetch is strongest when it points you to the next artifact.</p>
+
+    <blockquote>Prefetch proves a program started. It does not prove who started it, what it did, or that it finished. Pair it with UserAssist, a LNK file or a process-creation event before you write "the user ran".</blockquote>
+
+    <h2>The misreads that cost marks</h2>
+    <ul>
+      <li><strong>File creation time is not first run.</strong> The Prefetch file is created roughly ten seconds after the first launch, and only if Prefetch was enabled at the time. If the file was deleted and recreated, or the system was imaged from an upgrade, the creation time tells you about the file, not the program's history. Report the earliest stored run time as "earliest recorded run", not "first run".</li>
+      <li><strong>Modification time lags the last run.</strong> Windows writes the file after the launch window closes, so the file's modified timestamp is several seconds after the last run time stored inside it. Quote the internal timestamp.</li>
+      <li><strong>Prefetch can be off.</strong> Windows Server disables it by default. Client systems on SSDs sometimes have it reduced or disabled by policy or by tuning utilities. Check <code>HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters\EnablePrefetcher</code>: 0 is off, 3 is boot and application. An empty Prefetch folder is a finding about configuration, not proof that nothing ran.</li>
+      <li><strong>The hash in the filename is the path, not the file.</strong> The eight hex characters are computed from the executable's full path (and, for hosts such as <code>svchost.exe</code>, <code>rundll32.exe</code> and <code>mmc.exe</code>, the command line). The same binary run from Downloads and from Desktop produces two Prefetch files; a renamed copy produces another. A matching hash across two machines means the same path, not the same file. If a question asks for the file's hash, go to the file.</li>
+      <li><strong>Run count counts starts, not sessions.</strong> A crash loop or a script that calls a tool twenty times inflates it. Read the run times for the actual pattern.</li>
+      <li><strong>The folder is capped.</strong> Windows 8 and later hold up to 1,024 Prefetch files and evict the oldest. On a long-lived machine, absence of a file for an old program means little.</li>
+      <li><strong>Times are UTC.</strong> Convert before comparing with anything a GUI showed in local time, and say which zone you are reporting in.</li>
+    </ul>
+
+    <h2>Where it fits</h2>
+    <p>Prefetch sits in the execution family with UserAssist, Amcache, Shimcache and the 4688 event. On its own it answers "did this start, and when". With a LNK file or a jump list it answers "and what did they open with it". With event logs it answers "under which account". The <a href="/blog/evtxecmd-windows-event-log-timeline.html">EvtxECmd guide</a> covers that last pivot. In Red Herrings, Windows cases ship real <code>.pf</code> files, written with the run counts and timestamps that the answer key is derived from, so PECmd reads them the same way it reads a live machine, and every student's run times and volume serials are their own. The Windows forensics pathway on the <a href="/pathways.html">pathways page</a> places this First Look as week two, right after the registry.</p>
+
+    <div class="cta">
+      <strong>Want to practice on real evidence?</strong>
+      <p style="margin:8px 0 14px">Download the free sample lab, or start the 30-day trial and generate a per-student case in a few minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="/sample.html">Get the free sample lab</a>
+        <a class="btn ghost" href="/download.html">Start a free trial</a>
+      </div>
+    </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="build-a-digital-forensics-course-syllabus.html">
+        <div class="cover"><img src="../img/blog/build-a-digital-forensics-course-syllabus.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-course">Course design</span>
+        <h3>How to build a digital forensics course syllabus</h3>
+      </a>
+      <a class="rel" href="chain-of-custody-in-the-classroom.html">
+        <div class="cover"><img src="../img/blog/chain-of-custody-in-the-classroom.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-course">Course design</span>
+        <h3>Teaching chain of custody in the forensics classroom</h3>
+      </a>
+      <a class="rel" href="incident-response-tabletop-vs-hands-on-exercise.html">
+        <div class="cover"><img src="../img/blog/incident-response-tabletop-vs-hands-on-exercise.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-ir">Incident response</span>
+        <h3>Incident response tabletop vs. hands-on exercise: what each measures</h3>
+      </a>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fbrand">
+        <div class="brand"><a href="/" aria-label="Red Herrings home" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="font-size:16px">Red Herrings</span></a></div>
+        <p>Real Evidence. Real Skills. Real Fast.</p>
+        <p class="fsmall">Runs locally on Windows, macOS and Linux. No student data ever leaves your machine.</p>
+        <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="/how.html">How it works</a>
+        <a href="/cases.html">All cases</a>
+        <a href="/pathways.html">Learning pathways</a>
+        <a href="/courses.html">Course packs</a>
+        <a href="/attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="/student-portal.html">Student portal &amp; LMS</a>
+        <a href="/packs.html">Scenario packs</a>
+        <a href="/#pricing">Pricing</a>
+      </div>
+      <div class="fcol">
+        <h4>Resources</h4>
+        <a href="/help.html">Help &amp; getting started</a>
+        <a href="/tools.html">Tools &amp; setup</a>
+        <a href="/resources.html">Free resources</a>
+        <a href="/blog/">Blog</a>
+        <a href="/compare.html">Compare</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/trust.html">Trust &amp; security</a>
+        <a href="/verify.html">Verify a certificate</a>
+        <a href="/download.html">Download</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC. Prices in USD; institutional purchase orders welcome.</span>
+      <nav class="flegal" aria-label="Legal">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/eula.html">License agreement</a>
+        <a href="/refund.html">Refund</a>
+        <a href="/accessibility.html">Accessibility</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="../nav.js" defer></script>
+</body>
+</html>

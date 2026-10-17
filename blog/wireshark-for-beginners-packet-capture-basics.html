@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireshark for beginners: packet capture basics | Red Herrings</title>
+<meta name="description" content="Open a pcap in Wireshark, tell display filters from capture filters, use Conversations and Endpoints, follow a TCP stream, export objects, and save a subset.">
+<link rel="canonical" href="https://redherrings.app/blog/wireshark-for-beginners-packet-capture-basics.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#E5382F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wireshark for beginners: packet capture basics">
+<meta property="og:description" content="The first hour in Wireshark: filters, Conversations and Endpoints, Follow TCP Stream, Export Objects, reading DNS and HTTP, and saving a filtered subset.">
+<meta property="og:url" content="https://redherrings.app/blog/wireshark-for-beginners-packet-capture-basics.html">
+<meta property="og:image" content="https://redherrings.app/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://redherrings.app/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../blog.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Wireshark for beginners: packet capture basics","description":"The first hour in Wireshark: filters, Conversations and Endpoints, Follow TCP Stream, Export Objects, reading DNS and HTTP, and saving a filtered subset.","datePublished":"2026-10-17","author":{"@type":"Organization","name":"Red Herrings"},"publisher":{"@type":"Organization","name":"Red Herrings"},"mainEntityOfPage":"https://redherrings.app/blog/wireshark-for-beginners-packet-capture-basics.html"}
+</script>
+</head>
+<body>
+<header>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Red Herrings home">
+      <svg width="28" height="28" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span style="color:var(--ink)">Red Herrings</span>
+    </a>
+    <nav class="mainnav" aria-label="Primary">
+      <div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Platform <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel"><div class="mpcols"><div class="mpcol"><div class="mphead">Product</div><a class="mlink" href="/how.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg></span><span><span class="mt">How it works</span><span class="md">One case, a different variant for every student</span></span></a><a class="mlink" href="/cases.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg></span><span><span class="mt">Case library</span><span class="md">78 verified forensics and IR cases</span></span></a><a class="mlink" href="/packs.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Scenario packs</span><span class="md">Add-on case sets, one-click install</span></span></a></div><div class="mpcol"><div class="mphead">Teaching</div><a class="mlink" href="/pathways.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V9a3 3 0 0 1 3-3h8M16 3l4 3-4 3"/></svg></span><span><span class="mt">Learning pathways</span><span class="md">From First Look to cert-prep capstone</span></span></a><a class="mlink" href="/courses.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Course packs</span><span class="md">A 14-week DF and an 8-week IR syllabus, ready to run</span></span></a><a class="mlink" href="/student-portal.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Student portal &amp; LMS</span><span class="md">Solve in the browser, auto-grade, LTI passback</span></span></a></div></div><a class="mppromo" href="/try.html"><span class="eye">Try it live</span><strong>Work two cases in your browser</strong><span class="pd">An EDR alert and a USB registry key. Press a button to see another student&rsquo;s variant. Nothing to install.</span><span class="pc"><span>EDR alert</span><span>USB registry</span></span><span class="go">Open the demo &rarr;</span></a></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Solutions <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">Who it is for</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Educators</span><span class="md">One instructor, auto-graded labs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Departments</span><span class="md">Multiple instructors, all packs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Students</span><span class="md">Self-practice at the personal rate</span></span></a></div><div class="mpcol"><div class="mphead">Organizations</div><a class="mlink" href="/security-teams.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11a3 3 0 0 0 0-6M21 20a6 6 0 0 0-5-5.9"/></svg></span><span><span class="mt">Security teams &amp; training</span><span class="md">45-minute incident drills, per seat</span></span></a><a class="mlink" href="/contact.html?topic=enterprise"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Enterprise &amp; government</span><span class="md">White-label, volume, procurement</span></span></a></div></div></div></div><div class="mnitem haspanel"><button type="button" class="mntrig" aria-expanded="false">Resources <svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button><div class="megapanel nopromo"><div class="mpcols"><div class="mpcol"><div class="mphead">Learn</div><a class="mlink" href="/help.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">Getting started</span><span class="md">Install, activate and run your first lab</span></span></a><a class="mlink" href="/tools.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5 5l-6 6 2 2 6-6a4 4 0 0 1 5-5z"/></svg></span><span><span class="mt">Tool setup</span><span class="md">Autopsy, Volatility, Wireshark and more</span></span></a><a class="mlink" href="/resources.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Free resources</span><span class="md">Forms, checklists, rubrics and syllabi</span></span></a><a class="mlink" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Blog</span><span class="md">DFIR teaching notes and updates</span></span></a></div><div class="mpcol"><div class="mphead">Evaluate</div><a class="mlink" href="/sample.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9l-2 2 2 2M11.5 12H21"/></svg></span><span><span class="mt">Sample lab</span><span class="md">A full case ZIP with its verified answer key</span></span></a><a class="mlink" href="/compare.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">Compare</span><span class="md">Hand-built labs, public images, ranges and us</span></span></a><a class="mlink" href="/attack.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">ATT&amp;CK coverage</span><span class="md">Which techniques the cases exercise</span></span></a><a class="mlink" href="/trust.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></span><span><span class="mt">Trust &amp; security</span><span class="md">Runs locally; no student data leaves</span></span></a><a class="mlink" href="/#faq"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">FAQ</span><span class="md">Licensing, platforms, classroom use</span></span></a></div></div></div></div>
+      <a class="mnitem mnflat" href="/#pricing">Pricing</a>
+    </nav>
+    <div class="spacer"></div>
+    <a class="link navutil" href="https://account.redherrings.app/account" data-goatcounter-click="signin">Sign in</a>
+    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+    <button type="button" class="navburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilenav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobilenav" id="mobilenav" hidden>
+    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Start free trial</a>
+    <div class="mnsection"><div class="mnsh">Platform</div><a class="mlink" href="/how.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/></svg></span><span><span class="mt">How it works</span><span class="md">One case, a different variant for every student</span></span></a><a class="mlink" href="/cases.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg></span><span><span class="mt">Case library</span><span class="md">78 verified forensics and IR cases</span></span></a><a class="mlink" href="/packs.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Scenario packs</span><span class="md">Add-on case sets, one-click install</span></span></a><a class="mlink" href="/pathways.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V9a3 3 0 0 1 3-3h8M16 3l4 3-4 3"/></svg></span><span><span class="mt">Learning pathways</span><span class="md">From First Look to cert-prep capstone</span></span></a><a class="mlink" href="/courses.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Course packs</span><span class="md">A 14-week DF and an 8-week IR syllabus, ready to run</span></span></a><a class="mlink" href="/student-portal.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Student portal &amp; LMS</span><span class="md">Solve in the browser, auto-grade, LTI passback</span></span></a></div><div class="mnsection"><div class="mnsh">Solutions</div><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Educators</span><span class="md">One instructor, auto-graded labs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5zM7 11v5c0 1 2.5 2 5 2s5-1 5-2v-5"/></svg></span><span><span class="mt">Departments</span><span class="md">Multiple instructors, all packs</span></span></a><a class="mlink" href="/#pricing"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H4zM2 21h20"/></svg></span><span><span class="mt">Students</span><span class="md">Self-practice at the personal rate</span></span></a><a class="mlink" href="/security-teams.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11a3 3 0 0 0 0-6M21 20a6 6 0 0 0-5-5.9"/></svg></span><span><span class="mt">Security teams &amp; training</span><span class="md">45-minute incident drills, per seat</span></span></a><a class="mlink" href="/contact.html?topic=enterprise"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1 13H6zM9 7a3 3 0 0 1 6 0"/></svg></span><span><span class="mt">Enterprise &amp; government</span><span class="md">White-label, volume, procurement</span></span></a></div><div class="mnsection"><div class="mnsh">Resources</div><a class="mlink" href="/help.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">Getting started</span><span class="md">Install, activate and run your first lab</span></span></a><a class="mlink" href="/tools.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5 5l-6 6 2 2 6-6a4 4 0 0 1 5-5z"/></svg></span><span><span class="mt">Tool setup</span><span class="md">Autopsy, Volatility, Wireshark and more</span></span></a><a class="mlink" href="/resources.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Free resources</span><span class="md">Forms, checklists, rubrics and syllabi</span></span></a><a class="mlink" href="/blog/"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/></svg></span><span><span class="mt">Blog</span><span class="md">DFIR teaching notes and updates</span></span></a><a class="mlink" href="/sample.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9l-2 2 2 2M11.5 12H21"/></svg></span><span><span class="mt">Sample lab</span><span class="md">A full case ZIP with its verified answer key</span></span></a><a class="mlink" href="/compare.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">Compare</span><span class="md">Hand-built labs, public images, ranges and us</span></span></a><a class="mlink" href="/attack.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><span><span class="mt">ATT&amp;CK coverage</span><span class="md">Which techniques the cases exercise</span></span></a><a class="mlink" href="/trust.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></span><span><span class="mt">Trust &amp; security</span><span class="md">Runs locally; no student data leaves</span></span></a><a class="mlink" href="/#faq"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-1 .5-1 1.2-1 2M12 17h.01"/></svg></span><span><span class="mt">FAQ</span><span class="md">Licensing, platforms, classroom use</span></span></a></div>
+    <div class="mnsection"><a class="mnflat mnsolo" href="/#pricing">Pricing</a></div>
+    <div class="mnrow">
+      <a class="btn ghost" href="https://account.redherrings.app/account" data-goatcounter-click="signin">Sign in</a>
+      <a class="btn ghost" href="/student-portal.html">Student portal</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <article class="post">
+    <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
+    <div class="post-cover"><img src="../img/blog/wireshark-for-beginners-packet-capture-basics.svg" alt="" width="1600" height="1000"></div>
+    <header class="post-head"><h1>Wireshark for beginners: packet capture basics</h1></header>
+    <p class="lede">A packet capture is a few thousand small events in time order, and Wireshark's job is to let you look at them from the right distance: the whole conversation table, one stream, or one packet's bytes. This is the first hour: the handful of views and filters that get a beginner from an opened pcap to a readable story.</p>
+
+    <h2>Open the capture and fix the clock</h2>
+    <p>Wireshark is free; install it from <a href="https://www.wireshark.org/">wireshark.org</a> (our <a href="/tools.html">tools page</a> has a setup note). Open the <code>.pcap</code> or <code>.pcapng</code> with File, then Open. You will see three panes: the packet list on top, the decoded fields of the selected packet in the middle, and the raw bytes at the bottom. Beginners live in the top pane. Analysts spend more time in the middle one.</p>
+    <p>Before anything else, set the time display. View, then Time Display Format, then <strong>UTC Date and Time of Day</strong>. The default shows seconds since the start of the capture, which is useless for lining packets up against a log file, and the local-time option silently uses whatever zone your laptop is in. Pick UTC and say so in your notes.</p>
+
+    <h2>Display filter vs capture filter</h2>
+    <p>Wireshark has two filter languages, and confusing them is the most common beginner error.</p>
+    <ul>
+      <li>A <strong>capture filter</strong> decides what gets recorded in the first place. It uses BPF syntax (<code>port 53</code>, <code>host 10.0.0.5</code>) and is set before you start capturing. If you are opening a file someone else captured, it is irrelevant: the decision has already been made.</li>
+      <li>A <strong>display filter</strong> decides what you see out of what was recorded. It uses Wireshark's own syntax (<code>dns</code>, <code>ip.addr == 10.0.0.5</code>, <code>http.request</code>) and goes in the green bar above the packet list. Nothing is deleted; clear the bar and everything is back.</li>
+    </ul>
+    <p>In the classroom you almost always have a file, so you are always writing display filters. The ones you will type most:</p>
+    <ul>
+      <li><code>ip.addr == 10.0.0.5</code>: anything to or from a host.</li>
+      <li><code>dns</code>, <code>http</code>, <code>tls</code>, <code>smb2</code>, <code>ftp</code>: one protocol.</li>
+      <li><code>tcp.port == 4444</code>: one port, either direction.</li>
+      <li><code>tcp.stream eq 12</code>: one TCP connection, start to finish.</li>
+      <li><code>!(arp or dhcp)</code>: hide the chatter.</li>
+    </ul>
+    <p>The bar turns red when the syntax is wrong and green when it is valid. You can also right-click any field in the middle pane and choose Apply as Filter, which writes the syntax for you and is how most people learn it.</p>
+
+    <h2>Statistics: Conversations and Endpoints</h2>
+    <p>Do not start by scrolling packets. Start with Statistics, then <strong>Conversations</strong>. The IPv4 and TCP tabs list every pair of hosts that talked, with packet counts, bytes in each direction, start time and duration. Sort by bytes to see where the volume went. Sort by duration to see what stayed connected. Sort by start time to see the order things happened. A capture with 40,000 packets usually has a dozen conversations that matter, and this table is where you find them.</p>
+    <p><strong>Endpoints</strong> is the same data by single host rather than by pair: which addresses appear at all, and how much each sent and received. It is the quickest answer to "which internal host is this capture about" and "how many outside addresses did it talk to". <strong>Protocol Hierarchy</strong>, in the same menu, tells you what kinds of traffic are present before you filter for any of them.</p>
+    <p>Right-click any row in Conversations and choose Apply as Filter to drop straight from the table to the packets behind it.</p>
+
+    <blockquote>Read a capture from the outside in: who talked to whom, then which conversation, then which stream, then which packet. Starting at the packet is starting in the wrong place.</blockquote>
+
+    <h2>Follow the stream, export the objects, save the subset</h2>
+    <p>Once you have a conversation, select one of its packets and choose Analyze, then Follow, then <strong>TCP Stream</strong>. Wireshark reassembles the whole connection and shows it as text, one color per direction. For a plaintext protocol this is the moment the traffic becomes legible: an HTTP request and its response, an FTP login and the file it fetched, an SMTP envelope. Use the direction dropdown to show one side only, and Save As to keep the stream as a file.</p>
+    <p>File, then <strong>Export Objects</strong>, then HTTP (or SMB, FTP-DATA, TFTP) lists every file that crossed the wire in that protocol and lets you save them. Hash what you save; the hash is the thing you will report. This is how a student in <a href="/cases.html#easy-network-first-look">First Look: Reading a Packet Capture</a> gets from "a file transfer happened" to "this file, with this hash, went from this host to this one at this time".</p>
+
+    <p>Finally, when you have the conversation that matters, save it on its own. With a display filter applied, choose File, then <strong>Export Specified Packets</strong>, select <strong>All packets: Displayed</strong>, and write a new <code>.pcapng</code>. Hash the new file and note the filter you used to produce it. You now have a small capture you can attach to a report, hand to a classmate, or open in another tool, and a line in your notes that lets anyone reproduce it from the original.</p>
+
+    <h2>Reading DNS and HTTP at a glance</h2>
+    <p>Two protocols carry most of the story in a beginner's capture, and both read well in the packet list once you know which columns to watch.</p>
+    <p><strong>DNS.</strong> Filter <code>dns</code>. Each query and its response appear as a pair; the Info column shows the name asked for and, on the response line, the address returned. Filter <code>dns.flags.response == 0</code> to see only the questions, which is a compact list of every name the host tried to resolve, in order. A name you do not recognize, followed a second later by a TCP connection to the address it returned, is the thread to pull. The <a href="/blog/detect-c2-beaconing-packet-capture.html">beaconing post</a> picks it up from there.</p>
+    <p><strong>HTTP.</strong> Filter <code>http.request</code> to see only requests: method, host and path, one per line. Add <code>http.host</code> and <code>http.user_agent</code> as columns (right-click the field, Apply as Column) and the list becomes a browsing history with the client software attached. <code>http.response.code</code> on the responses tells you what the server said. Most web traffic today is TLS and will not decode; filter <code>tls.handshake.type == 1</code> and read the Server Name field to see which hosts were contacted even when the content is opaque.</p>
+
+    <p>That is the whole first hour: fix the clock, write display filters, read Conversations before packets, follow the stream, export the objects, learn the DNS and HTTP columns, save the subset. In Red Herrings, network cases ship real pcap files where every student's hosts, names and transferred file are their own, so these steps produce a different correct answer for each of them and the same method for all. The network forensics pathway on the <a href="/pathways.html">pathways page</a> starts with the First Look above and climbs from there.</p>
+
+    <div class="cta">
+      <strong>Want to practice on real evidence?</strong>
+      <p style="margin:8px 0 14px">Download the free sample lab, or start the 30-day trial and generate a per-student case in a few minutes.</p>
+      <div class="cta-row">
+        <a class="btn" href="/sample.html">Get the free sample lab</a>
+        <a class="btn ghost" href="/download.html">Start a free trial</a>
+      </div>
+    </div>
+    <section class="related">
+      <h2>More teaching notes</h2>
+      <div class="rel-grid">
+      <a class="rel" href="whats-new-student-portal-certificates.html">
+        <div class="cover"><img src="../img/blog/whats-new-student-portal-certificates.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-course">Product update</span>
+        <h3>What's new: a student portal, certificates, and 71 cases</h3>
+      </a>
+      <a class="rel" href="autopsy-disk-image-analysis-walkthrough.html">
+        <div class="cover"><img src="../img/blog/autopsy-disk-image-analysis-walkthrough.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Analyze a disk image in Autopsy: a beginner's walkthrough</h3>
+      </a>
+      <a class="rel" href="registry-explorer-windows-registry-forensics.html">
+        <div class="cover"><img src="../img/blog/registry-explorer-windows-registry-forensics.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <span class="cat c-tool">Tool guide</span>
+        <h3>Read the Windows registry with Registry Explorer</h3>
+      </a>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fbrand">
+        <div class="brand"><a href="/" aria-label="Red Herrings home" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none"><svg width="22" height="22" viewBox="5.1 3 58 58" aria-hidden="true"><path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="var(--accent)"/><circle cx="20" cy="30.4" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M23 33.4l4 4" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg><span style="font-size:16px">Red Herrings</span></a></div>
+        <p>Real Evidence. Real Skills. Real Fast.</p>
+        <p class="fsmall">Runs locally on Windows, macOS and Linux. No student data ever leaves your machine.</p>
+        <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="/how.html">How it works</a>
+        <a href="/cases.html">All cases</a>
+        <a href="/pathways.html">Learning pathways</a>
+        <a href="/courses.html">Course packs</a>
+        <a href="/attack.html">MITRE ATT&amp;CK coverage</a>
+        <a href="/student-portal.html">Student portal &amp; LMS</a>
+        <a href="/packs.html">Scenario packs</a>
+        <a href="/#pricing">Pricing</a>
+      </div>
+      <div class="fcol">
+        <h4>Resources</h4>
+        <a href="/help.html">Help &amp; getting started</a>
+        <a href="/tools.html">Tools &amp; setup</a>
+        <a href="/resources.html">Free resources</a>
+        <a href="/blog/">Blog</a>
+        <a href="/compare.html">Compare</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/trust.html">Trust &amp; security</a>
+        <a href="/verify.html">Verify a certificate</a>
+        <a href="/download.html">Download</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 Red Herrings, a product of The Competence Collective, LLC. Prices in USD; institutional purchase orders welcome.</span>
+      <nav class="flegal" aria-label="Legal">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/eula.html">License agreement</a>
+        <a href="/refund.html">Refund</a>
+        <a href="/accessibility.html">Accessibility</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="../nav.js" defer></script>
+</body>
+</html>
