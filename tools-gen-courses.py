@@ -62,7 +62,7 @@ def main():
     head, tail = v[:v.index("<main")], v[v.index("</main>") + len("</main>"):]
     tail = re.sub(r"<script>\n\(function\(\)\{\n  var f=document\.getElementById\('cform'\).*?</script>\n", "", tail, count=1, flags=re.S)
     head = head.replace("<title>Contact Red Herrings | Sales, Quotes, Support</title>", "<title>Digital Forensics Course Curriculum &amp; Incident Response Syllabus, Ready to Teach | Red Herrings</title>")
-    head = re.sub(r'<meta name="description" content="[^"]*">', lambda m: '<meta name="description" content="Two syllabus-ready courses built on Red Herrings: a 14-week Introduction to Digital Forensics and an 8-week Incident Response Fundamentals, with learning outcomes, a grading scheme, a week-by-week case plan and a downloadable syllabus PDF.">', head)
+    head = re.sub(r'<meta name="description" content="[^"]*">', lambda m: '<meta name="description" content="Two syllabus-ready courses: a 14-week Introduction to Digital Forensics and an 8-week Incident Response Fundamentals, with outcomes, grading, a week-by-week case plan and a syllabus PDF.">', head)
     head = head.replace("https://redherrings.app/contact.html", "https://redherrings.app/courses.html")
     head = re.sub(r'<meta property="og:title" content="[^"]*">', lambda m: '<meta property="og:title" content="Syllabus-ready DFIR course packs">', head)
     head = re.sub(r'<meta property="og:description" content="[^"]*">', lambda m: '<meta property="og:description" content="A 14-week forensics course and an 8-week incident-response course, week by week, with syllabus PDFs and one-click generation of every lab.">', head)

@@ -5,7 +5,7 @@ Index: featured (newest) + image-left media cards (cover, category pill, title,
 dek, date / reading time).
 Articles: full-bleed branded cover, strong H1, lede, refined body typography,
 related posts. No author, date, category label, or comments on the article
-itself (owner's instruction) — the index carries category/date/reading-time.
+itself (owner's instruction); the index carries category/date/reading-time.
 """
 import os
 import re
@@ -70,7 +70,7 @@ POSTS = [
     dict(slug="gcfe-windows-forensics-practice-labs", cls="c-windows", cat="Windows forensics",
          date="October 2, 2026", read="5 min read",
          title="GCFE practice: a different Windows forensics case for every student",
-         dek="Registry, prefetch, USB history and event logs &mdash; one authored case becomes a per-student Windows box with a verified answer key."),
+         dek="Registry, prefetch, USB history and event logs: one authored case becomes a per-student Windows box with a verified answer key."),
     dict(slug="incident-response-exercise-edr-siem", cls="c-ir", cat="Incident response",
          date="October 2, 2026", read="6 min read",
          title="Run an incident response exercise from real EDR and SIEM evidence",
@@ -82,7 +82,7 @@ POSTS = [
     dict(slug="detect-c2-beaconing-packet-capture", cls="c-network", cat="Network forensics",
          date="October 2, 2026", read="5 min read",
          title="Spotting C2 beaconing in a packet capture",
-         dek="Teach students to read a PCAP by timing &mdash; interval, jitter and payload &mdash; follow the stream, and tell the beacon from benign noise."),
+         dek="Teach students to read a PCAP by timing (interval, jitter and payload), follow the stream, and tell the beacon from benign noise."),
     dict(slug="dfir-learning-pathways-first-look-to-capstone", cls="c-course", cat="Course design",
          date="October 2, 2026", read="5 min read",
          title="From first look to capstone: building a DFIR learning pathway",
@@ -207,14 +207,14 @@ def build_index():
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:url" content="https://redherrings.app/blog/">
-<meta property="og:title" content="Red Herrings blog — DFIR teaching notes">
+<meta property="og:title" content="Red Herrings blog: DFIR teaching notes">
 <meta property="og:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Red Herrings blog — DFIR teaching notes">
+<meta name="twitter:title" content="Red Herrings blog: DFIR teaching notes">
 <meta name="twitter:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
 <meta name="twitter:image" content="https://redherrings.app/img/og.png">
 {ICON}

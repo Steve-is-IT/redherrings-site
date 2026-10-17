@@ -25,9 +25,9 @@ E = lambda s: html.escape(str(s or ""), quote=True)
 
 DISC = [
     {"id": "digital-forensics", "label": "Digital Forensics",
-     "sub": "Disk, registry, logs, memory, network, mobile and cloud, mapped to certification tracks."},
+     "sub": "Disk, registry, logs, memory, network, mobile and cloud, aligned to certification tracks."},
     {"id": "incident-response", "label": "Incident Response",
-     "sub": "Detection and response from the responder's own tooling - EDR, SIEM and host logs - mapped to MITRE ATT&CK."},
+     "sub": "Detection and response from the responder's own tooling (EDR, SIEM and host logs), mapped to MITRE ATT&CK."},
 ]
 KIND_LABEL = {"cert": "Cert prep", "role": "Role path"}
 DIFF_TAG = {"easy": "easy", "medium": "medium", "hard": "hard", "expert": "expert",
@@ -115,13 +115,13 @@ TEMPLATE = '''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Learning Pathways | Red Herrings Digital Forensics &amp; Incident Response Labs</title>
-<meta name="description" content="Guided Red Herrings learning pathways across two disciplines: Digital Forensics (GCFE, GASF, GNFA, SANS FOR577/FOR518) and Incident Response (GCIH, CompTIA CySA+, GCFR, GCFA). Ordered, case-by-case curricula from first-look triage to a capstone, plus analyst, insider-threat and ransomware IR role paths.">
+<meta name="description" content="Case-by-case curricula for digital forensics (GCFE, GASF, GNFA, Linux, macOS) and incident response (GCIH, CySA+, GCFR, GCFA), from First Look to capstone, plus role paths.">
 <link rel="canonical" href="https://redherrings.app/pathways.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#e3362b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
-<meta property="og:title" content="Learning Pathways &mdash; Red Herrings">
-<meta property="og:description" content="Ordered, case-by-case curricula across Digital Forensics and Incident Response &mdash; certification prep and role paths.">
+<meta property="og:title" content="Learning Pathways | Red Herrings">
+<meta property="og:description" content="Ordered, case-by-case curricula across Digital Forensics and Incident Response: certification prep and role paths.">
 <meta property="og:url" content="https://redherrings.app/pathways.html">
 <meta property="og:image" content="https://redherrings.app/img/og.png">
 <meta property="og:image:width" content="1200">
@@ -153,7 +153,7 @@ TEMPLATE = '''<!doctype html>
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Pathways</div>
   <div class="secthead">
     <h1 class="opener">Learning <em>pathways</em></h1>
-    <p class="osub">Ordered, case-by-case curricula that take a learner from first-look triage to a capstone, across both disciplines &mdash; <strong>Digital Forensics</strong> and <strong>Incident Response</strong>. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student.</p>
+    <p class="osub">Ordered, case-by-case curricula that take a learner from first-look triage to a capstone, across both disciplines, <strong>Digital Forensics</strong> and <strong>Incident Response</strong>. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student.</p>
   </div>
   <div class="pwfilter" role="group" aria-label="Filter pathways by discipline">
     <button type="button" class="pwtab on" data-disc="all">All pathways</button>
@@ -541,7 +541,7 @@ def page_html(p, cat, header, footer):
              f'a different variant for every student &middot; verified answer keys')
     notes = ATTACK_NOTE + " " if p.get("discipline") == "incident-response" or "ATT&CK" in p["blurb"] else ""
     h1a, h1b = c["h1"]
-    og_title = f'{c["title"]} &mdash; Red Herrings'
+    og_title = f'{c["title"]} | Red Herrings'
     return PAGE_TEMPLATE.format(
         title=E(c["title"]), desc=E(desc), url=url, og_title=og_title, og_alt=E(OG_ALT), favicon=FAVICON, fonts=FONTS,
         jsonld=jsonld(p, c, url, desc), header=header, footer=footer,
@@ -656,7 +656,7 @@ PAGE_TEMPLATE = '''<!doctype html>
 
   <section class="cta-band">
     <h2>Run this pathway with your own roster</h2>
-    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. Free for 30 days, no card. Or open the sample lab first and read a verified key next to its evidence.</p>
+    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. Free for 30 days, no account or card required. Or open the sample lab first and read a verified key next to its evidence.</p>
     <div class="cta-row" style="justify-content:center;margin-top:22px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-{slug}-bottom">Start a free 30-day trial</a>
       <a class="btn ghost" href="/sample.html">Open the sample lab</a>
