@@ -34,6 +34,7 @@ RESOURCES = [
     ("Help &amp; getting started", "/help.html"),
     ("Tools &amp; setup", "/tools.html"),
     ("Free resources", "/resources.html"),
+    ("Press kit", "/press.html"),
     ("Blog", "/blog/"),
     ("Compare", "/compare.html"),
     ("FAQ", "/#faq"),
