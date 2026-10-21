@@ -171,6 +171,7 @@ def page(latest, releases, notes, sums):
           <p>The output must match the SHA-256 above (letter case doesn't matter). The portable zip's checksum is {E(win_sha) if win_sha else "in SHA256SUMS.txt on the release"}.</p>
         </details>
         {('<p class="dl-signed">&#10003; Installer and app are Authenticode-signed by ' + E(PUBLISHER) + '. Windows shows the publisher name on the run prompt.</p>') if signed else ''}
+        <p class="dl-muted">Blocked with "Error 4551" or "Part of this app has been blocked"? That is Windows 11 Smart App Control, which blocks newer publishers even when signed. <a href="/help.html#smart-app-control">How to get past it</a>.</p>
       </div>''' if (has_win and setup_name) else f'''
       <div class="dl-card">
         <div class="dl-os">Windows</div>
