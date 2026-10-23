@@ -2,7 +2,7 @@
    Slides are stacked and cross-faded (GPU-composited opacity), so there is no
    horizontal motion to stutter. Autoplay only starts once every image has
    decoded, so a slide never shows before it is fully painted. Degrades to the
-   first slide (marked .is-active in the markup) with no JS, and honours
+   first slide (marked .is-active in the markup) with no JS, and honors
    prefers-reduced-motion by swapping instantly. */
 (function () {
   var reduce = false;

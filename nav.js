@@ -1,4 +1,4 @@
-/* Mega-menu header behaviour.
+/* Mega-menu header behavior.
    Desktop panels open on hover and keyboard focus via CSS alone; this script
    only runs the mobile sheet (hamburger) and closes panels on Escape. */
 (function () {

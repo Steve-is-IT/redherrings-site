@@ -149,7 +149,7 @@ def card(p, featured=False):
 
 
 def sidebar():
-    # category order by first appearance, with per-category count and colour dot
+    # category order by first appearance, with per-category count and color dot
     order, counts, cls = [], {}, {}
     for p in POSTS:
         c = p["cat"]
