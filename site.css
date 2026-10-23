@@ -773,3 +773,10 @@ footer .flegal a:hover{color:#fff}
 @media(max-width:760px){
   .cmp-wrap::before,.tablewrap::before{content:"Swipe sideways to see every column";display:block;position:sticky;left:0;font-size:12px;font-weight:600;color:var(--faint);padding:8px 14px;border-bottom:1px solid var(--line-2);background:var(--card)}
 }
+
+/* Homepage "who it's for" cards */
+.aud-grid{margin-top:8px}
+.aud-grid a.card{gap:0}
+.audchip{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:999px;padding:4px 10px;margin-bottom:12px}
+.aud-grid a.card h3{margin:0 0 8px}
+.aud-grid a.card .go{margin-top:auto;padding-top:14px;color:var(--accent);font-weight:700;font-size:14px}
