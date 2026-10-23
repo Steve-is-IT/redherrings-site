@@ -2,7 +2,7 @@
 """Generate branded SVG cover art for each blog post.
 
 One reusable 1600x1000 (16:10) SVG per post, cropped by CSS on both the index
-media cards and the article hero. Each category gets its own colour plus a
+media cards and the article hero. Each category gets its own color plus a
 large, low-opacity glyph that signals the category (a phone for mobile, a
 window for Windows, an alert for IR, and so on), with the Red Herrings hook
 watermark kept in the bottom-right corner. The slug seeds small variations so

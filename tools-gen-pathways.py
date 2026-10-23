@@ -271,7 +271,7 @@ CERT_NOTE = ("GIAC, GCFE, GASF, GNFA, GCIH, GCFR and GCFA are trademarks of GIAC
              "any certification body.")
 
 # Search-intent copy per pathway. Everything else on the page is derived from the live data.
-#   title: <title> (without the " | Red Herrings" suffix), h1: (plain, emphasised) halves,
+#   title: <title> (without the " | Red Herrings" suffix), h1: (plain, emphasized) halves,
 #   desc: 150-160 char meta description, expects: what the cert/role asks for,
 #   builds: how the ordered steps get there, who: audience bullets, chips: extra coverage chips.
 COPY = {
@@ -280,7 +280,7 @@ COPY = {
         "h1": ("GCFE practice labs,", "one case at a time"),
         "desc": "Nine Windows forensics labs aligned to the GCFE objectives: registry, Prefetch, USB, jump lists, browser and event logs, first look to an espionage capstone.",
         "expects": "The GCFE objectives expect an examiner who can read Windows artifacts without a cheat sheet: program execution from Prefetch, UserAssist and Amcache; file knowledge from LNK files and jump lists; USB device history from the registry; persistence in Run keys, services and scheduled tasks; browser activity; and the Security event log, all pulled together into one defensible timeline.",
-        "builds": "This pathway builds those skills in that order. Five First Look cases isolate one artifact family each, two medium cases apply them to real theft and exfiltration, a hard case crosses hosts with credential theft, and the capstone is a slow espionage intrusion that uses every artifact at once. Each case generates a different variant per student, so the practice is on reading evidence, not memorising answers.",
+        "builds": "This pathway builds those skills in that order. Five First Look cases isolate one artifact family each, two medium cases apply them to real theft and exfiltration, a hard case crosses hosts with credential theft, and the capstone is a slow espionage intrusion that uses every artifact at once. Each case generates a different variant per student, so the practice is on reading evidence, not memorizing answers.",
         "who": [
             ("Candidates preparing for the GCFE", "who want hands-on reps against real registry hives, event logs and link files rather than another question bank."),
             ("Instructors running a Windows forensics unit", "who need labs that drop into a 14-week course and grade themselves across sections."),
@@ -339,12 +339,12 @@ COPY = {
         "title": "SOC Analyst Onboarding Labs: a First-Look DFIR Pathway for New Analysts",
         "h1": ("SOC analyst onboarding labs,", "one evidence family at a time"),
         "desc": "Ten onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a case.",
-        "expects": "A new analyst is expected to recognise every evidence family a ticket can throw at them: what ran on a host, where a file came from, what the Security log says about accounts and services, what is set to run at startup, which USB device was plugged in, what a packet capture shows, what is in memory, and what a phone holds, then to put several of those into a single timeline.",
+        "expects": "A new analyst is expected to recognize every evidence family a ticket can throw at them: what ran on a host, where a file came from, what the Security log says about accounts and services, what is set to run at startup, which USB device was plugged in, what a packet capture shows, what is in memory, and what a phone holds, then to put several of those into a single timeline.",
         "builds": "This pathway is the first-look tour in the order a new hire should meet it. Nine 25-minute First Look cases each isolate one artifact family, and the tenth is a full, if gentle, misconduct case that asks the analyst to use several of them together. It is the week-one curriculum we would hand a new SOC or DFIR analyst.",
         "who": [
             ("Security teams onboarding new analysts", "who want a graded, repeatable first week instead of shadowing."),
             ("Instructors opening a DFIR course", "who need a survey of evidence types before the deeper units."),
-            ("Career changers and students", "who want to find out which part of DFIR they like before specialising."),
+            ("Career changers and students", "who want to find out which part of DFIR they like before specializing."),
         ],
     },
     "insider-threat": {
@@ -363,7 +363,7 @@ COPY = {
         "title": "GCIH Practice Labs: an Incident Handling Pathway from First Alert to Capstone",
         "h1": ("GCIH practice labs,", "one incident at a time"),
         "desc": "Ten incident handling labs aligned to the GCIH objectives: EDR and SIEM triage, phishing, web shells, lateral movement and ransomware, mapped to ATT&CK.",
-        "expects": "The GCIH objectives expect a handler who can run an incident through its phases: triage a detection and decide what it means, trace the initial access, follow the move from a beachhead to the next host, spot staging before the payload, contain a live outbreak, and write up the lessons learned, with each behaviour named by its ATT&CK technique.",
+        "expects": "The GCIH objectives expect a handler who can run an incident through its phases: triage a detection and decide what it means, trace the initial access, follow the move from a beachhead to the next host, spot staging before the payload, contain a live outbreak, and write up the lessons learned, with each behavior named by its ATT&CK technique.",
         "builds": "This pathway follows the incident-handling kill chain from the responder's own tooling. It opens with an EDR detection and a SIEM queue, then works initial access, lateral movement and pre-ransomware staging as full cases, and closes the hard tier with a live outbreak and a timed ransomware drill. The capstone is a double-extortion incident worked through every NIST phase.",
         "who": [
             ("Candidates preparing for the GCIH", "who want to work real EDR and SIEM exports, not multiple-choice scenarios."),
@@ -375,7 +375,7 @@ COPY = {
         "title": "CySA+ Practice Labs: a SOC Analyst Pathway from First Alert to Capstone",
         "h1": ("CySA+ practice labs,", "one alert at a time"),
         "desc": "Eleven SOC analyst labs aligned to the CySA+ objectives: SIEM and EDR triage, impossible travel, phishing, MFA fatigue, BEC, lateral movement, detections.",
-        "expects": "The CySA+ objectives expect an analyst who can work the daily queue: read a SIEM alert and an EDR detection, recognise an impossible-travel sign-in, triage a phishing report, correlate entities across host and log evidence, turn a confirmed behaviour into a detection rule, and escalate a real incident with a severity verdict that holds up.",
+        "expects": "The CySA+ objectives expect an analyst who can work the daily queue: read a SIEM alert and an EDR detection, recognize an impossible-travel sign-in, triage a phishing report, correlate entities across host and log evidence, turn a confirmed behavior into a detection rule, and escalate a real incident with a severity verdict that holds up.",
         "builds": "This pathway is the SOC queue in order. Four First Look cases cover the alert types an analyst sees most, medium cases work an EDR detection to a verdict, an MFA-fatigue takeover, a business email compromise, a timed insider drill and a lateral move, and the hard step turns that move into a detection rule. The capstone is a slow, quiet exfiltration across a long weekend.",
         "who": [
             ("Candidates preparing for the CySA+", "who want graded practice on the analysis domain with real alert exports."),
@@ -399,7 +399,7 @@ COPY = {
         "title": "GCFA Practice Labs: an Advanced Forensics and IR Pathway from Memory Triage to Capstone",
         "h1": ("GCFA practice labs,", "one intrusion at a time"),
         "desc": "Seven advanced forensics and IR labs aligned to the GCFA objectives: memory triage, injected code, rogue admins, anti-forensics and a ransomware capstone.",
-        "expects": "The GCFA objectives expect an examiner who can take a compromised host apart: baseline processes and connections in memory, find injected code and unlinked modules, trace a rogue admin across host artifacts, recognise staging and log-clearing before a payload, follow credential theft to lateral movement, and build the full intrusion timeline.",
+        "expects": "The GCFA objectives expect an examiner who can take a compromised host apart: baseline processes and connections in memory, find injected code and unlinked modules, trace a rogue admin across host artifacts, recognize staging and log-clearing before a payload, follow credential theft to lateral movement, and build the full intrusion timeline.",
         "builds": "This pathway is the host-based capstone track. It starts with memory because every later case depends on it, moves through a rogue admin and memory injection, then works anti-forensics, credential theft and a full double-extortion case. The capstone, Operation Ledger, is a complete ransomware intrusion that asks for the whole timeline with every technique named.",
         "who": [
             ("Candidates preparing for the GCFA", "who want full intrusions to take apart with Volatility, timeline tools and the event logs."),
@@ -411,7 +411,7 @@ COPY = {
         "title": "Ransomware Incident Response Labs: a Pathway from Patient Zero to Double Extortion",
         "h1": ("Ransomware incident response labs,", "the kill chain in order"),
         "desc": "Five ransomware incident response labs in kill-chain order: phishing to C2, pre-encryption staging, a live outbreak from the EDR feed and double extortion.",
-        "expects": "Ransomware response expects a team that can place itself on the kill chain at any moment: recognise the phish and the command-and-control that followed, spot staging, credential access and log-clearing before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand alongside recovery.",
+        "expects": "Ransomware response expects a team that can place itself on the kill chain at any moment: recognize the phish and the command-and-control that followed, spot staging, credential access and log-clearing before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand alongside recovery.",
         "builds": "This pathway is the ransomware arc end to end. Patient Zero covers initial access, Dry Run covers everything the actor does before the payload, First Call is the live outbreak, Double Cross adds data theft and extortion, and Nightfall is the complete incident worked start to finish. All five are hard or expert; this is the path for a team that already knows the basics.",
         "who": [
             ("Security teams and on-call rotations", "who want a structured ransomware drill series with verified answer keys."),

@@ -3,11 +3,11 @@
    Loaded after site.css on /blog/ pages.
    ============================================================ */
 
-/* headings on blog pages are left-aligned (site.css centres h2 globally) */
+/* headings on blog pages are left-aligned (site.css centers h2 globally) */
 .blog-head h1,.feat h2,.pcard h3,.post-head h1,.post>h2,.post>h3,
 .post-body h2,.post-body h3,.related h2,.rel h3{text-align:left}
 
-/* ---- category colours (pill + accents) — index only ---- */
+/* ---- category colors (pill + accents) — index only ---- */
 .cat{display:inline-flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:.06em;
   text-transform:uppercase;padding:5px 12px;border-radius:999px;color:#fff;background:var(--accent);line-height:1}
 .cat.c-mobile{background:#1fa85b}

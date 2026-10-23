@@ -261,7 +261,7 @@ function buildIR(seed){
       {id:"q12",type:"timestamp",pts:10,prompt:"When did the first detection fire (UTC)? This is the start of your timeline.",answer:fmt(first.time),how:"The earliest Time value, in UTC.",where:"Time column, first row"},
       {id:"q7",type:"choice",pts:12,prompt:"You have confirmed real malicious activity that the sensor only detected. What do you do first?",answer:"Isolate the host from the network and escalate to the IR on-call",
         options:["Re-run a full antivirus scan and wait for the result","Isolate the host from the network and escalate to the IR on-call","Email the user and ask what they opened","Close the detections as a false positive since the updater was benign"],
-        how:"Contain first. The sensor did not block, the chain reached persistence, and the attacker has a working foothold. Isolation stops the next step; the scan and the user interview come after.",where:"Judgement"}
+        how:"Contain first. The sensor did not block, the chain reached persistence, and the attacker has a working foothold. Isolation stops the next step; the scan and the user interview come after.",where:"Judgment"}
     ]};
 }
 function renderIR(c){
