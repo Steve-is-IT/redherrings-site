@@ -820,3 +820,8 @@ footer .flegal a:hover{color:#fff}
 .prob h3{margin:0 0 8px;font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
 .prob p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55}
 @media(max-width:760px){.probgrid{grid-template-columns:1fr}}
+
+/* Hero "click to enlarge" cue in the browser-chrome bar */
+.hero-frame .bar .zoomhint{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--faint);letter-spacing:.01em}
+.hero-frame .bar .zoomhint svg{width:13px;height:13px}
+@media(max-width:600px){.hero-frame .bar .zoomhint{display:none}}
