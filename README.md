@@ -1,4 +1,4 @@
-# Red Herrings — website
+# Red Herrings, website
 
 The public website for **Red Herrings**, a DFIR teaching tool that turns one
 authored case into a unique, auto-verified digital forensics and incident
@@ -12,10 +12,10 @@ at once.
 - Case library (67 DF & IR cases): https://redherrings.app/cases.html
 - Learning pathways & certification prep: https://redherrings.app/pathways.html
 - MITRE ATT&CK coverage: https://redherrings.app/attack.html
-- Free sample lab — a real Windows insider-USB case (disk image, registry,
+- Free sample lab, a real Windows insider-USB case (disk image, registry,
   EVTX, prefetch, LNK, worksheet and a verified key):
   https://redherrings.app/sample.html
-- Blog — DFIR teaching notes: https://redherrings.app/blog/
+- Blog, DFIR teaching notes: https://redherrings.app/blog/
 
 ## About this repo
 
