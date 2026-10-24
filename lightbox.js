@@ -20,7 +20,7 @@
       t.setAttribute("role", "button");
       t.setAttribute("tabindex", "0");
       var open = function () {
-        big.src = t.currentSrc || t.src;
+        big.src = t.getAttribute("data-zoom-src") || t.currentSrc || t.src;
         big.alt = t.alt || "";
         if (typeof dlg.showModal === "function") dlg.showModal();
         else window.open(big.src, "_blank");

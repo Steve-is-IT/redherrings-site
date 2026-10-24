@@ -71,24 +71,24 @@
       </div>
       <div class="hero-media">
         <div class="hero-frame">
-          <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+          <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="zoomhint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Click any screen to enlarge</span></div>
           <div class="hero-slider" data-slider aria-roledescription="carousel" aria-label="A tour of the Red Herrings app">
             <div class="hs-viewport">
               <div class="hs-track">
                 <figure class="hs-slide is-active" data-label="Case library" aria-hidden="false">
-                  <picture><source srcset="img/slides/slide-library.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="img/slides/slide-library.jpg" width="1600" height="1000" alt="The Red Herrings case library: dozens of cases across digital forensics and incident response, filterable by discipline, difficulty and certification path."></picture>
+                  <picture><source srcset="img/slides/slide-library.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="img/slides/slide-library.jpg" data-zoomable data-zoom-src="img/slides/slide-library-2x.jpg" width="1600" height="1000" alt="The Red Herrings case library: dozens of cases across digital forensics and incident response, filterable by discipline, difficulty and certification path."></picture>
                   <figcaption class="hs-cap">A library that teaches: dozens of cases across two disciplines</figcaption>
                 </figure>
                 <figure class="hs-slide" data-label="Open a case" aria-hidden="true">
-                  <picture><source srcset="img/slides/slide-case.webp" type="image/webp"><img decoding="async" src="img/slides/slide-case.jpg" width="1600" height="1000" alt="A case opened in Red Herrings, showing the briefing and the investigation questions with points, answer type and difficulty." loading="lazy"></picture>
+                  <picture><source srcset="img/slides/slide-case.webp" type="image/webp"><img decoding="async" src="img/slides/slide-case.jpg" data-zoomable data-zoom-src="img/slides/slide-case-2x.jpg" width="1600" height="1000" alt="A case opened in Red Herrings, showing the briefing and the investigation questions with points, answer type and difficulty." loading="lazy"></picture>
                   <figcaption class="hs-cap">Open any case: real briefing, verified questions</figcaption>
                 </figure>
                 <figure class="hs-slide" data-label="Generate labs" aria-hidden="true">
-                  <picture><source srcset="img/slides/slide-generate.webp" type="image/webp"><img decoding="async" src="img/slides/slide-generate.jpg" width="1600" height="1000" alt="The generate screen: pick a case, set the class and seed, and build an individually seeded lab for every student." loading="lazy"></picture>
+                  <picture><source srcset="img/slides/slide-generate.webp" type="image/webp"><img decoding="async" src="img/slides/slide-generate.jpg" data-zoomable data-zoom-src="img/slides/slide-generate-2x.jpg" width="1600" height="1000" alt="The generate screen: pick a case, set the class and seed, and build an individually seeded lab for every student." loading="lazy"></picture>
                   <figcaption class="hs-cap">A different lab for every student, from one case</figcaption>
                 </figure>
                 <figure class="hs-slide" data-label="Verified answers" aria-hidden="true">
-                  <picture><source srcset="img/slides/slide-results.webp" type="image/webp"><img decoding="async" src="img/slides/slide-results.jpg" width="1600" height="1000" alt="The results screen: three student packages generated and verified, with the green Fresh Catch panel showing every check passed." loading="lazy"></picture>
+                  <picture><source srcset="img/slides/slide-results.webp" type="image/webp"><img decoding="async" src="img/slides/slide-results.jpg" data-zoomable data-zoom-src="img/slides/slide-results-2x.jpg" width="1600" height="1000" alt="The results screen: three student packages generated and verified, with the green Fresh Catch panel showing every check passed." loading="lazy"></picture>
                   <figcaption class="hs-cap">Every answer proven in the evidence: the Fresh Catch check</figcaption>
                 </figure>
               </div>
@@ -494,5 +494,6 @@
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script src="nav.js" defer></script>
 <script src="slider.js" defer></script>
+<script src="lightbox.js" defer></script>
 </body>
 </html>
