@@ -1,4 +1,4 @@
-/* Hero screenshot slider — crossfade carousel, dependency-free.
+/* Hero screenshot slider, crossfade carousel, dependency-free.
    Slides are stacked and cross-faded (GPU-composited opacity), so there is no
    horizontal motion to stutter. Autoplay only starts once every image has
    decoded, so a slide never shows before it is fully painted. Degrades to the

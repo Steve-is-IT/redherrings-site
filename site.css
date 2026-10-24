@@ -503,7 +503,7 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
    All colors come from the tokens above, so both themes are covered.
    ========================================================================= */
 
-/* ---- B: section head — a big statement that uses the full width, with the
+/* ---- B: section head, a big statement that uses the full width, with the
         intro set beside it (not a narrow left-pinned column) ---- */
 .secthead{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(20px,4vw,56px);align-items:end;margin-bottom:clamp(30px,5vw,54px)}
 .secthead .opener{font-size:clamp(29px,4.8vw,52px);font-weight:800;line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance;text-align:left}
@@ -515,7 +515,7 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 .secthead.solo{grid-template-columns:1fr}
 @media(max-width:860px){.secthead{grid-template-columns:1fr;align-items:start;gap:14px;margin-bottom:30px}.secthead .osub{margin-bottom:0}}
 
-/* ---- B: statement rows — number | title | description, spanning edge to
+/* ---- B: statement rows, number | title | description, spanning edge to
         edge so the layout fills the width instead of hugging the left ---- */
 .rows-list{display:flex;flex-direction:column}
 .rowitem{display:grid;grid-template-columns:46px minmax(170px,1fr) minmax(0,1.7fr);gap:clamp(14px,3vw,46px);align-items:baseline;padding:clamp(22px,3vw,32px) 0;border-top:1px solid var(--line)}
@@ -677,7 +677,7 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 @media(max-width:560px){.cmodal-body{padding:24px 20px}.cmodal-body h2{font-size:22px}}
 
 /* ============================================================
-   Mega-menu header (Direction A) — Platform / Solutions / Resources
+   Mega-menu header (Direction A), Platform / Solutions / Resources
    Desktop: panels open on hover + keyboard focus (no JS needed).
    Mobile (<900px): hamburger opens a full sheet (nav.js).
    ============================================================ */

@@ -83,7 +83,7 @@ def parse_changelog(path):
     """-> [(version_tuple, tag, date, body_md)] newest first."""
     text = open(path, encoding="utf-8").read()
     entries = []
-    for m in re.finditer(r"^## (v?\d+\.\d+\.\d+)\s*[—–-]+\s*(\d{4}-\d{2}-\d{2})\s*$", text, re.M):
+    for m in re.finditer(r"^## (v?\d+\.\d+\.\d+)\s*[, –-]+\s*(\d{4}-\d{2}-\d{2})\s*$", text, re.M):
         entries.append((m, m.group(1), m.group(2)))
     for i, (m, tag, date) in enumerate(entries):
         end = entries[i + 1][0].start() if i + 1 < len(entries) else len(text)
@@ -398,6 +398,7 @@ def main():
     # Keep the homepage "Download for Windows" button pointed at the current
     # installer (the <a> marked data-dl-winsetup), so it never rots to a stale
     # version. If no installer shipped this release, fall back to the zip.
+    setup_name = next((a for a in latest["assets"] if a.startswith("RedHerrings-Setup-") and a.endswith(".exe")), None)
     win_href = (f"https://github.com/{REPO}/releases/latest/download/{setup_name}"
                 if setup_name
                 else f"https://github.com/{REPO}/releases/latest/download/RedHerrings-windows.zip")
