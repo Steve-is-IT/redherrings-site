@@ -395,6 +395,13 @@ def main():
     s2 = re.sub(r'(<strong data-dl-version>)[^<]*(</strong>)', rf'\g<1>{E(latest["tag"])}\g<2>', s)
     # Keep the SoftwareApplication structured data on the home page in step.
     s2 = re.sub(r'("softwareVersion": ")[^"]*(")', rf'\g<1>{E(latest["tag"].lstrip("v"))}\g<2>', s2)
+    # Keep the homepage "Download for Windows" button pointed at the current
+    # installer (the <a> marked data-dl-winsetup), so it never rots to a stale
+    # version. If no installer shipped this release, fall back to the zip.
+    win_href = (f"https://github.com/{REPO}/releases/latest/download/{setup_name}"
+                if setup_name
+                else f"https://github.com/{REPO}/releases/latest/download/RedHerrings-windows.zip")
+    s2 = re.sub(r'(<a class="btn" href=")[^"]*(" data-dl-winsetup)', rf'\g<1>{E(win_href)}\g<2>', s2)
     if s2 != s:
         open(idx, "w", encoding="utf-8").write(s2); print("index.html version updated")
 
