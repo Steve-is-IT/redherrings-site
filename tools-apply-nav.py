@@ -142,11 +142,11 @@ def build_header():
     </nav>
     <div class="spacer"></div>
     <a class="link navutil" href="{ACCOUNT_URL}" data-goatcounter-click="signin">Sign in</a>
-    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free</a>
     {burger}
   </div>
   <div class="mobilenav" id="mobilenav" hidden>
-    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Start free trial</a>
+    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Start free</a>
     {mobile}
     <div class="mnsection"><a class="mnflat mnsolo" href="/#pricing">Pricing</a></div>
     <div class="mnrow">
