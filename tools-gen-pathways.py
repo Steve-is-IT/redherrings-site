@@ -165,7 +165,7 @@ TEMPLATE = '''<!doctype html>
 <main class="wrap" id="main">
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Pathways</div>
   <div class="secthead">
-    <h1 class="opener">Learning <em>pathways</em></h1>
+    <h1 class="opener">Learning pathways</h1>
     <p class="osub">Ordered, case-by-case curricula that take a learner from first-look triage to a capstone, across both disciplines, <strong>Digital Forensics</strong> and <strong>Incident Response</strong>. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student.</p>
   </div>
   <div class="pwfilter" role="group" aria-label="Filter pathways by discipline">
@@ -201,6 +201,7 @@ TEMPLATE = '''<!doctype html>
         <a href="/help.html">Help &amp; getting started</a>
         <a href="/tools.html">Tools &amp; setup</a>
         <a href="/resources.html">Free resources</a>
+        <a href="/press.html">Press kit</a>
         <a href="/blog/">Blog</a>
         <a href="/compare.html">Compare</a>
         <a href="/#faq">FAQ</a>
@@ -614,7 +615,7 @@ PAGE_TEMPLATE = '''<!doctype html>
   <section class="hero" style="border-top:0;text-align:left;padding-top:40px;padding-bottom:40px">
     <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / <a href="/pathways.html">Pathways</a> / {label}</div>
     <span class="kicker">{kind} &middot; {disc}{aligned}</span>
-    <h1 style="max-width:18ch">{h1a} <em>{h1b}</em></h1>
+    <h1 style="max-width:18ch">{h1a} {h1b}</h1>
     <p class="lede" style="margin-left:0">{lede}</p>
     <p class="lede" style="margin-left:0;font-size:17px">{builds}</p>
     <div class="cta-row hero-cta" style="justify-content:flex-start;margin-top:26px">
@@ -626,7 +627,7 @@ PAGE_TEMPLATE = '''<!doctype html>
 
   <section>
     <div class="secthead">
-      <h2 class="opener">The pathway, <em>in order</em></h2>
+      <h2 class="opener">The pathway, in order</h2>
       <p class="osub">{n} cases, about {total} of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and the question set. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
     </div>
     <ol class="rows-list" style="list-style:none;margin:0;padding:0">
@@ -636,7 +637,7 @@ PAGE_TEMPLATE = '''<!doctype html>
 
   <section>
     <div class="secthead solo" style="margin-bottom:18px">
-      <h2 class="opener" style="font-size:clamp(24px,3vw,34px)">What this pathway <em>covers</em></h2>
+      <h2 class="opener" style="font-size:clamp(24px,3vw,34px)">What this pathway covers</h2>
     </div>
     <div class="chips" style="gap:8px">{chips}</div>
   </section>
@@ -673,7 +674,7 @@ PAGE_TEMPLATE = '''<!doctype html>
 
   <section>
     <div class="secthead solo" style="margin-bottom:22px">
-      <h2 class="opener" style="font-size:clamp(24px,3vw,34px)">Related <em>pathways</em></h2>
+      <h2 class="opener" style="font-size:clamp(24px,3vw,34px)">Related pathways</h2>
     </div>
     <div class="grid">
 {related}
