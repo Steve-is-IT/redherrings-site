@@ -130,7 +130,7 @@ def build_header():
               'aria-controls="mobilenav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
               'stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>')
     return f'''<header>
-  <a class="annc" href="/cases.html" data-goatcounter-click="annc-free">Anyone can run the <strong>First Look cases</strong> &middot; free, no account and no watermark, in forensics and incident response. <span class="annc-go">Open a First Look case &rarr;</span></a>
+  <a class="annc" href="/cases.html#first-look" data-goatcounter-click="annc-free">Anyone can run the <strong>First Look cases</strong> &middot; free, no account and no watermark, in forensics and incident response. <span class="annc-go">Open a First Look case &rarr;</span></a>
   <a class="skip" href="#main">Skip to content</a>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="Red Herrings home">
