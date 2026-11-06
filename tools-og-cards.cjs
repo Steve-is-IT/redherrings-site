@@ -11,7 +11,7 @@ const { chromium } = require("playwright");
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, "img", "og");
-const FONTS = "https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap";
+const FONTS = "https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap";
 
 // Brand mark (mosaic), sized for the card brand row.
 let MARK = fs.readFileSync(path.join(ROOT, "img", "brand", "mark.svg"), "utf8")
@@ -25,7 +25,7 @@ body{font-family:"Public Sans",-apple-system,Segoe UI,Roboto,Helvetica,Arial,san
 .card{position:absolute;inset:0;padding:60px 0 0 68px;display:grid;grid-template-columns:560px 1fr;gap:36px}
 .brand{display:flex;align-items:center;gap:14px;font-family:"Sora",sans-serif;font-weight:700;font-size:30px;letter-spacing:-.01em}
 .kick{margin-top:28px;font-family:"JetBrains Mono",Menlo,Consolas,monospace;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#d42a2a;font-weight:600}
-h1{margin-top:10px;font-family:"Sora",sans-serif;font-weight:700;font-size:52px;line-height:1.07;letter-spacing:-.025em}
+h1{margin-top:10px;font-family:"JetBrains Mono",Menlo,Consolas,monospace;font-weight:800;font-size:43px;line-height:1.14;letter-spacing:-.02em}
 h1 em{font-style:normal;color:#d42a2a}
 .lede{margin-top:16px;font-size:22px;line-height:1.4;color:#3e4a5a;max-width:510px}
 .url{position:absolute;left:68px;bottom:34px;font-family:"Sora",sans-serif;font-weight:700;font-size:20px}
@@ -47,7 +47,7 @@ const shot = (img) =>
 const CARDS = {
   home: [
     `<div class="kick">Digital Forensics &amp; Incident Response</div>` +
-    `<h1>Real evidence to investigate. <em>Real DFIR skills to show for it.</em></h1>` +
+    `<h1>Investigate real evidence, and build the DFIR skills to show for it.</h1>` +
     `<p class="lede">Disk, memory, network, mobile and cloud evidence, worked in the real tools.</p>` +
     `<div class="badges"><span class="badge">Forensics &amp; incident response</span>` +
     `<span class="badge">The real tools and formats</span>` +
