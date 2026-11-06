@@ -47,10 +47,10 @@ const shot = (img) =>
 const CARDS = {
   home: [
     `<div class="kick">Digital Forensics &amp; Incident Response</div>` +
-    `<h1>Give everyone <em>their own case to crack.</em></h1>` +
-    `<p class="lede">Real disk, memory, network, mobile and cloud evidence, worked in the real tools.</p>` +
-    `<div class="badges"><span class="badge">A unique case per student</span>` +
-    `<span class="badge">Verified answer keys</span>` +
+    `<h1>Real evidence to investigate. <em>Real DFIR skills to show for it.</em></h1>` +
+    `<p class="lede">Disk, memory, network, mobile and cloud evidence, worked in the real tools.</p>` +
+    `<div class="badges"><span class="badge">Forensics &amp; incident response</span>` +
+    `<span class="badge">The real tools and formats</span>` +
     `<span class="badge red">Runs fully offline</span></div>`,
     shot("slides/slide-results.jpg"),
     null,
