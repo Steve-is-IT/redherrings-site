@@ -134,8 +134,7 @@ def build_header():
   <a class="skip" href="#main">Skip to content</a>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="Red Herrings home">
-      {HOOK}
-      <span style="color:var(--ink)">Red Herrings</span>
+      <img class="brandlogo" src="/img/brand/lockup.png" alt="Red Herrings" style="height:38px;width:auto;display:block" />
     </a>
     <nav class="mainnav" aria-label="Primary">
       {desktop}
