@@ -162,9 +162,9 @@ a.card h3{color:var(--ink)}
 .price .amt{font-size:34px;font-weight:800;margin:8px 0 2px;letter-spacing:-.02em}
 .price .amt span{font-size:14px;font-weight:600;color:var(--muted)}
 .price ul{list-style:none;padding:0;margin:18px 0 24px;color:var(--muted);font-size:14px}
-.price li{padding:9px 0;border-bottom:1px solid var(--line-2);display:flex;gap:9px;align-items:flex-start;line-height:1.45}
+.price li{position:relative;padding:9px 0 9px 26px;border-bottom:1px solid var(--line-2);line-height:1.45}
 .price li:last-child{border-bottom:0}
-.price li::before{content:"";flex:none;width:16px;height:16px;margin-top:1px;border-radius:50%;background:color-mix(in srgb,var(--ok) 16%,transparent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%231a7f4b' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/11px no-repeat}
+.price li::before{content:"";position:absolute;left:0;top:11px;width:16px;height:16px;border-radius:50%;background:color-mix(in srgb,var(--ok) 16%,transparent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%231a7f4b' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/11px no-repeat}
 .price .btn{margin-top:auto;width:100%}
 
 /* ---- FAQ ---- */
