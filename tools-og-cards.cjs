@@ -57,7 +57,7 @@ const CARDS = {
   ],
   cases: [
     `<div class="kick gold">Case library</div>` +
-    `<h1>Dozens of cases. <em>One per student.</em></h1>` +
+    `<h1>Dozens of cases, one per student.</h1>` +
     `<p class="lede">First Look triage to Marquee capstone, in forensics and incident response, mapped to GIAC, CompTIA and MITRE ATT&amp;CK.</p>` +
     `<div class="badges"><span class="badge">First Look cases free</span>` +
     `<span class="badge">Windows &middot; macOS &middot; Linux</span>` +
@@ -66,11 +66,12 @@ const CARDS = {
     ["cases.html", "tools-gen-cases.py"],
   ],
   download: [
-    `<div class="kick">Download</div>` +
-    `<h1>Runs on your machine. <em>Nothing leaves it.</em></h1>` +
-    `<p class="lede">Generate and grade a whole class offline. No account, no cloud, no student data leaving the room.</p>` +
-    `<div class="badges"><span class="badge">Windows</span><span class="badge">macOS</span><span class="badge">Linux</span>` +
-    `<span class="badge red">First Look cases free, no key</span></div>`,
+    `<div class="kick">Offline &amp; air-gapped</div>` +
+    `<h1>Runs air-gapped, in a SOC or a secure facility.</h1>` +
+    `<p class="lede">Generated and graded entirely on your own machines, with no account, cloud or network connection, so nothing ever leaves your environment.</p>` +
+    `<div class="badges"><span class="badge red">No internet required</span>` +
+    `<span class="badge">Windows &middot; macOS &middot; Linux</span>` +
+    `<span class="badge">No cloud, no account</span></div>`,
     shot("slides/slide-generate.jpg"),
     ["download.html", "tools-gen-download.py"],
   ],
