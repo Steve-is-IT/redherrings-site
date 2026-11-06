@@ -127,14 +127,8 @@ a.card h3{color:var(--ink)}
 .step::before{content:counter(step);grid-column:1;grid-row:1;align-self:center;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:15px;line-height:1;flex:none;box-shadow:0 3px 10px color-mix(in srgb,var(--blue) 35%,transparent)}
 .step h4{grid-column:2;grid-row:1;align-self:center;margin:0;font-size:16px;font-weight:700;letter-spacing:-.01em}
 .step p{grid-column:2;grid-row:2;margin:0;color:var(--muted);font-size:14px;line-height:1.6}
-/* "How it works" is a vertical timeline instead of a horizontal row. */
-#how .steps{display:block;position:relative;max-width:640px;margin:0 auto}
-#how .steps::before{content:"";position:absolute;left:17px;top:18px;bottom:18px;width:2px;background:var(--blue);opacity:.35}
-#how .step{grid-template-columns:36px 1fr;column-gap:22px;padding-bottom:34px}
-#how .step:last-child{padding-bottom:0}
-#how .step::before{width:36px;height:36px;font-size:16px;position:relative;z-index:1}
-#how .step h4{font-size:17px}
-#how .step p{font-size:15px}
+/* "How it works" uses the same horizontal four-column step row as the rest of the page. */
+#how .steps{max-width:1000px;margin:0 auto}
 
 /* ---- difficulty pills + badges ---- */
 .diffrow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:-24px 0 36px}
