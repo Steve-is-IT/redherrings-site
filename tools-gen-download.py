@@ -236,11 +236,10 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     notes_html = []
     for i, (v, ntag, ndate, body) in enumerate(notes):
         rel = releases.get(v, {})
-        meta = dt.date.fromisoformat(ndate).strftime("%B %-d, %Y")
-        link = f' &middot; <a href="{E(rel["url"])}">release</a>' if rel.get("url") else ""
+        link = f' <span class="dl-muted">&middot; <a href="{E(rel["url"])}">release</a></span>' if rel.get("url") else ""
         notes_html.append(
             f'<details class="dl-notes"{" open" if i == 0 else ""}>'
-            f'<summary><strong>{E(ntag)}</strong> <span class="dl-muted">{E(meta)}{link}</span></summary>'
+            f'<summary><strong>{E(ntag)}</strong>{link}</summary>'
             f'<div class="dl-notesbody">{md_to_html(body)}</div></details>')
 
     return f'''<!doctype html>
@@ -315,7 +314,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
       <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial with no key needed</strong>: generate labs, run the student portal and grade a class before you buy.</p>
-      <div class="dl-ver"><span class="chip">{E(tag)}</span><span>Released {E(nice_date)}</span><span class="dl-sep">&middot; <a href="#release-notes">Release notes</a></span><span class="dl-sep">&middot; <a href="{RELEASES_PAGE}">All versions</a></span></div>
+      <div class="dl-ver"><span class="chip">{E(tag)}</span><span class="dl-sep"><a href="#release-notes">Release notes</a></span><span class="dl-sep">&middot; <a href="{RELEASES_PAGE}">All versions</a></span></div>
     </div>
 
     <div class="dl-grid">{win_card}{mac_card}{lin_card}
