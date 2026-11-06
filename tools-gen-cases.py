@@ -204,12 +204,12 @@ TEMPLATE = '''<!doctype html>
 <meta property="og:title" content="Case library | Red Herrings">
 <meta property="og:description" content="Dozens of forensics and incident response cases, First Look to Marquee capstone. Every student gets their own variant, graded against its own key.">
 <meta property="og:url" content="https://redherrings.app/cases.html">
-<meta property="og:image" content="https://redherrings.app/img/og/cases-4b047723.png">
+<meta property="og:image" content="https://redherrings.app/img/og/cases-3e7e15c6.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Red Herrings case library: dozens of DFIR cases, one variant per student.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://redherrings.app/img/og/cases-4b047723.png">
+<meta name="twitter:image" content="https://redherrings.app/img/og/cases-3e7e15c6.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="site.css">
 </head>
@@ -354,7 +354,16 @@ TEMPLATE = '''<!doctype html>
   fTopic.addEventListener("change", apply);
   document.getElementById("clearf").addEventListener("click", function()<<SP>>{{
     fDisc.value="all"; fDiff.value="all"; fillTopic(); apply(); }});
-  fillTopic(); apply();
+  function applyHash()<<SP>>{{
+    var hp=(location.hash||"").replace("#","");
+    if (hp && [].slice.call(fDiff.options).some(function(o)<<SP>>{{ return o.value===hp; }}))<<SP>>{{
+      fDiff.value=hp; apply();
+      var cl=document.getElementById("caselist");
+      if (cl) setTimeout(function()<<SP>>{{ var y=cl.getBoundingClientRect().top+window.pageYOffset-90; window.scrollTo(0, y>0?y:0); }}, 80);
+    }}
+  }}
+  fillTopic(); apply(); applyHash();
+  window.addEventListener("hashchange", applyHash);
 </script>
 <!--MODALJS-->
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
