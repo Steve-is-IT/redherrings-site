@@ -5,7 +5,7 @@
    icons, filters). Navy carries the footer and the closing band.
    ========================================================================= */
 :root{
-  --accent:#d32f26; --accent-2:#c92a20; --accent-ink:#ffffff;
+  --accent:#d42a2a; --accent-2:#b92320; --accent-ink:#ffffff;
   --blue:#1f5fbf; --blue-2:#17499a; --navy:#0f1b2d; --navy-ink:#dfe7f2; --navy-mut:#aab8cc;
   --ink:#111a26; --paper:#ffffff; --muted:#3e4a5a; --faint:#5c6a82;
   --line:#cfd8e4; --line-2:#e3e9f1; --bg:#f3f6fa; --card:#ffffff; --card-2:#f8fafc;
@@ -310,7 +310,7 @@ main>.crumb:first-child{padding-top:44px}
    viewer's OS dark-mode preference. Placed after the dark block so it wins. ---- */
 @media print {
   :root{
-    --accent:#b5271f; --accent-2:#b5271f; --accent-ink:#ffffff;
+    --accent:#d42a2a; --accent-2:#b92320; --accent-ink:#ffffff;
     --ink:#111418; --paper:#ffffff; --muted:#33383f; --faint:#555b63;
     --line:#cfd3da; --line-2:#e2e5ea; --bg:#ffffff; --card:#ffffff; --card-2:#ffffff;
     --teal:#0b6b62; --teal-2:#0b6b62;
