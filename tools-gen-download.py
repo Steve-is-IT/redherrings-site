@@ -314,7 +314,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
       <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial with no key needed</strong>: generate labs, run the student portal and grade a class before you buy.</p>
-      <div class="dl-ver"><span class="chip">{E(tag)}</span><span class="dl-sep"><a href="#release-notes">Release notes</a></span><span class="dl-sep">&middot; <a href="{RELEASES_PAGE}">All versions</a></span></div>
+      <div class="dl-ver"><span class="chip">{E(tag)}</span></div>
     </div>
 
     <div class="dl-grid">{win_card}{mac_card}{lin_card}
@@ -339,12 +339,6 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     <div class="dl-it">
       <strong>Installing on a managed machine?</strong> Your IT team can {it_signed} The app needs no admin rights (the installer is per-user, and the portable zip unzips to a folder) and listens only on localhost. Full details on the <a href="trust.html">Trust &amp; security</a> page.
     </div>
-  </section>
-
-  <section id="release-notes">
-    <h2>Release notes</h2>
-    <p class="sub">What changed in each version. Every release keeps the full case library generating and verifying.</p>
-    {"".join(notes_html)}
   </section>
 </main>
 <script>
