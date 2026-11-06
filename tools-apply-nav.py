@@ -43,7 +43,7 @@ def icon(k):
 
 # link inventory: key -> (title, desc, href, icon)
 L = {
-    "how": ("How it works", "One case, a different variant for every student", "/how.html", "how"),
+    "how": ("How it works", "One case, a different variant for everyone", "/how.html", "how"),
     "cases": ("Case library", "Dozens of verified forensics and IR cases", "/cases.html", "cases"),
     "attack": ("ATT&amp;CK coverage", "Which techniques the cases exercise", "/attack.html", "attack"),
     "path": ("Learning pathways", "From First Look to cert-prep capstone", "/pathways.html", "path"),
@@ -82,7 +82,7 @@ def mcol(head, keys):
 def promo():
     return ('<a class="mppromo" href="/try.html"><span class="eye">Try it live</span>'
             '<strong>Work two cases in your browser</strong>'
-            '<span class="pd">An EDR alert and a USB registry key. Press a button to see another student&rsquo;s variant. Nothing to install.</span>'
+            '<span class="pd">An EDR alert and a USB registry key. Press a button to see a different variant. Nothing to install.</span>'
             '<span class="pc"><span>EDR alert</span><span>USB registry</span></span>'
             '<span class="go">Open the demo &rarr;</span></a>')
 
