@@ -130,6 +130,7 @@ def build_header():
               'aria-controls="mobilenav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
               'stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>')
     return f'''<header>
+  <a class="annc" href="/cases.html" data-goatcounter-click="annc-free">New &middot; Every <strong>First Look case is now free, forever</strong>, in forensics and incident response. No account, no watermark. <span class="annc-go">Browse the free cases &rarr;</span></a>
   <a class="skip" href="#main">Skip to content</a>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="Red Herrings home">
@@ -142,11 +143,11 @@ def build_header():
     </nav>
     <div class="spacer"></div>
     <a class="link navutil" href="{ACCOUNT_URL}" data-goatcounter-click="signin">Sign in</a>
-    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free trial</a>
+    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free</a>
     {burger}
   </div>
   <div class="mobilenav" id="mobilenav" hidden>
-    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Start free trial</a>
+    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Start free</a>
     {mobile}
     <div class="mnsection"><a class="mnflat mnsolo" href="/#pricing">Pricing</a></div>
     <div class="mnrow">
