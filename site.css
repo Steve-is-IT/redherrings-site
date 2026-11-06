@@ -515,7 +515,9 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 /* ---- B: section head, a big statement that uses the full width, with the
         intro set beside it (not a narrow left-pinned column) ---- */
 .secthead{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(20px,4vw,56px);align-items:end;margin-bottom:clamp(30px,5vw,54px)}
-.secthead .opener{font-size:clamp(29px,4.8vw,52px);font-weight:800;line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance;text-align:left}
+.secthead .opener{font-family:var(--mono);font-size:clamp(29px,4.8vw,52px);font-weight:800;line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance;text-align:left}
+/* The homepage section titles that are not .opener heads still read as section heros, so keep them on the same mono face. */
+#how-h,#cases-h,#dl-h,#pricing-h,#faq-h,#cta-h{font-family:var(--mono);letter-spacing:-.02em}
 .secthead .opener em{font-style:normal;color:var(--accent)}
 .secthead .osub{color:var(--muted);font-size:clamp(16px,1.6vw,18.5px);line-height:1.6;margin:0 0 5px}
 .secthead.center{grid-template-columns:1fr;justify-items:center;text-align:center}
