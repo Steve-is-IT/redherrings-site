@@ -792,15 +792,14 @@ footer .flegal a:hover{color:#fff}
 /* Credibility stat strip (homepage) */
 .proofstrip{padding:52px 0;border-top:1px solid var(--line);background:var(--card-2)}
 .proofstrip .pk{text-align:center;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:0 0 32px}
-.proofstat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:32px 28px;max-width:1160px;margin:0 auto;align-items:start}
-.pstat{text-align:left;padding:0}
-.pstat .pico{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;color:var(--accent);margin:0 0 14px;background:rgba(211,47,38,.1);background:color-mix(in srgb,var(--accent) 12%,transparent)}
-.pstat .pico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.pstat b{display:block;font-family:var(--display);font-size:16px;font-weight:800;line-height:1.25;letter-spacing:-.01em;color:var(--ink);min-height:2.5em}
-.pstat span{display:block;margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.5}
-@media(max-width:980px){.proofstat-row{grid-template-columns:repeat(3,1fr);max-width:760px}}
-@media(max-width:620px){.proofstat-row{grid-template-columns:repeat(2,1fr);gap:28px 24px}}
-@media(max-width:400px){.proofstat-row{grid-template-columns:1fr}.pstat b{min-height:0}}
+.proofstat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:38px 44px;max-width:1120px;margin:0 auto}
+.pstat{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:start;text-align:left}
+.pstat .pico{grid-column:1;grid-row:1 / span 2;align-self:start;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:var(--accent);margin:0;background:rgba(211,47,38,.1);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.pstat .pico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pstat b{grid-column:2;grid-row:1;font-family:var(--display);font-size:15.5px;font-weight:800;line-height:1.3;letter-spacing:-.01em;color:var(--ink)}
+.pstat span{grid-column:2;grid-row:2;margin-top:6px;font-size:12.5px;color:var(--muted);line-height:1.5}
+@media(max-width:860px){.proofstat-row{grid-template-columns:repeat(2,1fr);gap:34px 40px;max-width:720px}}
+@media(max-width:560px){.proofstat-row{grid-template-columns:1fr;max-width:420px}}
 
 /* Why-it-is-different contrast (homepage) */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:4px}
