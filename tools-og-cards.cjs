@@ -47,7 +47,7 @@ const shot = (img) =>
 const CARDS = {
   home: [
     `<div class="kick">Digital Forensics &amp; Incident Response</div>` +
-    `<h1>Give every student <em>their own case to crack.</em></h1>` +
+    `<h1>Give everyone <em>their own case to crack.</em></h1>` +
     `<p class="lede">Real disk, memory, network, mobile and cloud evidence, worked in the real tools.</p>` +
     `<div class="badges"><span class="badge">A unique case per student</span>` +
     `<span class="badge">Verified answer keys</span>` +
