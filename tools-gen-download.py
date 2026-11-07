@@ -212,7 +212,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
             for a in mac_assets)
         shas = "".join(sha_block(sums.get(a, ""), a) for a in mac_assets)
         gate = ('<p class="dl-signed">&#10003; Signed with a Developer ID certificate and notarized by Apple.</p>' if mac_notarized else
-                '<p class="dl-muted">First launch: right-click <code>RedHerrings</code> and choose <strong>Open</strong>, then Open again. macOS asks once for builds that are not yet notarized.</p>')
+                '<p class="dl-muted">Not yet notarized, so macOS warns on first launch. Control-click <code>RedHerrings</code> and choose <strong>Open</strong>, then <strong>Open</strong> again. <a href="/help.html#gatekeeper">Still blocked on a newer Mac?</a></p>')
         mac_card = f'''
       <div class="dl-card">
         <div class="dl-os">macOS</div>
