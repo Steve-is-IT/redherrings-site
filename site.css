@@ -830,3 +830,21 @@ footer .flegal a:hover{color:#fff}
 .hero-frame .bar .zoomhint{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--faint);letter-spacing:.01em}
 .hero-frame .bar .zoomhint svg{width:13px;height:13px}
 @media(max-width:600px){.hero-frame .bar .zoomhint{display:none}}
+
+/* ---- Delight pass: pricing badge, button arrow nudge, subtle scroll reveal ---- */
+.price.feature::before{content:"Most popular";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--accent-ink);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:5px 14px;border-radius:999px;box-shadow:var(--shadow-sm);white-space:nowrap;z-index:2}
+.btn svg{transition:transform .15s ease}
+.btn:hover svg{transform:translateX(2px)}
+.grid a.card:hover .go{letter-spacing:.004em}
+.grid a.card .go{transition:letter-spacing .15s ease}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .grid a.card, .rowitem, .price, .drill, .steps>.step, .mediarow{
+      animation: rh-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 2% entry 40%;
+    }
+  }
+}
+@keyframes rh-rise{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:none;} }
