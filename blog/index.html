@@ -13,15 +13,15 @@
 <meta property="og:url" content="https://redherrings.app/blog/">
 <meta property="og:title" content="Red Herrings blog: DFIR teaching notes">
 <meta property="og:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
-<meta property="og:image" content="https://redherrings.app/img/og/home-0bbb507e.png">
+<meta property="og:image" content="https://redherrings.app/img/og-2026-10b.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Red Herrings blog: DFIR teaching notes">
 <meta name="twitter:description" content="Teaching notes on running hands-on digital forensics and incident response labs and exams that stay honest.">
-<meta name="twitter:image" content="https://redherrings.app/img/og/home-0bbb507e.png">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="twitter:image" content="https://redherrings.app/img/og-2026-10b.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 25.81 54.44 32c1.25 6.19 3.94 13.87 7.81 20.25C56.5 48.5 51 42 48 39c-4 6-8 9-12 9-10 0-21-5-30-16z%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="../blog.css">
@@ -63,30 +63,38 @@
 
   <div class="blog-layout">
     <div class="blog-main">
-      <a class="feat" href="ios-imessage-forensics-cocoa-time.html" data-cat="Mobile forensics">
-        <div class="cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
+      <a class="feat" href="autopsy-disk-image-analysis-walkthrough.html" data-cat="Tool guide">
+        <div class="cover"><img src="../img/blog/autopsy-disk-image-analysis-walkthrough.svg" alt="" width="1600" height="1000"></div>
         <div>
-          <div class="meta-top"><span class="cat c-mobile">Mobile forensics</span></div>
-          <h2>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h2>
-          <p>Join message, handle, chat and chat_message_join into a real thread, then decode Apple Cocoa time (nanoseconds since 2001) the way that trips students up.</p>
+          <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
+          <h2>Analyze a disk image in Autopsy: a beginner's walkthrough</h2>
+          <p>Open a disk image in Autopsy, run the right ingest modules, and find the artifacts that answer the question. A walkthrough for students new to DFIR.</p>
           <span class="more">Read the post &rarr;</span>
         </div>
       </a>
       <div class="posts">
-      <a class="pcard" href="build-a-digital-forensics-course-syllabus.html" data-cat="Course design">
-        <div class="cover"><img src="../img/blog/build-a-digital-forensics-course-syllabus.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+      <a class="pcard" href="gcfe-windows-forensics-practice-labs.html" data-cat="Windows forensics">
+        <div class="cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <div>
-          <div class="meta-top"><span class="cat c-course">Course design</span></div>
-          <h3>How to build a digital forensics course syllabus</h3>
-          <p>The week-by-week logic from a single-artifact First Look to a multi-artifact capstone, why memory and network come late, the assessment mix, and what to do in week one.</p>
+          <div class="meta-top"><span class="cat c-windows">Windows forensics</span></div>
+          <h3>GCFE practice: a different Windows forensics case for every student</h3>
+          <p>Registry, prefetch, USB history and event logs: one authored case becomes a per-student Windows box with a verified answer key.</p>
         </div>
       </a>
-      <a class="pcard" href="forensics-exam-students-cant-copy.html" data-cat="Exam integrity">
-        <div class="cover"><img src="../img/blog/forensics-exam-students-cant-copy.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+      <a class="pcard" href="digital-forensics-lab-platform-buyers-guide.html" data-cat="Buying guide">
+        <div class="cover"><img src="../img/blog/digital-forensics-lab-platform-buyers-guide.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <div>
-          <div class="meta-top"><span class="cat c-exam">Exam integrity</span></div>
-          <h3>Run a forensics exam students can't copy</h3>
-          <p>Why shared evidence makes copying inevitable, and how per-student cases, an in-browser solve portal and LMS grade passback fix it.</p>
+          <div class="meta-top"><span class="cat c-buying">Buying guide</span></div>
+          <h3>What to look for in a digital forensics lab platform: a buyer's guide</h3>
+          <p>Seven questions to ask before you buy a DFIR training platform: realistic evidence, a trustworthy answer key, anti-cheating, LMS grading, offline operation, cert alignment, and total cost at your size.</p>
+        </div>
+      </a>
+      <a class="pcard" href="detect-c2-beaconing-packet-capture.html" data-cat="Network forensics">
+        <div class="cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-network">Network forensics</span></div>
+          <h3>Spotting C2 beaconing in a packet capture</h3>
+          <p>Teach students to read a PCAP by timing (interval, jitter and payload), follow the stream, and tell the beacon from benign noise.</p>
         </div>
       </a>
       <a class="pcard" href="dfir-learning-pathways-first-look-to-capstone.html" data-cat="Course design">
@@ -97,28 +105,28 @@
           <p>Sequence a course from a First Look on-ramp up the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in.</p>
         </div>
       </a>
-      <a class="pcard" href="autopsy-disk-image-analysis-walkthrough.html" data-cat="Tool guide">
-        <div class="cover"><img src="../img/blog/autopsy-disk-image-analysis-walkthrough.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+      <a class="pcard" href="volatility-3-memory-forensics-getting-started.html" data-cat="Tool guide">
+        <div class="cover"><img src="../img/blog/volatility-3-memory-forensics-getting-started.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <div>
           <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
-          <h3>Analyze a disk image in Autopsy: a beginner's walkthrough</h3>
-          <p>Open a disk image in Autopsy, run the right ingest modules, and find the artifacts that answer the question. A walkthrough for students new to DFIR.</p>
+          <h3>Getting started with memory forensics in Volatility 3</h3>
+          <p>Install Volatility 3, list processes, follow them to network connections and command lines, and spot injected code in a memory image.</p>
         </div>
       </a>
-      <a class="pcard" href="whats-new-student-portal-certificates.html" data-cat="Product update">
-        <div class="cover"><img src="../img/blog/whats-new-student-portal-certificates.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+      <a class="pcard" href="prefetch-forensics-pecmd-walkthrough.html" data-cat="Tool guide">
+        <div class="cover"><img src="../img/blog/prefetch-forensics-pecmd-walkthrough.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <div>
-          <div class="meta-top"><span class="cat c-course">Product update</span></div>
-          <h3>What's new: a student portal, certificates, and dozens more cases</h3>
-          <p>A self-serve account portal, printable certificates and badges, student and veteran pricing, and a library now dozens of cases strong across digital forensics and incident response.</p>
+          <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
+          <h3>Windows Prefetch forensics: a PECmd walkthrough</h3>
+          <p>What a Prefetch file records, how to parse the folder to CSV with PECmd, and the misreads that cost marks: first run vs file creation, disabled Prefetch, the hash in the filename.</p>
         </div>
       </a>
-      <a class="pcard" href="detect-c2-beaconing-packet-capture.html" data-cat="Network forensics">
-        <div class="cover"><img src="../img/blog/detect-c2-beaconing-packet-capture.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+      <a class="pcard" href="forensics-exam-students-cant-copy.html" data-cat="Exam integrity">
+        <div class="cover"><img src="../img/blog/forensics-exam-students-cant-copy.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <div>
-          <div class="meta-top"><span class="cat c-network">Network forensics</span></div>
-          <h3>Spotting C2 beaconing in a packet capture</h3>
-          <p>Teach students to read a PCAP by timing (interval, jitter and payload), follow the stream, and tell the beacon from benign noise.</p>
+          <div class="meta-top"><span class="cat c-exam">Exam integrity</span></div>
+          <h3>Run a forensics exam students can't copy</h3>
+          <p>Why shared evidence makes copying inevitable, and how per-student cases, an in-browser solve portal and LMS grade passback fix it.</p>
         </div>
       </a>
       <a class="pcard" href="chain-of-custody-in-the-classroom.html" data-cat="Course design">
@@ -145,52 +153,12 @@
           <p>Parse Windows .evtx logs into a clean CSV with EvtxECmd, open them in Timeline Explorer, and read the Event IDs that matter.</p>
         </div>
       </a>
-      <a class="pcard" href="wireshark-for-beginners-packet-capture-basics.html" data-cat="Tool guide">
-        <div class="cover"><img src="../img/blog/wireshark-for-beginners-packet-capture-basics.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+      <a class="pcard" href="soc-analyst-onboarding-hands-on-labs.html" data-cat="Security operations">
+        <div class="cover"><img src="../img/blog/soc-analyst-onboarding-hands-on-labs.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
-          <h3>Wireshark for beginners: packet capture basics</h3>
-          <p>Fix the clock, write display filters, read Conversations before packets, follow the stream, export objects, learn the DNS and HTTP columns, and save a filtered subset.</p>
-        </div>
-      </a>
-      <a class="pcard" href="incident-response-exercise-edr-siem.html" data-cat="Incident response">
-        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-ir">Incident response</span></div>
-          <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
-          <p>Work an IR case from the responder's own tooling, mapped to MITRE ATT&amp;CK and the NIST 800-61 phases, with time pressure built in.</p>
-        </div>
-      </a>
-      <a class="pcard" href="registry-explorer-windows-registry-forensics.html" data-cat="Tool guide">
-        <div class="cover"><img src="../img/blog/registry-explorer-windows-registry-forensics.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
-          <h3>Read the Windows registry with Registry Explorer</h3>
-          <p>Load a hive in Registry Explorer, use the forensic bookmarks, and read the keys that show USB use, program execution and persistence.</p>
-        </div>
-      </a>
-      <a class="pcard" href="gcfe-windows-forensics-practice-labs.html" data-cat="Windows forensics">
-        <div class="cover"><img src="../img/blog/gcfe-windows-forensics-practice-labs.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-windows">Windows forensics</span></div>
-          <h3>GCFE practice: a different Windows forensics case for every student</h3>
-          <p>Registry, prefetch, USB history and event logs: one authored case becomes a per-student Windows box with a verified answer key.</p>
-        </div>
-      </a>
-      <a class="pcard" href="teaching-mitre-attack-hands-on.html" data-cat="Threat-informed teaching">
-        <div class="cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-threat">Threat-informed teaching</span></div>
-          <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
-          <p>ATT&amp;CK-tagged cases make a technique something you find in the evidence and detect, not a cell to memorize on a chart.</p>
-        </div>
-      </a>
-      <a class="pcard" href="prefetch-forensics-pecmd-walkthrough.html" data-cat="Tool guide">
-        <div class="cover"><img src="../img/blog/prefetch-forensics-pecmd-walkthrough.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
-          <h3>Windows Prefetch forensics: a PECmd walkthrough</h3>
-          <p>What a Prefetch file records, how to parse the folder to CSV with PECmd, and the misreads that cost marks: first run vs file creation, disabled Prefetch, the hash in the filename.</p>
+          <div class="meta-top"><span class="cat c-secops">Security operations</span></div>
+          <h3>How to run a SOC analyst onboarding program with hands-on labs</h3>
+          <p>New analysts learn the queue by working it. Give each hire their own graded EDR and SIEM incidents, ramp from a first alert to a scoped intrusion, and measure readiness instead of guessing it.</p>
         </div>
       </a>
       <a class="pcard" href="detect-lateral-movement-windows-event-logs.html" data-cat="Windows forensics">
@@ -201,6 +169,94 @@
           <p>Match a remote logon to the processes it spawned by logon session, read subject against target correctly, and trace an attacker host to host.</p>
         </div>
       </a>
+      <a class="pcard" href="build-a-digital-forensics-course-syllabus.html" data-cat="Course design">
+        <div class="cover"><img src="../img/blog/build-a-digital-forensics-course-syllabus.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-course">Course design</span></div>
+          <h3>How to build a digital forensics course syllabus</h3>
+          <p>The week-by-week logic from a single-artifact First Look to a multi-artifact capstone, why memory and network come late, the assessment mix, and what to do in week one.</p>
+        </div>
+      </a>
+      <a class="pcard" href="registry-explorer-windows-registry-forensics.html" data-cat="Tool guide">
+        <div class="cover"><img src="../img/blog/registry-explorer-windows-registry-forensics.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
+          <h3>Read the Windows registry with Registry Explorer</h3>
+          <p>Load a hive in Registry Explorer, use the forensic bookmarks, and read the keys that show USB use, program execution and persistence.</p>
+        </div>
+      </a>
+      <a class="pcard" href="teaching-mitre-attack-hands-on.html" data-cat="Threat-informed teaching">
+        <div class="cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-threat">Threat-informed teaching</span></div>
+          <h3>Teach MITRE ATT&amp;CK with hands-on labs, not slides</h3>
+          <p>ATT&amp;CK-tagged cases make a technique something you find in the evidence and detect, not a cell to memorize on a chart.</p>
+        </div>
+      </a>
+      <a class="pcard" href="wireshark-for-beginners-packet-capture-basics.html" data-cat="Tool guide">
+        <div class="cover"><img src="../img/blog/wireshark-for-beginners-packet-capture-basics.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
+          <h3>Wireshark for beginners: packet capture basics</h3>
+          <p>Fix the clock, write display filters, read Conversations before packets, follow the stream, export objects, learn the DNS and HTTP columns, and save a filtered subset.</p>
+        </div>
+      </a>
+      <a class="pcard" href="air-gapped-forensics-training-no-cloud.html" data-cat="Security operations">
+        <div class="cover"><img src="../img/blog/air-gapped-forensics-training-no-cloud.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-secops">Security operations</span></div>
+          <h3>Hands-on forensics training in an air-gapped facility: no cloud, no account, no egress</h3>
+          <p>A cyber range needs the internet. Red Herrings generates every case on the analyst's own machine, activates offline, and never sends student work anywhere, so training runs inside a secure facility.</p>
+        </div>
+      </a>
+      <a class="pcard" href="ios-imessage-forensics-cocoa-time.html" data-cat="Mobile forensics">
+        <div class="cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-mobile">Mobile forensics</span></div>
+          <h3>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h3>
+          <p>Join message, handle, chat and chat_message_join into a real thread, then decode Apple Cocoa time (nanoseconds since 2001) the way that trips students up.</p>
+        </div>
+      </a>
+      <a class="pcard" href="white-label-dfir-training-resell-cases.html" data-cat="Buying guide">
+        <div class="cover"><img src="../img/blog/white-label-dfir-training-resell-cases.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-buying">Buying guide</span></div>
+          <h3>White-label DFIR training: author and resell your own cases</h3>
+          <p>Run the whole platform under your own brand, write cases in the visual editor, and resell them as signed packs. One Pro license, unlimited participants, nothing to host.</p>
+        </div>
+      </a>
+      <a class="pcard" href="blue-team-ctf-analysts-cant-google.html" data-cat="Security operations">
+        <div class="cover"><img src="../img/blog/blue-team-ctf-analysts-cant-google.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-secops">Security operations</span></div>
+          <h3>Build a blue-team CTF your analysts can't Google the answers to</h3>
+          <p>A shared CTF leaks the moment the first team solves it. Per-seed cases give every analyst their own flags, computed from their own evidence, so the only path to an answer is through the work.</p>
+        </div>
+      </a>
+      <a class="pcard" href="incident-response-exercise-edr-siem.html" data-cat="Incident response">
+        <div class="cover"><img src="../img/blog/incident-response-exercise-edr-siem.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-ir">Incident response</span></div>
+          <h3>Run an incident response exercise from real EDR and SIEM evidence</h3>
+          <p>Work an IR case from the responder's own tooling, mapped to MITRE ATT&amp;CK and the NIST 800-61 phases, with time pressure built in.</p>
+        </div>
+      </a>
+      <a class="pcard" href="whats-new-student-portal-certificates.html" data-cat="Product update">
+        <div class="cover"><img src="../img/blog/whats-new-student-portal-certificates.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-course">Product update</span></div>
+          <h3>What's new: a student portal, certificates, and dozens more cases</h3>
+          <p>A self-serve account portal, printable certificates and badges, student and veteran pricing, and a library now dozens of cases strong across digital forensics and incident response.</p>
+        </div>
+      </a>
+      <a class="pcard" href="cyber-range-vs-generated-cases-cost.html" data-cat="Buying guide">
+        <div class="cover"><img src="../img/blog/cyber-range-vs-generated-cases-cost.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
+        <div>
+          <div class="meta-top"><span class="cat c-buying">Buying guide</span></div>
+          <h3>Cyber range vs generated cases: what actually fits a training budget</h3>
+          <p>A cyber range rents you one shared cloud lab by the seat. Generated cases give every learner their own, run on hardware you already have, and cost the same for ten learners or a hundred.</p>
+        </div>
+      </a>
       <a class="pcard" href="incident-response-tabletop-vs-hands-on-exercise.html" data-cat="Incident response">
         <div class="cover"><img src="../img/blog/incident-response-tabletop-vs-hands-on-exercise.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
         <div>
@@ -209,21 +265,15 @@
           <p>A tabletop measures decisions and communication; a hands-on exercise on EDR and SIEM evidence measures analysis and the containment call. How to run both in a term and score each.</p>
         </div>
       </a>
-      <a class="pcard" href="volatility-3-memory-forensics-getting-started.html" data-cat="Tool guide">
-        <div class="cover"><img src="../img/blog/volatility-3-memory-forensics-getting-started.svg" alt="" width="1600" height="1000" loading="lazy" decoding="async"></div>
-        <div>
-          <div class="meta-top"><span class="cat c-tool">Tool guide</span></div>
-          <h3>Getting started with memory forensics in Volatility 3</h3>
-          <p>Install Volatility 3, list processes, follow them to network connections and command lines, and spot injected code in a memory image.</p>
-        </div>
-      </a>
       </div>
       <p class="noposts" hidden>No posts in this category yet.</p>
     </div>
     <aside class="blog-aside">
       <div class="aside-card">
         <h4>Browse by category</h4>
-        <button class="catf active" data-cat="all">All posts<span class="cct">19</span></button>
+        <button class="catf active" data-cat="all">All posts<span class="cct">25</span></button>
+        <button class="catf" data-cat="Security operations"><span class="cdot c-secops"></span>Security operations<span class="cct">3</span></button>
+        <button class="catf" data-cat="Buying guide"><span class="cdot c-buying"></span>Buying guide<span class="cct">3</span></button>
         <button class="catf" data-cat="Course design"><span class="cdot c-course"></span>Course design<span class="cct">4</span></button>
         <button class="catf" data-cat="Tool guide"><span class="cdot c-tool"></span>Tool guide<span class="cct">6</span></button>
         <button class="catf" data-cat="Incident response"><span class="cdot c-ir"></span>Incident response<span class="cct">2</span></button>
