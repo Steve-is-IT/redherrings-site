@@ -24,6 +24,8 @@ CATS = {
     "course":  ("#c7891a", "#2e1d05"),
     "exam":    ("#db2777", "#2e0819"),
     "tools":   ("#4f6b8f", "#0c1622"),
+    "secops":  ("#5a67d8", "#161a40"),
+    "buying":  ("#0e9e74", "#05271c"),
 }
 
 # category -> recognizable glyph (24x24 viewBox, stroke paths)
@@ -36,6 +38,8 @@ GLYPHS = {
     "course":  '<path d="M12 3 L23 8 L12 13 L1 8 Z"/><path d="M5 10 V15.3 C5 17 8.1 18.3 12 18.3 C15.9 18.3 19 17 19 15.3 V10"/>',
     "exam":    '<path d="M12 22 s8-4 8-10 V5 l-8-3-8 3 v7 c0 6 8 10 8 10 z"/><rect x="9.4" y="11" width="5.2" height="4.4" rx="0.7"/><path d="M10.5 11 V9.6 a1.5 1.5 0 0 1 3 0 V11"/>',
     "tools":   '<path d="M14.7 6.3 a1 1 0 0 0 0 1.4 l1.6 1.6 a1 1 0 0 0 1.4 0 l3.77-3.77 a6 6 0 0 1-7.94 7.94 l-6.91 6.91 a2.12 2.12 0 0 1-3-3 l6.91-6.91 a6 6 0 0 1 7.94-7.94 l-3.76 3.76 z"/>',
+    "secops":  '<rect x="2" y="4" width="20" height="13" rx="2"/><circle cx="12" cy="10.3" r="2.6"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    "buying":  '<path d="M20.6 13.4 l-7.2 7.2 a2 2 0 0 1-2.8 0 l-6.4-6.4 a2 2 0 0 1 0-2.8 l7.2-7.2 h6.4 a2.8 2.8 0 0 1 2.8 2.8 z"/><circle cx="16.3" cy="7.7" r="1.3"/>',
 }
 
 # slug -> category
@@ -59,6 +63,12 @@ POSTS = {
     "registry-explorer-windows-registry-forensics": "tools",
     "evtxecmd-windows-event-log-timeline": "tools",
     "volatility-3-memory-forensics-getting-started": "tools",
+    "soc-analyst-onboarding-hands-on-labs": "secops",
+    "blue-team-ctf-analysts-cant-google": "secops",
+    "air-gapped-forensics-training-no-cloud": "secops",
+    "white-label-dfir-training-resell-cases": "buying",
+    "cyber-range-vs-generated-cases-cost": "buying",
+    "digital-forensics-lab-platform-buyers-guide": "buying",
 }
 
 W, H = 1600, 1000

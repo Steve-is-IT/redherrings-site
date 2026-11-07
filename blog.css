@@ -18,6 +18,8 @@
 .cat.c-course{background:#c7891a}
 .cat.c-exam{background:#db2777}
 .cat.c-tool{background:#4f6b8f}
+.cat.c-secops{background:#5a67d8}
+.cat.c-buying{background:#0e9e74}
 
 /* ---- index meta row (date / reading time) ---- */
 .pmeta{display:flex;align-items:center;gap:9px;color:var(--faint);font-size:13.5px;flex-wrap:wrap}
@@ -45,6 +47,7 @@
 .cdot.c-mobile{background:#1fa85b}.cdot.c-windows{background:#2f6fe0}.cdot.c-ir{background:#e5382f}
 .cdot.c-threat{background:#8b5cf6}.cdot.c-network{background:#0e9aa7}.cdot.c-course{background:#c7891a}
 .cdot.c-exam{background:#db2777}.cdot.c-tool{background:#4f6b8f}
+.cdot.c-secops{background:#5a67d8}.cdot.c-buying{background:#0e9e74}
 .noposts{color:var(--muted);padding:30px 0;text-align:center}
 .pcard[hidden],.feat[hidden]{display:none}
 @media(max-width:900px){
