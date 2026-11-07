@@ -277,7 +277,7 @@ CERT_NOTE = ("GIAC, GCFE, GASF, GNFA, GCIH, GCFR and GCFA are trademarks of GIAC
 #   builds: how the ordered steps get there, who: audience bullets, chips: extra coverage chips.
 COPY = {
     "gcfe-windows": {
-        "title": "GCFE Practice Labs: a Windows Forensics Pathway from First Look to Capstone",
+        "title": "GCFE Windows Forensics Practice Labs",
         "h1": ("GCFE practice labs,", "one case at a time"),
         "desc": "Nine Windows forensics labs aligned to the GCFE objectives: registry, Prefetch, USB, jump lists, browser and event logs, first look to an espionage capstone.",
         "expects": "The GCFE objectives expect an examiner who can read Windows artifacts without a cheat sheet: program execution from Prefetch, UserAssist and Amcache; file knowledge from LNK files and jump lists; USB device history from the registry; persistence in Run keys, services and scheduled tasks; browser activity; and the Security event log, all pulled together into one defensible timeline.",
@@ -289,7 +289,7 @@ COPY = {
         ],
     },
     "gasf-mobile": {
-        "title": "GASF Practice Labs: a Mobile Forensics Pathway from First Look to Capstone",
+        "title": "GASF Mobile Forensics Practice Labs",
         "h1": ("GASF practice labs,", "one extraction at a time"),
         "desc": "Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, WhatsApp data, deleted SQLite records and location trails, to a collusion capstone.",
         "expects": "The GASF objectives expect an examiner who can take a mobile extraction and recover what matters: messages, contacts and call logs; third-party app data in SQLite; deleted records still sitting in freelists and write-ahead logs; and the location and activity artifacts that place a device at a time and a place.",
@@ -301,7 +301,7 @@ COPY = {
         ],
     },
     "gnfa-network": {
-        "title": "GNFA Practice Labs: a Network Forensics Pathway from First Capture to Capstone",
+        "title": "GNFA Network Forensics Practice Labs",
         "h1": ("GNFA practice labs,", "one capture at a time"),
         "desc": "Six network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP exfiltration, VPN beaconing and C2 traffic, through a breach capstone.",
         "expects": "The GNFA objectives expect an analyst who can open a packet capture and tell the story in it: follow streams, read protocols in the clear, find data leaving over HTTP, spot a beacon by its timing, recover cleartext credentials, and connect network evidence to what the hosts recorded.",
@@ -313,7 +313,7 @@ COPY = {
         ],
     },
     "linux-forensics": {
-        "title": "Linux Forensics Labs: a Pathway from First Login to a Web-Server Breach Capstone",
+        "title": "Linux Forensics Practice Labs",
         "h1": ("Linux forensics labs,", "one case at a time"),
         "desc": "Four Linux forensics labs aligned to the FOR577 objectives: auth.log brute force, cron and SSH-key persistence, a web shell, and a breach across five logs.",
         "expects": "Linux incident response, as the FOR577 objectives frame it, expects an examiner who can work a server from its logs: read auth.log for a brute force and the login that worked, find persistence in new accounts, cron jobs and authorized_keys, follow a web shell from the access log into the shell history, and correlate one attacker across every log on the box.",
@@ -325,7 +325,7 @@ COPY = {
         ],
     },
     "macos-forensics": {
-        "title": "macOS Forensics Labs: a Pathway from Download Provenance to a Spyware Capstone",
+        "title": "macOS Forensics Practice Labs",
         "h1": ("macOS forensics labs,", "one case at a time"),
         "desc": "Six macOS forensics labs aligned to the FOR518 objectives: quarantine database, Safari history, TCC consent, LaunchAgent persistence and insider exfil.",
         "expects": "Mac forensics, as the FOR518 objectives frame it, expects an examiner who knows where macOS keeps its own records: download provenance in the quarantine database and Safari history, privacy consent in the TCC database, persistence in LaunchAgents and LaunchDaemons, and the unified log entries that tie them together.",
@@ -337,7 +337,7 @@ COPY = {
         ],
     },
     "analyst-onboarding": {
-        "title": "SOC Analyst Onboarding Labs: a First-Look DFIR Pathway for New Analysts",
+        "title": "SOC Analyst Onboarding Labs",
         "h1": ("SOC analyst onboarding labs,", "one evidence family at a time"),
         "desc": "Ten onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a case.",
         "expects": "A new analyst is expected to recognize every evidence family a ticket can throw at them: what ran on a host, where a file came from, what the Security log says about accounts and services, what is set to run at startup, which USB device was plugged in, what a packet capture shows, what is in memory, and what a phone holds, then to put several of those into a single timeline.",
@@ -349,7 +349,7 @@ COPY = {
         ],
     },
     "insider-threat": {
-        "title": "Insider Threat Investigation Labs: a Pathway from Snooping to a Collusion Capstone",
+        "title": "Insider Threat Investigation Practice Labs",
         "h1": ("Insider threat investigation labs,", "one case at a time"),
         "desc": "Six insider threat investigation labs: unauthorized record access, USB data theft, secrets texted out, data pasted into an AI tool, cloud exfil and a capstone.",
         "expects": "Insider investigations ask different questions from intrusion cases. The suspect already had access, so the examiner has to prove intent and movement: which records were opened and when, what left on a USB drive, what was texted or pasted somewhere it should not have been, what synced to a personal cloud, and who else was involved.",
@@ -361,7 +361,7 @@ COPY = {
         ],
     },
     "gcih-incident-handling": {
-        "title": "GCIH Practice Labs: an Incident Handling Pathway from First Alert to Capstone",
+        "title": "GCIH Incident Handling Practice Labs",
         "h1": ("GCIH practice labs,", "one incident at a time"),
         "desc": "Ten incident handling labs aligned to the GCIH objectives: EDR and SIEM triage, phishing, web shells, lateral movement and ransomware, mapped to ATT&CK.",
         "expects": "The GCIH objectives expect a handler who can run an incident through its phases: triage a detection and decide what it means, trace the initial access, follow the move from a beachhead to the next host, spot staging before the payload, contain a live outbreak, and write up the lessons learned, with each behavior named by its ATT&CK technique.",
@@ -373,7 +373,7 @@ COPY = {
         ],
     },
     "cysa-soc-analyst": {
-        "title": "CySA+ Practice Labs: a SOC Analyst Pathway from First Alert to Capstone",
+        "title": "CySA+ SOC Analyst Practice Labs",
         "h1": ("CySA+ practice labs,", "one alert at a time"),
         "desc": "Eleven SOC analyst labs aligned to the CySA+ objectives: SIEM and EDR triage, impossible travel, phishing, MFA fatigue, BEC, lateral movement, detections.",
         "expects": "The CySA+ objectives expect an analyst who can work the daily queue: read a SIEM alert and an EDR detection, recognize an impossible-travel sign-in, triage a phishing report, correlate entities across host and log evidence, turn a confirmed behavior into a detection rule, and escalate a real incident with a severity verdict that holds up.",
@@ -385,7 +385,7 @@ COPY = {
         ],
     },
     "gcfr-cloud": {
-        "title": "GCFR Practice Labs: a Cloud and Enterprise IR Pathway from First Sign-in to Capstone",
+        "title": "GCFR Cloud and Enterprise IR Practice Labs",
         "h1": ("GCFR practice labs,", "one tenant at a time"),
         "desc": "Eight cloud IR labs aligned to the GCFR objectives: sign-in logs, MFA fatigue, M365 inbox rules, a leaked GCP key, Kubernetes cryptojacking, a stolen key.",
         "expects": "The GCFR objectives expect a responder who can investigate identity and cloud audit logs without a disk image: anomalous sign-ins and legacy authentication, MFA-fatigue takeovers, hidden mailbox rules and role abuse in Microsoft 365, leaked service-account keys and tokens across a project, and data pulled from the cloud by an account that should not have had it.",
@@ -397,7 +397,7 @@ COPY = {
         ],
     },
     "gcfa-advanced-ir": {
-        "title": "GCFA Practice Labs: an Advanced Forensics and IR Pathway from Memory Triage to Capstone",
+        "title": "GCFA Advanced Forensics and IR Practice Labs",
         "h1": ("GCFA practice labs,", "one intrusion at a time"),
         "desc": "Seven advanced forensics and IR labs aligned to the GCFA objectives: memory triage, injected code, rogue admins, anti-forensics and a ransomware capstone.",
         "expects": "The GCFA objectives expect an examiner who can take a compromised host apart: baseline processes and connections in memory, find injected code and unlinked modules, trace a rogue admin across host artifacts, recognize staging and log-clearing before a payload, follow credential theft to lateral movement, and build the full intrusion timeline.",
@@ -409,7 +409,7 @@ COPY = {
         ],
     },
     "ransomware-ir": {
-        "title": "Ransomware Incident Response Labs: a Pathway from Patient Zero to Double Extortion",
+        "title": "Ransomware Incident Response Practice Labs",
         "h1": ("Ransomware incident response labs,", "the kill chain in order"),
         "desc": "Five ransomware incident response labs in kill-chain order: phishing to C2, pre-encryption staging, a live outbreak from the EDR feed and double extortion.",
         "expects": "Ransomware response expects a team that can place itself on the kill chain at any moment: recognize the phish and the command-and-control that followed, spot staging, credential access and log-clearing before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand alongside recovery.",
