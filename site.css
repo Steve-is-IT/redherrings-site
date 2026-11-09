@@ -55,7 +55,8 @@ img{max-width:100%}
 .annc strong{font-weight:700}
 .annc:hover{background:var(--accent-2)}
 .annc-go{text-decoration:underline;text-underline-offset:2px;white-space:nowrap;font-weight:600}
-@media (max-width:640px){.annc{font-size:12px;padding:8px 12px}}
+.annc-sm{display:none}
+@media (max-width:640px){.annc{font-size:12px;padding:8px 12px}.annc .annc-lg{display:none}.annc .annc-sm{display:inline}}
 .hero-free{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin:0 0 16px;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--accent);color:var(--accent);font-size:13px;font-weight:600;text-decoration:none;box-shadow:var(--shadow-sm)}
 .hero-free strong{font-weight:800;white-space:nowrap}
 .hero-free:hover{background:var(--accent);color:var(--accent-ink)}
