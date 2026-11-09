@@ -22,7 +22,7 @@ const BASE_CSS = `
 *{box-sizing:border-box;margin:0}html,body{width:1200px;height:630px;overflow:hidden}
 body{font-family:"Public Sans",-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#111a26;background:#f3f6fa;position:relative;-webkit-font-smoothing:antialiased}
 .wash{position:absolute;inset:0;background:radial-gradient(900px 420px at 85% -10%,rgba(31,95,191,.14),transparent 60%),radial-gradient(700px 380px at -5% 110%,rgba(212,42,42,.10),transparent 60%)}
-.card{position:absolute;inset:0;padding:60px 0 0 68px;display:grid;grid-template-columns:560px 1fr;gap:36px}
+.card{position:absolute;inset:0;padding:40px 0 0 68px;display:grid;grid-template-columns:560px 1fr;gap:36px}
 .brand{display:flex;align-items:center;gap:14px;font-family:"Sora",sans-serif;font-weight:700;font-size:30px;letter-spacing:-.01em}
 .kick{margin-top:28px;font-family:"JetBrains Mono",Menlo,Consolas,monospace;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#d42a2a;font-weight:600}
 h1{margin-top:10px;font-family:"JetBrains Mono",Menlo,Consolas,monospace;font-weight:800;font-size:43px;line-height:1.14;letter-spacing:-.02em}
@@ -50,7 +50,6 @@ const CARDS = {
     `<h1>Investigate real evidence, and build the DFIR skills to show for it.</h1>` +
     `<p class="lede">Disk, memory, network, mobile and cloud evidence, worked in the real tools.</p>` +
     `<div class="badges"><span class="badge">Forensics &amp; incident response</span>` +
-    `<span class="badge">The real tools and formats</span>` +
     `<span class="badge red">Runs fully offline</span></div>`,
     shot("slides/slide-results.jpg"),
     null,
@@ -60,8 +59,7 @@ const CARDS = {
     `<h1>Dozens of cases, one per student.</h1>` +
     `<p class="lede">First Look triage to Marquee capstone, in forensics and incident response, mapped to GIAC, CompTIA and MITRE ATT&amp;CK.</p>` +
     `<div class="badges"><span class="badge">First Look cases free</span>` +
-    `<span class="badge">Windows &middot; macOS &middot; Linux</span>` +
-    `<span class="badge">Mobile &amp; cloud</span></div>`,
+    `<span class="badge">Windows &middot; macOS &middot; Linux</span></div>`,
     shot("slides/slide-library.jpg"),
     ["cases.html", "tools-gen-cases.py"],
   ],
@@ -70,8 +68,7 @@ const CARDS = {
     `<h1>Runs air-gapped, in a SOC or a secure facility.</h1>` +
     `<p class="lede">Generated and graded entirely on your own machines, with no account, cloud or network connection, so nothing ever leaves your environment.</p>` +
     `<div class="badges"><span class="badge red">No internet required</span>` +
-    `<span class="badge">Windows &middot; macOS &middot; Linux</span>` +
-    `<span class="badge">No cloud, no account</span></div>`,
+    `<span class="badge">Windows &middot; macOS &middot; Linux</span></div>`,
     shot("slides/slide-generate.jpg"),
     ["download.html", "tools-gen-download.py"],
   ],
