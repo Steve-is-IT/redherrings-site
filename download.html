@@ -101,7 +101,7 @@
   <section>
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
-      <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial with no key needed</strong>: generate labs, run the student portal and grade a class before you buy.</p>
+      <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial</strong>: enter your email for a key, then generate labs, run the student portal and grade a class before you buy.</p>
       <div class="dl-ver"><span class="chip">v1.13.0</span></div>
     </div>
 
@@ -192,7 +192,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     fetch('https://account.redherrings.app/api/v1/trial',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,segment:sel||'',platform:plat,website:f.website.value})})
     .then(function(r){if(!r.ok)throw 0;out.className='dl-leadout ok';out.textContent='Done. Your trial key is on its way to your inbox. Paste it in Settings, Licensing.';f.email.value='';
       if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'trial-request'+(sel?'-'+sel:''),event:true});})
-    .catch(function(){out.className='dl-leadout bad';out.textContent='Could not send right now. Email sales@redherrings.app and we will set you up.';})
+    .catch(function(){out.className='dl-leadout bad';out.textContent='Could not send right now. Email sales@redherrings.app and we'll set you up.';})
     .finally(function(){btn.disabled=false;});
   });
 })();
