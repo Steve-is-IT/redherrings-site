@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Generate download.html: an official download page with the current version,
 per-OS downloads with sizes and SHA-256 checksums, system requirements, a trust
-strip, and release notes from the product CHANGELOG.
+strip, and release notes from the product's RELEASE-NOTES.md.
 
 Sources of truth:
-  * CHANGELOG.md in the product repo (version headings `## vX.Y.Z - YYYY-MM-DD`, dash of any kind)
+  * RELEASE-NOTES.md in the product repo (version headings `## vX.Y.Z - YYYY-MM-DD`,
+    dash of any kind). It holds only what users can see or do. Never point this
+    at CHANGELOG.md: that's the internal engineering log and is never published.
   * the public GitHub releases on the site repo (dates, asset sizes)
   * the latest release's SHA256SUMS.txt (checksums)
 
@@ -22,7 +24,9 @@ import sys
 import urllib.request
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-CHANGELOG = os.environ.get("RH_CHANGELOG", os.path.join(ROOT, "..", "redherrings", "CHANGELOG.md"))
+# RH_RELEASE_NOTES overrides the path (RH_CHANGELOG is still read as an old alias).
+NOTES_MD = (os.environ.get("RH_RELEASE_NOTES") or os.environ.get("RH_CHANGELOG")
+            or os.path.join(ROOT, "..", "redherrings", "RELEASE-NOTES.md"))
 REPO = "Steve-is-IT/redherrings-site"
 DL = f"https://github.com/{REPO}/releases/latest/download"
 RELEASES_PAGE = f"https://github.com/{REPO}/releases"
@@ -79,7 +83,7 @@ def fetch_sums(tag):
     return sums
 
 
-def parse_changelog(path):
+def parse_release_notes(path):
     """-> [(version_tuple, tag, date, body_md)] newest first."""
     text = open(path, encoding="utf-8").read()
     entries = []
@@ -248,7 +252,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download Red Herrings {E(tag)} for Windows, macOS and Linux</title>
-<meta name="description" content="Download Red Herrings {E(tag)} for Windows, macOS or Linux. Free 30-day trial, no account or card required. Checksums, system requirements and release notes.">
+<meta name="description" content="Download Red Herrings {E(tag)} for Windows, macOS or Linux. Free 30-day trial, no account or card required. Checksums and system requirements.">
 <link rel="canonical" href="https://redherrings.app/download.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -387,21 +391,23 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 
 
 def main():
-    if not os.path.exists(CHANGELOG):
-        sys.exit(f"CHANGELOG not found at {CHANGELOG} (set RH_CHANGELOG)")
+    if os.path.basename(NOTES_MD).lower().startswith("changelog"):
+        sys.exit(f"{NOTES_MD} is the internal engineering log; point RH_RELEASE_NOTES at RELEASE-NOTES.md")
+    if not os.path.exists(NOTES_MD):
+        sys.exit(f"RELEASE-NOTES.md not found at {NOTES_MD} (set RH_RELEASE_NOTES)")
     releases = fetch_releases()
     if not releases:
         sys.exit("no releases found")
     latest = releases[max(releases)]
-    # Only versions that have actually shipped: a CHANGELOG section for the
-    # next release is committed before the release is cut and must not show.
-    notes = sorted((e for e in parse_changelog(CHANGELOG) if e[0] <= max(releases)),
+    # Only versions that have actually shipped: a notes section for the next
+    # release is committed before the release is cut and must not show.
+    notes = sorted((e for e in parse_release_notes(NOTES_MD) if e[0] <= max(releases)),
                    key=lambda e: e[0], reverse=True)
     sums = fetch_sums(latest["tag"])
     out = os.path.join(ROOT, "download.html")
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(page(latest, releases, notes, sums))
-    print(f"wrote download.html: {latest['tag']} ({latest['date']}), {len(notes)} changelog entries, sums={'yes' if sums else 'no'}, signed={bool(SIGNED_SINCE) and max(releases) >= vt(SIGNED_SINCE)}")
+    print(f"wrote download.html: {latest['tag']} ({latest['date']}), {len(notes)} release-notes entries, sums={'yes' if sums else 'no'}, signed={bool(SIGNED_SINCE) and max(releases) >= vt(SIGNED_SINCE)}")
     # Keep the homepage's version mention in sync.
     idx = os.path.join(ROOT, "index.html")
     s = open(idx, encoding="utf-8").read()
