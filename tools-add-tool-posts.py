@@ -142,7 +142,7 @@ POSTS = [
         "ogdesc": "Install Volatility 3, list processes, follow them to network connections and command lines, and spot injected code in a memory image.",
         "lede": "A memory image shows you things a disk never will: running processes, network connections, command lines, and injected code, all frozen at the moment of capture. Volatility 3 is the standard free tool for reading one, and unlike version 2 it works out the symbols on its own.",
         "body": """<h2>Get Volatility 3</h2>
-    <p>Volatility 3 is free, open source, and written in Python. Install it with <code>pip install volatility3</code>, or clone it from <a href="https://github.com/volatilityfoundation/volatility3">the project repo</a>. The main change from version 2 is that you no longer pass <code>--profile</code>; version 3 figures out the symbols itself.</p>
+    <p>Volatility 3 is free, open source, and written in Python. Install it with <code>pip install volatility3</code>, or clone it from <a href="https://github.com/volatilityfoundation/volatility3">the project repo</a>. The main change from version 2 is that you no longer pass <code>--profile</code>; version 3 figures out the symbols itself. On the first run against a Windows image it downloads the matching kernel symbols from Microsoft's symbol server, so it needs internet once; after that it works offline.</p>
     <h2>Start with the processes</h2>
     <p>A memory case usually starts with what was running:</p>
     <ul>
@@ -158,11 +158,11 @@ POSTS = [
       <li><code>windows.dlllist</code>: the modules a process loaded.</li>
     </ul>
     <h2>Look for injected code</h2>
-    <p><code>windows.malfind</code> finds memory regions that are both executable and private, which usually means injected or unpacked code. That's often where the payload is.</p>
+    <p><code>windows.malware.malfind</code> (<code>windows.malfind</code> in older releases) finds memory regions that are both executable and private, which usually means injected or unpacked code. That's often where the payload is.</p>
     <h2>One common snag</h2>
     <p>A lot of tutorials online are written for Volatility 2, where commands look like <code>--profile=Win10x64 pslist</code>. Those won't run in version 3. Use the <code>windows.&lt;plugin&gt;</code> form instead.</p>
     <h2>How it fits a Red Herrings case</h2>
-    <p>Our memory cases ship a real minidump, so these plugins return real answers: a different malicious process, beacon and injected region for every student. The First Look memory case on the <a href="/pathways.html">pathways</a> page is a good start.</p>""",
+    <p>Our memory cases ship a Windows memory image in crash dump format (<code>memory/HOST.dmp</code>), so these plugins return real answers: a different malicious process, beacon and injected region for every student. The First Look memory case on the <a href="/pathways.html">pathways</a> page is a good start.</p>""",
         "related": ["autopsy-disk-image-analysis-walkthrough", "registry-explorer-windows-registry-forensics", "evtxecmd-windows-event-log-timeline"],
     },
 ]

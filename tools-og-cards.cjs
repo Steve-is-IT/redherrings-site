@@ -48,7 +48,7 @@ const CARDS = {
   home: [
     `<div class="kick">Digital Forensics &amp; Incident Response</div>` +
     `<h1>Investigate real evidence, and build the DFIR skills to show for it.</h1>` +
-    `<p class="lede">Disk, network, mobile, cloud and log evidence in their native formats, worked in the real industry tools.</p>` +
+    `<p class="lede">Disk, memory, network, mobile, cloud and log evidence in their native formats, worked in the real industry tools.</p>` +
     `<div class="badges"><span class="badge">Forensics &amp; incident response</span>` +
     `<span class="badge red">GIAC &amp; MITRE pathways</span></div>`,
     shot("og-home-cases.jpg"),

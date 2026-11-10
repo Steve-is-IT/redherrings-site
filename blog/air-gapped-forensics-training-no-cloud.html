@@ -16,12 +16,12 @@
 <meta property="og:title" content="Hands-on forensics training in an air-gapped facility: no cloud, no account, no egress">
 <meta property="og:description" content="Generated locally, activated offline, with no student data egress: hands-on DFIR training that runs inside an air-gapped SCIF or secure facility.">
 <meta property="og:url" content="https://redherrings.app/blog/air-gapped-forensics-training-no-cloud.html">
-<meta property="og:image" content="https://redherrings.app/img/og/home-f404dcfd.png">
+<meta property="og:image" content="https://redherrings.app/img/og/home-43d06c49.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://redherrings.app/img/og/home-f404dcfd.png">
+<meta name="twitter:image" content="https://redherrings.app/img/og/home-43d06c49.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="../blog.css">
@@ -81,7 +81,7 @@
     <p>Because generation and grading are local, trainee work never transits a network you do not control. That is a property you can put in front of a security officer: no cloud, no account, no student data egress, with the activation traffic documented down to the fields it sends. For teams that need the paperwork, the Enterprise terms cover procurement and an SLA.</p>
 
     <h2>Real evidence and real tools, offline</h2>
-    <p>None of this costs realism. The cases are built from genuine artifact formats, disk and memory images, packet captures, event logs, registry hives, EDR and SIEM exports, and they open in the same tools your analysts use on the job, like Autopsy, Volatility and Wireshark. The only thing missing is the internet connection you did not want anyway.</p>
+    <p>None of this costs realism. The cases are built from genuine artifact formats, disk and memory images, packet captures, event logs, registry hives, EDR and SIEM exports, and they open in the same tools your analysts use on the job, like Autopsy, Volatility 3 and Wireshark. One setup step for memory cases: Volatility 3 downloads the Windows kernel symbols from Microsoft the first time it opens an image, so run it once on a connected machine and copy its symbol cache to the lab. After that, the only thing missing is the internet connection you didn't want anyway.</p>
 
     <div class="cta">
       <strong>Need DFIR training that runs inside a secure facility?</strong>

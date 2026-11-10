@@ -17,7 +17,7 @@ E = lambda s: html.escape(str(s or ""), quote=True)
 
 EVIDENCE_LABEL = {
     "edr": "EDR feed (*.json)", "siem": "SIEM alerts (*.json)", "eventlog": "Event logs (*.evtx)",
-    "windows": "Registry (*.dat)", "memory": "Memory (*.txt)", "network": "Packet capture (*.pcap)",
+    "windows": "Registry (*.dat)", "memory": "Memory image (*.dmp)", "network": "Packet capture (*.pcap)",
     "mobile": "Mobile DB (*.db)", "cloud": "Cloud logs (*.json)", "browser": "Browser history (*.sqlite)",
     "email": "Mailbox (*.eml)", "linux": "Linux logs (*.log)", "macos": "macOS (*.plist)", "disk": "Disk image (*.dd)",
 }
