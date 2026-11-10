@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /* Render the Open Graph link-preview cards with Playwright (Node) and point
    the pages at them. Node port of tools-og-cards.py (Python Playwright is not
-   available in every environment; Node's is). Three cards: home (default),
-   cases, download. Each saved as img/og/<name>-<hash>.png, with the hash of
-   the PNG bytes forcing social scrapers to refetch. */
+   available in every environment; Node's is). Three link-preview cards: home
+   (default), cases, download. Each saved as img/og/<name>-<hash>.png, with the
+   hash of the PNG bytes forcing social scrapers to refetch. A fourth, the
+   press-kit social card, is saved as img/press/social-card-1200x630.png. */
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
@@ -72,6 +73,16 @@ const CARDS = {
     shot("slides/slide-generate.jpg"),
     ["download.html", "tools-gen-download.py"],
   ],
+  // Press-kit social card. Saved under a fixed name (no hash) and not wired
+  // into any page's og:image; press.html and the press-kit zip use it.
+  press: [
+    `<div class="kick">Real Evidence. Real Skills. Real Fast.</div>` +
+    `<h1>Real DFIR evidence. <em>Labs graded for you.</em></h1>` +
+    `<p class="lede">Every student gets a different case.</p>`,
+    shot("slides/slide-results.jpg"),
+    [],
+    "press/social-card-1200x630.png",
+  ],
 };
 
 const pageHtml = (left, right) =>
@@ -108,7 +119,7 @@ function downscale(buf, w, h) {
   const names = {};
   const b = await chromium.launch();
   const pg = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 2 });
-  for (const [name, [left, right]] of Object.entries(CARDS)) {
+  for (const [name, [left, right, , fixed]] of Object.entries(CARDS)) {
     fs.writeFileSync(tmp, pageHtml(left, right), "utf8");
     await pg.goto("file://" + tmp, { waitUntil: "networkidle" });
     await pg.waitForTimeout(600);
@@ -118,6 +129,7 @@ function downscale(buf, w, h) {
     // visibly soft; serving the declared size avoids that step.
     const big = await pg.screenshot();
     const png = downscale(big, 1200, 630);
+    if (fixed) { fs.writeFileSync(path.join(ROOT, "img", fixed), png); console.log(`${name}: img/${fixed}`); continue; }
     const h = crypto.createHash("sha256").update(png).digest("hex").slice(0, 8);
     const fn = `${name}-${h}.png`;
     fs.writeFileSync(path.join(OUT, fn), png);
