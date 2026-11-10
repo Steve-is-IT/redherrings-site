@@ -15,11 +15,17 @@ release notes and any emailed content.
    No `—`, no `–`, no `&mdash;`, no `&ndash;`. Use a comma, a period,
    parentheses, or the word "and" instead. Hyphens in compound words
    (first-look, cert-aligned) are fine.
-2. **No AI writing.** Cut anything that reads as machine written: words like
-   unleash, elevate, seamless, robust, empower, delve, leverage; openers like
-   "in today's world" or "whether you are X or Y"; the "it is not just X, it is
-   Y" shape; forced rule-of-three lists; and hedging filler. If a sentence
-   sounds like a model wrote it, rewrite it.
-3. **Voice: natural but technical.** Plain, direct, concrete, the way a working
+2. **Use contractions.** Write we'll, you'll, it's, you're, don't, here's.
+   Spelling them out (we will, you will, it is) reads stiff and machine written.
+3. **No AI writing and no filler.** Cut anything that reads as machine written:
+   words like unleash, elevate, seamless, robust, empower, delve, leverage,
+   simply, just, effortlessly; filler adjective pairs (short and practical,
+   fast and easy, simple and powerful); stock SaaS lines (pick your path, get
+   started in minutes, unsubscribe in a click, in just a few clicks, one short
+   guide); openers like "in today's world" or "whether you are X or Y"; the
+   "it is not just X, it is Y" shape; and forced rule-of-three lists. If a
+   sentence sounds like a model wrote it, rewrite it.
+4. **Be terse.** Cut every word that carries no information. Shorter wins.
+5. **Voice: natural but technical.** Plain, direct, concrete, the way a working
    DFIR practitioner talks. Prefer specific nouns (real tool names, formats,
    counts) over adjectives. Say what the thing does.
