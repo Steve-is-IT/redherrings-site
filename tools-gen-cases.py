@@ -16,10 +16,10 @@ from redherrings.engine.variant import Variant  # noqa: E402
 E = lambda s: html.escape(str(s or ""), quote=True)
 
 EVIDENCE_LABEL = {
-    "edr": "EDR detections", "siem": "SIEM alerts", "eventlog": "Windows event logs",
-    "windows": "Windows artifacts", "memory": "Memory image", "network": "Packet capture",
-    "mobile": "Mobile extraction", "cloud": "Cloud audit logs", "browser": "Browser history",
-    "email": "Email / mailbox", "linux": "Linux host", "macos": "macOS host", "disk": "Disk image",
+    "edr": "EDR", "siem": "SIEM", "eventlog": "Event logs",
+    "windows": "Registry", "memory": "Memory", "network": "Network",
+    "mobile": "Mobile", "cloud": "Cloud logs", "browser": "Browser",
+    "email": "Email", "linux": "Linux", "macos": "macOS", "disk": "Disk image",
 }
 
 DIFF_RANK = {"first-look": 0, "easy": 1, "medium": 2, "hard": 3, "expert": 4, "marquee": 5}
@@ -97,10 +97,7 @@ def card(s):
     ed = eff_diff(s)
     pill_cls = DIFF_PILLCLASS.get(ed, ed)
     pill_lbl = DIFF_LABEL.get(ed, ed.title())
-    qn, qtot = s.get("min_questions") or s.get("questions"), s.get("questions")
-    qtxt = f"{qn}&ndash;{qtot} Q" if qn and qtot and qn != qtot else f"{qtot} Q"
-    est = s.get("estimated_minutes")
-    meta = qtxt + (f" &middot; ~{est} min" if est else "")
+    ev = " &middot; ".join(EVIDENCE_LABEL.get(a, a.title()) for a in (s.get("artifact_types") or []))
     title = s.get("codename") or s.get("name")
     sub = s.get("name") if s.get("codename") else ""
     tracks_list = s.get("tracks") or []
@@ -114,11 +111,11 @@ def card(s):
         f'    <article class="ccard" id="{E(s.get("id"))}" data-id="{E(s.get("id"))}" tabindex="0" role="button" '
         f'aria-label="Open {E(title)}" data-discipline="{E(disc)}" data-diff="{E(ed)}" '
         f'data-tracks="{E(" ".join(tracks_list))}" data-tactics="{E(" ".join(tactics_list))}">\n'
-        f'      <div class="cc-top"><span class="dpill {pill_cls}">{E(pill_lbl)}</span>'
-        f'<span class="cc-meta">{meta}</span></div>\n'
+        f'      <div class="cc-top"><span class="dpill {pill_cls}">{E(pill_lbl)}</span></div>\n'
         f'      <h3 class="cc-title">{E(title)}</h3>{sub_html}\n'
         f'      <p class="cc-desc">{E(s.get("summary"))}</p>\n'
         f'      <div class="chips">{chips}</div>\n'
+        f'      <div class="cc-ev">{ev}</div>\n'
         f'      <span class="cc-more">View case &amp; sample questions &rarr;</span>\n'
         f'    </article>'
     )
@@ -133,8 +130,8 @@ def featured_block(scen):
     slots = []
     for i, s in enumerate(ms):
         disc = "Incident Response" if s.get("discipline") == "incident-response" else "Digital Forensics"
-        est = s.get("estimated_minutes")
-        meta = f'{s.get("questions")} questions' + (f' &middot; ~{est} min' if est else "") + f' &middot; {disc}'
+        ev = " &middot; ".join(EVIDENCE_LABEL.get(a, a.title()) for a in (s.get("artifact_types") or []))
+        meta = (ev + " &middot; " if ev else "") + disc
         slots.append(
             f'  <article class="feature-wide marquee fm-slot" data-i="{i}"{"" if i == 0 else " hidden"}>\n'
             f'    <div>\n'
@@ -380,7 +377,7 @@ MODAL_JS = r'''<script>
   function openCase(id){
     var c=CASES[id]; if(!c) return;
     var chips=(c.chips||[]).map(function(x){return '<span class="chip '+x.cls+'">'+esc(x.label)+'</span>';}).join("");
-    var meta=[]; if(c.est)meta.push("~"+c.est+" min"); meta.push(c.qcount+" questions"); if(c.points)meta.push(c.points+" points");
+    var meta=[]; if(c.est)meta.push("~"+c.est+" min");
     var ev=(c.evidence||[]).map(function(x){return '<span class="chip">'+esc(x)+'</span>';}).join("");
     var tools=(c.tools||[]).map(function(x){return '<span class="chip tool">'+esc(x)+'</span>';}).join("");
     var brief=(c.briefing||[]).map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
