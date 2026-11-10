@@ -109,6 +109,9 @@
   font-size:22px;line-height:1.48;color:var(--ink);font-style:italic;max-width:744px}
 .post code{font-family:var(--mono);font-size:.88em;background:var(--card);
   border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--ink)}
+.post code{overflow-wrap:anywhere}
+.post pre{max-width:744px;margin:24px auto;overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.post pre code{border:0;background:none;padding:0;overflow-wrap:normal;white-space:pre}
 .post em{font-style:italic}
 .post .cta{margin:48px auto 8px;padding:28px;border:1px solid var(--line);border-radius:18px;
   background:color-mix(in srgb,var(--accent) 6%,var(--card));box-shadow:var(--shadow-sm)}
