@@ -93,7 +93,7 @@ CARET = ('<svg class="mncaret" viewBox="0 0 10 10" fill="none" stroke="currentCo
 # menu structure (Direction A)
 MENU = [
     ("Platform", [("Product", ["how", "cases", "packsite"]), ("Teaching", ["path", "courses", "portal"])], True),
-    ("Solutions", [("Who it is for", ["edu", "dept", "programs", "student"]), ("Organizations", ["team", "ent"])], False),
+    ("Solutions", [("Who it's for", ["edu", "dept", "programs", "student"]), ("Organizations", ["team", "ent"])], False),
     ("Resources", [("Learn", ["help", "tools", "resources", "blog"]), ("Evaluate", ["sample", "compare", "attack", "trust", "faq"])], False),
 ]
 
@@ -130,7 +130,7 @@ def build_header():
               'aria-controls="mobilenav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
               'stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>')
     return f'''<header>
-  <a class="annc" href="/cases.html#first-look" data-goatcounter-click="annc-free"><span class="annc-lg">Anyone can run the <strong>First Look cases</strong> &middot; free, no account and no watermark, in forensics and incident response. <span class="annc-go">Open a First Look case &rarr;</span></span><span class="annc-sm"><strong>First Look cases</strong> &middot; free, no account. <span class="annc-go">Open one &rarr;</span></span></a>
+  <a class="annc" href="/cases.html#first-look" data-goatcounter-click="annc-free"><span class="annc-lg">Anyone can run the <strong>First Look cases</strong> free, no account and no watermark. <span class="annc-go">Open a First Look case &rarr;</span></span><span class="annc-sm"><strong>First Look cases</strong> &middot; free, no account. <span class="annc-go">Open one &rarr;</span></span></a>
   <a class="skip" href="#main">Skip to content</a>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="Red Herrings home">
@@ -142,11 +142,11 @@ def build_header():
     </nav>
     <div class="spacer"></div>
     <a class="link navutil" href="{ACCOUNT_URL}" data-goatcounter-click="signin">Sign in</a>
-    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Start free</a>
+    <a class="btn navcta" href="/download.html" data-goatcounter-click="cta-trial-nav">Learn for free</a>
     {burger}
   </div>
   <div class="mobilenav" id="mobilenav" hidden>
-    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Start free</a>
+    <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-nav" style="display:flex;justify-content:center;margin-bottom:6px">Learn for free</a>
     {mobile}
     <div class="mnsection"><a class="mnflat mnsolo" href="/#pricing">Pricing</a></div>
     <div class="mnrow">
