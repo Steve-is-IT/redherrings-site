@@ -341,7 +341,7 @@ COPY = {
         "h1": ("SOC analyst onboarding labs,", "one evidence family at a time"),
         "desc": "Ten onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a case.",
         "expects": "A new analyst is expected to recognize every evidence family a ticket can throw at them: what ran on a host, where a file came from, what the Security log says about accounts and services, what is set to run at startup, which USB device was plugged in, what a packet capture shows, what is in memory, and what a phone holds, then to put several of those into a single timeline.",
-        "builds": "This pathway is the first-look tour in the order a new hire should meet it. Nine 25-minute First Look cases each isolate one artifact family, and the tenth is a full, if gentle, misconduct case that asks the analyst to use several of them together. It is the week-one curriculum we would hand a new SOC or DFIR analyst.",
+        "builds": "This pathway is the first-look tour in the order a new hire should meet it. Nine 35-minute First Look cases each isolate one artifact family, and the tenth is a full, if gentle, misconduct case that asks the analyst to use several of them together. It is the week-one curriculum we would hand a new SOC or DFIR analyst.",
         "who": [
             ("Security teams onboarding new analysts", "who want a graded, repeatable first week instead of shadowing."),
             ("Instructors opening a DFIR course", "who need a survey of evidence types before the deeper units."),
