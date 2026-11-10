@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:title" content="Download Red Herrings v1.13.0">
-<meta property="og:description" content="Windows, macOS and Linux. Runs on your machine, nothing leaves it. Free 30-day trial, no key needed.">
+<meta property="og:description" content="Windows, macOS and Linux. Runs on your machine, nothing leaves it. Free 30-day trial, one email for a key.">
 <meta property="og:url" content="https://redherrings.app/download.html">
 <meta property="og:image" content="https://redherrings.app/img/og/download-72ebc57b.png">
 <meta property="og:image:width" content="1200">
@@ -147,8 +147,8 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     </div>
 
     <div class="dl-lead" id="dl-lead">
-      <div class="dl-leadtext"><strong>Pick the guide that fits you</strong><span>Tell us how you work and we'll send it. One email, unsubscribe anytime.</span></div>
-      <div class="dl-kits" role="radiogroup" aria-label="Choose your path">
+      <div class="dl-leadtext"><strong>Start your 30-day trial</strong><span>First Look is free for everyone. The trial also opens the medium and hard cases in both disciplines, the student portal, timed exams and analytics, for up to five students. Enter your email and we'll send a key, no card. Tell us how you'll use it and we'll tailor the guide that comes with it.</span></div>
+      <div class="dl-kits" role="radiogroup" aria-label="How you will use it, optional">
         <button type="button" class="dl-kit" data-kit="educator" role="radio" aria-checked="false"><b>I teach a class</b><span>A term-length syllabus mapped to GCFE and GCFA, a grading walkthrough, and the import steps for Canvas, Blackboard, Moodle and D2L.</span></button>
         <button type="button" class="dl-kit" data-kit="team" role="radio" aria-checked="false"><b>I run a security team</b><span>A drill plan from First Look triage to a full intrusion, the MITRE ATT&amp;CK coverage map, and how to run scored exercises with integrity logging.</span></button>
         <button type="button" class="dl-kit" data-kit="learner" role="radio" aria-checked="false"><b>I am learning on my own</b><span>A study pathway from First Look to a capstone, which tools to install and why, and a weekly cadence that fits around a job.</span></button>
@@ -156,7 +156,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
       <form class="dl-leadrow" id="dl-lead-form" novalidate>
         <input type="email" name="email" placeholder="you@work.email" autocomplete="email" aria-label="Email address" required>
         <input class="dl-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn" type="submit">Send the guide</button>
+        <button class="btn" type="submit">Email me a trial key</button>
       </form>
       <div class="dl-leadout" role="status" aria-live="polite"></div>
     </div>
@@ -186,14 +186,13 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   });});
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    if(!sel){out.className='dl-leadout bad';out.textContent='Pick a path above so we send the right guide.';return;}
     var email=f.email.value.trim();
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){out.className='dl-leadout bad';out.textContent='Please enter a valid email address.';return;}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){out.className='dl-leadout bad';out.textContent='Enter a valid email so we can send your key.';return;}
     btn.disabled=true;
-    fetch('https://account.redherrings.app/api/v1/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,segment:sel,platform:plat,website:f.website.value})})
-    .then(function(r){if(!r.ok)throw 0;out.className='dl-leadout ok';out.textContent='Sent. Check your inbox for the guide.';f.email.value='';
-      if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'lead-download-'+sel,event:true});})
-    .catch(function(){out.className='dl-leadout bad';out.textContent='Could not send right now. The guides are also at /resources.html.';})
+    fetch('https://account.redherrings.app/api/v1/trial',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,segment:sel||'',platform:plat,website:f.website.value})})
+    .then(function(r){if(!r.ok)throw 0;out.className='dl-leadout ok';out.textContent='Done. Your trial key is on its way to your inbox. Paste it in Settings, Licensing.';f.email.value='';
+      if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'trial-request'+(sel?'-'+sel:''),event:true});})
+    .catch(function(){out.className='dl-leadout bad';out.textContent='Could not send right now. Email sales@redherrings.app and we will set you up.';})
     .finally(function(){btn.disabled=false;});
   });
 })();
