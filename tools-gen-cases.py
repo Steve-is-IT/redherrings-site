@@ -22,6 +22,13 @@ EVIDENCE_LABEL = {
     "email": "Mailbox (*.eml)", "linux": "Linux logs (*.log)", "macos": "macOS (*.plist)", "disk": "Disk image (*.dd)",
 }
 
+def ev_label(a, types):
+    """A Linux case's memory image is LiME, not a Windows crash dump."""
+    if a == "memory" and "linux" in (types or []):
+        return "Memory image (*.lime)"
+    return EVIDENCE_LABEL.get(a, a.title())
+
+
 DIFF_RANK = {"first-look": 0, "easy": 1, "medium": 2, "hard": 3, "expert": 4, "marquee": 5}
 DIFF_LABEL = {"first-look": "First Look", "easy": "Easy", "medium": "Medium",
               "hard": "Hard", "expert": "Expert", "marquee": "Marquee"}
@@ -85,7 +92,7 @@ def build_detail(meta, sc):
         "discCls": "ir" if ir else "df",
         "diff": DIFF_LABEL.get(ed, ed.title()), "diffCls": DIFF_PILLCLASS.get(ed, ed),
         "est": meta.get("estimated_minutes"), "qcount": total_q, "points": round(meta.get("points") or 0),
-        "evidence": [EVIDENCE_LABEL.get(a, a.title()) for a in (meta.get("artifact_types") or [])],
+        "evidence": [ev_label(a, meta.get("artifact_types")) for a in (meta.get("artifact_types") or [])],
         "tools": meta.get("tools") or [], "chips": chips,
         "briefing": briefing, "questions": qs, "moreq": max(0, total_q - len(qs)),
     }
@@ -97,7 +104,7 @@ def card(s):
     ed = eff_diff(s)
     pill_cls = DIFF_PILLCLASS.get(ed, ed)
     pill_lbl = DIFF_LABEL.get(ed, ed.title())
-    ev_items = [EVIDENCE_LABEL.get(a, a.title()) for a in (s.get("artifact_types") or [])]
+    ev_items = [ev_label(a, s.get("artifact_types")) for a in (s.get("artifact_types") or [])]
     ev_spans = "".join(f'<span>{E(x)}</span>' for x in ev_items)
     ev_block = (f'      <div class="cc-ev-label">Evidence Types</div>\n'
                 f'      <div class="cc-ev">{ev_spans}</div>\n') if ev_items else ""
@@ -133,7 +140,7 @@ def featured_block(scen):
     slots = []
     for i, s in enumerate(ms):
         disc = "Incident Response" if s.get("discipline") == "incident-response" else "Digital Forensics"
-        ev = "\u00a0/ ".join(EVIDENCE_LABEL.get(a, a.title()).replace(" ", "\u00a0") for a in (s.get("artifact_types") or []))
+        ev = "\u00a0/ ".join(ev_label(a, s.get("artifact_types")).replace(" ", "\u00a0") for a in (s.get("artifact_types") or []))
         meta = (ev + " &middot; " if ev else "") + disc
         slots.append(
             f'  <article class="feature-wide marquee fm-slot" data-i="{i}"{"" if i == 0 else " hidden"}>\n'
