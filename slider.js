@@ -31,6 +31,24 @@
       });
     }
 
+    // Labeled tab bar beneath the frame (a sibling in .hero-media), using each
+    // slide's data-label. Shares the same navigation and active-state handling.
+    var media = root.closest(".hero-media");
+    var tabsWrap = media && media.querySelector(".hero-tabs");
+    var tabs = [];
+    if (tabsWrap) {
+      slides.forEach(function (s, idx) {
+        var t = document.createElement("button");
+        t.type = "button";
+        t.className = "hero-tab";
+        t.setAttribute("role", "tab");
+        t.textContent = s.getAttribute("data-label") || ("Screen " + (idx + 1));
+        t.addEventListener("click", function () { go(idx, true); });
+        tabsWrap.appendChild(t);
+        tabs.push(t);
+      });
+    }
+
     function render() {
       slides.forEach(function (s, idx) {
         s.classList.toggle("is-active", idx === i);
@@ -39,6 +57,10 @@
       dots.forEach(function (d, idx) {
         d.classList.toggle("is-on", idx === i);
         d.setAttribute("aria-selected", idx === i ? "true" : "false");
+      });
+      tabs.forEach(function (t, idx) {
+        t.classList.toggle("is-on", idx === i);
+        t.setAttribute("aria-selected", idx === i ? "true" : "false");
       });
     }
     function go(n, user) { i = (n + slides.length) % slides.length; render(); if (user) restart(); }
