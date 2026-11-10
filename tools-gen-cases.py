@@ -97,7 +97,10 @@ def card(s):
     ed = eff_diff(s)
     pill_cls = DIFF_PILLCLASS.get(ed, ed)
     pill_lbl = DIFF_LABEL.get(ed, ed.title())
-    ev = " &middot; ".join(EVIDENCE_LABEL.get(a, a.title()) for a in (s.get("artifact_types") or []))
+    ev_items = [EVIDENCE_LABEL.get(a, a.title()) for a in (s.get("artifact_types") or [])]
+    ev_spans = "".join(f'<span>{E(x)}</span>' for x in ev_items)
+    ev_block = (f'      <div class="cc-ev-label">Evidence Types</div>\n'
+                f'      <div class="cc-ev">{ev_spans}</div>\n') if ev_items else ""
     title = s.get("codename") or s.get("name")
     sub = s.get("name") if s.get("codename") else ""
     tracks_list = s.get("tracks") or []
@@ -115,7 +118,7 @@ def card(s):
         f'      <h3 class="cc-title">{E(title)}</h3>{sub_html}\n'
         f'      <p class="cc-desc">{E(s.get("summary"))}</p>\n'
         f'      <div class="chips">{chips}</div>\n'
-        f'      <div class="cc-ev">{ev}</div>\n'
+        f'{ev_block}'
         f'      <span class="cc-more">View case &amp; sample questions &rarr;</span>\n'
         f'    </article>'
     )
@@ -130,7 +133,7 @@ def featured_block(scen):
     slots = []
     for i, s in enumerate(ms):
         disc = "Incident Response" if s.get("discipline") == "incident-response" else "Digital Forensics"
-        ev = " &middot; ".join(EVIDENCE_LABEL.get(a, a.title()) for a in (s.get("artifact_types") or []))
+        ev = "\u00a0/ ".join(EVIDENCE_LABEL.get(a, a.title()).replace(" ", "\u00a0") for a in (s.get("artifact_types") or []))
         meta = (ev + " &middot; " if ev else "") + disc
         slots.append(
             f'  <article class="feature-wide marquee fm-slot" data-i="{i}"{"" if i == 0 else " hidden"}>\n'
