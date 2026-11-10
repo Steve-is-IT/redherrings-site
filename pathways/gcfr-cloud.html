@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GCFR Cloud and Enterprise IR Practice Labs | Red Herrings</title>
-<meta name="description" content="Eight cloud IR labs aligned to the GCFR objectives: sign-in logs, MFA fatigue, M365 inbox rules, a leaked GCP key, Kubernetes cryptojacking, a stolen key.">
+<meta name="description" content="Cloud IR labs aligned to the GCFR objectives: sign-in logs, Microsoft 365 audit logs, GCP and Kubernetes audit logs, CloudTrail and an exchange capstone.">
 <link rel="canonical" href="https://redherrings.app/pathways/gcfr-cloud.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:title" content="GCFR Cloud and Enterprise IR Practice Labs | Red Herrings">
-<meta property="og:description" content="Eight cloud IR labs aligned to the GCFR objectives: sign-in logs, MFA fatigue, M365 inbox rules, a leaked GCP key, Kubernetes cryptojacking, a stolen key.">
+<meta property="og:description" content="Cloud IR labs aligned to the GCFR objectives: sign-in logs, Microsoft 365 audit logs, GCP and Kubernetes audit logs, CloudTrail and an exchange capstone.">
 <meta property="og:url" content="https://redherrings.app/pathways/gcfr-cloud.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta property="og:image:width" content="1200">
@@ -23,13 +23,13 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GCFR Cloud and Enterprise IR Practice Labs | Red Herrings">
-<meta name="twitter:description" content="Eight cloud IR labs aligned to the GCFR objectives: sign-in logs, MFA fatigue, M365 inbox rules, a leaked GCP key, Kubernetes cryptojacking, a stolen key.">
+<meta name="twitter:description" content="Cloud IR labs aligned to the GCFR objectives: sign-in logs, Microsoft 365 audit logs, GCP and Kubernetes audit logs, CloudTrail and an exchange capstone.">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta name="twitter:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Cloud & Enterprise IR (GCFR)","item":"https://redherrings.app/pathways/gcfr-cloud.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gcfr-cloud.html#course","name":"GCFR Cloud and Enterprise IR Practice Labs","url":"https://redherrings.app/pathways/gcfr-cloud.html","description":"Eight cloud IR labs aligned to the GCFR objectives: sign-in logs, MFA fatigue, M365 inbox rules, a leaked GCP key, Kubernetes cryptojacking, a stolen key.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Read a cloud sign-in log and spot the anomaly.","Sign-in logs, mail and a phone on an off-hours login.","Read the Microsoft 365 Unified Audit Log for mailbox changes.","Identity IR in Microsoft 365 sign-in and audit logs.","Work GCP Cloud Audit Logs after a key exposure.","Kubernetes audit, runtime and egress evidence on a rogue pod.","Browser and mail evidence on a departing employee's export.","Work CloudTrail after an access-key exposure.","Marquee capstone: run an exchange incident across mail, SSO, EDR and monitoring."],"about":["Advanced Forensics & IR","Cloud & SaaS","Foundations","Mobile Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT13H17M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT13H17M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GCFR published objectives","targetName":"GIAC GCFR"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Cloud & Enterprise IR (GCFR)","item":"https://redherrings.app/pathways/gcfr-cloud.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gcfr-cloud.html#course","name":"GCFR Cloud and Enterprise IR Practice Labs","url":"https://redherrings.app/pathways/gcfr-cloud.html","description":"Cloud IR labs aligned to the GCFR objectives: sign-in logs, Microsoft 365 audit logs, GCP and Kubernetes audit logs, CloudTrail and an exchange capstone.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Read a cloud sign-in log and spot the anomaly.","Sign-in logs, mail and a phone on an off-hours login.","Read the Microsoft 365 Unified Audit Log for mailbox changes.","Identity IR in Microsoft 365 sign-in and audit logs.","Work GCP Cloud Audit Logs after a key exposure.","Kubernetes audit, runtime and egress evidence on a rogue pod.","Browser and mail evidence on a departing employee's export.","Work CloudTrail after an access-key exposure.","Marquee capstone: run an exchange incident across mail, SSO, EDR and monitoring."],"about":["Advanced Forensics & IR","Cloud & SaaS","Foundations","Mobile Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT13H17M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT13H17M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GCFR published objectives","targetName":"GIAC GCFR"}}]}
 </script>
 </head>
 <body>
@@ -64,8 +64,8 @@
     <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / <a href="/pathways.html">Pathways</a> / Cloud &amp; Enterprise IR (GCFR)</div>
     <span class="kicker">Cert prep &middot; Incident Response &middot; aligned to the published GIAC GCFR objectives</span>
     <h1 style="max-width:18ch">GCFR practice labs, one tenant at a time</h1>
-    <p class="lede" style="margin-left:0">The GCFR objectives expect a responder who can investigate identity and cloud audit logs without a disk image: anomalous sign-ins, MFA-fatigue takeovers, hidden mailbox rules and role abuse in Microsoft 365, leaked service-account keys and tokens across a project, and data pulled from the cloud by an account that should not have had it.</p>
-    <p class="lede" style="margin-left:0;font-size:17px">This pathway starts with a single cloud sign-in log and adds one identity or platform at a time: MFA fatigue, Exchange inbox rules, a full M365 takeover, a leaked GCP key, a cryptojacking pod in Kubernetes and a customer export that left the company. The capstone is a stolen access key used across a tenant, which has to be traced through every log the provider writes.</p>
+    <p class="lede" style="margin-left:0">The GCFR objectives expect a responder who can investigate identity and cloud audit logs without a disk image: anomalous sign-ins, MFA-fatigue takeovers, hidden mailbox rules and role abuse in Microsoft 365, leaked service-account keys and tokens across a project, and data pulled from the cloud by an account that shouldn&#x27;t have had it.</p>
+    <p class="lede" style="margin-left:0;font-size:17px">This pathway starts with a single cloud sign-in log and adds one identity or platform at a time: an off-hours login, mailbox changes in the Microsoft 365 Unified Audit Log, a Microsoft 365 account takeover, GCP Cloud Audit Logs after a key exposure, a rogue pod in Kubernetes, a departing employee&#x27;s export and CloudTrail after an access-key exposure. The Marquee capstone runs a digital-asset exchange incident across mail, single sign-on, EDR and monitoring.</p>
     <div class="cta-row hero-cta" style="justify-content:flex-start;margin-top:26px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-gcfr-cloud">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn ghost" href="/sample.html">Download the sample lab</a>
@@ -76,7 +76,7 @@
   <section>
     <div class="secthead">
       <h2 class="opener">The pathway, in order</h2>
-      <p class="osub">9 cases, about ~13 h 17 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and the question set. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
+      <p class="osub">9 cases, about 13 h 17 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and sample questions. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
     </div>
     <ol class="rows-list" style="list-style:none;margin:0;padding:0">
       <li class="rowitem">
@@ -159,7 +159,7 @@
 
   <section class="cta-band">
     <h2>Run this pathway with your own roster</h2>
-    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. Free for 30 days, no account or card required. Or open the sample lab first and read a verified key next to its evidence.</p>
+    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. First Look cases run free with no key, and the 30-day trial needs no card. Or open the sample lab first and work a student package in your own tools.</p>
     <div class="cta-row" style="justify-content:center;margin-top:22px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-gcfr-cloud-bottom">Start a free 30-day trial</a>
       <a class="btn ghost" href="/sample.html">Open the sample lab</a>

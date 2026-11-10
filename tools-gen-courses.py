@@ -2,15 +2,15 @@
 """Generate courses.html and the syllabus PDFs from the engine's course packs.
 
 Page chrome is copied from contact.html so the header, footer and head stay in
-step with the rest of the site; run tools-apply-nav.py / tools-apply-footer.py
-afterwards as usual.
+step with the rest of the site.
 """
 import html
 import os
 import re
 import sys
 
-sys.path.insert(0, "/home/user/redherrings")
+# The product package comes from the sibling redherrings checkout (or RH_PRODUCT).
+sys.path.insert(0, os.environ.get("RH_PRODUCT") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "redherrings"))
 from redherrings import courses, packs  # noqa: E402
 from redherrings.config import load_branding  # noqa: E402
 from redherrings.documents.syllabus import render_syllabus_pdf  # noqa: E402
@@ -51,6 +51,33 @@ def course_html(c):
     </section>'''
 
 
+def trial_weeks(cat):
+    """Which weeks the trial key opens beyond the free First Looks, in words."""
+    from redherrings.licensing.core import TRIAL_SCENARIOS
+    parts = []
+    for c in cat:
+        wk = [str(w["week"]) for w in c["weeks"] if w["case"] in TRIAL_SCENARIOS and not str(w.get("name", "")).startswith("First Look")]
+        if wk:
+            nums = wk[0] if len(wk) == 1 else ", ".join(wk[:-1]) + " and " + wk[-1]
+            parts.append(f'week{"s" if len(wk) > 1 else ""} {nums} of {E(c["label"])}')
+    return " and ".join(parts) if parts else "sample cases from the paid library"
+
+
+def apply_chrome(path):
+    """Stamp the canonical header and footer so a regenerated page never carries a stale nav."""
+    import importlib.util
+    for name in ("tools-apply-nav", "tools-apply-footer"):
+        spec = importlib.util.spec_from_file_location(name.replace("-", "_"), os.path.join(SITE, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        was = sys.dont_write_bytecode
+        sys.dont_write_bytecode = True
+        try:
+            spec.loader.exec_module(mod)
+        finally:
+            sys.dont_write_bytecode = was
+        mod.apply(path, False) if name == "tools-apply-nav" else mod.apply(path)
+
+
 def main():
     index = {s["id"]: s for s in packs.all_scenarios() if "id" in s}
     cat = courses.catalog(index)
@@ -61,12 +88,12 @@ def main():
     v = open(os.path.join(SITE, "contact.html")).read()
     head, tail = v[:v.index("<main")], v[v.index("</main>") + len("</main>"):]
     tail = re.sub(r"<script>\n\(function\(\)\{\n  var f=document\.getElementById\('cform'\).*?</script>\n", "", tail, count=1, flags=re.S)
-    head = head.replace("<title>Contact Red Herrings | Sales, Quotes, Support</title>", "<title>Digital Forensics Course Curriculum &amp; Incident Response Syllabus, Ready to Teach | Red Herrings</title>")
-    head = re.sub(r'<meta name="description" content="[^"]*">', lambda m: '<meta name="description" content="Two syllabus-ready courses: a 14-week Introduction to Digital Forensics and an 8-week Incident Response Fundamentals, with outcomes, grading, a week-by-week case plan and a syllabus PDF.">', head)
+    head = head.replace("<title>Contact Red Herrings | Sales, Quotes, Support</title>", "<title>Digital Forensics and IR Course Syllabi | Red Herrings</title>")
+    head = re.sub(r'<meta name="description" content="[^"]*">', lambda m: '<meta name="description" content="Two ready-to-teach courses: a 14-week Introduction to Digital Forensics and an 8-week Incident Response, with outcomes, a weekly case plan and a PDF.">', head)
     head = head.replace("https://redherrings.app/contact.html", "https://redherrings.app/courses.html")
-    head = re.sub(r'<meta property="og:title" content="[^"]*">', lambda m: '<meta property="og:title" content="Syllabus-ready DFIR course packs">', head)
-    head = re.sub(r'<meta property="og:description" content="[^"]*">', lambda m: '<meta property="og:description" content="A 14-week forensics course and an 8-week incident-response course, week by week, with syllabus PDFs and one-click generation of every lab.">', head)
-    head = re.sub(r'<meta name="twitter:description" content="[^"]*">', lambda m: '<meta name="twitter:description" content="A 14-week forensics course and an 8-week incident-response course with syllabus PDFs.">', head)
+    head = re.sub(r'<meta property="og:title" content="[^"]*">', lambda m: '<meta property="og:title" content="Digital Forensics and IR Course Syllabi | Red Herrings">', head)
+    head = re.sub(r'<meta property="og:description" content="[^"]*">', lambda m: '<meta property="og:description" content="Two ready-to-teach courses: a 14-week Introduction to Digital Forensics and an 8-week Incident Response, with outcomes, a weekly case plan and a PDF.">', head)
+    head = re.sub(r'<meta name="twitter:description" content="[^"]*">', lambda m: '<meta name="twitter:description" content="Two ready-to-teach courses: a 14-week Introduction to Digital Forensics and an 8-week Incident Response, with outcomes, a weekly case plan and a PDF.">', head)
     head = re.sub(r"<style>.*?</style>", lambda m: '''<style>
 .course{margin-bottom:10px}
 .cmeta{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin:-6px 0 18px}.cmeta b{color:var(--ink)}
@@ -82,14 +109,14 @@ def main():
   <section style="border-top:0">
     <div class="crumb"><a href="/">Home</a> / Course packs</div>
     <div class="secthead">
-      <h1 class="opener">A digital forensics course and an incident response course, <em>ready to teach</em></h1>
+      <h1 class="opener">A digital forensics course and an incident response course, ready to teach</h1>
       <p class="osub">Two complete courses built on the case library: learning outcomes, a grading scheme, the free tools, and a week-by-week plan that names the case, the mode and the time budget. Download the syllabus PDF, then generate every week's lab for your roster in one click from the Courses screen in the app. Every student still gets their own variant; every answer is still verified.</p>
     </div>
   </section>
 {sections}
   <section class="cta-band" aria-labelledby="cta-courses">
     <h2 id="cta-courses">Teach the whole term from one download.</h2>
-    <p class="sub" style="margin-bottom:24px">The EDR first look and the USB first look that open both courses are free forever, no license. The 30-day trial adds the rest, and an Educator license runs every week.</p>
+    <p class="sub" style="margin-bottom:24px">Every First Look week in both courses runs free, with no key. The 30-day trial adds {trial_weeks(cat)}, and an Educator license runs every week.</p>
     <div class="cta-row">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-courses">Learn for free</a>
       <a class="btn ghost" href="pathways.html">See the learning pathways</a>
@@ -99,6 +126,7 @@ def main():
     out = os.path.join(SITE, "courses.html")
     with open(out, "w") as f:
         f.write(head + main_html + tail)
+    apply_chrome(out)
     print(f"wrote courses.html: {len(cat)} courses; syllabus PDFs in files/")
 
 

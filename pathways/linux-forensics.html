@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Linux Forensics Practice Labs | Red Herrings</title>
-<meta name="description" content="Four Linux forensics labs aligned to the FOR577 objectives: auth.log brute force, cron and SSH-key persistence, a web shell, and a breach across five logs.">
+<meta name="description" content="Linux forensics labs aligned to the FOR577 objectives: auth.log, a LiME memory image, a persistence sweep, a web-server intrusion and a five-artifact capstone.">
 <link rel="canonical" href="https://redherrings.app/pathways/linux-forensics.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:title" content="Linux Forensics Practice Labs | Red Herrings">
-<meta property="og:description" content="Four Linux forensics labs aligned to the FOR577 objectives: auth.log brute force, cron and SSH-key persistence, a web shell, and a breach across five logs.">
+<meta property="og:description" content="Linux forensics labs aligned to the FOR577 objectives: auth.log, a LiME memory image, a persistence sweep, a web-server intrusion and a five-artifact capstone.">
 <meta property="og:url" content="https://redherrings.app/pathways/linux-forensics.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta property="og:image:width" content="1200">
@@ -23,13 +23,13 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Linux Forensics Practice Labs | Red Herrings">
-<meta name="twitter:description" content="Four Linux forensics labs aligned to the FOR577 objectives: auth.log brute force, cron and SSH-key persistence, a web shell, and a breach across five logs.">
+<meta name="twitter:description" content="Linux forensics labs aligned to the FOR577 objectives: auth.log, a LiME memory image, a persistence sweep, a web-server intrusion and a five-artifact capstone.">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta name="twitter:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Linux Forensics","item":"https://redherrings.app/pathways/linux-forensics.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/linux-forensics.html#course","name":"Linux Forensics Practice Labs","url":"https://redherrings.app/pathways/linux-forensics.html","description":"Four Linux forensics labs aligned to the FOR577 objectives: auth.log brute force, cron and SSH-key persistence, a web shell, and a breach across five logs.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Read auth.log: brute force, the login that worked, and what followed.","Read processes, sockets and bash history from a LiME memory image.","Sweep a Linux server for every way back in.","Read access, auth and shell logs from first request to last.","Expert capstone: correlate five host logs into one timeline."],"about":["Advanced Forensics & IR","Foundations","Linux Forensics","Network Forensics"],"isAccessibleForFree":false,"timeRequired":"PT5H34M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT5H34M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"SANS FOR577 published objectives","targetName":"SANS FOR577"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Linux Forensics","item":"https://redherrings.app/pathways/linux-forensics.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/linux-forensics.html#course","name":"Linux Forensics Practice Labs","url":"https://redherrings.app/pathways/linux-forensics.html","description":"Linux forensics labs aligned to the FOR577 objectives: auth.log, a LiME memory image, a persistence sweep, a web-server intrusion and a five-artifact capstone.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Read auth.log: brute force, the login that worked, and what followed.","Read processes, sockets and bash history from a LiME memory image.","Sweep a Linux server for every way back in.","Read access, auth and shell logs from first request to last.","Expert capstone: correlate five host logs into one timeline."],"about":["Advanced Forensics & IR","Foundations","Linux Forensics","Network Forensics"],"isAccessibleForFree":false,"timeRequired":"PT5H34M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT5H34M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"SANS FOR577 published objectives","targetName":"SANS FOR577"}}]}
 </script>
 </head>
 <body>
@@ -64,8 +64,8 @@
     <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / <a href="/pathways.html">Pathways</a> / Linux Forensics</div>
     <span class="kicker">Cert prep &middot; Digital Forensics &middot; aligned to the published SANS FOR577 objectives</span>
     <h1 style="max-width:18ch">Linux forensics labs, one case at a time</h1>
-    <p class="lede" style="margin-left:0">Linux incident response, as the FOR577 objectives frame it, expects an examiner who can work a server from its logs: read auth.log for a brute force and the login that worked, find persistence in new accounts, cron jobs and authorized_keys, follow a web shell from the access log into the shell history, and correlate one attacker across every log on the box.</p>
-    <p class="lede" style="margin-left:0;font-size:17px">This pathway is deliberately short and steep. It starts with a single auth.log, adds the persistence hunt, follows a web-shell breach through privilege escalation and exfiltration, and finishes with an expert capstone where the same IP has to be tracked from the first scan to data leaving the server across five different logs.</p>
+    <p class="lede" style="margin-left:0">Linux incident response, as the FOR577 objectives frame it, expects an examiner who can work a server from what it recorded: read auth.log for failed and successful logins, read a memory image for what was running, find every place a Linux host can hide persistence, follow a web request from the access log into the shell history, and correlate one intrusion across every log on the box.</p>
+    <p class="lede" style="margin-left:0;font-size:17px">This pathway is short and steep. It starts with a single auth.log and a First Look at a LiME memory image, sweeps a server for every way back in, reads access, auth and shell logs on a web-server intrusion from first request to last, and finishes with an expert capstone that correlates five host artifacts into one timeline.</p>
     <div class="cta-row hero-cta" style="justify-content:flex-start;margin-top:26px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-linux-forensics">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn ghost" href="/sample.html">Download the sample lab</a>
@@ -76,7 +76,7 @@
   <section>
     <div class="secthead">
       <h2 class="opener">The pathway, in order</h2>
-      <p class="osub">5 cases, about ~5 h 34 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and the question set. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
+      <p class="osub">5 cases, about 5 h 34 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and sample questions. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
     </div>
     <ol class="rows-list" style="list-style:none;margin:0;padding:0">
       <li class="rowitem">
@@ -120,7 +120,7 @@
         <div class="fh"><h3>Who it's for</h3></div>
         <ul>
           <li><strong>Candidates preparing for a Linux forensics course or exam</strong> who want log-based reps that open in a terminal with grep and awk.</li>
-          <li><strong>Instructors who need a Linux unit in a Windows-heavy course</strong> and want four graded labs that fit in two weeks.</li>
+          <li><strong>Instructors who need a Linux unit in a Windows-heavy course</strong> and want five graded labs that fit in two weeks.</li>
           <li><strong>Sysadmins and SREs moving into security</strong> who know the files and need practice reading them as evidence.</li>
         </ul>
       </div>
@@ -139,7 +139,7 @@
 
   <section class="cta-band">
     <h2>Run this pathway with your own roster</h2>
-    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. Free for 30 days, no account or card required. Or open the sample lab first and read a verified key next to its evidence.</p>
+    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. First Look cases run free with no key, and the 30-day trial needs no card. Or open the sample lab first and work a student package in your own tools.</p>
     <div class="cta-row" style="justify-content:center;margin-top:22px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-linux-forensics-bottom">Start a free 30-day trial</a>
       <a class="btn ghost" href="/sample.html">Open the sample lab</a>

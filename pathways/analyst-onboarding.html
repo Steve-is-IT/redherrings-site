@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SOC Analyst Onboarding Labs | Red Herrings</title>
-<meta name="description" content="Ten onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a case.">
+<meta name="description" content="Onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a full case.">
 <link rel="canonical" href="https://redherrings.app/pathways/analyst-onboarding.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:title" content="SOC Analyst Onboarding Labs | Red Herrings">
-<meta property="og:description" content="Ten onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a case.">
+<meta property="og:description" content="Onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a full case.">
 <meta property="og:url" content="https://redherrings.app/pathways/analyst-onboarding.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta property="og:image:width" content="1200">
@@ -23,13 +23,13 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SOC Analyst Onboarding Labs | Red Herrings">
-<meta name="twitter:description" content="Ten onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a case.">
+<meta name="twitter:description" content="Onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a full case.">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta name="twitter:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"DFIR Analyst Onboarding","item":"https://redherrings.app/pathways/analyst-onboarding.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/analyst-onboarding.html#course","name":"SOC Analyst Onboarding Labs","url":"https://redherrings.app/pathways/analyst-onboarding.html","description":"Ten onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a case.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Start with execution artifacts: what ran on a machine.","Trace a file from the browser that put it there.","Read the security event log for accounts and services.","Find what a program set to run at startup.","Tie a removable device to a host.","Open a packet capture and follow a conversation.","Read process and connection lists from a memory image.","Recover messages from a mobile extraction.","Bring several artifacts together into one timeline.","Put it together on a full, if gentle, misconduct case."],"about":["Foundations","Mobile Forensics","Network Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT6H22M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT6H22M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"DFIR Analyst Onboarding","item":"https://redherrings.app/pathways/analyst-onboarding.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/analyst-onboarding.html#course","name":"SOC Analyst Onboarding Labs","url":"https://redherrings.app/pathways/analyst-onboarding.html","description":"Onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a full case.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Start with execution artifacts: what ran on a machine.","Trace a file from the browser that put it there.","Read the security event log for accounts and services.","Find what a program set to run at startup.","Tie a removable device to a host.","Open a packet capture and follow a conversation.","Read process and connection lists from a memory image.","Recover messages from a mobile extraction.","Bring several artifacts together into one timeline.","Put it together on a full, if gentle, misconduct case."],"about":["Foundations","Mobile Forensics","Network Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT6H22M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT6H22M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"}}]}
 </script>
 </head>
 <body>
@@ -65,7 +65,7 @@
     <span class="kicker">Role path &middot; Digital Forensics</span>
     <h1 style="max-width:18ch">SOC analyst onboarding labs, one evidence family at a time</h1>
     <p class="lede" style="margin-left:0">A new analyst is expected to recognize every evidence family a ticket can throw at them: what ran on a host, where a file came from, what the Security log says about accounts and services, what is set to run at startup, which USB device was plugged in, what a packet capture shows, what is in memory, and what a phone holds, then to put several of those into a single timeline.</p>
-    <p class="lede" style="margin-left:0;font-size:17px">This pathway is the first-look tour in the order a new hire should meet it. Nine 35-minute First Look cases each isolate one artifact family, and the tenth is a full, if gentle, misconduct case that asks the analyst to use several of them together. It is the week-one curriculum we would hand a new SOC or DFIR analyst.</p>
+    <p class="lede" style="margin-left:0;font-size:17px">This pathway is the first-look tour in the order a new hire should meet it. Nine First Look cases of about 35 minutes each isolate one artifact family, and the tenth is a full, if gentle, misconduct case that asks the analyst to use several of them together. It&#x27;s the week-one curriculum we&#x27;d hand a new SOC or DFIR analyst.</p>
     <div class="cta-row hero-cta" style="justify-content:flex-start;margin-top:26px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-analyst-onboarding">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn ghost" href="/sample.html">Download the sample lab</a>
@@ -76,7 +76,7 @@
   <section>
     <div class="secthead">
       <h2 class="opener">The pathway, in order</h2>
-      <p class="osub">10 cases, about ~6 h 22 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and the question set. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
+      <p class="osub">10 cases, about 6 h 22 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and sample questions. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
     </div>
     <ol class="rows-list" style="list-style:none;margin:0;padding:0">
       <li class="rowitem">
@@ -164,7 +164,7 @@
 
   <section class="cta-band">
     <h2>Run this pathway with your own roster</h2>
-    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. Free for 30 days, no account or card required. Or open the sample lab first and read a verified key next to its evidence.</p>
+    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. First Look cases run free with no key, and the 30-day trial needs no card. Or open the sample lab first and work a student package in your own tools.</p>
     <div class="cta-row" style="justify-content:center;margin-top:22px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-analyst-onboarding-bottom">Start a free 30-day trial</a>
       <a class="btn ghost" href="/sample.html">Open the sample lab</a>

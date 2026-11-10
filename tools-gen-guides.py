@@ -16,7 +16,8 @@ import os
 import re
 import sys
 
-sys.path.insert(0, "/home/user/redherrings")
+# The product package comes from the sibling redherrings checkout (or RH_PRODUCT).
+sys.path.insert(0, os.environ.get("RH_PRODUCT") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "redherrings"))
 from redherrings import attack, courses, licensing, packs, pathways  # noqa: E402
 from redherrings.licensing import tiers  # noqa: E402
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>macOS Forensics Practice Labs | Red Herrings</title>
-<meta name="description" content="Six macOS forensics labs aligned to the FOR518 objectives: quarantine database, Safari history, TCC consent, LaunchAgent persistence and insider exfil.">
+<meta name="description" content="macOS forensics labs aligned to the FOR518 objectives: the quarantine database, Safari history, TCC consent, persistence and a departing employee&#x27;s Mac.">
 <link rel="canonical" href="https://redherrings.app/pathways/macos-forensics.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:title" content="macOS Forensics Practice Labs | Red Herrings">
-<meta property="og:description" content="Six macOS forensics labs aligned to the FOR518 objectives: quarantine database, Safari history, TCC consent, LaunchAgent persistence and insider exfil.">
+<meta property="og:description" content="macOS forensics labs aligned to the FOR518 objectives: the quarantine database, Safari history, TCC consent, persistence and a departing employee&#x27;s Mac.">
 <meta property="og:url" content="https://redherrings.app/pathways/macos-forensics.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta property="og:image:width" content="1200">
@@ -23,13 +23,13 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="macOS Forensics Practice Labs | Red Herrings">
-<meta name="twitter:description" content="Six macOS forensics labs aligned to the FOR518 objectives: quarantine database, Safari history, TCC consent, LaunchAgent persistence and insider exfil.">
+<meta name="twitter:description" content="macOS forensics labs aligned to the FOR518 objectives: the quarantine database, Safari history, TCC consent, persistence and a departing employee&#x27;s Mac.">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta name="twitter:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"macOS Forensics","item":"https://redherrings.app/pathways/macos-forensics.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/macos-forensics.html#course","name":"macOS Forensics Practice Labs","url":"https://redherrings.app/pathways/macos-forensics.html","description":"Six macOS forensics labs aligned to the FOR518 objectives: quarantine database, Safari history, TCC consent, LaunchAgent persistence and insider exfil.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Trace a download with the quarantine database and Safari history.","Read the TCC privacy database and its consent records.","Trace macOS persistence back to its download.","Correlate TCC, quarantine and unified-log records.","Work shell, browser and unified-log history on a departing employee's Mac.","Capstone: five macOS artifacts, one timeline."],"about":["Advanced Forensics & IR","Foundations","macOS Forensics"],"isAccessibleForFree":false,"timeRequired":"PT6H18M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT6H18M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"SANS FOR518 published objectives","targetName":"SANS FOR518"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"macOS Forensics","item":"https://redherrings.app/pathways/macos-forensics.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/macos-forensics.html#course","name":"macOS Forensics Practice Labs","url":"https://redherrings.app/pathways/macos-forensics.html","description":"macOS forensics labs aligned to the FOR518 objectives: the quarantine database, Safari history, TCC consent, persistence and a departing employee's Mac.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Trace a download with the quarantine database and Safari history.","Read the TCC privacy database and its consent records.","Trace macOS persistence back to its download.","Correlate TCC, quarantine and unified-log records.","Work shell, browser and unified-log history on a departing employee's Mac.","Capstone: five macOS artifacts, one timeline."],"about":["Advanced Forensics & IR","Foundations","macOS Forensics"],"isAccessibleForFree":false,"timeRequired":"PT6H18M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT6H18M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"SANS FOR518 published objectives","targetName":"SANS FOR518"}}]}
 </script>
 </head>
 <body>
@@ -65,7 +65,7 @@
     <span class="kicker">Cert prep &middot; Digital Forensics &middot; aligned to the published SANS FOR518 objectives</span>
     <h1 style="max-width:18ch">macOS forensics labs, one case at a time</h1>
     <p class="lede" style="margin-left:0">Mac forensics, as the FOR518 objectives frame it, expects an examiner who knows where macOS keeps its own records: download provenance in the quarantine database and Safari history, privacy consent in the TCC database, persistence in LaunchAgents and LaunchDaemons, and the unified log entries that tie them together.</p>
-    <p class="lede" style="margin-left:0;font-size:17px">This pathway starts with two First Look cases, one on where an app came from and one on what each app is allowed to see. It then follows a LaunchAgent relaunching a payload, correlates a TCC grant with monitoring-ware, reconstructs a departing employee&#x27;s exfiltration, and closes with a full spyware compromise across TCC, a beaconing LaunchDaemon and exfil.</p>
+    <p class="lede" style="margin-left:0;font-size:17px">This pathway starts with two First Look cases, one on where an app came from and one on what each app is allowed to see. It then traces persistence back to its download, correlates TCC, quarantine and unified-log records on a Mac whose user suspects monitoring, works a departing employee&#x27;s Mac, and closes with a capstone that puts five macOS artifacts on one timeline.</p>
     <div class="cta-row hero-cta" style="justify-content:flex-start;margin-top:26px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-macos-forensics">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn ghost" href="/sample.html">Download the sample lab</a>
@@ -76,7 +76,7 @@
   <section>
     <div class="secthead">
       <h2 class="opener">The pathway, in order</h2>
-      <p class="osub">6 cases, about ~6 h 18 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and the question set. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
+      <p class="osub">6 cases, about 6 h 18 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and sample questions. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
     </div>
     <ol class="rows-list" style="list-style:none;margin:0;padding:0">
       <li class="rowitem">
@@ -125,7 +125,7 @@
         <div class="fh"><h3>Who it's for</h3></div>
         <ul>
           <li><strong>Candidates preparing for a macOS forensics course or exam</strong> who want to work real plists, SQLite databases and log output rather than slides.</li>
-          <li><strong>Instructors adding Apple endpoints to a forensics course</strong> who need graded labs that do not require a Mac to solve.</li>
+          <li><strong>Instructors adding Apple endpoints to a forensics course</strong> who need graded labs that don&#x27;t require a Mac to solve.</li>
           <li><strong>Enterprise responders with a Mac fleet</strong> who have never had to read a TCC database under pressure.</li>
         </ul>
       </div>
@@ -144,7 +144,7 @@
 
   <section class="cta-band">
     <h2>Run this pathway with your own roster</h2>
-    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. Free for 30 days, no account or card required. Or open the sample lab first and read a verified key next to its evidence.</p>
+    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. First Look cases run free with no key, and the 30-day trial needs no card. Or open the sample lab first and work a student package in your own tools.</p>
     <div class="cta-row" style="justify-content:center;margin-top:22px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-macos-forensics-bottom">Start a free 30-day trial</a>
       <a class="btn ghost" href="/sample.html">Open the sample lab</a>

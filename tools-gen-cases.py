@@ -6,10 +6,14 @@ Produces the 3-axis taxonomy: Discipline (DF | IR) -> Difficulty -> topic row
 with the real builtin library.
 """
 import html
+import importlib.util
 import json
+import os
 import re
 import sys
-sys.path.insert(0, "/home/user/redherrings")
+# The product package comes from the sibling redherrings checkout (or RH_PRODUCT).
+SITE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.environ.get("RH_PRODUCT") or os.path.join(SITE, "..", "redherrings"))
 from redherrings import packs, tracks, attack, paths  # noqa: E402
 from redherrings.engine.dsl import load_scenario  # noqa: E402
 from redherrings.engine.variant import Variant  # noqa: E402
@@ -163,6 +167,20 @@ def featured_block(scen):
     return '  <div class="fm-wrap">\n' + "\n".join(slots) + '\n  </div>\n'
 
 
+def apply_chrome(path):
+    """Stamp the canonical header and footer so a regenerated page never carries a stale nav."""
+    for name in ("tools-apply-nav", "tools-apply-footer"):
+        spec = importlib.util.spec_from_file_location(name.replace("-", "_"), os.path.join(SITE, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        was = sys.dont_write_bytecode
+        sys.dont_write_bytecode = True
+        try:
+            spec.loader.exec_module(mod)
+        finally:
+            sys.dont_write_bytecode = was
+        mod.apply(path, False) if name == "tools-apply-nav" else mod.apply(path)
+
+
 def main():
     scen = [s for s in packs.all_scenarios() if "id" in s and not s.get("error")]
     # Order: the difficulty ladder, first-look through marquee, the same order the
@@ -192,9 +210,10 @@ def main():
         tracks_json=tracks_json, tactics_json=tactics_json, details_json=details_json)
     html_doc = html_doc.replace("<<SP>>", " ")
     html_doc = html_doc.replace("<!--MODALJS-->", MODAL_JS.replace("__DATA__", details_json))
-    out = "/home/user/redherrings-site/cases.html"
+    out = os.path.join(SITE, "cases.html")
     with open(out, "w") as f:
         f.write(html_doc)
+    apply_chrome(out)
     print(f"wrote {out}: {n} cases ({n_df} DF, {n_ir} IR)")
 
 

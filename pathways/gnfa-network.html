@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GNFA Network Forensics Practice Labs | Red Herrings</title>
-<meta name="description" content="Six network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP exfiltration, VPN beaconing and C2 traffic, through a breach capstone.">
+<meta name="description" content="Network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP, scheduled outbound traffic and host correlation, through a breach capstone.">
 <link rel="canonical" href="https://redherrings.app/pathways/gnfa-network.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:title" content="GNFA Network Forensics Practice Labs | Red Herrings">
-<meta property="og:description" content="Six network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP exfiltration, VPN beaconing and C2 traffic, through a breach capstone.">
+<meta property="og:description" content="Network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP, scheduled outbound traffic and host correlation, through a breach capstone.">
 <meta property="og:url" content="https://redherrings.app/pathways/gnfa-network.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta property="og:image:width" content="1200">
@@ -23,13 +23,13 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GNFA Network Forensics Practice Labs | Red Herrings">
-<meta name="twitter:description" content="Six network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP exfiltration, VPN beaconing and C2 traffic, through a breach capstone.">
+<meta name="twitter:description" content="Network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP, scheduled outbound traffic and host correlation, through a breach capstone.">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-fafebb2a.png">
 <meta name="twitter:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Network Forensics (GNFA)","item":"https://redherrings.app/pathways/gnfa-network.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gnfa-network.html#course","name":"GNFA Network Forensics Practice Labs","url":"https://redherrings.app/pathways/gnfa-network.html","description":"Six network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP exfiltration, VPN beaconing and C2 traffic, through a breach capstone.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Follow streams and read protocols in a capture.","Measure traffic in a capture and tie it to host artifacts.","Tie a remote-access login to scheduled outbound traffic.","Follow a host from an opened document to its outbound traffic.","Follow a download from the browser into the network and memory.","Capstone: network evidence in a multi-department breach."],"about":["Advanced Forensics & IR","Foundations","Mobile Forensics","Network Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT19H9M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT19H9M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GNFA published objectives","targetName":"GIAC GNFA"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Network Forensics (GNFA)","item":"https://redherrings.app/pathways/gnfa-network.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gnfa-network.html#course","name":"GNFA Network Forensics Practice Labs","url":"https://redherrings.app/pathways/gnfa-network.html","description":"Network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP, scheduled outbound traffic and host correlation, through a breach capstone.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Follow streams and read protocols in a capture.","Measure traffic in a capture and tie it to host artifacts.","Tie a remote-access login to scheduled outbound traffic.","Follow a host from an opened document to its outbound traffic.","Follow a download from the browser into the network and memory.","Capstone: network evidence in a multi-department breach."],"about":["Advanced Forensics & IR","Foundations","Mobile Forensics","Network Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT19H9M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT19H9M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GNFA published objectives","targetName":"GIAC GNFA"}}]}
 </script>
 </head>
 <body>
@@ -65,7 +65,7 @@
     <span class="kicker">Cert prep &middot; Digital Forensics &middot; aligned to the published GIAC GNFA objectives</span>
     <h1 style="max-width:18ch">GNFA practice labs, one capture at a time</h1>
     <p class="lede" style="margin-left:0">The GNFA objectives expect an analyst who can open a packet capture and tell the story in it: follow streams, read protocols in the clear, find data leaving over HTTP, spot a beacon by its timing, recover cleartext credentials, and connect network evidence to what the hosts recorded.</p>
-    <p class="lede" style="margin-left:0;font-size:17px">This pathway opens with a single capture and a few protocols, then moves to HTTP exfiltration, a beacon hiding behind a compromised VPN account, a phishing chain traced through to command-and-control, and an urgent update followed from the browser into memory. The capstone is a multi-department breach where the network evidence has to be reconciled with host and mobile artifacts.</p>
+    <p class="lede" style="margin-left:0;font-size:17px">This pathway opens with a single capture and a few protocols. It then measures traffic in a capture and ties it to host artifacts, ties a remote-access login to scheduled outbound traffic, follows a host from an opened document to its outbound traffic, and follows a download from the browser into the network and memory. The capstone is a multi-department breach where the network evidence has to be reconciled with host and mobile artifacts.</p>
     <div class="cta-row hero-cta" style="justify-content:flex-start;margin-top:26px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-gnfa-network">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn ghost" href="/sample.html">Download the sample lab</a>
@@ -76,7 +76,7 @@
   <section>
     <div class="secthead">
       <h2 class="opener">The pathway, in order</h2>
-      <p class="osub">6 cases, about ~19 h 9 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and the question set. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
+      <p class="osub">6 cases, about 19 h 9 min of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and sample questions. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
     </div>
     <ol class="rows-list" style="list-style:none;margin:0;padding:0">
       <li class="rowitem">
@@ -144,7 +144,7 @@
 
   <section class="cta-band">
     <h2>Run this pathway with your own roster</h2>
-    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. Free for 30 days, no account or card required. Or open the sample lab first and read a verified key next to its evidence.</p>
+    <p class="sub">Download the app, generate a three-student version of the first case in under five minutes, and grade it. First Look cases run free with no key, and the 30-day trial needs no card. Or open the sample lab first and work a student package in your own tools.</p>
     <div class="cta-row" style="justify-content:center;margin-top:22px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-gnfa-network-bottom">Start a free 30-day trial</a>
       <a class="btn ghost" href="/sample.html">Open the sample lab</a>
