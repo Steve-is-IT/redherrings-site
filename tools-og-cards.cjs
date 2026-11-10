@@ -51,7 +51,7 @@ const CARDS = {
     `<p class="lede">Disk, memory, network, mobile and cloud evidence in their native formats, worked in the real industry tools.</p>` +
     `<div class="badges"><span class="badge">Forensics &amp; incident response</span>` +
     `<span class="badge red">GIAC &amp; MITRE pathways</span></div>`,
-    shot("slides/slide-library.jpg"),
+    shot("og-home-cases.jpg"),
     null,
   ],
   cases: [
