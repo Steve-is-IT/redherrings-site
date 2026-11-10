@@ -259,12 +259,12 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <meta property="og:title" content="Download Red Herrings {E(tag)}">
 <meta property="og:description" content="Windows, macOS and Linux. Runs on your machine, nothing leaves it. Free 30-day trial, no key needed.">
 <meta property="og:url" content="https://redherrings.app/download.html">
-<meta property="og:image" content="https://redherrings.app/img/og/download-ce3524c0.png">
+<meta property="og:image" content="https://redherrings.app/img/og/download-ffb6746d.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Download Red Herrings for Windows, macOS and Linux. Runs on your machine, nothing leaves it.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://redherrings.app/img/og/download-ce3524c0.png">
+<meta name="twitter:image" content="https://redherrings.app/img/og/download-ffb6746d.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
