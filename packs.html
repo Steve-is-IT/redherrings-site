@@ -128,9 +128,9 @@
   fetch(API+'/api/v1/packs').then(function(r){return r.json();}).then(function(j){
     grid.innerHTML='';
     var packs=(j&&j.packs)||[];
-    if(!packs.length){grid.innerHTML='<div class="pkempty" style="grid-column:1/-1">The first packs are being prepared. Every plan already includes every built-in case; packs add specialist sets on top. Want to be told when one lands, or list your own? <a href="/contact.html?topic=other">Write to us</a>.</div>';return;}
+    if(!packs.length){grid.innerHTML='<div class="pkempty" style="grid-column:1/-1">The first packs are being prepared. Packs add specialist sets on top of the built-in library your plan covers. Want to be told when one lands, or list your own? <a href="/contact.html?topic=other">Write to us</a>.</div>';return;}
     packs.forEach(function(p){grid.append(card(p));});
-  }).catch(function(){grid.innerHTML='<div class="pkempty" style="grid-column:1/-1">Could not load the catalog right now. Every plan already includes every built-in case. <a href="/contact.html?topic=other">Write to us</a> about packs.</div>';});
+  }).catch(function(){grid.innerHTML='<div class="pkempty" style="grid-column:1/-1">Couldn't load the catalog right now. Your plan's built-in cases are in the app's Case Library. <a href="/contact.html?topic=other">Write to us</a> about packs.</div>';});
 })();
 </script>
 <footer>
