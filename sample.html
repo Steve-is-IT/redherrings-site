@@ -77,7 +77,7 @@
   <div class="pagehead">
     <div class="crumb"><a href="/">Home</a> / Sample lab</div>
     <h1>Download a free sample forensic lab</h1>
-    <p>Real evidence, not a screenshot. One complete case, a Windows insider-threat USB exfiltration, with the raw artifacts and a student worksheet. Work the questions in the tools you already teach with and check your findings against the key. No account, no install, no email.</p>
+    <p>Real evidence, not a screenshot. One complete case, a Windows insider-threat USB exfiltration, with the raw artifacts and a student worksheet. Work the questions in the tools you already teach with. No account, no install, no email.</p>
     <div class="cta-row" style="margin-top:8px">
       <a class="btn" href="/sample/LAB-insider-usb-student-001.zip" download data-goatcounter-click="sample-download">Download the sample lab (ZIP, 670&nbsp;KB)</a>
       <a class="btn ghost" href="/try.html">Or solve one in your browser</a>
@@ -87,7 +87,7 @@
 
   <section>
     <h2>What's in the ZIP</h2>
-    <p class="sub">This is a slice of a compromised Windows workstation in real on-disk formats, laid out the way a responder would pull it.</p>
+    <p class="sub">This is a slice of a Windows workstation in real on-disk formats, laid out the way an examiner would pull it.</p>
     <div class="grid" style="margin-top:8px">
       <div class="card">
         <h3>A raw disk image</h3>
@@ -103,7 +103,7 @@
       </div>
       <div class="card">
         <h3>Execution and file-access artifacts</h3>
-        <p>Prefetch (<code>7ZFM.EXE</code>, <code>CHROME.EXE</code> and more), LNK files and a jump list showing the documents and archives that were opened.</p>
+        <p>Prefetch files, LNK shortcuts and a jump list: what ran on the machine and what was opened.</p>
       </div>
       <div class="card">
         <h3>A filesystem timeline</h3>
@@ -111,16 +111,16 @@
       </div>
       <div class="card">
         <h3>Worksheet</h3>
-        <p>A student worksheet (PDF and DOCX) with the briefing and questions. The answer key ships with the app, so every student's lab is graded against its own.</p>
+        <p>A student worksheet (PDF and DOCX) with the briefing and questions. The answer key isn't in the ZIP. It stays in the instructor package, and each student's lab is graded against its own key.</p>
       </div>
     </div>
   </section>
 
   <section>
     <h2>Open it in the tools you already use</h2>
-    <p class="sub">There is nothing proprietary to learn, because it opens in the standard DFIR toolset:</p>
+    <p class="sub">It opens in the standard DFIR toolset, with nothing proprietary to learn:</p>
     <div class="audience" style="margin-top:6px">
-      <span>Autopsy</span><span>FTK Imager</span><span>The Sleuth Kit</span><span>Registry Explorer</span><span>RegRipper</span><span>EvtxECmd</span><span>Event Viewer</span><span>PECmd</span><span>JLECmd / LECmd</span><span>Wireshark</span><span>Volatility</span><span>DB Browser for SQLite</span>
+      <span>Autopsy</span><span>FTK Imager</span><span>The Sleuth Kit</span><span>Registry Explorer</span><span>RegRipper</span><span>EvtxECmd</span><span>Event Viewer</span><span>PECmd</span><span>JLECmd / LECmd</span><span>Timeline Explorer</span>
     </div>
     <p class="sub" style="margin-top:18px">New to a tool? The <a href="/tools.html">Tools &amp; setup</a> page lists where to get each one, and the <a href="/blog/">blog</a> walks through the techniques this case uses.</p>
   </section>

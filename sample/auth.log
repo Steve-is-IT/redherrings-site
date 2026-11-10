@@ -1,56 +1,56 @@
-Mar 17 11:02:52 app-prod-01 sshd[12604]: Accepted publickey for ansible from 172.17.93.86 port 45914 ssh2: RSA SHA256:UC41L+9nSXq9JxupePjzqNJiaKD5/iWzIIkUqt/tzJk
-Mar 17 11:43:22 app-prod-01 sshd[16942]: Accepted publickey for gitlab-runner from 172.17.93.202 port 60943 ssh2: RSA SHA256:8DF0IdDXeox4eCjQqys5MKKBwdRVclQjlWt1Ao4LL9k
-Mar 17 12:07:37 app-prod-01 sshd[27943]: Accepted publickey for gitlab-runner from 172.17.93.32 port 60753 ssh2: RSA SHA256:cJfWQ7pfeq/DJgd9Qjc0sw2LqZbhYSi31sRZwCM5UNs
-Mar 17 13:47:35 app-prod-01 sshd[11768]: Accepted publickey for ansible from 172.17.93.237 port 57153 ssh2: RSA SHA256:H4gk3oSZunlolt1d/kyPaLGy6svReqopT3bjpQJiv5Q
-Mar 17 14:56:02 app-prod-01 sshd[3738]: Accepted publickey for gitlab-runner from 172.17.93.216 port 58214 ssh2: RSA SHA256:AqfOPzCosskKgLENqdm9E1t17of5KMqjqCe2nTjLcO8
-Mar 17 16:17:05 app-prod-01 sshd[16541]: Accepted publickey for jenkins from 172.17.93.171 port 36102 ssh2: RSA SHA256:yLIFenT0mMSKACccCkWo13bWg0lLLKtinaVSi8YWckI
-Mar 17 23:12:37 app-prod-01 sshd[7299]: Accepted publickey for admin from 172.17.93.76 port 40083 ssh2: RSA SHA256:mmYYZgd9HtDRyAL9sLvHh+/Y2S/Ryd9clJd8Yk3k4xc
-Mar 18 01:50:34 app-prod-01 sshd[16296]: Accepted publickey for admin from 172.17.93.177 port 31889 ssh2: RSA SHA256:W277L0+xD//1Hdavg1VLwjl24Om3Lz8W5aRFWSOe14Y
-Mar 18 02:54:05 app-prod-01 sshd[16573]: Accepted publickey for gitlab-runner from 172.17.93.214 port 38211 ssh2: RSA SHA256:8gAA4czbvUz4Ar7hE3jN6tmgAKOhrP69Ticpj7mX6Ow
-Mar 18 07:58:30 app-prod-01 sshd[12107]: Accepted publickey for ansible from 172.17.93.48 port 39645 ssh2: RSA SHA256:ls3X8GCyA6rHOsj3FwKpsTgEVk+V0Jn/7AnOQlDNldQ
-Mar 18 10:00:07 app-prod-01 sshd[1948]: Failed password for root from 62.157.110.146 port 51003 ssh2
-Mar 18 10:00:11 app-prod-01 sshd[3727]: Failed password for root from 62.157.110.146 port 44220 ssh2
-Mar 18 10:00:13 app-prod-01 sshd[4713]: Failed password for root from 62.157.110.146 port 48131 ssh2
-Mar 18 10:00:14 app-prod-01 sshd[29273]: Failed password for root from 62.157.110.146 port 59622 ssh2
-Mar 18 10:00:17 app-prod-01 sshd[25385]: Failed password for root from 62.157.110.146 port 55777 ssh2
-Mar 18 10:00:19 app-prod-01 sshd[9916]: Failed password for root from 62.157.110.146 port 53358 ssh2
-Mar 18 10:00:19 app-prod-01 sshd[8758]: Failed password for root from 62.157.110.146 port 56268 ssh2
-Mar 18 10:00:19 app-prod-01 sshd[17920]: Failed password for root from 62.157.110.146 port 38987 ssh2
-Mar 18 10:00:25 app-prod-01 sshd[22238]: Failed password for root from 62.157.110.146 port 39671 ssh2
-Mar 18 10:00:31 app-prod-01 sshd[28920]: Failed password for root from 62.157.110.146 port 36814 ssh2
-Mar 18 10:00:33 app-prod-01 sshd[25092]: Failed password for root from 62.157.110.146 port 46240 ssh2
-Mar 18 10:00:34 app-prod-01 sshd[14341]: Failed password for root from 62.157.110.146 port 57913 ssh2
-Mar 18 10:00:39 app-prod-01 sshd[28104]: Failed password for root from 62.157.110.146 port 56787 ssh2
-Mar 18 10:00:40 app-prod-01 sshd[4827]: Failed password for root from 62.157.110.146 port 52581 ssh2
-Mar 18 10:00:41 app-prod-01 sshd[1170]: Failed password for root from 62.157.110.146 port 30647 ssh2
-Mar 18 10:00:45 app-prod-01 sshd[10615]: Failed password for root from 62.157.110.146 port 47096 ssh2
-Mar 18 10:00:47 app-prod-01 sshd[2258]: Failed password for root from 62.157.110.146 port 42138 ssh2
-Mar 18 10:00:47 app-prod-01 sshd[21283]: Failed password for root from 62.157.110.146 port 45847 ssh2
-Mar 18 10:00:49 app-prod-01 sshd[26830]: Failed password for root from 62.157.110.146 port 38606 ssh2
-Mar 18 10:00:52 app-prod-01 sshd[29580]: Failed password for root from 62.157.110.146 port 35504 ssh2
-Mar 18 10:00:55 app-prod-01 sshd[17949]: Failed password for root from 62.157.110.146 port 45980 ssh2
-Mar 18 10:00:55 app-prod-01 sshd[22830]: Failed password for root from 62.157.110.146 port 48845 ssh2
-Mar 18 10:00:58 app-prod-01 sshd[8049]: Failed password for root from 62.157.110.146 port 50309 ssh2
-Mar 18 10:01:03 app-prod-01 sshd[3754]: Failed password for root from 62.157.110.146 port 54661 ssh2
-Mar 18 10:01:07 app-prod-01 sshd[3653]: Failed password for root from 62.157.110.146 port 33661 ssh2
-Mar 18 10:01:10 app-prod-01 sshd[24253]: Failed password for root from 62.157.110.146 port 30147 ssh2
-Mar 18 10:01:16 app-prod-01 sshd[7469]: Failed password for root from 62.157.110.146 port 32528 ssh2
-Mar 18 10:01:19 app-prod-01 sshd[19288]: Failed password for root from 62.157.110.146 port 53429 ssh2
-Mar 18 10:01:34 app-prod-01 sshd[6365]: Failed password for root from 62.157.110.146 port 41824 ssh2
-Mar 18 10:01:35 app-prod-01 sshd[11002]: Failed password for root from 62.157.110.146 port 56368 ssh2
-Mar 18 10:01:40 app-prod-01 sshd[17716]: Failed password for root from 62.157.110.146 port 37395 ssh2
-Mar 18 10:01:43 app-prod-01 sshd[13099]: Failed password for root from 62.157.110.146 port 33674 ssh2
-Mar 18 10:01:46 app-prod-01 sshd[4458]: Failed password for root from 62.157.110.146 port 42610 ssh2
-Mar 18 10:01:47 app-prod-01 sshd[10745]: Failed password for root from 62.157.110.146 port 58266 ssh2
-Mar 18 10:01:51 app-prod-01 sshd[1193]: Failed password for root from 62.157.110.146 port 42374 ssh2
-Mar 18 10:01:52 app-prod-01 sshd[2062]: Failed password for root from 62.157.110.146 port 48152 ssh2
-Mar 18 10:01:58 app-prod-01 sshd[2410]: Failed password for root from 62.157.110.146 port 31598 ssh2
-Mar 18 10:02:04 app-prod-01 sshd[22362]: Failed password for root from 62.157.110.146 port 34443 ssh2
-Mar 18 10:02:31 app-prod-01 sshd[14164]: Failed password for root from 62.157.110.146 port 37329 ssh2
-Mar 18 10:02:39 app-prod-01 sshd[2990]: Failed password for root from 62.157.110.146 port 50128 ssh2
-Mar 18 10:06:14 app-prod-01 sshd[5781]: Accepted password for root from 62.157.110.146 port 32725 ssh2
-Mar 18 10:06:14 app-prod-01 sshd[5781]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)
-Mar 18 10:06:14 app-prod-01 systemd-logind[510]: New session 3 of user root.
-Mar 18 10:10:27 app-prod-01 sudo: root : TTY=pts/3 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
-Mar 18 10:15:56 app-prod-01 useradd[8058]: new group: name=webadmin2, GID=1008
-Mar 18 10:15:56 app-prod-01 useradd[8058]: new user: name=webadmin2, UID=1008, GID=1008, home=/home/webadmin2, shell=/bin/bash
+Feb 21 11:04:51 web01 sshd[28608]: Accepted publickey for deploy from 192.168.133.198 port 49747 ssh2: RSA SHA256:Bq/ns1qPZB4odllZxJ83L4bYKcy3cuknCxT+CAPbydA
+Feb 21 11:36:29 web01 sshd[14755]: Accepted publickey for ansible from 192.168.133.52 port 31353 ssh2: RSA SHA256:E1YFfKhI4DcgXEbTpMSCjaCgfpouqkXp8TtgMpm+XAw
+Feb 21 12:30:14 web01 sshd[8503]: Accepted publickey for deploy from 192.168.133.176 port 48908 ssh2: RSA SHA256:zNelZMpazPcqPmNcTn/o4qxZFjMxJbX7yQRfKKNVg4w
+Feb 21 12:47:12 web01 sshd[18853]: Accepted publickey for jenkins from 192.168.133.196 port 30638 ssh2: RSA SHA256:0f0dEE6l8/imSpEjyi5LV1VtLakL4ae46w1beR3j4sQ
+Feb 21 12:55:27 web01 sshd[4020]: Accepted publickey for deploy from 192.168.133.49 port 37289 ssh2: RSA SHA256:djdn/kG37FUypodQ7+ylJe618e17yeKgRSc5VcH4k8U
+Feb 21 13:55:14 web01 sshd[11629]: Accepted publickey for admin from 192.168.133.171 port 37826 ssh2: RSA SHA256:+TNHBkm1oqhyrP2TkbWHSfXD3+zCIxaFo73KwN2Seak
+Feb 21 21:34:56 web01 sshd[4308]: Accepted publickey for deploy from 192.168.133.221 port 37366 ssh2: RSA SHA256:JUY3u+pmQMNUSNaKedSDVjc2kPe4cfTgOPJ5RgtE4Ac
+Feb 21 21:44:42 web01 sshd[17861]: Accepted publickey for deploy from 192.168.133.190 port 60388 ssh2: RSA SHA256:dv4oay4to2bKEmbhX2NKsP0fNJXx35zzueahfmFS5Pk
+Feb 22 02:05:44 web01 sshd[13895]: Accepted publickey for deploy from 192.168.133.201 port 34894 ssh2: RSA SHA256:L/hifhwhT2mEgF2YGpG9FlPKV0CqGCXqqb5LGfplvYs
+Feb 22 02:32:23 web01 sshd[3928]: Accepted publickey for ansible from 192.168.133.62 port 41143 ssh2: RSA SHA256:fDbR3w21hXVYDM8sTvNNQ7+fLcI9lJQ0jgnsQCyn+zg
+Feb 22 08:23:15 web01 sshd[29462]: Failed password for root from 91.241.169.217 port 49046 ssh2
+Feb 22 08:23:16 web01 sshd[12035]: Failed password for root from 91.241.169.217 port 42425 ssh2
+Feb 22 08:23:17 web01 sshd[8718]: Failed password for root from 91.241.169.217 port 44328 ssh2
+Feb 22 08:23:19 web01 sshd[2349]: Failed password for root from 91.241.169.217 port 38162 ssh2
+Feb 22 08:23:21 web01 sshd[13283]: Failed password for root from 91.241.169.217 port 31549 ssh2
+Feb 22 08:23:24 web01 sshd[7751]: Failed password for root from 91.241.169.217 port 30994 ssh2
+Feb 22 08:23:28 web01 sshd[2643]: Failed password for root from 91.241.169.217 port 32674 ssh2
+Feb 22 08:23:30 web01 sshd[26862]: Failed password for root from 91.241.169.217 port 44509 ssh2
+Feb 22 08:23:31 web01 sshd[7190]: Failed password for root from 91.241.169.217 port 42904 ssh2
+Feb 22 08:23:32 web01 sshd[12140]: Failed password for root from 91.241.169.217 port 57605 ssh2
+Feb 22 08:23:33 web01 sshd[10144]: Failed password for root from 91.241.169.217 port 33179 ssh2
+Feb 22 08:23:34 web01 sshd[13243]: Failed password for root from 91.241.169.217 port 46262 ssh2
+Feb 22 08:23:37 web01 sshd[27568]: Failed password for root from 91.241.169.217 port 44557 ssh2
+Feb 22 08:23:39 web01 sshd[1251]: Failed password for root from 91.241.169.217 port 33492 ssh2
+Feb 22 08:23:40 web01 sshd[19211]: Failed password for root from 91.241.169.217 port 46689 ssh2
+Feb 22 08:23:43 web01 sshd[9523]: Failed password for root from 91.241.169.217 port 42112 ssh2
+Feb 22 08:23:43 web01 sshd[25647]: Failed password for root from 91.241.169.217 port 35866 ssh2
+Feb 22 08:23:44 web01 sshd[16138]: Failed password for root from 91.241.169.217 port 54565 ssh2
+Feb 22 08:23:45 web01 sshd[16028]: Failed password for root from 91.241.169.217 port 51248 ssh2
+Feb 22 08:23:47 web01 sshd[6639]: Failed password for root from 91.241.169.217 port 43616 ssh2
+Feb 22 08:23:49 web01 sshd[28073]: Failed password for root from 91.241.169.217 port 40659 ssh2
+Feb 22 08:23:55 web01 sshd[1977]: Failed password for root from 91.241.169.217 port 51640 ssh2
+Feb 22 08:23:57 web01 sshd[16011]: Failed password for root from 91.241.169.217 port 32608 ssh2
+Feb 22 08:24:01 web01 sshd[19912]: Failed password for root from 91.241.169.217 port 44929 ssh2
+Feb 22 08:24:03 web01 sshd[15305]: Failed password for root from 91.241.169.217 port 30465 ssh2
+Feb 22 08:24:11 web01 sshd[6883]: Failed password for root from 91.241.169.217 port 42206 ssh2
+Feb 22 08:24:15 web01 sshd[2486]: Failed password for root from 91.241.169.217 port 57612 ssh2
+Feb 22 08:24:15 web01 sshd[12888]: Failed password for root from 91.241.169.217 port 40347 ssh2
+Feb 22 08:24:21 web01 sshd[22369]: Failed password for root from 91.241.169.217 port 35369 ssh2
+Feb 22 08:24:21 web01 sshd[2880]: Failed password for root from 91.241.169.217 port 49949 ssh2
+Feb 22 08:24:27 web01 sshd[12590]: Failed password for root from 91.241.169.217 port 58570 ssh2
+Feb 22 08:24:33 web01 sshd[27266]: Failed password for root from 91.241.169.217 port 35467 ssh2
+Feb 22 08:24:48 web01 sshd[20885]: Failed password for root from 91.241.169.217 port 53898 ssh2
+Feb 22 08:24:51 web01 sshd[10946]: Failed password for root from 91.241.169.217 port 33675 ssh2
+Feb 22 08:24:59 web01 sshd[21019]: Failed password for root from 91.241.169.217 port 60957 ssh2
+Feb 22 08:25:00 web01 sshd[25175]: Failed password for root from 91.241.169.217 port 52325 ssh2
+Feb 22 08:25:03 web01 sshd[2122]: Failed password for root from 91.241.169.217 port 52381 ssh2
+Feb 22 08:25:03 web01 sshd[18334]: Failed password for root from 91.241.169.217 port 52826 ssh2
+Feb 22 08:25:09 web01 sshd[26469]: Failed password for root from 91.241.169.217 port 49928 ssh2
+Feb 22 08:25:43 web01 sshd[1784]: Failed password for root from 91.241.169.217 port 59503 ssh2
+Feb 22 08:30:25 web01 sshd[11412]: Accepted password for root from 91.241.169.217 port 35405 ssh2
+Feb 22 08:30:25 web01 sshd[11412]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 08:30:25 web01 systemd-logind[698]: New session 40 of user root.
+Feb 22 08:33:49 web01 sudo: root : TTY=pts/2 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Feb 22 08:36:17 web01 useradd[16892]: new group: name=gitrunner, GID=1039
+Feb 22 08:36:17 web01 useradd[16892]: new user: name=gitrunner, UID=1039, GID=1039, home=/home/gitrunner, shell=/bin/bash
