@@ -51,7 +51,7 @@ const CARDS = {
     `<p class="lede">Disk, memory, network, mobile and cloud evidence in their native formats, worked in the real industry tools.</p>` +
     `<div class="badges"><span class="badge">Forensics &amp; incident response</span>` +
     `<span class="badge red">GIAC &amp; MITRE pathways</span></div>`,
-    shot("slides/slide-results.jpg"),
+    shot("slides/slide-library.jpg"),
     null,
   ],
   cases: [
@@ -60,7 +60,7 @@ const CARDS = {
     `<p class="lede">First Look triage to Marquee capstone, in forensics and incident response, mapped to GIAC, CompTIA and MITRE ATT&amp;CK.</p>` +
     `<div class="badges"><span class="badge">First Look cases free</span>` +
     `<span class="badge">Windows &middot; macOS &middot; Linux</span></div>`,
-    shot("slides/slide-library.jpg"),
+    shot("slides/slide-case.jpg"),
     ["cases.html", "tools-gen-cases.py"],
   ],
   download: [
