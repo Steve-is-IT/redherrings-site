@@ -29,10 +29,10 @@ h1{margin-top:10px;font-family:"JetBrains Mono",Menlo,Consolas,monospace;font-we
 h1 em{font-style:normal;color:#d42a2a}
 .lede{margin-top:16px;font-size:22px;line-height:1.4;color:#3e4a5a;max-width:510px}
 .url{position:absolute;left:68px;bottom:34px;font-family:"Sora",sans-serif;font-weight:700;font-size:20px}
-.shot{position:relative;margin-top:36px;height:560px;border-radius:14px 0 0 0;overflow:hidden;border:1px solid #cfd8e4;border-right:0;box-shadow:0 24px 60px -20px rgba(17,26,38,.35);background:#fff}
+.shot{position:relative;align-self:center;border-radius:14px 0 0 14px;overflow:hidden;border:1px solid #cfd8e4;border-right:0;box-shadow:0 24px 60px -20px rgba(17,26,38,.35);background:#fff}
 .shot .bar{height:30px;background:#eef2f7;border-bottom:1px solid #e3e9f1;display:flex;align-items:center;gap:7px;padding-left:14px}
 .shot .bar i{width:10px;height:10px;border-radius:50%;display:block}
-.shot img{display:block;width:1000px;height:auto}
+.shot img{display:block;width:100%;height:auto}
 .badges{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;max-width:520px}
 .badge{font-size:16px;font-weight:600;padding:9px 15px;border-radius:999px;background:#fff;border:1px solid #cfd8e4;box-shadow:0 1px 2px rgba(17,26,38,.06)}
 .badge.red{background:#d42a2a;border-color:#d42a2a;color:#fff}
