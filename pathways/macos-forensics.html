@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"macOS Forensics","item":"https://redherrings.app/pathways/macos-forensics.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/macos-forensics.html#course","name":"macOS Forensics Practice Labs","url":"https://redherrings.app/pathways/macos-forensics.html","description":"Six macOS forensics labs aligned to the FOR518 objectives: quarantine database, Safari history, TCC consent, LaunchAgent persistence and insider exfil.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Trace a download with the quarantine database and Safari history.","Read the TCC privacy database: which app holds Screen Recording and Full Disk Access.","Find a LaunchAgent relaunching a dropped payload.","Correlate a TCC grant with the download and the tccd log to trace monitoring-ware.","Reconstruct data exfiltration from a departing employee's Mac.","Capstone: a full spyware compromise across TCC, a beaconing LaunchDaemon, and exfil."],"about":["Advanced Forensics & IR","Foundations","macOS Forensics"],"isAccessibleForFree":false,"timeRequired":"PT6H18M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT6H18M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"SANS FOR518 published objectives","targetName":"SANS FOR518"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"macOS Forensics","item":"https://redherrings.app/pathways/macos-forensics.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/macos-forensics.html#course","name":"macOS Forensics Practice Labs","url":"https://redherrings.app/pathways/macos-forensics.html","description":"Six macOS forensics labs aligned to the FOR518 objectives: quarantine database, Safari history, TCC consent, LaunchAgent persistence and insider exfil.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Trace a download with the quarantine database and Safari history.","Read the TCC privacy database and its consent records.","Trace macOS persistence back to its download.","Correlate TCC, quarantine and unified-log records.","Work shell, browser and unified-log history on a departing employee's Mac.","Capstone: five macOS artifacts, one timeline."],"about":["Advanced Forensics & IR","Foundations","macOS Forensics"],"isAccessibleForFree":false,"timeRequired":"PT6H18M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT6H18M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"SANS FOR518 published objectives","targetName":"SANS FOR518"}}]}
 </script>
 </head>
 <body>
@@ -87,27 +87,27 @@
       <li class="rowitem">
         <div class="n">02</div>
         <h3><a href="/cases.html#easy-macos-privacy">First Look: What Can Each App See?</a></h3>
-        <div class="body"><p style="margin:0 0 10px">Read the TCC privacy database: which app holds Screen Recording and Full Disk Access.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag easy">EASY</span><span>~33 min</span><span>Up to 15 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Read the TCC privacy database and its consent records.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag easy">EASY</span><span>~33 min</span><span>Up to 15 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">03</div>
         <h3><a href="/cases.html#macos-persistence">Login Loop</a> <span style="color:var(--faint);font-weight:500">(A Launch Agent That Shouldn&#x27;t Be There)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Find a LaunchAgent relaunching a dropped payload.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 6 min</span><span>Up to 15 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Trace macOS persistence back to its download.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 6 min</span><span>Up to 15 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">04</div>
         <h3><a href="/cases.html#macos-tcc-spyware">Consent Granted</a> <span style="color:var(--faint);font-weight:500">(Who Is Watching the Screen?)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Correlate a TCC grant with the download and the tccd log to trace monitoring-ware.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 1 min</span><span>Up to 20 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Correlate TCC, quarantine and unified-log records.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 1 min</span><span>Up to 20 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">05</div>
         <h3><a href="/cases.html#macos-insider">Parting Gift</a> <span style="color:var(--faint);font-weight:500">(Mac Insider: Data Out the Back Door)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Reconstruct data exfiltration from a departing employee&#x27;s Mac.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~1 h 30 min</span><span>Up to 20 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Work shell, browser and unified-log history on a departing employee&#x27;s Mac.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~1 h 30 min</span><span>Up to 20 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">06</div>
         <h3><a href="/cases.html#macos-capstone">House Guest</a> <span style="color:var(--faint);font-weight:500">(Mac Under Full Control)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Capstone: a full spyware compromise across TCC, a beaconing LaunchDaemon, and exfil.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~1 h 35 min</span><span>Up to 20 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Capstone: five macOS artifacts, one timeline.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~1 h 35 min</span><span>Up to 20 questions</span></div></div>
       </li>
     </ol>
   </section>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ransomware Incident Response Practice Labs | Red Herrings</title>
-<meta name="description" content="Five ransomware incident response labs in kill-chain order: phishing to C2, pre-encryption staging, a live outbreak from the EDR feed and double extortion.">
+<meta name="description" content="Five ransomware incident response labs in kill-chain order: phishing to C2, a server caught mid-setup, a live outbreak from the EDR feed and double extortion.">
 <link rel="canonical" href="https://redherrings.app/pathways/ransomware-ir.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:title" content="Ransomware Incident Response Practice Labs | Red Herrings">
-<meta property="og:description" content="Five ransomware incident response labs in kill-chain order: phishing to C2, pre-encryption staging, a live outbreak from the EDR feed and double extortion.">
+<meta property="og:description" content="Five ransomware incident response labs in kill-chain order: phishing to C2, a server caught mid-setup, a live outbreak from the EDR feed and double extortion.">
 <meta property="og:url" content="https://redherrings.app/pathways/ransomware-ir.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-43d06c49.png">
 <meta property="og:image:width" content="1200">
@@ -23,13 +23,13 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ransomware Incident Response Practice Labs | Red Herrings">
-<meta name="twitter:description" content="Five ransomware incident response labs in kill-chain order: phishing to C2, pre-encryption staging, a live outbreak from the EDR feed and double extortion.">
+<meta name="twitter:description" content="Five ransomware incident response labs in kill-chain order: phishing to C2, a server caught mid-setup, a live outbreak from the EDR feed and double extortion.">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-43d06c49.png">
 <meta name="twitter:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Ransomware Incident Response","item":"https://redherrings.app/pathways/ransomware-ir.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/ransomware-ir.html#course","name":"Ransomware Incident Response Practice Labs","url":"https://redherrings.app/pathways/ransomware-ir.html","description":"Five ransomware incident response labs in kill-chain order: phishing to C2, pre-encryption staging, a live outbreak from the EDR feed and double extortion.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Intermediate to advanced","teaches":["Initial access: phishing to command-and-control.","Staging, credential access and log-clearing.","A fast-moving outbreak worked live from the EDR feed.","Encryption plus data-theft extortion.","Capstone: the full double-extortion incident, start to finish."],"about":["Advanced Forensics & IR","Network Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT11H51M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT11H51M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Ransomware Incident Response","item":"https://redherrings.app/pathways/ransomware-ir.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/ransomware-ir.html#course","name":"Ransomware Incident Response Practice Labs","url":"https://redherrings.app/pathways/ransomware-ir.html","description":"Five ransomware incident response labs in kill-chain order: phishing to C2, a server caught mid-setup, a live outbreak from the EDR feed and double extortion.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Intermediate to advanced","teaches":["Initial access: from an opened document to outbound traffic.","Catch an operator's setup before encryption.","A fast-moving outbreak worked live from the EDR feed.","Test a ransom note's claims against the evidence.","Capstone: the full hospital incident, start to finish."],"about":["Advanced Forensics & IR","Network Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT11H51M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT11H51M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"}}]}
 </script>
 </head>
 <body>
@@ -64,7 +64,7 @@
     <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / <a href="/pathways.html">Pathways</a> / Ransomware Incident Response</div>
     <span class="kicker">Role path &middot; Incident Response</span>
     <h1 style="max-width:18ch">Ransomware incident response labs, the kill chain in order</h1>
-    <p class="lede" style="margin-left:0">Ransomware response expects a team that can place itself on the kill chain at any moment: recognize the phish and the command-and-control that followed, spot staging, credential access and log-clearing before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand alongside recovery.</p>
+    <p class="lede" style="margin-left:0">Ransomware response expects a team that can place itself on the kill chain at any moment: recognize the phish and the command-and-control that followed, spot the setup work before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand alongside recovery.</p>
     <p class="lede" style="margin-left:0;font-size:17px">This pathway is the ransomware arc end to end. Patient Zero covers initial access, Dry Run covers everything the actor does before the payload, First Call is the live outbreak, Double Cross adds data theft and extortion, and Nightfall is the complete incident worked start to finish. All five are hard or expert; this is the path for a team that already knows the basics.</p>
     <div class="cta-row hero-cta" style="justify-content:flex-start;margin-top:26px">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-pathway-ransomware-ir">Start a free 30-day trial<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -82,12 +82,12 @@
       <li class="rowitem">
         <div class="n">01</div>
         <h3><a href="/cases.html#phishing-c2">Patient Zero</a> <span style="color:var(--faint);font-weight:500">(Phishing to Malware to Command and Control)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Initial access: phishing to command-and-control.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~2 h 39 min</span><span>Up to 25 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Initial access: from an opened document to outbound traffic.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~2 h 39 min</span><span>Up to 25 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">02</div>
-        <h3><a href="/cases.html#ransomware-precursor">Dry Run</a> <span style="color:var(--faint);font-weight:500">(Ransomware Precursor: Staging and Log Clearing)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Staging, credential access and log-clearing.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~2 h 14 min</span><span>Up to 20 questions</span></div></div>
+        <h3><a href="/cases.html#ransomware-precursor">Dry Run</a> <span style="color:var(--faint);font-weight:500">(Ransomware Precursor: Caught Mid-Setup)</span></h3>
+        <div class="body"><p style="margin:0 0 10px">Catch an operator&#x27;s setup before encryption.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~2 h 14 min</span><span>Up to 20 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">03</div>
@@ -97,12 +97,12 @@
       <li class="rowitem">
         <div class="n">04</div>
         <h3><a href="/cases.html#ransomware-double-extortion">Double Cross</a> <span style="color:var(--faint);font-weight:500">(Ransomware: Double Extortion)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Encryption plus data-theft extortion.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~2 h 29 min</span><span>Up to 25 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Test a ransom note&#x27;s claims against the evidence.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~2 h 29 min</span><span>Up to 25 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">05</div>
         <h3><a href="/cases.html#ir-marquee-nightfall">Nightfall</a> <span style="color:var(--faint);font-weight:500">(Operation Nightfall)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Capstone: the full double-extortion incident, start to finish.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag expert">EXPERT</span><span>~3 h 14 min</span><span>Up to 35 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Capstone: the full hospital incident, start to finish.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag expert">EXPERT</span><span>~3 h 14 min</span><span>Up to 35 questions</span></div></div>
       </li>
     </ol>
   </section>

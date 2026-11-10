@@ -292,7 +292,7 @@ COPY = {
     "gasf-mobile": {
         "title": "GASF Mobile Forensics Practice Labs",
         "h1": ("GASF practice labs,", "one extraction at a time"),
-        "desc": "Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, WhatsApp data, deleted SQLite records and location trails, to a collusion capstone.",
+        "desc": "Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, messenger data, deleted SQLite records and location trails, to a collusion capstone.",
         "expects": "The GASF objectives expect an examiner who can take a mobile extraction and recover what matters: messages, contacts and call logs; third-party app data in SQLite; deleted records still sitting in freelists and write-ahead logs; and the location and activity artifacts that place a device at a time and a place.",
         "builds": "This pathway starts with a single recovered phone and adds one skill per case: application databases, tying messages to an outside event, deleted-record recovery, location trails, and call detail records. The capstone puts the mobile evidence inside a collusion case with Windows artifacts, so the final step is correlation across devices rather than one more parser.",
         "who": [
@@ -306,7 +306,7 @@ COPY = {
         "h1": ("GNFA practice labs,", "one capture at a time"),
         "desc": "Six network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP exfiltration, VPN beaconing and C2 traffic, through a breach capstone.",
         "expects": "The GNFA objectives expect an analyst who can open a packet capture and tell the story in it: follow streams, read protocols in the clear, find data leaving over HTTP, spot a beacon by its timing, recover cleartext credentials, and connect network evidence to what the hosts recorded.",
-        "builds": "This pathway opens with a single capture and a few protocols, then moves to HTTP exfiltration, a beacon hiding behind a compromised VPN account, a phishing chain traced through to command-and-control, and a supply-chain update calling home. The capstone is a multi-department breach where the network evidence has to be reconciled with host and mobile artifacts.",
+        "builds": "This pathway opens with a single capture and a few protocols, then moves to HTTP exfiltration, a beacon hiding behind a compromised VPN account, a phishing chain traced through to command-and-control, and an urgent update followed from the browser into memory. The capstone is a multi-department breach where the network evidence has to be reconciled with host and mobile artifacts.",
         "who": [
             ("Candidates preparing for the GNFA", "who want to work captures in Wireshark, Zeek or tshark with a verified answer to check against."),
             ("Instructors teaching network forensics", "who need captures that differ per student but grade to the same rubric."),
@@ -353,8 +353,8 @@ COPY = {
         "title": "Insider Threat Investigation Practice Labs",
         "h1": ("Insider threat investigation labs,", "one case at a time"),
         "desc": "Six insider threat investigation labs: unauthorized record access, USB data theft, secrets texted out, data pasted into an AI tool, cloud exfil and a capstone.",
-        "expects": "Insider investigations ask different questions from intrusion cases. The suspect already had access, so the examiner has to prove intent and movement: which records were opened and when, what left on a USB drive, what was texted or pasted somewhere it should not have been, what synced to a personal cloud, and who else was involved.",
-        "builds": "This pathway runs through the common insider patterns one at a time, each as a complete case with a report to write: snooping, USB theft, SMS leaks, data pasted into an AI assistant and personal cloud sync. The capstone is a collusion case that combines Windows and mobile evidence and asks for the full story, not one artifact.",
+        "expects": "Insider investigations ask different questions from intrusion cases. The suspect already had access, so the examiner has to prove intent and movement: which records were opened and when, what left on a USB drive, what was texted or pasted somewhere it shouldn't have been, what was exported and where it went, and who else was involved.",
+        "builds": "This pathway runs through the common insider patterns one at a time, each as a complete case with a report to write: snooping, USB theft, SMS leaks, data pasted into an AI assistant and a customer export. The capstone is a collusion case that combines Windows and mobile evidence and asks for the full story, not one artifact.",
         "who": [
             ("Corporate investigators and HR-adjacent security staff", "who handle policy violations and need defensible, repeatable findings."),
             ("Instructors teaching an insider-threat or ethics unit", "who want realistic cases without a nation-state actor."),
@@ -365,8 +365,8 @@ COPY = {
         "title": "GCIH Incident Handling Practice Labs",
         "h1": ("GCIH practice labs,", "one incident at a time"),
         "desc": "Ten incident handling labs aligned to the GCIH objectives: EDR and SIEM triage, phishing, web shells, lateral movement and ransomware, mapped to ATT&CK.",
-        "expects": "The GCIH objectives expect a handler who can run an incident through its phases: triage a detection and decide what it means, trace the initial access, follow the move from a beachhead to the next host, spot staging before the payload, contain a live outbreak, and write up the lessons learned, with each behavior named by its ATT&CK technique.",
-        "builds": "This pathway follows the incident-handling kill chain from the responder's own tooling. It opens with an EDR detection and a SIEM queue, then works initial access, lateral movement and pre-ransomware staging as full cases, and closes the hard tier with a live outbreak and a timed ransomware drill. The capstone is a double-extortion incident worked through every NIST phase.",
+        "expects": "The GCIH objectives expect a handler who can run an incident through its phases: triage a detection and decide what it means, trace the initial access, follow the move from a beachhead to the next host, catch an operator's setup before the payload, contain a live outbreak, and write up the lessons learned, with each behavior named by its ATT&CK technique.",
+        "builds": "This pathway follows the incident-handling kill chain from the responder's own tooling. It opens with an EDR detection and a SIEM queue, then works initial access, lateral movement and a server caught before encryption as full cases, and closes the hard tier with a live outbreak and a timed ransomware drill. The capstone is a double-extortion incident worked through every NIST phase.",
         "who": [
             ("Candidates preparing for the GCIH", "who want to work real EDR and SIEM exports, not multiple-choice scenarios."),
             ("Instructors running an incident response course", "who need the 8-week IR course pack with labs that grade across sections."),
@@ -389,8 +389,8 @@ COPY = {
         "title": "GCFR Cloud and Enterprise IR Practice Labs",
         "h1": ("GCFR practice labs,", "one tenant at a time"),
         "desc": "Eight cloud IR labs aligned to the GCFR objectives: sign-in logs, MFA fatigue, M365 inbox rules, a leaked GCP key, Kubernetes cryptojacking, a stolen key.",
-        "expects": "The GCFR objectives expect a responder who can investigate identity and cloud audit logs without a disk image: anomalous sign-ins and legacy authentication, MFA-fatigue takeovers, hidden mailbox rules and role abuse in Microsoft 365, leaked service-account keys and tokens across a project, and data pulled from the cloud by an account that should not have had it.",
-        "builds": "This pathway starts with a single cloud sign-in log and adds one identity or platform at a time: MFA fatigue, Exchange inbox rules, a full M365 takeover, a leaked GCP key, a cryptojacking pod in Kubernetes and personal cloud exfiltration. The capstone is a stolen access key used across a tenant, which has to be traced through every log the provider writes.",
+        "expects": "The GCFR objectives expect a responder who can investigate identity and cloud audit logs without a disk image: anomalous sign-ins, MFA-fatigue takeovers, hidden mailbox rules and role abuse in Microsoft 365, leaked service-account keys and tokens across a project, and data pulled from the cloud by an account that should not have had it.",
+        "builds": "This pathway starts with a single cloud sign-in log and adds one identity or platform at a time: MFA fatigue, Exchange inbox rules, a full M365 takeover, a leaked GCP key, a cryptojacking pod in Kubernetes and a customer export that left the company. The capstone is a stolen access key used across a tenant, which has to be traced through every log the provider writes.",
         "who": [
             ("Candidates preparing for the GCFR", "who want to work real audit-log exports in JSON and CSV, not console screenshots."),
             ("Instructors adding cloud to an IR course", "who need labs that need no cloud account to solve."),
@@ -401,7 +401,7 @@ COPY = {
         "title": "GCFA Advanced Forensics and IR Practice Labs",
         "h1": ("GCFA practice labs,", "one intrusion at a time"),
         "desc": "Seven advanced forensics and IR labs aligned to the GCFA objectives: memory triage, injected code, rogue admins, anti-forensics and a ransomware capstone.",
-        "expects": "The GCFA objectives expect an examiner who can take a compromised host apart: baseline processes and connections in memory, find injected code and unlinked modules, trace a rogue admin across host artifacts, recognize staging and log-clearing before a payload, follow credential theft to lateral movement, and build the full intrusion timeline.",
+        "expects": "The GCFA objectives expect an examiner who can take a compromised host apart: baseline processes and connections in memory, find injected code and unlinked modules, trace a rogue admin across host artifacts, recognize an attacker's setup work before a payload, follow credential theft to lateral movement, and build the full intrusion timeline.",
         "builds": "This pathway is the host-based capstone track. It starts with memory because every later case depends on it, moves through a rogue admin and memory injection, then works anti-forensics, credential theft and a full double-extortion case. The capstone, Operation Ledger, is a complete ransomware intrusion that asks for the whole timeline with every technique named.",
         "who": [
             ("Candidates preparing for the GCFA", "who want full intrusions to take apart with Volatility, timeline tools and the event logs."),
@@ -412,8 +412,8 @@ COPY = {
     "ransomware-ir": {
         "title": "Ransomware Incident Response Practice Labs",
         "h1": ("Ransomware incident response labs,", "the kill chain in order"),
-        "desc": "Five ransomware incident response labs in kill-chain order: phishing to C2, pre-encryption staging, a live outbreak from the EDR feed and double extortion.",
-        "expects": "Ransomware response expects a team that can place itself on the kill chain at any moment: recognize the phish and the command-and-control that followed, spot staging, credential access and log-clearing before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand alongside recovery.",
+        "desc": "Five ransomware incident response labs in kill-chain order: phishing to C2, a server caught mid-setup, a live outbreak from the EDR feed and double extortion.",
+        "expects": "Ransomware response expects a team that can place itself on the kill chain at any moment: recognize the phish and the command-and-control that followed, spot the setup work before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand alongside recovery.",
         "builds": "This pathway is the ransomware arc end to end. Patient Zero covers initial access, Dry Run covers everything the actor does before the payload, First Call is the live outbreak, Double Cross adds data theft and extortion, and Nightfall is the complete incident worked start to finish. All five are hard or expert; this is the path for a team that already knows the basics.",
         "who": [
             ("Security teams and on-call rotations", "who want a structured ransomware drill series with verified answer keys."),

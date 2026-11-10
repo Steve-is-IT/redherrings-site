@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GASF Mobile Forensics Practice Labs | Red Herrings</title>
-<meta name="description" content="Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, WhatsApp data, deleted SQLite records and location trails, to a collusion capstone.">
+<meta name="description" content="Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, messenger data, deleted SQLite records and location trails, to a collusion capstone.">
 <link rel="canonical" href="https://redherrings.app/pathways/gasf-mobile.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:title" content="GASF Mobile Forensics Practice Labs | Red Herrings">
-<meta property="og:description" content="Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, WhatsApp data, deleted SQLite records and location trails, to a collusion capstone.">
+<meta property="og:description" content="Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, messenger data, deleted SQLite records and location trails, to a collusion capstone.">
 <meta property="og:url" content="https://redherrings.app/pathways/gasf-mobile.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-43d06c49.png">
 <meta property="og:image:width" content="1200">
@@ -23,13 +23,13 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GASF Mobile Forensics Practice Labs | Red Herrings">
-<meta name="twitter:description" content="Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, WhatsApp data, deleted SQLite records and location trails, to a collusion capstone.">
+<meta name="twitter:description" content="Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, messenger data, deleted SQLite records and location trails, to a collusion capstone.">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-43d06c49.png">
 <meta name="twitter:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Mobile Forensics (GASF)","item":"https://redherrings.app/pathways/gasf-mobile.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gasf-mobile.html#course","name":"GASF Mobile Forensics Practice Labs","url":"https://redherrings.app/pathways/gasf-mobile.html","description":"Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, WhatsApp data, deleted SQLite records and location trails, to a collusion capstone.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Read SMS, contacts and call logs from an extraction.","App data: reconstruct a WhatsApp conversation.","Tie messages to a data leak.","Recover deleted messages from SQLite.","Place a device with location artifacts.","Call detail records, SMS and deleted-message recovery in one case.","A pig-butchering crypto scam across SMS, WhatsApp and the call log.","Capstone: mobile evidence inside a collusion case."],"about":["Advanced Forensics & IR","Foundations","Mobile Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT16H27M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT16H27M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GASF published objectives","targetName":"GIAC GASF"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Mobile Forensics (GASF)","item":"https://redherrings.app/pathways/gasf-mobile.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gasf-mobile.html#course","name":"GASF Mobile Forensics Practice Labs","url":"https://redherrings.app/pathways/gasf-mobile.html","description":"Seven mobile forensics labs aligned to the GASF objectives: SMS, call logs, messenger data, deleted SQLite records and location trails, to a collusion capstone.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Read SMS, contacts and call logs from an extraction.","Look past the SMS store into third-party app databases.","Tie SMS, contacts and timestamps to a leak complaint.","Recover deleted messages from SQLite.","Place a device with location artifacts.","Call detail records, SMS and deleted-message recovery in one case.","Trace an investment fraud across messages, app data and the call log.","Capstone: tie phone evidence to workstation, mail and cloud logs."],"about":["Advanced Forensics & IR","Foundations","Mobile Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT16H27M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT16H27M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GASF published objectives","targetName":"GIAC GASF"}}]}
 </script>
 </head>
 <body>
@@ -86,13 +86,13 @@
       </li>
       <li class="rowitem">
         <div class="n">02</div>
-        <h3><a href="/cases.html#mobile-whatsapp">Off the Record</a> <span style="color:var(--faint);font-weight:500">(The Deal on WhatsApp)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">App data: reconstruct a WhatsApp conversation.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 10 min</span><span>Up to 20 questions</span></div></div>
+        <h3><a href="/cases.html#mobile-whatsapp">Off the Record</a> <span style="color:var(--faint);font-weight:500">(The Other Messenger)</span></h3>
+        <div class="body"><p style="margin:0 0 10px">Look past the SMS store into third-party app databases.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 10 min</span><span>Up to 20 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">03</div>
         <h3><a href="/cases.html#mobile-data-leak-sms">Open Secret</a> <span style="color:var(--faint);font-weight:500">(Texting Secrets to a Competitor)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Tie messages to a data leak.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 10 min</span><span>Up to 20 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Tie SMS, contacts and timestamps to a leak complaint.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag medium">MEDIUM</span><span>~1 h 10 min</span><span>Up to 20 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">04</div>
@@ -112,12 +112,12 @@
       <li class="rowitem">
         <div class="n">07</div>
         <h3><a href="/cases.html#pig-butchering-scam">Fattened Calf</a> <span style="color:var(--faint);font-weight:500">(Pig Butchering: The Investment That Vanished)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">A pig-butchering crypto scam across SMS, WhatsApp and the call log.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~1 h 35 min</span><span>Up to 20 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Trace an investment fraud across messages, app data and the call log.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag hard">HARD</span><span>~1 h 35 min</span><span>Up to 20 questions</span></div></div>
       </li>
       <li class="rowitem">
         <div class="n">08</div>
         <h3><a href="/cases.html#expert-inside-job">Inside Job</a> <span style="color:var(--faint);font-weight:500">(Insider and Collusion)</span></h3>
-        <div class="body"><p style="margin:0 0 10px">Capstone: mobile evidence inside a collusion case.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag expert">EXPERT</span><span>~7 h 24 min</span><span>Up to 30 questions</span></div></div>
+        <div class="body"><p style="margin:0 0 10px">Capstone: tie phone evidence to workstation, mail and cloud logs.</p><div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)"><span class="tag expert">EXPERT</span><span>~7 h 24 min</span><span>Up to 30 questions</span></div></div>
       </li>
     </ol>
   </section>
