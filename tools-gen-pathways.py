@@ -20,6 +20,7 @@ import sys
 
 sys.path.insert(0, "/home/user/redherrings")
 from redherrings import packs, pathways  # noqa: E402
+from redherrings.engine.util import up_to_questions  # noqa: E402
 
 E = lambda s: html.escape(str(s or ""), quote=True)
 
@@ -460,7 +461,7 @@ def page_step_html(i, s):
     if s.get("minutes"):
         meta.append(f'<span>{E(fmt_minutes(s["minutes"]))}</span>')
     if s.get("questions"):
-        meta.append(f'<span>{s["questions"]} questions</span>')
+        meta.append(f'<span>{E(up_to_questions(s["questions"]))}</span>')
     return (f'      <li class="rowitem">\n'
             f'        <div class="n">{i:02d}</div>\n'
             f'        <h3><a href="/cases.html#{E(s["id"])}">{E(name)}</a>{sub}</h3>\n'

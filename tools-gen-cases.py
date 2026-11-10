@@ -7,11 +7,13 @@ with the real builtin library.
 """
 import html
 import json
+import re
 import sys
 sys.path.insert(0, "/home/user/redherrings")
 from redherrings import packs, tracks, attack, paths  # noqa: E402
 from redherrings.engine.dsl import load_scenario  # noqa: E402
 from redherrings.engine.variant import Variant  # noqa: E402
+from redherrings.engine.util import questions_up_to  # noqa: E402
 
 E = lambda s: html.escape(str(s or ""), quote=True)
 
@@ -22,9 +24,10 @@ EVIDENCE_LABEL = {
     "email": "Mailbox (*.eml)", "linux": "Linux logs (*.log)", "macos": "macOS (*.plist)", "disk": "Disk image (*.dd)",
 }
 
-def ev_label(a, types):
-    """A Linux case's memory image is LiME, not a Windows crash dump."""
-    if a == "memory" and "linux" in (types or []):
+def ev_label(a, types, host_os=""):
+    """A Linux case's memory image is LiME, not a Windows crash dump. Same test
+    as the app's evLabel: a linux artifact type or a Linux host OS."""
+    if a == "memory" and ("linux" in (types or []) or re.search(r"linux|debian|ubuntu", host_os or "", re.I)):
         return "Memory image (*.lime)"
     return EVIDENCE_LABEL.get(a, a.title())
 
@@ -70,7 +73,8 @@ def _render_preview(sc, text):
 
 def build_detail(meta, sc):
     """Public-facing detail payload for the lightbox: briefing + sample questions,
-    with no answers or answer keys."""
+    with no answers or answer keys. No points (the instructor sets those) and no
+    exact question count: the pool shows as "up to N", rounded up to a multiple of 5."""
     disc = meta.get("discipline", "digital-forensics")
     ir = disc == "incident-response"
     ed = eff_diff(meta)
@@ -79,7 +83,7 @@ def build_detail(meta, sc):
     qs = []
     for q in (sc.questions if sc else [])[:6]:
         qs.append({"prompt": _render_preview(sc, q.prompt), "type": q.type,
-                   "points": q.points, "phase": getattr(q, "phase", "")})
+                   "phase": getattr(q, "phase", "")})
     total_q = len(sc.questions) if sc else meta.get("questions", 0)
     if ir:
         chips = [{"label": TACTICS.get(t, t), "cls": "tac-" + t} for t in (meta.get("tactics") or [])]
@@ -91,10 +95,10 @@ def build_detail(meta, sc):
         "disc": "Incident Response" if ir else "Digital Forensics",
         "discCls": "ir" if ir else "df",
         "diff": DIFF_LABEL.get(ed, ed.title()), "diffCls": DIFF_PILLCLASS.get(ed, ed),
-        "est": meta.get("estimated_minutes"), "qcount": total_q, "points": round(meta.get("points") or 0),
-        "evidence": [ev_label(a, meta.get("artifact_types")) for a in (meta.get("artifact_types") or [])],
+        "est": meta.get("estimated_minutes"), "qmax": questions_up_to(total_q),
+        "evidence": [ev_label(a, meta.get("artifact_types"), meta.get("host_os")) for a in (meta.get("artifact_types") or [])],
         "tools": meta.get("tools") or [], "chips": chips,
-        "briefing": briefing, "questions": qs, "moreq": max(0, total_q - len(qs)),
+        "briefing": briefing, "questions": qs, "moreq": total_q > len(qs),
     }
 
 
@@ -104,7 +108,7 @@ def card(s):
     ed = eff_diff(s)
     pill_cls = DIFF_PILLCLASS.get(ed, ed)
     pill_lbl = DIFF_LABEL.get(ed, ed.title())
-    ev_items = [ev_label(a, s.get("artifact_types")) for a in (s.get("artifact_types") or [])]
+    ev_items = [ev_label(a, s.get("artifact_types"), s.get("host_os")) for a in (s.get("artifact_types") or [])]
     ev_spans = "".join(f'<span>{E(x)}</span>' for x in ev_items)
     ev_block = (f'      <div class="cc-ev-label">Evidence Types</div>\n'
                 f'      <div class="cc-ev">{ev_spans}</div>\n') if ev_items else ""
@@ -140,7 +144,7 @@ def featured_block(scen):
     slots = []
     for i, s in enumerate(ms):
         disc = "Incident Response" if s.get("discipline") == "incident-response" else "Digital Forensics"
-        ev = "\u00a0/ ".join(ev_label(a, s.get("artifact_types")).replace(" ", "\u00a0") for a in (s.get("artifact_types") or []))
+        ev = "\u00a0/ ".join(ev_label(a, s.get("artifact_types"), s.get("host_os")).replace(" ", "\u00a0") for a in (s.get("artifact_types") or []))
         meta = (ev + " &middot; " if ev else "") + disc
         slots.append(
             f'  <article class="feature-wide marquee fm-slot" data-i="{i}"{"" if i == 0 else " hidden"}>\n'
@@ -387,15 +391,15 @@ MODAL_JS = r'''<script>
   function openCase(id){
     var c=CASES[id]; if(!c) return;
     var chips=(c.chips||[]).map(function(x){return '<span class="chip '+x.cls+'">'+esc(x.label)+'</span>';}).join("");
-    var meta=[]; if(c.est)meta.push("~"+c.est+" min");
+    var meta=[]; if(c.est)meta.push("~"+c.est+" min"); if(c.qmax)meta.push("Up to "+c.qmax+" questions");
     var ev=(c.evidence||[]).map(function(x){return '<span class="chip">'+esc(x)+'</span>';}).join("");
     var tools=(c.tools||[]).map(function(x){return '<span class="chip tool">'+esc(x)+'</span>';}).join("");
     var brief=(c.briefing||[]).map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
     var qs=(c.questions||[]).map(function(q){
       var ph=q.phase?' &middot; '+esc(q.phase.replace(/-/g," ")):"";
-      return '<li><span class="cm-qtext">'+esc(q.prompt)+'</span><span class="cm-qmeta">'+esc(q.type)+' &middot; '+q.points+' pts'+ph+'</span></li>';
+      return '<li><span class="cm-qtext">'+esc(q.prompt)+'</span><span class="cm-qmeta">'+esc(q.type)+ph+'</span></li>';
     }).join("");
-    var more=c.moreq>0?'<p class="cm-note">+ '+c.moreq+' more questions in the full case: you choose how many each student gets, drawn as a unique set per student.</p>':"";
+    var more=c.moreq?'<p class="cm-note">More questions in the full case. You choose how many each student gets, drawn as a unique set per student.</p>':"";
     body.innerHTML =
       '<div class="cm-head"><span class="dpill '+c.diffCls+'">'+esc(c.diff)+'</span>'+
         '<span class="cm-disc disc-'+c.discCls+'">'+esc(c.disc)+'</span></div>'+
