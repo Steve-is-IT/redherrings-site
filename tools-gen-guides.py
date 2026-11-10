@@ -197,18 +197,16 @@ def team_main():
         tac = ", ".join(attack.tactic(t)["label"] for t in attack.tactics_for(cid, INDEX[cid].get("tactics")) if attack.known_tactic(t))
         rows.append(f'<tr><td>{case_link(cid)}<div class="obj">{E(s.get("note"))}</div></td><td>{diff_tag(cid)}</td>'
                     f'<td class="mono">{minutes(s["minutes"])}</td><td>{E(tac)}</td><td>{access_tag(cid)}</td></tr>')
-    # ATT&CK coverage: every technique the plan exercises, with the cases that carry it.
-    tech = {}
-    for s in steps:
-        for t in attack.techniques_for(s["id"], INDEX[s["id"]].get("techniques")):
-            tech.setdefault(t, []).append(s["id"])
-    cov = []
-    for t in sorted(tech):
-        names = ", ".join(E(INDEX[c]["name"]) for c in tech[t])
-        cov.append(f'<tr><td class="mono"><a href="https://attack.mitre.org/techniques/{E(t.replace(".", "/"))}/">{E(t)}</a></td>'
-                   f'<td>{E(attack.technique_name(t))}</td><td>{names}</td></tr>')
+    # ATT&CK coverage by tactic. Technique ids per case stay off the page: some
+    # questions ask students to name the technique, so listing a case's
+    # techniques here would hand them the answer.
+    tech = {t for s in steps for t in attack.techniques_for(s["id"], INDEX[s["id"]].get("techniques"))}
     tactics = sorted({t for s in steps for t in attack.tactics_for(s["id"], INDEX[s["id"]].get("tactics")) if attack.known_tactic(t)},
                      key=attack.TACTIC_SLUGS.index)
+    cov = []
+    for t in tactics:
+        n = sum(1 for s in steps if t in attack.tactics_for(s["id"], INDEX[s["id"]].get("tactics")))
+        cov.append(f'<tr><td>{E(attack.tactic(t)["label"])}</td><td class="mono">{n}</td></tr>')
     ids = [s["id"] for s in steps]
     f, tr = trial_counts(ids)
     return f'''
@@ -229,8 +227,8 @@ def team_main():
 
   <section>
     <div class="secthead"><h2 class="opener">ATT&amp;CK coverage</h2>
-      <p class="osub">The plan touches {len(tactics)} of the 12 enterprise tactics ({E(", ".join(attack.tactic(t)["label"] for t in tactics))}) through {len(tech)} techniques. The full map for every case is on the <a href="attack.html">ATT&amp;CK page</a>.</p></div>
-    <div class="tablewrap"><table class="gt"><thead><tr><th>Technique</th><th>Name</th><th>Exercised in</th></tr></thead><tbody>{"".join(cov)}</tbody></table></div>
+      <p class="osub">The plan touches {len(tactics)} of the 12 enterprise tactics through {len(tech)} techniques. The table counts the cases in the plan that exercise each tactic; the <a href="attack.html">ATT&amp;CK page</a> covers the whole library.</p></div>
+    <div class="tablewrap"><table class="gt"><thead><tr><th>Tactic</th><th>Cases in the plan</th></tr></thead><tbody>{"".join(cov)}</tbody></table></div>
   </section>
 
   <section>
