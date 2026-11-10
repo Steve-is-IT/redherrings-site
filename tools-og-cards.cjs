@@ -48,7 +48,7 @@ const CARDS = {
   home: [
     `<div class="kick">Digital Forensics &amp; Incident Response</div>` +
     `<h1>Investigate real evidence, and build the DFIR skills to show for it.</h1>` +
-    `<p class="lede">Disk, memory, network, mobile and cloud evidence in their native formats, worked in the real industry tools.</p>` +
+    `<p class="lede">Disk, network, mobile, cloud and log evidence in their native formats, worked in the real industry tools.</p>` +
     `<div class="badges"><span class="badge">Forensics &amp; incident response</span>` +
     `<span class="badge red">GIAC &amp; MITRE pathways</span></div>`,
     shot("og-home-cases.jpg"),
@@ -92,6 +92,16 @@ function walk(dir, out) {
   return out;
 }
 
+function downscale(buf, w, h) {
+  const { execFileSync } = require("child_process");
+  const code = "import sys,io;from PIL import Image;im=Image.open(io.BytesIO(sys.stdin.buffer.read())).convert('RGB');" +
+    `im=im.resize((${w},${h}),Image.LANCZOS);o=io.BytesIO();im.save(o,'PNG',optimize=True);sys.stdout.buffer.write(o.getvalue())`;
+  for (const py of [process.env.PYTHON, "python3.13", "python3", "python"].filter(Boolean)) {
+    try { return execFileSync(py, ["-c", code], { input: buf, maxBuffer: 64 * 1024 * 1024 }); } catch (e) { /* try the next one */ }
+  }
+  throw new Error("downscale needs Python with Pillow (pip install pillow)");
+}
+
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const tmp = path.join(OUT, "_render.html");
@@ -102,7 +112,12 @@ function walk(dir, out) {
     fs.writeFileSync(tmp, pageHtml(left, right), "utf8");
     await pg.goto("file://" + tmp, { waitUntil: "networkidle" });
     await pg.waitForTimeout(600);
-    const png = await pg.screenshot();
+    // Render at 2x so the embedded app screenshot is sharp, then downscale
+    // with Lanczos to exactly the 1200x630 the og:image:width/height tags
+    // declare. LinkedIn shrinks an oversized image itself and its result is
+    // visibly soft; serving the declared size avoids that step.
+    const big = await pg.screenshot();
+    const png = downscale(big, 1200, 630);
     const h = crypto.createHash("sha256").update(png).digest("hex").slice(0, 8);
     const fn = `${name}-${h}.png`;
     fs.writeFileSync(path.join(OUT, fn), png);
