@@ -58,7 +58,7 @@ L = {
     "faq": ("FAQ", "Licensing, platforms, classroom use", "/#faq", "faq"),
     "compare": ("Compare", "Hand-built labs, public images, ranges and us", "/compare.html", "attack"),
     "resources": ("Free resources", "Forms, checklists, rubrics and syllabi", "/resources.html", "blog"),
-    "sample": ("Sample lab", "A full case ZIP with its verified answer key", "/sample.html", "key"),
+    "sample": ("Sample lab", "A full case ZIP of real evidence", "/sample.html", "key"),
     "edu": ("Educators", "One instructor, auto-graded labs", "/#pricing", "edu"),
     "dept": ("Departments", "Several instructors, every case", "/#pricing", "edu"),
     "programs": ("College and university programs", "Labs, syllabi and procurement for departments", "/programs.html", "edu"),
