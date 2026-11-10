@@ -65,7 +65,7 @@ POSTS = [
          dek="Fix the clock, write display filters, read Conversations before packets, follow the stream, export objects, learn the DNS and HTTP columns, and save a filtered subset."),
     dict(slug="whats-new-student-portal-certificates", cls="c-course", cat="Product update",
          date="October 5, 2026", read="4 min read",
-         title="What's new: a student portal, certificates, and dozens more cases",
+         title="What's new: an account portal, certificates, and dozens more cases",
          dek="A self-serve account portal, printable certificates and badges, student and veteran pricing, and a library now dozens of cases strong across digital forensics and incident response."),
     dict(slug="autopsy-disk-image-analysis-walkthrough", cls="c-tool", cat="Tool guide", nodate=True,
          date="October 3, 2026", read="6 min read",
