@@ -71,7 +71,7 @@
     <p>Malware that beacons phones home on a schedule (every 60 seconds, every 5 minutes) to ask for instructions. In a capture, that shows up as connections to the same destination at suspiciously regular intervals. The giveaways a student learns to find:</p>
     <ul>
       <li><strong>Regular intervals.</strong> Human traffic is bursty and irregular; a beacon ticks like a metronome. Build a conversation list, sort by destination, and the repeat-offender endpoint stands out.</li>
-      <li><strong>Jitter.</strong> Smarter implants randomize the interval by a percentage to blend in, so the gaps aren't identical, but they still cluster around a mean. Learning to see a jittered beacon, not just a perfectly periodic one, is the real lesson.</li>
+      <li><strong>Jitter.</strong> Smarter implants randomize the interval by a percentage to blend in, so the gaps aren't identical, but they still cluster around a mean. Learning to see a jittered beacon, as well as a perfectly periodic one, is the real lesson.</li>
       <li><strong>Small, consistent payloads.</strong> The check-in request and its "nothing to do" reply tend to be a similar, small size each time, until the one beacon that carries a tasking or stages data and suddenly isn't small.</li>
       <li><strong>A destination that doesn't belong.</strong> A host no other machine on the network talks to, a raw IP with no DNS, or a domain that resolves oddly.</li>
     </ul>
@@ -82,7 +82,7 @@
     <p>Once a student has a candidate beacon, the next move is to reassemble it. In Wireshark, following the TCP or HTTP stream turns a scatter of packets into the actual conversation: the request headers, the user-agent the implant forges, the URI it calls, and whatever comes back. That's where a student confirms it's really C2 and not a noisy but benign service, and where the indicators worth escalating come from. The same reassembly skill pulls cleartext credentials out of an unencrypted login and reconstructs a file out of an HTTP transfer.</p>
 
     <h2>Tell it apart from the background</h2>
-    <p>The hard part of a realistic capture is the noise. Red Herrings network cases don't hand a student a clean two-host PCAP with nothing but the beacon in it. They include benign background traffic (ordinary web browsing, DNS, software that legitimately polls on a timer) so the student has to rule things out, not just spot the one obvious flow. Real captures carry DNS, HTTP transfers, cleartext credentials and bulk exfil alongside the C2, and the work is separating signal from the rest.</p>
+    <p>The hard part of a realistic capture is the noise. Red Herrings network cases don't hand a student a clean two-host PCAP with nothing but the beacon in it. They include benign background traffic (ordinary web browsing, DNS, software that legitimately polls on a timer) so the student has to rule things out rather than spot the one obvious flow. Real captures carry DNS, HTTP transfers, cleartext credentials and bulk exfil alongside the C2, and the work is separating signal from the rest.</p>
 
     <h2>A different capture for every student</h2>
     <p>Each student gets their own seeded PCAP: their own internal and C2 addresses, their own beacon interval and jitter, their own timestamps and payload sizes. The destination IP one student reports as the C2 server won't match anyone else's, so a copied answer is the wrong answer, and every generated capture is independently re-solved and verified by the <a href="../how.html">verification check</a> before release, so the answer key is provably correct against that student's packets. Guided mode can walk a learner from "look at the conversation list" to "sort by destination and watch the timing" to the answer, one question at a time.</p>
@@ -92,7 +92,7 @@
 
     <div class="cta">
       <strong>Want to run a C2 beaconing case with your class?</strong>
-      <p style="margin:8px 0 14px">The First Look cases are free, and a 30-day trial adds a set of sample cases. It runs on your machine, and you can generate a per-student PCAP with its own beacon in minutes.</p>
+      <p style="margin:8px 0 14px">The First Look cases are free, and a 30-day trial adds a set of sample cases. It runs on your machine, and you can generate a per-student PCAP with its own beacon.</p>
       <div class="cta-row">
         <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-blog">Learn for free</a>
         <a class="btn ghost" href="../pathways.html">See the network pathway</a>

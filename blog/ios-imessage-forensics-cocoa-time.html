@@ -98,7 +98,7 @@ ORDER BY m.date;</code></pre>
 
     <blockquote>Read an iPhone message date as Unix seconds and you land in 1970. Read it as Unix nanoseconds and you land tens of thousands of years in the future. The value is right there; the epoch is the whole exam.</blockquote>
 
-    <p>The correct decode has two steps. Divide by one billion to get seconds, then add <code>978307200</code>, the number of seconds between the Unix epoch of 1970 and the Mac epoch of 2001, to shift it onto Unix time. In SQLite that's the <code>datetime(m.date/1000000000 + 978307200, 'unixepoch')</code> expression above. The same transform applies to <code>date_read</code> and <code>date_delivered</code>, which lets a student prove not just when a message was sent but when it was actually read.</p>
+    <p>The correct decode has two steps. Divide by one billion to get seconds, then add <code>978307200</code>, the number of seconds between the Unix epoch of 1970 and the Mac epoch of 2001, to shift it onto Unix time. In SQLite that's the <code>datetime(m.date/1000000000 + 978307200, 'unixepoch')</code> expression above. The same transform applies to <code>date_read</code> and <code>date_delivered</code>, which lets a student prove when a message was sent and when it was read.</p>
 
     <p>There's a historical wrinkle worth mentioning to a class: before iOS 11, <code>message.date</code> was stored in <em>seconds</em> since 2001, not nanoseconds. A student who finds a nine- or ten-digit date rather than an eighteen-digit one is looking at an older device, and the divide-by-a-billion step would push them back to 2001. Teaching the two formats side by side makes the point that a timestamp means nothing without its epoch and its unit.</p>
 
@@ -114,7 +114,7 @@ ORDER BY m.date;</code></pre>
 
     <div class="cta">
       <strong>Want to put an iPhone sms.db in front of your class?</strong>
-      <p style="margin:8px 0 14px">The First Look cases are free, and a 30-day trial adds a set of sample cases. It runs on your machine, and you can generate a per-student iOS case with its own messages, contacts and timestamps in minutes.</p>
+      <p style="margin:8px 0 14px">The First Look cases are free, and a 30-day trial adds a set of sample cases. It runs on your machine, and you can generate a per-student iOS case with its own messages, contacts and timestamps.</p>
       <div class="cta-row">
         <a class="btn" href="../try.html" data-goatcounter-click="cta-trial-blog">Try a sample case</a>
         <a class="btn ghost" href="../cases.html">Browse the mobile cases</a>
