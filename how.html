@@ -79,7 +79,7 @@
       <div class="mr-text">
         <div class="eyebrow-sm">Pick a case</div>
         <h2>Dozens of cases across two disciplines, ready to run</h2>
-        <p><strong>Digital Forensics</strong> covers disk, registry, Windows event logs, memory, network captures (PCAP), mobile, cloud, Linux and macOS evidence, with certification-prep tracks for GCFE, GCFA, GNFA, GCFR and the SANS macOS/Linux tracks. <strong>Incident Response</strong> works from the responder's own EDR and SIEM feeds, mapped to <a href="attack.html">MITRE ATT&amp;CK</a>, with tracks for GCIH and CompTIA CySA+. Filter by discipline, difficulty or track, read the briefing and questions, or build your own in the visual editor.</p>
+        <p><strong>Digital Forensics</strong> covers disk, registry, Windows event logs, memory, network captures (PCAP), mobile, cloud, Linux and macOS evidence, with certification-prep tracks for GCFE, GASF, GNFA, GCFR and GCFA, plus Linux and macOS tracks aligned to SANS FOR577 and FOR518. <strong>Incident Response</strong> works from the responder's own EDR and SIEM feeds, mapped to <a href="attack.html">MITRE ATT&amp;CK</a>, with tracks for GCIH and CompTIA CySA+. Filter by discipline, difficulty or track, read the briefing and questions, or build your own in the visual editor.</p>
       </div>
       <div class="shot"><picture><source srcset="img/how-library.webp" type="image/webp"><img src="img/how-library.jpg" data-zoomable data-zoom-src="img/how-library-2x.jpg" width="1280" height="800" alt="The Red Herrings case library, filtered by discipline, difficulty and certification path"></picture></div>
     </div>
@@ -141,8 +141,8 @@
       </div>
       <div class="card">
         <h3>Memory</h3>
-        <p>A full Windows memory image in crash dump format that stock Volatility 3 opens: the process tree, command lines, DLLs, handles, sockets, drivers and registry hives in memory. Spot the injected code, the unlinked module and the C2 connection.</p>
-        <div class="chips"><span class="chip">.dmp crash dump</span><span class="chip">Volatility 3</span></div>
+        <p>A Windows memory image in crash dump format that stock Volatility 3 opens: the process tree, command lines, DLLs, handles, sockets, drivers and registry hives in memory, so pslist, netscan, malfind and ldrmodules have something to find. Two Linux cases ship a LiME image with the kernel's symbol table beside it.</p>
+        <div class="chips"><span class="chip">.dmp crash dump</span><span class="chip">.lime</span><span class="chip">Volatility 3</span></div>
       </div>
       <div class="card">
         <h3>Network captures</h3>
@@ -156,7 +156,7 @@
       </div>
       <div class="card">
         <h3>Email</h3>
-        <p>A full mbox mailbox with real headers (the Received chain, SPF and DKIM results) to trace a phishing message back to where it really came from.</p>
+        <p>An mbox mailbox and loose .eml messages with real headers (the Received chain, SPF and DKIM results) to trace a message back to where it came from.</p>
         <div class="chips"><span class="chip">.mbox / .eml</span><span class="chip">Thunderbird</span><span class="chip">any mail client</span></div>
       </div>
       <div class="card">
@@ -171,8 +171,8 @@
       </div>
       <div class="card">
         <h3>Linux &amp; macOS hosts</h3>
-        <p>Linux auth.log, syslog and shell history with PID-correlated PAM and systemd lines; macOS unified-log output, property lists and the LSQuarantine download record.</p>
-        <div class="chips"><span class="chip">auth.log / syslog</span><span class="chip">log show</span><span class="chip">plist</span></div>
+        <p>Linux auth.log with PID-correlated sshd and PAM lines, web access logs, cron entries and shell history; macOS unified-log output, property lists, the TCC database and the LSQuarantine download record.</p>
+        <div class="chips"><span class="chip">auth.log / access.log</span><span class="chip">log show</span><span class="chip">plist</span></div>
       </div>
       <div class="card">
         <h3>EDR &amp; SIEM: incident response</h3>

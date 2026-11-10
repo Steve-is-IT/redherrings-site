@@ -108,7 +108,7 @@
 
       <h3>Advanced Forensics &amp; IR</h3>
       <ul>
-        <li><strong>Volatility 3</strong>: memory (processes, network connections, injected code). The first run on a Windows image needs internet to fetch the kernel symbols from Microsoft; after that it works offline. <em>Free.</em></li>
+        <li><strong>Volatility 3</strong>: memory (processes, network connections, injected code). The first run on a Windows image needs internet to fetch the kernel symbols from Microsoft; after that it works offline. Linux images ship with their symbol table, so they work offline from the start. <em>Free.</em></li>
         <li><strong>jq</strong>: cloud audit logs (CloudTrail, M365, Azure sign-ins) as JSON. <em>Free.</em></li>
         <li><strong>Thunderbird</strong>: email mailboxes (mbox) and loose <code>.eml</code>. <em>Free.</em></li>
         <li>Plus the Windows, mobile and network tools above; intrusion cases span several evidence types.</li>
@@ -119,7 +119,7 @@
       <div class="cta-row" style="justify-content:flex-start;margin:8px 0 4px">
         <a class="btn ghost" href="https://www.sans.org/tools/sift-workstation/" rel="noopener">Get SIFT Workstation</a>
       </div>
-      <p class="note" style="text-align:left">SIFT covers the disk, memory, network and Linux tracks; the Linux cases are plain-text logs you read with <code>grep</code> and any editor. For Windows-artifact cases, add Eric Zimmerman's tools (under <code>dotnet</code> on Linux, or natively on a Windows VM). For macOS cases, <strong>mac_apt</strong> parses the unified log, quarantine, Safari and plists, and DB Browser opens the SQLite stores.</p>
+      <p class="note" style="text-align:left">SIFT covers the disk, memory, network and Linux tracks; the Linux cases are plain-text logs you read with <code>grep</code> and any editor, and two of them add a LiME memory image for Volatility 3. For Windows-artifact cases, add Eric Zimmerman's tools (under <code>dotnet</code> on Linux, or natively on a Windows VM). For macOS cases, <strong>mac_apt</strong> parses the unified log, quarantine, Safari and plists, and DB Browser opens the SQLite stores.</p>
 
       <h2 id="handdownload">Tools you download by hand</h2>
       <p>Two tools cannot be scripted; their licenses require you to accept terms or fetch a release yourself:</p>
