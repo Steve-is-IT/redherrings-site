@@ -48,6 +48,13 @@
   .dl-lead{margin:26px 0 0;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm)}
   .dl-leadtext{display:flex;flex-direction:column;gap:3px;margin-bottom:12px}.dl-leadtext span{color:var(--muted);font-size:14px;line-height:1.5}
   .dl-leadrow{display:flex;gap:10px;flex-wrap:wrap}.dl-leadrow input[type=email]{flex:1;min-width:220px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--card);color:var(--ink)}
+  .dl-kits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 14px}
+  .dl-kit{text-align:left;display:flex;flex-direction:column;gap:5px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer;font:inherit;transition:border-color .15s ease,box-shadow .15s ease}
+  .dl-kit b{font-size:14px;color:var(--ink)}
+  .dl-kit span{font-size:12.5px;color:var(--muted);line-height:1.45}
+  .dl-kit:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+  .dl-kit.is-on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent),var(--shadow-sm)}
+  @media(max-width:640px){.dl-kits{grid-template-columns:1fr}}
   .dl-hp{position:absolute;left:-9999px;top:-9999px;height:0}
   .dl-leadout{display:none;margin-top:10px;font-weight:600;font-size:14px}.dl-leadout.ok{display:block;color:var(--ok)}.dl-leadout.bad{display:block;color:var(--bad)}
   .dl-row{display:flex;gap:10px;flex-wrap:wrap}
@@ -65,7 +72,7 @@
 </head>
 <body>
 <header>
-  <a class="annc" href="/cases.html#first-look" data-goatcounter-click="annc-free"><span class="annc-lg">Anyone can run the <strong>First Look cases</strong> free &mdash; no account, no watermark. <span class="annc-go">Open a First Look case &rarr;</span></span><span class="annc-sm"><strong>First Look cases</strong> &middot; free, no account. <span class="annc-go">Open one &rarr;</span></span></a>
+  <a class="annc" href="/cases.html#first-look" data-goatcounter-click="annc-free"><span class="annc-lg">Anyone can run the <strong>First Look cases</strong> free, no account and no watermark. <span class="annc-go">Open a First Look case &rarr;</span></span><span class="annc-sm"><strong>First Look cases</strong> &middot; free, no account. <span class="annc-go">Open one &rarr;</span></span></a>
   <a class="skip" href="#main">Skip to content</a>
   <div class="wrap nav">
     <a class="brand" href="/" aria-label="Red Herrings home">
@@ -139,15 +146,20 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
       </div>
     </div>
 
-    <form class="dl-lead" id="dl-lead" novalidate>
-      <div class="dl-leadtext"><strong>Want the getting-started guide in your inbox?</strong><span>Optional. One email now with the four steps from download to a graded class, a note a week in, and a reminder three days before the trial ends. Unsubscribe in one click.</span></div>
-      <div class="dl-leadrow">
-        <input type="email" name="email" placeholder="you@university.edu" autocomplete="email" aria-label="Email address" required>
+    <div class="dl-lead" id="dl-lead">
+      <div class="dl-leadtext"><strong>Get the guide for how you will use it</strong><span>Pick your path and we will email one short, practical guide for it. One email, and you can unsubscribe in a click.</span></div>
+      <div class="dl-kits" role="radiogroup" aria-label="Choose your path">
+        <button type="button" class="dl-kit" data-kit="educator" role="radio" aria-checked="false"><b>I teach a class</b><span>A term-length syllabus mapped to GCFE and GCFA, a grading walkthrough, and the import steps for Canvas, Blackboard, Moodle and D2L.</span></button>
+        <button type="button" class="dl-kit" data-kit="team" role="radio" aria-checked="false"><b>I run a security team</b><span>A drill plan from First Look triage to a full intrusion, the MITRE ATT&amp;CK coverage map, and how to run scored exercises with integrity logging.</span></button>
+        <button type="button" class="dl-kit" data-kit="learner" role="radio" aria-checked="false"><b>I am learning on my own</b><span>A study pathway from First Look to a capstone, which tools to install and why, and a weekly cadence that fits around a job.</span></button>
+      </div>
+      <form class="dl-leadrow" id="dl-lead-form" novalidate>
+        <input type="email" name="email" placeholder="you@work.email" autocomplete="email" aria-label="Email address" required>
         <input class="dl-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn" type="submit">Send the guide</button>
-      </div>
+      </form>
       <div class="dl-leadout" role="status" aria-live="polite"></div>
-    </form>
+    </div>
 
     <div class="dl-trust">
       <div><strong>Runs locally</strong>Generation and grading never leave your machine. The only network call is license activation. <a href="trust.html">Trust &amp; security</a></div>
@@ -162,17 +174,26 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 </main>
 <script>
 (function(){
-  var f=document.getElementById('dl-lead');if(!f)return;
-  var out=f.querySelector('.dl-leadout'),btn=f.querySelector('button');
+  var box=document.getElementById('dl-lead');if(!box)return;
+  var f=document.getElementById('dl-lead-form');
+  var out=box.querySelector('.dl-leadout'),btn=f.querySelector('button');
+  var kits=box.querySelectorAll('.dl-kit'),sel=null;
   var plat=/Windows/i.test(navigator.userAgent)?'windows':/Linux/i.test(navigator.userAgent)?'linux':'';
+  kits.forEach(function(k){k.addEventListener('click',function(){
+    sel=k.getAttribute('data-kit');
+    kits.forEach(function(x){var on=x===k;x.classList.toggle('is-on',on);x.setAttribute('aria-checked',on?'true':'false');});
+    if(out.textContent){out.className='dl-leadout';out.textContent='';}
+  });});
   f.addEventListener('submit',function(e){
-    e.preventDefault();var email=f.email.value.trim();
+    e.preventDefault();
+    if(!sel){out.className='dl-leadout bad';out.textContent='Pick a path above so we send the right guide.';return;}
+    var email=f.email.value.trim();
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){out.className='dl-leadout bad';out.textContent='Please enter a valid email address.';return;}
     btn.disabled=true;
-    fetch('https://account.redherrings.app/api/v1/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,platform:plat,website:f.website.value})})
+    fetch('https://account.redherrings.app/api/v1/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,segment:sel,platform:plat,website:f.website.value})})
     .then(function(r){if(!r.ok)throw 0;out.className='dl-leadout ok';out.textContent='Sent. Check your inbox for the guide.';f.email.value='';
-      if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'lead-download',event:true});})
-    .catch(function(){out.className='dl-leadout bad';out.textContent='Could not send right now. The guide is also at /help.html.';})
+      if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'lead-download-'+sel,event:true});})
+    .catch(function(){out.className='dl-leadout bad';out.textContent='Could not send right now. The guides are also at /resources.html.';})
     .finally(function(){btn.disabled=false;});
   });
 })();
