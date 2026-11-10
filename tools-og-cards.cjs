@@ -97,7 +97,7 @@ function walk(dir, out) {
   const tmp = path.join(OUT, "_render.html");
   const names = {};
   const b = await chromium.launch();
-  const pg = await b.newPage({ viewport: { width: 1200, height: 630 } });
+  const pg = await b.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 2 });
   for (const [name, [left, right]] of Object.entries(CARDS)) {
     fs.writeFileSync(tmp, pageHtml(left, right), "utf8");
     await pg.goto("file://" + tmp, { waitUntil: "networkidle" });
