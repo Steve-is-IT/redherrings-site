@@ -16,10 +16,10 @@ from redherrings.engine.variant import Variant  # noqa: E402
 E = lambda s: html.escape(str(s or ""), quote=True)
 
 EVIDENCE_LABEL = {
-    "edr": "EDR", "siem": "SIEM", "eventlog": "Event logs",
-    "windows": "Registry", "memory": "Memory", "network": "Network",
-    "mobile": "Mobile", "cloud": "Cloud logs", "browser": "Browser",
-    "email": "Email", "linux": "Linux", "macos": "macOS", "disk": "Disk image",
+    "edr": "EDR feed (*.json)", "siem": "SIEM alerts (*.json)", "eventlog": "Event logs (*.evtx)",
+    "windows": "Registry (*.dat)", "memory": "Memory (*.txt)", "network": "Packet capture (*.pcap)",
+    "mobile": "Mobile DB (*.db)", "cloud": "Cloud logs (*.json)", "browser": "Browser history (*.sqlite)",
+    "email": "Mailbox (*.eml)", "linux": "Linux logs (*.log)", "macos": "macOS (*.plist)", "disk": "Disk image (*.dd)",
 }
 
 DIFF_RANK = {"first-look": 0, "easy": 1, "medium": 2, "hard": 3, "expert": 4, "marquee": 5}
