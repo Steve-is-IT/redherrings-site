@@ -62,18 +62,18 @@
     <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
     <div class="post-cover"><img src="../img/blog/build-a-digital-forensics-course-syllabus.svg" alt="" width="1600" height="1000"></div>
     <header class="post-head"><h1>How to build a digital forensics course syllabus</h1></header>
-    <p class="lede">A forensics course is a sequence problem. Every artifact is easy once the one before it is understood and bewildering if it arrives too early. Here is the ordering logic behind our 14-week syllabus, why memory and network come late, and what the first week should actually do.</p>
+    <p class="lede">A forensics course is a sequence problem. Every artifact is easy once the one before it's understood and bewildering if it arrives too early. Here's the ordering logic behind our 14-week syllabus, why memory and network come late, and what the first week should actually do.</p>
 
     <h2>Start from the artifact, not the tool</h2>
     <p>The most common syllabus mistake is to organize by tool: an Autopsy week, a Volatility week, a Wireshark week. Students learn menus. Organize by artifact instead, with one question per week that the artifact answers: what was plugged in, what ran, what was opened, what persists, who logged on. The tools follow from the artifact, and a student who understands what a Prefetch file records can learn any parser for it in ten minutes.</p>
-    <p>The second mistake is to begin with a full disk image. A beginner facing twenty questions and a 40 GB E01 does not know where to start, so they start nowhere. Begin with a single artifact and a single tool, and widen from there. We call that opening case a First Look, and the whole <a href="/pathways.html">pathway model</a> is built on it.</p>
+    <p>The second mistake is to begin with a full disk image. A beginner facing twenty questions and a 40 GB E01 doesn't know where to start, so they start nowhere. Begin with a single artifact and a single tool, and widen from there. We call that opening case a First Look, and the whole <a href="/pathways.html">pathway model</a> is built on it.</p>
 
     <h2>The week-by-week logic</h2>
     <p>This is the shape of the <a href="/courses.html#intro-digital-forensics-14">14-week Introduction to Digital Forensics</a> course pack, and the reasoning behind each step. The <a href="/resources.html">full syllabus PDF</a> is on the free resources page.</p>
     <ul>
       <li><strong>Week 1: evidence handling and one registry hive.</strong> Acquisition, hashing, chain of custody, then a SYSTEM hive and the question "what USB device was plugged in". One hive, one key, one answer. See below for why this week matters more than any other.</li>
       <li><strong>Weeks 2 to 4: the Windows execution and file-use artifacts.</strong> Program execution (Prefetch, UserAssist, Amcache), then files the user touched (LNK, jump lists, MRUs), then persistence (Run keys, services, scheduled tasks). Each week adds one artifact family and reuses the hive-reading skill from week 1.</li>
-      <li><strong>Week 5: Windows event logs.</strong> The first artifact that is about accounts rather than files. Teach 4720, 4732, 7045 and 1102, and make a point of subject versus target: who acted versus who was acted on.</li>
+      <li><strong>Week 5: Windows event logs.</strong> The first artifact that's about accounts rather than files. Teach 4720, 4732, 7045 and 1102, and make a point of subject versus target: who acted versus who was acted on.</li>
       <li><strong>Week 6: timelines.</strong> Now that students hold five artifact families, the week is about putting them on one axis. Normalize time zones, build a super-timeline, present it. <a href="/cases.html#easy-timeline">First Look: Building a Timeline</a> is the case.</li>
       <li><strong>Week 7: midterm practical.</strong> One insider-theft case that needs weeks 1 to 6, timed. This is the first time students work multiple artifacts without being told which one holds the answer.</li>
       <li><strong>Weeks 8 and 9: browser and cloud.</strong> Downloads traced from history to disk, then exfiltration proved from browser, LNK and email evidence together. These are correlation weeks: the Windows skills applied to a new question.</li>
@@ -86,8 +86,8 @@
     <blockquote>If a week's case can be solved without the previous week's skill, the two weeks are in the wrong order or one of them is a tool demo wearing a lab coat.</blockquote>
 
     <h2>Why memory and network come late</h2>
-    <p>It is tempting to put packet captures early because Wireshark is colorful and students like it. Resist it. Memory and network evidence are abstract in a way disk evidence is not: there is no file to point at, timestamps are relative to the capture, and the question "what is suspicious here" has no answer until the student knows what normal looks like. By week 10, students have built six timelines from Windows artifacts and have a working sense of what a machine does when nobody is attacking it. That is the right moment to show them a process list or a conversation table and ask what does not belong.</p>
-    <p>Give each one a single First Look week, not two, and do not try to teach both in the same week. Memory in week 10 asks "which process is wrong and what was it talking to". Network in week 11 asks "follow this DNS lookup to a connection and read what crossed it". Both reuse the timeline skill from week 6. The capstone then expects a student to carry a finding from one family into the other, which is the whole point of the term.</p>
+    <p>It's tempting to put packet captures early because Wireshark is colorful and students like it. Resist it. Memory and network evidence are abstract in a way disk evidence is not: there's no file to point at, timestamps are relative to the capture, and the question "what's suspicious here" has no answer until the student knows what normal looks like. By week 10, students have built six timelines from Windows artifacts and have a working sense of what a machine does when nobody is attacking it. That's the right moment to show them a process list or a conversation table and ask what doesn't belong.</p>
+    <p>Give each one a single First Look week, not two, and don't try to teach both in the same week. Memory in week 10 asks "which process is wrong and what was it talking to". Network in week 11 asks "follow this DNS lookup to a connection and read what crossed it". Both reuse the timeline skill from week 6. The capstone then expects a student to carry a finding from one family into the other, which is the whole point of the term.</p>
 
     <h2>Assessment mix and tools</h2>
     <p>The weighting we ship, which has held up in practice:</p>
@@ -101,14 +101,14 @@
     <p>If you want the practicals to be copy-resistant, give each student their own variant of the case. Red Herrings generates one from a single authored scenario, verifies every variant's answer key before release, grades the class with tolerances for hashes and timestamps, and exports the grade file to your LMS. Our <a href="/blog/how-to-grade-a-digital-forensics-lab.html">grading post</a> covers the tolerance rules in detail.</p>
 
     <h2>What to do in week 1</h2>
-    <p>Week 1 sets every habit the rest of the term depends on, so do not spend it on history and definitions. Do this instead:</p>
+    <p>Week 1 sets every habit the rest of the term depends on, so don't spend it on history and definitions. Do this instead:</p>
     <ol>
       <li><strong>Hand out evidence as evidence.</strong> A ZIP with a hash beside it. The first thing every student does is verify the hash and write it on a chain of custody form. That form travels with every lab for the rest of the term.</li>
-      <li><strong>Open one hive in one tool.</strong> Registry Explorer, the SYSTEM hive, <code>USBSTOR</code>. Find one device serial. That is the lab.</li>
+      <li><strong>Open one hive in one tool.</strong> Registry Explorer, the SYSTEM hive, <code>USBSTOR</code>. Find one device serial. That's the lab.</li>
       <li><strong>Write one finding in one sentence</strong> that names the artifact: "The SYSTEM hive records a SanDisk Cruzer, serial 4C53..., first connected 2026-03-14 09:26 UTC." Artifact, fact, time, zone. Students who can write that sentence in week 1 write defensible reports in week 14.</li>
       <li><strong>Grade it the same day.</strong> A short lab with same-day feedback does more for week 2 attendance than any syllabus policy.</li>
     </ol>
-    <p>The single-artifact start can feel too easy to an instructor who knows the field. It is not too easy for the person in the room meeting a registry hive for the first time. Get them to one correct answer, with one tool, and the next thirteen weeks have somewhere to stand.</p>
+    <p>The single-artifact start can feel too easy to an instructor who knows the field. It isn't too easy for the person in the room meeting a registry hive for the first time. Get them to one correct answer, with one tool, and the next thirteen weeks have somewhere to stand.</p>
 
     <div class="cta">
       <strong>Want to practice on real evidence?</strong>

@@ -63,11 +63,11 @@
     <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
     <div class="post-cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
     <header class="post-head"><h1>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h1></header>
-    <p class="lede">An iPhone keeps its messages in a single SQLite file. Getting a readable thread out of it means joining four tables correctly and decoding a timestamp that is neither Unix seconds nor anything most tools guess right the first time.</p>
+    <p class="lede">An iPhone keeps its messages in a single SQLite file. Getting a readable thread out of it means joining four tables correctly and decoding a timestamp that's neither Unix seconds nor anything most tools guess right the first time.</p>
 
     <p>Mobile forensics is where a lot of students meet their first real database. On an iPhone, the Messages app stores everything in <code>sms.db</code>, a standard SQLite file that lives at <code>/private/var/mobile/Library/SMS/sms.db</code> in a full file-system extraction. Open it in DB Browser for SQLite and you can read every table by hand. That accessibility is exactly why it makes such a good teaching artifact: nothing is locked behind a proprietary parser, so a student has to understand the schema rather than trust a tool's export.</p>
 
-    <p>It is also where two specific skills get tested at once. First, a message is not stored in one place: the text, the sender, the conversation and the ordering live in different tables that you have to join. Second, the timestamp is Apple's own epoch, and reading it as Unix time gives an answer that is wrong by thirty-one years. Both are worth teaching deliberately, because both show up on the job and on the mobile certification exams.</p>
+    <p>It is also where two specific skills get tested at once. First, a message isn't stored in one place: the text, the sender, the conversation and the ordering live in different tables that you have to join. Second, the timestamp is Apple's own epoch, and reading it as Unix time gives an answer that's wrong by thirty-one years. Both are worth teaching deliberately, because both show up on the job and on the mobile certification exams.</p>
 
     <h2>The schema, in the order you need it</h2>
     <p>Four tables carry the conversation, and each answers a different question:</p>
@@ -75,10 +75,10 @@
       <li><strong><code>message</code></strong> is the body. One row per message, with <code>text</code>, <code>date</code>, <code>is_from_me</code> (1 if the phone's owner sent it, 0 if they received it), <code>service</code> (iMessage or SMS), and a <code>handle_id</code> that points at the other party.</li>
       <li><strong><code>handle</code></strong> is the address book of the conversation. Each row is one remote identity, with <code>id</code> holding the phone number in E.164 form or the Apple ID email. <code>message.handle_id</code> joins to <code>handle.ROWID</code>.</li>
       <li><strong><code>chat</code></strong> is the thread itself, one row per conversation, with <code>chat_identifier</code> and an optional <code>display_name</code> for group chats.</li>
-      <li><strong><code>chat_message_join</code></strong> is the bridge. A message does not name its chat directly; this table maps <code>chat_id</code> to <code>message_id</code>, and it is the piece students most often forget.</li>
+      <li><strong><code>chat_message_join</code></strong> is the bridge. A message doesn't name its chat directly; this table maps <code>chat_id</code> to <code>message_id</code>, and it's the piece students most often forget.</li>
     </ul>
 
-    <p>That last table is the crux. A beginner who selects straight from <code>message</code> gets a flat pile of texts with no sense of which conversation each belongs to, and in a group chat they cannot tell who said what. The join through <code>chat_message_join</code> is what turns the pile back into threads:</p>
+    <p>That last table is the crux. A beginner who selects straight from <code>message</code> gets a flat pile of texts with no sense of which conversation each belongs to, and in a group chat they can't tell who said what. The join through <code>chat_message_join</code> is what turns the pile back into threads:</p>
 
 <pre><code>SELECT  datetime(m.date/1000000000 + 978307200, 'unixepoch') AS sent_utc,
         CASE m.is_from_me WHEN 1 THEN 'owner' ELSE h.id END   AS sender,
@@ -91,16 +91,16 @@ LEFT JOIN   handle h              ON h.ROWID        = m.handle_id
 WHERE   c.chat_identifier = '+15551234567'
 ORDER BY m.date;</code></pre>
 
-    <p>The <code>LEFT JOIN</code> on <code>handle</code> matters: an outbound message can have a <code>handle_id</code> of 0, so an inner join quietly drops every message the owner sent. Students who use an inner join here produce a transcript that is missing one side of the conversation, which is a subtle and very teachable mistake.</p>
+    <p>The <code>LEFT JOIN</code> on <code>handle</code> matters: an outbound message can have a <code>handle_id</code> of 0, so an inner join quietly drops every message the owner sent. Students who use an inner join here produce a transcript that's missing one side of the conversation, which is a subtle and very teachable mistake.</p>
 
     <h2>The Cocoa-time trap</h2>
-    <p>Now the timestamp. On a modern iPhone, <code>message.date</code> is not Unix time. It is Apple's Cocoa Core Data timestamp: the number of <em>nanoseconds</em> since the Mac reference epoch of 2001-01-01 00:00:00 UTC. A single message date looks like <code>743800000000000000</code>, a number big enough that students assume it is already in milliseconds, or microseconds, and start dividing by guesses.</p>
+    <p>Now the timestamp. On a modern iPhone, <code>message.date</code> isn't Unix time. It is Apple's Cocoa Core Data timestamp: the number of <em>nanoseconds</em> since the Mac reference epoch of 2001-01-01 00:00:00 UTC. A single message date looks like <code>743800000000000000</code>, a number big enough that students assume it's already in milliseconds, or microseconds, and start dividing by guesses.</p>
 
     <blockquote>Read an iPhone message date as Unix seconds and you land in 1970. Read it as Unix nanoseconds and you land tens of thousands of years in the future. The value is right there; the epoch is the whole exam.</blockquote>
 
-    <p>The correct decode has two steps. Divide by one billion to get seconds, then add <code>978307200</code>, the number of seconds between the Unix epoch of 1970 and the Mac epoch of 2001, to shift it onto Unix time. In SQLite that is the <code>datetime(m.date/1000000000 + 978307200, 'unixepoch')</code> expression above. The same transform applies to <code>date_read</code> and <code>date_delivered</code>, which lets a student prove not just when a message was sent but when it was actually read.</p>
+    <p>The correct decode has two steps. Divide by one billion to get seconds, then add <code>978307200</code>, the number of seconds between the Unix epoch of 1970 and the Mac epoch of 2001, to shift it onto Unix time. In SQLite that's the <code>datetime(m.date/1000000000 + 978307200, 'unixepoch')</code> expression above. The same transform applies to <code>date_read</code> and <code>date_delivered</code>, which lets a student prove not just when a message was sent but when it was actually read.</p>
 
-    <p>There is a historical wrinkle worth mentioning to a class: before iOS 11, <code>message.date</code> was stored in <em>seconds</em> since 2001, not nanoseconds. A student who finds a nine- or ten-digit date rather than an eighteen-digit one is looking at an older device, and the divide-by-a-billion step would push them back to 2001. Teaching the two formats side by side makes the point that a timestamp means nothing without its epoch and its unit.</p>
+    <p>There's a historical wrinkle worth mentioning to a class: before iOS 11, <code>message.date</code> was stored in <em>seconds</em> since 2001, not nanoseconds. A student who finds a nine- or ten-digit date rather than an eighteen-digit one is looking at an older device, and the divide-by-a-billion step would push them back to 2001. Teaching the two formats side by side makes the point that a timestamp means nothing without its epoch and its unit.</p>
 
     <h2>Putting a name to a number</h2>
     <p>A phone number is an identifier, not a person. The second database in the extraction, <code>AddressBook.sqlitedb</code>, is where you resolve it: <code>ABPerson</code> holds the contact records and <code>ABMultiValue</code> holds their phone numbers and emails, so joining the <code>handle.id</code> from <code>sms.db</code> against the stored numbers turns <code>+15551234567</code> into a named contact. That cross-database correlation is the step that converts a raw thread into an investigative finding: this contact, under this saved name, sent this message at this time.</p>

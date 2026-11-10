@@ -62,23 +62,23 @@
     <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
     <div class="post-cover"><img src="../img/blog/air-gapped-forensics-training-no-cloud.svg" alt="" width="1600" height="1000"></div>
     <header class="post-head"><h1>Hands-on forensics training in an air-gapped facility: no cloud, no account, no egress</h1></header>
-    <p class="lede">Plenty of teams cannot put their training in the cloud. If you work inside a classified facility or any environment with no outbound network, a hosted cyber range does not reach you. There is an option built to run with no network at all.</p>
+    <p class="lede">Plenty of teams can't put their training in the cloud. If you work inside a classified facility or any environment with no outbound network, a hosted cyber range doesn't reach you. There's an option built to run with no network at all.</p>
 
     <p>The usual fallback in a secure facility is a pile of static images that everyone has already seen and nobody can grade at scale. Generated cases give you fresh, graded labs without the network a hosted range depends on.</p>
 
     <h2>Why hosted ranges stop at the door</h2>
-    <p>A cloud range keeps its scenarios, its scoring and sometimes your trainees' work on the vendor's servers. That is fine in a commercial SOC and a non-starter in a facility where the network is isolated by design. You cannot open a browser to someone else's cloud from inside a SCIF, and you should not want to send evidence or trainee submissions out of it.</p>
+    <p>A cloud range keeps its scenarios, its scoring and sometimes your trainees' work on the vendor's servers. That's fine in a commercial SOC and a non-starter in a facility where the network is isolated by design. You can't open a browser to someone else's cloud from inside a SCIF, and you shouldn't want to send evidence or trainee submissions out of it.</p>
 
     <h2>Everything is generated locally</h2>
-    <p>Red Herrings is desktop software. It builds each case, grades it, and runs the solve portal entirely on the machine it is installed on, with no account to create and no call to any server to generate or grade a case. Drop the installer onto an isolated machine and it works exactly as it does on a connected one: the evidence, the worksheet, the answer key and the grading are all produced on the spot.</p>
+    <p>Red Herrings is desktop software. It builds each case, grades it, and runs the solve portal entirely on the machine it's installed on, with no account to create and no call to any server to generate or grade a case. Drop the installer onto an isolated machine and it works exactly as it does on a connected one: the evidence, the worksheet, the answer key and the grading are all produced on the spot.</p>
 
-    <blockquote>If generating a lab requires a round trip to someone's cloud, it cannot run in a room with no internet. Generating it on the machine in front of you can.</blockquote>
+    <blockquote>If generating a lab requires a round trip to someone's cloud, it can't run in a room with no internet. Generating it on the machine in front of you can.</blockquote>
 
-    <h2>Activation that does not need the internet</h2>
+    <h2>Activation that doesn't need the internet</h2>
     <p>Licensing is the one place most software insists on phoning home. Here, air-gapped machines activate offline, and for larger deployments the Enterprise option adds an on-premises license server so activation stays entirely inside your environment. When the software does contact a license server on a connected machine, it sends only the license key, a derived machine id, the hostname and the app version, nothing about the cases or the trainee.</p>
 
     <h2>Nothing leaves your environment</h2>
-    <p>Because generation and grading are local, trainee work never transits a network you do not control. That is a property you can put in front of a security officer: no cloud, no account, no student data egress, with the activation traffic documented down to the fields it sends. For teams that need the paperwork, the Enterprise terms cover procurement and an SLA.</p>
+    <p>Because generation and grading are local, trainee work never transits a network you don't control. That's a property you can put in front of a security officer: no cloud, no account, no student data egress, with the activation traffic documented down to the fields it sends. For teams that need the paperwork, the Enterprise terms cover procurement and an SLA.</p>
 
     <h2>Real evidence and real tools, offline</h2>
     <p>None of this costs realism. The cases are built from genuine artifact formats, disk and memory images, packet captures, event logs, registry hives, EDR and SIEM exports, and they open in the same tools your analysts use on the job, like Autopsy, Volatility 3 and Wireshark. One setup step for memory cases: Volatility 3 downloads the Windows kernel symbols from Microsoft the first time it opens an image, so run it once on a connected machine and copy its symbol cache to the lab. After that, the only thing missing is the internet connection you didn't want anyway.</p>
