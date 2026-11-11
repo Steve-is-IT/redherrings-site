@@ -252,7 +252,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download Red Herrings {E(tag)} for Windows, macOS and Linux</title>
-<meta name="description" content="Download Red Herrings {E(tag)} for Windows, macOS or Linux. Free 30-day trial, no account or card required. Checksums and system requirements.">
+<meta name="description" content="Download Red Herrings {E(tag)} for Windows, macOS or Linux. First Look cases free with no key, and a 30-day trial key by email. No card. Checksums and system requirements.">
 <link rel="canonical" href="https://redherrings.app/download.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -261,7 +261,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:title" content="Download Red Herrings {E(tag)}">
-<meta property="og:description" content="Windows, macOS and Linux. Runs on your machine, nothing leaves it. Free 30-day trial, one email for a key.">
+<meta property="og:description" content="Windows, macOS and Linux. Runs on your machine, nothing leaves it. First Look cases free; a 30-day trial key by email.">
 <meta property="og:url" content="https://redherrings.app/download.html">
 <meta property="og:image" content="https://redherrings.app/img/og/download-22f28bbe.png">
 <meta property="og:image:width" content="1200">
@@ -272,7 +272,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"}},"downloadUrl":"{DL}/{setup_name or 'RedHerrings-windows.zip'}","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
+{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, macOS 12 or newer, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"}},"downloadUrl":"{DL}/{setup_name or 'RedHerrings-windows.zip'}","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
 </script>
 <style>
   .dl-head{{margin:8px 0 22px;text-align:center}}
@@ -324,7 +324,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   <section>
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
-      <p class="sub">The desktop app runs entirely on your machine. It starts as a <strong>30-day free trial</strong>: enter your email for a key, then generate labs, run the student portal and grade a class before you buy.</p>
+      <p class="sub">The desktop app runs entirely on your machine. Every <strong>First Look case runs free</strong> with no key or account. For the rest, request a <strong>30-day trial key</strong> by email: it adds a medium and a hard case in each discipline, the student portal and grading for up to five students.</p>
       <div class="dl-ver"><span class="chip">{E(tag)}</span></div>
     </div>
 
@@ -353,7 +353,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     </div>
 
     <div class="dl-it">
-      <strong>Installing on a managed machine?</strong> Your IT team can {it_signed} The app needs no admin rights (the installer is per-user, and the portable zip unzips to a folder) and listens only on localhost. Full details on the <a href="trust.html">Trust &amp; security</a> page.
+      <strong>Installing on a managed machine?</strong> Your IT team can {it_signed} The app needs no admin rights (the installer is per-user, and the portable zip unzips to a folder) and listens only on this computer unless you start it for a class with <code>--host 0.0.0.0</code>; then other computers reach the student portal and nothing else. Full details on the <a href="trust.html">Trust &amp; security</a> page.
     </div>
   </section>
 </main>
