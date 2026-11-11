@@ -112,21 +112,16 @@
   <section>
     <div class="secthead">
       <h2 class="opener">The answer key never reaches the student</h2>
-      <p class="osub">When students solve in the browser, the portal is served from your own machine. The answers stay on your side and the check oracle can't be scripted.</p>
+      <p class="osub">When students solve in the browser, the portal is served from your own machine. The answers stay on your side.</p>
     </div>
     <div class="rows-list">
       <div class="rowitem">
         <div class="n">01</div>
         <h3>Server-side grading, keys held locally</h3>
-        <p class="body">Every answer is graded on your machine and only right-or-wrong comes back. The key is never sent to the student's browser, so there is nothing in the page to read, scrape or share.</p>
+        <p class="body">Every answer is graded on your machine and only right-or-wrong comes back. The key is never sent to the student's browser, so there's nothing in the page to read, scrape or share.</p>
       </div>
       <div class="rowitem">
         <div class="n">02</div>
-        <h3>Rate limits and a bounded check oracle</h3>
-        <p class="body">The portal applies per-link and per-client rate limits, and the per-question practice "check" is bounded, so the correct/incorrect oracle can't be scripted into a brute-force guessing loop.</p>
-      </div>
-      <div class="rowitem">
-        <div class="n">03</div>
         <h3>Answers capped and scoped</h3>
         <p class="body">Submitted answers are length-capped, and submissions are restricted to the lab's own questions. A student can only answer their own lab, and only within sensible bounds.</p>
       </div>
