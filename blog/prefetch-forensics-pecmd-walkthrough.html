@@ -75,6 +75,12 @@
       <li><strong>File and directory references.</strong> Everything loaded during that first stretch: DLLs, configuration files, and often the documents the program opened. This is why Prefetch for a text editor can tell you which file it was editing.</li>
     </ul>
     <p>Windows 10 and 11 compress these files, so a hex editor shows <code>MAM</code> at the start rather than the <code>SCCA</code> signature. PECmd handles the decompression; you don't need to.</p>
+    <figure class="fig">
+<pre><code><span class="fig-cmd">$ xxd -l 32 NOTEPAD.EXE-C5670914.pf</span>
+00000000: 4d41 4d04 4c04 0000 5178 0a90 a000 0a09  MAM.L...Qx......
+00000010: 9000 0a00 000a 0009 a90a 0a0a 0a00 7a07  ..............z.</code></pre>
+      <figcaption>The first 32 bytes of a Windows 10 Prefetch file from First Look: What Ran on This Machine. <code>MAM</code> plus <code>04</code> marks XPRESS Huffman compression, and the next four bytes are the uncompressed size, little-endian. The <code>SCCA</code> header only appears after decompression.</figcaption>
+    </figure>
 
     <h2>Parse the folder with PECmd</h2>
     <p>PECmd is one of Eric Zimmerman's free tools and needs the .NET runtime. Download it from <a href="https://ericzimmerman.github.io/">ericzimmerman.github.io</a>; the <a href="/tools.html">Tools &amp; setup</a> page lists it alongside the rest of the kit. One file at a time, to the console:</p>

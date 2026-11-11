@@ -99,6 +99,16 @@ ORDER BY m.date;</code></pre>
     <blockquote>Read an iPhone message date as Unix nanoseconds and you land 31 years early, in the 1990s. Read it as Unix microseconds and you land tens of thousands of years in the future. The value is right there; the epoch is the whole exam.</blockquote>
 
     <p>The correct decode has two steps. Divide by one billion to get seconds, then add <code>978307200</code>, the number of seconds between the Unix epoch of 1970 and the Mac epoch of 2001, to shift it onto Unix time. In SQLite that's the <code>datetime(m.date/1000000000 + 978307200, 'unixepoch')</code> expression above. The same transform applies to <code>date_read</code> and <code>date_delivered</code>, which lets a student prove when a message was sent and when it was read.</p>
+    <figure class="fig">
+<pre><code><span class="fig-cmd">$ sqlite3 -header -column -nullvalue NULL :memory: "SELECT 743800000000000000 AS raw,</span>
+<span class="fig-cmd">  datetime(743800000000000000/1000000000, 'unixepoch') AS as_unix_ns,</span>
+<span class="fig-cmd">  datetime(743800000000000000/1000000, 'unixepoch') AS as_unix_us,</span>
+<span class="fig-cmd">  datetime(743800000000000000/1000000000 + 978307200, 'unixepoch') AS as_cocoa_ns;"</span>
+raw                 as_unix_ns           as_unix_us  as_cocoa_ns
+------------------  -------------------  ----------  -------------------
+743800000000000000  1993-07-27 19:06:40  NULL        2024-07-27 19:06:40</code></pre>
+      <figcaption>The example value from above, decoded three ways in sqlite3. As Unix nanoseconds it lands in 1993. As Unix microseconds it's past year 9999, which SQLite can't represent, so it returns NULL. Shifted by 978307200 it's 2024-07-27 19:06:40 UTC.</figcaption>
+    </figure>
 
     <p>There's a historical wrinkle worth mentioning to a class: before iOS 11, <code>message.date</code> was stored in <em>seconds</em> since 2001, not nanoseconds. A student who finds a nine- or ten-digit date rather than an eighteen-digit one is looking at an older device, and the divide-by-a-billion step would push them back to 2001. Teaching the two formats side by side makes the point that a timestamp means nothing without its epoch and its unit.</p>
 
