@@ -172,7 +172,7 @@ def page(latest, releases, notes, sums):
         <details class="dl-verify"><summary>Verify the download</summary>
           <p>In PowerShell, in the folder you downloaded to:</p>
           <pre><code>(Get-FileHash .\\{setup_name} -Algorithm SHA256).Hash</code></pre>
-          <p>The output must match the SHA-256 above (letter case doesn't matter). The portable zip's checksum is {E(win_sha) if win_sha else "in SHA256SUMS.txt on the release"}.</p>
+          <p>The output must match the SHA-256 above (letter case doesn't matter). The portable zip's checksum is {('<code class="dl-hash">' + E(win_sha) + '</code>') if win_sha else "in SHA256SUMS.txt on the release"}.</p>
         </details>
         {('<p class="dl-signed">&#10003; Installer and app are Authenticode-signed by ' + E(PUBLISHER) + '. Windows shows the publisher name on the run prompt.</p>') if signed else ''}
         <p class="dl-muted">Blocked with "Error 4551" or "Part of this app has been blocked"? That's Windows 11 Smart App Control, which blocks newer publishers even when signed. <a href="/help.html#smart-app-control">How to get past it</a>.</p>
@@ -292,6 +292,8 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   .dl-verify summary{{cursor:pointer;font-weight:600;font-size:14px}}
   .dl-verify pre{{margin:8px 0;padding:10px 12px;border-radius:8px;background:var(--panel2,rgba(127,127,127,.08));overflow:auto;font-size:12.5px}}
   .dl-verify p{{font-size:14px;color:var(--ink-2,#5b6472);margin:6px 0}}
+  .dl-verify p{{overflow-wrap:anywhere}}
+  .dl-hash{{font-size:12px;word-break:break-all}}
   .dl-signed{{font-size:14px;font-weight:600;color:#1c7a43;margin:10px 0 0}}
   .dl-lead{{margin:26px 0 0;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow-sm)}}
   .dl-leadtext{{display:flex;flex-direction:column;gap:3px;margin-bottom:12px}}.dl-leadtext span{{color:var(--muted);font-size:14px;line-height:1.5}}
