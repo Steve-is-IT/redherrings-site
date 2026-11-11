@@ -175,7 +175,7 @@ def page(latest, releases, notes, sums):
           <p>The output must match the SHA-256 above (letter case doesn't matter). The portable zip's checksum is {E(win_sha) if win_sha else "in SHA256SUMS.txt on the release"}.</p>
         </details>
         {('<p class="dl-signed">&#10003; Installer and app are Authenticode-signed by ' + E(PUBLISHER) + '. Windows shows the publisher name on the run prompt.</p>') if signed else ''}
-        <p class="dl-muted">Blocked with "Error 4551" or "Part of this app has been blocked"? That is Windows 11 Smart App Control, which blocks newer publishers even when signed. <a href="/help.html#smart-app-control">How to get past it</a>.</p>
+        <p class="dl-muted">Blocked with "Error 4551" or "Part of this app has been blocked"? That's Windows 11 Smart App Control, which blocks newer publishers even when signed. <a href="/help.html#smart-app-control">How to get past it</a>.</p>
       </div>''' if (has_win and setup_name) else f'''
       <div class="dl-card">
         <div class="dl-os">Windows</div>
@@ -197,7 +197,7 @@ def page(latest, releases, notes, sums):
     lin_card = f'''
       <div class="dl-card">
         <div class="dl-os">Linux</div>
-        <p class="dl-req">64-bit Linux with a recent glibc (Ubuntu 22.04, Debian 12, Fedora 38 or newer). Unzip and run <code>./RedHerrings</code>.</p>
+        <p class="dl-req">64-bit Linux with glibc 2.39 or newer (Ubuntu 24.04, Debian 13, Fedora 40 or newer). Unzip and run <code>./RedHerrings</code>.</p>
         <a class="btn primary" href="{DL}/RedHerrings-linux.zip" data-goatcounter-click="download-linux">Download for Linux{(" · " + lin_size) if lin_size else ""}</a>
         {sha_block(lin_sha, "Linux")}
         <details class="dl-verify"><summary>Verify the download</summary>
@@ -347,7 +347,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     </div>
 
     <div class="dl-trust">
-      <div><strong>Runs locally</strong>Generation and grading never leave your machine. The only network call is license activation. <a href="trust.html">Trust &amp; security</a></div>
+      <div><strong>Runs locally</strong>Generation and grading never leave your machine. The only network calls are license activation and an update check you opt into. <a href="trust.html">Trust &amp; security</a></div>
       <div><strong>Verifiable</strong>Every release ships <a href="{DL}/SHA256SUMS.txt">SHA256SUMS.txt</a>. Certificates students earn can be checked at <a href="verify.html">verify</a>.</div>
       <div><strong>Then activate</strong>Buy a plan and paste the emailed key under <em>Settings &rarr; Licensing</em>. Air-gapped machines activate offline. <a href="/#pricing">See plans</a></div>
     </div>

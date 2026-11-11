@@ -227,14 +227,14 @@ def team_main():
 
   <section>
     <div class="secthead"><h2 class="opener">ATT&amp;CK coverage</h2>
-      <p class="osub">The plan touches {len(tactics)} of the 12 enterprise tactics through {len(tech)} techniques. The table counts the cases in the plan that exercise each tactic; the <a href="attack.html">ATT&amp;CK page</a> covers the whole library.</p></div>
+      <p class="osub">The plan touches {len(tactics)} of the 14 enterprise tactics through {len(tech)} techniques. The table counts the cases in the plan that exercise each tactic; the <a href="attack.html">ATT&amp;CK page</a> covers the whole library.</p></div>
     <div class="tablewrap"><table class="gt"><thead><tr><th>Tactic</th><th>Cases in the plan</th></tr></thead><tbody>{"".join(cov)}</tbody></table></div>
   </section>
 
   <section>
     <div class="secthead"><h2 class="opener">Running a scored exercise</h2></div>
     <div class="two">
-      <div class="card"><h3>Set it up</h3><p>On the Generate screen, pick the Team preset: 8 analysts, exam mode, a 45-minute clock and integrity mode on. Change the headcount and clock to fit your shift. Hand out the portal link; analysts work the evidence in the tools they already use and answer in the browser.</p></div>
+      <div class="card"><h3>Set it up</h3><p>On Home, choose &ldquo;I train a security team&rdquo; and Generate starts at 8 analysts, exam mode, a 45-minute clock and integrity mode on. Change the headcount and clock to fit your shift. Hand out the portal link; analysts work the evidence in the tools they already use and answer in the browser.</p></div>
       <div class="card"><h3>Integrity logging</h3><p>In exam mode the portal records tab switches, full-screen exits and pastes for each analyst, with times, so a score you report up the chain comes with evidence it was earned under exam conditions.</p></div>
       <div class="card"><h3>When the clock stops</h3><p>A leaderboard ranked by score, then time. The hardest questions sorted by correct rate, with the most common wrong answer, so the debrief starts at the gap. Containment calls are graded too: who isolated the host, who scanned it, who emailed the user.</p></div>
       <div class="card"><h3>What you keep</h3><p>A completion certificate per analyst, and the drill's indicators exported as STIX 2.1 and CSV for your own detection content. Everything runs on your machines; no evidence leaves the network.</p></div>

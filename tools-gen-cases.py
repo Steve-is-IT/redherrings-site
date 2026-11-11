@@ -154,7 +154,7 @@ def featured_block(scen):
             f'  <article class="feature-wide marquee fm-slot" data-i="{i}"{"" if i == 0 else " hidden"}>\n'
             f'    <div>\n'
             f'      <p class="fw-kick gold">Featured Marquee case</p>\n'
-            f'      <h3>{E(s.get("codename") or s.get("name"))}</h3>\n'
+            f'      <h2>{E(s.get("codename") or s.get("name"))}</h2>\n'
             + (f'      <div class="cc-sub" style="margin:-4px 0 8px">{E(s.get("name"))}</div>\n' if s.get("codename") else "")
             + f'      <p>{E(s.get("summary"))}</p>\n'
             f'      <p class="fm-meta">{meta}</p>\n'
@@ -198,9 +198,11 @@ def main():
     # Keyed by the public slug: the scenario id is internal and some ids describe what a case finds.
     details = {(s.get("slug") or s["id"]): build_detail(s, smap.get(s["id"])) for s in scen}
 
+    present = {eff_diff(s) for s in scen}  # no filter option that would show an empty list
     diff_opts = "".join(f'<option value="{k}">{E(v)}</option>' for k, v in
                         [("first-look", "First Look"), ("easy", "Easy"), ("medium", "Medium"),
-                         ("hard", "Hard"), ("expert", "Expert"), ("marquee", "Marquee")])
+                         ("hard", "Hard"), ("expert", "Expert"), ("marquee", "Marquee")]
+                        if k in present)
     tracks_json = json.dumps([{"v": sl, "l": lbl} for sl, (_, lbl) in TRACK_CHIP.items()])
     tactics_json = json.dumps([{"v": t["slug"], "l": t["label"]} for t in attack.catalog()])
     details_json = json.dumps(details)

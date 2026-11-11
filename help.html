@@ -70,7 +70,7 @@
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Help</div>
   <div class="secthead">
     <h1 class="opener">Help &amp; getting started</h1>
-    <p class="osub">This guide takes you from download to a graded class. Most people generate their first lab within five minutes.
+    <p class="osub">This guide takes you from download to a graded class.
       </p>
   </div>
 
@@ -95,11 +95,11 @@
         <li>Download the build for your OS from the <a href="/download.html">download page</a>: <strong>Windows</strong>, <strong>macOS</strong> or <strong>Linux</strong>.</li>
         <li>Unzip it and run <code>RedHerrings</code> (Windows: <code>RedHerrings.exe</code>). It starts a local server and opens in your browser. On Windows you can run the installer instead. No admin rights needed.</li>
         <li>On macOS, unzip, then <strong>Control-click</strong> (right-click) <code>RedHerrings</code> and choose <strong>Open</strong> the first time. If macOS still blocks it, see <a href="#gatekeeper">Gatekeeper</a> under Troubleshooting.</li>
-        <li>The First Look cases run free forever with no key and no watermark. The <strong>30-day trial</strong>, which you start with your email, opens sample cases from easy to hard in both forensics and incident response, up to 5 students per lab, and watermarked documents.</li>
+        <li>The First Look cases run free forever with no key and no watermark. The <strong>30-day trial</strong>, which you start with your email, adds a medium and a hard case in both forensics and incident response, up to 5 students per lab, and watermarked documents.</li>
         <li>When you buy, your license key arrives by email within a minute. In the app, open <strong>Settings → Licensing</strong>, paste the key, and click <strong>Activate</strong>.</li>
       </ol>
       <p>Working the cases needs forensics tools (Autopsy, Volatility, Wireshark and friends). <a href="tools.html">Tools &amp; setup</a> has one-run install scripts and the toolkit for each certification track.</p>
-      <div class="callout"><p>Verify your download: each release publishes <code>SHA256SUMS.txt</code>. On Linux run <code>sha256sum -c SHA256SUMS.txt</code>; on macOS run <code>shasum -a 256 -c SHA256SUMS.txt</code>; on Windows run <code>Get-FileHash RedHerrings-windows.zip -Algorithm SHA256</code> and compare.</p></div>
+      <div class="callout"><p>Verify your download: each release publishes <code>SHA256SUMS.txt</code>. On Linux run <code>sha256sum -c --ignore-missing SHA256SUMS.txt</code>; on macOS run <code>shasum -a 256 -c --ignore-missing SHA256SUMS.txt</code>; on Windows run <code>Get-FileHash RedHerrings-windows.zip -Algorithm SHA256</code> and compare.</p></div>
 
       <h2 id="generate">2. Generate a lab for the whole class</h2>
       <ol>
@@ -150,13 +150,13 @@
       <p>Run any case as a capture-the-flag: per-team flags and a CTFd import file drop it straight into a competition or class challenge.</p>
 
       <h2 id="offline">Offline &amp; air-gapped use</h2>
-      <p>Generation and grading run on your machine with <strong>no network call</strong>. The app contacts a server only to activate, refresh or deactivate a license, and air-gapped machines can activate offline with a request/response file. No student data leaves your computer.</p>
+      <p>Generation and grading run on your machine with <strong>no network call</strong>. The app contacts a server only to activate, refresh or deactivate a license, and to check for updates if you turn that on. An online activation refreshes about once a month and keeps working for two weeks past that without a connection. Air-gapped machines activate offline with a request/response file and never need to refresh. No student data leaves your computer.</p>
 
       <h2 id="trouble">Troubleshooting</h2>
       <ul>
         <li><strong>Windows SmartScreen warning:</strong> builds are signed, but a new release can still trigger SmartScreen until it builds reputation. Choose <em>More info → Run anyway</em>, or verify the download against <code>SHA256SUMS.txt</code> first.</li>
-        <li id="smart-app-control"><strong>"Error 4551: An Application Control policy has blocked this file" or "Part of this app has been blocked":</strong> that is <strong>Smart App Control</strong>, a Windows 11 feature turned on by default on new PCs. It blocks any program whose publisher Microsoft hasn't yet seen often enough, even when the file is correctly signed, and there's no Run anyway option. Open <strong>Windows Security → App &amp; browser control → Smart App Control settings</strong> and set it to <strong>Off</strong>, then run the installer again. Windows only lets Smart App Control be turned off, not back on, so this is your call; it affects nothing else about Windows Defender. The installer is signed by The Competence Collective, LLC and its hash is on the download page if you want to check it first.</li>
-        <li id="gatekeeper"><strong>macOS: "RedHerrings can't be opened because Apple can't check it for malicious software":</strong> that is <strong>Gatekeeper</strong>. The macOS builds aren't yet notarized, so macOS warns the first time. Use whichever your version offers: <strong>Control-click</strong> (right-click) <code>RedHerrings</code> in Finder and choose <strong>Open</strong>, then <strong>Open</strong> again; or, on macOS Sequoia and newer, try to open it once, then go to <strong>System Settings &rarr; Privacy &amp; Security</strong>, scroll to the blocked-app message and click <strong>Open Anyway</strong>. If neither works, open <strong>Terminal</strong> and run <code>xattr -dr com.apple.quarantine</code> followed by a space and the path to the unzipped <strong>RedHerrings</strong> folder, then launch it again. macOS asks only once per download. Everything is generated and graded locally, and the download's hash is on the <a href="/download.html">download page</a> if you want to verify it first.</li>
+        <li id="smart-app-control"><strong>"Error 4551: An Application Control policy has blocked this file" or "Part of this app has been blocked":</strong> that's <strong>Smart App Control</strong>, a Windows 11 feature turned on by default on new PCs. It blocks any program whose publisher Microsoft hasn't yet seen often enough, even when the file is correctly signed, and there's no Run anyway option. Open <strong>Windows Security → App &amp; browser control → Smart App Control settings</strong> and set it to <strong>Off</strong>, then run the installer again. On many Windows 11 versions it can't be turned back on without reinstalling Windows, so this is your call; it affects nothing else about Windows Defender. The installer is signed by The Competence Collective, LLC and its hash is on the download page if you want to check it first.</li>
+        <li id="gatekeeper"><strong>macOS: "RedHerrings can't be opened because Apple can't check it for malicious software":</strong> that's <strong>Gatekeeper</strong>. The macOS builds aren't yet notarized, so macOS warns the first time. Use whichever your version offers: <strong>Control-click</strong> (right-click) <code>RedHerrings</code> in Finder and choose <strong>Open</strong>, then <strong>Open</strong> again; or, on macOS Sequoia and newer, try to open it once, then go to <strong>System Settings &rarr; Privacy &amp; Security</strong>, scroll to the blocked-app message and click <strong>Open Anyway</strong>. If neither works, open <strong>Terminal</strong> and run <code>xattr -dr com.apple.quarantine</code> followed by a space and the path to the unzipped <strong>RedHerrings</strong> folder, then launch it again. macOS asks only once per download. Everything is generated and graded locally, and the download's hash is on the <a href="/download.html">download page</a> if you want to verify it first.</li>
         <li><strong>"All seats in use":</strong> each license activates on a set number of machines. Open <strong>Settings → Licensing</strong> on a machine you no longer use and click <strong>Deactivate</strong> to free a seat.</li>
         <li><strong>Lost your key:</strong> email <a href="/contact.html?topic=lost-key">sales@redherrings.app</a> and we'll resend it.</li>
         <li><strong>Browser didn't open:</strong> the terminal prints a local address (for example <code>http://127.0.0.1:PORT/</code>); open it manually.</li>
@@ -183,7 +183,7 @@
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">
-        <h4>Product</h4>
+        <h2>Product</h2>
         <a href="/how.html">How it works</a>
         <a href="/cases.html">All cases</a>
         <a href="/pathways.html">Learning pathways</a>
@@ -195,7 +195,7 @@
         <a href="/#pricing">Pricing</a>
       </div>
       <div class="fcol">
-        <h4>Resources</h4>
+        <h2>Resources</h2>
         <a href="/help.html">Help &amp; getting started</a>
         <a href="/tools.html">Tools &amp; setup</a>
         <a href="/resources.html">Free resources</a>

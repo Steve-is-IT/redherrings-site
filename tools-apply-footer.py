@@ -50,7 +50,7 @@ LEGAL = [
 def col(title, links):
     items = "".join(f'\n        <a href="{href}">{label}</a>' for label, href in links)
     return f'''<div class="fcol">
-        <h4>{title}</h4>{items}
+        <h2>{title}</h2>{items}
       </div>'''
 
 

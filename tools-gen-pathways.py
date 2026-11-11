@@ -271,11 +271,11 @@ TRACK_CHIP = {"foundations": ("trk-foundations", "Foundations"),
 DISC_LABEL = {d["id"]: d["label"] for d in DISC}
 
 ATTACK_NOTE = ("ATT&amp;CK&reg; and MITRE ATT&amp;CK&reg; are registered trademarks of The MITRE Corporation. "
-               "Red Herrings maps to published ATT&amp;CK tactics and techniques for teaching; it is not affiliated "
+               "Red Herrings maps to published ATT&amp;CK tactics and techniques for teaching; it isn't affiliated "
                "with or endorsed by MITRE.")
 CERT_NOTE = ("GIAC, GCFE, GASF, GNFA, GCIH, GCFR and GCFA are trademarks of GIAC. CompTIA and CySA+ are trademarks of "
              "CompTIA, Inc. SANS is a trademark of the SANS Institute. Red Herrings aligns its pathways to the published "
-             "objectives of these programs for teaching; it is independent of, and not affiliated with or endorsed by, "
+             "objectives of these programs for teaching; it's independent of, and not affiliated with or endorsed by, "
              "any certification body.")
 
 # Search-intent copy per pathway. Everything else on the page is derived from the live data.
@@ -347,7 +347,7 @@ COPY = {
         "title": "SOC Analyst Onboarding Labs",
         "h1": ("SOC analyst onboarding labs,", "one evidence family at a time"),
         "desc": "Onboarding labs for new SOC and DFIR analysts: execution, downloads, event logs, persistence, USB, packets, memory, mobile and a timeline, then a full case.",
-        "expects": "A new analyst is expected to recognize every evidence family a ticket can throw at them: what ran on a host, where a file came from, what the Security log says about accounts and services, what is set to run at startup, which USB device was plugged in, what a packet capture shows, what is in memory, and what a phone holds, then to put several of those into a single timeline.",
+        "expects": "A new analyst is expected to recognize every evidence family a ticket can throw at them: what ran on a host, where a file came from, what the Security log says about accounts and services, what's set to run at startup, which USB device was plugged in, what a packet capture shows, what's in memory, and what a phone holds, then to put several of those into a single timeline.",
         "builds": "This pathway is the first-look tour in the order a new hire should meet it. Nine First Look cases of about 35 minutes each isolate one artifact family, and the tenth is a full, if gentle, misconduct case that asks the analyst to use several of them together. It's the week-one curriculum we'd hand a new SOC or DFIR analyst.",
         "who": [
             ("Security teams onboarding new analysts", "who want a graded, repeatable first week instead of shadowing."),
@@ -388,7 +388,7 @@ COPY = {
         "who": [
             ("Candidates preparing for the CySA+", "who want graded practice on the analysis domain with real alert exports."),
             ("Instructors teaching a SOC analyst or security operations course", "who need labs that fit a 50-minute class and grade themselves."),
-            ("Tier 1 analysts working toward tier 2", "who want to prove they can correlate, not just acknowledge, alerts."),
+            ("Tier 1 analysts working toward tier 2", "who want to prove they can correlate alerts, not only acknowledge them."),
         ],
     },
     "gcfr-cloud": {
