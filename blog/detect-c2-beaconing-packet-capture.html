@@ -75,6 +75,25 @@
       <li><strong>Small, consistent payloads.</strong> The check-in request and its "nothing to do" reply tend to be a similar, small size each time, until the one beacon that carries a tasking or stages data and suddenly isn't small.</li>
       <li><strong>A destination that doesn't belong.</strong> A host no other machine on the network talks to, a raw IP with no DNS, or a domain that resolves oddly.</li>
     </ul>
+    <p>To measure the rhythm, list only the packets that open a connection (a SYN with no ACK) and show the gap since the previous one. In Wireshark that's the display filter <code>tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0</code> with <code>frame.time_delta_displayed</code> added as a column. tshark prints the same as text:</p>
+    <figure class="fig">
+<pre><code><span class="fig-cmd">$ tshark -r capture.pcap -Y "tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0" \</span>
+<span class="fig-cmd">    -T fields -E header=y -e frame.time_relative -e frame.time_delta_displayed -e ip.dst -e tcp.dstport</span>
+frame.time_relative  frame.time_delta_displayed  ip.dst          tcp.dstport
+...
+1211.097643000       298.883809000               146.183.201.15  443
+1268.156417000       57.058774000                45.160.185.220  443
+1295.605568000       27.449151000                91.210.81.97    443
+1699.743170000       404.137602000               103.124.116.32  443
+2062.912556000       363.169386000               194.22.10.52    443
+2281.358410000       218.445854000               146.201.130.16  443
+2574.167141000       292.808731000               194.99.4.214    443
+2780.463031000       206.295890000               45.189.41.55    443
+3155.620762000       375.157731000               193.66.198.48   443
+3260.879661000       105.258899000               195.69.48.124   443
+3516.881490000       256.001829000               195.80.224.6    443</code></pre>
+      <figcaption>From First Look: Reading a Packet Capture, earlier rows trimmed. These are background HTTPS connections, and the gaps run from 27 to 404 seconds with no pattern. A beacon is a run of rows to one ip.dst and port whose gaps sit close to a single value. Jitter widens that spread a little but doesn't hide it.</figcaption>
+    </figure>
 
     <blockquote>The loudest packet in a capture is rarely the important one. C2 hides in the rhythm, and rhythm is something you have to be taught to see.</blockquote>
 

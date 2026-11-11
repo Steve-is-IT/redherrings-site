@@ -86,6 +86,24 @@
 
     <h2>Statistics: Conversations and Endpoints</h2>
     <p>Don't start by scrolling packets. Start with Statistics, then <strong>Conversations</strong>. The IPv4 and TCP tabs list every pair of hosts that talked, with packet counts, bytes in each direction, start time and duration. Sort by bytes to see where the volume went. Sort by duration to see what stayed connected. Sort by start time to see the order things happened. A capture with 40,000 packets usually has a dozen conversations that matter, and this table is where you find them.</p>
+    <figure class="fig">
+<pre><code><span class="fig-cmd">$ tshark -r capture.pcap -q -z conv,tcp</span>
+================================================================================
+TCP Conversations
+Filter:&lt;No Filter&gt;
+                                                           |       &lt;-      | |       -&gt;      | |     Total     |    Relative    |   Duration   |
+                                                           | Frames  Bytes | | Frames  Bytes | | Frames  Bytes |      Start     |              |
+...
+10.1.70.68:56301           &lt;-&gt; 146.183.201.15:443               5 979 bytes       6 743 bytes      11 1722 bytes  1211.097643000         0.0200
+10.1.70.68:59637           &lt;-&gt; 45.160.185.220:443               5 515 bytes       6 785 bytes      11 1300 bytes  1268.156417000         0.0200
+10.1.70.68:55614           &lt;-&gt; 91.210.81.97:443                 5 1161 bytes       6 1124 bytes      11 2285 bytes  1295.605568000         0.0200
+10.1.70.68:51057           &lt;-&gt; 103.124.116.32:443               5 786 bytes       6 754 bytes      11 1540 bytes  1699.743170000         0.0200
+10.1.70.68:56414           &lt;-&gt; 194.22.10.52:443                 5 1139 bytes       6 836 bytes      11 1975 bytes  2062.912556000         0.0200
+10.1.70.68:58998           &lt;-&gt; 146.201.130.16:443               5 787 bytes       6 790 bytes      11 1577 bytes  2281.358410000         0.0200
+...
+================================================================================</code></pre>
+      <figcaption>The TCP tab of Statistics, Conversations, as tshark (the command-line Wireshark) prints it, from First Look: Reading a Packet Capture, trimmed. One row per connection: frames and bytes each way, Relative Start in seconds from the first packet, and Duration.</figcaption>
+    </figure>
     <p><strong>Endpoints</strong> is the same data by single host rather than by pair: which addresses appear at all, and how much each sent and received. It's the quickest answer to "which internal host is this capture about" and "how many outside addresses did it talk to". <strong>Protocol Hierarchy</strong>, in the same menu, tells you what kinds of traffic are present before you filter for any of them.</p>
     <p>Right-click any row in Conversations and choose Apply as Filter to drop straight from the table to the packets behind it.</p>
 
@@ -100,6 +118,19 @@
     <h2>Reading DNS and HTTP at a glance</h2>
     <p>Two protocols carry most of the story in a beginner's capture, and both read well in the packet list once you know which columns to watch.</p>
     <p><strong>DNS.</strong> Filter <code>dns</code>. Each query and its response appear as a pair; the Info column shows the name asked for and, on the response line, the address returned. Filter <code>dns.flags.response == 0</code> to see only the questions, which is a compact list of every name the host tried to resolve, in order. A name you don't recognize, followed a second later by a TCP connection to the address it returned, is the thread to pull. The <a href="/blog/detect-c2-beaconing-packet-capture.html">beaconing post</a> picks it up from there.</p>
+    <figure class="fig">
+<pre><code><span class="fig-cmd">$ tshark -r capture.pcap -t ud -Y "dns.flags.response == 0"</span>
+...
+ 1216 2025-05-14 22:41:13.175834   10.1.70.68 → 10.1.70.53   DNS 74 Standard query 0x60e2 A api.github.com
+ 1229 2025-05-14 22:46:12.059643   10.1.70.68 → 10.1.70.53   DNS 79 Standard query 0x2b2b A clients.dropbox.com
+ 1242 2025-05-14 22:47:09.118418   10.1.70.68 → 10.1.70.53   DNS 74 Standard query 0xce38 A api.github.com
+ 1255 2025-05-14 22:47:36.567568   10.1.70.68 → 10.1.70.53   DNS 76 Standard query 0x920f A cdn.jsdelivr.net
+ 1268 2025-05-14 22:54:20.705170   10.1.70.68 → 10.1.70.53   DNS 75 Standard query 0x06e2 A ntp.windows.com
+ 1281 2025-05-14 23:00:23.874556   10.1.70.68 → 10.1.70.53   DNS 81 Standard query 0x4ff1 A outlook.office365.com
+ 1294 2025-05-14 23:04:02.320410   10.1.70.68 → 10.1.70.53   DNS 69 Standard query 0x559f A slack.com
+...</code></pre>
+      <figcaption>The same filter in tshark, which takes display filters with <code>-Y</code>. <code>-t ud</code> prints UTC date and time, like the View setting above. Trimmed. Each row is one question: frame number, time, client, resolver, and the name asked for.</figcaption>
+    </figure>
     <p><strong>HTTP.</strong> Filter <code>http.request</code> to see only requests: method, host and path, one per line. Add <code>http.host</code> and <code>http.user_agent</code> as columns (right-click the field, Apply as Column) and the list becomes a browsing history with the client software attached. <code>http.response.code</code> on the responses tells you what the server said. Most web traffic today is TLS and won't decode; filter <code>tls.handshake.type == 1</code> and read the Server Name field to see which hosts were contacted even when the content is opaque.</p>
 
     <p>That's the whole first hour: fix the clock, write display filters, read Conversations before packets, follow the stream, export the objects, learn the DNS and HTTP columns, save the subset. In Red Herrings, network cases ship real pcap files where every student's hosts, names and transferred file are their own, so these steps produce a different correct answer for each of them and the same method for all. The network forensics pathway on the <a href="/pathways.html">pathways page</a> starts with the First Look above and climbs from there.</p>
