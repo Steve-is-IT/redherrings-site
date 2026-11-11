@@ -3,7 +3,7 @@
 
 Index: featured (newest) + image-left media cards (cover, category pill, title,
 dek, date / reading time).
-Articles: full-bleed branded cover, strong H1, lede, refined body typography,
+Articles: strong H1, lede, then a wide branded cover band, refined body typography,
 related posts. No author, date, category label, or comments on the article
 itself (owner's instruction); the index carries category/date/reading-time.
 """
@@ -310,7 +310,7 @@ def transform_post(slug):
     # 2) drop the per-post inline <style> block (blog.css owns it now)
     s = re.sub(r'\n<style>.*?</style>', '', s, count=1, flags=re.S)
 
-    # 3) rewrite the article header (pagehead -> cover + h1 + lede, no byline/crumb-category)
+    # 3) rewrite the article header (pagehead -> h1 + lede + cover, no byline/crumb-category)
     m = re.search(r'<div class="pagehead".*?<h1>(?P<h1>.*?)</h1>\s*'
                   r'<p class="lede">(?P<lede>.*?)</p>\s*</div>', s, flags=re.S)
     if not m:
@@ -319,9 +319,9 @@ def transform_post(slug):
     lede = m.group("lede").strip()
     new_head = (
         f'<nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>\n'
-        f'    <div class="post-cover"><img src="../img/blog/{slug}.svg" alt="" width="1600" height="1000"></div>\n'
         f'    <header class="post-head"><h1>{h1}</h1></header>\n'
-        f'    <p class="lede">{lede}</p>'
+        f'    <p class="lede">{lede}</p>\n'
+        f'    <div class="post-cover"><img src="../img/blog/{slug}.svg" alt="" width="1600" height="1000"></div>'
     )
     s = s[:m.start()] + new_head + s[m.end():]
 

@@ -17,12 +17,12 @@
 <meta property="og:title" content="Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot">
 <meta property="og:description" content="Match a remote logon (4624) to the processes it spawned (4688) by logon session, read the subject and target fields correctly, and trace an attacker host to host.">
 <meta property="og:url" content="https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html">
-<meta property="og:image" content="https://redherrings.app/img/og/home-f129ee30.png">
+<meta property="og:image" content="https://redherrings.app/img/og/blog/detect-lateral-movement-windows-event-logs-440f0b85.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
+<meta property="og:image:alt" content="Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot. Red Herrings blog.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://redherrings.app/img/og/home-f129ee30.png">
+<meta name="twitter:image" content="https://redherrings.app/img/og/blog/detect-lateral-movement-windows-event-logs-440f0b85.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="../blog.css">
@@ -61,9 +61,9 @@
 <main class="wrap" id="main">
   <article class="post">
     <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
-    <div class="post-cover"><img src="../img/blog/detect-lateral-movement-windows-event-logs.svg" alt="" width="1600" height="1000"></div>
     <header class="post-head"><h1>Detecting lateral movement in Windows event logs: the 4624 to 4688 pivot</h1></header>
     <p class="lede">Lateral movement leaves a two-part trail in the Windows Security log: a remote logon lands on a host, and then that logon session runs something. Teaching students to tie those two halves together is the core skill, and it hinges on one field almost everyone reads wrong at first.</p>
+    <div class="post-cover"><img src="../img/blog/detect-lateral-movement-windows-event-logs.svg" alt="" width="1600" height="1000"></div>
 
     <p>Once an attacker has a foothold, the interesting part of the investigation is where they went next. In a Windows environment, moving from one host to another almost always produces a successful logon on the destination, and whatever they did after landing produces process-creation events under that same logon. The whole technique of tracing lateral movement comes down to connecting those two records and then repeating it across hosts. It's a perfect teaching problem because the evidence is concrete, the logic is strict, and the common mistakes are specific enough to grade.</p>
 

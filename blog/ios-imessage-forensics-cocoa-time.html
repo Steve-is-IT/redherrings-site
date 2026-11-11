@@ -17,12 +17,12 @@
 <meta property="og:title" content="Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap">
 <meta property="og:description" content="Open an iPhone sms.db, join message, handle, chat and chat_message_join into a real thread, and decode Apple Cocoa time (nanoseconds since 2001) correctly.">
 <meta property="og:url" content="https://redherrings.app/blog/ios-imessage-forensics-cocoa-time.html">
-<meta property="og:image" content="https://redherrings.app/img/og/home-f129ee30.png">
+<meta property="og:image" content="https://redherrings.app/img/og/blog/ios-imessage-forensics-cocoa-time-4611be37.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
+<meta property="og:image:alt" content="Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap. Red Herrings blog.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://redherrings.app/img/og/home-f129ee30.png">
+<meta name="twitter:image" content="https://redherrings.app/img/og/blog/ios-imessage-forensics-cocoa-time-4611be37.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="../blog.css">
@@ -61,9 +61,9 @@
 <main class="wrap" id="main">
   <article class="post">
     <nav class="post-crumb"><a href="/">Home</a> / <a href="index.html">Blog</a></nav>
-    <div class="post-cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
     <header class="post-head"><h1>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h1></header>
     <p class="lede">An iPhone keeps its messages in a single SQLite file. Getting a readable thread out of it means joining four tables correctly and decoding a timestamp that's neither Unix seconds nor anything most tools guess right the first time.</p>
+    <div class="post-cover"><img src="../img/blog/ios-imessage-forensics-cocoa-time.svg" alt="" width="1600" height="1000"></div>
 
     <p>Mobile forensics is where a lot of students meet their first real database. On an iPhone, the Messages app stores everything in <code>sms.db</code>, a standard SQLite file that lives at <code>/private/var/mobile/Library/SMS/sms.db</code> in a full file-system extraction. Open it in DB Browser for SQLite and you can read every table by hand. That's why it makes a good teaching artifact: nothing is locked behind a proprietary parser, so a student has to understand the schema rather than trust a tool's export.</p>
 
