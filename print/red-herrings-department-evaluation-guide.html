@@ -12,16 +12,16 @@
   <div class="cols">
     <div>
       <h2>What it is</h2>
-      <p>A desktop application for Windows, macOS and Linux that generates digital forensics and incident response lab exercises. Each case ships as real evidence (disk images, registry hives, Windows event logs, Windows memory images, packet captures, mobile extractions, cloud audit logs, EDR and SIEM exports) with a worksheet, an answer key and a grading rubric.</p>
+      <p>A desktop application for Windows, macOS and Linux that generates digital forensics and incident response lab exercises. Each case ships evidence in the real formats (disk images, registry hives, Windows event logs, Windows crash dumps and Linux LiME memory images, packet captures, mobile extractions, cloud audit logs, EDR and SIEM exports) with a worksheet, an answer key and a grading rubric.</p>
       <p>The distinguishing feature is that <b>every student receives a different variant of the same case</b>: names, timestamps, hashes, addresses and answers all change per student from one seed. A copied answer is a wrong answer, and an anti-collusion report shows which submissions look alike. Every answer key is re-derived from the generated files by an independent parser before the lab is released.</p>
 
       <h2>What the trial lets you check</h2>
       <ul class="chk">
-        <li>Install without an account, generate a three-student lab, and open the evidence in Autopsy, Registry Explorer, EvtxECmd, Wireshark or Volatility.</li>
+        <li>Install without an account, generate a three-student First Look lab, and open the evidence in Autopsy, Registry Explorer, EvtxECmd, Wireshark or Volatility.</li>
         <li>Confirm two students' packages differ, and that the answer key for each matches its own evidence.</li>
         <li>Grade a submission and read the per-answer explanation; export the scores as a CSV your LMS imports.</li>
         <li>Open the 14-week forensics and 8-week incident response syllabi and map them to your catalog.</li>
-        <li>Filter the library by GIAC, CompTIA, EnCE or Cellebrite objective and by MITRE ATT&amp;CK tactic.</li>
+        <li>Filter the library by certification-prep track (aligned to GIAC, CompTIA, EnCE and Cellebrite objectives) and by MITRE ATT&amp;CK tactic.</li>
         <li>Run the student portal on the instructor's machine and submit answers as a student would.</li>
       </ul>
       <p class="small">First Look cases run free with no key. The 30-day trial key adds a medium and a hard case in each discipline, for up to five students per lab, with watermarked documents. CTF mode and the Scenario Editor need a license.</p>
@@ -47,7 +47,7 @@
       <table>
         <tr><th>Question</th><th>Answer</th></tr>
         <tr><td>Where does student data live?</td><td>On the instructor's computer. Generation, grading, rosters and submissions never leave it. No telemetry.</td></tr>
-        <tr><td>What network access is needed?</td><td>One activation call to the license server, then none. Optional, off by default: a once-daily version check and connected LMS (LTI 1.3) mode.</td></tr>
+        <tr><td>What network access is needed?</td><td>License activation and a periodic refresh with the license server; a missed refresh has 14 days' grace, and air-gapped machines activate by file. Optional, off by default: a once-daily version check and connected LMS (LTI 1.3) mode.</td></tr>
         <tr><td>Does the vendor hold student records?</td><td>No. The only records held are the purchaser's email, license and payment status (card processing by Stripe).</td></tr>
         <tr><td>Accessibility</td><td>Accessibility statement and VPAT at redherrings.app/accessibility.html.</td></tr>
         <tr><td>Software integrity</td><td>Windows builds are code-signed (The Competence Collective, LLC). Licenses are Ed25519-signed.</td></tr>
