@@ -269,12 +269,12 @@
    ["head", "Tactic  Name                  Cases"],
    ["", "TA0001  Initial Access           21"],
    ["", "TA0002  Execution                14"],
-   ["", "TA0003  Persistence              18"],
-   ["", "TA0004  Privilege Escalation     16"],
-   ["", "TA0005  Defense Evasion          19"],
-   ["", "TA0006  Credential Access        13"],
-   ["", "TA0007  Discovery                 7"],
-   ["", "TA0008  Lateral Movement          8"]
+   ["", "TA0003  Persistence              21"],
+   ["", "TA0004  Privilege Escalation     20"],
+   ["", "TA0005  Stealth                  16"],
+   ["", "TA0112  Defense Impairment        9"],
+   ["", "TA0006  Credential Access        12"],
+   ["", "TA0007  Discovery                 7"]
   ]
  },
  "whats-new-student-portal-certificates": {

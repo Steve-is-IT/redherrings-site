@@ -227,7 +227,7 @@ def team_main():
 
   <section>
     <div class="secthead"><h2 class="opener">ATT&amp;CK coverage</h2>
-      <p class="osub">The plan touches {len(tactics)} of the 14 enterprise tactics through {len(tech)} techniques. The table counts the cases in the plan that exercise each tactic; the <a href="attack.html">ATT&amp;CK page</a> covers the whole library.</p></div>
+      <p class="osub">The plan touches {len(tactics)} of the {attack.ENTERPRISE_TACTIC_COUNT} Enterprise tactics through {len(tech)} techniques. The table counts the cases in the plan that exercise each tactic; the <a href="attack.html">ATT&amp;CK page</a> covers the whole library.</p></div>
     <div class="tablewrap"><table class="gt"><thead><tr><th>Tactic</th><th>Cases in the plan</th></tr></thead><tbody>{"".join(cov)}</tbody></table></div>
   </section>
 

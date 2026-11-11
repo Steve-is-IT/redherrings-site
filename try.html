@@ -337,7 +337,7 @@ function matches(type,user,correct){
   if(type==="int") return parseInt(u.replace(/[^0-9-]/g,""),10)===parseInt(c,10);
   if(type==="timestamp"){const cu=u.replace(/utc/g,"").replace(/t/g," ").replace(/z/g,"").replace(/\s+/g," ").trim(),cc=c.replace(/utc/g,"").trim();if(cu===cc)return true;const hu=hms(u),hc=hms(c);return !!(hu&&hc&&hu===hc&&(u.length<=8||u.indexOf(cc.slice(0,10))>=0));}
   if(type==="hash") return u.replace(/[^0-9a-f]/g,"")===c;
-  if(type==="mitre") return u.replace(/\s/g,"").toUpperCase()===c.toUpperCase();
+  if(type==="mitre"){const R={"T1562.001":"T1685","T1070.001":"T1685.005"},x=u.replace(/\s/g,"").toUpperCase(),y=c.toUpperCase();return (R[x]||x)===(R[y]||y);}
   if(type==="boolean") return /^(y|yes|true)$/.test(u)===(c==="yes");
   if(type==="path") return u.replace(/\//g,"\\")===c.replace(/\//g,"\\");
   return u===c;

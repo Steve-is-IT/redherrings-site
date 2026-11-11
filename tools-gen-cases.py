@@ -181,6 +181,34 @@ def apply_chrome(path):
         mod.apply(path, False) if name == "tools-apply-nav" else mod.apply(path)
 
 
+
+def write_attack_page(scen):
+    """attack.html: one card per ATT&CK tactic with the number of IR cases
+    that exercise it, from the product's catalog and case mappings."""
+    ir = [s for s in scen if s.get("discipline") == "incident-response"]
+    cards = []
+    for t in attack.catalog():
+        n = sum(1 for s in ir if t["slug"] in (s.get("tactics") or []))
+        if not n:
+            continue
+        cards.append(
+            '      <article class="card">\n'
+            f'        <div class="cc-top"><span class="chip tac-{E(t["slug"])}">{E(t["label"])}</span>'
+            f'<span class="cc-meta">{E(t["id"])} &middot; {n} case{"s" if n != 1 else ""}</span></div>\n'
+            f'        <p style="margin:10px 0 0;color:var(--muted);font-size:14px">{E(t["blurb"])}</p>\n'
+            '      </article>')
+    grid = '    <div class="grid">\n' + "\n".join(cards) + "\n    </div>\n"
+    grid += (f'    <p class="note" style="margin-top:12px">Tactics and technique IDs follow MITRE ATT&amp;CK Enterprise '
+             f'v{E(attack.ATTACK_VERSION)}. Alert feeds dated before v19 carry the IDs tools used then; '
+             'an answer is graded right under either ID.</p>\n')
+    out = os.path.join(SITE, "attack.html")
+    page = open(out, encoding="utf-8").read()
+    a, b = "<!--tactics:start-->\n", "<!--tactics:end-->"
+    i, j = page.index(a) + len(a), page.index(b)
+    with open(out, "w", encoding="utf-8") as f:
+        f.write(page[:i] + grid + page[j:])
+    print(f"wrote {out}: {len(cards)} tactics over {len(ir)} IR cases")
+
 def main():
     scen = [s for s in packs.all_scenarios() if "id" in s and not s.get("error")]
     # Order: the difficulty ladder, first-look through marquee, the same order the
@@ -218,6 +246,7 @@ def main():
         f.write(html_doc)
     apply_chrome(out)
     print(f"wrote {out}: {n} cases ({n_df} DF, {n_ir} IR)")
+    write_attack_page(scen)
 
 
 TEMPLATE = '''<!doctype html>
