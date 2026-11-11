@@ -85,6 +85,31 @@
     </ul>
     <h2>Let the maps help</h2>
     <p>EvtxECmd's maps pull the useful fields out of each event's payload, so you get named columns instead of raw XML. One thing to keep straight on a Security event: <code>SubjectUserName</code> is who did it, and <code>TargetUserName</code> is who it was done to. Getting those backwards is the most common mistake we see when grading.</p>
+    <figure class="fig">
+<pre><code>&lt;Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event"&gt;&lt;System&gt;&lt;Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-a5ba-3e3b0328c30d}" EventSourceName=""&gt;&lt;/Provider&gt;
+&lt;EventID Qualifiers=""&gt;4624&lt;/EventID&gt;
+...
+&lt;TimeCreated SystemTime="2025-02-08 11:57:47.862680+00:00"&gt;&lt;/TimeCreated&gt;
+&lt;EventRecordID&gt;2&lt;/EventRecordID&gt;
+...
+&lt;Channel&gt;Security&lt;/Channel&gt;
+&lt;Computer&gt;COBALT-SRV40&lt;/Computer&gt;
+...
+&lt;EventData&gt;&lt;Data Name="SubjectUserSid"&gt;S-1-5-18&lt;/Data&gt;
+&lt;Data Name="SubjectUserName"&gt;COBALT-SRV40$&lt;/Data&gt;
+&lt;Data Name="SubjectDomainName"&gt;COBALTAERO&lt;/Data&gt;
+&lt;Data Name="SubjectLogonId"&gt;0x3e7&lt;/Data&gt;
+&lt;Data Name="TargetUserSid"&gt;S-1-5-18&lt;/Data&gt;
+&lt;Data Name="TargetUserName"&gt;SYSTEM&lt;/Data&gt;
+&lt;Data Name="TargetDomainName"&gt;NT AUTHORITY&lt;/Data&gt;
+&lt;Data Name="TargetLogonId"&gt;0x3e7&lt;/Data&gt;
+&lt;Data Name="LogonType"&gt;5&lt;/Data&gt;
+...
+&lt;Data Name="ProcessName"&gt;C:\Windows\System32\services.exe&lt;/Data&gt;
+&lt;Data Name="IpAddress"&gt;-&lt;/Data&gt;
+...</code></pre>
+      <figcaption>One 4624 (a service logon) as raw XML, rendered by python-evtx from First Look: Accounts and Services in the Logs, trimmed. Event Viewer's Details tab shows the same. EvtxECmd's maps lift these Data fields into CSV columns such as UserName, RemoteHost and PayloadData1 to PayloadData6, so you filter a column instead of reading XML.</figcaption>
+    </figure>
     <h2>How it fits a Red Herrings case</h2>
     <p>Our event-log cases are written as real binary EVTX, so EvtxECmd reads them the same way it reads a live system's logs. For a worked example that chains logons to the processes they spawned, see <a href="/blog/detect-lateral-movement-windows-event-logs.html">detecting lateral movement in Windows event logs</a>.</p>
 

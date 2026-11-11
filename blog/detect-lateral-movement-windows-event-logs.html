@@ -81,6 +81,47 @@
     <blockquote>On a logon, the target is who logged on. On a process creation, the subject is who ran it. Point a student at the wrong field and they'll confidently name the machine account as the attacker.</blockquote>
 
     <p>On a 4688 process-creation event the <strong>subject</strong> is the actor (the target fields are usually empty), so <code>SubjectUserName</code> is who ran the process. A student who learns "always read SubjectUserName" from the process events and then applies it to the logon event names the wrong party. Teaching the subject-versus-target distinction explicitly, and making students prove which account moved by reading the correct field on each event, is half the value of the lab.</p>
+    <figure class="fig">
+<pre><code>&lt;EventID Qualifiers=""&gt;4624&lt;/EventID&gt;
+&lt;TimeCreated SystemTime="2025-02-09 10:08:03+00:00"&gt;&lt;/TimeCreated&gt;
+...
+&lt;EventData&gt;&lt;Data Name="SubjectUserSid"&gt;S-1-5-18&lt;/Data&gt;
+&lt;Data Name="SubjectUserName"&gt;COBALT-SRV40$&lt;/Data&gt;
+&lt;Data Name="SubjectDomainName"&gt;COBALTAERO&lt;/Data&gt;
+&lt;Data Name="SubjectLogonId"&gt;0x3e7&lt;/Data&gt;
+&lt;Data Name="TargetUserSid"&gt;S-1-5-21-2056748860-2631951393-1057858172-1297&lt;/Data&gt;
+&lt;Data Name="TargetUserName"&gt;mquinn&lt;/Data&gt;
+&lt;Data Name="TargetDomainName"&gt;COBALTAERO&lt;/Data&gt;
+&lt;Data Name="TargetLogonId"&gt;0x6fe60d5&lt;/Data&gt;
+&lt;Data Name="LogonType"&gt;2&lt;/Data&gt;
+...
+&lt;Data Name="WorkstationName"&gt;COBALT-SRV40&lt;/Data&gt;
+...
+&lt;Data Name="IpAddress"&gt;127.0.0.1&lt;/Data&gt;
+&lt;Data Name="IpPort"&gt;0&lt;/Data&gt;
+...</code></pre>
+      <figcaption>A routine 4624 from First Look: Accounts and Services in the Logs, as python-evtx renders it, trimmed. The subject is the machine account (S-1-5-18) that processed the logon. The target, mquinn, is who logged on, at the keyboard (LogonType 2). TargetLogonId names the new session.</figcaption>
+    </figure>
+    <figure class="fig">
+<pre><code>&lt;EventID Qualifiers=""&gt;4688&lt;/EventID&gt;
+&lt;TimeCreated SystemTime="2025-02-08 14:05:27.176697+00:00"&gt;&lt;/TimeCreated&gt;
+...
+&lt;EventData&gt;&lt;Data Name="SubjectUserSid"&gt;S-1-5-21-2056748860-2631951393-1057858172-1297&lt;/Data&gt;
+&lt;Data Name="SubjectUserName"&gt;mquinn&lt;/Data&gt;
+&lt;Data Name="SubjectDomainName"&gt;COBALTAERO&lt;/Data&gt;
+&lt;Data Name="SubjectLogonId"&gt;0x457b88b&lt;/Data&gt;
+&lt;Data Name="NewProcessId"&gt;0xd3ed&lt;/Data&gt;
+&lt;Data Name="NewProcessName"&gt;C:\Program Files\Google\Chrome\Application\chrome.exe&lt;/Data&gt;
+...
+&lt;Data Name="CommandLine"&gt;"C:\Program Files\Google\Chrome\Application\chrome.exe"&lt;/Data&gt;
+&lt;Data Name="TargetUserSid"&gt;S-1-0-0&lt;/Data&gt;
+&lt;Data Name="TargetUserName"&gt;-&lt;/Data&gt;
+&lt;Data Name="TargetDomainName"&gt;-&lt;/Data&gt;
+&lt;Data Name="TargetLogonId"&gt;0x0&lt;/Data&gt;
+&lt;Data Name="ParentProcessName"&gt;C:\Windows\explorer.exe&lt;/Data&gt;
+...</code></pre>
+      <figcaption>A 4688 from the same log. Here the subject is the actor: mquinn started chrome.exe from explorer.exe, and the Target fields are empty. Match SubjectLogonId against a 4624's TargetLogonId to find the session that ran it.</figcaption>
+    </figure>
 
     <h2>The pivot: logon session to process</h2>
     <p>The link that welds a logon to the processes it spawned is the <strong>logon ID</strong>. A 4624 event issues a <code>TargetLogonId</code>, a hex value that identifies that specific logon session. Every process started inside that session carries the same value as its <code>SubjectLogonId</code> on the 4688 event. Match them and you've turned "someone logged on remotely" into "this remote logon then ran these exact commands":</p>
