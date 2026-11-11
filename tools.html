@@ -63,10 +63,10 @@
 
   <section style="border-top:0;padding-top:24px">
     <div class="doc">
-      <div class="callout"><p>Red Herrings doesn't install these tools for you and never phones home. Everything below is free to use, installed straight from the vendor; nothing is bundled or redistributed. The two hand-download tools are marked.</p></div>
+      <div class="callout"><p>Red Herrings doesn't install these tools for you. Everything below is free to use and comes straight from the vendor; nothing is bundled or redistributed. The hand-download tools are marked.</p></div>
 
       <h2 id="quick">One-run install</h2>
-      <p>The scripts install the toolkit and print links for the two tools that need a manual download.</p>
+      <p>The scripts install the toolkit and print links for the tools that need a manual download.</p>
       <div class="toolset">
         <div class="toolcard">
           <h3>Windows</h3>
@@ -76,7 +76,7 @@
         </div>
         <div class="toolcard">
           <h3>Linux (Debian/Ubuntu)</h3>
-          <p>Installs via <code>apt</code> and <code>pip</code>:</p>
+          <p>Installs via <code>apt</code> and <code>pipx</code>:</p>
           <pre>chmod +x setup-linux.sh && ./setup-linux.sh</pre>
           <a class="btn" href="tools/setup-linux.sh" download>Download setup-linux.sh</a>
         </div>
@@ -87,45 +87,57 @@
 
       <h3>Foundations &amp; Windows Forensics</h3>
       <ul>
-        <li><strong>Autopsy</strong> or <strong>The Sleuth Kit</strong>: disk images, deleted-file recovery, carving. <em>Free.</em></li>
-        <li><strong>Eric Zimmerman's tools</strong> (PECmd, LECmd, JLECmd, RECmd, EvtxECmd, Timeline Explorer): Prefetch, LNK, jump lists, registry, event logs, timelines. <em>Free.</em></li>
-        <li><strong>Registry Explorer</strong>: registry hives (USB history, UserAssist, RecentDocs). <em>Free.</em></li>
-        <li><strong>Event Viewer</strong> (built into Windows) or <strong>Chainsaw</strong>: EVTX logon, account and log-clearing events. <em>Free.</em></li>
-        <li><strong>DB Browser for SQLite</strong>: Chrome/Firefox history databases. <em>Free.</em></li>
+        <li><strong><a href="https://www.autopsy.com/" rel="noopener">Autopsy</a></strong> or <strong><a href="https://www.sleuthkit.org/" rel="noopener">The Sleuth Kit</a></strong>: disk images, deleted-file recovery, carving. <em>Free.</em></li>
+        <li><strong><a href="https://ericzimmerman.github.io/" rel="noopener">Eric Zimmerman's tools</a></strong> (PECmd, LECmd, JLECmd, RECmd, EvtxECmd, Timeline Explorer): Prefetch, LNK, jump lists, registry, event logs, timelines. They need the .NET runtime, which the Windows script installs. <em>Free.</em></li>
+        <li><strong><a href="https://ericzimmerman.github.io/" rel="noopener">Registry Explorer</a></strong>: registry hives (USB history, UserAssist, RecentDocs). <em>Free.</em></li>
+        <li><strong><a href="https://github.com/keydet89/RegRipper3.0" rel="noopener">RegRipper</a></strong>: plugin reports from a hive, a quick second opinion on Registry Explorer. <em>Free.</em></li>
+        <li><strong>Event Viewer</strong> (built into Windows) or <strong>Chainsaw</strong>: EVTX logon, account and log-clearing events. <em>Free, Chainsaw is a hand-download.</em></li>
+        <li><strong><a href="https://sqlitebrowser.org/" rel="noopener">DB Browser for SQLite</a></strong>: Chrome/Firefox history databases. <em>Free.</em></li>
+        <li><strong><a href="https://www.foxtonforensics.com/browser-history-viewer/" rel="noopener">Browser History Viewer</a></strong> or <strong><a href="https://github.com/obsidianforensics/hindsight" rel="noopener">Hindsight</a></strong>: browser history and downloads without writing SQL. <em>Free.</em></li>
         <li><strong>FTK Imager</strong>: mount and preview images. <em>Free, hand-download (Exterro).</em></li>
+        <li><strong><a href="https://timesketch.org/" rel="noopener">Timesketch</a></strong>: optional, for super-timelines. A spreadsheet works too. <em>Free.</em></li>
       </ul>
 
       <h3>Mobile Forensics</h3>
       <ul>
-        <li><strong>ALEAPP</strong>: Android logs, events and app data. <em>Free.</em></li>
-        <li><strong>DB Browser for SQLite</strong>: SMS, messaging-app, contacts and location databases. <em>Free.</em></li>
+        <li><strong>ALEAPP</strong>: Android logs, events and app data. <em>Free, hand-download.</em></li>
+        <li><strong>iLEAPP</strong>: iPhone extractions, including <code>sms.db</code> and the address book. <em>Free, hand-download.</em></li>
+        <li><strong><a href="https://sqlitebrowser.org/" rel="noopener">DB Browser for SQLite</a></strong>: SMS, messaging-app, contacts and location databases. <em>Free.</em></li>
       </ul>
 
       <h3>Network Forensics</h3>
       <ul>
-        <li><strong>Wireshark</strong> / <strong>tshark</strong>: packet captures (DNS, HTTP payloads, beacons, cleartext credentials). <em>Free.</em></li>
+        <li><strong><a href="https://www.wireshark.org/" rel="noopener">Wireshark</a></strong> / <strong>tshark</strong>: packet captures (DNS, HTTP payloads, beacons, cleartext credentials). <em>Free.</em></li>
+        <li><strong><a href="https://www.netresec.com/?page=NetworkMiner" rel="noopener">NetworkMiner</a></strong>: files, hosts and credentials pulled out of a capture. <em>Free edition.</em></li>
+      </ul>
+
+      <h3>Cloud &amp; SaaS and incident response</h3>
+      <ul>
+        <li><strong><a href="https://jqlang.org/" rel="noopener">jq</a></strong> or any JSON viewer: cloud audit logs (CloudTrail, M365, Azure sign-ins) and the EDR and SIEM exports. <em>Free.</em></li>
+        <li>A spreadsheet (Excel or LibreOffice Calc): sort and filter an alert queue or a sign-in log.</li>
+        <li><strong><a href="https://www.thunderbird.net/" rel="noopener">Thunderbird</a></strong>: email mailboxes (mbox) and loose <code>.eml</code>. <em>Free.</em></li>
       </ul>
 
       <h3>Advanced Forensics &amp; IR</h3>
       <ul>
-        <li><strong>Volatility 3</strong>: memory (processes, network connections, injected code). The first run on a Windows image needs internet to fetch the kernel symbols from Microsoft; after that it works offline. Linux images ship with their symbol table, so they work offline from the start. <em>Free.</em></li>
-        <li><strong>jq</strong>: cloud audit logs (CloudTrail, M365, Azure sign-ins) as JSON. <em>Free.</em></li>
-        <li><strong>Thunderbird</strong>: email mailboxes (mbox) and loose <code>.eml</code>. <em>Free.</em></li>
-        <li>Plus the Windows, mobile and network tools above; intrusion cases span several evidence types.</li>
+        <li><strong><a href="https://github.com/volatilityfoundation/volatility3" rel="noopener">Volatility 3</a></strong>: memory (processes, network connections, injected code). The first run on a Windows image needs internet to fetch the kernel symbols from Microsoft; after that it works offline. Linux images ship with their symbol table, so they work offline from the start. <em>Free.</em></li>
+        <li>Plus the Windows, mobile, network and cloud tools above; intrusion cases span several evidence types.</li>
       </ul>
 
-      <h2 id="sift">Prefer a ready-made distro?</h2>
+<h2 id="sift">Prefer a ready-made distro?</h2>
       <p><strong>SANS SIFT Workstation</strong> is a free, maintained Linux VM that bundles most of the above (Sleuth Kit, Volatility, Wireshark and more). For a clean, disposable analysis environment with nothing to install, download SIFT and point it at your lab's evidence.</p>
       <div class="cta-row" style="justify-content:flex-start;margin:8px 0 4px">
         <a class="btn ghost" href="https://www.sans.org/tools/sift-workstation/" rel="noopener">Get SIFT Workstation</a>
       </div>
-      <p class="note" style="text-align:left">SIFT covers the disk, memory, network and Linux tracks; the Linux cases are plain-text logs you read with <code>grep</code> and any editor, and two of them add a LiME memory image for Volatility 3. For Windows-artifact cases, add Eric Zimmerman's tools (under <code>dotnet</code> on Linux, or natively on a Windows VM). For macOS cases, <strong>mac_apt</strong> parses the unified log, quarantine, Safari and plists, and DB Browser opens the SQLite stores.</p>
+      <p class="note" style="text-align:left">SIFT covers the disk, memory, network and Linux tracks; the Linux cases are plain-text logs you read with <code>grep</code> and any editor, and two of them add a LiME memory image for Volatility 3. For Windows-artifact cases, add Eric Zimmerman's tools (under <code>dotnet</code> on Linux, or natively on a Windows VM). For macOS cases, the unified log is a <code>log show</code> text export you read with <code>grep</code>, the LaunchAgents are XML plists, and DB Browser opens the quarantine, Safari and TCC databases. <strong><a href="https://github.com/ydkhatri/mac_apt" rel="noopener">mac_apt</a></strong> parses the same artifacts from a full macOS image.</p>
 
       <h2 id="handdownload">Tools you download by hand</h2>
-      <p>Two tools can't be scripted; their licenses require you to accept terms or fetch a release yourself:</p>
+      <p>These aren't in <code>winget</code>, <code>apt</code> or PyPI, so the scripts print their links instead:</p>
       <ul>
         <li><strong>FTK Imager</strong>: <a href="https://www.exterro.com/digital-forensics-software/ftk-imager" rel="noopener">exterro.com</a> (free, form required).</li>
         <li><strong>Chainsaw</strong>: <a href="https://github.com/WithSecureLabs/chainsaw/releases" rel="noopener">GitHub releases</a> (free, EVTX threat hunting).</li>
+        <li><strong>ALEAPP</strong>: <a href="https://github.com/abrignoni/ALEAPP/releases" rel="noopener">GitHub releases</a> (free, Android).</li>
+        <li><strong>iLEAPP</strong>: <a href="https://github.com/abrignoni/iLEAPP/releases" rel="noopener">GitHub releases</a> (free, iPhone).</li>
       </ul>
 
       <div class="cta-row" style="margin-top:36px;justify-content:flex-start">
@@ -146,7 +158,7 @@
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">
-        <h4>Product</h4>
+        <h2>Product</h2>
         <a href="/how.html">How it works</a>
         <a href="/cases.html">All cases</a>
         <a href="/pathways.html">Learning pathways</a>
@@ -158,7 +170,7 @@
         <a href="/#pricing">Pricing</a>
       </div>
       <div class="fcol">
-        <h4>Resources</h4>
+        <h2>Resources</h2>
         <a href="/help.html">Help &amp; getting started</a>
         <a href="/tools.html">Tools &amp; setup</a>
         <a href="/resources.html">Free resources</a>

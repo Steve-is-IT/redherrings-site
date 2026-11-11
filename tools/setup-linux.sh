@@ -2,7 +2,7 @@
 # Red Herrings - Linux forensics toolkit setup (Debian/Ubuntu).
 # Installs the free tools the Red Herrings cases use.
 #   chmod +x setup-linux.sh && ./setup-linux.sh
-# Uses apt (needs sudo) for system tools and pip for the Python ones.
+# Uses apt (needs sudo) for system tools and pipx for Volatility 3.
 # For a fully prepared distro instead, use SANS SIFT Workstation (see tools.html).
 set -u
 
@@ -24,16 +24,16 @@ APT_PKGS=(
   thunderbird        # email (mbox / .eml)
   jq                 # JSON: cloud audit logs
   p7zip-full         # archives
-  python3-pip python3-venv
+  pipx               # Python apps in their own environments (Volatility 3)
 )
 
 ok "Installing system tools via apt (you may be prompted for sudo) ..."
 sudo apt-get update -y
-sudo apt-get install -y "${APT_PKGS[@]}"
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "${APT_PKGS[@]}"
 
-ok "Installing Python forensics tools (Volatility 3, ALEAPP) in ~/.local ..."
-python3 -m pip install --user --upgrade pip volatility3 aleapp || \
-  warn "pip install failed; try:  pipx install volatility3 && pipx install aleapp"
+ok "Installing Volatility 3 with pipx ..."
+pipx install volatility3 || warn "pipx install failed; try again with:  pipx install volatility3"
+pipx ensurepath >/dev/null 2>&1 || true
 
 cat <<'NOTE'
 
@@ -42,6 +42,9 @@ cat <<'NOTE'
     run best on Windows; on Linux run them under 'dotnet', or use SIFT.
   * Autopsy on Linux: build from https://www.sleuthkit.org/autopsy/ or use SIFT.
   * Chainsaw (EVTX hunting): https://github.com/WithSecureLabs/chainsaw/releases
+  * ALEAPP (Android):        https://github.com/abrignoni/ALEAPP/releases
+  * iLEAPP (iPhone):         https://github.com/abrignoni/iLEAPP/releases
+  * Open a new terminal so 'vol' (Volatility 3) is on your PATH.
 
 Prefer a ready-made distro? SANS SIFT Workstation bundles most of the above:
   https://www.sans.org/tools/sift-workstation/

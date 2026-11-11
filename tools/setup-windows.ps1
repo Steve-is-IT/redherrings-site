@@ -23,7 +23,8 @@ $pkgs = @(
   @{ id = "Notepad++.Notepad++";                      name = "Notepad++ (text/log viewing)" },
   @{ id = "jqlang.jq";                                name = "jq (JSON: cloud audit logs)" },
   @{ id = "7zip.7zip";                                name = "7-Zip (archives)" },
-  @{ id = "Python.Python.3.12";                       name = "Python 3.12 (Volatility 3, ALEAPP)" }
+  @{ id = "Microsoft.DotNet.DesktopRuntime.10";       name = ".NET 10 Desktop Runtime (Eric Zimmerman's tools)" },
+  @{ id = "Python.Python.3.12";                       name = "Python 3.12 (Volatility 3)" }
 )
 
 foreach ($p in $pkgs) {
@@ -31,13 +32,13 @@ foreach ($p in $pkgs) {
   winget install --id $($p.id) -e --silent --accept-source-agreements --accept-package-agreements
 }
 
-# Python-based tools (memory + mobile) once Python is present.
-Write-Host "Installing Python forensics tools (Volatility 3, ALEAPP) ..." -ForegroundColor Green
+# Volatility 3 (memory) once Python is present.
+Write-Host "Installing Volatility 3 ..." -ForegroundColor Green
 $py = if (Have py) { "py -m pip" } elseif (Have python) { "python -m pip" } else { $null }
 if ($py) {
-  Invoke-Expression "$py install --user --upgrade pip volatility3 aleapp"
+  Invoke-Expression "$py install --upgrade pip volatility3"
 } else {
-  Write-Host "Python not on PATH yet. Open a new terminal after install and run:  py -m pip install --user volatility3 aleapp" -ForegroundColor Yellow
+  Write-Host "Python not on PATH yet. Open a new terminal after install and run:  py -m pip install volatility3" -ForegroundColor Yellow
 }
 
 # Eric Zimmerman's tools (Prefetch, LNK, jump lists, registry, EVTX, timelines).
@@ -54,6 +55,7 @@ Write-Host ""
 Write-Host "== Download by hand (licenses do not allow bundling/scripted install) ==" -ForegroundColor Cyan
 Write-Host "  FTK Imager   https://www.exterro.com/digital-forensics-software/ftk-imager"
 Write-Host "  Chainsaw     https://github.com/WithSecureLabs/chainsaw/releases (EVTX threat hunting)"
-Write-Host "  ALEAPP GUI   optional; the CLI is installed above via pip"
+Write-Host "  ALEAPP       https://github.com/abrignoni/ALEAPP/releases (Android)"
+Write-Host "  iLEAPP       https://github.com/abrignoni/iLEAPP/releases (iPhone)"
 Write-Host ""
 Write-Host "Done. See the tool-to-case mapping at https://redherrings.app/tools.html" -ForegroundColor Cyan
