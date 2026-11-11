@@ -1,0 +1,346 @@
+{
+ "_about": "Captured output shown on each blog cover. Every block is real output from labs generated with Red Herrings 1.15.1 (First Look cases, seed 'covers', plus a five-student exam roster with fake ids), read with Volatility 3, python-evtx, python-registry, scapy, sqlite3 and pytsk3, or printed by the product's CLI and modules. Only background rows are used: no case answer appears on any cover. Line styles: head (column header), cmd (prompt), dim (comment). tools-gen-blog-covers.py renders this file.",
+ "volatility-3-memory-forensics-getting-started": {
+  "title": "vol windows.pslist",
+  "source": "easy-memory-first-look: vol -f <image> windows.pslist",
+  "lines": [
+   ["head", "PID   PPID  ImageFileName  Thds  CreateTime"],
+   ["", "4     0     System          245  2025-01-21 09:04:33"],
+   ["", "500   4     smss.exe          2  2025-01-21 09:04:34"],
+   ["", "696   528   wininit.exe       1  2025-01-21 09:04:38"],
+   ["", "824   696   services.exe      8  2025-01-21 09:04:39"],
+   ["", "860   696   lsass.exe        11  2025-01-21 09:04:39"],
+   ["", "2468  824   spoolsv.exe      14  2025-01-21 09:05:09"],
+   ["", "2528  824   MsMpEng.exe      20  2025-01-21 09:05:14"]
+  ]
+ },
+ "prefetch-forensics-pecmd-walkthrough": {
+  "title": "NOTEPAD.EXE-C5670914.pf",
+  "source": "easy-program-execution: benign NOTEPAD.EXE prefetch, product MAM decompressor",
+  "lines": [
+   ["dim", "# on disk: MAM (Xpress Huffman)"],
+   ["", "00000000: 4d 41 4d 04 4c 04 00 00  MAM.L..."],
+   ["dim", "# decompressed: SCCA v30"],
+   ["", "00000000: 1e 00 00 00 53 43 43 41  ....SCCA"],
+   ["", "00000008: 11 00 00 00 4c 04 00 00  ....L..."],
+   ["", "00000010: 4e 00 4f 00 54 00 45 00  N.O.T.E."],
+   ["", "00000018: 50 00 41 00 44 00 2e 00  P.A.D..."],
+   ["", "00000020: 45 00 58 00 45 00 00 00  E.X.E..."],
+   ["", "00000048: 00 00 00 00 14 09 67 c5  ......g."]
+  ]
+ },
+ "registry-explorer-windows-registry-forensics": {
+  "title": "python-registry",
+  "source": "easy-program-execution: SOFTWARE hive, OS version key",
+  "lines": [
+   ["head", "Microsoft\\Windows NT\\CurrentVersion"],
+   ["", "ProductName     RegSZ  Windows 10 Pro"],
+   ["", "EditionID       RegSZ  Professional"],
+   ["", "DisplayVersion  RegSZ  22H2"],
+   ["", "CurrentBuild    RegSZ  19045"],
+   ["", "ReleaseId       RegSZ  2009"],
+   ["", "CurrentVersion  RegSZ  6.3"]
+  ]
+ },
+ "gcfe-windows-forensics-practice-labs": {
+  "title": "$MFT_timeline.csv  C:\\Windows\\Prefetch",
+  "source": "easy-program-execution: MFT rows for background Prefetch files",
+  "lines": [
+   ["head", "Entry FileName                  Size  Created0x10"],
+   ["", "44    NOTEPAD.EXE-C5670914.pf    718  2025-05-08 15:52:52"],
+   ["", "45    SVCHOST.EXE-D02762BF.pf    800  2025-05-18 09:59:36"],
+   ["", "49    CONHOST.EXE-0C6456FB.pf    772  2025-05-19 03:55:20"]
+  ]
+ },
+ "detect-lateral-movement-windows-event-logs": {
+  "title": "python-evtx  Security.evtx",
+  "source": "easy-account-events: record 8, routine 4624 service logon by SYSTEM",
+  "lines": [
+   ["", "<EventID Qualifiers=\"\">4624</EventID>"],
+   ["", "<EventRecordID>8</EventRecordID>"],
+   ["", "<Data Name=\"SubjectUserName\">OAKMON-SRV74$</Data>"],
+   ["", "<Data Name=\"TargetUserName\">SYSTEM</Data>"],
+   ["", "<Data Name=\"TargetLogonId\">0x3e7</Data>"],
+   ["", "<Data Name=\"LogonType\">5</Data>"],
+   ["", "<Data Name=\"LogonProcessName\">Advapi  </Data>"],
+   ["", "<Data Name=\"IpAddress\">-</Data>"]
+  ]
+ },
+ "evtxecmd-windows-event-log-timeline": {
+  "title": "Security.evtx + System.evtx",
+  "source": "easy-timeline: SYSTEM service logons and Windows Update service state changes",
+  "lines": [
+   ["head", "TimeCreated          Id    Details"],
+   ["", "2025-06-07 17:26:52  4624  SYSTEM, LogonType 5"],
+   ["", "2025-06-07 17:26:52  4672  SYSTEM, special privileges"],
+   ["", "2025-06-07 18:03:32  4624  SYSTEM, LogonType 5"],
+   ["", "2025-06-07 18:03:32  4672  SYSTEM, special privileges"],
+   ["", "2025-06-08 00:15:55  4624  SYSTEM, LogonType 5"],
+   ["", "2025-06-08 20:37:09  7036  Windows Update: running"],
+   ["", "2025-06-09 14:50:23  7036  Windows Update: running"]
+  ]
+ },
+ "wireshark-for-beginners-packet-capture-basics": {
+  "title": "capture.pcap",
+  "source": "easy-network-first-look: cdn.jsdelivr.net lookup and TLS session (background)",
+  "lines": [
+   ["head", "No.   Time      Proto  Info"],
+   ["", "1082  937.062   DNS    query A cdn.jsdelivr.net"],
+   ["", "1083  937.065   DNS    response A 45.125.1.239"],
+   ["", "1084  937.112   TCP    54021 → 443 [SYN]"],
+   ["", "1085  937.114   TCP    443 → 54021 [SYN, ACK]"],
+   ["", "1086  937.116   TCP    54021 → 443 [ACK]"],
+   ["", "1087  937.118   TCP    54021 → 443 [PSH, ACK] Len=493"],
+   ["", "1089  937.122   TCP    443 → 54021 [PSH, ACK] Len=535"]
+  ]
+ },
+ "detect-c2-beaconing-packet-capture": {
+  "title": "capture.pcap",
+  "source": "easy-network-first-look: update.googleapis.com lookup and session (background)",
+  "lines": [
+   ["head", "No.   Time      Proto  Info"],
+   ["", "1095  2448.229  DNS    query A update.googleapis.com"],
+   ["", "1096  2448.232  DNS    response A 203.84.180.68"],
+   ["", "1097  2448.279  TCP    59174 → 443 [SYN]"],
+   ["", "1098  2448.281  TCP    443 → 59174 [SYN, ACK]"],
+   ["", "1099  2448.283  TCP    59174 → 443 [ACK]"],
+   ["", "1100  2448.285  TCP    59174 → 443 [PSH, ACK] Len=491"],
+   ["", "1102  2448.289  TCP    443 → 59174 [PSH, ACK] Len=980"],
+   ["", "1104  2448.293  TCP    59174 → 443 [FIN, ACK]"]
+  ]
+ },
+ "ios-imessage-forensics-cocoa-time": {
+  "title": "sms.db",
+  "source": "mobile-ios-imessage: first five message rows, date columns only",
+  "lines": [
+   ["cmd", "sqlite> SELECT ROWID, date,"],
+   ["cmd", "   ...>   datetime(date/1e9 + 978307200, 'unixepoch')"],
+   ["cmd", "   ...> FROM message LIMIT 5;"],
+   ["", "1|764128318940133000|2025-03-20 01:51:58"],
+   ["", "2|764169308776368000|2025-03-20 13:15:08"],
+   ["", "3|764180943759897000|2025-03-20 16:29:03"],
+   ["", "4|764183922858187000|2025-03-20 17:18:42"],
+   ["", "5|764270551357856000|2025-03-21 17:22:31"]
+  ]
+ },
+ "autopsy-disk-image-analysis-walkthrough": {
+  "title": "pytsk3  evidence.dd",
+  "source": "easy-deleted-file: volume system and file system layout only",
+  "lines": [
+   ["dim", "DOS partition table, 512-byte sectors"],
+   ["head", "Slot     Start      End   Length  Description"],
+   ["", "Meta         0        0        1  Primary Table (#0)"],
+   ["", "-            0     2047     2048  Unallocated"],
+   ["", "000       2048   131071   129024  Win95 FAT32 (0x0c)"],
+   ["", ""],
+   ["dim", "FAT32, 129024 blocks of 512 bytes"]
+  ]
+ },
+ "chain-of-custody-in-the-classroom": {
+  "title": "HASH-MANIFEST.txt",
+  "source": "easy-after-hours-logon: generated evidence hash manifest",
+  "lines": [
+   ["head", "Evidence hash manifest"],
+   ["", "Case: RH-2024-7829-001"],
+   ["", "Files: 2"],
+   ["", ""],
+   ["", "C/Windows/System32/winevt/Logs/Security.evtx"],
+   ["", "    MD5    : 228be18023343dea637e5380cc8503b2"],
+   ["", "C/Windows/System32/winevt/Logs/System.evtx"],
+   ["", "    MD5    : 56494f4fd3cbf9e596378f6619b3dec0"]
+  ]
+ },
+ "forensics-exam-students-cant-copy": {
+  "title": "roster-mapping.csv",
+  "source": "easy-after-hours-logon, exam set, five fake student ids",
+  "lines": [
+   ["head", "student_id,variant_seed,case_id"],
+   ["", "s24017,fall-exam,RH-2026-8913-4017"],
+   ["", "s24018,fall-exam,RH-2026-2817-4018"],
+   ["", "s24019,fall-exam,RH-2024-5291-4019"],
+   ["", "s24020,fall-exam,RH-2025-8614-4020"],
+   ["", "s24021,fall-exam,RH-2025-3601-4021"]
+  ]
+ },
+ "how-to-grade-a-digital-forensics-lab": {
+  "title": "grading-sheet.csv",
+  "source": "easy-after-hours-logon, exam set: grading sheet without answer columns",
+  "lines": [
+   ["head", "student_id,question_id,question_type,max_points,awarded"],
+   ["", "s24017,q1,timestamp,12.0,"],
+   ["", "s24017,q2,ip,12.0,"],
+   ["", "s24017,q3,text,10.0,"],
+   ["", "s24017,q4,int,8.0,"],
+   ["", "s24018,q1,timestamp,12.0,"],
+   ["", "s24018,q2,ip,12.0,"],
+   ["", "s24018,q3,text,10.0,"]
+  ]
+ },
+ "blue-team-ctf-analysts-cant-google": {
+  "title": "five students, one case",
+  "source": "easy-after-hours-logon, five fake student ids: each gets a different log",
+  "lines": [
+   ["cmd", "$ md5sum */Security.evtx"],
+   ["", "438f24d34f66bc9534ed8bacbf82c1ac  s24017/Security.evtx"],
+   ["", "90de9fd18ef6d91295f8c8664351f5fe  s24018/Security.evtx"],
+   ["", "275e63135ebc51669beb1d92b061276c  s24019/Security.evtx"],
+   ["", "cf3827399694eea5a7bcc0d6101ae6b1  s24020/Security.evtx"],
+   ["", "9d5fd314e689e4e97d9a5500813ebd6a  s24021/Security.evtx"]
+  ]
+ },
+ "soc-analyst-onboarding-hands-on-labs": {
+  "title": "SignInLogs.json",
+  "source": "ir-first-look-bruteforce: a routine Teams sign-in by a background user",
+  "lines": [
+   ["", "{"],
+   ["", "  \"createdDateTime\": \"2025-03-25T00:21:59Z\","],
+   ["", "  \"userDisplayName\": \"Luis Bennett\","],
+   ["", "  \"ipAddress\": \"193.105.129.31\","],
+   ["", "  \"appDisplayName\": \"Microsoft Teams\","],
+   ["", "  \"status\": { \"errorCode\": 0 },"],
+   ["", "  \"riskLevelDuringSignIn\": \"none\""],
+   ["", "}"]
+  ]
+ },
+ "incident-response-tabletop-vs-hands-on-exercise": {
+  "title": "auth.log",
+  "source": "easy-linux-ssh: routine key-based logins from internal automation accounts",
+  "lines": [
+   ["cmd", "$ grep 'Accepted publickey' auth.log \\"],
+   ["cmd", "    | awk '{print $1,$2,$3,$9,$11}' | head -6"],
+   ["", "Jun 16 05:31:58 deploy 192.168.217.127"],
+   ["", "Jun 16 06:17:59 jenkins 192.168.217.71"],
+   ["", "Jun 16 08:48:59 gitlab-runner 192.168.217.239"],
+   ["", "Jun 16 10:57:13 deploy 192.168.217.210"],
+   ["", "Jun 16 13:16:06 jenkins 192.168.217.54"],
+   ["", "Jun 16 13:43:35 ansible 192.168.217.124"]
+  ]
+ },
+ "incident-response-exercise-edr-siem": {
+  "title": "detections.json",
+  "source": "ir-first-look-edr: export header, sensor fields without hostname",
+  "lines": [
+   ["", "{"],
+   ["", "  \"vendor\": \"Microsoft Defender for Endpoint\","],
+   ["", "  \"schema\": \"defender\","],
+   ["", "  \"sensor\": {"],
+   ["", "    \"id\": \"dev-c8f9a97cc92dd02e\","],
+   ["", "    \"agent_version\": \"10.814.3426\","],
+   ["", "    \"os\": \"Windows 10 Pro\""],
+   ["", "  }"],
+   ["", "}"]
+  ]
+ },
+ "build-a-digital-forensics-course-syllabus": {
+  "title": "intro-digital-forensics-14",
+  "source": "course pack weeks 1 to 8",
+  "lines": [
+   ["head", "Wk  Topic                               Mode"],
+   ["", "1   Evidence handling and the registry  practice"],
+   ["", "2   Program execution                   practice"],
+   ["", "3   Files the user touched              practice"],
+   ["", "4   Persistence                         practice"],
+   ["", "5   Windows event logs                  practice"],
+   ["", "6   Timelines                           practice"],
+   ["", "7   Midterm practical                   exam"],
+   ["", "8   Browser and download forensics      practice"]
+  ]
+ },
+ "dfir-learning-pathways-first-look-to-capstone": {
+  "title": "pathway: gcfe-windows",
+  "source": "pathway steps",
+  "lines": [
+   ["", " 1  easy-program-execution"],
+   ["", " 2  easy-recent-files"],
+   ["", " 3  easy-usb-first-look"],
+   ["", " 4  easy-persistence"],
+   ["", " 5  easy-timeline"],
+   ["", " 6  insider-usb"],
+   ["", " 7  medium-personal-cloud-exfil"],
+   ["", " 8  approval-phishing-drainer"],
+   ["", " 9  hard-credential-theft"],
+   ["", "10  expert-silent-harvest"]
+  ]
+ },
+ "teaching-mitre-attack-hands-on": {
+  "title": "ATT&CK tactics in the case library",
+  "source": "attack.tactics_for over all built-in cases",
+  "lines": [
+   ["head", "Tactic  Name                  Cases"],
+   ["", "TA0001  Initial Access           21"],
+   ["", "TA0002  Execution                14"],
+   ["", "TA0003  Persistence              18"],
+   ["", "TA0004  Privilege Escalation     16"],
+   ["", "TA0005  Defense Evasion          19"],
+   ["", "TA0006  Credential Access        13"],
+   ["", "TA0007  Discovery                 7"],
+   ["", "TA0008  Lateral Movement          8"]
+  ]
+ },
+ "whats-new-student-portal-certificates": {
+  "title": "awards.case_certificate()",
+  "source": "certificate for a fake student",
+  "lines": [
+   ["", "heading     Certificate of Completion"],
+   ["", "recipient   Student A"],
+   ["", "achievement First Look: What's in Memory"],
+   ["", "detail      Final score: 92%"],
+   ["", "issued      2026-10-05"],
+   ["", "issuer      Red Herrings"],
+   ["", "code        80BE8CDFB0"]
+  ]
+ },
+ "digital-forensics-lab-platform-buyers-guide": {
+  "title": "case library",
+  "source": "redherrings scenarios",
+  "lines": [
+   ["cmd", "$ redherrings scenarios | wc -l"],
+   ["", "83"],
+   ["cmd", "$ redherrings scenarios | awk '{print $2}' | sort | uniq -c"],
+   ["", "     24 easy"],
+   ["", "     10 expert"],
+   ["", "     21 hard"],
+   ["", "     28 medium"]
+  ]
+ },
+ "cyber-range-vs-generated-cases-cost": {
+  "title": "local run, no cloud",
+  "source": "timed 5-student generation",
+  "lines": [
+   ["cmd", "$ time redherrings generate easy-timeline --students 5"],
+   ["", "state: done"],
+   ["", "verification: 290/290 checks passed (Verified)"],
+   ["", ""],
+   ["", "real  0m4.918s"],
+   ["cmd", "$ du -sh output"],
+   ["", "3.3M  output"]
+  ]
+ },
+ "air-gapped-forensics-training-no-cloud": {
+  "title": "no network namespace",
+  "source": "selftest with networking removed",
+  "lines": [
+   ["cmd", "$ unshare -rn redherrings selftest"],
+   ["", "Red Herrings 1.15.1 self-test (source checkout)"],
+   ["", "  [ok] case library loads: 83 built-in cases, 0 errors"],
+   ["", "  [ok] First Look case generates and verifies: 19/19 checks"],
+   ["", "  [ok] keyless install can't open a locked case"],
+   ["", "PASS"]
+  ]
+ },
+ "white-label-dfir-training-resell-cases": {
+  "title": "easy_usb_first_look.yaml",
+  "source": "built-in scenario header",
+  "lines": [
+   ["", "id: easy-usb-first-look"],
+   ["", "name: \"First Look: USB Device History\""],
+   ["", "version: \"1.0\""],
+   ["", "author: Red Herrings"],
+   ["", "difficulty: easy"],
+   ["", "category: first-look"],
+   ["", "estimated_minutes: 33"],
+   ["", "tags: [registry, usb, beginner, triage]"],
+   ["", "tools: [Registry Explorer, RegRipper, LECmd]"]
+  ]
+ }
+}

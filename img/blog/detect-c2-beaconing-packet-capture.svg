@@ -1,24 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Red Herrings">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="capture.pcap output">
   <defs>
-    <linearGradient id="g" x1="0.763" y1="-0.039" x2="0.237" y2="1.039">
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#042026"/>
-      <stop offset="0.62" stop-color="#0e9aa7"/>
-      <stop offset="1" stop-color="#0e9aa7"/>
+      <stop offset="0.72" stop-color="#0e9aa7"/>
+      <stop offset="1" stop-color="#86ccd3"/>
     </linearGradient>
-    <radialGradient id="glow1" cx="0.50" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.62">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
       <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glow2" cx="0.89" cy="0.9" r="0.7">
-      <stop offset="0" stop-color="#042026" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#042026" stop-opacity="0"/>
-    </radialGradient>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.6" fill="#ffffff" fill-opacity="0.09"/>
+    </pattern>
+    <filter id="sh" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
   </defs>
   <rect width="1600" height="1000" fill="url(#g)"/>
-  <rect width="1600" height="1000" fill="url(#glow2)"/>
-  <g transform="translate(541,284) scale(18)" fill="none" stroke="#ffffff" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" opacity="0.10"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></g>
-  <rect width="1600" height="1000" fill="url(#glow1)"/>
-  <g transform="translate(1270,700) scale(5.1)" opacity="0.10">
-    <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#ffffff"/>
+  <rect width="1600" height="1000" fill="url(#dots)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <rect x="205.2" y="230.0" width="1189.7" height="540.0" rx="20" fill="#0d1117" fill-opacity="0.96" filter="url(#sh)"/>
+  <path d="M205.2 296.0V250.0a20 20 0 0 1 20 -20H1374.8a20 20 0 0 1 20 20V296.0Z" fill="#161b22"/>
+  <line x1="205.2" y1="296.0" x2="1394.8" y2="296.0" stroke="#30363d" stroke-width="2"/>
+  <rect x="205.2" y="230.0" width="1189.7" height="540.0" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
+  <circle cx="245.2" cy="263.0" r="9" fill="#ff5f57"/><circle cx="275.2" cy="263.0" r="9" fill="#febc2e"/><circle cx="305.2" cy="263.0" r="9" fill="#28c840"/>
+  <g transform="translate(1310.8,240.6) scale(0.7)" opacity="0.65">
+    <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#86ccd3"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace">
+    <text x="355.2" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">capture.pcap</text>
+    <g font-size="33.3">
+      <text x="261.2" y="361.0" fill="#86ccd3" font-weight="700" xml:space="preserve">No.   Time      Proto  Info</text>
+      <text x="261.2" y="407.0" fill="#e6edf3" xml:space="preserve">1095  2448.229  DNS    query A update.googleapis.com</text>
+      <text x="261.2" y="453.0" fill="#e6edf3" xml:space="preserve">1096  2448.232  DNS    response A 203.84.180.68</text>
+      <text x="261.2" y="499.0" fill="#e6edf3" xml:space="preserve">1097  2448.279  TCP    59174 → 443 [SYN]</text>
+      <text x="261.2" y="545.0" fill="#e6edf3" xml:space="preserve">1098  2448.281  TCP    443 → 59174 [SYN, ACK]</text>
+      <text x="261.2" y="591.0" fill="#e6edf3" xml:space="preserve">1099  2448.283  TCP    59174 → 443 [ACK]</text>
+      <text x="261.2" y="637.0" fill="#e6edf3" xml:space="preserve">1100  2448.285  TCP    59174 → 443 [PSH, ACK] Len=491</text>
+      <text x="261.2" y="683.0" fill="#e6edf3" xml:space="preserve">1102  2448.289  TCP    443 → 59174 [PSH, ACK] Len=980</text>
+      <text x="261.2" y="729.0" fill="#e6edf3" xml:space="preserve">1104  2448.293  TCP    59174 → 443 [FIN, ACK]</text>
+    </g>
   </g>
 </svg>

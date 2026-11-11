@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
-"""Generate branded SVG cover art for each blog post.
+"""Generate the blog cover SVGs from real tool output.
 
-One reusable 1600x1000 (16:10) SVG per post, cropped by CSS on both the index
-media cards and the article hero. Each category gets its own color plus a
-large, low-opacity glyph that signals the category (a phone for mobile, a
-window for Windows, an alert for IR, and so on), with the Red Herrings hook
-watermark kept in the bottom-right corner. The slug seeds small variations so
-two posts in the same category don't look identical.
+One 1600x1000 SVG per post at img/blog/<slug>.svg. Each cover is a terminal
+window on the post's category gradient, showing a few lines of real output
+(Volatility 3, python-evtx, python-registry, scapy, sqlite3, pytsk3 and the
+product's own CLI) captured from labs generated with Red Herrings. The
+captured lines live in tools-blog-cover-data.json; only background rows are
+used, never a case answer.
+
+CSS crops the covers: 16:10 or 16:9 on index cards and 8:3 (about 1040x390)
+on the article page, centered. The window is sized and centered so it always
+sits inside the 8:3 band (y 200 to 800), and the type is as large as the
+longest line allows so it stays readable on a 340px card.
 """
-import hashlib
-import math
+import json
 import os
 
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "img", "blog")
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(HERE, "img", "blog")
+DATA = os.path.join(HERE, "tools-blog-cover-data.json")
 
 # category -> (accent, deep base)
 CATS = {
@@ -26,20 +32,6 @@ CATS = {
     "tools":   ("#4f6b8f", "#0c1622"),
     "secops":  ("#5a67d8", "#161a40"),
     "buying":  ("#0e9e74", "#05271c"),
-}
-
-# category -> recognizable glyph (24x24 viewBox, stroke paths)
-GLYPHS = {
-    "mobile":  '<rect x="6" y="2" width="12" height="20" rx="2.4"/><line x1="10.2" y1="18.4" x2="13.8" y2="18.4"/>',
-    "windows": '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/>',
-    "ir":      '<path d="M10.29 3.86 L1.82 18 a2 2 0 0 0 1.71 3 h16.94 a2 2 0 0 0 1.71-3 L13.71 3.86 a2 2 0 0 0-3.42 0 z"/><line x1="12" y1="9" x2="12" y2="13.5"/><line x1="12" y1="16.6" x2="12" y2="17.2"/>',
-    "threat":  '<circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="0.8" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="23.2"/><line x1="0.8" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="23.2" y2="12"/>',
-    "network": '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>',
-    "course":  '<path d="M12 3 L23 8 L12 13 L1 8 Z"/><path d="M5 10 V15.3 C5 17 8.1 18.3 12 18.3 C15.9 18.3 19 17 19 15.3 V10"/>',
-    "exam":    '<path d="M12 22 s8-4 8-10 V5 l-8-3-8 3 v7 c0 6 8 10 8 10 z"/><rect x="9.4" y="11" width="5.2" height="4.4" rx="0.7"/><path d="M10.5 11 V9.6 a1.5 1.5 0 0 1 3 0 V11"/>',
-    "tools":   '<path d="M14.7 6.3 a1 1 0 0 0 0 1.4 l1.6 1.6 a1 1 0 0 0 1.4 0 l3.77-3.77 a6 6 0 0 1-7.94 7.94 l-6.91 6.91 a2.12 2.12 0 0 1-3-3 l6.91-6.91 a6 6 0 0 1 7.94-7.94 l-3.76 3.76 z"/>',
-    "secops":  '<rect x="2" y="4" width="20" height="13" rx="2"/><circle cx="12" cy="10.3" r="2.6"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
-    "buying":  '<path d="M20.6 13.4 l-7.2 7.2 a2 2 0 0 1-2.8 0 l-6.4-6.4 a2 2 0 0 1 0-2.8 l7.2-7.2 h6.4 a2.8 2.8 0 0 1 2.8 2.8 z"/><circle cx="16.3" cy="7.7" r="1.3"/>',
 }
 
 # slug -> category
@@ -72,6 +64,12 @@ POSTS = {
 }
 
 W, H = 1600, 1000
+MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace"
+CHAR = 0.61                     # monospace advance as a fraction of font size
+BAND_TOP, BAND_BOT = 230, 770   # inside the 8:3 article crop (y 200 to 800), with a margin
+MAX_FS, MIN_W, MAX_W = 44, 1000, 1520
+PADX, PADY, TB = 56, 30, 66     # inner padding and title bar height
+LH = 1.38
 
 HOOK = (
     'M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75'
@@ -81,63 +79,99 @@ HOOK = (
 )
 
 
-def seed(slug):
-    return int(hashlib.sha256(slug.encode()).hexdigest(), 16)
+def esc(s):
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
-def build(slug, cat):
+def mix(hex_a, hex_b, t):
+    a = [int(hex_a[i:i + 2], 16) for i in (1, 3, 5)]
+    b = [int(hex_b[i:i + 2], 16) for i in (1, 3, 5)]
+    return "#" + "".join(f"{round(x + (y - x) * t):02x}" for x, y in zip(a, b))
+
+
+def layout(lines):
+    """Font size, window width and height: the biggest type that fits the
+    longest line and keeps the window inside the 8:3 band."""
+    n = len(lines)
+    longest = max(len(t) for _, t in lines)
+    room = (BAND_BOT - BAND_TOP) - TB - 2 * PADY
+    fs = min(MAX_FS, (MAX_W - 2 * PADX) / (CHAR * longest), room / (n * LH))
+    pw = max(MIN_W, min(MAX_W, CHAR * fs * longest + 2 * PADX))
+    ph = TB + 2 * PADY + n * fs * LH
+    return fs, pw, ph
+
+
+def build(slug, cat, entry):
     accent, deep = CATS[cat]
-    s = seed(slug)
-    ang = 115 + (s % 40)  # vary gradient angle per slug
-    rad = math.radians(ang)
-    x2 = 0.5 + math.cos(rad) * 0.6
-    y2 = 0.5 + math.sin(rad) * 0.6
-    gx1, gy1 = 0.5 - math.cos(rad) * 0.6, 0.5 - math.sin(rad) * 0.6
-    g1x = 0.2 + ((s >> 3) % 60) / 100.0
-    g2x = 0.5 + ((s >> 7) % 45) / 100.0
+    light = mix(accent, "#ffffff", 0.5)
+    lines = entry["lines"]
+    fs, pw, ph = layout(lines)
+    px, py = (W - pw) / 2, (H - ph) / 2
+    assert BAND_TOP <= py and py + ph <= BAND_BOT, slug
 
-    # glyph placement: large, low opacity, slightly seeded offset
-    gscale = 18
-    gcx = 720 + ((s >> 5) % 120)
-    gcy = 440 + ((s >> 11) % 120)
-    tx = gcx - 12 * gscale
-    ty = gcy - 12 * gscale
-    glyph = (f'<g transform="translate({tx:.0f},{ty:.0f}) scale({gscale})" '
-             f'fill="none" stroke="#ffffff" stroke-width="0.85" stroke-linecap="round" '
-             f'stroke-linejoin="round" opacity="0.10">{GLYPHS[cat]}</g>')
+    color = {"": "#e6edf3", "head": light, "cmd": light, "dim": "#8b949e"}
+    body = []
+    y0 = py + TB + PADY + fs * 1.05
+    for i, (style, text) in enumerate(lines):
+        if not text:
+            continue
+        bold = ' font-weight="700"' if style == "head" else ""
+        body.append(f'<text x="{px + PADX:.1f}" y="{y0 + i * fs * LH:.1f}" fill="{color[style]}"{bold} '
+                    f'xml:space="preserve">{esc(text)}</text>')
+    body = "\n      ".join(body)
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Red Herrings">
+    dots = "".join(
+        f'<circle cx="{px + 40 + k * 30:.1f}" cy="{py + TB / 2:.1f}" r="9" fill="{c}"/>'
+        for k, c in enumerate(("#ff5f57", "#febc2e", "#28c840")))
+    r = 20
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{esc(entry["title"])} output">
   <defs>
-    <linearGradient id="g" x1="{gx1:.3f}" y1="{gy1:.3f}" x2="{x2:.3f}" y2="{y2:.3f}">
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="{deep}"/>
-      <stop offset="0.62" stop-color="{accent}"/>
-      <stop offset="1" stop-color="{accent}"/>
+      <stop offset="0.72" stop-color="{accent}"/>
+      <stop offset="1" stop-color="{light}"/>
     </linearGradient>
-    <radialGradient id="glow1" cx="{g1x:.2f}" cy="0.25" r="0.6">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.62">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
       <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glow2" cx="{g2x:.2f}" cy="0.9" r="0.7">
-      <stop offset="0" stop-color="{deep}" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="{deep}" stop-opacity="0"/>
-    </radialGradient>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.6" fill="#ffffff" fill-opacity="0.09"/>
+    </pattern>
+    <filter id="sh" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
   </defs>
   <rect width="{W}" height="{H}" fill="url(#g)"/>
-  <rect width="{W}" height="{H}" fill="url(#glow2)"/>
-  {glyph}
-  <rect width="{W}" height="{H}" fill="url(#glow1)"/>
-  <g transform="translate({W-330},{H-300}) scale(5.1)" opacity="0.10">
-    <path fill-rule="evenodd" d="{HOOK}" fill="#ffffff"/>
+  <rect width="{W}" height="{H}" fill="url(#dots)"/>
+  <rect width="{W}" height="{H}" fill="url(#glow)"/>
+  <rect x="{px:.1f}" y="{py:.1f}" width="{pw:.1f}" height="{ph:.1f}" rx="{r}" fill="#0d1117" fill-opacity="0.96" filter="url(#sh)"/>
+  <path d="M{px:.1f} {py + TB:.1f}V{py + r:.1f}a{r} {r} 0 0 1 {r} -{r}H{px + pw - r:.1f}a{r} {r} 0 0 1 {r} {r}V{py + TB:.1f}Z" fill="#161b22"/>
+  <line x1="{px:.1f}" y1="{py + TB:.1f}" x2="{px + pw:.1f}" y2="{py + TB:.1f}" stroke="#30363d" stroke-width="2"/>
+  <rect x="{px:.1f}" y="{py:.1f}" width="{pw:.1f}" height="{ph:.1f}" rx="{r}" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
+  {dots}
+  <g transform="translate({px + pw - 84:.1f},{py + TB / 2 - 22.4:.1f}) scale(0.7)" opacity="0.65">
+    <path fill-rule="evenodd" d="{HOOK}" fill="{light}"/>
+  </g>
+  <g font-family="{MONO}">
+    <text x="{px + 150:.1f}" y="{py + TB / 2 + 10:.1f}" font-size="30" fill="#8b949e" xml:space="preserve">{esc(entry["title"])}</text>
+    <g font-size="{fs:.1f}">
+      {body}
+    </g>
   </g>
 </svg>
 '''
 
 
 def main():
+    with open(DATA, encoding="utf-8") as fh:
+        data = json.load(fh)
     os.makedirs(OUT, exist_ok=True)
     for slug, cat in POSTS.items():
-        with open(os.path.join(OUT, slug + ".svg"), "w") as fh:
-            fh.write(build(slug, cat))
+        svg = build(slug, cat, data[slug])
+        assert chr(0x2014) not in svg and chr(0x2013) not in svg, slug  # no em or en dashes
+        with open(os.path.join(OUT, slug + ".svg"), "w", encoding="utf-8") as fh:
+            fh.write(svg)
         print("wrote", slug + ".svg")
 
 
