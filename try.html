@@ -281,24 +281,23 @@ function exportIR(c){return JSON.stringify({host:c.host,organization:c.org,vendo
 // ---------- case 2: digital forensics, First Look: USB Device History ----------
 function buildDF(seed){
   const r=rng("df:"+seed), st=student(seed), {org,host:hn}=site(r);
-  const t0=when(r,9,16), t1=plus(t0,1200+Math.floor(r()*6000)), t2=plus(t1,60);
+  const t0=when(r,9,16), t1=plus(t0,1200+Math.floor(r()*6000)), t2=plus(t1,60), ta=plus(t1,40);
   const serial=hex(r,20,true), vendor="SanDisk", product="Cruzer_Glide", rev="1.00", vid="0781", pid="5575";
   const friendly="SanDisk Cruzer Glide USB Device", target="E:\\case-files\\evidence_copy.docx";
   const devKey="Disk&Ven_"+vendor+"&Prod_"+product+"&Rev_"+rev;
   const cid="{"+hex(r,8)+"-"+hex(r,4)+"-4e8f-9c21-"+hex(r,12)+"}", vol=hex(r,4,true)+"-"+hex(r,4,true);
-  return {kind:"df",seed,student:st,org,host:hn,serial,vendor,product,rev,vid,pid,friendly,t0,t1,t2,target,devKey,cid,vol,
+  return {kind:"df",seed,student:st,org,host:hn,serial,vendor,product,rev,vid,pid,friendly,t0,t1,t2,ta,target,devKey,cid,vol,
     brief:"A staff member at <b>"+esc(org)+"</b> says they never used a personal USB drive on their work machine, <b>"+esc(hn)+"</b>. IT thinks otherwise. You have the SYSTEM registry hive from the machine and one shortcut from the user's Recent folder. Find out whether a USB storage device was connected, what it was, and the first and last times it was seen.",
     qs:[
-      {id:"q1",type:"text",prompt:"What is the vendor of the device?",answer:vendor,how:"Ven_ in the device key name.",where:"Device key name"},
-      {id:"q2",type:"text",prompt:"What is the product name of the device (the Prod_ portion of the key)?",answer:product,how:"Prod_ in the device key name, exactly as written.",where:"Device key name"},
-      {id:"q3",type:"text",prompt:"What is the make and model (FriendlyName) of the USB device?",answer:friendly,how:"Select the serial-number key under USBSTOR. FriendlyName is a value on it.",where:"USBSTOR\\&lt;device&gt;\\&lt;serial&gt; &rarr; FriendlyName"},
-      {id:"q4",type:"text",prompt:"What is the serial number of the device?",answer:serial,how:"The serial is the name of the subkey under the device key, not a value.",where:"USBSTOR\\&lt;device&gt;\\&lt;serial&gt;"},
-      {id:"q5",type:"text",prompt:"What are the vendor and product IDs (VID and PID) for the device? Answer as VID_xxxx&PID_xxxx.",answer:"VID_"+vid+"&PID_"+pid,how:"The USB enumeration key under Enum\\USB mirrors the same serial under a VID_xxxx&PID_xxxx key.",where:"Enum\\USB\\VID_…&PID_…"},
-      {id:"q6",type:"text",prompt:"Which user profile does the shortcut come from?",answer:st.user,how:"The shortcut's path names the profile folder under C:\\Users.",where:"LNK panel, source path"},
-      {id:"q7",type:"path",prompt:"What file was opened from the USB drive (the LNK target)?",answer:target,how:"The shortcut's target path, drive letter included.",where:"LNK panel, Target"},
-      {id:"q8",type:"timestamp",prompt:"When was the device first connected (UTC)?",answer:fmt(t0),how:"Properties\\{83da6326-97a6-4088-9453-a1923f573b29}\\0064 holds the first install time.",where:"Properties &rarr; 0064"},
-      {id:"q9",type:"timestamp",prompt:"When was the device last connected (UTC)?",answer:fmt(t1),how:"Property 0066 is the last arrival time.",where:"Properties &rarr; 0066"},
-      {id:"q10",type:"timestamp",prompt:"When was that file last accessed from the USB (UTC)?",answer:fmt(t1),how:"The LNK stores the target's last-access time.",where:"LNK panel, Accessed"}
+      {id:"q1",type:"text",prompt:"What is the make and model (FriendlyName) of the USB device?",answer:friendly,how:"Select the serial-number key under USBSTOR. FriendlyName is a value on it.",where:"USBSTOR\\&lt;device&gt;\\&lt;serial&gt; &rarr; FriendlyName"},
+      {id:"q2",type:"text",prompt:"What is the serial number of the device?",answer:serial,how:"The serial is the name of the subkey under the device key, not a value.",where:"USBSTOR\\&lt;device&gt;\\&lt;serial&gt;"},
+      {id:"q3",type:"text",prompt:"What are the vendor and product IDs (VID and PID) for the device? Answer as VID_xxxx&PID_xxxx.",answer:"VID_"+vid+"&PID_"+pid,how:"The USB enumeration key under Enum\\USB mirrors the same serial under a VID_xxxx&PID_xxxx key.",where:"Enum\\USB\\VID_…&PID_…"},
+      {id:"q4",type:"text",prompt:"Which user profile does the shortcut in the Recent folder come from?",answer:st.user,how:"The shortcut's path names the profile folder under C:\\Users.",where:"LNK panel, source path"},
+      {id:"q5",type:"path",prompt:"What file was opened from the USB drive? Give the shortcut's full target path.",answer:target,how:"The shortcut's target path, drive letter included.",where:"LNK panel, Target"},
+      {id:"q6",type:"timestamp",prompt:"When was the device first connected (UTC)?",answer:fmt(t0),how:"Properties\\{83da6326-97a6-4088-9453-a1923f573b29}\\0064 holds the first install time.",where:"Properties &rarr; 0064"},
+      {id:"q7",type:"timestamp",prompt:"When was the device last connected (UTC)?",answer:fmt(t1),how:"Property 0066 is the last arrival time.",where:"Properties &rarr; 0066"},
+      {id:"q8",type:"timestamp",prompt:"What last-access time does the shortcut in the Recent folder record for its target (UTC)?",answer:fmt(ta),how:"The LNK stores the target's last-access time.",where:"LNK panel, Accessed"},
+      {id:"q9",type:"timestamp",prompt:"When was the device last removed (UTC)?",answer:fmt(t2),how:"Property 0067 is the last removal time.",where:"Properties &rarr; 0067"}
     ]};
 }
 function renderDF(c){
@@ -316,7 +315,7 @@ function renderDF(c){
     row("Properties\\…\\0064","FILETIME",ft(c.t0))+row("Properties\\…\\0065","FILETIME",ft(c.t0))+row("Properties\\…\\0066","FILETIME",ft(c.t1))+row("Properties\\…\\0067","FILETIME",ft(c.t2))+
     '</tbody></table>'+
     '<div class="lnk"><h4>Shortcut &middot; C:\\Users\\'+esc(c.student.user)+'\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\evidence_copy.lnk</h4>'+
-    '<table><tbody>'+row("Target","path",esc(c.target))+row("Drive type","","removable (E:)")+row("Volume serial","",c.vol)+row("Created","FILETIME",ft(c.t0))+row("Accessed","FILETIME",ft(c.t1))+'</tbody></table></div>';
+    '<table><tbody>'+row("Target","path",esc(c.target))+row("Drive type","","removable (E:)")+row("Volume serial","",c.vol)+row("Created","FILETIME",ft(c.t0))+row("Accessed","FILETIME",ft(c.ta))+'</tbody></table></div>';
   return '<div class="eyebrow-sm">Digital forensics &middot; First Look &middot; Windows registry</div>'+
     '<h2 style="text-align:left;margin:6px 0 0">First Look: USB Device History</h2>'+
     '<p class="brief">'+c.brief+'</p>'+
