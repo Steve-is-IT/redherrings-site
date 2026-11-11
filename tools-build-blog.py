@@ -26,7 +26,7 @@ POSTS = [
     dict(slug="white-label-dfir-training-resell-cases", cls="c-buying", cat="Buying guide",
          date="November 7, 2026", read="6 min read",
          title="White-label DFIR training: author and resell your own cases",
-         dek="Run the whole platform under your own brand, write cases in the visual editor, and resell them as signed packs. One Pro license, unlimited participants, nothing to host."),
+         dek="Run the whole platform under your own brand, write cases in the visual editor, and resell them as packs. One Pro license, unlimited participants, nothing to host."),
     dict(slug="air-gapped-forensics-training-no-cloud", cls="c-secops", cat="Security operations",
          date="November 7, 2026", read="6 min read",
          title="Hands-on forensics training in an air-gapped facility: no cloud, no account, no egress",

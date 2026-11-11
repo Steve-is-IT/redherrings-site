@@ -64,7 +64,7 @@
     <header class="post-head"><h1>How to grade a digital forensics lab fairly</h1></header>
     <p class="lede">Most forensics grading disputes aren't about whether the student found the right thing. They're about how the student wrote it down. A fair grading standard decides those cases in advance, applies the same rule to everyone, and shows the student why a mark was awarded or withheld.</p>
 
-    <p>Here's the standard I use, and the one Red Herrings bakes into its grader. None of it's exotic. It's the set of rules you would arrive at after the third student emails you about a hash in the wrong case.</p>
+    <p>Here's the standard I use, and the one Red Herrings bakes into its grader. None of it's exotic. It's the set of rules you'd arrive at after the third student emails you about a hash in the wrong case.</p>
 
     <h2>Tolerate the things the artifact doesn't care about</h2>
     <p>A forensics answer has two parts: the fact and the formatting. Grade the fact. Treat the formatting as noise unless the question is specifically about formatting.</p>
@@ -72,27 +72,27 @@
       <li><strong>Hash case.</strong> <code>D41D8CD9</code> and <code>d41d8cd9</code> are the same hash. Some tools print upper, some print lower, and a student who copied from FTK Imager shouldn't lose a point to a student who copied from <code>sha256sum</code>. Compare case-insensitively, always.</li>
       <li><strong>Trailing and leading whitespace.</strong> Students paste. Pastes carry a trailing space or a newline. Strip both ends before comparing. Internal whitespace in a file path is meaningful and stays.</li>
       <li><strong>Timestamp format.</strong> <code>2026-03-14 09:26:53</code>, <code>2026-03-14T09:26:53Z</code> and <code>03/14/2026 9:26:53 AM</code> describe one instant. Parse the answer into a point in time and compare instants, not strings. Reject only what can't be parsed.</li>
-      <li><strong>Time zone.</strong> This is the one that causes real arguments. Registry last-write times, event log timestamps and Prefetch run times are stored in UTC; most GUI tools display them in the analyst's local zone. Decide up front: either the question states the zone it wants, or you accept a correct instant expressed in any stated zone. What you must not do is accept whatever the student's laptop happened to be set to and call that correct.</li>
+      <li><strong>Time zone.</strong> This is the one that causes real arguments. Registry last-write times, event log timestamps and Prefetch run times are stored in UTC; some tools, Event Viewer among them, display them in the analyst's local zone. Decide up front: either the question states the zone it wants, or you accept a correct instant expressed in any stated zone. What you must not do is accept whatever the student's laptop happened to be set to and call that correct.</li>
       <li><strong>A few seconds.</strong> Some artifacts round. A Prefetch run time and the matching 4688 event can differ by a second or two, and a student who reads the timeline from a different artifact than your key is still right. A tolerance window of a few seconds is fair; a window of minutes is hiding a bad question.</li>
       <li><strong>Path separators and drive letters.</strong> <code>C:\Users\jdoe</code> and <code>C:/Users/jdoe</code> are the same path on Windows, and Windows paths are case-insensitive. Normalize both before comparing.</li>
     </ul>
 
     <h2>Give partial credit where the answer has parts</h2>
-    <p>A single value is right or wrong. A list, an order or a technique is not, and grading it as one bit throws away information about what the student understood.</p>
+    <p>A single value is right or wrong. A list, an order or a technique isn't, and grading it as one bit throws away information about what the student understood.</p>
     <ul>
-      <li><strong>Sets</strong> (indicators, affected hosts, files exfiltrated): score the fraction of the key the student found, and subtract for wrong items so that listing every IP in the capture doesn't earn full marks. A student who found four of five real indicators and added one false positive understood the case better than one who listed twenty addresses.</li>
-      <li><strong>Sequences</strong> (order of attacker steps, order of the NIST phases a response should follow): credit adjacent pairs in the right order. Getting the shape right but swapping two steps is a different mistake from guessing, and the score should say so.</li>
-      <li><strong>ATT&amp;CK techniques:</strong> if the key is a sub-technique and the student gives the parent, that's a near miss, not a wrong answer. Credit it at a reduced rate and say why.</li>
+      <li><strong>Sets</strong> (indicators, affected hosts, files exfiltrated): score the fraction of the key the student found, and flag extra items for review so that listing every IP in the capture doesn't slip through. A student who found four of five real indicators and added one false positive understood the case better than one who listed twenty addresses.</li>
+      <li><strong>Sequences</strong> (order of attacker steps, order of the NIST phases a response should follow): credit the longest run of steps the student put in the right relative order. Getting the shape right but swapping two steps is a different mistake from guessing, and the score should say so.</li>
+      <li><strong>ATT&amp;CK techniques:</strong> if the key is a sub-technique and the student gives the parent, that's a near miss, not a wrong answer. Accept it, flag it for review and say why.</li>
     </ul>
     <p>The <a href="/incident-response.html">incident response answer types</a> in Red Herrings (IOC, sequence, MITRE, severity) exist for exactly this reason. They're the question types where a right-or-wrong grader is unfair.</p>
 
     <blockquote>Grade the fact, tolerate the formatting, and write the reason next to every score. A student who can see why a mark was lost rarely appeals it.</blockquote>
 
     <h2>Know when free text needs a human</h2>
-    <p>"Name the executable" is a string match. "Explain how you know the file was executed and not merely present" is not, and no fuzzy matcher should be the final word on it. The practical split:</p>
+    <p>"Name the executable" is a string match. "Explain how you know the file was executed and not merely present" isn't, and no fuzzy matcher should be the final word on it. The practical split:</p>
     <ul>
       <li>Short free text with a known target (a username, a program name, a domain) can be fuzzy-matched. Set a threshold, and treat anything near the threshold as a flag for review rather than a decision. Red Herrings does this by default: fuzzy match, with a review flag the instructor can resolve from the grading screen.</li>
-      <li>Reasoning, method and conclusions get a rubric and a person. The <a href="/resources.html">investigation report rubric</a> on our free resources page is a four-criterion sheet (findings, evidence cited, method, clarity) that keeps that part consistent across a class and across graders.</li>
+      <li>Reasoning, method and conclusions get a rubric and a person. The <a href="/resources.html">investigation report rubric</a> on our free resources page is a six-criterion, 100-point sheet (findings, evidence, method, reasoning, timeline, communication) that keeps that part consistent across a class and across graders.</li>
     </ul>
     <p>Don't let the auto-grader's share of the marks creep above what it can actually judge. A lab that's 80 percent value-matching and 20 percent written explanation is honest about which is which.</p>
 
@@ -101,7 +101,7 @@
     <p>Keep an override. There will be an answer the grader scored wrong that a human can see is right, usually because the student found the same fact by a route the key didn't anticipate. The override, with its own note, is part of the record.</p>
 
     <h2>Why a copied answer should be a wrong answer</h2>
-    <p>Everything above assumes you can tell what each student actually did. With a single shared evidence image, you cannot. The hash is the same for everyone, so the first student to find it has found it for the class, and the fairest grader in the world is now grading a group chat.</p>
+    <p>Everything above assumes you can tell what each student actually did. With a single shared evidence image, you can't. The hash is the same for everyone, so the first student to find it has found it for the class, and the fairest grader in the world is now grading a group chat.</p>
     <p>The fix is structural, not procedural. Give each student their own variant of the case: same scenario, same question set, different hostnames, users, timestamps and hashes. Then a copied answer is wrong on its face, and you haven't had to accuse anyone of anything. Red Herrings generates a per-student variant from one authored case, re-solves every variant independently before it ships, and grades each against its own key. The whole-class grade file exports to Canvas, Blackboard, Moodle or D2L with a feedback note per student. We wrote up the integrity side separately in <a href="/blog/forensics-exam-students-cant-copy.html">running a forensics exam students can't copy</a>, and the <a href="/compare.html">comparison page</a> lays out how this differs from a shared image or a cyber range.</p>
     <p>Fair grading is mostly a matter of deciding the rules before the first submission and applying them to everyone. Write the tolerances down, give parts credit for parts, keep a human on the prose, and make sure the evidence each student holds is their own.</p>
 
@@ -146,7 +146,7 @@
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">
-        <h4>Product</h4>
+        <h2>Product</h2>
         <a href="/how.html">How it works</a>
         <a href="/cases.html">All cases</a>
         <a href="/pathways.html">Learning pathways</a>
@@ -158,7 +158,7 @@
         <a href="/#pricing">Pricing</a>
       </div>
       <div class="fcol">
-        <h4>Resources</h4>
+        <h2>Resources</h2>
         <a href="/help.html">Help &amp; getting started</a>
         <a href="/tools.html">Tools &amp; setup</a>
         <a href="/resources.html">Free resources</a>

@@ -86,7 +86,7 @@
     <h2>One common snag</h2>
     <p>A lot of tutorials online are written for Volatility 2, where commands look like <code>--profile=Win10x64 pslist</code>. Those won't run in version 3. Use the <code>windows.&lt;plugin&gt;</code> form instead.</p>
     <h2>How it fits a Red Herrings case</h2>
-    <p>Our memory cases ship a Windows memory image in crash dump format (<code>memory/HOST.dmp</code>), so these plugins return real answers: a different malicious process, beacon and injected region for every student. The First Look memory case on the <a href="/pathways.html">pathways</a> page is a good start.</p>
+    <p>Our Windows memory cases ship a crash dump (<code>memory/HOST.dmp</code>) that stock Volatility 3 opens, so these plugins return real answers from a different image for every student. The Linux ones ship a LiME image with its symbol table beside it, so they work offline: <code>vol -s memory/symbols -f memory/HOST.lime linux.pslist</code>. First Look: What's in Memory and First Look: Linux Memory on the <a href="/pathways.html">pathways</a> page are good starts.</p>
 
     <div class="cta">
       <strong>Want to practice on real evidence?</strong>
@@ -129,7 +129,7 @@
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">
-        <h4>Product</h4>
+        <h2>Product</h2>
         <a href="/how.html">How it works</a>
         <a href="/cases.html">All cases</a>
         <a href="/pathways.html">Learning pathways</a>
@@ -141,7 +141,7 @@
         <a href="/#pricing">Pricing</a>
       </div>
       <div class="fcol">
-        <h4>Resources</h4>
+        <h2>Resources</h2>
         <a href="/help.html">Help &amp; getting started</a>
         <a href="/tools.html">Tools &amp; setup</a>
         <a href="/resources.html">Free resources</a>

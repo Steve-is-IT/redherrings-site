@@ -65,9 +65,9 @@
     <header class="post-head"><h1>Reading an iPhone sms.db: the iMessage joins and the Cocoa-time trap</h1></header>
     <p class="lede">An iPhone keeps its messages in a single SQLite file. Getting a readable thread out of it means joining four tables correctly and decoding a timestamp that's neither Unix seconds nor anything most tools guess right the first time.</p>
 
-    <p>Mobile forensics is where a lot of students meet their first real database. On an iPhone, the Messages app stores everything in <code>sms.db</code>, a standard SQLite file that lives at <code>/private/var/mobile/Library/SMS/sms.db</code> in a full file-system extraction. Open it in DB Browser for SQLite and you can read every table by hand. That accessibility is exactly why it makes such a good teaching artifact: nothing is locked behind a proprietary parser, so a student has to understand the schema rather than trust a tool's export.</p>
+    <p>Mobile forensics is where a lot of students meet their first real database. On an iPhone, the Messages app stores everything in <code>sms.db</code>, a standard SQLite file that lives at <code>/private/var/mobile/Library/SMS/sms.db</code> in a full file-system extraction. Open it in DB Browser for SQLite and you can read every table by hand. That's why it makes a good teaching artifact: nothing is locked behind a proprietary parser, so a student has to understand the schema rather than trust a tool's export.</p>
 
-    <p>It is also where two specific skills get tested at once. First, a message isn't stored in one place: the text, the sender, the conversation and the ordering live in different tables that you have to join. Second, the timestamp is Apple's own epoch, and reading it as Unix time gives an answer that's wrong by thirty-one years. Both are worth teaching deliberately, because both show up on the job and on the mobile certification exams.</p>
+    <p>It's also where two specific skills get tested at once. First, a message isn't stored in one place: the text, the sender, the conversation and the ordering live in different tables that you have to join. Second, the timestamp is Apple's own epoch, and reading it as Unix time gives an answer that's wrong by thirty-one years. Both are worth teaching deliberately, because both show up on the job and on the mobile certification exams.</p>
 
     <h2>The schema, in the order you need it</h2>
     <p>Four tables carry the conversation, and each answers a different question:</p>
@@ -94,9 +94,9 @@ ORDER BY m.date;</code></pre>
     <p>The <code>LEFT JOIN</code> on <code>handle</code> matters: an outbound message can have a <code>handle_id</code> of 0, so an inner join quietly drops every message the owner sent. Students who use an inner join here produce a transcript that's missing one side of the conversation, which is a subtle and very teachable mistake.</p>
 
     <h2>The Cocoa-time trap</h2>
-    <p>Now the timestamp. On a modern iPhone, <code>message.date</code> isn't Unix time. It is Apple's Cocoa Core Data timestamp: the number of <em>nanoseconds</em> since the Mac reference epoch of 2001-01-01 00:00:00 UTC. A single message date looks like <code>743800000000000000</code>, a number big enough that students assume it's already in milliseconds, or microseconds, and start dividing by guesses.</p>
+    <p>Now the timestamp. On a modern iPhone, <code>message.date</code> isn't Unix time. It's Apple's Cocoa Core Data timestamp: the number of <em>nanoseconds</em> since the Mac reference epoch of 2001-01-01 00:00:00 UTC. A single message date looks like <code>743800000000000000</code>, a number big enough that students assume it's already in milliseconds, or microseconds, and start dividing by guesses.</p>
 
-    <blockquote>Read an iPhone message date as Unix seconds and you land in 1970. Read it as Unix nanoseconds and you land tens of thousands of years in the future. The value is right there; the epoch is the whole exam.</blockquote>
+    <blockquote>Read an iPhone message date as Unix nanoseconds and you land 31 years early, in the 1990s. Read it as Unix microseconds and you land tens of thousands of years in the future. The value is right there; the epoch is the whole exam.</blockquote>
 
     <p>The correct decode has two steps. Divide by one billion to get seconds, then add <code>978307200</code>, the number of seconds between the Unix epoch of 1970 and the Mac epoch of 2001, to shift it onto Unix time. In SQLite that's the <code>datetime(m.date/1000000000 + 978307200, 'unixepoch')</code> expression above. The same transform applies to <code>date_read</code> and <code>date_delivered</code>, which lets a student prove when a message was sent and when it was read.</p>
 
@@ -105,7 +105,7 @@ ORDER BY m.date;</code></pre>
     <h2>Putting a name to a number</h2>
     <p>A phone number is an identifier, not a person. The second database in the extraction, <code>AddressBook.sqlitedb</code>, is where you resolve it: <code>ABPerson</code> holds the contact records and <code>ABMultiValue</code> holds their phone numbers and emails, so joining the <code>handle.id</code> from <code>sms.db</code> against the stored numbers turns <code>+15551234567</code> into a named contact. That cross-database correlation is the step that converts a raw thread into an investigative finding: this contact, under this saved name, sent this message at this time.</p>
 
-    <p>Students who prefer a guided tool can run the same extraction through <a href="../how.html">iLEAPP</a>, which parses <code>sms.db</code> and the address book into an HTML report with the timestamps already decoded. The teachable sequence is to have them answer the question by hand in DB Browser first, then confirm it in iLEAPP, so the automated parser is a check on their reasoning rather than a substitute for it. That is also how a real examiner validates a tool's output before putting it in a report.</p>
+    <p>Students who prefer a guided tool can run the same extraction through <a href="https://github.com/abrignoni/iLEAPP">iLEAPP</a>, which parses <code>sms.db</code> and the address book into an HTML report with the timestamps already decoded. The teachable sequence is to have them answer the question by hand in DB Browser first, then confirm it in iLEAPP, so the automated parser is a check on their reasoning rather than a substitute for it. That's also how a real examiner validates a tool's output before putting it in a report.</p>
 
     <h2>A different thread for every student</h2>
     <p>The iPhone cases in Red Herrings plant a genuine <code>sms.db</code> with the real <code>message</code>, <code>handle</code>, <code>chat</code> and <code>chat_message_join</code> structure, alongside an <code>AddressBook.sqlitedb</code>, so students work the actual schema in the actual tools rather than a flattened export. And because every case is individually seeded, each student's phone has its own contacts, phone numbers, group membership, message text and timestamps. Ask "when did the suspect first message the burner number, in UTC?" and every student has to run their own join and their own Cocoa-time decode to reach their own answer. A copied timestamp is the wrong timestamp, because it belongs to someone else's phone.</p>
@@ -153,7 +153,7 @@ ORDER BY m.date;</code></pre>
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">
-        <h4>Product</h4>
+        <h2>Product</h2>
         <a href="/how.html">How it works</a>
         <a href="/cases.html">All cases</a>
         <a href="/pathways.html">Learning pathways</a>
@@ -165,7 +165,7 @@ ORDER BY m.date;</code></pre>
         <a href="/#pricing">Pricing</a>
       </div>
       <div class="fcol">
-        <h4>Resources</h4>
+        <h2>Resources</h2>
         <a href="/help.html">Help &amp; getting started</a>
         <a href="/tools.html">Tools &amp; setup</a>
         <a href="/resources.html">Free resources</a>

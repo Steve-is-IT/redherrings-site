@@ -77,20 +77,21 @@
       <li><strong>Week 6: timelines.</strong> Now that students hold five artifact families, the week is about putting them on one axis. Normalize time zones, build a super-timeline, present it. <a href="/cases.html#first-look-building-a-timeline">First Look: Building a Timeline</a> is the case.</li>
       <li><strong>Week 7: midterm practical.</strong> One insider-theft case that needs weeks 1 to 6, timed. This is the first time students work multiple artifacts without being told which one holds the answer.</li>
       <li><strong>Weeks 8 and 9: browser and cloud.</strong> Downloads traced from history to disk, then exfiltration proved from browser, LNK and email evidence together. These are correlation weeks: the Windows skills applied to a new question.</li>
-      <li><strong>Weeks 10 and 11: memory and network.</strong> One First Look each, Volatility 3 and Wireshark. See the pacing note below.</li>
-      <li><strong>Week 12: mobile.</strong> SQLite stores, message joins, Cocoa time. The last new evidence family, and a good one for showing that the method transfers.</li>
-      <li><strong>Weeks 13 and 14: capstone and report.</strong> A multi-artifact case worked end to end, then a written investigation report graded on a rubric.</li>
+      <li><strong>Weeks 10 and 11: memory.</strong> A First Look in Volatility 3, then a harder case on injected code. See the pacing note below.</li>
+      <li><strong>Week 12: network.</strong> A First Look in Wireshark.</li>
+      <li><strong>Week 13: mobile.</strong> SQLite stores, message joins, Cocoa time. The last new evidence family, and a good one for showing that the method transfers.</li>
+      <li><strong>Week 14: capstone and report.</strong> A timed multi-artifact case worked end to end, then a written investigation report graded on a rubric.</li>
     </ul>
     <p>The pattern is: single artifact, then several of the same family, then correlation across families, then a new family, then a capstone that needs all of them. Every jump is one jump. The <a href="/blog/dfir-learning-pathways-first-look-to-capstone.html">pathways post</a> describes the difficulty ladder this maps onto.</p>
 
     <blockquote>If a week's case can be solved without the previous week's skill, the two weeks are in the wrong order or one of them is a tool demo wearing a lab coat.</blockquote>
 
     <h2>Why memory and network come late</h2>
-    <p>It's tempting to put packet captures early because Wireshark is colorful and students like it. Resist it. Memory and network evidence are abstract in a way disk evidence is not: there's no file to point at, timestamps are relative to the capture, and the question "what's suspicious here" has no answer until the student knows what normal looks like. By week 10, students have built six timelines from Windows artifacts and have a working sense of what a machine does when nobody is attacking it. That's the right moment to show them a process list or a conversation table and ask what doesn't belong.</p>
-    <p>Give each one a single First Look week, not two, and don't try to teach both in the same week. Memory in week 10 asks "which process is wrong and what was it talking to". Network in week 11 asks "follow this DNS lookup to a connection and read what crossed it". Both reuse the timeline skill from week 6. The capstone then expects a student to carry a finding from one family into the other, which is the whole point of the term.</p>
+    <p>It's tempting to put packet captures early because Wireshark is colorful and students like it. Resist it. Memory and network evidence are abstract in a way disk evidence isn't: there's no file to point at, timestamps are relative to the capture, and the question "what's suspicious here" has no answer until the student knows what normal looks like. By week 10, students have spent eight weeks on Windows artifacts and have a working sense of what a machine does when nobody is attacking it. That's the right moment to show them a process list or a conversation table and ask what doesn't belong.</p>
+    <p>Start each with a First Look, and don't try to teach both in the same week. Memory in week 10 asks "which process is wrong and what was it talking to", and week 11 follows it into injected code. Network in week 12 asks "follow this DNS lookup to a connection and read what crossed it". Both reuse the timeline skill from week 6. The capstone then expects a student to carry a finding from one family into the other, which is the whole point of the term.</p>
 
     <h2>Assessment mix and tools</h2>
-    <p>The weighting we ship, which has held up in practice:</p>
+    <p>The weighting we ship:</p>
     <ul>
       <li><strong>Weekly labs, 50 percent, best 10 of 12.</strong> The drop rule removes the incentive to cheat on a bad week.</li>
       <li><strong>Midterm practical, 20 percent.</strong> Timed, multi-artifact, weeks 1 to 6.</li>
@@ -151,7 +152,7 @@
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">
-        <h4>Product</h4>
+        <h2>Product</h2>
         <a href="/how.html">How it works</a>
         <a href="/cases.html">All cases</a>
         <a href="/pathways.html">Learning pathways</a>
@@ -163,7 +164,7 @@
         <a href="/#pricing">Pricing</a>
       </div>
       <div class="fcol">
-        <h4>Resources</h4>
+        <h2>Resources</h2>
         <a href="/help.html">Help &amp; getting started</a>
         <a href="/tools.html">Tools &amp; setup</a>
         <a href="/resources.html">Free resources</a>

@@ -78,12 +78,12 @@
     <h2>The field students read wrong</h2>
     <p>Here's the trap. A 4624 event has both a <code>SubjectUserName</code> and a <code>TargetUserName</code>, and they don't mean the same thing. On a logon event, the <strong>subject</strong> is the account that requested the logon, which for a network logon is frequently the machine account or a blank, while the <strong>target</strong> is the account that actually logged on. The account you care about, the one that moved laterally, is <code>TargetUserName</code>.</p>
 
-    <blockquote>On a logon, the target is who logged on. On a process creation, the subject is who ran it. Point a student at the wrong field and they will confidently name the machine account as the attacker.</blockquote>
+    <blockquote>On a logon, the target is who logged on. On a process creation, the subject is who ran it. Point a student at the wrong field and they'll confidently name the machine account as the attacker.</blockquote>
 
-    <p>On a 4688 process-creation event the convention flips: there's no target, and the <strong>subject</strong> is the actor, so <code>SubjectUserName</code> is who ran the process. A student who learns "always read SubjectUserName" from the process events and then applies it to the logon event names the wrong party. Teaching the subject-versus-target distinction explicitly, and making students prove which account moved by reading the correct field on each event, is half the value of the lab.</p>
+    <p>On a 4688 process-creation event the <strong>subject</strong> is the actor (the target fields are usually empty), so <code>SubjectUserName</code> is who ran the process. A student who learns "always read SubjectUserName" from the process events and then applies it to the logon event names the wrong party. Teaching the subject-versus-target distinction explicitly, and making students prove which account moved by reading the correct field on each event, is half the value of the lab.</p>
 
     <h2>The pivot: logon session to process</h2>
-    <p>The link that welds a logon to the processes it spawned is the <strong>logon ID</strong>. A 4624 event issues a <code>TargetLogonId</code>, a hex value that identifies that specific logon session. Every process started inside that session carries the same value as its <code>SubjectLogonId</code> on the 4688 event. Match them and you have turned "someone logged on remotely" into "this remote logon then ran these exact commands":</p>
+    <p>The link that welds a logon to the processes it spawned is the <strong>logon ID</strong>. A 4624 event issues a <code>TargetLogonId</code>, a hex value that identifies that specific logon session. Every process started inside that session carries the same value as its <code>SubjectLogonId</code> on the 4688 event. Match them and you've turned "someone logged on remotely" into "this remote logon then ran these exact commands":</p>
 
 <pre><code>Step 1  Find the suspicious remote logon
         4624  LogonType=3  TargetUserName=svc-backup
@@ -95,18 +95,18 @@ Step 2  Pivot on the session into process creation
         4688  SubjectLogonId=0x8F3A21  SubjectUserName=svc-backup
               NewProcessName=...\reg.exe  CommandLine="reg save hklm\sam ..."</code></pre>
 
-    <p>That single hex value is the spine of the whole timeline. It is also how you separate the attacker's session from the dozens of benign logons happening on a busy server at the same moment. Two logons by the same username at nearly the same second are distinct sessions with distinct logon IDs, and only one of them ran <code>reg save hklm\sam</code>.</p>
+    <p>That single hex value is the spine of the whole timeline. It's also how you separate the attacker's session from the dozens of benign logons happening on a busy server at the same moment. Two logons by the same username at nearly the same second are distinct sessions with distinct logon IDs, and only one of them ran <code>reg save hklm\sam</code>.</p>
 
     <h2>Follow it across hosts</h2>
-    <p>Lateral movement is rarely a single hop, and the same two events let you chase it. The <code>IpAddress</code> and <code>WorkstationName</code> on the 4624 tell you where the logon came from, so the source of a Type 3 logon on the file server is the workstation the attacker is operating from. Find that workstation's own logs, and the process that initiated the outbound connection sits under its own logon session there. Walk it back far enough and you reach patient zero; walk it forward and you scope every host the credentials touched. A few supporting events sharpen the picture: 4672 flags a session granted administrator rights, 4648 marks a logon with explicitly supplied credentials (the <code>runas</code> pattern behind pass-the-hash), and a 7045 service install in the System log is the fingerprint PsExec leaves when it drops its service to execute.</p>
+    <p>Lateral movement is rarely a single hop, and the same two events let you chase it. The <code>IpAddress</code> and <code>WorkstationName</code> on the 4624 tell you where the logon came from, so the source of a Type 3 logon on the file server is the workstation the attacker is operating from. Find that workstation's own logs, and the process that initiated the outbound connection sits under its own logon session there. Walk it back far enough and you reach patient zero; walk it forward and you scope every host the credentials touched. A few supporting events sharpen the picture: 4672 flags a session granted administrator rights, 4648 marks a logon with explicitly supplied credentials (<code>runas</code>, or PsExec with <code>-u</code>), and a 7045 service install in the System log is the fingerprint PsExec leaves when it drops its service to execute.</p>
 
     <h2>The tools, and the habit</h2>
     <p>Students work this in the tools a responder uses. EvtxECmd renders the <code>.evtx</code> files to a single normalized CSV, and Timeline Explorer lets them filter to event ID 4624, sort by logon type, grab the logon ID of the suspicious session, and then filter 4688 to that same ID. The muscle memory to build is filter, pivot, corroborate: isolate the anomalous logon, pivot to the processes under its session, and confirm with a second artifact before calling it. That's the same loop whether the evidence is a raw event log in a forensics case or an <a href="../incident-response.html">EDR detection feed</a> in an incident-response case, where the logon-to-process chain is already assembled as a process tree.</p>
 
-    <p>The behavior maps cleanly onto <a href="../attack.html">MITRE ATT&amp;CK</a>: the remote logon is T1021 Remote Services, RDP as T1021.001 and SMB and admin shares as T1021.002, and a logon with supplied credentials points at T1550 Use Alternate Authentication Material. Naming the technique after finding it in the logs is how the framework becomes a lens rather than a chart to memorize.</p>
+    <p>The behavior maps cleanly onto <a href="../attack.html">MITRE ATT&amp;CK</a>: the remote logon is T1021 Remote Services, RDP as T1021.001 and SMB and admin shares as T1021.002, logging on with stolen credentials is T1078 Valid Accounts, and pass-the-hash is T1550.002. Naming the technique after finding it in the logs is how the framework becomes a lens rather than a chart to memorize.</p>
 
     <h2>A different chain for every student</h2>
-    <p>The lateral-movement cases in Red Herrings generate real, MAM-compressed Windows event logs, individually seeded per student. Each student gets their own hostnames, account names, source IP addresses, logon IDs and timestamps, so the session every student has to pivot on is a different hex value and the account that moved is a different name. Ask "which account moved from the workstation to the domain controller, and what logon ID did that session use?" and thirty students produce thirty different, individually correct answers. A copied logon ID belongs to someone else's evidence, so it's wrong.</p>
+    <p>The lateral-movement cases in Red Herrings generate real, binary Windows event logs (EVTX), individually seeded per student. Each student gets their own hostnames, account names, source IP addresses, logon IDs and timestamps, so the session every student has to pivot on is a different hex value and the account that moved is a different name. Ask "which account moved from the workstation to the domain controller, and what logon ID did that session use?" and thirty students produce thirty different, individually correct answers. A copied logon ID belongs to someone else's evidence, so it's wrong.</p>
 
     <p>Every generated variant is re-solved and verified before release by the <a href="../how.html">verification check</a>, an independent parser pass that reads the student's own event logs with python-evtx, performs the 4624-to-4688 pivot, and re-derives each answer from the correct field, so the key can't drift from the evidence or quietly confuse the subject and target. The case sits on the Windows and incident-handling <a href="../pathways.html">pathways</a>, useful for GCFE and GCIH preparation alike.</p>
 
@@ -151,7 +151,7 @@ Step 2  Pivot on the session into process creation
         <a class="fmail" href="/contact.html">Contact us</a> &middot; <span class="fsmall">sales@redherrings.app</span>
       </div>
       <div class="fcol">
-        <h4>Product</h4>
+        <h2>Product</h2>
         <a href="/how.html">How it works</a>
         <a href="/cases.html">All cases</a>
         <a href="/pathways.html">Learning pathways</a>
@@ -163,7 +163,7 @@ Step 2  Pivot on the session into process creation
         <a href="/#pricing">Pricing</a>
       </div>
       <div class="fcol">
-        <h4>Resources</h4>
+        <h2>Resources</h2>
         <a href="/help.html">Help &amp; getting started</a>
         <a href="/tools.html">Tools &amp; setup</a>
         <a href="/resources.html">Free resources</a>

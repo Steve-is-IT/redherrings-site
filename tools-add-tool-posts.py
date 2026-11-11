@@ -60,8 +60,8 @@ POSTS = [
     <p>They run in the background, and the tree on the left fills in as each one finishes.</p>
     <h2>Where the answers usually are</h2>
     <ul>
-      <li><strong>Data Artifacts, then Recent Activity</strong>: web history, downloads, USB history, programs that ran.</li>
-      <li><strong>File System tree</strong>: browse to a user's folder. The Deleted Files node pulls entries back out of unallocated space.</li>
+      <li><strong>Data Artifacts</strong>: web history, downloads, USB devices attached, programs that ran.</li>
+      <li><strong>Data Sources tree</strong>: browse to a user's folder. <strong>File Views, then Deleted Files</strong> lists what the file system marks as deleted, and the PhotoRec Carver module recovers files from unallocated space.</li>
       <li><strong>Extension Mismatch</strong>: a <code>.jpg</code> that's really a <code>.7z</code> shows up here. It's a common way to hide a file.</li>
       <li><strong>Keyword Search</strong>: locate a string whether it's allocated or not.</li>
       <li><strong>Timeline</strong> (Tools, then Timeline): every file and artifact on one scrubber, in order.</li>
@@ -100,7 +100,7 @@ POSTS = [
       <li><strong>TypedURLs</strong>: addresses the user typed into the browser.</li>
     </ul>
     <h2>Two things to watch</h2>
-    <p>Registry timestamps are in UTC, so convert them before you build a timeline. And a key's last-write time tells you when the key changed, not necessarily when one value inside it did.</p>
+    <p>Registry timestamps are in UTC, so put everything else in UTC too before you build a timeline. And a key's last-write time tells you when the key changed, not necessarily when one value inside it did.</p>
     <h2>How it fits a Red Herrings case</h2>
     <p>Our Windows cases put their answers in real hive files, so the keys you read here are the ones that solve the case. Every student gets a different device serial, user and run history, verified before release. The <a href="/pathways.html">Windows forensics pathway</a> is a good place to build the skill.</p>""",
         "related": ["autopsy-disk-image-analysis-walkthrough", "evtxecmd-windows-event-log-timeline", "volatility-3-memory-forensics-getting-started"],
@@ -162,7 +162,7 @@ POSTS = [
     <h2>One common snag</h2>
     <p>A lot of tutorials online are written for Volatility 2, where commands look like <code>--profile=Win10x64 pslist</code>. Those won't run in version 3. Use the <code>windows.&lt;plugin&gt;</code> form instead.</p>
     <h2>How it fits a Red Herrings case</h2>
-    <p>Our memory cases ship a Windows memory image in crash dump format (<code>memory/HOST.dmp</code>), so these plugins return real answers: a different malicious process, beacon and injected region for every student. The First Look memory case on the <a href="/pathways.html">pathways</a> page is a good start.</p>""",
+    <p>Our Windows memory cases ship a crash dump (<code>memory/HOST.dmp</code>) that stock Volatility 3 opens, so these plugins return real answers from a different image for every student. The Linux ones ship a LiME image with its symbol table beside it, so they work offline: <code>vol -s memory/symbols -f memory/HOST.lime linux.pslist</code>. First Look: What's in Memory and First Look: Linux Memory on the <a href="/pathways.html">pathways</a> page are good starts.</p>""",
         "related": ["autopsy-disk-image-analysis-walkthrough", "registry-explorer-windows-registry-forensics", "evtxecmd-windows-event-log-timeline"],
     },
 ]
