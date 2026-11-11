@@ -197,7 +197,7 @@ def page(latest, releases, notes, sums):
     lin_card = f'''
       <div class="dl-card">
         <div class="dl-os">Linux</div>
-        <p class="dl-req">64-bit Linux with glibc 2.39 or newer (Ubuntu 24.04, Debian 13, Fedora 40 or newer). Unzip and run <code>./RedHerrings</code>.</p>
+        <p class="dl-req">64-bit Linux with glibc 2.35 or newer (Ubuntu 22.04 and SIFT, Debian 12, Fedora 36 or newer). Unzip and run <code>./RedHerrings</code>.</p>
         <a class="btn primary" href="{DL}/RedHerrings-linux.zip" data-goatcounter-click="download-linux">Download for Linux{(" · " + lin_size) if lin_size else ""}</a>
         {sha_block(lin_sha, "Linux")}
         <details class="dl-verify"><summary>Verify the download</summary>
