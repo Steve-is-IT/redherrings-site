@@ -17,6 +17,7 @@ from redherrings.documents.syllabus import render_syllabus_pdf  # noqa: E402
 
 SITE = os.path.dirname(os.path.abspath(__file__))
 E = lambda s: html.escape(str(s or ""), quote=True)
+SLUG = {}  # scenario id -> public slug, filled in main()
 
 
 def week_rows(c):
@@ -25,7 +26,7 @@ def week_rows(c):
         mode = "Timed exam, %d min" % w["time_limit_min"] if w["mode"] == "exam" else "Practice"
         if w.get("report"):
             mode += ", with report"
-        case = f'<a href="cases.html#{E(w["case"])}">{E(w.get("name") or w["case"])}</a>'
+        case = f'<a href="cases.html#{E(w.get("slug") or SLUG.get(w["case"], w["case"]))}">{E(w.get("name") or w["case"])}</a>'
         out.append(f'<tr><td class="mono">{w["week"]}</td><td><b>{E(w["title"])}</b><div class="obj">{E(" ".join(w.get("objectives", [])))}</div></td>'
                    f'<td>{case}</td><td>{E(mode)}</td><td>{E(w.get("assessment", ""))}</td></tr>')
     return "".join(out)
@@ -80,6 +81,7 @@ def apply_chrome(path):
 
 def main():
     index = {s["id"]: s for s in packs.all_scenarios() if "id" in s}
+    SLUG.update({k: v.get("slug") or k for k, v in index.items()})
     cat = courses.catalog(index)
     os.makedirs(os.path.join(SITE, "files"), exist_ok=True)
     branding = load_branding(None)

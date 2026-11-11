@@ -126,7 +126,7 @@ def card(s):
         chips = "".join(f'<span class="chip {TRACK_CHIP.get(t, ("", t))[0]}">{E(TRACK_CHIP.get(t, ("", t))[1])}</span>' for t in tracks_list)
     sub_html = f'\n      <div class="cc-sub">{E(sub)}</div>' if sub else ""
     return (
-        f'    <article class="ccard" id="{E(s.get("id"))}" data-id="{E(s.get("id"))}" tabindex="0" role="button" '
+        f'    <article class="ccard" id="{E(s.get("slug") or s.get("id"))}" data-id="{E(s.get("slug") or s.get("id"))}" tabindex="0" role="button" '
         f'aria-label="Open {E(title)}" data-discipline="{E(disc)}" data-diff="{E(ed)}" '
         f'data-tracks="{E(" ".join(tracks_list))}" data-tactics="{E(" ".join(tactics_list))}">\n'
         f'      <div class="cc-top"><span class="dpill {pill_cls}">{E(pill_lbl)}</span></div>\n'
@@ -160,7 +160,7 @@ def featured_block(scen):
             f'      <p class="fm-meta">{meta}</p>\n'
             f'    </div>\n'
             f'    <div class="fw-aside fm-actions">\n'
-            f'      <a class="btn" href="#{E(s.get("id"))}">View case</a>\n'
+            f'      <a class="btn" href="#{E(s.get("slug") or s.get("id"))}">View case</a>\n'
             + ('      <button type="button" class="btn ghost fm-next">Next marquee</button>\n' if len(ms) > 1 else "")
             + f'    </div>\n'
             f'  </article>')
@@ -195,7 +195,8 @@ def main():
     n_df = n - n_ir
 
     smap = _scenario_map()
-    details = {s["id"]: build_detail(s, smap.get(s["id"])) for s in scen}
+    # Keyed by the public slug: the scenario id is internal and some ids describe what a case finds.
+    details = {(s.get("slug") or s["id"]): build_detail(s, smap.get(s["id"])) for s in scen}
 
     diff_opts = "".join(f'<option value="{k}">{E(v)}</option>' for k, v in
                         [("first-look", "First Look"), ("easy", "Easy"), ("medium", "Medium"),
@@ -440,7 +441,7 @@ MODAL_JS = r'''<script>
   });
   modal.addEventListener("click", function(e){ if(e.target.hasAttribute("data-close")) closeCase(); });
   document.addEventListener("keydown", function(e){ if(e.key==="Escape"&&!modal.hidden) closeCase(); });
-  // Deep links: /cases.html#<case-id> scrolls to the card and opens its detail.
+  // Deep links: /cases.html#<case-slug> scrolls to the card and opens its detail.
   function openFromHash(){
     var id=(location.hash||"").replace(/^#/,""); if(!id||!CASES[id]) return;
     var card=document.getElementById(id);

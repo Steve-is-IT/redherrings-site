@@ -57,7 +57,7 @@ def diff_tag(cid):
 
 
 def case_link(cid):
-    return f'<a href="cases.html#{E(cid)}">{E(INDEX[cid]["name"])}</a>'
+    return f'<a href="cases.html#{E(INDEX[cid].get("slug") or cid)}">{E(INDEX[cid]["name"])}</a>'
 
 
 def minutes(m):

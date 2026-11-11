@@ -251,6 +251,8 @@ TEMPLATE = '''<!doctype html>
 # ---------------------------------------------------------------------------
 SITE = os.path.dirname(os.path.abspath(__file__))
 BASE = "https://redherrings.app"
+# Case links use the public slug; the scenario id is internal.
+SLUG = {r["id"]: r.get("slug") or r["id"] for r in packs.all_scenarios() if "id" in r}
 OG_ALT = "Red Herrings: randomized digital forensics and incident-response labs for the classroom."
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath "
            "fill=%27%23E5382F%27 d=%27M6 32c9-11 20-16 30-16 4 0 8 3 12 9 3-3 8.5-9.5 14.25-13.25C58.38 18.12 55.69 "
@@ -468,7 +470,7 @@ def page_step_html(i, s):
         meta.append(f'<span>{E(up_to_questions(s["questions"]))}</span>')
     return (f'      <li class="rowitem">\n'
             f'        <div class="n">{i:02d}</div>\n'
-            f'        <h3><a href="/cases.html#{E(s["id"])}">{E(name)}</a>{sub}</h3>\n'
+            f'        <h3><a href="/cases.html#{E(SLUG.get(s["id"], s["id"]))}">{E(name)}</a>{sub}</h3>\n'
             f'        <div class="body"><p style="margin:0 0 10px">{E(s["note"])}</p>'
             f'<div class="chips" style="align-items:center;gap:10px;font-size:13px;color:var(--faint)">{"".join(meta)}</div></div>\n'
             f'      </li>')
