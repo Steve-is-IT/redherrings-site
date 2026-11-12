@@ -228,30 +228,43 @@ const plus=(d,s)=>new Date(d.getTime()+s*1000);
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 
 // ---------- case 1: incident response, First Look: Reading an EDR Alert ----------
+const ORGDOM={"Harbor Point Logistics":"harborpointlogistics.com","Northwind Dental Group":"northwinddental.com","Silverline Credit Union":"silverlinecu.org","Bluegrass Precision Machining":"bluegrassprecision.com","Cedar Ridge Insurance":"cedarridgeins.com","Meridian Title Co.":"meridiantitle.com","Alder & Finch LLP":"alderfinch.com","Kestrel Engineering":"kestreleng.com"};
+// PowerShell -EncodedCommand: base64 of the command's UTF-16LE bytes.
+function psEnc(s){let b="";for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);b+=String.fromCharCode(c&255,c>>8);}return btoa(b);}
+const dig=(r,n)=>{let s="";for(let i=0;i<n;i++)s+=Math.floor(r()*10);return s;};
+function iso7(d){return d.toISOString().replace(/\.(\d{3})Z$/,".$10000Z");}
 function buildIR(seed){
   const r=rng("ir:"+seed), st=student(seed), {org,host:hn}=site(r);
   const t0=when(r,8,16), t1=plus(t0,20+Math.floor(r()*70)), t2=plus(t1,30+Math.floor(r()*90)), tb=plus(t0,-(600+Math.floor(r()*3000)));
   const runKey=pick(r,["OneDriveStartup","SecurityHealthSvc","EdgeUpdateTask","AdobeARMsvc"]);
   const payload=pick(r,["mon.exe","sysupd.exe","winhelper.exe","svc32.exe"]);
   const shaReg=hex(r,64), shaPs=hex(r,64), shaGu=hex(r,64);
-  const enc=hex(r,18).replace(/[0-9]/g,c=>"ABCDEFGHIJ"[+c]);
+  const dom=ORGDOM[org], fqdn=hn.toLowerCase()+"."+dom, nb=dom.split(".")[0].toUpperCase().slice(0,15);
+  const machineId=hex(r,40), tenant=hex(r,8)+"-"+hex(r,4)+"-4"+hex(r,3)+"-a"+hex(r,3)+"-"+hex(r,12), incident=10000+Math.floor(r()*89999);
+  const sid="S-1-5-21-"+(1e9+Math.floor(r()*3e9))+"-"+(1e9+Math.floor(r()*3e9))+"-"+(1e9+Math.floor(r()*3e9))+"-"+(1100+Math.floor(r()*900));
+  const upn=st.name.toLowerCase().replace(" ",".")+"@"+dom;
+  const excelPid=2000+Math.floor(r()*6000), psPid=2000+Math.floor(r()*6000), excelStart=plus(t0,-(60+Math.floor(r()*600)));
+  const psStart=plus(t0,-1), idBase=dig(r,16), idTail=100000000+Math.floor(r()*2e9);
+  const ps="Start-Process -WindowStyle Hidden -FilePath \"$env:APPDATA\\"+payload+"\"";
+  const P=function(x){return Object.assign({sha1:hex(r,40),pid:1000+Math.floor(r()*9000),upd:240+Math.floor(r()*600),det:hex(r,32)},x);};
   const d=[
-    {id:"d_gu",time:tb,severity:"low",tactic:"Execution",technique:"T1569.002",process:"GoogleUpdate.exe",parent:"services.exe",cmd:"\"C:\\Program Files (x86)\\Google\\Update\\GoogleUpdate.exe\" /svc",user:"SYSTEM",action:"allowed",sha:shaGu,desc:"Signed updater launched by the service manager."},
-    {id:"d_ps",time:t0,severity:"high",tactic:"Execution",technique:"T1059.001",process:"powershell.exe",parent:"EXCEL.EXE",cmd:"powershell.exe -nop -w hidden -enc JABzAD0ATgBlAHcA"+enc,user:st.user,action:"detected",sha:shaPs,desc:"Office spawned a hidden, encoded PowerShell command."},
-    {id:"d_av",time:t1,severity:"high",tactic:"Defense Evasion",technique:"T1562.001",process:"powershell.exe",parent:"powershell.exe",cmd:"powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true",user:st.user,action:"detected",sha:shaPs,desc:"Defender real-time monitoring switched off from a script."},
-    {id:"d_run",time:t2,severity:"medium",tactic:"Persistence",technique:"T1547.001",process:"reg.exe",parent:"powershell.exe",cmd:"reg.exe add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v "+runKey+" /t REG_SZ /d C:\\Users\\"+st.user+"\\AppData\\Roaming\\"+payload+" /f",user:st.user,action:"detected",sha:shaReg,desc:"A Run key now points at an executable in the user's roaming profile."}
+    P({id:"d_gu",time:tb,severity:"low",tactic:"Execution",technique:"T1569.002",process:"GoogleUpdate.exe",path:"C:\\Program Files (x86)\\Google\\Update",parent:"services.exe",parentPath:"C:\\Windows\\System32",ppid:600+Math.floor(r()*200),pstart:plus(tb,-(3600*3+Math.floor(r()*3600))),cmd:"\"C:\\Program Files (x86)\\Google\\Update\\GoogleUpdate.exe\" /svc",user:"SYSTEM",status:"Resolved",sha:shaGu,title:"Signed updater started by the service control manager",desc:"Signed updater launched by the service manager."}),
+    P({id:"d_ps",time:t0,severity:"high",tactic:"Execution",technique:"T1059.001",process:"powershell.exe",path:"C:\\Windows\\System32\\WindowsPowerShell\\v1.0",parent:"EXCEL.EXE",parentPath:"C:\\Program Files\\Microsoft Office\\root\\Office16",ppid:excelPid,pstart:excelStart,pid:psPid,cmd:"powershell.exe -nop -w hidden -enc "+psEnc(ps),user:st.user,status:"New",sha:shaPs,title:"Suspicious PowerShell command line",desc:"Office spawned a hidden, encoded PowerShell command."}),
+    P({id:"d_av",time:t1,severity:"high",tactic:"Defense Evasion",technique:"T1562.001",process:"powershell.exe",path:"C:\\Windows\\System32\\WindowsPowerShell\\v1.0",parent:"powershell.exe",parentPath:"C:\\Windows\\System32\\WindowsPowerShell\\v1.0",ppid:psPid,pstart:psStart,cmd:"powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true",user:st.user,status:"New",sha:shaPs,title:"Attempt to turn off Microsoft Defender Antivirus protection",desc:"Defender real-time monitoring switched off from a script."}),
+    P({id:"d_run",time:t2,severity:"medium",tactic:"Persistence",technique:"T1547.001",process:"reg.exe",path:"C:\\Windows\\System32",parent:"powershell.exe",parentPath:"C:\\Windows\\System32\\WindowsPowerShell\\v1.0",ppid:psPid,pstart:psStart,cmd:"reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v "+runKey+" /t REG_SZ /d C:\\Users\\"+st.user+"\\AppData\\Roaming\\"+payload+" /f",user:st.user,status:"New",sha:shaReg,title:"Anomaly detected in ASEP registry",desc:"A Run key now points at an executable in the user's roaming profile."})
   ].sort((a,b)=>a.time-b.time);
+  d.forEach(function(x,k){x.ext="da"+idBase+(10+3*k)+"_"+(k%2?"-":"")+(idTail+k);});
   const byId=Object.fromEntries(d.map(x=>[x.id,x]));
   const sev={high:3,medium:2,low:1};
   const worst=d.reduce((m,x)=>sev[x.severity]>sev[m.severity]?x:m,d[0]).severity;
   const first=d[0];
-  return {kind:"ir",seed,student:st,org,host:hn,d,
-    brief:"You're on the SOC queue at <b>"+esc(org)+"</b>. The EDR console for <b>"+esc(hn)+"</b> lit up with a handful of detections in the last hour. Nobody has looked yet. Work it like a first responder: sort by severity, read each detection's process tree and the ATT&amp;CK technique it is tagged with, and tell the real activity from the background noise. The sensor only <em>detected</em>; it did not block.",
+  return {kind:"ir",seed,student:st,org,host:fqdn,nb,dom,machineId,tenant,incident,sid,upn,d,
+    brief:"You're on the SOC queue at <b>"+esc(org)+"</b>. The EDR console lit up with a handful of detections on one workstation in the last hour. Nobody has looked yet. Work it like a first responder: sort by severity, read each detection's process tree and the ATT&amp;CK technique it is tagged with, and tell the real activity from the background noise. The sensor only <em>detected</em>; it did not block.",
     qs:[
-      {id:"q1",type:"text",prompt:"Which hostname did these detections fire on?",answer:hn,how:"The feed header carries the host. Copy it as shown.",where:"Feed header"},
+      {id:"q1",type:"text",prompt:"Which hostname did these detections fire on?",answer:fqdn,how:"Every alert carries the host in computerDnsName, shown in the feed header. Copy it as shown.",where:"computerDnsName, feed header"},
       {id:"q2",type:"int",prompt:"How many detections are in the feed in total?",answer:String(d.length),how:"Count the rows.",where:"EDR console"},
-      {id:"q3",type:"severity",prompt:"What is the highest severity among the detections?",answer:worst,how:"Scan the Severity column. The highest band present is the answer.",where:"EDR console, Severity column"},
-      {id:"q4",type:"text",prompt:"What status does the EDR record on the GoogleUpdate.exe detection?",answer:byId.d_gu.action,how:"Read the Action column on the GoogleUpdate.exe row.",where:"The GoogleUpdate.exe row"},
+      {id:"q3",type:"severity",prompt:"What is the highest severity among the detections?",answer:cap(worst),how:"Scan the Severity column. The highest band present is the answer.",where:"EDR console, Severity column"},
+      {id:"q4",type:"text",prompt:"What status does the EDR record on the GoogleUpdate.exe detection?",answer:byId.d_gu.status,how:"Read the Status column on the GoogleUpdate.exe row.",where:"The GoogleUpdate.exe row"},
       {id:"q5",type:"mitre",prompt:"What ATT&CK technique is the earliest detection?",answer:first.technique,how:"Sort by time. The first row's Technique column is the answer, even if it's low severity.",where:"EDR console, first row by time"},
       {id:"q6",type:"mitre",prompt:"What ATT&CK technique is tagged on the reg.exe detection?",answer:byId.d_run.technique,how:"Read the Technique column on the reg.exe row.",where:"The reg.exe row"},
       {id:"q7",type:"mitre",prompt:"What ATT&CK technique is tagged on the third detection by time?",answer:byId.d_av.technique,how:"Sort by time and read the Technique column on the third row.",where:"Third row by time"},
@@ -265,18 +278,43 @@ function buildIR(seed){
         how:"Contain first. The sensor didn't block, the chain reached persistence, and the attacker has a working foothold. Isolation stops the next step; the scan and the user interview come after.",where:"Judgment"}
     ]};
 }
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
 function renderIR(c){
-  const rows=c.d.map(function(x){return '<tr class="'+(x.action==="detected"?"hl":"")+'"><td class="t">'+shown(x.time)+'</td><td><span class="sev '+x.severity+'">'+x.severity+'</span></td>'+
+  const rows=c.d.map(function(x){return '<tr class="'+(x.status==="New"?"hl":"")+'"><td class="t">'+shown(x.time)+'</td><td><span class="sev '+x.severity+'">'+cap(x.severity)+'</span></td>'+
     '<td><div class="tree"><span class="p">'+esc(x.parent)+'</span> &rsaquo; <span class="c">'+esc(x.process)+'</span></div><details><summary>command line &amp; hash</summary><div class="cmd">'+esc(x.cmd)+'</div><div class="kv"><b>sha256</b> '+x.sha+'</div></details></td>'+
-    '<td><span class="tech">'+x.technique+'</span><div style="font-size:11.5px;color:var(--muted)">'+x.tactic+'</div></td><td>'+esc(x.user)+'</td><td class="act">'+x.action+'</td></tr>';}).join("");
+    '<td><span class="tech">'+x.technique+'</span><div style="font-size:11.5px;color:var(--muted)">'+x.tactic+'</div></td><td>'+esc(x.user)+'</td><td class="act">'+x.status+'</td></tr>';}).join("");
   return '<div class="eyebrow-sm">Incident response &middot; First Look &middot; EDR</div>'+
     '<h2 style="text-align:left;margin:6px 0 0">First Look: Reading an EDR Alert</h2>'+
     '<p class="brief">'+c.brief+'</p>'+
     '<div class="ev"><span class="chip">EDR detection feed</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">No tools required</span></div>'+
-    '<div class="evwrap"><div class="evhead"><span class="fn">edr/detections.json &middot; host '+esc(c.host)+' &middot; Microsoft Defender</span><button class="dl" type="button" id="dlev">Download detections.json</button></div>'+
-    '<div style="overflow-x:auto"><table class="edr"><thead><tr><th>Time (UTC)</th><th>Severity</th><th>Process tree</th><th>Technique</th><th>User</th><th>Action</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+    '<div class="evwrap"><div class="evhead"><span class="fn">edr/detections.json &middot; Microsoft Defender for Endpoint alerts &middot; computerDnsName '+esc(c.host)+'</span><button class="dl" type="button" id="dlev">Download detections.json</button></div>'+
+    '<div style="overflow-x:auto"><table class="edr"><thead><tr><th>Time (UTC)</th><th>Severity</th><th>Process tree</th><th>Technique</th><th>User</th><th>Status</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
 }
-function exportIR(c){return JSON.stringify({host:c.host,organization:c.org,vendor:"defender",detections:c.d.map(function(x){return {id:x.id,time:iso(x.time),severity:x.severity,tactic:x.tactic,technique:x.technique,process:x.process,parent:x.parent,command_line:x.cmd,sha256:x.sha,user:x.user,host:c.host,action:x.action,description:x.desc};})},null,2);}
+// The shape Microsoft Defender for Endpoint's alerts API returns (GET /api/alerts?$expand=evidence).
+const MDE_CAT={"Execution":"Execution","Defense Evasion":"DefenseEvasion","Persistence":"Persistence"};
+function exportIR(c){
+  const value=c.d.map(function(x){
+    const created=plus(x.time,1), sys=x.user==="SYSTEM", ok=x.status==="Resolved";
+    const udom=sys?"NT AUTHORITY":c.nb, usid=sys?"S-1-5-18":c.sid, uupn=sys?null:c.upn;
+    const base={entityType:"Process",evidenceCreationTime:iso7(created),sha1:x.sha1,sha256:x.sha,fileName:x.process,filePath:x.path,processId:x.pid,
+      processCommandLine:x.cmd,processCreationTime:iso7(plus(x.time,-1)),parentProcessId:x.ppid,parentProcessCreationTime:iso7(x.pstart),
+      parentProcessFileName:x.parent,parentProcessFilePath:x.parentPath,ipAddress:null,url:null,registryKey:null,registryHive:null,
+      registryValueType:null,registryValue:null,registryValueName:null,accountName:x.user,domainName:udom,userSid:usid,aadUserId:null,
+      userPrincipalName:uupn,detectionStatus:"Detected"};
+    const user={entityType:"User",evidenceCreationTime:iso7(created),sha1:null,sha256:null,fileName:null,filePath:null,processId:null,
+      processCommandLine:null,processCreationTime:null,parentProcessId:null,parentProcessCreationTime:null,parentProcessFileName:null,
+      parentProcessFilePath:null,ipAddress:null,url:null,registryKey:null,registryHive:null,registryValueType:null,registryValue:null,
+      registryValueName:null,accountName:x.user,domainName:udom,userSid:usid,aadUserId:null,userPrincipalName:uupn,detectionStatus:null};
+    return {id:x.ext,incidentId:c.incident,investigationId:null,assignedTo:ok?"Automation":null,severity:cap(x.severity),status:x.status,
+      classification:ok?"InformationalExpectedActivity":null,determination:ok?"Other":null,investigationState:ok?"Benign":"Unsupported",
+      detectionSource:"WindowsDefenderAtp",detectorId:x.det,category:MDE_CAT[x.tactic],threatFamilyName:null,title:x.title,description:x.desc,
+      alertCreationTime:iso7(created),firstEventTime:iso7(x.time),lastEventTime:iso7(x.time),lastUpdateTime:iso7(plus(created,x.upd)),
+      resolvedTime:ok?iso7(plus(created,720)):null,machineId:c.machineId,computerDnsName:c.host,rbacGroupName:"Workstations",
+      aadTenantId:c.tenant,threatName:null,mitreTechniques:[x.technique],relatedUser:{userName:x.user,domainName:udom},
+      loggedOnUsers:[{accountName:c.student.user,domainName:c.nb}],comments:[],evidence:[base,user]};
+  });
+  return JSON.stringify({"@odata.context":"https://api.securitycenter.microsoft.com/api/$metadata#Alerts",value:value},null,2);
+}
 
 // ---------- case 2: digital forensics, First Look: USB Device History ----------
 function buildDF(seed){
