@@ -236,7 +236,7 @@ function buildIR(seed){
   const shaReg=hex(r,64), shaPs=hex(r,64), shaGu=hex(r,64);
   const enc=hex(r,18).replace(/[0-9]/g,c=>"ABCDEFGHIJ"[+c]);
   const d=[
-    {id:"d_gu",time:tb,severity:"low",tactic:"Execution",technique:"T1204.002",process:"GoogleUpdate.exe",parent:"services.exe",cmd:"\"C:\\Program Files (x86)\\Google\\Update\\GoogleUpdate.exe\" /svc",user:"SYSTEM",action:"allowed",sha:shaGu,desc:"Signed updater launched by the service manager."},
+    {id:"d_gu",time:tb,severity:"low",tactic:"Execution",technique:"T1569.002",process:"GoogleUpdate.exe",parent:"services.exe",cmd:"\"C:\\Program Files (x86)\\Google\\Update\\GoogleUpdate.exe\" /svc",user:"SYSTEM",action:"allowed",sha:shaGu,desc:"Signed updater launched by the service manager."},
     {id:"d_ps",time:t0,severity:"high",tactic:"Execution",technique:"T1059.001",process:"powershell.exe",parent:"EXCEL.EXE",cmd:"powershell.exe -nop -w hidden -enc JABzAD0ATgBlAHcA"+enc,user:st.user,action:"detected",sha:shaPs,desc:"Office spawned a hidden, encoded PowerShell command."},
     {id:"d_av",time:t1,severity:"high",tactic:"Defense Evasion",technique:"T1562.001",process:"powershell.exe",parent:"powershell.exe",cmd:"powershell.exe Set-MpPreference -DisableRealtimeMonitoring $true",user:st.user,action:"detected",sha:shaPs,desc:"Defender real-time monitoring switched off from a script."},
     {id:"d_run",time:t2,severity:"medium",tactic:"Persistence",technique:"T1547.001",process:"reg.exe",parent:"powershell.exe",cmd:"reg.exe add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v "+runKey+" /t REG_SZ /d C:\\Users\\"+st.user+"\\AppData\\Roaming\\"+payload+" /f",user:st.user,action:"detected",sha:shaReg,desc:"A Run key now points at an executable in the user's roaming profile."}
@@ -246,7 +246,7 @@ function buildIR(seed){
   const worst=d.reduce((m,x)=>sev[x.severity]>sev[m.severity]?x:m,d[0]).severity;
   const first=d[0];
   return {kind:"ir",seed,student:st,org,host:hn,d,
-    brief:"You're on the SOC queue at <b>"+esc(org)+"</b>. The EDR console for <b>"+esc(hn)+"</b> just lit up with a handful of detections in the last few minutes. Nobody has looked yet. Work it like a first responder: sort by severity, read each detection's process tree and the ATT&amp;CK technique it is tagged with, and tell the real activity from the background noise. The sensor only <em>detected</em>; it did not block.",
+    brief:"You're on the SOC queue at <b>"+esc(org)+"</b>. The EDR console for <b>"+esc(hn)+"</b> lit up with a handful of detections in the last hour. Nobody has looked yet. Work it like a first responder: sort by severity, read each detection's process tree and the ATT&amp;CK technique it is tagged with, and tell the real activity from the background noise. The sensor only <em>detected</em>; it did not block.",
     qs:[
       {id:"q1",type:"text",prompt:"Which hostname did these detections fire on?",answer:hn,how:"The feed header carries the host. Copy it as shown.",where:"Feed header"},
       {id:"q2",type:"int",prompt:"How many detections are in the feed in total?",answer:String(d.length),how:"Count the rows.",where:"EDR console"},
