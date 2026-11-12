@@ -126,112 +126,112 @@ Feb 22 07:17:00 web01 CRON[37840]: pam_unix(cron:session): session opened for us
 Feb 22 07:17:00 web01 CRON[37840]: pam_unix(cron:session): session closed for user root
 Feb 22 08:17:00 web01 CRON[38133]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
 Feb 22 08:17:00 web01 CRON[38133]: pam_unix(cron:session): session closed for user root
-Feb 22 08:23:15 web01 sshd[38169]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:17 web01 sshd[38169]: Failed password for root from 91.241.169.217 port 38196 ssh2
-Feb 22 08:23:18 web01 sshd[38173]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:19 web01 sshd[38174]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:20 web01 sshd[38169]: Failed password for root from 91.241.169.217 port 38196 ssh2
-Feb 22 08:23:20 web01 sshd[38173]: Failed password for root from 91.241.169.217 port 35381 ssh2
-Feb 22 08:23:20 web01 sshd[38181]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:21 web01 sshd[38173]: Connection closed by authenticating user root 91.241.169.217 port 35381 [preauth]
-Feb 22 08:23:21 web01 sshd[38169]: Connection closed by authenticating user root 91.241.169.217 port 38196 [preauth]
-Feb 22 08:23:21 web01 sshd[38169]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:21 web01 sshd[38174]: Failed password for root from 91.241.169.217 port 46885 ssh2
-Feb 22 08:23:22 web01 sshd[38187]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:23 web01 sshd[38181]: Failed password for root from 91.241.169.217 port 35702 ssh2
-Feb 22 08:23:24 web01 sshd[38181]: Connection closed by authenticating user root 91.241.169.217 port 35702 [preauth]
-Feb 22 08:23:24 web01 sshd[38174]: Failed password for root from 91.241.169.217 port 46885 ssh2
-Feb 22 08:23:24 web01 sshd[38193]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:24 web01 sshd[38187]: Failed password for root from 91.241.169.217 port 54577 ssh2
-Feb 22 08:23:25 web01 sshd[38174]: Connection closed by authenticating user root 91.241.169.217 port 46885 [preauth]
-Feb 22 08:23:25 web01 sshd[38174]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:27 web01 sshd[38193]: Failed password for root from 91.241.169.217 port 47590 ssh2
-Feb 22 08:23:27 web01 sshd[38200]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:28 web01 sshd[38187]: Failed password for root from 91.241.169.217 port 54577 ssh2
-Feb 22 08:23:29 web01 sshd[38200]: Failed password for root from 91.241.169.217 port 58444 ssh2
-Feb 22 08:23:29 web01 sshd[38205]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:30 web01 sshd[38193]: Failed password for root from 91.241.169.217 port 47590 ssh2
-Feb 22 08:23:30 web01 sshd[38200]: Connection closed by authenticating user root 91.241.169.217 port 58444 [preauth]
-Feb 22 08:23:30 web01 sshd[38207]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:30 web01 sshd[38187]: Failed password for root from 91.241.169.217 port 54577 ssh2
-Feb 22 08:23:31 web01 sshd[38193]: Connection closed by authenticating user root 91.241.169.217 port 47590 [preauth]
-Feb 22 08:23:31 web01 sshd[38193]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:31 web01 sshd[38187]: Connection closed by authenticating user root 91.241.169.217 port 54577 [preauth]
-Feb 22 08:23:31 web01 sshd[38187]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:31 web01 sshd[38205]: Failed password for root from 91.241.169.217 port 60371 ssh2
-Feb 22 08:23:32 web01 sshd[38212]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:32 web01 sshd[38207]: Failed password for root from 91.241.169.217 port 52665 ssh2
-Feb 22 08:23:33 web01 sshd[38218]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:34 web01 sshd[38225]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:34 web01 sshd[38212]: Failed password for root from 91.241.169.217 port 60178 ssh2
-Feb 22 08:23:35 web01 sshd[38205]: Failed password for root from 91.241.169.217 port 60371 ssh2
-Feb 22 08:23:35 web01 sshd[38218]: Failed password for root from 91.241.169.217 port 34722 ssh2
-Feb 22 08:23:35 web01 sshd[38212]: Connection closed by authenticating user root 91.241.169.217 port 60178 [preauth]
-Feb 22 08:23:35 web01 sshd[38207]: Failed password for root from 91.241.169.217 port 52665 ssh2
-Feb 22 08:23:35 web01 sshd[38207]: Connection closed by authenticating user root 91.241.169.217 port 52665 [preauth]
-Feb 22 08:23:35 web01 sshd[38207]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:36 web01 sshd[38225]: Failed password for root from 91.241.169.217 port 43353 ssh2
-Feb 22 08:23:37 web01 sshd[38228]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:37 web01 sshd[38205]: Failed password for root from 91.241.169.217 port 60371 ssh2
-Feb 22 08:23:38 web01 sshd[38218]: Failed password for root from 91.241.169.217 port 34722 ssh2
-Feb 22 08:23:38 web01 sshd[38205]: Connection closed by authenticating user root 91.241.169.217 port 60371 [preauth]
-Feb 22 08:23:38 web01 sshd[38205]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:38 web01 sshd[38231]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:39 web01 sshd[38234]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:39 web01 sshd[38225]: Failed password for root from 91.241.169.217 port 43353 ssh2
-Feb 22 08:23:39 web01 sshd[38228]: Failed password for root from 91.241.169.217 port 40889 ssh2
-Feb 22 08:23:40 web01 sshd[38228]: Connection closed by authenticating user root 91.241.169.217 port 40889 [preauth]
-Feb 22 08:23:41 web01 sshd[38231]: Failed password for root from 91.241.169.217 port 56702 ssh2
-Feb 22 08:23:41 web01 sshd[38218]: Failed password for root from 91.241.169.217 port 34722 ssh2
-Feb 22 08:23:41 web01 sshd[38241]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:41 web01 sshd[38234]: Failed password for root from 91.241.169.217 port 35864 ssh2
-Feb 22 08:23:42 web01 sshd[38218]: Connection closed by authenticating user root 91.241.169.217 port 34722 [preauth]
-Feb 22 08:23:42 web01 sshd[38218]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:42 web01 sshd[38225]: Failed password for root from 91.241.169.217 port 43353 ssh2
-Feb 22 08:23:43 web01 sshd[38231]: Failed password for root from 91.241.169.217 port 56702 ssh2
-Feb 22 08:23:43 web01 sshd[38225]: Connection closed by authenticating user root 91.241.169.217 port 43353 [preauth]
-Feb 22 08:23:43 web01 sshd[38225]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:44 web01 sshd[38244]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:44 web01 sshd[38241]: Failed password for root from 91.241.169.217 port 35575 ssh2
-Feb 22 08:23:44 web01 sshd[38231]: Connection closed by authenticating user root 91.241.169.217 port 56702 [preauth]
-Feb 22 08:23:44 web01 sshd[38231]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:44 web01 sshd[38234]: Failed password for root from 91.241.169.217 port 35864 ssh2
-Feb 22 08:23:45 web01 sshd[38234]: Connection closed by authenticating user root 91.241.169.217 port 35864 [preauth]
-Feb 22 08:23:45 web01 sshd[38234]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:46 web01 sshd[38244]: Failed password for root from 91.241.169.217 port 38060 ssh2
-Feb 22 08:23:46 web01 sshd[38246]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:46 web01 sshd[38241]: Failed password for root from 91.241.169.217 port 35575 ssh2
-Feb 22 08:23:47 web01 sshd[38244]: Connection closed by authenticating user root 91.241.169.217 port 38060 [preauth]
-Feb 22 08:23:48 web01 sshd[38246]: Failed password for root from 91.241.169.217 port 53381 ssh2
-Feb 22 08:23:49 web01 sshd[38253]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:49 web01 sshd[38246]: Connection closed by authenticating user root 91.241.169.217 port 53381 [preauth]
-Feb 22 08:23:49 web01 sshd[38241]: Failed password for root from 91.241.169.217 port 35575 ssh2
-Feb 22 08:23:50 web01 sshd[38241]: Connection closed by authenticating user root 91.241.169.217 port 35575 [preauth]
-Feb 22 08:23:50 web01 sshd[38241]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:51 web01 sshd[38253]: Failed password for root from 91.241.169.217 port 41920 ssh2
-Feb 22 08:23:51 web01 sshd[38257]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:23:53 web01 sshd[38257]: Failed password for root from 91.241.169.217 port 59289 ssh2
-Feb 22 08:23:54 web01 sshd[38253]: Failed password for root from 91.241.169.217 port 41920 ssh2
-Feb 22 08:23:57 web01 sshd[38257]: Failed password for root from 91.241.169.217 port 59289 ssh2
-Feb 22 08:23:57 web01 sshd[38253]: Failed password for root from 91.241.169.217 port 41920 ssh2
-Feb 22 08:23:59 web01 sshd[38253]: Connection closed by authenticating user root 91.241.169.217 port 41920 [preauth]
-Feb 22 08:23:59 web01 sshd[38253]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:24:00 web01 sshd[38257]: Failed password for root from 91.241.169.217 port 59289 ssh2
-Feb 22 08:24:01 web01 sshd[38257]: Connection closed by authenticating user root 91.241.169.217 port 59289 [preauth]
-Feb 22 08:24:01 web01 sshd[38257]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
-Feb 22 08:30:25 web01 sshd[38292]: Accepted password for root from 91.241.169.217 port 35405 ssh2
+Feb 22 08:23:15 web01 sshd[38169]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:17 web01 sshd[38169]: Failed password for root from 194.169.60.114 port 38196 ssh2
+Feb 22 08:23:18 web01 sshd[38173]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:19 web01 sshd[38174]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:20 web01 sshd[38169]: Failed password for root from 194.169.60.114 port 38196 ssh2
+Feb 22 08:23:20 web01 sshd[38173]: Failed password for root from 194.169.60.114 port 35381 ssh2
+Feb 22 08:23:20 web01 sshd[38181]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:21 web01 sshd[38173]: Connection closed by authenticating user root 194.169.60.114 port 35381 [preauth]
+Feb 22 08:23:21 web01 sshd[38169]: Connection closed by authenticating user root 194.169.60.114 port 38196 [preauth]
+Feb 22 08:23:21 web01 sshd[38169]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:21 web01 sshd[38174]: Failed password for root from 194.169.60.114 port 46885 ssh2
+Feb 22 08:23:22 web01 sshd[38187]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:23 web01 sshd[38181]: Failed password for root from 194.169.60.114 port 35702 ssh2
+Feb 22 08:23:24 web01 sshd[38181]: Connection closed by authenticating user root 194.169.60.114 port 35702 [preauth]
+Feb 22 08:23:24 web01 sshd[38174]: Failed password for root from 194.169.60.114 port 46885 ssh2
+Feb 22 08:23:24 web01 sshd[38193]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:24 web01 sshd[38187]: Failed password for root from 194.169.60.114 port 54577 ssh2
+Feb 22 08:23:25 web01 sshd[38174]: Connection closed by authenticating user root 194.169.60.114 port 46885 [preauth]
+Feb 22 08:23:25 web01 sshd[38174]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:27 web01 sshd[38193]: Failed password for root from 194.169.60.114 port 47590 ssh2
+Feb 22 08:23:27 web01 sshd[38200]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:28 web01 sshd[38187]: Failed password for root from 194.169.60.114 port 54577 ssh2
+Feb 22 08:23:29 web01 sshd[38200]: Failed password for root from 194.169.60.114 port 58444 ssh2
+Feb 22 08:23:29 web01 sshd[38205]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:30 web01 sshd[38193]: Failed password for root from 194.169.60.114 port 47590 ssh2
+Feb 22 08:23:30 web01 sshd[38200]: Connection closed by authenticating user root 194.169.60.114 port 58444 [preauth]
+Feb 22 08:23:30 web01 sshd[38207]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:30 web01 sshd[38187]: Failed password for root from 194.169.60.114 port 54577 ssh2
+Feb 22 08:23:31 web01 sshd[38193]: Connection closed by authenticating user root 194.169.60.114 port 47590 [preauth]
+Feb 22 08:23:31 web01 sshd[38193]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:31 web01 sshd[38187]: Connection closed by authenticating user root 194.169.60.114 port 54577 [preauth]
+Feb 22 08:23:31 web01 sshd[38187]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:31 web01 sshd[38205]: Failed password for root from 194.169.60.114 port 60371 ssh2
+Feb 22 08:23:32 web01 sshd[38212]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:32 web01 sshd[38207]: Failed password for root from 194.169.60.114 port 52665 ssh2
+Feb 22 08:23:33 web01 sshd[38218]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:34 web01 sshd[38225]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:34 web01 sshd[38212]: Failed password for root from 194.169.60.114 port 60178 ssh2
+Feb 22 08:23:35 web01 sshd[38205]: Failed password for root from 194.169.60.114 port 60371 ssh2
+Feb 22 08:23:35 web01 sshd[38218]: Failed password for root from 194.169.60.114 port 34722 ssh2
+Feb 22 08:23:35 web01 sshd[38212]: Connection closed by authenticating user root 194.169.60.114 port 60178 [preauth]
+Feb 22 08:23:35 web01 sshd[38207]: Failed password for root from 194.169.60.114 port 52665 ssh2
+Feb 22 08:23:35 web01 sshd[38207]: Connection closed by authenticating user root 194.169.60.114 port 52665 [preauth]
+Feb 22 08:23:35 web01 sshd[38207]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:36 web01 sshd[38225]: Failed password for root from 194.169.60.114 port 43353 ssh2
+Feb 22 08:23:37 web01 sshd[38228]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:37 web01 sshd[38205]: Failed password for root from 194.169.60.114 port 60371 ssh2
+Feb 22 08:23:38 web01 sshd[38218]: Failed password for root from 194.169.60.114 port 34722 ssh2
+Feb 22 08:23:38 web01 sshd[38205]: Connection closed by authenticating user root 194.169.60.114 port 60371 [preauth]
+Feb 22 08:23:38 web01 sshd[38205]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:38 web01 sshd[38231]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:39 web01 sshd[38234]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:39 web01 sshd[38225]: Failed password for root from 194.169.60.114 port 43353 ssh2
+Feb 22 08:23:39 web01 sshd[38228]: Failed password for root from 194.169.60.114 port 40889 ssh2
+Feb 22 08:23:40 web01 sshd[38228]: Connection closed by authenticating user root 194.169.60.114 port 40889 [preauth]
+Feb 22 08:23:41 web01 sshd[38231]: Failed password for root from 194.169.60.114 port 56702 ssh2
+Feb 22 08:23:41 web01 sshd[38218]: Failed password for root from 194.169.60.114 port 34722 ssh2
+Feb 22 08:23:41 web01 sshd[38241]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:41 web01 sshd[38234]: Failed password for root from 194.169.60.114 port 35864 ssh2
+Feb 22 08:23:42 web01 sshd[38218]: Connection closed by authenticating user root 194.169.60.114 port 34722 [preauth]
+Feb 22 08:23:42 web01 sshd[38218]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:42 web01 sshd[38225]: Failed password for root from 194.169.60.114 port 43353 ssh2
+Feb 22 08:23:43 web01 sshd[38231]: Failed password for root from 194.169.60.114 port 56702 ssh2
+Feb 22 08:23:43 web01 sshd[38225]: Connection closed by authenticating user root 194.169.60.114 port 43353 [preauth]
+Feb 22 08:23:43 web01 sshd[38225]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:44 web01 sshd[38244]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:44 web01 sshd[38241]: Failed password for root from 194.169.60.114 port 35575 ssh2
+Feb 22 08:23:44 web01 sshd[38231]: Connection closed by authenticating user root 194.169.60.114 port 56702 [preauth]
+Feb 22 08:23:44 web01 sshd[38231]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:44 web01 sshd[38234]: Failed password for root from 194.169.60.114 port 35864 ssh2
+Feb 22 08:23:45 web01 sshd[38234]: Connection closed by authenticating user root 194.169.60.114 port 35864 [preauth]
+Feb 22 08:23:45 web01 sshd[38234]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:46 web01 sshd[38244]: Failed password for root from 194.169.60.114 port 38060 ssh2
+Feb 22 08:23:46 web01 sshd[38246]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:46 web01 sshd[38241]: Failed password for root from 194.169.60.114 port 35575 ssh2
+Feb 22 08:23:47 web01 sshd[38244]: Connection closed by authenticating user root 194.169.60.114 port 38060 [preauth]
+Feb 22 08:23:48 web01 sshd[38246]: Failed password for root from 194.169.60.114 port 53381 ssh2
+Feb 22 08:23:49 web01 sshd[38253]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:49 web01 sshd[38246]: Connection closed by authenticating user root 194.169.60.114 port 53381 [preauth]
+Feb 22 08:23:49 web01 sshd[38241]: Failed password for root from 194.169.60.114 port 35575 ssh2
+Feb 22 08:23:50 web01 sshd[38241]: Connection closed by authenticating user root 194.169.60.114 port 35575 [preauth]
+Feb 22 08:23:50 web01 sshd[38241]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:51 web01 sshd[38253]: Failed password for root from 194.169.60.114 port 41920 ssh2
+Feb 22 08:23:51 web01 sshd[38257]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:23:53 web01 sshd[38257]: Failed password for root from 194.169.60.114 port 59289 ssh2
+Feb 22 08:23:54 web01 sshd[38253]: Failed password for root from 194.169.60.114 port 41920 ssh2
+Feb 22 08:23:57 web01 sshd[38257]: Failed password for root from 194.169.60.114 port 59289 ssh2
+Feb 22 08:23:57 web01 sshd[38253]: Failed password for root from 194.169.60.114 port 41920 ssh2
+Feb 22 08:23:59 web01 sshd[38253]: Connection closed by authenticating user root 194.169.60.114 port 41920 [preauth]
+Feb 22 08:23:59 web01 sshd[38253]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:24:00 web01 sshd[38257]: Failed password for root from 194.169.60.114 port 59289 ssh2
+Feb 22 08:24:01 web01 sshd[38257]: Connection closed by authenticating user root 194.169.60.114 port 59289 [preauth]
+Feb 22 08:24:01 web01 sshd[38257]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=194.169.60.114  user=root
+Feb 22 08:30:25 web01 sshd[38292]: Accepted password for root from 194.169.60.114 port 35405 ssh2
 Feb 22 08:30:25 web01 sshd[38292]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)
 Feb 22 08:30:25 web01 systemd-logind[608]: New session 1609 of user root.
-Feb 22 08:33:49 web01 sudo:     root : TTY=pts/1 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Feb 22 08:33:49 web01 sudo:     root : TTY=pts/1 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/tail /etc/shadow
 Feb 22 08:33:49 web01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
 Feb 22 08:33:49 web01 sudo: pam_unix(sudo:session): session closed for user root
-Feb 22 08:36:17 web01 useradd[38325]: new group: name=gitrunner, GID=1051
-Feb 22 08:36:17 web01 useradd[38325]: new user: name=gitrunner, UID=1051, GID=1051, home=/home/gitrunner, shell=/bin/bash, from=/dev/pts/1
-Feb 22 08:36:42 web01 passwd[38333]: pam_unix(passwd:chauthtok): password changed for gitrunner
-Feb 22 08:37:27 web01 usermod[38337]: add 'gitrunner' to group 'sudo'
-Feb 22 08:37:27 web01 usermod[38337]: add 'gitrunner' to shadow group 'sudo'
-Feb 22 08:39:17 web01 sshd[38295]: Received disconnect from 91.241.169.217 port 35405:11: disconnected by user
-Feb 22 08:39:17 web01 sshd[38295]: Disconnected from user root 91.241.169.217 port 35405
+Feb 22 08:36:17 web01 useradd[38325]: new group: name=svc-update, GID=1051
+Feb 22 08:36:17 web01 useradd[38325]: new user: name=svc-update, UID=1051, GID=1051, home=/home/svc-update, shell=/bin/bash, from=/dev/pts/1
+Feb 22 08:36:42 web01 passwd[38333]: pam_unix(passwd:chauthtok): password changed for svc-update
+Feb 22 08:37:27 web01 usermod[38337]: add 'svc-update' to group 'sudo'
+Feb 22 08:37:27 web01 usermod[38337]: add 'svc-update' to shadow group 'sudo'
+Feb 22 08:39:17 web01 sshd[38295]: Received disconnect from 194.169.60.114 port 35405:11: disconnected by user
+Feb 22 08:39:17 web01 sshd[38295]: Disconnected from user root 194.169.60.114 port 35405
 Feb 22 08:39:17 web01 sshd[38292]: pam_unix(sshd:session): session closed for user root
 Feb 22 08:39:17 web01 systemd-logind[608]: Session 1609 logged out. Waiting for processes to exit.
 Feb 22 08:39:17 web01 systemd-logind[608]: Removed session 1609.
