@@ -1,56 +1,237 @@
-Feb 21 11:04:51 web01 sshd[28608]: Accepted publickey for deploy from 192.168.133.198 port 49747 ssh2: RSA SHA256:Bq/ns1qPZB4odllZxJ83L4bYKcy3cuknCxT+CAPbydA
-Feb 21 11:36:29 web01 sshd[14755]: Accepted publickey for ansible from 192.168.133.52 port 31353 ssh2: RSA SHA256:E1YFfKhI4DcgXEbTpMSCjaCgfpouqkXp8TtgMpm+XAw
-Feb 21 12:30:14 web01 sshd[8503]: Accepted publickey for deploy from 192.168.133.176 port 48908 ssh2: RSA SHA256:zNelZMpazPcqPmNcTn/o4qxZFjMxJbX7yQRfKKNVg4w
-Feb 21 12:47:12 web01 sshd[18853]: Accepted publickey for jenkins from 192.168.133.196 port 30638 ssh2: RSA SHA256:0f0dEE6l8/imSpEjyi5LV1VtLakL4ae46w1beR3j4sQ
-Feb 21 12:55:27 web01 sshd[4020]: Accepted publickey for deploy from 192.168.133.49 port 37289 ssh2: RSA SHA256:djdn/kG37FUypodQ7+ylJe618e17yeKgRSc5VcH4k8U
-Feb 21 13:55:14 web01 sshd[11629]: Accepted publickey for admin from 192.168.133.171 port 37826 ssh2: RSA SHA256:+TNHBkm1oqhyrP2TkbWHSfXD3+zCIxaFo73KwN2Seak
-Feb 21 21:34:56 web01 sshd[4308]: Accepted publickey for deploy from 192.168.133.221 port 37366 ssh2: RSA SHA256:JUY3u+pmQMNUSNaKedSDVjc2kPe4cfTgOPJ5RgtE4Ac
-Feb 21 21:44:42 web01 sshd[17861]: Accepted publickey for deploy from 192.168.133.190 port 60388 ssh2: RSA SHA256:dv4oay4to2bKEmbhX2NKsP0fNJXx35zzueahfmFS5Pk
-Feb 22 02:05:44 web01 sshd[13895]: Accepted publickey for deploy from 192.168.133.201 port 34894 ssh2: RSA SHA256:L/hifhwhT2mEgF2YGpG9FlPKV0CqGCXqqb5LGfplvYs
-Feb 22 02:32:23 web01 sshd[3928]: Accepted publickey for ansible from 192.168.133.62 port 41143 ssh2: RSA SHA256:fDbR3w21hXVYDM8sTvNNQ7+fLcI9lJQ0jgnsQCyn+zg
-Feb 22 08:23:15 web01 sshd[29462]: Failed password for root from 91.241.169.217 port 49046 ssh2
-Feb 22 08:23:16 web01 sshd[12035]: Failed password for root from 91.241.169.217 port 42425 ssh2
-Feb 22 08:23:17 web01 sshd[8718]: Failed password for root from 91.241.169.217 port 44328 ssh2
-Feb 22 08:23:19 web01 sshd[2349]: Failed password for root from 91.241.169.217 port 38162 ssh2
-Feb 22 08:23:21 web01 sshd[13283]: Failed password for root from 91.241.169.217 port 31549 ssh2
-Feb 22 08:23:24 web01 sshd[7751]: Failed password for root from 91.241.169.217 port 30994 ssh2
-Feb 22 08:23:28 web01 sshd[2643]: Failed password for root from 91.241.169.217 port 32674 ssh2
-Feb 22 08:23:30 web01 sshd[26862]: Failed password for root from 91.241.169.217 port 44509 ssh2
-Feb 22 08:23:31 web01 sshd[7190]: Failed password for root from 91.241.169.217 port 42904 ssh2
-Feb 22 08:23:32 web01 sshd[12140]: Failed password for root from 91.241.169.217 port 57605 ssh2
-Feb 22 08:23:33 web01 sshd[10144]: Failed password for root from 91.241.169.217 port 33179 ssh2
-Feb 22 08:23:34 web01 sshd[13243]: Failed password for root from 91.241.169.217 port 46262 ssh2
-Feb 22 08:23:37 web01 sshd[27568]: Failed password for root from 91.241.169.217 port 44557 ssh2
-Feb 22 08:23:39 web01 sshd[1251]: Failed password for root from 91.241.169.217 port 33492 ssh2
-Feb 22 08:23:40 web01 sshd[19211]: Failed password for root from 91.241.169.217 port 46689 ssh2
-Feb 22 08:23:43 web01 sshd[9523]: Failed password for root from 91.241.169.217 port 42112 ssh2
-Feb 22 08:23:43 web01 sshd[25647]: Failed password for root from 91.241.169.217 port 35866 ssh2
-Feb 22 08:23:44 web01 sshd[16138]: Failed password for root from 91.241.169.217 port 54565 ssh2
-Feb 22 08:23:45 web01 sshd[16028]: Failed password for root from 91.241.169.217 port 51248 ssh2
-Feb 22 08:23:47 web01 sshd[6639]: Failed password for root from 91.241.169.217 port 43616 ssh2
-Feb 22 08:23:49 web01 sshd[28073]: Failed password for root from 91.241.169.217 port 40659 ssh2
-Feb 22 08:23:55 web01 sshd[1977]: Failed password for root from 91.241.169.217 port 51640 ssh2
-Feb 22 08:23:57 web01 sshd[16011]: Failed password for root from 91.241.169.217 port 32608 ssh2
-Feb 22 08:24:01 web01 sshd[19912]: Failed password for root from 91.241.169.217 port 44929 ssh2
-Feb 22 08:24:03 web01 sshd[15305]: Failed password for root from 91.241.169.217 port 30465 ssh2
-Feb 22 08:24:11 web01 sshd[6883]: Failed password for root from 91.241.169.217 port 42206 ssh2
-Feb 22 08:24:15 web01 sshd[2486]: Failed password for root from 91.241.169.217 port 57612 ssh2
-Feb 22 08:24:15 web01 sshd[12888]: Failed password for root from 91.241.169.217 port 40347 ssh2
-Feb 22 08:24:21 web01 sshd[22369]: Failed password for root from 91.241.169.217 port 35369 ssh2
-Feb 22 08:24:21 web01 sshd[2880]: Failed password for root from 91.241.169.217 port 49949 ssh2
-Feb 22 08:24:27 web01 sshd[12590]: Failed password for root from 91.241.169.217 port 58570 ssh2
-Feb 22 08:24:33 web01 sshd[27266]: Failed password for root from 91.241.169.217 port 35467 ssh2
-Feb 22 08:24:48 web01 sshd[20885]: Failed password for root from 91.241.169.217 port 53898 ssh2
-Feb 22 08:24:51 web01 sshd[10946]: Failed password for root from 91.241.169.217 port 33675 ssh2
-Feb 22 08:24:59 web01 sshd[21019]: Failed password for root from 91.241.169.217 port 60957 ssh2
-Feb 22 08:25:00 web01 sshd[25175]: Failed password for root from 91.241.169.217 port 52325 ssh2
-Feb 22 08:25:03 web01 sshd[2122]: Failed password for root from 91.241.169.217 port 52381 ssh2
-Feb 22 08:25:03 web01 sshd[18334]: Failed password for root from 91.241.169.217 port 52826 ssh2
-Feb 22 08:25:09 web01 sshd[26469]: Failed password for root from 91.241.169.217 port 49928 ssh2
-Feb 22 08:25:43 web01 sshd[1784]: Failed password for root from 91.241.169.217 port 59503 ssh2
-Feb 22 08:30:25 web01 sshd[11412]: Accepted password for root from 91.241.169.217 port 35405 ssh2
-Feb 22 08:30:25 web01 sshd[11412]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)
-Feb 22 08:30:25 web01 systemd-logind[698]: New session 40 of user root.
-Feb 22 08:33:49 web01 sudo: root : TTY=pts/2 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
-Feb 22 08:36:17 web01 useradd[16892]: new group: name=gitrunner, GID=1039
-Feb 22 08:36:17 web01 useradd[16892]: new user: name=gitrunner, UID=1039, GID=1039, home=/home/gitrunner, shell=/bin/bash
+Feb 21 09:17:00 web01 CRON[31359]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 09:17:00 web01 CRON[31359]: pam_unix(cron:session): session closed for user root
+Feb 21 09:42:28 web01 sshd[31482]: Accepted publickey for admin from 192.168.133.110 port 52589 ssh2: ED25519 SHA256:ei4UYaREKg+a4VYbNzpC/vQsgH6a96LNa6jfBg5IiBU
+Feb 21 09:42:28 web01 sshd[31482]: pam_unix(sshd:session): session opened for user admin(uid=1000) by (uid=0)
+Feb 21 09:42:28 web01 systemd-logind[608]: New session 1599 of user admin.
+Feb 21 09:49:02 web01 sshd[31484]: Received disconnect from 192.168.133.110 port 52589:11: disconnected by user
+Feb 21 09:49:02 web01 sshd[31484]: Disconnected from user admin 192.168.133.110 port 52589
+Feb 21 09:49:02 web01 sshd[31482]: pam_unix(sshd:session): session closed for user admin
+Feb 21 09:49:02 web01 systemd-logind[608]: Session 1599 logged out. Waiting for processes to exit.
+Feb 21 09:49:02 web01 systemd-logind[608]: Removed session 1599.
+Feb 21 10:17:00 web01 CRON[31656]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 10:17:00 web01 CRON[31656]: pam_unix(cron:session): session closed for user root
+Feb 21 11:17:00 web01 CRON[31948]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 11:17:00 web01 CRON[31948]: pam_unix(cron:session): session closed for user root
+Feb 21 12:17:00 web01 CRON[32242]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 12:17:01 web01 CRON[32242]: pam_unix(cron:session): session closed for user root
+Feb 21 13:10:58 web01 sshd[32503]: Accepted publickey for gitlab-runner from 192.168.133.108 port 46508 ssh2: ED25519 SHA256:i2SIzSOKE+pcsl9QP+jHkMrY4woTdUy+BzEYndrBgAM
+Feb 21 13:10:58 web01 sshd[32503]: pam_unix(sshd:session): session opened for user gitlab-runner(uid=1003) by (uid=0)
+Feb 21 13:10:58 web01 systemd-logind[608]: New session 1600 of user gitlab-runner.
+Feb 21 13:11:22 web01 sshd[32506]: Received disconnect from 192.168.133.108 port 46508:11: disconnected by user
+Feb 21 13:11:22 web01 sshd[32506]: Disconnected from user gitlab-runner 192.168.133.108 port 46508
+Feb 21 13:11:22 web01 sshd[32503]: pam_unix(sshd:session): session closed for user gitlab-runner
+Feb 21 13:11:22 web01 systemd-logind[608]: Session 1600 logged out. Waiting for processes to exit.
+Feb 21 13:11:22 web01 systemd-logind[608]: Removed session 1600.
+Feb 21 13:17:00 web01 CRON[32539]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 13:17:00 web01 CRON[32539]: pam_unix(cron:session): session closed for user root
+Feb 21 13:30:36 web01 sshd[32610]: Accepted publickey for deploy from 192.168.133.225 port 46478 ssh2: ED25519 SHA256:IpdonhGlIQ/nI0JUeajH4beVIKteYyz2gY5d/Gw/4No
+Feb 21 13:30:36 web01 sshd[32610]: pam_unix(sshd:session): session opened for user deploy(uid=1001) by (uid=0)
+Feb 21 13:30:36 web01 systemd-logind[608]: New session 1601 of user deploy.
+Feb 21 14:11:48 web01 sshd[32815]: Accepted publickey for admin from 192.168.133.182 port 58875 ssh2: ED25519 SHA256:ei4UYaREKg+a4VYbNzpC/vQsgH6a96LNa6jfBg5IiBU
+Feb 21 14:11:48 web01 sshd[32815]: pam_unix(sshd:session): session opened for user admin(uid=1000) by (uid=0)
+Feb 21 14:11:48 web01 systemd-logind[608]: New session 1602 of user admin.
+Feb 21 14:17:00 web01 CRON[32848]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 14:17:00 web01 CRON[32848]: pam_unix(cron:session): session closed for user root
+Feb 21 14:17:45 web01 sshd[32611]: Received disconnect from 192.168.133.225 port 46478:11: disconnected by user
+Feb 21 14:17:45 web01 sshd[32611]: Disconnected from user deploy 192.168.133.225 port 46478
+Feb 21 14:17:45 web01 sshd[32610]: pam_unix(sshd:session): session closed for user deploy
+Feb 21 14:17:45 web01 systemd-logind[608]: Session 1601 logged out. Waiting for processes to exit.
+Feb 21 14:17:45 web01 systemd-logind[608]: Removed session 1601.
+Feb 21 14:45:26 web01 sshd[32989]: Accepted publickey for deploy from 192.168.133.182 port 40620 ssh2: ED25519 SHA256:IpdonhGlIQ/nI0JUeajH4beVIKteYyz2gY5d/Gw/4No
+Feb 21 14:45:26 web01 sshd[32989]: pam_unix(sshd:session): session opened for user deploy(uid=1001) by (uid=0)
+Feb 21 14:45:26 web01 systemd-logind[608]: New session 1603 of user deploy.
+Feb 21 14:46:16 web01 sshd[32818]: Received disconnect from 192.168.133.182 port 58875:11: disconnected by user
+Feb 21 14:46:16 web01 sshd[32818]: Disconnected from user admin 192.168.133.182 port 58875
+Feb 21 14:46:16 web01 sshd[32815]: pam_unix(sshd:session): session closed for user admin
+Feb 21 14:46:16 web01 systemd-logind[608]: Session 1602 logged out. Waiting for processes to exit.
+Feb 21 14:46:16 web01 systemd-logind[608]: Removed session 1602.
+Feb 21 15:17:00 web01 CRON[33146]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 15:17:00 web01 CRON[33146]: pam_unix(cron:session): session closed for user root
+Feb 21 15:49:12 web01 sshd[32990]: Received disconnect from 192.168.133.182 port 40620:11: disconnected by user
+Feb 21 15:49:12 web01 sshd[32990]: Disconnected from user deploy 192.168.133.182 port 40620
+Feb 21 15:49:12 web01 sshd[32989]: pam_unix(sshd:session): session closed for user deploy
+Feb 21 15:49:12 web01 systemd-logind[608]: Session 1603 logged out. Waiting for processes to exit.
+Feb 21 15:49:12 web01 systemd-logind[608]: Removed session 1603.
+Feb 21 16:17:00 web01 CRON[33438]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 16:17:00 web01 CRON[33438]: pam_unix(cron:session): session closed for user root
+Feb 21 16:45:30 web01 sshd[33578]: Accepted publickey for jenkins from 192.168.133.108 port 36441 ssh2: ED25519 SHA256:oR82Uz0IE2SmZHeu/jDNm6zfq9lphA/N7WFDjsJBWuk
+Feb 21 16:45:30 web01 sshd[33578]: pam_unix(sshd:session): session opened for user jenkins(uid=114) by (uid=0)
+Feb 21 16:45:30 web01 systemd-logind[608]: New session 1604 of user jenkins.
+Feb 21 16:46:29 web01 sshd[33579]: Received disconnect from 192.168.133.108 port 36441:11: disconnected by user
+Feb 21 16:46:29 web01 sshd[33579]: Disconnected from user jenkins 192.168.133.108 port 36441
+Feb 21 16:46:29 web01 sshd[33578]: pam_unix(sshd:session): session closed for user jenkins
+Feb 21 16:46:29 web01 systemd-logind[608]: Session 1604 logged out. Waiting for processes to exit.
+Feb 21 16:46:29 web01 systemd-logind[608]: Removed session 1604.
+Feb 21 17:17:00 web01 CRON[33732]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 17:17:01 web01 CRON[33732]: pam_unix(cron:session): session closed for user root
+Feb 21 17:48:57 web01 sshd[33886]: Accepted publickey for admin from 192.168.133.225 port 60455 ssh2: ED25519 SHA256:ei4UYaREKg+a4VYbNzpC/vQsgH6a96LNa6jfBg5IiBU
+Feb 21 17:48:57 web01 sshd[33886]: pam_unix(sshd:session): session opened for user admin(uid=1000) by (uid=0)
+Feb 21 17:48:57 web01 systemd-logind[608]: New session 1605 of user admin.
+Feb 21 18:17:00 web01 CRON[34028]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 18:17:00 web01 CRON[34028]: pam_unix(cron:session): session closed for user root
+Feb 21 18:46:33 web01 sshd[33888]: Received disconnect from 192.168.133.225 port 60455:11: disconnected by user
+Feb 21 18:46:33 web01 sshd[33888]: Disconnected from user admin 192.168.133.225 port 60455
+Feb 21 18:46:33 web01 sshd[33886]: pam_unix(sshd:session): session closed for user admin
+Feb 21 18:46:33 web01 systemd-logind[608]: Session 1605 logged out. Waiting for processes to exit.
+Feb 21 18:46:33 web01 systemd-logind[608]: Removed session 1605.
+Feb 21 19:17:00 web01 CRON[34322]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 19:17:01 web01 CRON[34322]: pam_unix(cron:session): session closed for user root
+Feb 21 20:17:00 web01 CRON[34616]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 20:17:01 web01 CRON[34616]: pam_unix(cron:session): session closed for user root
+Feb 21 21:17:00 web01 CRON[34906]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 21:17:00 web01 CRON[34906]: pam_unix(cron:session): session closed for user root
+Feb 21 22:17:00 web01 CRON[35197]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 22:17:00 web01 CRON[35197]: pam_unix(cron:session): session closed for user root
+Feb 21 23:17:00 web01 CRON[35492]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 21 23:17:01 web01 CRON[35492]: pam_unix(cron:session): session closed for user root
+Feb 22 00:17:00 web01 CRON[35783]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 00:17:00 web01 CRON[35783]: pam_unix(cron:session): session closed for user root
+Feb 22 00:56:19 web01 sshd[35974]: Accepted publickey for ansible from 192.168.133.108 port 33379 ssh2: RSA SHA256:YkwiN0tcXWNhFm9YH/VKO/HUGt/jvH2PnR2EW3EUCN4
+Feb 22 00:56:19 web01 sshd[35974]: pam_unix(sshd:session): session opened for user ansible(uid=1002) by (uid=0)
+Feb 22 00:56:19 web01 systemd-logind[608]: New session 1606 of user ansible.
+Feb 22 00:57:03 web01 sshd[35975]: Received disconnect from 192.168.133.108 port 33379:11: disconnected by user
+Feb 22 00:57:03 web01 sshd[35975]: Disconnected from user ansible 192.168.133.108 port 33379
+Feb 22 00:57:03 web01 sshd[35974]: pam_unix(sshd:session): session closed for user ansible
+Feb 22 00:57:03 web01 systemd-logind[608]: Session 1606 logged out. Waiting for processes to exit.
+Feb 22 00:57:03 web01 systemd-logind[608]: Removed session 1606.
+Feb 22 01:17:00 web01 CRON[36077]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 01:17:00 web01 CRON[36077]: pam_unix(cron:session): session closed for user root
+Feb 22 02:17:00 web01 CRON[36371]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 02:17:01 web01 CRON[36371]: pam_unix(cron:session): session closed for user root
+Feb 22 03:17:00 web01 CRON[36662]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 03:17:00 web01 CRON[36662]: pam_unix(cron:session): session closed for user root
+Feb 22 04:01:03 web01 sshd[36874]: Accepted publickey for jenkins from 192.168.133.108 port 60309 ssh2: ED25519 SHA256:oR82Uz0IE2SmZHeu/jDNm6zfq9lphA/N7WFDjsJBWuk
+Feb 22 04:01:03 web01 sshd[36874]: pam_unix(sshd:session): session opened for user jenkins(uid=114) by (uid=0)
+Feb 22 04:01:03 web01 systemd-logind[608]: New session 1607 of user jenkins.
+Feb 22 04:01:37 web01 sshd[36876]: Received disconnect from 192.168.133.108 port 60309:11: disconnected by user
+Feb 22 04:01:37 web01 sshd[36876]: Disconnected from user jenkins 192.168.133.108 port 60309
+Feb 22 04:01:37 web01 sshd[36874]: pam_unix(sshd:session): session closed for user jenkins
+Feb 22 04:01:37 web01 systemd-logind[608]: Session 1607 logged out. Waiting for processes to exit.
+Feb 22 04:01:37 web01 systemd-logind[608]: Removed session 1607.
+Feb 22 04:17:00 web01 CRON[36956]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 04:17:00 web01 CRON[36956]: pam_unix(cron:session): session closed for user root
+Feb 22 05:17:00 web01 CRON[37245]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 05:17:00 web01 CRON[37245]: pam_unix(cron:session): session closed for user root
+Feb 22 06:17:00 web01 CRON[37539]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 06:17:00 web01 CRON[37539]: pam_unix(cron:session): session closed for user root
+Feb 22 06:53:55 web01 sshd[37722]: Accepted publickey for jenkins from 192.168.133.108 port 60687 ssh2: ED25519 SHA256:oR82Uz0IE2SmZHeu/jDNm6zfq9lphA/N7WFDjsJBWuk
+Feb 22 06:53:55 web01 sshd[37722]: pam_unix(sshd:session): session opened for user jenkins(uid=114) by (uid=0)
+Feb 22 06:53:55 web01 systemd-logind[608]: New session 1608 of user jenkins.
+Feb 22 06:54:47 web01 sshd[37723]: Received disconnect from 192.168.133.108 port 60687:11: disconnected by user
+Feb 22 06:54:47 web01 sshd[37723]: Disconnected from user jenkins 192.168.133.108 port 60687
+Feb 22 06:54:47 web01 sshd[37722]: pam_unix(sshd:session): session closed for user jenkins
+Feb 22 06:54:47 web01 systemd-logind[608]: Session 1608 logged out. Waiting for processes to exit.
+Feb 22 06:54:47 web01 systemd-logind[608]: Removed session 1608.
+Feb 22 07:17:00 web01 CRON[37840]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 07:17:00 web01 CRON[37840]: pam_unix(cron:session): session closed for user root
+Feb 22 08:17:00 web01 CRON[38133]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 08:17:00 web01 CRON[38133]: pam_unix(cron:session): session closed for user root
+Feb 22 08:23:15 web01 sshd[38169]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:17 web01 sshd[38169]: Failed password for root from 91.241.169.217 port 38196 ssh2
+Feb 22 08:23:18 web01 sshd[38173]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:19 web01 sshd[38174]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:20 web01 sshd[38169]: Failed password for root from 91.241.169.217 port 38196 ssh2
+Feb 22 08:23:20 web01 sshd[38173]: Failed password for root from 91.241.169.217 port 35381 ssh2
+Feb 22 08:23:20 web01 sshd[38181]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:21 web01 sshd[38173]: Connection closed by authenticating user root 91.241.169.217 port 35381 [preauth]
+Feb 22 08:23:21 web01 sshd[38169]: Connection closed by authenticating user root 91.241.169.217 port 38196 [preauth]
+Feb 22 08:23:21 web01 sshd[38169]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:21 web01 sshd[38174]: Failed password for root from 91.241.169.217 port 46885 ssh2
+Feb 22 08:23:22 web01 sshd[38187]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:23 web01 sshd[38181]: Failed password for root from 91.241.169.217 port 35702 ssh2
+Feb 22 08:23:24 web01 sshd[38181]: Connection closed by authenticating user root 91.241.169.217 port 35702 [preauth]
+Feb 22 08:23:24 web01 sshd[38174]: Failed password for root from 91.241.169.217 port 46885 ssh2
+Feb 22 08:23:24 web01 sshd[38193]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:24 web01 sshd[38187]: Failed password for root from 91.241.169.217 port 54577 ssh2
+Feb 22 08:23:25 web01 sshd[38174]: Connection closed by authenticating user root 91.241.169.217 port 46885 [preauth]
+Feb 22 08:23:25 web01 sshd[38174]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:27 web01 sshd[38193]: Failed password for root from 91.241.169.217 port 47590 ssh2
+Feb 22 08:23:27 web01 sshd[38200]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:28 web01 sshd[38187]: Failed password for root from 91.241.169.217 port 54577 ssh2
+Feb 22 08:23:29 web01 sshd[38200]: Failed password for root from 91.241.169.217 port 58444 ssh2
+Feb 22 08:23:29 web01 sshd[38205]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:30 web01 sshd[38193]: Failed password for root from 91.241.169.217 port 47590 ssh2
+Feb 22 08:23:30 web01 sshd[38200]: Connection closed by authenticating user root 91.241.169.217 port 58444 [preauth]
+Feb 22 08:23:30 web01 sshd[38207]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:30 web01 sshd[38187]: Failed password for root from 91.241.169.217 port 54577 ssh2
+Feb 22 08:23:31 web01 sshd[38193]: Connection closed by authenticating user root 91.241.169.217 port 47590 [preauth]
+Feb 22 08:23:31 web01 sshd[38193]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:31 web01 sshd[38187]: Connection closed by authenticating user root 91.241.169.217 port 54577 [preauth]
+Feb 22 08:23:31 web01 sshd[38187]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:31 web01 sshd[38205]: Failed password for root from 91.241.169.217 port 60371 ssh2
+Feb 22 08:23:32 web01 sshd[38212]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:32 web01 sshd[38207]: Failed password for root from 91.241.169.217 port 52665 ssh2
+Feb 22 08:23:33 web01 sshd[38218]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:34 web01 sshd[38225]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:34 web01 sshd[38212]: Failed password for root from 91.241.169.217 port 60178 ssh2
+Feb 22 08:23:35 web01 sshd[38205]: Failed password for root from 91.241.169.217 port 60371 ssh2
+Feb 22 08:23:35 web01 sshd[38218]: Failed password for root from 91.241.169.217 port 34722 ssh2
+Feb 22 08:23:35 web01 sshd[38212]: Connection closed by authenticating user root 91.241.169.217 port 60178 [preauth]
+Feb 22 08:23:35 web01 sshd[38207]: Failed password for root from 91.241.169.217 port 52665 ssh2
+Feb 22 08:23:35 web01 sshd[38207]: Connection closed by authenticating user root 91.241.169.217 port 52665 [preauth]
+Feb 22 08:23:35 web01 sshd[38207]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:36 web01 sshd[38225]: Failed password for root from 91.241.169.217 port 43353 ssh2
+Feb 22 08:23:37 web01 sshd[38228]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:37 web01 sshd[38205]: Failed password for root from 91.241.169.217 port 60371 ssh2
+Feb 22 08:23:38 web01 sshd[38218]: Failed password for root from 91.241.169.217 port 34722 ssh2
+Feb 22 08:23:38 web01 sshd[38205]: Connection closed by authenticating user root 91.241.169.217 port 60371 [preauth]
+Feb 22 08:23:38 web01 sshd[38205]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:38 web01 sshd[38231]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:39 web01 sshd[38234]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:39 web01 sshd[38225]: Failed password for root from 91.241.169.217 port 43353 ssh2
+Feb 22 08:23:39 web01 sshd[38228]: Failed password for root from 91.241.169.217 port 40889 ssh2
+Feb 22 08:23:40 web01 sshd[38228]: Connection closed by authenticating user root 91.241.169.217 port 40889 [preauth]
+Feb 22 08:23:41 web01 sshd[38231]: Failed password for root from 91.241.169.217 port 56702 ssh2
+Feb 22 08:23:41 web01 sshd[38218]: Failed password for root from 91.241.169.217 port 34722 ssh2
+Feb 22 08:23:41 web01 sshd[38241]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:41 web01 sshd[38234]: Failed password for root from 91.241.169.217 port 35864 ssh2
+Feb 22 08:23:42 web01 sshd[38218]: Connection closed by authenticating user root 91.241.169.217 port 34722 [preauth]
+Feb 22 08:23:42 web01 sshd[38218]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:42 web01 sshd[38225]: Failed password for root from 91.241.169.217 port 43353 ssh2
+Feb 22 08:23:43 web01 sshd[38231]: Failed password for root from 91.241.169.217 port 56702 ssh2
+Feb 22 08:23:43 web01 sshd[38225]: Connection closed by authenticating user root 91.241.169.217 port 43353 [preauth]
+Feb 22 08:23:43 web01 sshd[38225]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:44 web01 sshd[38244]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:44 web01 sshd[38241]: Failed password for root from 91.241.169.217 port 35575 ssh2
+Feb 22 08:23:44 web01 sshd[38231]: Connection closed by authenticating user root 91.241.169.217 port 56702 [preauth]
+Feb 22 08:23:44 web01 sshd[38231]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:44 web01 sshd[38234]: Failed password for root from 91.241.169.217 port 35864 ssh2
+Feb 22 08:23:45 web01 sshd[38234]: Connection closed by authenticating user root 91.241.169.217 port 35864 [preauth]
+Feb 22 08:23:45 web01 sshd[38234]: PAM 1 more authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:46 web01 sshd[38244]: Failed password for root from 91.241.169.217 port 38060 ssh2
+Feb 22 08:23:46 web01 sshd[38246]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:46 web01 sshd[38241]: Failed password for root from 91.241.169.217 port 35575 ssh2
+Feb 22 08:23:47 web01 sshd[38244]: Connection closed by authenticating user root 91.241.169.217 port 38060 [preauth]
+Feb 22 08:23:48 web01 sshd[38246]: Failed password for root from 91.241.169.217 port 53381 ssh2
+Feb 22 08:23:49 web01 sshd[38253]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:49 web01 sshd[38246]: Connection closed by authenticating user root 91.241.169.217 port 53381 [preauth]
+Feb 22 08:23:49 web01 sshd[38241]: Failed password for root from 91.241.169.217 port 35575 ssh2
+Feb 22 08:23:50 web01 sshd[38241]: Connection closed by authenticating user root 91.241.169.217 port 35575 [preauth]
+Feb 22 08:23:50 web01 sshd[38241]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:51 web01 sshd[38253]: Failed password for root from 91.241.169.217 port 41920 ssh2
+Feb 22 08:23:51 web01 sshd[38257]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:23:53 web01 sshd[38257]: Failed password for root from 91.241.169.217 port 59289 ssh2
+Feb 22 08:23:54 web01 sshd[38253]: Failed password for root from 91.241.169.217 port 41920 ssh2
+Feb 22 08:23:57 web01 sshd[38257]: Failed password for root from 91.241.169.217 port 59289 ssh2
+Feb 22 08:23:57 web01 sshd[38253]: Failed password for root from 91.241.169.217 port 41920 ssh2
+Feb 22 08:23:59 web01 sshd[38253]: Connection closed by authenticating user root 91.241.169.217 port 41920 [preauth]
+Feb 22 08:23:59 web01 sshd[38253]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:24:00 web01 sshd[38257]: Failed password for root from 91.241.169.217 port 59289 ssh2
+Feb 22 08:24:01 web01 sshd[38257]: Connection closed by authenticating user root 91.241.169.217 port 59289 [preauth]
+Feb 22 08:24:01 web01 sshd[38257]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=91.241.169.217  user=root
+Feb 22 08:30:25 web01 sshd[38292]: Accepted password for root from 91.241.169.217 port 35405 ssh2
+Feb 22 08:30:25 web01 sshd[38292]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)
+Feb 22 08:30:25 web01 systemd-logind[608]: New session 1609 of user root.
+Feb 22 08:33:49 web01 sudo:     root : TTY=pts/1 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Feb 22 08:33:49 web01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by root(uid=0)
+Feb 22 08:33:49 web01 sudo: pam_unix(sudo:session): session closed for user root
+Feb 22 08:36:17 web01 useradd[38325]: new group: name=gitrunner, GID=1051
+Feb 22 08:36:17 web01 useradd[38325]: new user: name=gitrunner, UID=1051, GID=1051, home=/home/gitrunner, shell=/bin/bash, from=/dev/pts/1
+Feb 22 08:36:42 web01 passwd[38333]: pam_unix(passwd:chauthtok): password changed for gitrunner
+Feb 22 08:37:27 web01 usermod[38337]: add 'gitrunner' to group 'sudo'
+Feb 22 08:37:27 web01 usermod[38337]: add 'gitrunner' to shadow group 'sudo'
+Feb 22 08:39:17 web01 sshd[38295]: Received disconnect from 91.241.169.217 port 35405:11: disconnected by user
+Feb 22 08:39:17 web01 sshd[38295]: Disconnected from user root 91.241.169.217 port 35405
+Feb 22 08:39:17 web01 sshd[38292]: pam_unix(sshd:session): session closed for user root
+Feb 22 08:39:17 web01 systemd-logind[608]: Session 1609 logged out. Waiting for processes to exit.
+Feb 22 08:39:17 web01 systemd-logind[608]: Removed session 1609.
