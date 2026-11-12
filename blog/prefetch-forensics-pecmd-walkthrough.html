@@ -65,7 +65,7 @@
     <div class="post-cover"><img src="../img/blog/prefetch-forensics-pecmd-walkthrough.svg" alt="" width="1600" height="1000"></div>
 
     <h2>What Prefetch records, and where it lives</h2>
-    <p>Windows watches the first ten seconds or so of an application's launch and writes a note of which files and directories it loaded, so the next launch can be read from disk more efficiently. That note is a Prefetch file. They live in <code>C:\Windows\Prefetch</code>, one per executable, named after the program in upper case with a hash appended: <code>NOTEPAD.EXE-D8414F97.pf</code>.</p>
+    <p>Windows watches the first ten seconds or so of an application's launch and writes a note of which files and directories it loaded, so the next launch can be read from disk more efficiently. That note is a Prefetch file. They live in <code>C:\Windows\Prefetch</code>, one per executable, named after the program in upper case with a hash appended: <code>NOTEPAD.EXE-C5670914.pf</code>.</p>
     <p>Each file carries:</p>
     <ul>
       <li><strong>The executable name</strong>, as it was at launch.</li>
@@ -77,14 +77,14 @@
     <p>Windows 10 and 11 compress these files, so a hex editor shows <code>MAM</code> at the start rather than the <code>SCCA</code> signature. PECmd handles the decompression; you don't need to.</p>
     <figure class="fig">
 <pre><code><span class="fig-cmd">$ xxd -l 32 NOTEPAD.EXE-C5670914.pf</span>
-00000000: 4d41 4d04 4c04 0000 5178 0a90 a000 0a09  MAM.L...Qx......
-00000010: 9000 0a00 000a 0009 a90a 0a0a 0a00 7a07  ..............z.</code></pre>
+00000000: 4d41 4d04 ee22 0000 6177 88b8 bbcb cbcb  MAM.."..aw......
+00000010: bbba bacc bddb ddbb babb dbdd ddbc 7bc7  ..............{.</code></pre>
       <figcaption>The first 32 bytes of a Windows 10 Prefetch file from First Look: What Ran on This Machine. <code>MAM</code> plus <code>04</code> marks XPRESS Huffman compression, and the next four bytes are the uncompressed size, little-endian. The <code>SCCA</code> header only appears after decompression.</figcaption>
     </figure>
 
     <h2>Parse the folder with PECmd</h2>
     <p>PECmd is one of Eric Zimmerman's free tools and needs the .NET runtime. Download it from <a href="https://ericzimmerman.github.io/">ericzimmerman.github.io</a>; the <a href="/tools.html">Tools &amp; setup</a> page lists it alongside the rest of the kit. One file at a time, to the console:</p>
-    <p><code>PECmd.exe -f "C:\evidence\Prefetch\NOTEPAD.EXE-D8414F97.pf"</code></p>
+    <p><code>PECmd.exe -f "C:\evidence\Prefetch\NOTEPAD.EXE-C5670914.pf"</code></p>
     <p>The whole folder, to CSV:</p>
     <p><code>PECmd.exe -d "C:\evidence\Prefetch" --csv C:\out --csvf prefetch.csv</code></p>
     <p>You get two files. <code>prefetch.csv</code> has one row per Prefetch file with the run count, the eight run times in their own columns, and the volume and file lists. <code>prefetch_Timeline.csv</code> flattens every run time into its own row, which is the one to drop into a timeline. Open either in Timeline Explorer, sort by the last run column, and the recent activity on the machine is on the screen in front of you.</p>

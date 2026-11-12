@@ -94,12 +94,12 @@ Filter:&lt;No Filter&gt;
                                                            |       &lt;-      | |       -&gt;      | |     Total     |    Relative    |   Duration   |
                                                            | Frames  Bytes | | Frames  Bytes | | Frames  Bytes |      Start     |              |
 ...
-10.1.70.68:56301           &lt;-&gt; 146.183.201.15:443               5 979 bytes       6 743 bytes      11 1722 bytes  1211.097643000         0.0200
-10.1.70.68:59637           &lt;-&gt; 45.160.185.220:443               5 515 bytes       6 785 bytes      11 1300 bytes  1268.156417000         0.0200
-10.1.70.68:55614           &lt;-&gt; 91.210.81.97:443                 5 1161 bytes       6 1124 bytes      11 2285 bytes  1295.605568000         0.0200
-10.1.70.68:51057           &lt;-&gt; 103.124.116.32:443               5 786 bytes       6 754 bytes      11 1540 bytes  1699.743170000         0.0200
-10.1.70.68:56414           &lt;-&gt; 194.22.10.52:443                 5 1139 bytes       6 836 bytes      11 1975 bytes  2062.912556000         0.0200
-10.1.70.68:58998           &lt;-&gt; 146.201.130.16:443               5 787 bytes       6 790 bytes      11 1577 bytes  2281.358410000         0.0200
+10.89.97.117:50594         &lt;-&gt; 40.99.232.180:443               74 98 kB          44 7702 bytes     118 106 kB     1073.103746000        52.0469
+10.89.97.117:61090         &lt;-&gt; 172.217.10.128:443              67 88 kB          40 5650 bytes     107 93 kB       126.460510000        22.6873
+10.89.97.117:53751         &lt;-&gt; 40.99.232.180:443               65 87 kB          40 5759 bytes     105 92 kB       472.090003000        52.5031
+10.89.97.117:56403         &lt;-&gt; 204.79.197.239:443              61 80 kB          38 6200 bytes      99 86 kB       551.753171000       112.5076
+10.89.97.117:57515         &lt;-&gt; 140.82.113.6:443                58 75 kB          36 6671 bytes      94 82 kB      1173.182627000        70.7985
+10.89.97.117:53816         &lt;-&gt; 204.79.197.200:443              57 76 kB          35 5867 bytes      92 82 kB       291.203996000        49.6170
 ...
 ================================================================================</code></pre>
       <figcaption>The TCP tab of Statistics, Conversations, as tshark (the command-line Wireshark) prints it, from First Look: Reading a Packet Capture, trimmed. One row per connection: frames and bytes each way, Relative Start in seconds from the first packet, and Duration.</figcaption>
@@ -120,14 +120,12 @@ Filter:&lt;No Filter&gt;
     <p><strong>DNS.</strong> Filter <code>dns</code>. Each query and its response appear as a pair; the Info column shows the name asked for and, on the response line, the address returned. Filter <code>dns.flags.response == 0</code> to see only the questions, which is a compact list of every name the host tried to resolve, in order. A name you don't recognize, followed a second later by a TCP connection to the address it returned, is the thread to pull. The <a href="/blog/detect-c2-beaconing-packet-capture.html">beaconing post</a> picks it up from there.</p>
     <figure class="fig">
 <pre><code><span class="fig-cmd">$ tshark -r capture.pcap -t ud -Y "dns.flags.response == 0"</span>
-...
- 1216 2025-05-14 22:41:13.175834   10.1.70.68 → 10.1.70.53   DNS 74 Standard query 0x60e2 A api.github.com
- 1229 2025-05-14 22:46:12.059643   10.1.70.68 → 10.1.70.53   DNS 79 Standard query 0x2b2b A clients.dropbox.com
- 1242 2025-05-14 22:47:09.118418   10.1.70.68 → 10.1.70.53   DNS 74 Standard query 0xce38 A api.github.com
- 1255 2025-05-14 22:47:36.567568   10.1.70.68 → 10.1.70.53   DNS 76 Standard query 0x920f A cdn.jsdelivr.net
- 1268 2025-05-14 22:54:20.705170   10.1.70.68 → 10.1.70.53   DNS 75 Standard query 0x06e2 A ntp.windows.com
- 1281 2025-05-14 23:00:23.874556   10.1.70.68 → 10.1.70.53   DNS 81 Standard query 0x4ff1 A outlook.office365.com
- 1294 2025-05-14 23:04:02.320410   10.1.70.68 → 10.1.70.53   DNS 69 Standard query 0x559f A slack.com
+    3 2025-06-03 12:14:06.246986 10.89.97.117 → 10.89.97.10  DNS 76 Standard query 0x644b A cdn.jsdelivr.net
+   46 2025-06-03 12:16:12.703610 10.89.97.117 → 10.89.97.10  DNS 74 Standard query 0x5d28 A www.google.com
+  155 2025-06-03 12:17:09.681013 10.89.97.117 → 10.89.97.10  DNS 89 Standard query 0x8e47 A v10.events.data.microsoft.com
+  181 2025-06-03 12:17:28.608692 10.89.97.117 → 10.89.97.10  DNS 77 Standard query 0xec51 A fonts.gstatic.com
+  209 2025-06-03 12:17:39.382235 10.89.97.117 → 10.89.97.10  DNS 85 Standard query 0x171c A login.microsoftonline.com
+  239 2025-06-03 12:17:51.391959 10.89.97.117 → 10.89.97.10  DNS 91 Standard query 0xf162 A fe3cr.delivery.mp.microsoft.com
 ...</code></pre>
       <figcaption>The same filter in tshark, which takes display filters with <code>-Y</code>. <code>-t ud</code> prints UTC date and time, like the View setting above. Trimmed. Each row is one question: frame number, time, client, resolver, and the name asked for.</figcaption>
     </figure>

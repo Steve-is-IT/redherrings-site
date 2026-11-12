@@ -81,18 +81,14 @@
 <span class="fig-cmd">    -T fields -E header=y -e frame.time_relative -e frame.time_delta_displayed -e ip.dst -e tcp.dstport</span>
 frame.time_relative  frame.time_delta_displayed  ip.dst          tcp.dstport
 ...
-1211.097643000       298.883809000               146.183.201.15  443
-1268.156417000       57.058774000                45.160.185.220  443
-1295.605568000       27.449151000                91.210.81.97    443
-1699.743170000       404.137602000               103.124.116.32  443
-2062.912556000       363.169386000               194.22.10.52    443
-2281.358410000       218.445854000               146.201.130.16  443
-2574.167141000       292.808731000               194.99.4.214    443
-2780.463031000       206.295890000               45.189.41.55    443
-3155.620762000       375.157731000               193.66.198.48   443
-3260.879661000       105.258899000               195.69.48.124   443
-3516.881490000       256.001829000               195.80.224.6    443</code></pre>
-      <figcaption>From First Look: Reading a Packet Capture, earlier rows trimmed. These are background HTTPS connections, and the gaps run from 27 to 404 seconds with no pattern. A beacon is a run of rows to one ip.dst and port whose gaps sit close to a single value. Jitter widens that spread a little but doesn't hide it.</figcaption>
+1042.833367000       72.943343000                204.79.197.203  443
+1073.103746000       30.270379000                40.99.232.180   443
+1093.363512000       20.259766000                52.113.194.132  443
+1097.914131000       4.550619000                 204.79.197.239  443
+1172.871588000       74.957457000                20.7.250.233    443
+1173.182627000       0.311039000                 140.82.113.6    443
+1273.012673000       99.830046000                52.166.167.54   443</code></pre>
+      <figcaption>From First Look: Reading a Packet Capture, earlier rows trimmed. These are background HTTPS connections, and the gaps run from under a second to 100 seconds with no pattern. A beacon is a run of rows to one ip.dst and port whose gaps sit close to a single value. Jitter widens that spread a little but doesn't hide it.</figcaption>
     </figure>
 
     <blockquote>The loudest packet in a capture is rarely the important one. C2 hides in the rhythm, and rhythm is something you have to be taught to see.</blockquote>

@@ -81,15 +81,15 @@ Volatility 3 Framework 2.28.2
 
 PID   PPID  ImageFileName  Offset(V)       Threads  Handles  SessionId  Wow64  CreateTime                      ExitTime  File output
 
-136   4     Registry       0xca973ae01060  4        -        N/A        False  2025-06-19 06:50:54.000000 UTC  N/A       Disabled
-4     0     System         0xca973ae02060  250      -        N/A        False  2025-06-19 06:50:55.000000 UTC  N/A       Disabled
-472   4     smss.exe       0xca973ae03060  2        -        N/A        False  2025-06-19 06:50:56.000000 UTC  N/A       Disabled
-504   488   csrss.exe      0xca973ae04060  12       -        0          False  2025-06-19 06:50:59.000000 UTC  N/A       Disabled
-684   500   csrss.exe      0xca973ae05060  15       -        1          False  2025-06-19 06:51:00.000000 UTC  N/A       Disabled
-552   488   wininit.exe    0xca973ae06060  1        -        0          False  2025-06-19 06:51:00.000000 UTC  N/A       Disabled
-732   500   winlogon.exe   0xca973ae08060  3        -        1          False  2025-06-19 06:51:00.000000 UTC  N/A       Disabled
-856   552   services.exe   0xca973ae09060  7        -        0          False  2025-06-19 06:51:01.000000 UTC  N/A       Disabled
-1004  552   lsass.exe      0xca973ae0c060  11       -        0          False  2025-06-19 06:51:01.000000 UTC  N/A       Disabled
+116   4     Registry       0xcf5d1d454060  4        -        N/A        False  2025-02-25 16:57:56.000000 UTC  N/A       Disabled
+4     0     System         0xcf5d1d455060  150      -        N/A        False  2025-02-25 16:57:58.000000 UTC  N/A       Disabled
+384   4     smss.exe       0xcf5d1d456060  2        -        N/A        False  2025-02-25 16:57:59.000000 UTC  N/A       Disabled
+492   400   csrss.exe      0xcf5d1d457060  12       -        0          False  2025-02-25 16:58:02.000000 UTC  N/A       Disabled
+588   400   wininit.exe    0xcf5d1d458060  1        -        0          False  2025-02-25 16:58:03.000000 UTC  N/A       Disabled
+708   404   csrss.exe      0xcf5d1d459060  14       -        1          False  2025-02-25 16:58:03.000000 UTC  N/A       Disabled
+844   404   winlogon.exe   0xcf5d1d45a060  3        -        1          False  2025-02-25 16:58:03.000000 UTC  N/A       Disabled
+916   588   services.exe   0xcf5d1d45c060  7        -        0          False  2025-02-25 16:58:04.000000 UTC  N/A       Disabled
+1024  588   lsass.exe      0xcf5d1d45d060  10       -        0          False  2025-02-25 16:58:04.000000 UTC  N/A       Disabled
 ...</code></pre>
       <figcaption><code>windows.pslist</code> on the First Look: What's in Memory image, first rows only. PPID is the parent's PID, SessionId 0 is services and 1 is the logged-on user, and CreateTime is UTC.</figcaption>
     </figure>
@@ -99,15 +99,16 @@ Volatility 3 Framework 2.28.2
 
 PID      PPID  ImageFileName   Offset(V)       Threads  Handles  SessionId  Wow64  CreateTime                      ExitTime  Audit                                                  Cmd                                                                             Path
 
-4        0     System          0xca973ae02060  250      -        N/A        False  2025-06-19 06:50:55.000000 UTC  N/A       -                                                      -                                                                               -
-* 136    4     Registry        0xca973ae01060  4        -        N/A        False  2025-06-19 06:50:54.000000 UTC  N/A       -                                                      -                                                                               -
-* 1184   4     MemCompression  0xca973ae2b060  39       -        N/A        False  2025-06-19 06:51:21.000000 UTC  N/A       -                                                      -                                                                               -
-* 472    4     smss.exe        0xca973ae03060  2        -        N/A        False  2025-06-19 06:50:56.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\System32\smss.exe      \SystemRoot\System32\smss.exe                                                   C:\Windows\System32\smss.exe
+4        0     System          0xcf5d1d455060  150      -        N/A        False  2025-02-25 16:57:58.000000 UTC  N/A       -                                                      -                                                                               -
+* 384    4     smss.exe        0xcf5d1d456060  2        -        N/A        False  2025-02-25 16:57:59.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\System32\smss.exe      \SystemRoot\System32\smss.exe                                                   C:\Windows\System32\smss.exe
+* 1220   4     MemCompression  0xcf5d1d46b060  32       -        N/A        False  2025-02-25 16:58:13.000000 UTC  N/A       -                                                      -                                                                               -
+* 116    4     Registry        0xcf5d1d454060  4        -        N/A        False  2025-02-25 16:57:56.000000 UTC  N/A       -                                                      -                                                                               -
 ...
-552      488   wininit.exe     0xca973ae06060  1        -        0          False  2025-06-19 06:51:00.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\System32\wininit.exe   wininit.exe                                                                     C:\Windows\System32\wininit.exe
-* 856    552   services.exe    0xca973ae09060  7        -        0          False  2025-06-19 06:51:01.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\System32\services.exe  C:\Windows\system32\services.exe                                                C:\Windows\System32\services.exe
-** 2180  856   svchost.exe     0xca973ae26060  9        -        0          False  2025-06-19 06:51:20.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\system32\svchost.exe   C:\Windows\system32\svchost.exe -k netsvcs -p -s LanmanServer                   C:\Windows\system32\svchost.exe
-** 1552  856   svchost.exe     0xca973ae17060  10       -        0          False  2025-06-19 06:51:08.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\system32\svchost.exe   C:\Windows\system32\svchost.exe -k LocalServiceNetworkRestricted -p -s lmhosts  C:\Windows\system32\svchost.exe
+588      400   wininit.exe     0xcf5d1d458060  1        -        0          False  2025-02-25 16:58:03.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\System32\wininit.exe   wininit.exe                                                                     C:\Windows\System32\wininit.exe
+* 1024   588   lsass.exe       0xcf5d1d45d060  10       -        0          False  2025-02-25 16:58:04.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\System32\lsass.exe     C:\Windows\system32\lsass.exe                                                   C:\Windows\System32\lsass.exe
+* 916    588   services.exe    0xcf5d1d45c060  7        -        0          False  2025-02-25 16:58:04.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\System32\services.exe  C:\Windows\system32\services.exe                                                C:\Windows\System32\services.exe
+** 2404  916   svchost.exe     0xcf5d1d470060  9        -        0          False  2025-02-25 16:58:18.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\system32\svchost.exe   C:\Windows\system32\svchost.exe -k netsvcs -p -s LanmanServer                   C:\Windows\system32\svchost.exe
+** 1620  916   svchost.exe     0xcf5d1d466060  10       -        0          False  2025-02-25 16:58:08.000000 UTC  N/A       \Device\HarddiskVolume3\Windows\system32\svchost.exe   C:\Windows\system32\svchost.exe -k LocalServiceNetworkRestricted -p -s lmhosts  C:\Windows\system32\svchost.exe
 ...</code></pre>
       <figcaption><code>windows.pstree</code> on the same image, trimmed. Each <code>*</code> is one level down: services.exe under wininit.exe, svchost.exe under services.exe. Cmd and Path show how and from where each process started. Look for an image path outside Windows and Program Files, or a parent that doesn't fit the child.</figcaption>
     </figure>
@@ -121,21 +122,21 @@ PID      PPID  ImageFileName   Offset(V)       Threads  Handles  SessionId  Wow6
 <pre><code><span class="fig-cmd">$ vol -f memory.dmp windows.netscan</span>
 Volatility 3 Framework 2.28.2
 
-Offset          Proto  LocalAddr     LocalPort  ForeignAddr     ForeignPort  State        PID   Owner         Created
+Offset          Proto  LocalAddr    LocalPort  ForeignAddr     ForeignPort  State        PID   Owner        Created
 
-0xca973b3faf10  TCPv4  0.0.0.0       135        0.0.0.0         0            LISTENING    1384  svchost.exe   2025-06-19 06:51:06.000000 UTC
-0xca973b3fb010  TCPv4  0.0.0.0       445        0.0.0.0         0            LISTENING    4     System        2025-06-19 06:51:30.000000 UTC
-0xca973b3fb0b0  TCPv4  0.0.0.0       135        0.0.0.0         0            LISTENING    1384  svchost.exe   2025-06-19 06:51:06.000000 UTC
+0xcf5d1dd70de0  TCPv4  0.0.0.0      135        0.0.0.0         0            LISTENING    1488  svchost.exe  2025-02-25 16:58:07.000000 UTC
+0xcf5d1dd70eb0  TCPv4  0.0.0.0      445        0.0.0.0         0            LISTENING    4     System       2025-02-25 16:58:21.000000 UTC
+0xcf5d1dd70f50  TCPv4  0.0.0.0      135        0.0.0.0         0            LISTENING    1488  svchost.exe  2025-02-25 16:58:07.000000 UTC
 ...
-0xca973b3fb220  TCPv4  192.168.4.80  139        0.0.0.0         0            LISTENING    4     System        2025-06-19 06:51:29.000000 UTC
-0xca973b3fb330  TCPv4  0.0.0.0       49664      0.0.0.0         0            LISTENING    1004  lsass.exe     2025-06-19 06:51:07.000000 UTC
+0xcf5d1dd740e0  TCPv4  10.186.8.53  139        0.0.0.0         0            LISTENING    4     System       2025-02-25 16:58:42.000000 UTC
+0xcf5d1dd741f0  TCPv4  0.0.0.0      49664      0.0.0.0         0            LISTENING    1024  lsass.exe    2025-02-25 16:58:23.000000 UTC
 ...
-0xca973b3fbf30  UDPv4  0.0.0.0       123        *               0                         2284  svchost.exe   2025-06-19 06:51:36.000000 UTC
-0xca973b3fc010  TCPv4  192.168.4.80  53097      62.247.19.13    443          CLOSE_WAIT   4608  chrome.exe    2025-06-19 18:05:19.000000 UTC
-0xca973b3fc380  TCPv4  192.168.4.80  55946      77.79.116.121   443          TIME_WAIT    4224  OneDrive.exe  2025-06-19 17:30:02.000000 UTC
-0xca973b3fc6f0  TCPv4  192.168.4.80  58093      193.177.42.109  443          ESTABLISHED  4264  chrome.exe    2025-06-19 18:05:20.000000 UTC
+0xcf5d1dd74df0  UDPv4  0.0.0.0      123        *               0                         2540  svchost.exe  2025-02-25 16:58:35.000000 UTC
+0xcf5d1dd75010  TCPv4  10.186.8.53  53992      193.47.46.125   443          ESTABLISHED  3972  chrome.exe   2025-02-26 19:25:45.000000 UTC
+0xcf5d1dd75380  TCPv4  10.186.8.53  57197      192.162.108.90  443          ESTABLISHED  2744  MsMpEng.exe  2025-02-26 19:41:37.000000 UTC
+0xcf5d1dd756f0  TCPv4  10.186.8.53  64611      72.4.184.211    443          ESTABLISHED  2744  MsMpEng.exe  2025-02-26 20:09:27.000000 UTC
 ...</code></pre>
-      <figcaption><code>windows.netscan</code> on the same image, trimmed. LISTENING rows are the host's own services: RPC on 135, SMB on 445, NetBIOS on 139. For each ESTABLISHED row, ask whether the Owner has a reason to talk to that ForeignAddr and port. chrome.exe on 443 does. Take the PID of any row that doesn't to <code>windows.cmdline</code> and <code>windows.dlllist</code>.</figcaption>
+      <figcaption><code>windows.netscan</code> on the same image, trimmed. LISTENING rows are the host's own services: RPC on 135, SMB on 445, NetBIOS on 139. For each ESTABLISHED row, ask whether the Owner has a reason to talk to that ForeignAddr and port. chrome.exe and MsMpEng.exe (Defender) on 443 do. Take the PID of any row that doesn't to <code>windows.cmdline</code> and <code>windows.dlllist</code>.</figcaption>
     </figure>
     <h2>Look for injected code</h2>
     <p><code>windows.malware.malfind</code> (<code>windows.malfind</code> in older releases) finds memory regions that are both executable and private, which usually means injected or unpacked code. That's often where the payload is.</p>
