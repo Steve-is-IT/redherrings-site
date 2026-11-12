@@ -34,9 +34,9 @@
       <text x="285.3" y="417.1" fill="#e6edf3" xml:space="preserve">Case: RH-2026-8913-4017</text>
       <text x="285.3" y="468.9" fill="#e6edf3" xml:space="preserve">Files: 2</text>
       <text x="285.3" y="572.4" fill="#e6edf3" xml:space="preserve">C/Windows/System32/winevt/Logs/Security.evtx</text>
-      <text x="285.3" y="624.1" fill="#e6edf3" xml:space="preserve">    MD5    : 97c8183ad430706536f5c67057071fec</text>
+      <text x="285.3" y="624.1" fill="#e6edf3" xml:space="preserve">    MD5    : 72e89324c72ac3dedc4eac580682895f</text>
       <text x="285.3" y="675.9" fill="#e6edf3" xml:space="preserve">C/Windows/System32/winevt/Logs/System.evtx</text>
-      <text x="285.3" y="727.6" fill="#e6edf3" xml:space="preserve">    MD5    : a77220ae6a68bd1a35300cc4e9c56b1f</text>
+      <text x="285.3" y="727.6" fill="#e6edf3" xml:space="preserve">    MD5    : 3d31b460d9a90a281790d6712f8939d6</text>
     </g>
   </g>
 </svg>
