@@ -19,23 +19,23 @@
   <rect width="1600" height="1000" fill="url(#g)"/>
   <rect width="1600" height="1000" fill="url(#dots)"/>
   <rect width="1600" height="1000" fill="url(#glow)"/>
-  <rect x="64.3" y="230.0" width="1471.4" height="540.0" rx="20" fill="#0d1117" fill-opacity="0.96" filter="url(#sh)"/>
-  <path d="M64.3 296.0V250.0a20 20 0 0 1 20 -20H1515.7a20 20 0 0 1 20 20V296.0Z" fill="#161b22"/>
-  <line x1="64.3" y1="296.0" x2="1535.7" y2="296.0" stroke="#30363d" stroke-width="2"/>
-  <rect x="64.3" y="230.0" width="1471.4" height="540.0" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
-  <circle cx="104.3" cy="263.0" r="9" fill="#ff5f57"/><circle cx="134.3" cy="263.0" r="9" fill="#febc2e"/><circle cx="164.3" cy="263.0" r="9" fill="#28c840"/>
-  <g transform="translate(1451.7,240.6) scale(0.7)" opacity="0.65">
+  <rect x="129.6" y="230.0" width="1340.7" height="540.0" rx="20" fill="#0d1117" fill-opacity="0.96" filter="url(#sh)"/>
+  <path d="M129.6 296.0V250.0a20 20 0 0 1 20 -20H1450.4a20 20 0 0 1 20 20V296.0Z" fill="#161b22"/>
+  <line x1="129.6" y1="296.0" x2="1470.4" y2="296.0" stroke="#30363d" stroke-width="2"/>
+  <rect x="129.6" y="230.0" width="1340.7" height="540.0" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
+  <circle cx="169.6" cy="263.0" r="9" fill="#ff5f57"/><circle cx="199.6" cy="263.0" r="9" fill="#febc2e"/><circle cx="229.6" cy="263.0" r="9" fill="#28c840"/>
+  <g transform="translate(1386.4,240.6) scale(0.7)" opacity="0.65">
     <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#a7b5c7"/>
   </g>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace">
-    <text x="214.3" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">pytsk3  evidence.dd</text>
+    <text x="279.6" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">pytsk3  evidence.dd</text>
     <g font-size="42.9">
-      <text x="120.3" y="371.0" fill="#8b949e" xml:space="preserve">DOS partition table, 512-byte sectors</text>
-      <text x="120.3" y="430.1" fill="#a7b5c7" font-weight="700" xml:space="preserve">Slot     Start      End   Length  Description</text>
-      <text x="120.3" y="489.3" fill="#e6edf3" xml:space="preserve">Meta         0        0        1  Primary Table (#0)</text>
-      <text x="120.3" y="548.4" fill="#e6edf3" xml:space="preserve">-            0     2047     2048  Unallocated</text>
-      <text x="120.3" y="607.6" fill="#e6edf3" xml:space="preserve">000       2048   131071   129024  Win95 FAT32 (0x0c)</text>
-      <text x="120.3" y="725.9" fill="#8b949e" xml:space="preserve">FAT32, 129024 blocks of 512 bytes</text>
+      <text x="185.6" y="371.0" fill="#8b949e" xml:space="preserve">DOS partition table, 512-byte sectors</text>
+      <text x="185.6" y="430.1" fill="#a7b5c7" font-weight="700" xml:space="preserve">Slot  Start  End     Length  Description</text>
+      <text x="185.6" y="489.3" fill="#e6edf3" xml:space="preserve">Meta  0      0       1       Primary Table (#0)</text>
+      <text x="185.6" y="548.4" fill="#e6edf3" xml:space="preserve">-     0      2047    2048    Unallocated</text>
+      <text x="185.6" y="607.6" fill="#e6edf3" xml:space="preserve">000   2048   131071  129024  Win95 FAT32 (0x0c)</text>
+      <text x="185.6" y="725.9" fill="#8b949e" xml:space="preserve">FAT32, 129024 blocks of 512 bytes</text>
     </g>
   </g>
 </svg>

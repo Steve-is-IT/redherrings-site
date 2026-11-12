@@ -19,23 +19,24 @@
   <rect width="1600" height="1000" fill="url(#g)"/>
   <rect width="1600" height="1000" fill="url(#dots)"/>
   <rect width="1600" height="1000" fill="url(#glow)"/>
-  <rect x="287.7" y="254.8" width="1024.6" height="490.3" rx="20" fill="#0d1117" fill-opacity="0.96" filter="url(#sh)"/>
-  <path d="M287.7 320.8V274.8a20 20 0 0 1 20 -20H1292.3a20 20 0 0 1 20 20V320.8Z" fill="#161b22"/>
-  <line x1="287.7" y1="320.8" x2="1312.3" y2="320.8" stroke="#30363d" stroke-width="2"/>
-  <rect x="287.7" y="254.8" width="1024.6" height="490.3" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
-  <circle cx="327.7" cy="287.8" r="9" fill="#ff5f57"/><circle cx="357.7" cy="287.8" r="9" fill="#febc2e"/><circle cx="387.7" cy="287.8" r="9" fill="#28c840"/>
-  <g transform="translate(1228.3,265.4) scale(0.7)" opacity="0.65">
+  <rect x="273.4" y="230.0" width="1053.1" height="540.0" rx="20" fill="#0d1117" fill-opacity="0.96" filter="url(#sh)"/>
+  <path d="M273.4 296.0V250.0a20 20 0 0 1 20 -20H1306.6a20 20 0 0 1 20 20V296.0Z" fill="#161b22"/>
+  <line x1="273.4" y1="296.0" x2="1326.6" y2="296.0" stroke="#30363d" stroke-width="2"/>
+  <rect x="273.4" y="230.0" width="1053.1" height="540.0" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
+  <circle cx="313.4" cy="263.0" r="9" fill="#ff5f57"/><circle cx="343.4" cy="263.0" r="9" fill="#febc2e"/><circle cx="373.4" cy="263.0" r="9" fill="#28c840"/>
+  <g transform="translate(1242.6,240.6) scale(0.7)" opacity="0.65">
     <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#ed93bb"/>
   </g>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace">
-    <text x="437.7" y="297.8" font-size="30" fill="#8b949e" xml:space="preserve">roster-mapping.csv</text>
-    <g font-size="44.0">
-      <text x="343.7" y="397.0" fill="#ed93bb" font-weight="700" xml:space="preserve">student_id,variant_seed,case_id</text>
-      <text x="343.7" y="457.8" fill="#e6edf3" xml:space="preserve">s24017,fall-exam,RH-2026-8913-4017</text>
-      <text x="343.7" y="518.5" fill="#e6edf3" xml:space="preserve">s24018,fall-exam,RH-2026-2817-4018</text>
-      <text x="343.7" y="579.2" fill="#e6edf3" xml:space="preserve">s24019,fall-exam,RH-2024-5291-4019</text>
-      <text x="343.7" y="639.9" fill="#e6edf3" xml:space="preserve">s24020,fall-exam,RH-2025-8614-4020</text>
-      <text x="343.7" y="700.6" fill="#e6edf3" xml:space="preserve">s24021,fall-exam,RH-2025-3601-4021</text>
+    <text x="423.4" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">roster-mapping.csv</text>
+    <g font-size="42.9">
+      <text x="329.4" y="371.0" fill="#ed93bb" xml:space="preserve">$ cut -d, -f1,4,5 roster-mapping.csv</text>
+      <text x="329.4" y="430.1" fill="#ed93bb" font-weight="700" xml:space="preserve">student_id,variant_seed,case_id</text>
+      <text x="329.4" y="489.3" fill="#e6edf3" xml:space="preserve">s24017,fall-exam,RH-2026-8913-4017</text>
+      <text x="329.4" y="548.4" fill="#e6edf3" xml:space="preserve">s24018,fall-exam,RH-2026-2817-4018</text>
+      <text x="329.4" y="607.6" fill="#e6edf3" xml:space="preserve">s24019,fall-exam,RH-2024-5291-4019</text>
+      <text x="329.4" y="666.7" fill="#e6edf3" xml:space="preserve">s24020,fall-exam,RH-2025-8614-4020</text>
+      <text x="329.4" y="725.9" fill="#e6edf3" xml:space="preserve">s24021,fall-exam,RH-2025-3601-4021</text>
     </g>
   </g>
 </svg>

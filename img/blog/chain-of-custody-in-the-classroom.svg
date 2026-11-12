@@ -31,12 +31,12 @@
     <text x="379.3" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">HASH-MANIFEST.txt</text>
     <g font-size="37.5">
       <text x="285.3" y="365.4" fill="#e3c48c" font-weight="700" xml:space="preserve">Evidence hash manifest</text>
-      <text x="285.3" y="417.1" fill="#e6edf3" xml:space="preserve">Case: RH-2024-7829-001</text>
+      <text x="285.3" y="417.1" fill="#e6edf3" xml:space="preserve">Case: RH-2026-8913-4017</text>
       <text x="285.3" y="468.9" fill="#e6edf3" xml:space="preserve">Files: 2</text>
       <text x="285.3" y="572.4" fill="#e6edf3" xml:space="preserve">C/Windows/System32/winevt/Logs/Security.evtx</text>
-      <text x="285.3" y="624.1" fill="#e6edf3" xml:space="preserve">    MD5    : 228be18023343dea637e5380cc8503b2</text>
+      <text x="285.3" y="624.1" fill="#e6edf3" xml:space="preserve">    MD5    : 97c8183ad430706536f5c67057071fec</text>
       <text x="285.3" y="675.9" fill="#e6edf3" xml:space="preserve">C/Windows/System32/winevt/Logs/System.evtx</text>
-      <text x="285.3" y="727.6" fill="#e6edf3" xml:space="preserve">    MD5    : 56494f4fd3cbf9e596378f6619b3dec0</text>
+      <text x="285.3" y="727.6" fill="#e6edf3" xml:space="preserve">    MD5    : a77220ae6a68bd1a35300cc4e9c56b1f</text>
     </g>
   </g>
 </svg>

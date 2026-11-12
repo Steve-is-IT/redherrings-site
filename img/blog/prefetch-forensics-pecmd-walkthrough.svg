@@ -31,10 +31,10 @@
     <text x="450.0" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">NOTEPAD.EXE-C5670914.pf</text>
     <g font-size="33.3">
       <text x="356.0" y="361.0" fill="#8b949e" xml:space="preserve"># on disk: MAM (Xpress Huffman)</text>
-      <text x="356.0" y="407.0" fill="#e6edf3" xml:space="preserve">00000000: 4d 41 4d 04 4c 04 00 00  MAM.L...</text>
+      <text x="356.0" y="407.0" fill="#e6edf3" xml:space="preserve">00000000: 4d 41 4d 04 ee 22 00 00  MAM..&quot;..</text>
       <text x="356.0" y="453.0" fill="#8b949e" xml:space="preserve"># decompressed: SCCA v30</text>
       <text x="356.0" y="499.0" fill="#e6edf3" xml:space="preserve">00000000: 1e 00 00 00 53 43 43 41  ....SCCA</text>
-      <text x="356.0" y="545.0" fill="#e6edf3" xml:space="preserve">00000008: 11 00 00 00 4c 04 00 00  ....L...</text>
+      <text x="356.0" y="545.0" fill="#e6edf3" xml:space="preserve">00000008: 11 00 00 00 ee 22 00 00  .....&quot;..</text>
       <text x="356.0" y="591.0" fill="#e6edf3" xml:space="preserve">00000010: 4e 00 4f 00 54 00 45 00  N.O.T.E.</text>
       <text x="356.0" y="637.0" fill="#e6edf3" xml:space="preserve">00000018: 50 00 41 00 44 00 2e 00  P.A.D...</text>
       <text x="356.0" y="683.0" fill="#e6edf3" xml:space="preserve">00000020: 45 00 58 00 45 00 00 00  E.X.E...</text>

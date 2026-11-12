@@ -32,10 +32,10 @@
     <g font-size="42.7">
       <text x="96.0" y="371.4" fill="#86ceba" xml:space="preserve">$ time redherrings generate easy-timeline --students 5</text>
       <text x="96.0" y="430.4" fill="#e6edf3" xml:space="preserve">state: done</text>
-      <text x="96.0" y="489.4" fill="#e6edf3" xml:space="preserve">verification: 290/290 checks passed (Verified)</text>
-      <text x="96.0" y="607.4" fill="#e6edf3" xml:space="preserve">real  0m4.918s</text>
+      <text x="96.0" y="489.4" fill="#e6edf3" xml:space="preserve">verification: 300/300 checks passed (Verified)</text>
+      <text x="96.0" y="607.4" fill="#e6edf3" xml:space="preserve">real  0m4.517s</text>
       <text x="96.0" y="666.4" fill="#86ceba" xml:space="preserve">$ du -sh output</text>
-      <text x="96.0" y="725.3" fill="#e6edf3" xml:space="preserve">3.3M  output</text>
+      <text x="96.0" y="725.3" fill="#e6edf3" xml:space="preserve">3.9M  output</text>
     </g>
   </g>
 </svg>

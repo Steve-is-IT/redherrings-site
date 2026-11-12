@@ -19,25 +19,25 @@
   <rect width="1600" height="1000" fill="url(#g)"/>
   <rect width="1600" height="1000" fill="url(#dots)"/>
   <rect width="1600" height="1000" fill="url(#glow)"/>
-  <rect x="137.8" y="230.0" width="1324.4" height="540.0" rx="20" fill="#0d1117" fill-opacity="0.96" filter="url(#sh)"/>
-  <path d="M137.8 296.0V250.0a20 20 0 0 1 20 -20H1442.2a20 20 0 0 1 20 20V296.0Z" fill="#161b22"/>
-  <line x1="137.8" y1="296.0" x2="1462.2" y2="296.0" stroke="#30363d" stroke-width="2"/>
-  <rect x="137.8" y="230.0" width="1324.4" height="540.0" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
-  <circle cx="177.8" cy="263.0" r="9" fill="#ff5f57"/><circle cx="207.8" cy="263.0" r="9" fill="#febc2e"/><circle cx="237.8" cy="263.0" r="9" fill="#28c840"/>
-  <g transform="translate(1378.2,240.6) scale(0.7)" opacity="0.65">
+  <rect x="103.5" y="230.0" width="1393.0" height="540.0" rx="20" fill="#0d1117" fill-opacity="0.96" filter="url(#sh)"/>
+  <path d="M103.5 296.0V250.0a20 20 0 0 1 20 -20H1476.5a20 20 0 0 1 20 20V296.0Z" fill="#161b22"/>
+  <line x1="103.5" y1="296.0" x2="1496.5" y2="296.0" stroke="#30363d" stroke-width="2"/>
+  <rect x="103.5" y="230.0" width="1393.0" height="540.0" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
+  <circle cx="143.5" cy="263.0" r="9" fill="#ff5f57"/><circle cx="173.5" cy="263.0" r="9" fill="#febc2e"/><circle cx="203.5" cy="263.0" r="9" fill="#28c840"/>
+  <g transform="translate(1412.5,240.6) scale(0.7)" opacity="0.65">
     <path fill-rule="evenodd" d="M6 32c9-11 20-16 30-16C40 16 44 19 48 25C51 22 56.5 15.5 62.25 11.75C58.38 18.12 55.69 25.81 54.44 32C55.69 38.19 58.38 45.88 62.25 52.25C56.5 48.5 51 42 48 39C44 45 40 48 36 48c-10 0-21-5-30-16z M20 24.8a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 1 0 0-11.2z" fill="#a7b5c7"/>
   </g>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace">
-    <text x="287.8" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">capture.pcap</text>
+    <text x="253.5" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">capture.pcap</text>
     <g font-size="37.5">
-      <text x="193.8" y="365.4" fill="#a7b5c7" font-weight="700" xml:space="preserve">No.   Time      Proto  Info</text>
-      <text x="193.8" y="417.1" fill="#e6edf3" xml:space="preserve">1082  937.062   DNS    query A cdn.jsdelivr.net</text>
-      <text x="193.8" y="468.9" fill="#e6edf3" xml:space="preserve">1083  937.065   DNS    response A 45.125.1.239</text>
-      <text x="193.8" y="520.6" fill="#e6edf3" xml:space="preserve">1084  937.112   TCP    54021 → 443 [SYN]</text>
-      <text x="193.8" y="572.4" fill="#e6edf3" xml:space="preserve">1085  937.114   TCP    443 → 54021 [SYN, ACK]</text>
-      <text x="193.8" y="624.1" fill="#e6edf3" xml:space="preserve">1086  937.116   TCP    54021 → 443 [ACK]</text>
-      <text x="193.8" y="675.9" fill="#e6edf3" xml:space="preserve">1087  937.118   TCP    54021 → 443 [PSH, ACK] Len=493</text>
-      <text x="193.8" y="727.6" fill="#e6edf3" xml:space="preserve">1089  937.122   TCP    443 → 54021 [PSH, ACK] Len=535</text>
+      <text x="159.5" y="365.4" fill="#a7b5c7" font-weight="700" xml:space="preserve">No.  Time   Proto    Info</text>
+      <text x="159.5" y="417.1" fill="#e6edf3" xml:space="preserve">3    0.001  DNS      query A cdn.jsdelivr.net</text>
+      <text x="159.5" y="468.9" fill="#e6edf3" xml:space="preserve">4    0.052  DNS      response A 104.16.86.20</text>
+      <text x="159.5" y="520.6" fill="#e6edf3" xml:space="preserve">7    0.055  TCP      49935 → 443 [SYN]</text>
+      <text x="159.5" y="572.4" fill="#e6edf3" xml:space="preserve">8    0.089  TCP      443 → 49935 [SYN, ACK]</text>
+      <text x="159.5" y="624.1" fill="#e6edf3" xml:space="preserve">9    0.090  TCP      49935 → 443 [ACK]</text>
+      <text x="159.5" y="675.9" fill="#e6edf3" xml:space="preserve">11   0.092  TLSv1    Client Hello (SNI=cdn.jsdelivr.net)</text>
+      <text x="159.5" y="727.6" fill="#e6edf3" xml:space="preserve">13   0.128  TLSv1.3  Server Hello, Change Cipher Spec</text>
     </g>
   </g>
 </svg>

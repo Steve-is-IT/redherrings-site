@@ -30,15 +30,15 @@
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace">
     <text x="450.0" y="273.0" font-size="30" fill="#8b949e" xml:space="preserve">ATT&amp;CK tactics in the case library</text>
     <g font-size="33.3">
-      <text x="356.0" y="361.0" fill="#c5aefa" font-weight="700" xml:space="preserve">Tactic  Name                  Cases</text>
-      <text x="356.0" y="407.0" fill="#e6edf3" xml:space="preserve">TA0001  Initial Access           21</text>
-      <text x="356.0" y="453.0" fill="#e6edf3" xml:space="preserve">TA0002  Execution                14</text>
-      <text x="356.0" y="499.0" fill="#e6edf3" xml:space="preserve">TA0003  Persistence              21</text>
-      <text x="356.0" y="545.0" fill="#e6edf3" xml:space="preserve">TA0004  Privilege Escalation     20</text>
-      <text x="356.0" y="591.0" fill="#e6edf3" xml:space="preserve">TA0005  Stealth                  16</text>
-      <text x="356.0" y="637.0" fill="#e6edf3" xml:space="preserve">TA0112  Defense Impairment        9</text>
-      <text x="356.0" y="683.0" fill="#e6edf3" xml:space="preserve">TA0006  Credential Access        12</text>
-      <text x="356.0" y="729.0" fill="#e6edf3" xml:space="preserve">TA0007  Discovery                 7</text>
+      <text x="356.0" y="361.0" fill="#c5aefa" font-weight="700" xml:space="preserve">Tactic  Name                     Cases</text>
+      <text x="356.0" y="407.0" fill="#e6edf3" xml:space="preserve">TA0001  Initial Access              21</text>
+      <text x="356.0" y="453.0" fill="#e6edf3" xml:space="preserve">TA0002  Execution                   14</text>
+      <text x="356.0" y="499.0" fill="#e6edf3" xml:space="preserve">TA0003  Persistence                 21</text>
+      <text x="356.0" y="545.0" fill="#e6edf3" xml:space="preserve">TA0004  Privilege Escalation        20</text>
+      <text x="356.0" y="591.0" fill="#e6edf3" xml:space="preserve">TA0005  Stealth                     16</text>
+      <text x="356.0" y="637.0" fill="#e6edf3" xml:space="preserve">TA0112  Defense Impairment           9</text>
+      <text x="356.0" y="683.0" fill="#e6edf3" xml:space="preserve">TA0006  Credential Access           12</text>
+      <text x="356.0" y="729.0" fill="#e6edf3" xml:space="preserve">TA0007  Discovery                    7</text>
     </g>
   </g>
 </svg>
