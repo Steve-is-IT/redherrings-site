@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Verify a Certificate | Red Herrings</title>
-<meta name="description" content="Check a Red Herrings certificate of completion. Enter the details printed on the certificate and its verification code to confirm the certificate has not been altered.">
+<meta name="description" content="Check a Red Herrings certificate of completion. Enter the details printed on the certificate and its verification code to check that they match.">
 <link rel="canonical" href="https://redherrings.app/verify.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-f129ee30.png">
-<meta property="og:description" content="Confirm a Red Herrings certificate has not been altered.">
+<meta property="og:description" content="Check a Red Herrings certificate's details against its verification code.">
 <meta property="og:url" content="https://redherrings.app/verify.html">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="site.css">
@@ -63,8 +63,8 @@
 <main class="wrap" id="main">
   <section>
     <h1>Verify a certificate</h1>
-    <p class="vnote" style="max-width:640px">Every Red Herrings certificate carries a <strong>verification code</strong> computed from the details printed on it. Type those details exactly as they appear, enter the code, and we'll confirm the certificate hasn't been altered, entirely in your browser, with nothing sent anywhere.</p>
-    <p class="vnote" style="max-width:640px;margin-top:8px">This confirms the printed fields match the code. It's an integrity check, not an accredited credential; to confirm a certificate was genuinely issued, contact the issuing instructor or institution.</p>
+    <p class="vnote" style="max-width:640px">Every Red Herrings certificate carries a <strong>verification code</strong> computed from the details printed on it. Type those details exactly as they appear, enter the code, and we'll check they match, entirely in your browser, with nothing sent anywhere.</p>
+    <p class="vnote" style="max-width:640px;margin-top:8px">A match catches a typo or a field edited without a new code. The code is a checksum anyone can compute from the printed fields, so a match doesn't prove the certificate was issued, and it isn't an accredited credential. To confirm a certificate is genuine, contact the issuing instructor or institution.</p>
     <div class="vform">
       <label for="recipient">Recipient name</label>
       <input id="recipient" autocomplete="off" placeholder="e.g. Jordan Lee">
@@ -148,9 +148,9 @@ $("go").addEventListener("click", async () => {
   }
   const expect = await codeFor(parts);
   if (expect === given){
-    out.className = "vresult ok"; out.textContent = "✓ Valid: these details match the verification code. The certificate has not been altered.";
+    out.className = "vresult ok"; out.textContent = "✓ Match: these details give this verification code. To confirm the certificate was issued, ask the issuer.";
   } else {
-    out.className = "vresult bad"; out.textContent = "✗ No match: the code does not match these details. Check for typos (exact spelling, punctuation and the date), or the certificate may have been altered.";
+    out.className = "vresult bad"; out.textContent = "✗ No match: the code doesn't match these details. Check for typos (exact spelling, punctuation and the date), or the details or the code may have been changed.";
   }
 });
 </script>
