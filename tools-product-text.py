@@ -82,6 +82,11 @@ FIXES = {
                                   "Capstone: run a hospital-wide incident from detection to eradication, then write the report.")],
     },
     "case-story": {
+        # AGENTS.md writing rules: no "just", use contractions.
+        "easy-cloud-signin": [("reading every field of each sign-in, not just the IP and country.",
+                               "reading every field of each sign-in, well beyond the IP and country.")],
+        "ir-first-look-siem": [("You are on the SOC queue at ", "You're on the SOC queue at ")],
+        "ir-first-look-edr": [("The EDR console just lit up with", "The EDR console lit up with")],
         # Four days of Chrome history hold one first-time exchange visit and
         # nothing else crypto, so there's no routine activity to expect.
         "crypto-theft": [(" They use crypto on this machine regularly, so expect normal activity around the transfer.", "")],
@@ -95,6 +100,8 @@ FIXES = {
         ],
     },
     "case-summary": {
+        "mobile-ios-ffs": [("A full-file-system iPhone extraction, not just a backup.",
+                            "A full-file-system iPhone extraction, which holds more than a backup.")],
         "ir-ransomware-dawn": [("The EDR console lit up at 06:48 with a stack of detections",
                                 "The EDR console lit up early in the morning with a stack of detections")],
         "hot-wallet-drained": [("map it to ATT&CK and run the response through every NIST phase.",
