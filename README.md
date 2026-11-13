@@ -3,7 +3,7 @@
 The public website for **Red Herrings**, a DFIR teaching tool that turns one
 authored case into a unique, auto-verified digital forensics and incident
 response lab for every student. One case becomes a different, self-grading lab
-per learner, so copied answers are wrong answers, and the whole class is graded
+per learner, so most copied answers are wrong answers, and the whole class is graded
 at once.
 
 **Live site: https://redherrings.app**

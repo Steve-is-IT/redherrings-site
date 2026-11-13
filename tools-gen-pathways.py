@@ -660,7 +660,7 @@ PAGE_TEMPLATE = '''<!doctype html>
       <div class="bigcard">
         <div class="fh"><h3>What you get with every case</h3></div>
         <ul>
-          <li><strong>A different variant per student.</strong> Same case, same rubric, different names, hashes, timestamps and answers, so students can talk about method without sharing answers.</li>
+          <li><strong>A different variant per student.</strong> Same case, same rubric, different names, hashes, timestamps and most answers, so students can talk about method and a shared answer sheet scores about a quarter of the points.</li>
           <li><strong>Evidence in the real on-disk format.</strong> Registry hives, EVTX, PCAP, SQLite, JSON audit logs and memory images open in the tools the exam expects.</li>
           <li><strong>A verified answer key.</strong> Every answer is re-derived from the planted evidence before the lab ships, so grading disputes end at the artifact.</li>
           <li><strong>One-click grading and LMS export.</strong> Canvas, Blackboard, Moodle, D2L and LTI 1.3 grade passback, or a CSV. See the <a href="/student-portal.html">student portal</a>.</li>
