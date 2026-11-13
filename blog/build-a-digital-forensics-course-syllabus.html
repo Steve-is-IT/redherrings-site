@@ -72,14 +72,14 @@
     <p>This is the shape of the <a href="/courses.html#intro-digital-forensics-14">14-week Introduction to Digital Forensics</a> course pack, and the reasoning behind each step. The <a href="/resources.html">full syllabus PDF</a> is on the free resources page.</p>
     <ul>
       <li><strong>Week 1: evidence handling and one registry hive.</strong> Acquisition, hashing, chain of custody, then a SYSTEM hive and the question "what USB device was plugged in". One hive, one key, one answer. See below for why this week matters more than any other.</li>
-      <li><strong>Weeks 2 to 4: the Windows execution and file-use artifacts.</strong> Program execution (Prefetch, UserAssist, Amcache), then files the user touched (LNK, jump lists, MRUs), then persistence (Run keys, services, scheduled tasks). Each week adds one artifact family and reuses the hive-reading skill from week 1.</li>
-      <li><strong>Week 5: Windows event logs.</strong> The first artifact that's about accounts rather than files. Teach 4720, 4732, 7045 and 1102, and make a point of subject versus target: who acted versus who was acted on.</li>
+      <li><strong>Weeks 2 to 4: the Windows execution and file-use artifacts.</strong> Program execution (Prefetch, UserAssist), then files the user touched (LNK, jump lists, MRUs), then persistence (Run keys and services). Each week adds one artifact family and reuses the hive-reading skill from week 1.</li>
+      <li><strong>Week 5: Windows event logs.</strong> The first artifact that's about accounts rather than files. Teach 4720 and 7045, and make a point of subject versus target: who acted versus who was acted on.</li>
       <li><strong>Week 6: timelines.</strong> Now that students hold five artifact families, the week is about putting them on one axis. Normalize time zones, build a super-timeline, present it. <a href="/cases.html#first-look-building-a-timeline">First Look: Building a Timeline</a> is the case.</li>
       <li><strong>Week 7: midterm practical.</strong> One insider-theft case that needs weeks 1 to 6, timed. This is the first time students work multiple artifacts without being told which one holds the answer.</li>
       <li><strong>Weeks 8 and 9: browser and cloud.</strong> Downloads traced from history to disk, then exfiltration proved from browser, LNK and email evidence together. These are correlation weeks: the Windows skills applied to a new question.</li>
       <li><strong>Weeks 10 and 11: memory.</strong> A First Look in Volatility 3, then a harder case on injected code. See the pacing note below.</li>
       <li><strong>Week 12: network.</strong> A First Look in Wireshark.</li>
-      <li><strong>Week 13: mobile.</strong> SQLite stores, message joins, Cocoa time. The last new evidence family, and a good one for showing that the method transfers.</li>
+      <li><strong>Week 13: mobile.</strong> An Android mmssms.db, deleted rows carved from SQLite free space, millisecond Unix time. The last new evidence family, and a good one for showing that the method transfers.</li>
       <li><strong>Week 14: capstone and report.</strong> A timed multi-artifact case worked end to end, then a written investigation report graded on a rubric.</li>
     </ul>
     <p>The pattern is: single artifact, then several of the same family, then correlation across families, then a new family, then a capstone that needs all of them. Every jump is one jump. The <a href="/blog/dfir-learning-pathways-first-look-to-capstone.html">pathways post</a> describes the difficulty ladder this maps onto.</p>
