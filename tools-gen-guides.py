@@ -26,6 +26,28 @@ BASE = "https://redherrings.app"
 E = lambda s: html.escape(str(s or ""), quote=True)
 
 INDEX = {s["id"]: s for s in packs.all_scenarios() if "id" in s}
+
+
+def _load_cases_tool():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("tools_gen_cases", os.path.join(SITE, "tools-gen-cases.py"))
+    mod = importlib.util.module_from_spec(spec)
+    was = sys.dont_write_bytecode
+    sys.dont_write_bytecode = True  # keep __pycache__ out of the site repo
+    try:
+        spec.loader.exec_module(mod)
+    finally:
+        sys.dont_write_bytecode = was
+    return mod
+
+
+_CASES_TOOL = _load_cases_tool()
+
+
+def case_tactics(cid):
+    """The tactics the case catalog shows for a case (tools-gen-cases.site_tactics)."""
+    sc = packs.find_scenario(cid)[0]
+    return _CASES_TOOL.site_tactics(cid, sc.raw.get("attack") if sc else None)
 PATHS = {p["slug"]: p for p in pathways.catalog(INDEX)}
 COURSES = {c["slug"]: c for c in courses.catalog(INDEX)}
 TRIAL = set(licensing.TRIAL_SCENARIOS)
@@ -194,18 +216,18 @@ def team_main():
     rows = []
     for s in steps:
         cid = s["id"]
-        tac = ", ".join(attack.tactic(t)["label"] for t in attack.tactics_for(cid, INDEX[cid].get("tactics")) if attack.known_tactic(t))
+        tac = ", ".join(attack.tactic(t)["label"] for t in case_tactics(cid) if attack.known_tactic(t))
         rows.append(f'<tr><td>{case_link(cid)}<div class="obj">{E(s.get("note"))}</div></td><td>{diff_tag(cid)}</td>'
                     f'<td class="mono">{minutes(s["minutes"])}</td><td>{E(tac)}</td><td>{access_tag(cid)}</td></tr>')
     # ATT&CK coverage by tactic. Technique ids per case stay off the page: some
     # questions ask students to name the technique, so listing a case's
     # techniques here would hand them the answer.
     tech = {t for s in steps for t in attack.techniques_for(s["id"], INDEX[s["id"]].get("techniques"))}
-    tactics = sorted({t for s in steps for t in attack.tactics_for(s["id"], INDEX[s["id"]].get("tactics")) if attack.known_tactic(t)},
+    tactics = sorted({t for s in steps for t in case_tactics(s["id"]) if attack.known_tactic(t)},
                      key=attack.TACTIC_SLUGS.index)
     cov = []
     for t in tactics:
-        n = sum(1 for s in steps if t in attack.tactics_for(s["id"], INDEX[s["id"]].get("tactics")))
+        n = sum(1 for s in steps if t in case_tactics(s["id"]))
         cov.append(f'<tr><td>{E(attack.tactic(t)["label"])}</td><td class="mono">{n}</td></tr>')
     ids = [s["id"] for s in steps]
     f, tr = trial_counts(ids)

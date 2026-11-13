@@ -708,7 +708,7 @@
  },
  "teaching-mitre-attack-hands-on": {
   "title": "ATT&CK tactics in the case library",
-  "source": "attack.tactics_for over all built-in cases",
+  "source": "tools-gen-cases.site_tactics over all built-in cases (the tactics attack.html counts)",
   "lines": [
    [
     "head",
@@ -724,15 +724,11 @@
    ],
    [
     "",
-    "TA0003  Persistence                 21"
+    "TA0003  Persistence                 13"
    ],
    [
     "",
-    "TA0004  Privilege Escalation        20"
-   ],
-   [
-    "",
-    "TA0005  Stealth                     16"
+    "TA0005  Stealth                      5"
    ],
    [
     "",
@@ -745,6 +741,10 @@
    [
     "",
     "TA0007  Discovery                    7"
+   ],
+   [
+    "",
+    "TA0008  Lateral Movement             9"
    ]
   ]
  },

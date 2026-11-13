@@ -52,6 +52,20 @@ TRACK_CHIP = {"foundations": ("trk-foundations", "Foundations"),
 TACTICS = {t["slug"]: t["label"] for t in attack.catalog()}
 
 
+def site_tactics(sid, raw_attack=None):
+    """The tactics a case card shows: the tactic slugs its attack list names, in
+    kill-chain order. attack.tactics_for also adds every tactic of every listed
+    technique, so Valid Accounts (T1078) puts Persistence, Privilege Escalation
+    and Stealth on a sign-in case that does none of them. Only a list that names
+    no tactic falls back to that union."""
+    raw = raw_attack or attack.BUILTIN_ATTACK.get(sid, [])
+    named = {attack.TACTIC_ALIASES.get(str(e).strip(), str(e).strip()) for e in raw}
+    named = {t for t in named if attack.known_tactic(t)}
+    if not named:
+        return attack.tactics_for(sid, raw_attack)
+    return [t for t in attack.TACTIC_SLUGS if t in named]
+
+
 def eff_diff(s):
     return s.get("category") or s.get("difficulty") or "medium"
 
@@ -211,6 +225,10 @@ def write_attack_page(scen):
 
 def main():
     scen = [s for s in packs.all_scenarios() if "id" in s and not s.get("error")]
+    smap = _scenario_map()
+    for s in scen:
+        sc = smap.get(s["id"])
+        s["tactics"] = site_tactics(s["id"], sc.raw.get("attack") if sc else None)
     # Order: the difficulty ladder, first-look through marquee, the same order the
     # app's Case Library uses; IR after DF within a tier.
     scen.sort(key=lambda s: (DIFF_RANK.get(eff_diff(s), 9),
@@ -222,7 +240,6 @@ def main():
     n_ir = sum(1 for s in scen if s.get("discipline") == "incident-response")
     n_df = n - n_ir
 
-    smap = _scenario_map()
     # Keyed by the public slug: the scenario id is internal and some ids describe what a case finds.
     details = {(s.get("slug") or s["id"]): build_detail(s, smap.get(s["id"])) for s in scen}
 
