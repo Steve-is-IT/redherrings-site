@@ -91,14 +91,14 @@
     <h2>Know when free text needs a human</h2>
     <p>"Name the executable" is a string match. "Explain how you know the file was executed and not merely present" isn't, and no fuzzy matcher should be the final word on it. The practical split:</p>
     <ul>
-      <li>Short free text with a known target (a username, a program name, a domain) can be fuzzy-matched. Set a threshold, and treat anything near the threshold as a flag for review rather than a decision. Red Herrings does this by default: fuzzy match, with a review flag the instructor can resolve from the grading screen.</li>
+      <li>Short free text with a known target (a username, a program name, a domain) can be fuzzy-matched. Set a threshold, and treat anything near the threshold as a flag for review rather than a decision. Red Herrings does this by default: fuzzy match, with a review flag on the grading screen.</li>
       <li>Reasoning, method and conclusions get a rubric and a person. The <a href="/resources.html">investigation report rubric</a> on our free resources page is a six-criterion, 100-point sheet (findings, evidence, method, reasoning, timeline, communication) that keeps that part consistent across a class and across graders.</li>
     </ul>
     <p>Don't let the auto-grader's share of the marks creep above what it can actually judge. A lab that's 80 percent value-matching and 20 percent written explanation is honest about which is which.</p>
 
     <h2>Show the reasoning on every score</h2>
     <p>Every awarded or withheld point should carry a one-line reason: "hash matched (case-insensitive)", "timestamp within 2 s of key", "3 of 5 indicators, 1 false positive", "free text 0.71 similarity, below 0.80 threshold, review flagged". This costs nothing when the grader is software and it changes the conversation with students completely. They stop asking "why did I lose points" and start asking "why is my timestamp four hours off", which is a question about forensics.</p>
-    <p>Keep an override. There will be an answer the grader scored wrong that a human can see is right, usually because the student found the same fact by a route the key didn't anticipate. The override, with its own note, is part of the record.</p>
+    <p>Keep an override. There will be an answer the grader scored wrong that a human can see is right, usually because the student found the same fact by a route the key didn't anticipate. The override, with its own note, is part of the record. Red Herrings doesn't have a per-mark override yet, so correct the mark in the exported grade file and keep the note with it.</p>
 
     <h2>Why a copied answer should be a wrong answer</h2>
     <p>Everything above assumes you can tell what each student actually did. With a single shared evidence image, you can't. The hash is the same for everyone, so the first student to find it has found it for the class, and the fairest grader in the world is now grading a group chat.</p>
