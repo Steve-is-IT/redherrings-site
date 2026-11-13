@@ -81,7 +81,7 @@
     <p>A single value is right or wrong. A list, an order or a technique isn't, and grading it as one bit throws away information about what the student understood.</p>
     <ul>
       <li><strong>Sets</strong> (indicators, affected hosts, files exfiltrated): score the fraction of the key the student found, and flag extra items for review so that listing every IP in the capture doesn't slip through. A student who found four of five real indicators and added one false positive understood the case better than one who listed twenty addresses.</li>
-      <li><strong>Sequences</strong> (order of attacker steps, order of the NIST phases a response should follow): credit the longest run of steps the student put in the right relative order. Getting the shape right but swapping two steps is a different mistake from guessing, and the score should say so.</li>
+      <li><strong>Sequences</strong> (order of attacker steps, order of the NIST phases a response should follow): credit the longest run of steps the student put in the right relative order. Getting the shape right but swapping two steps is a different mistake from guessing, and the score should say so. Red Herrings scores a sequence this way when the case marks it for partial credit.</li>
       <li><strong>ATT&amp;CK techniques:</strong> if the key is a sub-technique and the student gives the parent, that's a near miss, not a wrong answer. Accept it, flag it for review and say why.</li>
     </ul>
     <p>The <a href="/incident-response.html">incident response answer types</a> in Red Herrings (IOC, sequence, MITRE, severity) exist for exactly this reason. They're the question types where a right-or-wrong grader is unfair.</p>
