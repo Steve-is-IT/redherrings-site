@@ -65,7 +65,7 @@
     <p class="lede">A student can recite that T1547 is persistence and still not spot a malicious Run key in front of them. ATT&amp;CK taught from the matrix is a vocabulary quiz. Taught from evidence, it's a lens.</p>
     <div class="post-cover"><img src="../img/blog/teaching-mitre-attack-hands-on.svg" alt="" width="1600" height="1000"></div>
 
-    <p>The ATT&amp;CK matrix is a wonderful reference and a terrible lecture. Walk a class through fourteen tactics and a few hundred techniques on slides, and what sticks is the shape of the grid, not the behavior behind each cell. Students learn to match a name to a definition. They don't learn to look at a process tree and say "that's credential dumping", which is the whole point.</p>
+    <p>The ATT&amp;CK matrix is a wonderful reference and a terrible lecture. Walk a class through fifteen tactics and a few hundred techniques on slides, and what sticks is the shape of the grid, not the behavior behind each cell. Students learn to match a name to a definition. They don't learn to look at a process tree and say "that's credential dumping", which is the whole point.</p>
 
     <p>The fix is to make a technique something you <em>find</em>, not something you memorize. Every incident response case in Red Herrings is mapped to the ATT&amp;CK tactics and techniques it contains, so a student works real evidence and then names what they're seeing in ATT&amp;CK's terms. The reference becomes the output of the investigation, not the input.</p>
 
@@ -73,8 +73,8 @@
     <p>When a student finds a scheduled task that re-launches a payload at logon, the lab doesn't ask them to recall a cell on a chart. It asks them to recognize persistence, identify the specific technique, and point to the artifact that proves it. The abstraction and the evidence are welded together from the first time they meet it:</p>
     <ul>
       <li><strong>Initial access and execution</strong>: the phishing attachment, the spawned shell, the suspicious command line in the EDR feed.</li>
-      <li><strong>Persistence and privilege escalation</strong>: the Run key, the service install, the scheduled task, seen in the registry and event logs.</li>
-      <li><strong>Defense evasion, credential access, discovery</strong>: cleared logs, dumped credentials, the recon commands that precede lateral movement.</li>
+      <li><strong>Persistence</strong>: the Run key, the service install, the scheduled task, seen in the registry and event logs.</li>
+      <li><strong>Stealth, defense impairment, credential access, discovery</strong>: cleared logs, dumped credentials, the recon commands that precede lateral movement.</li>
       <li><strong>Lateral movement, collection, exfiltration, impact</strong>: the remote logons, the staged archive, the bulk transfer, the encryption.</li>
     </ul>
 
