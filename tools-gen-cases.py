@@ -179,7 +179,7 @@ def card(s):
         chips = "".join(f'<span class="chip {TRACK_CHIP.get(t, ("", t))[0]}">{E(TRACK_CHIP.get(t, ("", t))[1])}</span>' for t in tracks_list)
     sub_html = f'\n      <div class="cc-sub">{E(sub)}</div>' if sub else ""
     return (
-        f'    <article class="ccard" id="{E(s.get("slug") or s.get("id"))}" data-id="{E(s.get("slug") or s.get("id"))}" tabindex="0" role="button" '
+        f'    <div class="ccard" id="{E(s.get("slug") or s.get("id"))}" data-id="{E(s.get("slug") or s.get("id"))}" tabindex="0" role="button" '
         f'aria-label="Open {E(title)}" data-discipline="{E(disc)}" data-diff="{E(ed)}" '
         f'data-tracks="{E(" ".join(tracks_list))}" data-tactics="{E(" ".join(tactics_list))}">\n'
         f'      <div class="cc-top"><span class="dpill {pill_cls}">{E(pill_lbl)}</span></div>\n'
@@ -188,7 +188,7 @@ def card(s):
         f'      <div class="chips">{chips}</div>\n'
         f'{ev_block}'
         f'      <span class="cc-more">View case &amp; sample questions &rarr;</span>\n'
-        f'    </article>'
+        f'    </div>'
     )
 
 
@@ -523,9 +523,17 @@ MODAL_JS = r'''<script>
       (tools?'<h3>Suggested tools</h3><div class="chips">'+tools+'</div>':"")+
       '<div class="cta-row cm-cta"><a class="btn" href="/download.html">Start a free trial</a><a class="btn ghost" href="/#pricing">See pricing</a></div>';
     lastFocus=document.activeElement; modal.hidden=false; document.body.style.overflow="hidden";
-    body.scrollTop=0; modal.querySelector(".cmodal-x").focus();
+    setInert(true); body.scrollTop=0; modal.querySelector(".cmodal-x").focus();
   }
-  function closeCase(){ modal.hidden=true; document.body.style.overflow=""; if(lastFocus&&lastFocus.focus)lastFocus.focus(); }
+  // aria-modal: the page behind the dialog takes no focus or clicks while it's open.
+  function setInert(on){
+    [].forEach.call(document.body.children, function(el){
+      if(el===modal||/^(SCRIPT|STYLE|LINK|TEMPLATE)$/.test(el.tagName)) return;
+      if(on){ if(!el.hasAttribute("inert")){ el.setAttribute("inert",""); el.setAttribute("data-cm-inert",""); } }
+      else if(el.hasAttribute("data-cm-inert")){ el.removeAttribute("inert"); el.removeAttribute("data-cm-inert"); }
+    });
+  }
+  function closeCase(){ modal.hidden=true; setInert(false); document.body.style.overflow=""; if(lastFocus&&lastFocus.focus)lastFocus.focus(); }
   [].forEach.call(document.querySelectorAll(".ccard"), function(c){
     c.addEventListener("click", function(){ openCase(c.dataset.id); });
     c.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); openCase(c.dataset.id); } });
