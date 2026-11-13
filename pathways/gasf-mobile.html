@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GASF Mobile Forensics Practice Labs | Red Herrings</title>
-<meta name="description" content="Mobile forensics labs aligned to the GASF objectives: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.">
+<meta name="description" content="Mobile forensics labs built for GIAC GASF prep: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.">
 <link rel="canonical" href="https://redherrings.app/pathways/gasf-mobile.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Red Herrings">
 <meta property="og:title" content="GASF Mobile Forensics Practice Labs | Red Herrings">
-<meta property="og:description" content="Mobile forensics labs aligned to the GASF objectives: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.">
+<meta property="og:description" content="Mobile forensics labs built for GIAC GASF prep: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.">
 <meta property="og:url" content="https://redherrings.app/pathways/gasf-mobile.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-f129ee30.png">
 <meta property="og:image:width" content="1200">
@@ -23,13 +23,13 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GASF Mobile Forensics Practice Labs | Red Herrings">
-<meta name="twitter:description" content="Mobile forensics labs aligned to the GASF objectives: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.">
+<meta name="twitter:description" content="Mobile forensics labs built for GIAC GASF prep: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-f129ee30.png">
 <meta name="twitter:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Mobile Forensics (GASF)","item":"https://redherrings.app/pathways/gasf-mobile.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gasf-mobile.html#course","name":"GASF Mobile Forensics Practice Labs","url":"https://redherrings.app/pathways/gasf-mobile.html","description":"Mobile forensics labs aligned to the GASF objectives: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Read SMS, contacts and call logs from an extraction.","Look past the SMS store into third-party app databases.","Tie SMS, contacts and timestamps to a leak complaint.","Recover deleted messages from SQLite.","Place a device with location artifacts.","Call detail records, SMS and deleted-message recovery in one case.","Trace an investment fraud across messages, app data and the call log.","Capstone: tie phone evidence to workstation, mail and cloud logs."],"about":["Advanced Forensics & IR","Foundations","Mobile Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT16H27M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT16H27M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"},"educationalAlignment":{"@type":"AlignmentObject","alignmentType":"teaches","educationalFramework":"GIAC GASF published objectives","targetName":"GIAC GASF"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://redherrings.app/"},{"@type":"ListItem","position":2,"name":"Pathways","item":"https://redherrings.app/pathways.html"},{"@type":"ListItem","position":3,"name":"Mobile Forensics (GASF)","item":"https://redherrings.app/pathways/gasf-mobile.html"}]},{"@type":"Course","@id":"https://redherrings.app/pathways/gasf-mobile.html#course","name":"GASF Mobile Forensics Practice Labs","url":"https://redherrings.app/pathways/gasf-mobile.html","description":"Mobile forensics labs built for GIAC GASF prep: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.","provider":{"@type":"Organization","name":"Red Herrings","url":"https://redherrings.app/"},"educationalLevel":"Beginner to advanced","teaches":["Read SMS, contacts and call logs from an extraction.","Look past the SMS store into third-party app databases.","Tie SMS, contacts and timestamps to a leak complaint.","Recover deleted messages from SQLite.","Place a device with location artifacts.","Call detail records, SMS and deleted-message recovery in one case.","Trace an investment fraud across messages, app data and the call log.","Capstone: tie phone evidence to workstation, mail and cloud logs."],"about":["Advanced Forensics & IR","Foundations","Mobile Forensics","Windows Forensics"],"isAccessibleForFree":false,"timeRequired":"PT16H27M","hasCourseInstance":{"@type":"CourseInstance","courseMode":["online","self-paced"],"courseWorkload":"PT16H27M"},"offers":{"@type":"Offer","category":"Paid","url":"https://redherrings.app/#pricing","availability":"https://schema.org/InStock"}}]}
 </script>
 </head>
 <body>
@@ -62,7 +62,7 @@
 <main class="wrap" id="main">
   <section class="hero" style="border-top:0;text-align:left;padding-top:40px;padding-bottom:40px">
     <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / <a href="/pathways.html">Pathways</a> / Mobile Forensics (GASF)</div>
-    <span class="kicker">Cert prep &middot; Digital Forensics &middot; aligned to the published GIAC GASF objectives</span>
+    <span class="kicker">Cert prep &middot; Digital Forensics &middot; for GIAC GASF prep</span>
     <h1 style="max-width:18ch">GASF practice labs, one extraction at a time</h1>
     <p class="lede" style="margin-left:0">The GASF objectives expect an examiner who can take a mobile extraction and recover what matters: messages, contacts and call logs; third-party app data in SQLite; deleted records still sitting in freelists and write-ahead logs; and the location and activity artifacts that place a device at a time and a place.</p>
     <p class="lede" style="margin-left:0;font-size:17px">This pathway starts with a single recovered phone and adds one skill per case: third-party app databases, tying messages to a complaint, deleted-record recovery, location artifacts, call detail records and an investment-fraud case that needs several of them. The capstone puts the phone evidence beside a workstation, a mailbox and cloud logs, so the final step is correlation across sources rather than one more parser.</p>
@@ -126,7 +126,7 @@
     <div class="secthead solo" style="margin-bottom:18px">
       <h2 class="opener" style="font-size:clamp(24px,3vw,34px)">What this pathway covers</h2>
     </div>
-    <div class="chips" style="gap:8px"><span class="chip trk-foundations">Foundations</span><span class="chip trk-mobile">Mobile Forensics</span><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span><span class="chip">Aligned to the published GIAC GASF objectives</span><span class="chip">Easy to Expert</span></div>
+    <div class="chips" style="gap:8px"><span class="chip trk-foundations">Foundations</span><span class="chip trk-mobile">Mobile Forensics</span><span class="chip trk-windows">Windows Forensics</span><span class="chip trk-advanced">Advanced Forensics &amp; IR</span><span class="chip">For GIAC GASF prep</span><span class="chip">Easy to Expert</span></div>
   </section>
 
   <section>
@@ -170,7 +170,7 @@
       <a class="card" href="/pathways/linux-forensics.html"><h3>Linux Forensics</h3><p>Investigating a Linux host and server: logins, persistence, and web-server intrusion.</p><p style="margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--faint)">5 cases &middot; ~5 h 34 min &middot; SANS FOR577</p></a>
       <a class="card" href="/pathways.html"><h3>All learning pathways</h3><p>Every certification-prep and role pathway across Digital Forensics and Incident Response, side by side.</p><p style="margin-top:12px;font-weight:600;color:var(--accent)">Browse the overview &rarr;</p></a>
     </div>
-    <p class="note" style="margin-top:28px">GIAC, GCFE, GASF, GNFA, GCIH, GCFR and GCFA are trademarks of GIAC. CompTIA and CySA+ are trademarks of CompTIA, Inc. SANS is a trademark of the SANS Institute. Red Herrings aligns its pathways to the published objectives of these programs for teaching; it's independent of, and not affiliated with or endorsed by, any certification body.</p>
+    <p class="note" style="margin-top:28px">GIAC, GCFE, GASF, GNFA, GCIH, GCFR and GCFA are trademarks of GIAC. CompTIA and CySA+ are trademarks of CompTIA, Inc. SANS is a trademark of the SANS Institute. Red Herrings names its pathways for these programs to help learners prepare; they aren't mapped objective by objective, and Red Herrings is independent of, and not affiliated with or endorsed by, any certification body.</p>
   </section>
 </main>
 <footer>

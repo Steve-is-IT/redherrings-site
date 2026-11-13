@@ -58,7 +58,7 @@ const CARDS = {
   cases: [
     `<div class="kick gold">Case library</div>` +
     `<h1>Dozens of cases, one per student.</h1>` +
-    `<p class="lede">First Look triage to Marquee capstone, in forensics and incident response, mapped to GIAC, CompTIA and MITRE ATT&amp;CK.</p>` +
+    `<p class="lede">First Look triage to Marquee capstone, in forensics and incident response, with cert-prep tracks and MITRE ATT&amp;CK mapping.</p>` +
     `<div class="badges"><span class="badge">First Look cases free</span>` +
     `<span class="badge">Windows &middot; macOS &middot; Linux</span></div>`,
     shot("slides/slide-case.jpg"),

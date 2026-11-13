@@ -27,7 +27,7 @@ E = lambda s: html.escape(str(s or ""), quote=True)
 
 DISC = [
     {"id": "digital-forensics", "label": "Digital Forensics",
-     "sub": "Disk, registry, logs, memory, network, mobile and cloud, aligned to certification tracks."},
+     "sub": "Disk, registry, logs, memory, network, mobile and cloud, in certification-prep tracks."},
     {"id": "incident-response", "label": "Incident Response",
      "sub": "Detection and response from the responder's own tooling (EDR, SIEM and host logs), mapped to MITRE ATT&CK."},
 ]
@@ -57,7 +57,7 @@ def step_html(i, s):
 
 
 def card_html(p):
-    aligned = (f'<p class="pwc-aligned">Aligned to {E(p["aligned"])}</p>'
+    aligned = (f'<p class="pwc-aligned">For {E(p["aligned"])} prep</p>'
                if p.get("aligned") else "")
     cases = p["count"]
     meta = f'{cases} case{"" if cases == 1 else "s"}'
@@ -274,8 +274,8 @@ ATTACK_NOTE = ("ATT&amp;CK&reg; and MITRE ATT&amp;CK&reg; are registered tradema
                "Red Herrings maps to published ATT&amp;CK tactics and techniques for teaching; it isn't affiliated "
                "with or endorsed by MITRE.")
 CERT_NOTE = ("GIAC, GCFE, GASF, GNFA, GCIH, GCFR and GCFA are trademarks of GIAC. CompTIA and CySA+ are trademarks of "
-             "CompTIA, Inc. SANS is a trademark of the SANS Institute. Red Herrings aligns its pathways to the published "
-             "objectives of these programs for teaching; it's independent of, and not affiliated with or endorsed by, "
+             "CompTIA, Inc. SANS is a trademark of the SANS Institute. Red Herrings names its pathways for these programs to help learners "
+             "prepare; they aren't mapped objective by objective, and Red Herrings is independent of, and not affiliated with or endorsed by, "
              "any certification body.")
 
 # Search-intent copy per pathway. Everything else on the page is derived from the live data.
@@ -286,7 +286,7 @@ COPY = {
     "gcfe-windows": {
         "title": "GCFE Windows Forensics Practice Labs",
         "h1": ("GCFE practice labs,", "one case at a time"),
-        "desc": "Windows forensics labs aligned to the GCFE objectives: registry, Prefetch, USB, jump lists, browser and event logs, from five First Looks to an expert capstone.",
+        "desc": "Windows forensics labs built for GIAC GCFE prep: registry, Prefetch, USB, jump lists, browser and event logs, from five First Looks to an expert capstone.",
         "expects": "The GCFE objectives expect an examiner who can read Windows artifacts without a cheat sheet: program execution from Prefetch, UserAssist and Amcache; file knowledge from LNK files and jump lists; USB device history from the registry; persistence in Run keys, services and scheduled tasks; browser activity; and the Security event log, all pulled together into one defensible timeline.",
         "builds": "This pathway builds those skills in that order, all but Amcache and scheduled tasks, which its evidence doesn't include. Five First Look cases isolate one artifact family each, two medium cases apply them to a departing engineer's workstation and a customer export, two hard cases add a mailbox, memory and a packet capture, and the capstone rebuilds a quiet intrusion from disk, memory and cloud logs. Each case generates a different variant per student, so the practice is on reading evidence, not memorizing answers.",
         "who": [
@@ -298,7 +298,7 @@ COPY = {
     "gasf-mobile": {
         "title": "GASF Mobile Forensics Practice Labs",
         "h1": ("GASF practice labs,", "one extraction at a time"),
-        "desc": "Mobile forensics labs aligned to the GASF objectives: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.",
+        "desc": "Mobile forensics labs built for GIAC GASF prep: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.",
         "expects": "The GASF objectives expect an examiner who can take a mobile extraction and recover what matters: messages, contacts and call logs; third-party app data in SQLite; deleted records still sitting in freelists and write-ahead logs; and the location and activity artifacts that place a device at a time and a place.",
         "builds": "This pathway starts with a single recovered phone and adds one skill per case: third-party app databases, tying messages to a complaint, deleted-record recovery, location artifacts, call detail records and an investment-fraud case that needs several of them. The capstone puts the phone evidence beside a workstation, a mailbox and cloud logs, so the final step is correlation across sources rather than one more parser.",
         "who": [
@@ -310,7 +310,7 @@ COPY = {
     "gnfa-network": {
         "title": "GNFA Network Forensics Practice Labs",
         "h1": ("GNFA practice labs,", "one capture at a time"),
-        "desc": "Network forensics labs aligned to the GNFA objectives: packet captures, DNS, HTTP, scheduled outbound traffic and host correlation, through a breach capstone.",
+        "desc": "Network forensics labs built for GIAC GNFA prep: packet captures, DNS, HTTP, scheduled outbound traffic and host correlation, through a breach capstone.",
         "expects": "The GNFA objectives expect an analyst who can open a packet capture and tell the story in it: follow streams, read protocols in the clear, find data leaving over HTTP, spot a beacon by its timing, recover cleartext credentials, and connect network evidence to what the hosts recorded.",
         "builds": "This pathway opens with a single capture and a few protocols. It then measures traffic in a capture and ties it to host artifacts, ties a remote-access login to scheduled outbound traffic, follows a host from an opened document to its outbound traffic, and follows a download from the browser into the network and memory. The capstone is a multi-department breach where the network evidence has to be reconciled with host and mobile artifacts.",
         "who": [
@@ -322,7 +322,7 @@ COPY = {
     "linux-forensics": {
         "title": "Linux Forensics Practice Labs",
         "h1": ("Linux forensics labs,", "one case at a time"),
-        "desc": "Linux forensics labs aligned to the FOR577 objectives: auth.log, a LiME memory image, a persistence sweep, a web-server intrusion and a five-artifact capstone.",
+        "desc": "Linux forensics labs built for SANS FOR577 prep: auth.log, a LiME memory image, a persistence sweep, a web-server intrusion and a five-artifact capstone.",
         "expects": "Linux incident response, as the FOR577 objectives frame it, expects an examiner who can work a server from what it recorded: read auth.log for failed and successful logins, read a memory image for what was running, find every place a Linux host can hide persistence, follow a web request from the access log into the shell history, and correlate one intrusion across every log on the box.",
         "builds": "This pathway is short and steep. It starts with a single auth.log and a First Look at a LiME memory image, sweeps a server for every way back in, reads access, auth and shell logs on a web-server intrusion from first request to last, and finishes with an expert capstone that correlates five host artifacts into one timeline.",
         "who": [
@@ -334,7 +334,7 @@ COPY = {
     "macos-forensics": {
         "title": "macOS Forensics Practice Labs",
         "h1": ("macOS forensics labs,", "one case at a time"),
-        "desc": "macOS forensics labs aligned to the FOR518 objectives: the quarantine database, Safari history, TCC consent, persistence and a departing employee's Mac.",
+        "desc": "macOS forensics labs built for SANS FOR518 course prep: the quarantine database, Safari history, TCC consent, persistence and a departing employee's Mac.",
         "expects": "Mac forensics, as the FOR518 objectives frame it, expects an examiner who knows where macOS keeps its own records: download provenance in the quarantine database and Safari history, privacy consent in the TCC database, persistence in LaunchAgents and LaunchDaemons, and the unified log entries that tie them together.",
         "builds": "This pathway starts with two First Look cases, one on where an app came from and one on what each app is allowed to see. It then traces persistence back to its download, correlates TCC, quarantine and unified-log records on a Mac whose user suspects monitoring, works a departing employee's Mac, and closes with a capstone that puts five macOS artifacts on one timeline.",
         "who": [
@@ -370,7 +370,7 @@ COPY = {
     "gcih-incident-handling": {
         "title": "GCIH Incident Handling Practice Labs",
         "h1": ("GCIH practice labs,", "one incident at a time"),
-        "desc": "Incident handling labs aligned to the GCIH objectives: EDR and SIEM triage, phishing, a web-facing server, lateral movement and ransomware, mapped to ATT&CK.",
+        "desc": "Incident handling labs built for GIAC GCIH prep: EDR and SIEM triage, phishing, a web-facing server, lateral movement and ransomware, mapped to ATT&CK.",
         "expects": "The GCIH objectives expect a handler who can run an incident through its phases: triage a detection and decide what it means, trace the initial access, follow the move from a beachhead to the next host, catch an operator's setup before the payload, contain a live outbreak, and write up the lessons learned, with each behavior named by its ATT&CK technique.",
         "builds": "This pathway follows the incident-handling kill chain from the responder's own tooling. It opens with an EDR detection and a SIEM queue, then works a phish, an internet-facing server, a remote session and a server caught before impact as full cases, and closes the hard tier with a live outbreak and a timed ransomware drill. The capstone runs a hospital-wide incident from detection through containment and eradication.",
         "who": [
@@ -382,7 +382,7 @@ COPY = {
     "cysa-soc-analyst": {
         "title": "CySA+ SOC Analyst Practice Labs",
         "h1": ("CySA+ practice labs,", "one alert at a time"),
-        "desc": "SOC analyst labs aligned to the CySA+ objectives: SIEM and EDR triage, impossible travel, phishing, account takeover, BEC, lateral movement and detection rules.",
+        "desc": "SOC analyst labs built for CompTIA CySA+ prep: SIEM and EDR triage, impossible travel, phishing, account takeover, BEC, lateral movement and detection rules.",
         "expects": "The CySA+ objectives expect an analyst who can work the daily queue: read a SIEM alert and an EDR detection, recognize an impossible-travel sign-in, triage a phishing report, correlate entities across host and log evidence, turn a confirmed behavior into a detection rule, and escalate a real incident with a severity verdict that holds up.",
         "builds": "This pathway is the SOC queue in order. Four First Look cases cover the alert types an analyst sees most. Medium cases work an EDR detection to a verdict, an off-hours sign-in, a misdirected wire, a timed insider drill and a lateral move. The hard steps correlate a handset, an inbox and exchange logs on an account loss, then turn the lateral move into a detection rule. The capstone scopes a weekend of alerts end to end.",
         "who": [
@@ -394,7 +394,7 @@ COPY = {
     "gcfr-cloud": {
         "title": "GCFR Cloud and Enterprise IR Practice Labs",
         "h1": ("GCFR practice labs,", "one tenant at a time"),
-        "desc": "Cloud IR labs aligned to the GCFR objectives: sign-in logs, Microsoft 365 audit logs, GCP and Kubernetes audit logs, CloudTrail and an exchange capstone.",
+        "desc": "Cloud IR labs built for GIAC GCFR exam prep: sign-in logs, Microsoft 365 audit logs, GCP and Kubernetes audit logs, CloudTrail and an exchange capstone.",
         "expects": "The GCFR objectives expect a responder who can investigate identity and cloud audit logs without a disk image: anomalous sign-ins, MFA-fatigue takeovers, hidden mailbox rules and role abuse in Microsoft 365, leaked service-account keys and tokens across a project, and data pulled from the cloud by an account that shouldn't have had it.",
         "builds": "This pathway starts with a single cloud sign-in log and adds one identity or platform at a time: an off-hours login, mailbox changes in the Microsoft 365 Unified Audit Log, a Microsoft 365 account takeover, GCP Cloud Audit Logs after a key exposure, a rogue pod in Kubernetes, a departing employee's export and CloudTrail after an access-key exposure. The Marquee capstone runs a digital-asset exchange incident across mail, single sign-on, EDR and monitoring.",
         "who": [
@@ -406,7 +406,7 @@ COPY = {
     "gcfa-advanced-ir": {
         "title": "GCFA Advanced Forensics and IR Practice Labs",
         "h1": ("GCFA practice labs,", "one intrusion at a time"),
-        "desc": "Advanced forensics and IR labs aligned to the GCFA objectives: memory triage, injected code, a rogue admin, credential theft and a ransomware capstone.",
+        "desc": "Advanced forensics and IR labs built for GIAC GCFA exam prep: memory triage, injected code, a rogue admin, credential theft and a ransomware capstone.",
         "expects": "The GCFA objectives expect an examiner who can take a compromised host apart: baseline processes and connections in memory, find injected code and unlinked modules, trace a rogue admin across host artifacts, recognize an attacker's setup work before a payload, follow credential theft to lateral movement, and build the full intrusion timeline.",
         "builds": "This pathway is the host-based capstone track. It starts with memory because every later case depends on it, moves through a rogue admin account and injected code in memory, then works a server caught before impact, a service account followed across hosts and an encrypted file server. The capstone, Operation Ledger, is a complete ransomware intrusion that asks for the whole timeline with every technique named.",
         "who": [
@@ -488,7 +488,7 @@ def chips_html(p):
     if p.get("discipline") == "incident-response":
         out.append('<span class="chip trk-ir">MITRE ATT&amp;CK mapped</span>')
     if p.get("aligned"):
-        out.append(f'<span class="chip">Aligned to the published {E(p["aligned"])} objectives</span>')
+        out.append(f'<span class="chip">For {E(p["aligned"])} prep</span>')
     diffs = []
     for s in p["steps"]:
         d = s.get("difficulty") or "medium"
@@ -532,10 +532,6 @@ def jsonld(p, c, url, desc):
                                     "courseWorkload": iso_duration(p.get("total_minutes"))},
               "offers": {"@type": "Offer", "category": "Paid", "url": BASE + "/#pricing", "availability": "https://schema.org/InStock"}}
     course = {k: v for k, v in course.items() if v is not None}
-    if p.get("aligned"):
-        course["educationalAlignment"] = {"@type": "AlignmentObject", "alignmentType": "teaches",
-                                          "educationalFramework": p["aligned"] + " published objectives",
-                                          "targetName": p["aligned"]}
     doc = {"@context": "https://schema.org", "@graph": [crumbs, course]}
     return json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
 
@@ -547,7 +543,7 @@ def page_html(p, cat, header, footer):
     assert 150 <= len(desc) <= 160, (p["slug"], len(desc))
     disc = DISC_LABEL.get(p.get("discipline", "digital-forensics"), "Digital Forensics")
     kind = KIND_LABEL[p["kind"]]
-    aligned = f' &middot; aligned to the published {E(p["aligned"])} objectives' if p.get("aligned") else ""
+    aligned = f' &middot; for {E(p["aligned"])} prep' if p.get("aligned") else ""
     steps = "\n".join(page_step_html(i + 1, s) for i, s in enumerate(p["steps"]))
     who = "\n".join(f'          <li><strong>{E(a)}</strong> {E(b)}</li>' for a, b in c["who"])
     total = fmt_minutes(p.get("total_minutes"))
