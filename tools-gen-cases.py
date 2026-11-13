@@ -136,7 +136,7 @@ def build_detail(meta, sc):
     ir = disc == "incident-response"
     ed = eff_diff(meta)
     story = _render_preview(sc, sc.raw.get("story", "")) if sc else meta.get("summary", "")
-    briefing = [p.replace("\n", " ").strip() for p in story.split("\n\n") if p.strip()]
+    briefing = [PT.fix("case-story", meta.get("id"), p.replace("\n", " ").strip()) for p in story.split("\n\n") if p.strip()]
     qs = []
     for q in (sc.questions if sc else [])[:6]:
         qs.append({"prompt": _render_preview(sc, q.prompt), "type": q.type,
@@ -306,7 +306,7 @@ def main():
     apply_chrome(out)
     print(f"wrote {out}: {n} cases ({n_df} DF, {n_ir} IR)")
     write_attack_page(scen)
-    PT.report("case-summary", "tools")
+    PT.report("case-summary", "case-story", "tools")
 
 
 TEMPLATE = '''<!doctype html>

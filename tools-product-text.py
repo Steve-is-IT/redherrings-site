@@ -18,6 +18,7 @@ import sys
 #   standard      key: "*"; the policy and structure text every syllabus carries
 #   pathway-note  key: case id; that case's step note in every pathway
 #   case-summary  key: case id; the summary on its card and in course weeks
+#   case-story    key: case id; a paragraph of the briefing preview on cases.html
 FIXES = {
     "course": {
         "incident-response-fundamentals-8": [
@@ -80,7 +81,22 @@ FIXES = {
         "ir-marquee-nightfall": [("Capstone: run a hospital-wide incident through every NIST phase.",
                                   "Capstone: run a hospital-wide incident from detection to eradication, then write the report.")],
     },
+    "case-story": {
+        # Four days of Chrome history hold one first-time exchange visit and
+        # nothing else crypto, so there's no routine activity to expect.
+        "crypto-theft": [(" They use crypto on this machine regularly, so expect normal activity around the transfer.", "")],
+        # Every variant's intrusion runs between 08:00 and 09:59 local.
+        "k8s-cryptojacking": [("Monitoring paged overnight: a worker node", "Monitoring paged: a worker node")],
+        # The first detection lands anywhere from 06:00 to 07:59 local and the
+        # chain runs 19 to 42 minutes, so no fixed clock fits every student.
+        "ir-ransomware-dawn": [
+            ("It's 06:48 at ", "It's early morning at "),
+            (" over the last twenty minutes. The user isn't in yet.", "."),
+        ],
+    },
     "case-summary": {
+        "ir-ransomware-dawn": [("The EDR console lit up at 06:48 with a stack of detections",
+                                "The EDR console lit up early in the morning with a stack of detections")],
         "hot-wallet-drained": [("map it to ATT&CK and run the response through every NIST phase.",
                                 "map it to ATT&CK and carry the response through containment and eradication.")],
         "ir-marquee-nightfall": [("run the response through every NIST phase, and write the incident report.",
