@@ -310,12 +310,15 @@ def learner_main():
     ir_weeks, ir_table = weekly_plan(ir["steps"])
     f1, t1 = trial_counts([s["id"] for s in df["steps"]])
     f2, t2 = trial_counts([s["id"] for s in ir["steps"]])
+    caps = [s["id"] for s in (df["steps"][-1], ir["steps"][-1]) if access(s["id"])[0] == "lic" and INDEX[s["id"]].get("tier")]
+    cap_note = (" Both capstones are " + " and ".join(sorted({access(c)[1] for c in caps})) +
+                "-plan cases; the Personal plan opens the rest.") if len(caps) == 2 else ""
     return f'''
   <section style="border-top:0">
     <div class="crumb"><a href="/">Home</a> / <a href="resources.html">Resources</a> / Guide for self-study</div>
     <div class="secthead">
       <h1 class="opener">Learn DFIR on your own, <em>around a job</em></h1>
-      <p class="osub">Two study paths from First Look to a capstone, the free tools each week needs, and a cadence of about three hours a week: two 90-minute sessions. Every run generates fresh evidence, so you can redo a case and still have to work it.</p>
+      <p class="osub">Two study paths from First Look to a capstone, the free tools each week needs, and a cadence of about three hours a week: two 90-minute sessions. Every run generates fresh evidence, so you can redo a case and still have to work it.{E(cap_note)}</p>
     </div>
   </section>
 

@@ -43,6 +43,27 @@ def fmt_time(minutes):
     return f"~{round(h * 10) / 10:g} h" if h >= 1 else f"~{minutes} min"
 
 
+_TIER = {}  # case id -> required license tier, filled in main()
+
+
+def plan_needed(cid):
+    """The plan a step needs when the Personal plan can't open it (Expert and
+    Marquee cases are Department tier), else ""."""
+    tier = _TIER.get(cid)
+    if tier and packs.tier_rank(tier) > packs.tier_rank("personal"):
+        return tier.title()
+    return ""
+
+
+def plan_tag(cid):
+    need = plan_needed(cid)
+    return f'<span class="tag plan">{E(need)} plan</span>' if need else ""
+
+
+PLAN_NOTE = ("A step marked Department plan is an Expert or Marquee case: it opens on the Department plan "
+             "or above. The Personal plan opens every other step.")
+
+
 def step_html(i, s):
     name = s.get("codename") or s.get("name") or s["id"]
     diff = s.get("difficulty") or "medium"
@@ -51,7 +72,7 @@ def step_html(i, s):
     return (
         f'<li class="pwc-step"><span class="pwc-num">{i}</span><div>'
         f'<div class="pwc-name"><span>{E(name)}</span>'
-        f'<span class="tag {tag}">{E(label)}</span></div>'
+        f'<span class="tag {tag}">{E(label)}</span>{plan_tag(s["id"])}</div>'
         f'<div class="pwc-note">{E(s["note"])}</div></div></li>'
     )
 
@@ -99,6 +120,7 @@ def discipline_html(d, cat):
 
 def main():
     index = {r["id"]: r for r in packs.all_scenarios() if "id" in r}
+    _TIER.update({k: v.get("tier") for k, v in index.items()})
     cat = pathways.catalog(index)
     for p in cat:
         for st in p["steps"]:
@@ -106,7 +128,7 @@ def main():
     n_df = sum(1 for p in cat if p.get("discipline") != "incident-response")
     n_ir = len(cat) - n_df
     sections = "\n".join(discipline_html(d, cat) for d in DISC)
-    html_doc = TEMPLATE.format(sections=sections, n=len(cat), n_df=n_df, n_ir=n_ir)
+    html_doc = TEMPLATE.format(sections=sections, n=len(cat), n_df=n_df, n_ir=n_ir, plan_note=E(PLAN_NOTE))
     out = os.path.join(SITE, "pathways.html")
     with open(out, "w") as f:
         f.write(html_doc)
@@ -175,7 +197,7 @@ TEMPLATE = '''<!doctype html>
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Pathways</div>
   <div class="secthead">
     <h1 class="opener">Learning pathways</h1>
-    <p class="osub">Ordered, case-by-case curricula that take a learner from first-look triage to a capstone, across both disciplines, <strong>Digital Forensics</strong> and <strong>Incident Response</strong>. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student.</p>
+    <p class="osub">Ordered, case-by-case curricula that take a learner from first-look triage to a capstone, across both disciplines, <strong>Digital Forensics</strong> and <strong>Incident Response</strong>. Follow a certification-prep path or a role. Every case still generates a unique, auto-graded lab for each student. {plan_note}</p>
   </div>
   <div class="pwfilter" role="group" aria-label="Filter pathways by discipline">
     <button type="button" class="pwtab on" data-disc="all">All pathways</button>
@@ -486,6 +508,8 @@ def page_step_html(i, s):
     diff = s.get("difficulty") or "medium"
     tag = DIFF_TAG.get(diff, "medium")
     meta = [f'<span class="tag {tag}">{E(diff.replace("-", " ").upper())}</span>']
+    if plan_needed(s["id"]):
+        meta.append(plan_tag(s["id"]))
     if s.get("minutes"):
         meta.append(f'<span>{E(fmt_minutes(s["minutes"]))}</span>')
     if s.get("questions"):
@@ -582,7 +606,8 @@ def page_html(p, cat, header, footer):
         label=E(p["label"]), kind=E(kind), disc=E(disc), aligned=aligned, h1a=E(h1a), h1b=E(h1b),
         lede=E(c["expects"]), builds=E(c["builds"]), proof=proof, slug=p["slug"], total_plain=total.lstrip("~"),
         steps=steps, chips=chips_html(p), who=who, related=related_html(p, cat), notes=notes, cert_note=CERT_NOTE,
-        n=p["count"], total=total)
+        n=p["count"], total=total,
+        plan_note=(" " + E(PLAN_NOTE)) if any(plan_needed(s["id"]) for s in p["steps"]) else "")
 
 
 def write_pages(cat):
@@ -653,7 +678,7 @@ PAGE_TEMPLATE = '''<!doctype html>
   <section>
     <div class="secthead">
       <h2 class="opener">The pathway, in order</h2>
-      <p class="osub">{n} cases, about {total_plain} of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and sample questions. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.</p>
+      <p class="osub">{n} cases, about {total_plain} of lab time. Each step opens the case in the library, where you can read the brief, the evidence list and sample questions. Everyone gets a different variant of the same case, graded against a key that was verified in the evidence.{plan_note}</p>
     </div>
     <ol class="rows-list" style="list-style:none;margin:0;padding:0">
 {steps}

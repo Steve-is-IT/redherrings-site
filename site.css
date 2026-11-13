@@ -874,3 +874,5 @@ footer .flegal a:hover{color:#fff}
 .hero-copy .hero-cta{margin-top:16px}
 @media(max-width:820px){.hero-split .cta-row{justify-content:center}}
 .hero-copy .hero-cta .btn{padding:14px 20px}
+/* Pathway steps a plan has to open (Expert and Marquee cases need Department). */
+.tag.plan{color:var(--muted);border-color:var(--line)}
