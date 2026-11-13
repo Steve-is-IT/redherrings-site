@@ -326,7 +326,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   <section>
     <div class="dl-head">
       <h1>Download Red Herrings</h1>
-      <p class="sub">The desktop app runs entirely on your machine. Every <strong>First Look case runs free</strong> with no key or account. For the rest, request a <strong>30-day trial key</strong> by email: it adds a medium and a hard case in each discipline, the student portal and grading for up to five students.</p>
+      <p class="sub">The desktop app runs entirely on your machine. Every <strong>First Look case runs free</strong> with no key or account, with the student portal and grading for up to five students per lab. A <strong>30-day trial key</strong> by email adds a medium and a hard case in each discipline.</p>
       <div class="dl-ver"><span class="chip">{E(tag)}</span></div>
     </div>
 
@@ -334,7 +334,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     </div>
 
     <div class="dl-lead" id="dl-lead">
-      <div class="dl-leadtext"><strong>Start your 30-day trial</strong><span>First Look is free for everyone. The trial adds a medium and a hard case in both forensics and incident response, plus the student portal, timed exams and analytics, for up to five students. Enter your email and we'll send a key, no card. Tell us how you'll use it and we'll tailor the guide that comes with it.</span></div>
+      <div class="dl-leadtext"><strong>Start your 30-day trial</strong><span>First Look is free for everyone, with the student portal, timed exams and analytics for up to five students per lab. The trial key adds a medium and a hard case in both forensics and incident response for 30 days. Enter your email and we'll send a key, no card. Tell us how you'll use it and we'll tailor the guide that comes with it.</span></div>
       <div class="dl-kits" role="radiogroup" aria-label="How you will use it, optional">
         <button type="button" class="dl-kit" data-kit="educator" role="radio" aria-checked="false"><b>I teach a class</b><span>A 14-week term plan with each case's cert topic (GCFE, GCFA and more), a grading walkthrough, and the import steps for Canvas, Blackboard, Moodle and D2L.</span></button>
         <button type="button" class="dl-kit" data-kit="team" role="radio" aria-checked="false"><b>I run a security team</b><span>A drill plan from First Look triage to a full intrusion, the MITRE ATT&amp;CK coverage map, and how to run scored exercises with integrity logging.</span></button>

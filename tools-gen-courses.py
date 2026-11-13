@@ -144,7 +144,7 @@ def main():
 {sections}
   <section class="cta-band" aria-labelledby="cta-courses">
     <h2 id="cta-courses">Teach the whole term from one download.</h2>
-    <p class="sub" style="margin-bottom:24px">Every First Look week in both courses runs free, with no key. The 30-day trial adds {trial_weeks(cat)}, and an Educator license runs every week.</p>
+    <p class="sub" style="margin-bottom:24px">Every First Look week in both courses runs free, with no key, for up to five students per lab. The 30-day trial adds {trial_weeks(cat)}, and an Educator license runs every week.</p>
     <div class="cta-row">
       <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-courses">Learn for free</a>
       <a class="btn ghost" href="pathways.html">See the learning pathways</a>

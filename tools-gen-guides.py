@@ -166,7 +166,7 @@ def educator_main():
 
   <section>
     <div class="secthead"><h2 class="opener">The {df["weeks_total"]}-week forensics term</h2>
-      <p class="osub">{E(df["label"])}: {E(df["level"])}. About {round(df["total_minutes"] / 60)} lab hours. The cert topic column names the prep track each case sits in ({E(", ".join(certs))}). A track is named for a certification, not mapped to it objective by objective. {f1} weeks run free and the trial opens {t1} more, so you can teach the first stretch of the term before buying anything.</p></div>
+      <p class="osub">{E(df["label"])}: {E(df["level"])}. About {round(df["total_minutes"] / 60)} lab hours. The cert topic column names the prep track each case sits in ({E(", ".join(certs))}). A track is named for a certification, not mapped to it objective by objective. {f1} weeks run free and the trial opens {t1} more, for up to five students per lab, so you can try the first stretch of the term with a small group before buying.</p></div>
     {LEGEND}
     {course_table(df, True)}
     <p class="note">Learning outcomes, readings and the grading scheme are in the <a href="files/syllabus-{E(df["slug"])}.pdf">syllabus PDF</a>. The app's Courses screen generates every week's lab for a class size you set, numbered student-001 up. To keep your roster's ids, generate each week from the Generate screen.</p>
@@ -252,7 +252,7 @@ def team_main():
 
   <section>
     <div class="secthead"><h2 class="opener">The drill plan</h2>
-      <p class="osub">{len(steps)} cases, about {round(total / 60)} hours in total. Run one a week or one per on-call rotation. {f} run free on download and the trial opens {tr} more ({E(trial_names)}), so you can take a phish from the first alert to command and control before you buy.</p></div>
+      <p class="osub">{len(steps)} cases, about {round(total / 60)} hours in total. Run one a week or one per on-call rotation. {f} run free on download for up to five analysts and the trial opens {tr} more ({E(trial_names)}), so you can take a phish from the first alert to command and control before you buy.</p></div>
     {LEGEND}
     <div class="tablewrap"><table class="gt"><thead><tr><th>Case</th><th>Level</th><th>Time</th><th>ATT&amp;CK tactics</th><th>Access</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>
   </section>
@@ -378,7 +378,7 @@ PAGES = [
      "title": "DFIR Lab Course Guide for Educators: Term Plan, Grading, LMS Import | Red Herrings",
      "desc": "A week-by-week forensics and incident-response term plan, how auto-grading works, and grade import steps for Canvas, Blackboard, Moodle and D2L Brightspace.",
      "og": "Teach a DFIR lab course without building the labs",
-     "cta": ("Start the term on the trial.", "The First Look weeks run free. The trial opens the midterm, the capstone and the phishing exam for 30 days, for up to five students.", "guide-educators")},
+     "cta": ("Start the term on the trial.", "The First Look weeks run free for up to five students per lab. The trial opens the midterm, the capstone and the phishing exam for 30 days, also for five students.", "guide-educators")},
     {"file": "guide-security-teams.html", "main": team_main,
      "title": "IR Drill Guide for Security Teams: Drill Plan, ATT&amp;CK Coverage, Scoring | Red Herrings",
      "desc": "A drill plan from First Look triage to a full intrusion, the MITRE ATT&CK techniques it exercises, and how to run timed, scored exercises with integrity logging.",
