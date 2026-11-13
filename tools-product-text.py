@@ -21,6 +21,10 @@ import sys
 FIXES = {
     "course": {
         "incident-response-fundamentals-8": [
+            # The final case's questions cover detection, containment and
+            # eradication; none is tagged recovery or post-incident.
+            ("to running a ransomware incident through every NIST 800-61 phase.",
+             "to running a ransomware incident from first alert to containment, eradication and the breach report."),
             # Week 2: all five alerts in ir-first-look-siem are one chain on one
             # user and host, so there's no noise to dismiss.
             ("Separate a true positive from noise.",
@@ -72,8 +76,15 @@ FIXES = {
             ("Follow a service account across logs, memory and a capture.",
              "Trace a stolen service account through the logs and capture to the server it reached."),
         ],
+        # Nightfall's questions cover detection, containment and eradication.
+        "ir-marquee-nightfall": [("Capstone: run a hospital-wide incident through every NIST phase.",
+                                  "Capstone: run a hospital-wide incident from detection to eradication, then write the report.")],
     },
     "case-summary": {
+        "hot-wallet-drained": [("map it to ATT&CK and run the response through every NIST phase.",
+                                "map it to ATT&CK and carry the response through containment and eradication.")],
+        "ir-marquee-nightfall": [("run the response through every NIST phase, and write the incident report.",
+                                  "carry the response through containment and eradication, and write the incident report.")],
     },
 }
 
