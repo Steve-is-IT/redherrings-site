@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Try Two Cases in Your Browser | Red Herrings</title>
-<meta name="description" content="Work an incident-response case and a forensics case in your browser, no install. Then generate another student's variant and watch every answer change.">
+<meta name="description" content="Work an incident-response case and a forensics case in your browser, no install. Then generate another student's variant and watch the hosts, users, times and hashes change.">
 <link rel="canonical" href="https://redherrings.app/try.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -14,7 +14,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#D42A2A">
 <meta property="og:title" content="Try two cases in your browser: incident response and forensics">
-<meta property="og:description" content="Work an incident-response case and a forensics case in your browser, no install. Then generate another student's variant and watch every answer change.">
+<meta property="og:description" content="Work an incident-response case and a forensics case in your browser, no install. Then generate another student's variant and watch the hosts, users, times and hashes change.">
 <meta property="og:url" content="https://redherrings.app/try.html">
 <meta property="og:image" content="https://redherrings.app/img/og/home-f129ee30.png">
 <meta property="og:image:width" content="1200">
@@ -123,8 +123,8 @@
 <main class="wrap" id="main">
   <div class="crumb" style="margin-bottom:10px"><a href="/">Home</a> / Try a case</div>
   <div class="secthead">
-    <h1 class="opener">Work two real cases, right here</h1>
-    <p class="osub">Here are two First Look cases, one from each discipline, rendered in the browser. Read the evidence, answer the questions, and check yourself. Then press <strong>Generate another student&rsquo;s variant</strong> and watch the hostnames, users, times, serials, hashes and every answer change. That&rsquo;s what each student in a class gets.</p>
+    <h1 class="opener">Try two First Look cases, right here</h1>
+    <p class="osub">Here are in-browser sketches of two First Look cases, one from each discipline. Read the evidence, answer the questions, and check yourself. Then press <strong>Generate another student&rsquo;s variant</strong> and watch the hostnames, users, times, serials and hashes change, and the answers built on them. In the app, the full cases ship real registry hives and detection files and ask their own questions.</p>
   </div>
 
   <section style="border-top:0">
@@ -135,7 +135,7 @@
 
     <div class="variant">
       <span class="vs">Variant <b id="vseed"></b> &middot; student <b id="vname"></b></span>
-      <span class="vl" id="vlabel">Same case, this student&rsquo;s evidence. Every value below is derived from the seed, and so is every answer.</span>
+      <span class="vl" id="vlabel">Same case, this student&rsquo;s evidence. The hosts, users, times and hashes below are derived from the seed.</span>
       <button class="btn" type="button" id="reseed" data-goatcounter-click="try-reseed">Generate another student&rsquo;s variant</button>
     </div>
 
@@ -149,7 +149,7 @@
     <div class="qlist" id="qlist"></div>
 
     <div class="sampnote">
-      This online sample lets you reveal the answers so you can check yourself. In a real lab the key is verified against the planted evidence before anything ships, grading happens on the instructor&rsquo;s machine, and nothing is revealed in the browser. Since every variant differs, a copied answer is the wrong answer.
+      This online sample lets you reveal the answers so you can check yourself. In a real lab the key is verified against the planted evidence before anything ships, grading happens on the instructor&rsquo;s machine, and nothing is revealed in the browser. Since hosts, users, times and hashes differ per variant, a copied value is the wrong answer.
     </div>
 
     <div class="cta-row" style="margin-top:34px">
@@ -414,7 +414,7 @@ function render(flash){
   if(flash){box.classList.remove("flash");void box.offsetWidth;box.classList.add("flash");}
 }
 document.querySelectorAll(".ttab").forEach(function(b){b.onclick=function(){document.querySelectorAll(".ttab").forEach(function(x){x.setAttribute("aria-selected",x===b?"true":"false");});current=b.dataset.case;render(false);};});
-document.getElementById("reseed").onclick=function(){seed=hex(rng(seed+":"+Date.now()),4);document.getElementById("vlabel").textContent="New variant. Same case, same questions, different evidence: compare the host, user, times, serial and hashes with what you had a moment ago. Every answer changed with them.";render(true);try{history.replaceState(null,"","?seed="+seed);}catch(e){}};
+document.getElementById("reseed").onclick=function(){seed=hex(rng(seed+":"+Date.now()),4);document.getElementById("vlabel").textContent="New variant. Same case, same questions, different evidence: compare the host, user, times, serial and hashes with what you had a moment ago, and the answers built on them.";render(true);try{history.replaceState(null,"","?seed="+seed);}catch(e){}};
 render(false);
 </script>
 
