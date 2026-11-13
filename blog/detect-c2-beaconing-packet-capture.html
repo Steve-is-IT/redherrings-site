@@ -77,7 +77,7 @@
     </ul>
     <p>To measure the rhythm, list only the packets that open a connection (a SYN with no ACK) and show the gap since the previous one. In Wireshark that's the display filter <code>tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0</code> with <code>frame.time_delta_displayed</code> added as a column. tshark prints the same as text:</p>
     <figure class="fig">
-<pre><code><span class="fig-cmd">$ tshark -r capture.pcap -Y "tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0" \</span>
+<pre tabindex="0"><code><span class="fig-cmd">$ tshark -r capture.pcap -Y "tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0" \</span>
 <span class="fig-cmd">    -T fields -E header=y -e frame.time_relative -e frame.time_delta_displayed -e ip.dst -e tcp.dstport</span>
 frame.time_relative  frame.time_delta_displayed  ip.dst          tcp.dstport
 ...

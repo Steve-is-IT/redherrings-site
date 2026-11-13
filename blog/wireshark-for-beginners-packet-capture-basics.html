@@ -87,7 +87,7 @@
     <h2>Statistics: Conversations and Endpoints</h2>
     <p>Don't start by scrolling packets. Start with Statistics, then <strong>Conversations</strong>. The IPv4 and TCP tabs list every pair of hosts that talked, with packet counts, bytes in each direction, start time and duration. Sort by bytes to see where the volume went. Sort by duration to see what stayed connected. Sort by start time to see the order things happened. A capture with 40,000 packets usually has a dozen conversations that matter, and this table is where you find them.</p>
     <figure class="fig">
-<pre><code><span class="fig-cmd">$ tshark -r capture.pcap -q -z conv,tcp</span>
+<pre tabindex="0"><code><span class="fig-cmd">$ tshark -r capture.pcap -q -z conv,tcp</span>
 ================================================================================
 TCP Conversations
 Filter:&lt;No Filter&gt;
@@ -119,7 +119,7 @@ Filter:&lt;No Filter&gt;
     <p>Two protocols carry most of the story in a beginner's capture, and both read well in the packet list once you know which columns to watch.</p>
     <p><strong>DNS.</strong> Filter <code>dns</code>. Each query and its response appear as a pair; the Info column shows the name asked for and, on the response line, the address returned. Filter <code>dns.flags.response == 0</code> to see only the questions, which is a compact list of every name the host tried to resolve, in order. A name you don't recognize, followed a second later by a TCP connection to the address it returned, is the thread to pull. The <a href="/blog/detect-c2-beaconing-packet-capture.html">beaconing post</a> picks it up from there.</p>
     <figure class="fig">
-<pre><code><span class="fig-cmd">$ tshark -r capture.pcap -t ud -Y "dns.flags.response == 0"</span>
+<pre tabindex="0"><code><span class="fig-cmd">$ tshark -r capture.pcap -t ud -Y "dns.flags.response == 0"</span>
     3 2025-06-03 12:14:06.246986 10.89.97.117 → 10.89.97.10  DNS 76 Standard query 0x644b A cdn.jsdelivr.net
    46 2025-06-03 12:16:12.703610 10.89.97.117 → 10.89.97.10  DNS 74 Standard query 0x5d28 A www.google.com
   155 2025-06-03 12:17:09.681013 10.89.97.117 → 10.89.97.10  DNS 89 Standard query 0x8e47 A v10.events.data.microsoft.com
