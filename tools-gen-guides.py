@@ -174,7 +174,7 @@ def educator_main():
 
   <section>
     <div class="secthead"><h2 class="opener">The {ir["weeks_total"]}-week incident-response course</h2>
-      <p class="osub">{E(ir["label"])}: {E(ir["level"])}. Worked from EDR, SIEM, email and event-log evidence and graded against MITRE ATT&amp;CK. {f2} weeks run free and the trial opens {t2} more.</p></div>
+      <p class="osub">{E(ir["label"])}: {E(ir["level"])}. Worked from EDR, SIEM, email and event-log evidence and mapped to MITRE ATT&amp;CK. {f2} weeks run free and the trial opens {t2} more.</p></div>
     {course_table(ir, False)}
     <p class="note">Full outcomes and readings: <a href="files/syllabus-{E(ir["slug"])}.pdf">syllabus PDF</a>.</p>
   </section>
