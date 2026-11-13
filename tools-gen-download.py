@@ -171,7 +171,7 @@ def page(latest, releases, notes, sums):
         <p class="dl-req">Windows 10 or 11, 64-bit. Run the installer; it adds a Start menu entry, needs no admin rights, and upgrades in place. The app opens in your browser.</p>
         <a class="btn primary" href="{DL}/{setup_name}" data-goatcounter-click="download-windows-setup">Download the installer{(" · " + setup_size) if setup_size else ""}</a>
         {sha_block(setup_sha, "the installer")}
-        <p class="dl-muted">Prefer no install? <a href="{DL}/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Portable zip{(" · " + win_size) if win_size else ""}</a>: unzip anywhere and run <code>RedHerrings.exe</code>.</p>
+        <p class="dl-muted">Prefer no install? <a href="{DL}/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Portable zip{(" · " + win_size) if win_size else ""}</a>: unzip anywhere and run <code>RedHerrings.exe</code> in the <code>RedHerrings</code> folder.</p>
         <details class="dl-verify"><summary>Verify the download</summary>
           <p>In PowerShell, in the folder you downloaded to:</p>
           <pre><code>(Get-FileHash .\\{setup_name} -Algorithm SHA256).Hash</code></pre>
@@ -182,7 +182,7 @@ def page(latest, releases, notes, sums):
       </div>''' if (has_win and setup_name) else f'''
       <div class="dl-card">
         <div class="dl-os">Windows</div>
-        <p class="dl-req">Windows 10 or 11, 64-bit. No installer: unzip and run <code>RedHerrings.exe</code>; it opens in your browser.</p>
+        <p class="dl-req">Windows 10 or 11, 64-bit. No installer: unzip and run <code>RedHerrings.exe</code> in the <code>RedHerrings</code> folder; it opens in your browser.</p>
         <a class="btn primary" href="{DL}/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Download for Windows{(" · " + win_size) if win_size else ""}</a>
         {sha_block(win_sha, "Windows")}
         <details class="dl-verify"><summary>Verify the download</summary>
@@ -200,7 +200,7 @@ def page(latest, releases, notes, sums):
     lin_card = f'''
       <div class="dl-card">
         <div class="dl-os">Linux</div>
-        <p class="dl-req">64-bit Linux with glibc 2.35 or newer (Ubuntu 22.04 and SIFT, Debian 12, Fedora 36 or newer). Unzip and run <code>./RedHerrings</code>.</p>
+        <p class="dl-req">64-bit Linux with glibc 2.35 or newer (Ubuntu 22.04 and SIFT, Debian 12, Fedora 36 or newer). Unzip, then run <code>./RedHerrings/RedHerrings</code>.</p>
         <a class="btn primary" href="{DL}/RedHerrings-linux.zip" data-goatcounter-click="download-linux">Download for Linux{(" · " + lin_size) if lin_size else ""}</a>
         {sha_block(lin_sha, "Linux")}
         <details class="dl-verify"><summary>Verify the download</summary>
@@ -219,11 +219,11 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
             for a in mac_assets)
         shas = "".join(sha_block(sums.get(a, ""), a) for a in mac_assets)
         gate = ('<p class="dl-signed">&#10003; Signed with a Developer ID certificate and notarized by Apple.</p>' if mac_notarized else
-                '<p class="dl-muted">Not yet notarized, so macOS warns on first launch. Control-click <code>RedHerrings</code> and choose <strong>Open</strong>, then <strong>Open</strong> again. <a href="/help.html#gatekeeper">Still blocked on a newer Mac?</a></p>')
+                '<p class="dl-muted">Not yet notarized, so macOS warns on first launch. Control-click <code>RedHerrings</code> inside the folder and choose <strong>Open</strong>, then <strong>Open</strong> again. <a href="/help.html#gatekeeper">Still blocked on a newer Mac?</a></p>')
         mac_card = f'''
       <div class="dl-card">
         <div class="dl-os">macOS</div>
-        <p class="dl-req">macOS 12 or newer. Pick the build for your Mac (Apple menu &rarr; About This Mac shows the chip). Unzip, then double-click <code>RedHerrings</code>; it opens Terminal and your browser.</p>
+        <p class="dl-req">macOS 12 or newer. Pick the build for your Mac (Apple menu &rarr; About This Mac shows the chip). Unzip, open the <code>RedHerrings</code> folder and double-click <code>RedHerrings</code> inside it; it opens Terminal and your browser.</p>
         <div class="dl-row">{links}</div>
         {shas}
         <details class="dl-verify"><summary>Verify the download</summary>

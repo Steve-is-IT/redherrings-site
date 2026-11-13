@@ -113,7 +113,7 @@
         <p class="dl-req">Windows 10 or 11, 64-bit. Run the installer; it adds a Start menu entry, needs no admin rights, and upgrades in place. The app opens in your browser.</p>
         <a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/download/v1.16.0/RedHerrings-Setup-1.16.0.exe" data-goatcounter-click="download-windows-setup">Download the installer · 41 MB</a>
         <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>47ff2979641ce907f549161928e120368850ce8938a8b541c907fb74c048b41e</code></div>
-        <p class="dl-muted">Prefer no install? <a href="https://github.com/Steve-is-IT/redherrings-site/releases/download/v1.16.0/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Portable zip · 53 MB</a>: unzip anywhere and run <code>RedHerrings.exe</code>.</p>
+        <p class="dl-muted">Prefer no install? <a href="https://github.com/Steve-is-IT/redherrings-site/releases/download/v1.16.0/RedHerrings-windows.zip" data-goatcounter-click="download-windows">Portable zip · 53 MB</a>: unzip anywhere and run <code>RedHerrings.exe</code> in the <code>RedHerrings</code> folder.</p>
         <details class="dl-verify"><summary>Verify the download</summary>
           <p>In PowerShell, in the folder you downloaded to:</p>
           <pre><code>(Get-FileHash .\RedHerrings-Setup-1.16.0.exe -Algorithm SHA256).Hash</code></pre>
@@ -124,7 +124,7 @@
       </div>
       <div class="dl-card">
         <div class="dl-os">macOS</div>
-        <p class="dl-req">macOS 12 or newer. Pick the build for your Mac (Apple menu &rarr; About This Mac shows the chip). Unzip, then double-click <code>RedHerrings</code>; it opens Terminal and your browser.</p>
+        <p class="dl-req">macOS 12 or newer. Pick the build for your Mac (Apple menu &rarr; About This Mac shows the chip). Unzip, open the <code>RedHerrings</code> folder and double-click <code>RedHerrings</code> inside it; it opens Terminal and your browser.</p>
         <div class="dl-row"><a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/download/v1.16.0/RedHerrings-macos-arm64.zip" data-goatcounter-click="download-macos-arm64">Download for Apple silicon · 50 MB</a><a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/download/v1.16.0/RedHerrings-macos-intel.zip" data-goatcounter-click="download-macos-intel">Download for Intel Mac · 54 MB</a></div>
         <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>8bfc9aa49051a302b06475b647ed49e78fab330bd6e889012dc6bb06e07ba8eb</code></div><div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>f8c9d5f8a916ccb79055fbad024db67721b7172450862b53bfc40832cf0b8be3</code></div>
         <details class="dl-verify"><summary>Verify the download</summary>
@@ -132,11 +132,11 @@
           <pre><code>shasum -a 256 RedHerrings-macos-*.zip</code></pre>
           <p>The output must match the SHA-256 above.</p>
         </details>
-        <p class="dl-muted">Not yet notarized, so macOS warns on first launch. Control-click <code>RedHerrings</code> and choose <strong>Open</strong>, then <strong>Open</strong> again. <a href="/help.html#gatekeeper">Still blocked on a newer Mac?</a></p>
+        <p class="dl-muted">Not yet notarized, so macOS warns on first launch. Control-click <code>RedHerrings</code> inside the folder and choose <strong>Open</strong>, then <strong>Open</strong> again. <a href="/help.html#gatekeeper">Still blocked on a newer Mac?</a></p>
       </div>
       <div class="dl-card">
         <div class="dl-os">Linux</div>
-        <p class="dl-req">64-bit Linux with glibc 2.35 or newer (Ubuntu 22.04 and SIFT, Debian 12, Fedora 36 or newer). Unzip and run <code>./RedHerrings</code>.</p>
+        <p class="dl-req">64-bit Linux with glibc 2.35 or newer (Ubuntu 22.04 and SIFT, Debian 12, Fedora 36 or newer). Unzip, then run <code>./RedHerrings/RedHerrings</code>.</p>
         <a class="btn primary" href="https://github.com/Steve-is-IT/redherrings-site/releases/download/v1.16.0/RedHerrings-linux.zip" data-goatcounter-click="download-linux">Download for Linux · 80 MB</a>
         <div class="dl-sha"><span class="dl-shalabel">SHA-256</span><code>e16affc7d655fe9fc9f54bb156baba4f45092c8ac6dd09a138f2db6dbd7762f6</code></div>
         <details class="dl-verify"><summary>Verify the download</summary>
