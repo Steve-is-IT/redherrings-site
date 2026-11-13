@@ -287,7 +287,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   .dl-req{{color:var(--ink-2,#5b6472);font-size:14px;margin:0 0 14px}}
   .dl-card .btn{{display:inline-block;margin-bottom:14px}}
   .dl-sha{{display:flex;flex-direction:column;gap:4px;margin:0 0 10px}}
-  .dl-shalabel{{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--ink-3,#8a93a3)}}
+  .dl-shalabel{{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--faint)}}
   .dl-sha code{{font-size:12px;word-break:break-all;padding:8px 10px;border-radius:8px;background:var(--panel2,rgba(127,127,127,.08));display:block}}
   .dl-verify summary{{cursor:pointer;font-weight:600;font-size:14px}}
   .dl-verify pre{{margin:8px 0;padding:10px 12px;border-radius:8px;background:var(--panel2,rgba(127,127,127,.08));overflow:auto;font-size:12.5px}}
@@ -314,9 +314,9 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
   .dl-notes{{border-top:1px solid var(--line,#e7e9ee);padding:14px 0}}
   .dl-notes summary{{cursor:pointer;font-size:17px}}
   .dl-notesbody{{padding:8px 0 4px 2px;font-size:15px;max-width:75ch}}
-  .dl-notesbody h4{{margin:16px 0 6px;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3,#8a93a3)}}
+  .dl-notesbody h4{{margin:16px 0 6px;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}}
   .dl-notesbody ul{{padding-left:20px}} .dl-notesbody li{{margin:6px 0}}
-  .dl-muted{{color:var(--ink-3,#8a93a3);font-weight:400;font-size:14px}}
+  .dl-muted{{color:var(--faint);font-weight:400;font-size:14px}}
   .dl-it{{margin:30px 0 10px;padding:18px 20px;border:1px solid var(--line,#e7e9ee);border-radius:14px;font-size:15px}}
 </style>
 </head>

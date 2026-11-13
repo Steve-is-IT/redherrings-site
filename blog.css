@@ -10,16 +10,16 @@
 /* ---- category colors (pill + accents), index only ---- */
 .cat{display:inline-flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:.06em;
   text-transform:uppercase;padding:5px 12px;border-radius:999px;color:#fff;background:var(--accent);line-height:1}
-.cat.c-mobile{background:#1fa85b}
+.cat.c-mobile{background:#188548}
 .cat.c-windows{background:#2f6fe0}
-.cat.c-ir{background:#e5382f}
-.cat.c-threat{background:#8b5cf6}
-.cat.c-network{background:#0e9aa7}
-.cat.c-course{background:#c7891a}
-.cat.c-exam{background:#db2777}
+.cat.c-ir{background:#da352d}
+.cat.c-threat{background:#8457ea}
+.cat.c-network{background:#0c818c}
+.cat.c-course{background:#9b6b14}
+.cat.c-exam{background:#d92776}
 .cat.c-tool{background:#4f6b8f}
 .cat.c-secops{background:#5a67d8}
-.cat.c-buying{background:#0e9e74}
+.cat.c-buying{background:#0c8561}
 
 /* ---- index meta row (date / reading time) ---- */
 .pmeta{display:flex;align-items:center;gap:9px;color:var(--faint);font-size:13.5px;flex-wrap:wrap}

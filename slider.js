@@ -53,6 +53,8 @@
       slides.forEach(function (s, idx) {
         s.classList.toggle("is-active", idx === i);
         s.setAttribute("aria-hidden", idx === i ? "false" : "true");
+        // A hidden slide is out of the tab order too (its image is a zoom button).
+        s.inert = idx !== i;
       });
       dots.forEach(function (d, idx) {
         d.classList.toggle("is-on", idx === i);
