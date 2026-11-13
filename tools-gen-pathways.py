@@ -100,6 +100,9 @@ def discipline_html(d, cat):
 def main():
     index = {r["id"]: r for r in packs.all_scenarios() if "id" in r}
     cat = pathways.catalog(index)
+    for p in cat:
+        for st in p["steps"]:
+            st["note"] = PT.fix("pathway-note", st["id"], st.get("note"))
     n_df = sum(1 for p in cat if p.get("discipline") != "incident-response")
     n_ir = len(cat) - n_df
     sections = "\n".join(discipline_html(d, cat) for d in DISC)
@@ -112,6 +115,7 @@ def main():
     _load_tool("tools-apply-footer").apply(out)
     print(f"wrote {out}: {len(cat)} pathways ({n_df} DF, {n_ir} IR)")
     write_pages(cat)
+    PT.report("pathway-note")
 
 
 TEMPLATE = '''<!doctype html>
@@ -408,7 +412,7 @@ COPY = {
         "h1": ("GCFA practice labs,", "one intrusion at a time"),
         "desc": "Advanced forensics and IR labs built for GIAC GCFA exam prep: memory triage, injected code, a rogue admin, credential theft and a ransomware capstone.",
         "expects": "The GCFA objectives expect an examiner who can take a compromised host apart: baseline processes and connections in memory, find injected code and unlinked modules, trace a rogue admin across host artifacts, recognize an attacker's setup work before a payload, follow credential theft to lateral movement, and build the full intrusion timeline.",
-        "builds": "This pathway is the host-based capstone track. It starts with memory because every later case depends on it, moves through a rogue admin account and injected code in memory, then works a server caught before impact, a service account followed across hosts and an encrypted file server. The capstone, Operation Ledger, is a complete ransomware intrusion that asks for the whole timeline with every technique named.",
+        "builds": "This pathway is the host-based capstone track. It starts with memory because every later case depends on it, moves through a rogue admin account and injected code in memory, then works a server caught before impact, a stolen service account traced from one workstation and an encrypted file server. The capstone, Operation Ledger, is a complete ransomware intrusion that asks for the whole timeline with every technique named.",
         "who": [
             ("Candidates preparing for the GCFA", "who want full intrusions to take apart with Volatility, timeline tools and the event logs."),
             ("Instructors teaching an advanced forensics or IR capstone", "who need multi-hour cases that still grade themselves."),
@@ -428,6 +432,24 @@ COPY = {
         ],
     },
 }
+
+
+
+def _load_product_text():
+    """tools-product-text.py: site corrections to product text the cases don't back up."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("tools_product_text", os.path.join(SITE, "tools-product-text.py"))
+    mod = importlib.util.module_from_spec(spec)
+    was = sys.dont_write_bytecode
+    sys.dont_write_bytecode = True  # keep __pycache__ out of the site repo
+    try:
+        spec.loader.exec_module(mod)
+    finally:
+        sys.dont_write_bytecode = was
+    return mod
+
+
+PT = _load_product_text()
 
 
 def _load_tool(name):

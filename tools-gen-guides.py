@@ -48,8 +48,17 @@ def case_tactics(cid):
     """The tactics the case catalog shows for a case (tools-gen-cases.site_tactics)."""
     sc = packs.find_scenario(cid)[0]
     return _CASES_TOOL.site_tactics(cid, sc.raw.get("attack") if sc else None)
+
+
+# Product text the cases don't back up is corrected the same way on every page.
+PT = _CASES_TOOL.PT
+for _s in INDEX.values():
+    _s["summary"] = PT.fix("case-summary", _s["id"], _s.get("summary"))
 PATHS = {p["slug"]: p for p in pathways.catalog(INDEX)}
-COURSES = {c["slug"]: c for c in courses.catalog(INDEX)}
+for _p in PATHS.values():
+    for _st in _p["steps"]:
+        _st["note"] = PT.fix("pathway-note", _st["id"], _st.get("note"))
+COURSES = {c["slug"]: PT.fix_tree("course", c["slug"], c) for c in courses.catalog(INDEX)}
 TRIAL = set(licensing.TRIAL_SCENARIOS)
 DIFF = {"easy": "Easy", "medium": "Medium", "hard": "Hard", "expert": "Expert"}
 WEEK_BUDGET = 180  # minutes a working learner can give a week: two 90-minute sessions

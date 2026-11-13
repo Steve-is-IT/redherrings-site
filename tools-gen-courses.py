@@ -20,6 +20,24 @@ E = lambda s: html.escape(str(s or ""), quote=True)
 SLUG = {}  # scenario id -> public slug, filled in main()
 
 
+
+def _load_product_text():
+    """tools-product-text.py: site corrections to product text the cases don't back up."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("tools_product_text", os.path.join(SITE, "tools-product-text.py"))
+    mod = importlib.util.module_from_spec(spec)
+    was = sys.dont_write_bytecode
+    sys.dont_write_bytecode = True  # keep __pycache__ out of the site repo
+    try:
+        spec.loader.exec_module(mod)
+    finally:
+        sys.dont_write_bytecode = was
+    return mod
+
+
+PT = _load_product_text()
+
+
 def week_rows(c):
     out = []
     for w in c["weeks"]:
@@ -82,7 +100,13 @@ def apply_chrome(path):
 def main():
     index = {s["id"]: s for s in packs.all_scenarios() if "id" in s}
     SLUG.update({k: v.get("slug") or k for k, v in index.items()})
-    cat = courses.catalog(index)
+    cat = [PT.fix_tree("course", c["slug"], c) for c in courses.catalog(index)]
+    for c in cat:
+        for w in c["weeks"]:
+            w["summary"] = PT.fix("case-summary", w.get("case"), w.get("summary"))
+    # The syllabus PDF reads the shared policy text from courses.STANDARD.
+    for k in list(courses.STANDARD):
+        courses.STANDARD[k] = PT.fix_tree("standard", "*", courses.STANDARD[k])
     os.makedirs(os.path.join(SITE, "files"), exist_ok=True)
     branding = load_branding(None)
     for c in cat:
@@ -130,6 +154,7 @@ def main():
         f.write(head + main_html + tail)
     apply_chrome(out)
     print(f"wrote courses.html: {len(cat)} courses; syllabus PDFs in files/")
+    PT.report("course", "standard")
 
 
 if __name__ == "__main__":

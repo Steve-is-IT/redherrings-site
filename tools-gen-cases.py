@@ -52,6 +52,24 @@ TRACK_CHIP = {"foundations": ("trk-foundations", "Foundations"),
 TACTICS = {t["slug"]: t["label"] for t in attack.catalog()}
 
 
+
+def _load_product_text():
+    """tools-product-text.py: site corrections to product text the cases don't back up."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("tools_product_text", os.path.join(SITE, "tools-product-text.py"))
+    mod = importlib.util.module_from_spec(spec)
+    was = sys.dont_write_bytecode
+    sys.dont_write_bytecode = True  # keep __pycache__ out of the site repo
+    try:
+        spec.loader.exec_module(mod)
+    finally:
+        sys.dont_write_bytecode = was
+    return mod
+
+
+PT = _load_product_text()
+
+
 def site_tactics(sid, raw_attack=None):
     """The tactics a case card shows: the tactic slugs its attack list names, in
     kill-chain order. attack.tactics_for also adds every tactic of every listed
@@ -229,6 +247,7 @@ def main():
     for s in scen:
         sc = smap.get(s["id"])
         s["tactics"] = site_tactics(s["id"], sc.raw.get("attack") if sc else None)
+        s["summary"] = PT.fix("case-summary", s["id"], s.get("summary"))
     # Order: the difficulty ladder, first-look through marquee, the same order the
     # app's Case Library uses; IR after DF within a tier.
     scen.sort(key=lambda s: (DIFF_RANK.get(eff_diff(s), 9),
@@ -264,6 +283,7 @@ def main():
     apply_chrome(out)
     print(f"wrote {out}: {n} cases ({n_df} DF, {n_ir} IR)")
     write_attack_page(scen)
+    PT.report("case-summary")
 
 
 TEMPLATE = '''<!doctype html>
