@@ -137,7 +137,7 @@ def educator_main():
       <p class="osub">{E(df["label"])}: {E(df["level"])}. About {round(df["total_minutes"] / 60)} lab hours. The cert topic column names the prep track each case sits in ({E(", ".join(certs))}). A track is named for a certification, not mapped to it objective by objective. {f1} weeks run free and the trial opens {t1} more, so you can teach the first stretch of the term before buying anything.</p></div>
     {LEGEND}
     {course_table(df, True)}
-    <p class="note">Learning outcomes, readings and the grading scheme are in the <a href="files/syllabus-{E(df["slug"])}.pdf">syllabus PDF</a>. The app's Courses screen generates every week's lab for your roster.</p>
+    <p class="note">Learning outcomes, readings and the grading scheme are in the <a href="files/syllabus-{E(df["slug"])}.pdf">syllabus PDF</a>. The app's Courses screen generates every week's lab for a class size you set, numbered student-001 up. To keep your roster's ids, generate each week from the Generate screen.</p>
   </section>
 
   <section>
