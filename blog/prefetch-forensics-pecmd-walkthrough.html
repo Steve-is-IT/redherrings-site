@@ -88,7 +88,7 @@
     <p>The whole folder, to CSV:</p>
     <p><code>PECmd.exe -d "C:\evidence\Prefetch" --csv C:\out --csvf prefetch.csv</code></p>
     <p>You get two files. <code>prefetch.csv</code> has one row per Prefetch file with the run count, the eight run times in their own columns, and the volume and file lists. <code>prefetch_Timeline.csv</code> flattens every run time into its own row, which is the one to drop into a timeline. Open either in Timeline Explorer, sort by the last run column, and the recent activity on the machine is on the screen in front of you.</p>
-    <p>Two flags worth knowing: <code>--mp</code> prints timestamps to the millisecond, which matters when you're lining up a run against a 4688 event, and <code>-k "keyword1,keyword2"</code> highlights any file reference that matches, so you can hunt for a document name across every Prefetch file at once.</p>
+    <p>Two flags worth knowing: <code>--mp</code> prints sub-second timestamps (seven decimal places), which matters when you're lining up a run against a 4688 event, and <code>-k "keyword1,keyword2"</code> highlights any file reference that matches, so you can hunt for a document name across every Prefetch file at once.</p>
 
     <h2>Reading a row</h2>
     <p>Take a utility a student is asked about in <a href="/cases.html#first-look-what-ran-on-this-machine">First Look: What Ran on This Machine</a>: one user profile, a downloaded tool, and the questions "was it run, how often, and when". The Prefetch row answers all three directly. The executable name is in the filename, the run count is a column, and the last run column is the most recent execution. The eight run times tell you the pattern: once at 02:14 is different from eight times across a working day.</p>
