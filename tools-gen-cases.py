@@ -28,6 +28,27 @@ EVIDENCE_LABEL = {
     "email": "Mailbox (*.eml)", "linux": "Linux logs (*.log)", "macos": "macOS artifacts (SQLite, text)", "disk": "Disk image (*.dd)",
 }
 
+def evidence_labels(meta, sc):
+    """Evidence type labels for a case card. The windows family writes more
+    than hives: Prefetch on every workstation (and on a server whose case plants
+    runs), plus shortcuts and jump lists when the case plants them, so those get
+    their own labels rather than hiding under Registry."""
+    types = meta.get("artifact_types") or []
+    out = []
+    for a in types:
+        out.append(ev_label(a, types, meta.get("host_os")))
+        if a == "windows" and sc is not None:
+            spec = (sc.raw.get("artifacts") or {}).get("windows") or {}
+            server = ((sc.raw.get("setting") or {}).get("host") or {}).get("role") == "server"
+            if spec.get("prefetch") or not server:
+                out.append("Prefetch (*.pf)")
+            if spec.get("lnk"):
+                out.append("Shortcuts (*.lnk)")
+            if spec.get("jumplists"):
+                out.append("Jump lists")
+    return out
+
+
 def ev_label(a, types, host_os=""):
     """A Linux case's memory image is LiME, not a Windows crash dump. Same test
     as the app's evLabel: a linux artifact type or a Linux host OS."""
@@ -132,7 +153,7 @@ def build_detail(meta, sc):
         "discCls": "ir" if ir else "df",
         "diff": DIFF_LABEL.get(ed, ed.title()), "diffCls": DIFF_PILLCLASS.get(ed, ed),
         "est": meta.get("estimated_minutes"), "qmax": questions_up_to(total_q),
-        "evidence": [ev_label(a, meta.get("artifact_types"), meta.get("host_os")) for a in (meta.get("artifact_types") or [])],
+        "evidence": meta.get("evidence") or [ev_label(a, meta.get("artifact_types"), meta.get("host_os")) for a in (meta.get("artifact_types") or [])],
         "tools": meta.get("tools") or [], "chips": chips,
         "briefing": briefing, "questions": qs, "moreq": total_q > len(qs),
     }
@@ -144,7 +165,7 @@ def card(s):
     ed = eff_diff(s)
     pill_cls = DIFF_PILLCLASS.get(ed, ed)
     pill_lbl = DIFF_LABEL.get(ed, ed.title())
-    ev_items = [ev_label(a, s.get("artifact_types"), s.get("host_os")) for a in (s.get("artifact_types") or [])]
+    ev_items = s.get("evidence") or [ev_label(a, s.get("artifact_types"), s.get("host_os")) for a in (s.get("artifact_types") or [])]
     ev_spans = "".join(f'<span>{E(x)}</span>' for x in ev_items)
     ev_block = (f'      <div class="cc-ev-label">Evidence Types</div>\n'
                 f'      <div class="cc-ev">{ev_spans}</div>\n') if ev_items else ""
@@ -248,6 +269,7 @@ def main():
         sc = smap.get(s["id"])
         s["tactics"] = site_tactics(s["id"], sc.raw.get("attack") if sc else None)
         s["summary"] = PT.fix("case-summary", s["id"], s.get("summary"))
+        s["evidence"] = evidence_labels(s, sc)
     # Order: the difficulty ladder, first-look through marquee, the same order the
     # app's Case Library uses; IR after DF within a tier.
     scen.sort(key=lambda s: (DIFF_RANK.get(eff_diff(s), 9),
