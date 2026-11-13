@@ -270,6 +270,7 @@ def main():
         s["tactics"] = site_tactics(s["id"], sc.raw.get("attack") if sc else None)
         s["summary"] = PT.fix("case-summary", s["id"], s.get("summary"))
         s["evidence"] = evidence_labels(s, sc)
+        s["tools"] = PT.tools(s["id"], s.get("tools"))
     # Order: the difficulty ladder, first-look through marquee, the same order the
     # app's Case Library uses; IR after DF within a tier.
     scen.sort(key=lambda s: (DIFF_RANK.get(eff_diff(s), 9),
@@ -305,7 +306,7 @@ def main():
     apply_chrome(out)
     print(f"wrote {out}: {n} cases ({n_df} DF, {n_ir} IR)")
     write_attack_page(scen)
-    PT.report("case-summary")
+    PT.report("case-summary", "tools")
 
 
 TEMPLATE = '''<!doctype html>

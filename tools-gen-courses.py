@@ -99,6 +99,8 @@ def apply_chrome(path):
 
 def main():
     index = {s["id"]: s for s in packs.all_scenarios() if "id" in s}
+    for s in index.values():
+        s["tools"] = PT.tools(s["id"], s.get("tools"))
     SLUG.update({k: v.get("slug") or k for k, v in index.items()})
     cat = [PT.fix_tree("course", c["slug"], c) for c in courses.catalog(index)]
     for c in cat:

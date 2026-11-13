@@ -54,6 +54,7 @@ def case_tactics(cid):
 PT = _CASES_TOOL.PT
 for _s in INDEX.values():
     _s["summary"] = PT.fix("case-summary", _s["id"], _s.get("summary"))
+    _s["tools"] = PT.tools(_s["id"], _s.get("tools"))
 PATHS = {p["slug"]: p for p in pathways.catalog(INDEX)}
 for _p in PATHS.values():
     for _st in _p["steps"]:

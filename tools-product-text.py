@@ -88,7 +88,30 @@ FIXES = {
     },
 }
 
+# Tools a case's questions tell students to use that its tools list leaves out
+# (case id -> tools). Added to the list on the site; once the product lists a
+# tool itself, the entry is reported as stale.
+TOOLS_ADD = {
+    "phishing-c2": ["Wireshark"],                   # q17, q18: the capture, in Wireshark
+    "ransomware-double-extortion": ["Wireshark"],   # q14, q18
+    "hard-credential-theft": ["PECmd"],             # q1, q2: the Prefetch file
+    "sim-swap-crypto": ["ALEAPP"],                  # q8, q9: the phone extraction
+    "hot-wallet-drained": ["Thunderbird"],          # q1, q3: the mailbox
+}
+
 _hits = set()
+
+
+def tools(cid, current):
+    """The case's tools list with the tools its questions name added."""
+    out = list(current or [])
+    have = {t.lower() for t in out}
+    for t in TOOLS_ADD.get(cid, []):
+        if t.lower() in have:
+            continue
+        out.append(t)
+        _hits.add(("tools", cid, t))
+    return out
 
 
 def fix(kind, key, text):
@@ -117,6 +140,12 @@ def fix_tree(kind, key, obj):
 
 def report(*kinds):
     """Print the swaps of these kinds that matched nothing in this run."""
+    if "tools" in kinds:
+        for cid, names in TOOLS_ADD.items():
+            for t in names:
+                if ("tools", cid, t) not in _hits:
+                    print(f"tools-product-text: stale tools entry for {cid}, the product already lists {t}",
+                          file=sys.stderr)
     for kind in kinds:
         for key, pairs in FIXES.get(kind, {}).items():
             for old, _ in pairs:
