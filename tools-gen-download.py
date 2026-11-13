@@ -12,8 +12,11 @@ Sources of truth:
 
 Rerun after every release (it is on the release checklist in
 docs/CODE_SIGNING.md), then run tools-apply-nav.py / tools-apply-footer.py and
-commit. Download buttons use the stable /releases/latest/download/ URLs, so
-they never go stale even if this page lags a release.
+commit. Download links name the release tag (/releases/download/vX.Y.Z/), so
+the file, size and SHA-256 on the page always match. A /latest/ link to a
+version-named installer 404s as soon as a newer release is published, and a
+/latest/ link to a fixed-name zip would serve a file whose checksum isn't the
+one printed here.
 """
 import datetime as dt
 import html
@@ -28,7 +31,6 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 NOTES_MD = (os.environ.get("RH_RELEASE_NOTES") or os.environ.get("RH_CHANGELOG")
             or os.path.join(ROOT, "..", "redherrings", "RELEASE-NOTES.md"))
 REPO = "Steve-is-IT/redherrings-site"
-DL = f"https://github.com/{REPO}/releases/latest/download"
 RELEASES_PAGE = f"https://github.com/{REPO}/releases"
 PUBLISHER = "The Competence Collective, LLC"
 
@@ -141,6 +143,7 @@ def mb(n):
 
 def page(latest, releases, notes, sums):
     tag, date = latest["tag"], latest["date"]
+    DL = f"https://github.com/{REPO}/releases/download/{tag}"
     nice_date = dt.date.fromisoformat(date).strftime("%B %-d, %Y") if date else ""
     signed = bool(SIGNED_SINCE) and vt(tag) >= vt(SIGNED_SINCE) and "RedHerrings-windows.zip" in latest["assets"]
     win_size = mb(latest["assets"].get("RedHerrings-windows.zip"))
@@ -420,9 +423,9 @@ def main():
     # installer (the <a> marked data-dl-winsetup), so it never rots to a stale
     # version. If no installer shipped this release, fall back to the zip.
     setup_name = next((a for a in latest["assets"] if a.startswith("RedHerrings-Setup-") and a.endswith(".exe")), None)
-    win_href = (f"https://github.com/{REPO}/releases/latest/download/{setup_name}"
+    win_href = (f"https://github.com/{REPO}/releases/download/{latest['tag']}/{setup_name}"
                 if setup_name
-                else f"https://github.com/{REPO}/releases/latest/download/RedHerrings-windows.zip")
+                else f"https://github.com/{REPO}/releases/download/{latest['tag']}/RedHerrings-windows.zip")
     s2 = re.sub(r'(<a class="btn" href=")[^"]*(" data-dl-winsetup)', rf'\g<1>{E(win_href)}\g<2>', s2)
     if s2 != s:
         open(idx, "w", encoding="utf-8").write(s2); print("index.html version updated")
