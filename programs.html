@@ -35,7 +35,7 @@
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Where does student data live?","acceptedAnswer":{"@type":"Answer","text":"On the instructor's machine. Red Herrings generates and grades locally, makes no network call to do either, and sends no telemetry. Rosters, submissions and grades never leave the computer unless an instructor chooses to export them to the LMS. There's no hosted student account to create and nothing for the institution to host."}},
 {"@type":"Question","name":"Is the license per seat or per instructor?","acceptedAnswer":{"@type":"Answer","text":"Per instructor. An Educator plan covers one instructor and up to 40 students per lab, with no per-student fee. A Department plan covers several instructors under one license and adds the Scenario Editor and CTF mode. Pricing is on the pricing page; institutional purchase orders are welcome."}},
-{"@type":"Question","name":"Which LMS platforms does it work with?","acceptedAnswer":{"@type":"Answer","text":"Canvas, Blackboard, Moodle and D2L Brightspace. Grades export as a gradebook CSV for any of them, and connected mode uses LTI 1.3 with Deep Linking and grade passback. Connected mode is opt-in; the default is the offline desktop app with a CSV export."}},
+{"@type":"Question","name":"Which LMS platforms does it work with?","acceptedAnswer":{"@type":"Answer","text":"Canvas, Blackboard, Moodle and D2L Brightspace. Grades export as a gradebook CSV for any of them. Connected mode uses LTI 1.3 with Deep Linking and grade passback, from a copy of Red Herrings your institution hosts at a public HTTPS address. It's opt-in; the default is the offline desktop app with a CSV export."}},
 {"@type":"Question","name":"Who supports the instructors?","acceptedAnswer":{"@type":"Answer","text":"We do, directly. Every license includes email support for instructors, the getting-started guide and tool setup pages, and a department evaluation guide for the person running adoption. There's no reseller layer and no ticket queue shared with a larger product."}}
 ]}
 ]}
@@ -74,7 +74,7 @@
       <div class="hero-copy">
       <div class="crumb" style="margin-bottom:14px"><a href="/">Home</a> / For programs</div>
       <h1>Hands-on forensics and incident response labs for your program</h1>
-      <p class="lede">Dozens of digital forensics and incident response cases that generate a different, verified variant for every student and grade themselves, so a department can run the same course across sections and semesters without an instructor rebuilding evidence by hand. It runs on instructors' own machines, exports to your LMS, and leaves you nothing to host.</p>
+      <p class="lede">Dozens of digital forensics and incident response cases that generate a different, verified variant for every student and grade themselves, so a department can run the same course across sections and semesters without an instructor rebuilding evidence by hand. It runs on instructors' own machines and exports to your LMS as a file, so there's nothing to host unless you choose LTI connected mode.</p>
       <div class="cta-row" style="margin-top:22px">
         <a class="btn" href="/download.html" data-goatcounter-click="cta-trial-programs">Learn for free</a>
         <a class="btn ghost" href="/contact.html?topic=department">Talk to us about a department license</a>
@@ -137,7 +137,7 @@
         <ul>
           <li><strong>A different case per student.</strong> Every case generates a unique variant from a roster: different names, timestamps, hashes and most answers under the same rubric. Students discuss method; a traded answer sheet scores about a quarter of the points.</li>
           <li><strong>Verified answer keys.</strong> Every fact answer is re-derived from the planted evidence before the lab ships, so grading disputes are settled by opening the artifact.</li>
-          <li><strong>One-click grading and LMS export across sections.</strong> Score a whole section at once, with the reason for each mark. Export a gradebook CSV to Canvas, Blackboard, Moodle or D2L, or connect over LTI 1.3 for grade passback. See the <a href="/student-portal.html">student portal and LMS page</a>.</li>
+          <li><strong>One-click grading and LMS export across sections.</strong> Score a whole section at once, with the reason for each mark. Export a gradebook CSV to Canvas, Blackboard, Moodle or D2L, or connect a hosted copy over LTI 1.3 for grade passback. See the <a href="/student-portal.html">student portal and LMS page</a>.</li>
           <li><strong>Two course packs, ready to run.</strong> A 14-week Digital Forensics course and an 8-week Incident Response course, each with the week-by-week case order, rubrics and syllabus. See <a href="/courses.html">course packs</a>.</li>
           <li><strong>Pathways for cert prep and ATT&amp;CK.</strong> Ordered case sequences for GCFE, GASF, GNFA, GCIH, CySA+, GCFR and GCFA prep, plus role paths, with every incident response case mapped to MITRE ATT&amp;CK. See <a href="/pathways.html">learning pathways</a> and <a href="/incident-response.html">incident response</a>.</li>
         </ul>
@@ -148,7 +148,7 @@
           <li><strong>Several instructors under one license.</strong> Full-time faculty and adjuncts run the same cases, the same rubrics and the same grading, so outcomes compare across sections.</li>
           <li><strong>Scenario Editor.</strong> Adapt a case to your own organization names, policies and evidence emphasis, or build a program-specific variant for a capstone.</li>
           <li><strong>CTF mode.</strong> Run a timed, scored event for a club, an open house or a final, with a different variant and flag set for each team, ready to import into CTFd.</li>
-          <li><strong>No servers to host.</strong> The app runs on instructor machines: a Windows installer plus macOS and Linux builds that work offline, with activation by file for air-gapped rooms. IT has nothing to stand up, patch or review beyond a desktop install.</li>
+          <li><strong>No server for the offline workflow.</strong> The app runs on instructor machines: a Windows installer plus macOS and Linux builds that work offline, with activation by file for air-gapped rooms. To hand out portal links, the instructor starts the app so the lab network can reach it. LTI connected mode is the one piece IT hosts: a copy at a public HTTPS address, with TLS in front.</li>
         </ul>
       </div>
     </div>
@@ -170,7 +170,7 @@
     <div class="steps" style="grid-template-columns:repeat(3,1fr)">
       <div class="step">
         <h3>Try it with five students</h3>
-        <p>One instructor downloads the app and generates a lab for up to five students, from the free First Look cases or the 30-day trial's sample cases. Students work their evidence zip in their own forensic tools and answer on the worksheet or in the browser portal. The instructor grades the class in one click and exports to the LMS. Only the instructor installs Red Herrings.</p>
+        <p>One instructor downloads the app and generates a lab for up to five students, from the free First Look cases or the 30-day trial's sample cases. Students work their evidence zip in their own forensic tools and answer on the worksheet or in the browser portal. The instructor grades the class in one click and exports to the LMS. Students install nothing from us; IT's part is the desktop install and letting the lab network reach the instructor's machine.</p>
       </div>
       <div class="step">
         <h3>Department license</h3>
@@ -224,7 +224,7 @@
     <div class="faq">
       <details><summary>Where does student data live?</summary><p>On the instructor's machine. Red Herrings generates and grades locally, makes no network call to do either, and sends no telemetry. Rosters, submissions and grades never leave the computer unless an instructor chooses to export them to the LMS. There's no hosted student account to create and nothing for the institution to host. The <a href="/trust.html">trust page</a> has the full data-flow description.</p></details>
       <details><summary>Is the license per seat or per instructor?</summary><p>Per instructor. An Educator plan covers one instructor and up to 40 students per lab, with no per-student fee. A Department plan covers several instructors under one license and adds the Scenario Editor and CTF mode. Plans are on the <a href="/#pricing">pricing page</a>; institutional purchase orders are welcome.</p></details>
-      <details><summary>Which LMS platforms does it work with?</summary><p>Canvas, Blackboard, Moodle and D2L Brightspace. Grades export as a gradebook CSV for any of them, and connected mode uses LTI 1.3 with Deep Linking and grade passback. Connected mode is opt-in; the default is the offline desktop app with a CSV export. Details are on the <a href="/student-portal.html">student portal and LMS page</a>.</p></details>
+      <details><summary>Which LMS platforms does it work with?</summary><p>Canvas, Blackboard, Moodle and D2L Brightspace. Grades export as a gradebook CSV for any of them. Connected mode uses LTI 1.3 with Deep Linking and grade passback, from a copy of Red Herrings your institution hosts at a public HTTPS address. It's opt-in; the default is the offline desktop app with a CSV export. Details are on the <a href="/student-portal.html">student portal and LMS page</a>.</p></details>
       <details><summary>Who supports the instructors?</summary><p>We do, directly. Every license includes email support for instructors, the <a href="/help.html">getting-started guide</a> and tool setup pages, and a department evaluation guide for the person running adoption. There's no reseller layer and no ticket queue shared with a larger product.</p></details>
     </div>
   </section>
