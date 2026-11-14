@@ -160,8 +160,14 @@ def build_header():
 HEADER = build_header()
 HDR_RE = re.compile(r"<header>.*?</header>", re.S)
 
+# The legal pages are redrafted separately and change only with the owner's
+# sign-off, so a nav rerun leaves them as they are.
+LEGAL = {"privacy.html", "eula.html", "terms.html", "refund.html"}
+
 
 def apply(path, blog):
+    if not blog and os.path.basename(path) in LEGAL:
+        return False
     with open(path) as fh:
         s = fh.read()
     # pages opt in with a <header>...</header> block; an empty <header></header>
