@@ -113,8 +113,8 @@ POSTS = [
          dek="Sequence a course from a First Look on-ramp up the difficulty ladder to a cert-prep capstone, with guided mode easing beginners in."),
     dict(slug="forensics-exam-students-cant-copy", cls="c-exam", cat="Exam integrity",
          date="October 1, 2026", read="5 min read",
-         title="Run a forensics exam students can't copy",
-         dek="Why shared evidence makes copying inevitable, and how per-student cases, an in-browser solve portal and LMS grade passback fix it."),
+         title="Run a copy-resistant forensics exam",
+         dek="Why shared evidence makes copying inevitable, and how per-student cases make most copied answers wrong, with answers in the browser and grades in your LMS."),
 ]
 
 BY_SLUG = {p["slug"]: p for p in POSTS}

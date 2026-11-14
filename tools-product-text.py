@@ -56,6 +56,10 @@ FIXES = {
              "a timed capstone on a credential theft traced from one workstation"),
             ("A 120-minute timed exam on a multi-host credential-theft intrusion.",
              "A 120-minute timed exam on a credential theft traced from one workstation."),
+            # Technique IDs, severities and judgment calls are the same for the
+            # class, so a copied sheet still earns some points.
+            ("so there's no answer key to copy; each student has to read their own evidence.",
+             "so most answers have to come from each student's own evidence."),
         ],
     },
     "standard": {
@@ -68,6 +72,9 @@ FIXES = {
             # a submission.
             ("is flagged by the collusion report and treated as academic misconduct.",
              "is treated as academic misconduct."),
+            # A classmate's sheet still earns about a quarter of the points, and
+            # last term's about a third: most answers change, not all.
+            ("Answers aren't transferable: each ", "Most answers don't transfer: each "),
         ],
     },
     "pathway-note": {
