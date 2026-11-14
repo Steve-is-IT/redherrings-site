@@ -50,7 +50,7 @@ L = {
     "ir": ("Incident response", "EDR, SIEM and triage exercises", "/incident-response.html", "ir"),
     "portal": ("Student portal &amp; LMS", "Answer in the browser, auto-grade, LTI passback", "/student-portal.html", "portal"),
     "courses": ("Course packs", "A 14-week DF and an 8-week IR syllabus, ready to run", "/courses.html", "edu"),
-    "packsite": ("Scenario packs", "Add-on case sets, one-click install", "/packs.html", "buy"),
+    "packsite": ("Scenario packs", "Add-on case sets, the first in preparation", "/packs.html", "buy"),
     "blog": ("Blog", "DFIR teaching notes and updates", "/blog/", "blog"),
     "help": ("Getting started", "Install, activate and run your first lab", "/help.html", "help"),
     "tools": ("Tool setup", "Autopsy, Volatility, Wireshark and more", "/tools.html", "tools"),
