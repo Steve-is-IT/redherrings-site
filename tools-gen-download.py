@@ -349,7 +349,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     </div>
 
     <div class="dl-trust">
-      <div><strong>Runs locally</strong>Generation and grading never leave your machine. The only network calls are license activation and an update check you opt into. <a href="trust.html">Trust &amp; security</a></div>
+      <div><strong>Runs locally</strong>Generation and grading never leave your machine. The only network calls are license activation, an update check you opt into, and a trial-key request if you make one in the app. <a href="trust.html">Trust &amp; security</a></div>
       <div><strong>Verifiable</strong>Every release ships <a href="{DL}/SHA256SUMS.txt">SHA256SUMS.txt</a>. Certificates students earn can be checked at <a href="verify.html">verify</a>.</div>
       <div><strong>Then activate</strong>Buy a plan and paste the emailed key under <em>Settings &rarr; Licensing</em>. Air-gapped machines activate offline. <a href="/#pricing">See plans</a></div>
     </div>
