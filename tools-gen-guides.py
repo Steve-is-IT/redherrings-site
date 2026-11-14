@@ -134,7 +134,7 @@ def educator_main():
 
   <section>
     <div class="secthead"><h2 class="opener">The {df["weeks_total"]}-week forensics term</h2>
-      <p class="osub">{E(df["label"])}: {E(df["level"])}. About {round(df["total_minutes"] / 60)} lab hours. The cert topic column shows which certification pathway each case belongs to ({E(", ".join(certs))}); that's topic alignment, not endorsement. {f1} weeks run free and the trial opens {t1} more, so you can teach the first stretch of the term before buying anything.</p></div>
+      <p class="osub">{E(df["label"])}: {E(df["level"])}. About {round(df["total_minutes"] / 60)} lab hours. The cert topic column names the prep track each case sits in ({E(", ".join(certs))}). A track is named for a certification, not mapped to it objective by objective. {f1} weeks run free and the trial opens {t1} more, so you can teach the first stretch of the term before buying anything.</p></div>
     {LEGEND}
     {course_table(df, True)}
     <p class="note">Learning outcomes, readings and the grading scheme are in the <a href="files/syllabus-{E(df["slug"])}.pdf">syllabus PDF</a>. The app's Courses screen generates every week's lab for your roster.</p>
