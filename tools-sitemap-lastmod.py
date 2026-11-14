@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Set every sitemap.xml <lastmod> to the date its page last changed.
 
-The date is the page's last commit (git log -1 --format=%cs), or today when the
-page has uncommitted changes. A <url> with no <lastmod> gets one. Run it after
-committing page changes, then commit sitemap.xml.
+The date is the page's last commit (git log --format=%cs), or today when the
+page has uncommitted changes. A change that a later commit undid doesn't count:
+when a page's content matches what it was two commits back, both commits are
+skipped. A <url> with no <lastmod> gets one. Run it after committing page
+changes, then commit sitemap.xml.
 """
 import datetime
 import os
@@ -21,12 +23,19 @@ def page_file(loc):
     return path
 
 
+def git(*a):
+    return subprocess.run(["git", "-C", ROOT, *a], capture_output=True, text=True).stdout.strip()
+
+
 def changed(path):
-    def git(*a):
-        return subprocess.run(["git", "-C", ROOT, *a], capture_output=True, text=True).stdout.strip()
     if git("status", "--porcelain", "--", path):
         return datetime.date.today().isoformat()
-    return git("log", "-1", "--format=%cs", "--", path)
+    log = [line.split() for line in git("log", "--format=%H %cs", "--", path).splitlines()]
+    blobs = [git("rev-parse", "--verify", "-q", f"{sha}:{path}") for sha, _ in log]
+    i = 0
+    while i + 2 < len(log) and blobs[i] == blobs[i + 2]:
+        i += 2
+    return log[i][1] if log else ""
 
 
 def main():
