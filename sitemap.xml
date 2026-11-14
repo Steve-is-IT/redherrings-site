@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://redherrings.app/</loc><lastmod>2026-11-13</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://redherrings.app/download.html</loc><lastmod>2026-11-13</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://redherrings.app/how.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://redherrings.app/try.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://redherrings.app/sample.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://redherrings.app/student-portal.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://redherrings.app/cases.html</loc><lastmod>2026-11-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://redherrings.app/pathways.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/programs.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://redherrings.app/pathways/gcfe-windows.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/gasf-mobile.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/gnfa-network.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/linux-forensics.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/macos-forensics.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/analyst-onboarding.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/insider-threat.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/gcih-incident-handling.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/cysa-soc-analyst.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/gcfr-cloud.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/gcfa-advanced-ir.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/pathways/ransomware-ir.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/</loc><lastmod>2026-11-14</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://redherrings.app/download.html</loc><lastmod>2026-11-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://redherrings.app/how.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://redherrings.app/try.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://redherrings.app/sample.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://redherrings.app/student-portal.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://redherrings.app/cases.html</loc><lastmod>2026-11-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://redherrings.app/pathways.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/programs.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://redherrings.app/pathways/gcfe-windows.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/gasf-mobile.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/gnfa-network.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/linux-forensics.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/macos-forensics.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/analyst-onboarding.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/insider-threat.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/gcih-incident-handling.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/cysa-soc-analyst.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/gcfr-cloud.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/gcfa-advanced-ir.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/pathways/ransomware-ir.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://redherrings.app/attack.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://redherrings.app/incident-response.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://redherrings.app/compare.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://redherrings.app/press.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://redherrings.app/resources.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/trust.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/tools.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/help.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/</loc><lastmod>2026-11-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/press.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://redherrings.app/resources.html</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/trust.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/tools.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/help.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/how-to-grade-a-digital-forensics-lab.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/prefetch-forensics-pecmd-walkthrough.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/build-a-digital-forensics-course-syllabus.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/chain-of-custody-in-the-classroom.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/incident-response-tabletop-vs-hands-on-exercise.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/wireshark-for-beginners-packet-capture-basics.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/autopsy-disk-image-analysis-walkthrough.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/registry-explorer-windows-registry-forensics.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/evtxecmd-windows-event-log-timeline.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/volatility-3-memory-forensics-getting-started.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/forensics-exam-students-cant-copy.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/detect-c2-beaconing-packet-capture.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/dfir-learning-pathways-first-look-to-capstone.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/gcfe-windows-forensics-practice-labs.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/prefetch-forensics-pecmd-walkthrough.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/build-a-digital-forensics-course-syllabus.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/chain-of-custody-in-the-classroom.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/incident-response-tabletop-vs-hands-on-exercise.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/wireshark-for-beginners-packet-capture-basics.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/autopsy-disk-image-analysis-walkthrough.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/registry-explorer-windows-registry-forensics.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/evtxecmd-windows-event-log-timeline.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/volatility-3-memory-forensics-getting-started.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/forensics-exam-students-cant-copy.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/detect-c2-beaconing-packet-capture.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/detect-lateral-movement-windows-event-logs.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/dfir-learning-pathways-first-look-to-capstone.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/gcfe-windows-forensics-practice-labs.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/incident-response-exercise-edr-siem.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/ios-imessage-forensics-cocoa-time.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/teaching-mitre-attack-hands-on.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/soc-analyst-onboarding-hands-on-labs.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/ios-imessage-forensics-cocoa-time.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/teaching-mitre-attack-hands-on.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/soc-analyst-onboarding-hands-on-labs.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/blog/blue-team-ctf-analysts-cant-google.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/white-label-dfir-training-resell-cases.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/air-gapped-forensics-training-no-cloud.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/cyber-range-vs-generated-cases-cost.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://redherrings.app/blog/digital-forensics-lab-platform-buyers-guide.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/white-label-dfir-training-resell-cases.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/air-gapped-forensics-training-no-cloud.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/cyber-range-vs-generated-cases-cost.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://redherrings.app/blog/digital-forensics-lab-platform-buyers-guide.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://redherrings.app/privacy.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://redherrings.app/terms.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://redherrings.app/refund.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://redherrings.app/eula.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://redherrings.app/accessibility.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://redherrings.app/contact.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://redherrings.app/security-teams.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://redherrings.app/packs.html</loc><lastmod>2026-11-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/accessibility.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://redherrings.app/contact.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://redherrings.app/security-teams.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://redherrings.app/packs.html</loc><lastmod>2026-11-11</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://redherrings.app/courses.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://redherrings.app/guide-educators.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/guide-security-teams.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/guide-self-study.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://redherrings.app/blog/whats-new-student-portal-certificates.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://redherrings.app/verify.html</loc><lastmod>2026-11-13</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://redherrings.app/guide-security-teams.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/guide-self-study.html</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://redherrings.app/blog/whats-new-student-portal-certificates.html</loc><lastmod>2026-11-14</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://redherrings.app/verify.html</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>
