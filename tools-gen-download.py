@@ -358,7 +358,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     </div>
 
     <div class="dl-it">
-      <strong>Installing on a managed machine?</strong> Your IT team can {it_signed} The app needs no admin rights (the installer is per-user, and the portable zip unzips to a folder) and listens only on this computer unless you start it for a class with <code>--host 0.0.0.0</code>; then other computers reach the student portal and nothing else. Full details on the <a href="trust.html">Trust &amp; security</a> page.
+      <strong>Installing on a managed machine?</strong> Your IT team can {it_signed} The app needs no admin rights (the installer is per-user, and the portable zip unzips to a folder) and listens only on this computer unless you start it for a class with <code>RedHerrings run --host 0.0.0.0</code>; then other computers reach the student portal and nothing else. Full details on the <a href="trust.html">Trust &amp; security</a> page.
     </div>
   </section>
 </main>
