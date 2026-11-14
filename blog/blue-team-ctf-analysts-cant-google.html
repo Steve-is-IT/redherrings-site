@@ -64,7 +64,7 @@
     <p class="lede">A capture-the-flag is one of the better ways to sharpen a blue team: hands-on, competitive, and it rewards digging through evidence. It has one failure mode that shows up the moment you run it twice.</p>
     <div class="post-cover"><img src="../img/blog/blue-team-ctf-analysts-cant-google.svg" alt="" width="1600" height="1000"></div>
 
-    <p>The first team to solve a flag can hand the answer to everyone else, and a CTF you reuse next quarter is already burned. The fix isn't more secrecy. It's making the flags impossible to share.</p>
+    <p>The first team to solve a flag can hand the answer to everyone else, and a CTF you reuse next quarter is already burned. The fix is a different flag for every team.</p>
 
     <h2>Every shared CTF leaks</h2>
     <p>If all your players work the same box with the same flags, the flags are a shared secret, and shared secrets travel. It happens inside a single event when people compare notes across tables, and it happens between events when last year's write-up is sitting in a chat channel. Either way you stop measuring who can do the work and start measuring who has the answer sheet.</p>
@@ -77,8 +77,8 @@
     <h2>Run it as a timed CTF or a graded drill</h2>
     <p>Any case can run as a capture-the-flag, with its own evidence and flag set for each team and an import file for CTFd, where players submit flags as they find them. Or run it as a graded exercise through the student portal with a server-side timer that starts when the player opens their link and locks their submission at the end. The answer key stays on your machine and never reaches the browser, so the game is honest even when nobody is watching the room.</p>
 
-    <h2>Score the room, and spot borrowed answers</h2>
-    <p>Grading is automatic and runs locally, and each player's results show their answer next to their own key. Where everyone has different evidence, an answer that matches a teammate's key instead of your own is a signal, not a coincidence.</p>
+    <h2>Score each team against its own key</h2>
+    <p>In CTF mode each team's challenges accept only that team's flags, and a challenge whose flag for one team is also another team's flag is left out for every team, so a flag passed over from another table won't solve yours. CTFd lists every team's copies, though, so watch the solve log for a team scoring in another team's category. Run it as a graded drill instead and grading runs locally, with each player's answer shown next to their own key.</p>
 
     <h2>It's real evidence, not a trivia round</h2>
     <p>The flags come out of real artifacts: EDR detection feeds, SIEM exports, event logs, registry hives, packet captures, memory and disk images, opened in the tools your analysts already use. Players aren't guessing at a quiz; they're doing the job, which is the whole point of running a CTF for a blue team in the first place.</p>
