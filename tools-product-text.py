@@ -39,6 +39,10 @@ FIXES = {
             # beacon, and no persistence.
             ("Follow a phish through delivery, execution and persistence.",
              "Follow a phish through delivery, execution and command and control."),
+            # Week 8: ir-ransomware-dawn has detection, containment and
+            # eradication questions and none tagged recovery.
+            ("Run a live ransomware chain through detection, containment, eradication and recovery.",
+             "Run a live ransomware chain through detection, containment and eradication."),
         ],
         "intro-digital-forensics-14": [
             # hard-credential-theft is one workstation's logs, memory and capture.
