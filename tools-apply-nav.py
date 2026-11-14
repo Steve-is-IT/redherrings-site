@@ -48,7 +48,7 @@ L = {
     "attack": ("ATT&amp;CK coverage", "Which techniques the cases exercise", "/attack.html", "attack"),
     "path": ("Learning pathways", "From First Look to cert-prep capstone", "/pathways.html", "path"),
     "ir": ("Incident response", "EDR, SIEM and triage exercises", "/incident-response.html", "ir"),
-    "portal": ("Student portal &amp; LMS", "Solve in the browser, auto-grade, LTI passback", "/student-portal.html", "portal"),
+    "portal": ("Student portal &amp; LMS", "Answer in the browser, auto-grade, LTI passback", "/student-portal.html", "portal"),
     "courses": ("Course packs", "A 14-week DF and an 8-week IR syllabus, ready to run", "/courses.html", "edu"),
     "packsite": ("Scenario packs", "Add-on case sets, one-click install", "/packs.html", "buy"),
     "blog": ("Blog", "DFIR teaching notes and updates", "/blog/", "blog"),
