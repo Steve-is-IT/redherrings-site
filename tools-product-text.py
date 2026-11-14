@@ -17,6 +17,7 @@ import sys
 #   course        key: course slug; every string in the course and its weeks
 #   standard      key: "*"; the policy and structure text every syllabus carries
 #   pathway-note  key: case id; that case's step note in every pathway
+#   pathway-blurb key: pathway slug; the one-line blurb on its cards
 #   case-summary  key: case id; the summary on its card and in course weeks
 #   case-story    key: case id; a paragraph of the briefing preview on cases.html
 FIXES = {
@@ -43,6 +44,9 @@ FIXES = {
             # eradication questions and none tagged recovery.
             ("Run a live ransomware chain through detection, containment, eradication and recovery.",
              "Run a live ransomware chain through detection, containment and eradication."),
+            # Course outcome: the cases' questions stop at eradication.
+            ("Choose and justify containment, eradication and recovery actions.",
+             "Choose and justify containment and eradication actions."),
         ],
         "intro-digital-forensics-14": [
             # hard-credential-theft is one workstation's logs, memory and capture.
@@ -85,6 +89,12 @@ FIXES = {
         "ir-marquee-nightfall": [("Capstone: run a hospital-wide incident through every NIST phase.",
                                   "Capstone: run a hospital-wide incident from detection to eradication, then write the report.")],
     },
+    "pathway-blurb": {
+        # None of the five cases asks a recovery question; the last phase any
+        # of them reaches is eradication.
+        "ransomware-ir": [("from initial access to double-extortion and recovery.",
+                           "from initial access through a double-extortion demand to containment and eradication.")],
+    },
     "case-story": {
         # AGENTS.md writing rules: no "just", use contractions.
         "easy-cloud-signin": [("reading every field of each sign-in, not just the IP and country.",
@@ -102,6 +112,12 @@ FIXES = {
             ("It's 06:48 at ", "It's early morning at "),
             (" over the last twenty minutes. The user isn't in yet.", "."),
         ],
+        # No question in either case is tagged recovery; they stop at
+        # eradication.
+        "hot-wallet-drained": [("decide the containment, eradication and recovery actions.",
+                                "decide the containment and eradication actions.")],
+        "ir-marquee-nightfall": [("decide the containment, eradication and recovery actions,",
+                                  "decide the containment and eradication actions,")],
     },
     "case-summary": {
         "mobile-ios-ffs": [("A full-file-system iPhone extraction, not just a backup.",

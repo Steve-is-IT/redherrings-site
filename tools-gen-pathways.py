@@ -123,6 +123,7 @@ def main():
     _TIER.update({k: v.get("tier") for k, v in index.items()})
     cat = pathways.catalog(index)
     for p in cat:
+        p["blurb"] = PT.fix("pathway-blurb", p["slug"], p.get("blurb"))
         for st in p["steps"]:
             st["note"] = PT.fix("pathway-note", st["id"], st.get("note"))
     n_df = sum(1 for p in cat if p.get("discipline") != "incident-response")
@@ -137,7 +138,7 @@ def main():
     _load_tool("tools-apply-footer").apply(out)
     print(f"wrote {out}: {len(cat)} pathways ({n_df} DF, {n_ir} IR)")
     write_pages(cat)
-    PT.report("pathway-note")
+    PT.report("pathway-note", "pathway-blurb")
 
 
 TEMPLATE = '''<!doctype html>
@@ -445,7 +446,7 @@ COPY = {
         "title": "Ransomware Incident Response Practice Labs",
         "h1": ("Ransomware incident response labs,", "the kill chain in order"),
         "desc": "Ransomware incident response labs in kill-chain order: initial access, a server caught mid-setup, a live outbreak in the EDR feed, a ransom note and a capstone.",
-        "expects": "Ransomware response expects a team that can place itself on the kill chain at any moment: recognize the phish and the command-and-control that followed, spot the setup work before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand alongside recovery.",
+        "expects": "Ransomware response expects a team that can place itself on the kill chain at any moment: recognize the phish and the command-and-control that followed, spot the setup work before encryption, work a fast-moving outbreak live from the EDR feed, and handle the data-theft side of a double-extortion demand while the outbreak is contained.",
         "builds": "This pathway is the ransomware arc end to end. Patient Zero covers initial access, Dry Run covers what an operator sets up before the payload, First Call is the live outbreak, Double Cross tests a ransom note's claims against the evidence, and Nightfall is the complete incident worked start to finish. All five are hard or expert; this is the path for a team that already knows the basics.",
         "who": [
             ("Security teams and on-call rotations", "who want a structured ransomware drill series with verified answer keys."),
