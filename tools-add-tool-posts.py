@@ -69,7 +69,7 @@ POSTS = [
     <h2>Don't stop at the first hit</h2>
     <p>One artifact on its own is weak. A prefetch entry, a LNK file and a USB device record that all line up tell a much better story. Our disk cases plant realistic background activity on purpose, so a good part of the work is ruling things out rather than grabbing the one obvious thing.</p>
     <h2>How it fits a Red Herrings case</h2>
-    <p>Our Windows and disk cases are written in real on-disk formats, so Autopsy opens them with no special setup. Every student gets a different image with their own files, timestamps and answers, and each one is re-solved and verified before it goes out. The <a href="/pathways.html">learning pathways</a> start at First Look triage and build up to a capstone.</p>""",
+    <p>Our Windows and disk cases are written in real on-disk formats, so Autopsy opens them with no special setup. Every student gets a different image with their own files, timestamps and most answers, and each one is re-solved and verified before it goes out. The <a href="/pathways.html">learning pathways</a> start at First Look triage and build up to a capstone.</p>""",
         "related": ["registry-explorer-windows-registry-forensics", "evtxecmd-windows-event-log-timeline", "volatility-3-memory-forensics-getting-started"],
     },
     {
