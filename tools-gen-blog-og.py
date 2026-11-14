@@ -39,6 +39,21 @@ covers = _load("tools_gen_blog_covers", "tools-gen-blog-covers.py")
 
 LOCKUP = open(os.path.join(ROOT, "img", "brand", "lockup-dark-bg.svg"), encoding="utf-8").read()
 
+# The line icon drawn behind each card's title, per cover category. The cover
+# tool used to carry these; the cards still need them.
+GLYPHS = {
+    "mobile":  '<rect x="6" y="2" width="12" height="20" rx="2.4"/><line x1="10.2" y1="18.4" x2="13.8" y2="18.4"/>',
+    "windows": '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/>',
+    "ir":      '<path d="M10.29 3.86 L1.82 18 a2 2 0 0 0 1.71 3 h16.94 a2 2 0 0 0 1.71-3 L13.71 3.86 a2 2 0 0 0-3.42 0 z"/><line x1="12" y1="9" x2="12" y2="13.5"/><line x1="12" y1="16.6" x2="12" y2="17.2"/>',
+    "threat":  '<circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="0.8" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="23.2"/><line x1="0.8" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="23.2" y2="12"/>',
+    "network": '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>',
+    "course":  '<path d="M12 3 L23 8 L12 13 L1 8 Z"/><path d="M5 10 V15.3 C5 17 8.1 18.3 12 18.3 C15.9 18.3 19 17 19 15.3 V10"/>',
+    "exam":    '<path d="M12 22 s8-4 8-10 V5 l-8-3-8 3 v7 c0 6 8 10 8 10 z"/><rect x="9.4" y="11" width="5.2" height="4.4" rx="0.7"/><path d="M10.5 11 V9.6 a1.5 1.5 0 0 1 3 0 V11"/>',
+    "tools":   '<path d="M14.7 6.3 a1 1 0 0 0 0 1.4 l1.6 1.6 a1 1 0 0 0 1.4 0 l3.77-3.77 a6 6 0 0 1-7.94 7.94 l-6.91 6.91 a2.12 2.12 0 0 1-3-3 l6.91-6.91 a6 6 0 0 1 7.94-7.94 l-3.76 3.76 z"/>',
+    "secops":  '<rect x="2" y="4" width="20" height="13" rx="2"/><circle cx="12" cy="10.3" r="2.6"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    "buying":  '<path d="M20.6 13.4 l-7.2 7.2 a2 2 0 0 1-2.8 0 l-6.4-6.4 a2 2 0 0 1 0-2.8 l7.2-7.2 h6.4 a2.8 2.8 0 0 1 2.8 2.8 z"/><circle cx="16.3" cy="7.7" r="1.3"/>',
+}
+
 
 def card_html(title, cat_label, accent, base, glyph):
     t = html.escape(title)
@@ -129,7 +144,7 @@ def main():
         if not os.path.exists(path):
             accent, base = covers.CATS[key]
             src = os.path.join(tmp, name + ".html")
-            open(src, "w", encoding="utf-8").write(card_html(title, cat, accent, base, covers.GLYPHS[key]))
+            open(src, "w", encoding="utf-8").write(card_html(title, cat, accent, base, GLYPHS[key]))
             jobs.append({"src": src, "out": path})
     if jobs:
         # Chromium via Node's Playwright (the one preinstalled here and on dev machines).
