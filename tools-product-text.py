@@ -20,6 +20,7 @@ import sys
 #   pathway-blurb key: pathway slug; the one-line blurb on its cards
 #   case-summary  key: case id; the summary on its card and in course weeks
 #   case-story    key: case id; a paragraph of the briefing preview on cases.html
+#   syllabus      key: "*"; text the syllabus PDF renderer writes itself
 FIXES = {
     "course": {
         "incident-response-fundamentals-8": [
@@ -75,6 +76,17 @@ FIXES = {
             # A classmate's sheet still earns about a quarter of the points, and
             # last term's about a third: most answers change, not all.
             ("Answers aren't transferable: each ", "Most answers don't transfer: each "),
+        ],
+    },
+    "syllabus": {
+        "*": [
+            # The portal serves no evidence: the zip carries it, and the portal
+            # link is where students answer. Courses generates every week with
+            # the portal on, so each student gets both.
+            ("handed out as a ZIP or through a private portal link each week.",
+             "handed out as a ZIP each week, with a private portal link to answer in."),
+            ("hand out the student ZIPs or the private portal links.",
+             "hand out the student ZIPs and the private portal links."),
         ],
     },
     "pathway-note": {

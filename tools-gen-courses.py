@@ -109,6 +109,12 @@ def main():
     # The syllabus PDF reads the shared policy text from courses.STANDARD.
     for k in list(courses.STANDARD):
         courses.STANDARD[k] = PT.fix_tree("standard", "*", courses.STANDARD[k])
+    # The renderer also writes text of its own. Its P() looks up sections._p
+    # at call time, so wrapping that runs every paragraph through the
+    # syllabus swaps.
+    from redherrings.documents import sections
+    para = sections._p
+    sections._p = lambda text, style: para(PT.fix("syllabus", "*", text), style)
     os.makedirs(os.path.join(SITE, "files"), exist_ok=True)
     branding = load_branding(None)
     for c in cat:
@@ -156,7 +162,7 @@ def main():
         f.write(head + main_html + tail)
     apply_chrome(out)
     print(f"wrote courses.html: {len(cat)} courses; syllabus PDFs in files/")
-    PT.report("course", "standard")
+    PT.report("course", "standard", "syllabus")
 
 
 if __name__ == "__main__":
