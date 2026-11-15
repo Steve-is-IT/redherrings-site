@@ -888,3 +888,6 @@ footer .flegal a:hover{color:#fff}
 .pwc-kind.role{color:#b42062}
 /* Links inside running text are underlined, so color isn't the only cue. */
 main :is(p,li,td,dd,blockquote,figcaption,.crumb,.dl-trust > div,.dl-it) a:not(.btn):not(.card):not(.rel):not(.pcard){text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+
+.hero-aud{color:var(--muted);font-size:15px;line-height:1.6;margin:14px 0 0}
+.hero-aud a{color:inherit;text-decoration:underline;text-underline-offset:2px}
