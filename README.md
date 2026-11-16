@@ -33,6 +33,11 @@ GoatCounter never changes a versioned file. To move to a newer version, take
 its URL and hash from https://www.goatcounter.com/help/countjs-versions, check
 the hash against the downloaded file
 (`openssl dgst -sha384 -binary count.vN.js | openssl base64 -A`), and replace
-the tag on every page and in the `tools-*` generators that write it. Pages with
-a query string that matters (`thanks.html`) carry a canonical link, so only the
-path is counted.
+the tag on every page and in the `tools-*` generators that write it.
+
+count.js sends the page's query string with every pageview (its `q`
+parameter), whatever the canonical link says. A canonical link only sets the
+path (`p`). Stripe opens `thanks.html` with the buyer's Checkout session id in
+`?session_id=`, so that page removes the query from the address with
+`history.replaceState` before the tag loads. A page that gets a private value
+in its query string needs the same.

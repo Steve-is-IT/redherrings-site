@@ -6,6 +6,8 @@
 <title>Thank you | Red Herrings</title>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://redherrings.app/thanks.html">
+<!-- Stripe opens this page with ?session_id= and GoatCounter's count.js sends the query string with every pageview, whatever the canonical link says. Nothing here reads it, so drop it from the address before the tag loads. -->
+<script>if(location.search)history.replaceState(null,"",location.pathname+location.hash);</script>
 <meta name="description" content="Your Red Herrings purchase went through. Your license key is on its way to the email address you used at checkout.">
 <meta name="theme-color" content="#D42A2A">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
