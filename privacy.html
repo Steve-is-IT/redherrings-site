@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy | Red Herrings</title>
-<meta name="description" content="How Red Herrings handles your data. The app runs locally and no student data ever leaves your machine. We collect only what is needed to sell and license the software.">
+<meta name="description" content="How Red Herrings handles your data. The app runs locally and no student data ever leaves your machine. We collect only what's needed to sell and license the software.">
 <link rel="canonical" href="https://redherrings.app/privacy.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-f129ee30.png">
-<meta property="og:description" content="The app runs locally and no student data ever leaves your machine. Here is exactly what we do and do not collect.">
+<meta property="og:description" content="The app runs locally and no student data ever leaves your machine. Here's exactly what we collect and what we don't.">
 <meta property="og:url" content="https://redherrings.app/privacy.html">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="site.css">
@@ -62,9 +62,9 @@
 
   <section style="border-top:0;padding-top:20px">
     <div class="doc">
-      <p style="font-size:14px;color:var(--muted)">Last updated: 30 September 2026</p>
+      <p style="font-size:14px;color:var(--muted)">Last updated: 16 November 2026</p>
 
-      <div class="callout"><p>Red Herrings is a product of The Competence Collective, LLC ("we," "us," "our"). This policy explains what we collect through our website and licensing service, and how the desktop application handles your data. Questions? Email <a href="/contact.html">contact form</a>.</p></div>
+      <div class="callout"><p>Red Herrings is a product of The Competence Collective, LLC ("we," "us," "our"). This policy explains what we collect through our website, licensing service and account pages, and how the desktop application handles your data. Questions? Use the <a href="/contact.html?topic=privacy">contact form</a> or email sales@redherrings.app.</p></div>
 
       <div class="toc">
         <strong>On this page</strong><br>
@@ -82,24 +82,30 @@
       </div>
 
       <h2 id="local">1. The application runs locally</h2>
-      <p>The Red Herrings desktop application generates and grades labs entirely on your own machine. It does <strong>not</strong> send us the cases you generate, the evidence files, your class rosters, student names, submitted answers, grades, or any file you import or export. None of that touches our servers at any point.</p>
-      <p>The only time the application contacts us over the network is to <strong>activate, refresh, or deactivate a license key</strong> (see <a href="#activation">section 5</a>). You can also activate offline, entirely by file exchange, on an air-gapped machine.</p>
+      <p>The Red Herrings desktop application generates and grades labs entirely on your own machine. It <strong>doesn't</strong> send us the cases you generate, the evidence files, your class rosters, student names, submitted answers, grades, or any file you import or export. None of that touches our servers at any point.</p>
+      <p>The application contacts us over the network only to <strong>activate, refresh, or deactivate a license key</strong> (see <a href="#activation">section 5</a>), and when you <strong>ask for a trial key in the app</strong>, which sends us the email address you enter. You can also activate offline, entirely by file exchange, on an air-gapped machine.</p>
+      <p>Two other connections never reach us. If you turn on the update check (it's off until you say yes), the app asks GitHub for the latest release at startup, at most once a day, and when you click Check now. That request carries the app version, and GitHub sees your IP address. Clicking Update now downloads the release and its checksum file from GitHub. If your institution runs LTI connected mode, the copy it hosts exchanges launch and grade data with your LMS, not with us.</p>
 
       <h2 id="collect">2. What we collect</h2>
       <p>We collect a limited set of information, only in these situations:</p>
       <ul>
-        <li><strong>When you buy a license</strong>: your name, email address, billing country, and the details of your order. Payment card details are entered directly with our payment processor and are never seen or stored by us.</li>
-        <li><strong>When you contact us</strong>: your email address and whatever you choose to put in your message.</li>
-        <li><strong>When the app activates a license</strong>: your license key and a machine identifier, so we can enforce the number of seats on your plan (see <a href="#activation">section 5</a>).</li>
-        <li><strong>When you visit the website</strong>: standard server request logs kept by our hosting provider (see <a href="#cookies">section 6</a>).</li>
+        <li><strong>When you buy a license</strong>: your name, email address, billing country, and the details of your order. Payment card details are entered directly with our payment processor and are never seen or stored by us. Our licensing service keeps your name, email address, plan, and the Stripe customer and subscription IDs that go with your key.</li>
+        <li><strong>When you ask for a trial key</strong>, on the download page or in the app: your email address and, from the download page, the use you picked (teaching, a security team, or study on your own) and whether your browser reports Windows or Linux. We issue a 30-day trial key under that address, email it to you, and add the address to our trial follow-up emails (see <a href="#use">section 3</a>).</li>
+        <li><strong>When you use your account</strong> at account.redherrings.app: your email address and when you signed in. You sign in with a single-use link we email you; there's no password. Your account lists your licenses and the machines activated on them, by hostname.</li>
+        <li><strong>When you ask for a student or veteran discount</strong>: for the student check, the school email address we send a six-digit code to (we store a hash of the code, not the code, and keep a record that the school address was used). For a request our staff reviews: your name and what you tell us about your school and program, or your service branch, years of service and any note. An approved discount comes as a single-use Stripe promotion code.</li>
+        <li><strong>When you contact us</strong>: your name, email address, organization, topic and message. The contact form stores your message, forwards it to our sales inbox and sends you a receipt.</li>
+        <li><strong>When you buy or claim a scenario pack</strong>: your email address, the pack, and the Stripe checkout it came from.</li>
+        <li><strong>When the app activates a license</strong>: your license key, a machine identifier, the computer's hostname and the app version, so we can enforce the number of seats on your plan (see <a href="#activation">section 5</a>).</li>
+        <li><strong>When you visit the website</strong>: page views and button clicks counted by GoatCounter, fonts loaded from Google Fonts, and standard request logs kept by our hosting providers (see <a href="#cookies">section 6</a>).</li>
       </ul>
-      <p>We do not sell your personal information, and we do not use it for advertising.</p>
+      <p>We don't sell your personal information, and we don't use it for advertising.</p>
 
       <h2 id="use">3. How we use it</h2>
       <ul>
         <li>To deliver your license key and fulfill your order.</li>
         <li>To provide licensing (activation, seat management, renewals) and customer support.</li>
-        <li>To send you transactional messages about your purchase, such as receipts, key delivery, and renewal or expiry notices. We do not send marketing email unless you ask to be added.</li>
+        <li>To send you transactional messages about your purchase, such as receipts, key delivery, and renewal or expiry notices.</li>
+        <li>To follow up on a trial. A trial key request gets the key and a guide, then two more emails: one a week in, pointing to a free incident-response case, and one three days before the trial ends, about buying a plan. Each carries an unsubscribe link. Once you unsubscribe we don't send them again, even if you ask for your key again. We don't send other marketing email unless you ask to be added.</li>
         <li>To keep the service secure and to comply with our legal and tax obligations.</li>
       </ul>
 
@@ -107,32 +113,36 @@
       <p>We rely on a small number of vetted providers to run the business. They process data only as needed to provide their service to us:</p>
       <ul>
         <li><strong>Payments</strong>: handled by <a href="https://stripe.com/privacy" rel="noopener" target="_blank">Stripe</a>. Your card details go to Stripe, not to us; we receive only confirmation of payment and the billing details needed for your receipt and license.</li>
-        <li><strong>Website hosting</strong>: this site is served as static files by <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Pages</a>, which keeps standard access logs.</li>
-        <li><strong>Email</strong>: we use an email provider to deliver keys and reply to support requests.</li>
+        <li><strong>Licensing and account server</strong>: our licensing service and account pages (account.redherrings.app) run on <a href="https://render.com/privacy" rel="noopener" target="_blank">Render</a>, behind <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener" target="_blank">Cloudflare</a>. Render stores the records described above. Both see the IP address of each request. Our server uses it to limit how often one address can make requests, and doesn't save it with your license, trial, account or contact records.</li>
+        <li><strong>Website hosting</strong>: this site is served as static files by <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Pages</a>, which keeps standard access logs. App downloads and updates come from GitHub's release pages.</li>
+        <li><strong>Website analytics</strong>: <a href="https://www.goatcounter.com/help/privacy" rel="noopener" target="_blank">GoatCounter</a> counts page views and button clicks (see <a href="#cookies">section 6</a>).</li>
+        <li><strong>Fonts</strong>: the site's pages load their fonts from <a href="https://developers.google.com/fonts/faq/privacy" rel="noopener" target="_blank">Google Fonts</a>.</li>
+        <li><strong>Email</strong>: we use an email provider to deliver keys, sign-in links and trial follow-ups, and to reply to support requests.</li>
+        <li><strong>Staff alerts</strong>: our licensing service can post short alerts to a private <a href="https://discord.com/privacy" rel="noopener" target="_blank">Discord</a> channel our team reads: a new contact message (your name or email address, the topic and the start of the message), a trial key sent or refused (your email address and the use you picked), a discount request (your email address, name and service branch), and payment, dispute and cancellation events from Stripe (your email address).</li>
       </ul>
 
       <h2 id="activation">5. License activation data</h2>
-      <p>To stop one key being used on unlimited machines, activation sends our licensing server your <strong>license key</strong> and a <strong>machine identifier</strong>, a value derived from your device that lets us count and manage seats. We store this together with activation timestamps.</p>
-      <p>Activation deliberately carries <strong>no lab content and no student data</strong>: not the cases you build, not rosters, not answers, not evidence. Deactivating a seat removes that machine from your active list. Air-gapped machines can complete the same activation by exchanging a request and response file, with no direct connection.</p>
+      <p>To stop one key being used on unlimited machines, activation sends our licensing server your <strong>license key</strong>, a <strong>machine identifier</strong> (a value derived from your device that lets us count and manage seats), the computer's <strong>hostname</strong>, and the <strong>app version</strong>. Refresh and deactivation send the license key and the machine identifier. We store the machine identifier, hostname and app version with your license, together with activation and refresh timestamps. You see your machines by hostname in your account, and our support staff see them in our admin console.</p>
+      <p>Activation deliberately carries <strong>no lab content and no student data</strong>: not the cases you build, not rosters, not answers, not evidence. Deactivating a seat removes that machine from your active list; its record stays with your license, marked inactive. Air-gapped machines can complete the same activation by exchanging a request and response file, with no direct connection. The request file carries your key's ID, the machine identifier, the hostname and a hash of the key.</p>
 
       <h2 id="cookies">6. Cookies &amp; the website</h2>
-      <p>This marketing site does not set advertising or tracking cookies. If we later add privacy-respecting, aggregate analytics to understand traffic, we will update this policy and, where required, ask for your consent first. Our hosting provider keeps standard, short-lived server logs (such as IP address and request time) to operate and secure the site.</p>
+      <p>This marketing site doesn't set advertising or tracking cookies. It counts visits with GoatCounter, which doesn't use cookies. The pages that load it send GoatCounter their address and title, the page you came from, your screen size, and which buttons you click, and GoatCounter sees your IP address and browser like any web request. Pages load their fonts from Google Fonts, so Google sees your IP address and browser too. Our hosting provider keeps standard, short-lived server logs (such as IP address and request time) to operate and secure the site.</p>
+      <p>When you sign in at account.redherrings.app, it sets two cookies: one keeps you signed in, and one protects your requests against forgery. Neither is used for tracking.</p>
 
       <h2 id="retention">7. Retention</h2>
-      <p>We keep order and license records for as long as your license is active and thereafter as required for tax, accounting, and legal purposes. Support correspondence is kept only as long as needed to help you and to improve the product. Server logs are kept for a short period by our hosting provider.</p>
+      <p>We keep order and license records for as long as your license is active and thereafter as required for tax, accounting, and legal purposes. Support correspondence is kept only as long as needed to help you and to improve the product. Server logs are kept for a short period by our hosting provider. If you unsubscribe from trial follow-ups, we keep your address on the list, marked unsubscribed, so it isn't emailed again.</p>
 
       <h2 id="rights">8. Your rights</h2>
-      <p>Depending on where you live, you may have the right to access, correct, export, or delete the personal information we hold about you, and to object to or restrict certain processing. To exercise any of these, email <a href="/contact.html?topic=privacy">sales@redherrings.app</a> and we will respond within a reasonable time. We will not discriminate against you for exercising these rights. Because payments and receipts run through Stripe, some requests may need to be directed there as well.</p>
+      <p>Depending on where you live, you may have the right to access, correct, export, or delete the personal information we hold about you, and to object to or restrict certain processing. To exercise any of these, email <a href="/contact.html?topic=privacy">sales@redherrings.app</a> and we'll respond within a reasonable time. We won't discriminate against you for exercising these rights. Because payments and receipts run through Stripe, some requests may need to be directed there as well.</p>
 
       <h2 id="children">9. Students and children</h2>
-      <p>Red Herrings is sold to educators, institutions, and professionals, not to children. Because labs are generated and graded entirely on the instructor's machine, <strong>we never receive student information of any kind</strong>. Instructors remain the controllers of any student data they enter locally and are responsible for handling it under their own institution's policies (including FERPA, GDPR, or local law as applicable).</p>
+      <p>Red Herrings is sold to educators, institutions, and professionals, not to children. Because labs are generated and graded entirely on the instructor's machine, <strong>we never receive your students' information of any kind</strong>. Instructors remain the controllers of any student data they enter locally and are responsible for handling it under their own institution's policies (including FERPA, GDPR, or local law as applicable).</p>
 
       <h2 id="changes">10. Changes to this policy</h2>
-      <p>We may update this policy as the product and our practices evolve. We will change the "last updated" date above and, for material changes, provide a more prominent notice.</p>
+      <p>We may update this policy as the product and our practices evolve. We'll change the "last updated" date above and, for material changes, provide a more prominent notice.</p>
 
       <h2 id="contact">11. Contact</h2>
-      <p>The Competence Collective, LLC: email <a href="/contact.html">contact form</a>. See also our <a href="terms.html">Terms of Service</a>, <a href="eula.html">End User License Agreement</a>, and <a href="refund.html">Refund Policy</a>
-        <a href="accessibility.html">Accessibility</a>.</p>
+      <p>The Competence Collective, LLC: use our <a href="/contact.html">contact form</a> or email sales@redherrings.app. See also our <a href="terms.html">Terms of Service</a>, <a href="eula.html">End User License Agreement</a>, and <a href="refund.html">Refund Policy</a>.</p>
     </div>
   </section>
 </main>

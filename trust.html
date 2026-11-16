@@ -94,7 +94,7 @@
       <div class="rowitem">
         <div class="n">01</div>
         <h3>Student data stays with you</h3>
-        <p class="body">Generation and grading make no network call. Rosters, submissions, evidence and grades stay on your computer. If you connect an LMS over LTI 1.3, the copy your institution hosts keeps the portal sessions and sends grades to your LMS; none of it comes to us. There's no analytics beacon, no cloud sync and no account to create: nothing is uploaded, because there's nowhere for it to go. One optional, off-by-default setting checks GitHub once a day for a newer version, with a plain request that carries no identifying data.</p>
+        <p class="body">Generation and grading make no network call. Rosters, submissions, evidence and grades stay on your computer. If you connect an LMS over LTI 1.3, the copy your institution hosts keeps the portal sessions and sends grades to your LMS; none of it comes to us. There's no analytics beacon, no cloud sync and no account to create: nothing is uploaded, because there's nowhere for it to go. One optional, off-by-default setting checks GitHub for a newer version at startup, at most once a day. That request carries the app version, and GitHub sees your IP address, as with any web request.</p>
       </div>
       <div class="rowitem">
         <div class="n">02</div>
@@ -131,7 +131,7 @@
   <section>
     <div class="secthead">
       <h2 class="opener">Licensing &amp; activation, signed and verifiable</h2>
-      <p class="osub">Licensing is the one piece that talks to a server. It's built to be tamper-evident and to keep working when the network isn't there.</p>
+      <p class="osub">Licensing is the one piece that has to talk to a server. It's built to be tamper-evident and to keep working when the network isn't there.</p>
     </div>
     <div class="rows-list">
       <div class="rowitem">
@@ -142,7 +142,7 @@
       <div class="rowitem">
         <div class="n">02</div>
         <h3>Machine activation with an offline grace</h3>
-        <p class="body">A key activates against a derived machine id. Once activated the app keeps running offline, with a grace period for ordinary network gaps, and deactivation frees the seat to move to a new machine.</p>
+        <p class="body">A key activates against a derived machine id. Activation sends the key, that id, the computer's hostname and the app version; refresh and deactivation send the key and the id. No lab content or student data goes with them. Once activated the app keeps running offline, with a grace period for ordinary network gaps, and deactivation frees the seat to move to a new machine.</p>
       </div>
     </div>
   </section>
