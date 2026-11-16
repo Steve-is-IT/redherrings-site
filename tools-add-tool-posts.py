@@ -18,7 +18,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="
          'href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">')
 THEMEBOOT = ("<script>(function(){try{var t=localStorage.getItem('rh-theme');"
              "if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>")
-TAIL = ('<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>\n'
+TAIL = ('<script data-goatcounter="https://redherrings.goatcounter.com/count" async src="https://gc.zgo.at/count.v5.js" crossorigin="anonymous" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ"></script>\n'
         '<script src="../theme.js" defer></script>\n</body>\n</html>\n')
 
 CTA = ('<div class="cta">\n'

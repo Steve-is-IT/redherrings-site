@@ -23,3 +23,16 @@ Static marketing site: plain HTML, CSS and vanilla JavaScript, deployed with
 GitHub Pages from `main`. The shared header and footer are generated across all
 pages by the `tools-apply-nav.py` and `tools-apply-footer.py` scripts; design
 tokens live in `site.css`.
+
+## Analytics
+
+Pages count visits with GoatCounter. The tag loads GoatCounter's versioned
+script, `https://gc.zgo.at/count.v5.js`, with `crossorigin="anonymous"` and a
+SHA-384 `integrity` hash, so the browser runs it only if the bytes match.
+GoatCounter never changes a versioned file. To move to a newer version, take
+its URL and hash from https://www.goatcounter.com/help/countjs-versions, check
+the hash against the downloaded file
+(`openssl dgst -sha384 -binary count.vN.js | openssl base64 -A`), and replace
+the tag on every page and in the `tools-*` generators that write it. Pages with
+a query string that matters (`thanks.html`) carry a canonical link, so only the
+path is counted.
