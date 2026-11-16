@@ -62,7 +62,7 @@ L = {
     "edu": ("Educators", "One instructor, auto-graded labs", "/#pricing", "edu"),
     "dept": ("Departments", "Several instructors, every case", "/#pricing", "edu"),
     "programs": ("College and university programs", "Labs, syllabi and procurement for departments", "/programs.html", "edu"),
-    "student": ("Students", "Self-practice at the personal rate", "/#pricing", "portal"),
+    "student": ("Students", "Self-practice at the personal rate", "/#pricing-ind", "portal"),
     "team": ("Security teams &amp; training", "45-minute incident drills, per seat", "/security-teams.html", "team"),
     "ent": ("Enterprise &amp; government", "White-label, volume, procurement", "/contact.html?topic=enterprise", "buy"),
 }
