@@ -37,10 +37,6 @@ FIXES = {
             ("Most of the queue is noise by design; grade the dismissals as carefully as the escalation.",
              "Every alert in this queue belongs to one intrusion; grade whether students tie them together "
              "by host, user and time and escalate the critical one."),
-            # Week 4: ir-phish-to-foothold has delivery, execution and a C2
-            # beacon, and no persistence.
-            ("Follow a phish through delivery, execution and persistence.",
-             "Follow a phish through delivery, execution and command and control."),
             # Week 8: ir-ransomware-dawn has detection, containment and
             # eradication questions and none tagged recovery.
             ("Run a live ransomware chain through detection, containment, eradication and recovery.",
@@ -49,35 +45,8 @@ FIXES = {
             ("Choose and justify containment, eradication and recovery actions.",
              "Choose and justify containment and eradication actions."),
         ],
-        "intro-digital-forensics-14": [
-            # hard-credential-theft is one workstation's logs, memory and capture.
-            ("Work a multi-host intrusion end to end.",
-             "Trace a stolen service account from one workstation to the server it reached."),
-            ("a timed capstone on a multi-host intrusion",
-             "a timed capstone on a credential theft traced from one workstation"),
-            ("A 120-minute timed exam on a multi-host credential-theft intrusion.",
-             "A 120-minute timed exam on a credential theft traced from one workstation."),
-            # Technique IDs, severities and judgment calls are the same for the
-            # class, so a copied sheet still earns some points.
-            ("so there's no answer key to copy; each student has to read their own evidence.",
-             "so most answers have to come from each student's own evidence."),
-        ],
     },
-    "standard": {
-        "*": [
-            # Most answers change per student; technique IDs, severities and
-            # judgment calls are the same for the class.
-            ("different names, hosts, timestamps and answers, generated from the same story.",
-             "different names, hosts and timestamps, and most answers, generated from the same story."),
-            # The collusion report compares the keys handed out; it never reads
-            # a submission.
-            ("is flagged by the collusion report and treated as academic misconduct.",
-             "is treated as academic misconduct."),
-            # A classmate's sheet still earns about a quarter of the points, and
-            # last term's about a third: most answers change, not all.
-            ("Answers aren't transferable: each ", "Most answers don't transfer: each "),
-        ],
-    },
+    "standard": {},
     "syllabus": {
         "*": [
             # The portal serves no evidence: the zip carries it, and the portal
@@ -90,20 +59,9 @@ FIXES = {
         ],
     },
     "pathway-note": {
-        # The case ships the Entra sign-in log, a mailbox, browser history and a
-        # phone extraction; no workstation event log.
-        "mfa-fatigue": [("Workstation event logs, mail and a phone on an off-hours login.",
-                         "Entra sign-in log, mail, browser history and a phone on an off-hours login.")],
         # One text/plain phish with a link; no attachment or payload.
         "easy-phish-triage": [("Work a reported phish: header, link and payload.",
                                "Work a reported phish: headers, sender and link.")],
-        # One workstation; the stolen account shows in the 4648 and the capture.
-        "hard-credential-theft": [
-            ("Correlate logs, memory and a capture across hosts.",
-             "Correlate one workstation's logs, memory and capture."),
-            ("Follow a service account across logs, memory and a capture.",
-             "Trace a stolen service account through the logs and capture to the server it reached."),
-        ],
         # Nightfall's questions cover detection, containment and eradication.
         "ir-marquee-nightfall": [("Capstone: run a hospital-wide incident through every NIST phase.",
                                   "Capstone: run a hospital-wide incident from detection to eradication, then write the report.")],
@@ -114,52 +72,14 @@ FIXES = {
         "ransomware-ir": [("from initial access to double-extortion and recovery.",
                            "from initial access through a double-extortion demand to containment and eradication.")],
     },
-    "case-story": {
-        # AGENTS.md writing rules: no "just", use contractions.
-        "easy-cloud-signin": [("reading every field of each sign-in, not just the IP and country.",
-                               "reading every field of each sign-in, well beyond the IP and country.")],
-        "ir-first-look-siem": [("You are on the SOC queue at ", "You're on the SOC queue at ")],
-        "ir-first-look-edr": [("The EDR console just lit up with", "The EDR console lit up with")],
-        # Four days of Chrome history hold one first-time exchange visit and
-        # nothing else crypto, so there's no routine activity to expect.
-        "crypto-theft": [(" They use crypto on this machine regularly, so expect normal activity around the transfer.", "")],
-        # Every variant's intrusion runs between 08:00 and 09:59 local.
-        "k8s-cryptojacking": [("Monitoring paged overnight: a worker node", "Monitoring paged: a worker node")],
-        # The first detection lands anywhere from 06:00 to 07:59 local and the
-        # chain runs 19 to 42 minutes, so no fixed clock fits every student.
-        "ir-ransomware-dawn": [
-            ("It's 06:48 at ", "It's early morning at "),
-            (" over the last twenty minutes. The user isn't in yet.", "."),
-        ],
-        # No question in either case is tagged recovery; they stop at
-        # eradication.
-        "hot-wallet-drained": [("decide the containment, eradication and recovery actions.",
-                                "decide the containment and eradication actions.")],
-        "ir-marquee-nightfall": [("decide the containment, eradication and recovery actions,",
-                                  "decide the containment and eradication actions,")],
-    },
-    "case-summary": {
-        "mobile-ios-ffs": [("A full-file-system iPhone extraction, not just a backup.",
-                            "A full-file-system iPhone extraction, which holds more than a backup.")],
-        "ir-ransomware-dawn": [("The EDR console lit up at 06:48 with a stack of detections",
-                                "The EDR console lit up early in the morning with a stack of detections")],
-        "hot-wallet-drained": [("map it to ATT&CK and run the response through every NIST phase.",
-                                "map it to ATT&CK and carry the response through containment and eradication.")],
-        "ir-marquee-nightfall": [("run the response through every NIST phase, and write the incident report.",
-                                  "carry the response through containment and eradication, and write the incident report.")],
-    },
+    "case-story": {},
+    "case-summary": {},
 }
 
 # Tools a case's questions tell students to use that its tools list leaves out
 # (case id -> tools). Added to the list on the site; once the product lists a
 # tool itself, the entry is reported as stale.
-TOOLS_ADD = {
-    "phishing-c2": ["Wireshark"],                   # q17, q18: the capture, in Wireshark
-    "ransomware-double-extortion": ["Wireshark"],   # q14, q18
-    "hard-credential-theft": ["PECmd"],             # q1, q2: the Prefetch file
-    "sim-swap-crypto": ["ALEAPP"],                  # q8, q9: the phone extraction
-    "hot-wallet-drained": ["Thunderbird"],          # q1, q3: the mailbox
-}
+TOOLS_ADD = {}
 
 _hits = set()
 

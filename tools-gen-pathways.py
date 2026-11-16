@@ -327,7 +327,7 @@ COPY = {
         "h1": ("GASF practice labs,", "one extraction at a time"),
         "desc": "Mobile forensics labs built for GIAC GASF prep: SMS, call logs, app databases, deleted SQLite records and location artifacts, to a multi-source capstone.",
         "expects": "The GASF objectives expect an examiner who can take a mobile extraction and recover what matters: messages, contacts and call logs; third-party app data in SQLite; deleted records still sitting in freelists and write-ahead logs; and the location and activity artifacts that place a device at a time and a place.",
-        "builds": "This pathway starts with a single recovered phone and adds one skill per case: third-party app databases, tying messages to a complaint, deleted-record recovery, location artifacts, call detail records and an investment-fraud case that needs several of them. The capstone puts the phone evidence beside a workstation, a mailbox and cloud logs, so the final step is correlation across sources rather than one more parser.",
+        "builds": "This pathway starts with a single recovered phone and adds one skill per case: third-party app databases, tying messages to a complaint, deleted-record recovery, location artifacts, the handset call log and an investment-fraud case that needs several of them. The capstone puts the phone evidence beside a workstation, a mailbox and cloud logs, so the final step is correlation across sources rather than one more parser.",
         "who": [
             ("Candidates preparing for the GASF", "who want to work real SQLite databases and extraction layouts, not screenshots of a commercial tool."),
             ("Instructors teaching a mobile forensics module", "who need graded, per-student labs that open in free tools."),
