@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact Red Herrings | Sales, Quotes, Support</title>
-<meta name="description" content="Contact Red Herrings about a plan, quote or purchase order, a trial extension, a lost key, a refund or a security review. We reply within one business day.">
+<meta name="description" content="Contact Red Herrings about a plan, quote or purchase order, a trial extension, a lost key, a refund or a security review. We reply within two business days.">
 <link rel="canonical" href="https://redherrings.app/contact.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Red Herrings: randomized digital forensics and incident-response labs for the classroom.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og/home-f129ee30.png">
-<meta property="og:description" content="Contact Red Herrings about a plan, quote or purchase order, a trial extension, a lost key, a refund or a security review. We reply within one business day.">
+<meta property="og:description" content="Contact Red Herrings about a plan, quote or purchase order, a trial extension, a lost key, a refund or a security review. We reply within two business days.">
 <meta property="og:url" content="https://redherrings.app/contact.html">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="site.css">
@@ -74,7 +74,7 @@
   <section style="border-top:0">
     <div class="crumb"><a href="/">Home</a> / Contact</div>
     <h1 style="text-align:left;font-size:clamp(30px,4.6vw,44px);margin:.2em 0 .3em">Contact us</h1>
-    <p class="cnote">Sales, quotes and purchase orders, trial extensions, lost keys, refunds, security reviews and help with the app all come through this one form. A real person reads every message and replies within one business day.</p>
+    <p class="cnote">Sales, quotes and purchase orders, trial extensions, lost keys, refunds, security reviews and help with the app all come through this one form. A real person reads every message and replies within two business days.</p>
     <div class="cwrap">
       <form class="cform" id="cform" novalidate>
         <div class="crow">
@@ -141,7 +141,7 @@
       body:JSON.stringify({name:f.name.value.trim(),email:email,org:f.org.value.trim(),topic:sel.value,message:msg,website:f.website.value})})
     .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,j:j};});})
     .then(function(x){
-      if(x.ok){show('ok','Sent. We reply within one business day, and a copy is on its way to '+email+'.');f.reset();sel.value=q||'sales';
+      if(x.ok){show('ok','Sent. We reply within two business days, and a copy is on its way to '+email+'.');f.reset();sel.value=q||'sales';
         if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'contact-'+sel.value,event:true});}
       else show('bad',(x.j&&x.j.detail)||'Something went wrong. Please email sales@redherrings.app instead.');
     }).catch(function(){show('bad','Could not reach the server. Please email sales@redherrings.app instead.');})
