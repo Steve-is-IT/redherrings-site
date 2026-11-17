@@ -622,6 +622,7 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
 @media(max-width:620px){.fsel,.fsel select{width:100%}.filterrow{align-items:stretch}}
 
 /* ATT&CK tactic chips: one hue per tactic (like the DF track chips) */
+.chip.tac-reconnaissance{--c:#be123c}
 .chip.tac-initial-access{--c:#2f80ed}
 .chip.tac-execution{--c:#8b5cf6}
 .chip.tac-persistence{--c:#0891b2}
@@ -651,6 +652,7 @@ dialog.lightbox .lb-close:hover{background:rgba(255,255,255,.28)}
   color:var(--c);border:1px solid color-mix(in srgb,var(--c) 46%,transparent);
   background:color-mix(in srgb,var(--c) 12%,transparent);box-shadow:none}
 /* IR ATT&CK tactic chips (kill-chain rainbow, gradient + glow so they read as a different family) */
+.chip.tac-reconnaissance{--c:#f43f5e}
 .chip.tac-initial-access{--c:#ef4444}
 .chip.tac-execution{--c:#f97316}
 .chip.tac-persistence{--c:#f59e0b}
