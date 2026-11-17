@@ -62,7 +62,7 @@
 
   <section style="border-top:0;padding-top:20px">
     <div class="doc">
-      <p style="font-size:14px;color:var(--muted)">Last updated: 16 November 2026</p>
+      <p style="font-size:14px;color:var(--muted)">Last updated: 17 November 2026</p>
 
       <div class="callout"><p>Red Herrings is a product of The Competence Collective, LLC ("we," "us," "our"). This policy explains what we collect through our website, licensing service and account pages, and how the desktop application handles your data. Questions? Use the <a href="/contact.html?topic=privacy">contact form</a> or email sales@redherrings.app.</p></div>
 
@@ -89,7 +89,7 @@
       <h2 id="collect">2. What we collect</h2>
       <p>We collect a limited set of information, only in these situations:</p>
       <ul>
-        <li><strong>When you buy a license</strong>: your name, email address, billing country, and the details of your order. Payment card details are entered directly with our payment processor and are never seen or stored by us. Our licensing service keeps your name, email address, plan, and the Stripe customer and subscription IDs that go with your key.</li>
+        <li><strong>When you buy a license</strong>: your name, email address and the details of your order, as Stripe passes them to us. Payment card details are entered directly with our payment processor and are never seen or stored by us. Our licensing service keeps your name, email address, plan, and the Stripe customer and subscription IDs that go with your key.</li>
         <li><strong>When you ask for a trial key</strong>, on the download page or in the app: your email address and, from the download page, the use you picked (teaching, a security team, or study on your own) and whether your browser reports Windows or Linux. We issue a 30-day trial key under that address, email it to you, and add the address to our trial follow-up emails (see <a href="#use">section 3</a>).</li>
         <li><strong>When you use your account</strong> at account.redherrings.app: your email address and when you signed in. You sign in with a single-use link we email you; there's no password. Your account lists your licenses and the machines activated on them, by hostname.</li>
         <li><strong>When you ask for a student or veteran discount</strong>: for the student check, the school email address we send a six-digit code to (we store a hash of the code, not the code, and keep a record that the school address was used). For a request our staff reviews: your name and what you tell us about your school and program, or your service branch, years of service and any note. An approved discount comes as a single-use Stripe promotion code.</li>
@@ -112,7 +112,7 @@
       <h2 id="processors">4. Service providers</h2>
       <p>We rely on a small number of vetted providers to run the business. They process data only as needed to provide their service to us:</p>
       <ul>
-        <li><strong>Payments</strong>: handled by <a href="https://stripe.com/privacy" rel="noopener" target="_blank">Stripe</a>. Your card details go to Stripe, not to us; we receive only confirmation of payment and the billing details needed for your receipt and license.</li>
+        <li><strong>Payments</strong>: handled by <a href="https://stripe.com/privacy" rel="noopener" target="_blank">Stripe</a>. Your card details go to Stripe, not to us; we receive only confirmation of payment and the name and email address our licensing service keeps for your license (see section 2).</li>
         <li><strong>Licensing and account server</strong>: our licensing service and account pages (account.redherrings.app) run on <a href="https://render.com/privacy" rel="noopener" target="_blank">Render</a>, behind <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener" target="_blank">Cloudflare</a>. Render stores the records described above. Both see the IP address of each request. Our server uses it to limit how often one address can make requests, and doesn't save it with your license, trial, account or contact records.</li>
         <li><strong>Website hosting</strong>: this site is served as static files by <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Pages</a>, which keeps standard access logs. App downloads and updates come from GitHub's release pages.</li>
         <li><strong>Website analytics</strong>: <a href="https://www.goatcounter.com/help/privacy" rel="noopener" target="_blank">GoatCounter</a> counts page views and button clicks (see <a href="#cookies">section 6</a>).</li>
@@ -126,7 +126,7 @@
       <p>Activation deliberately carries <strong>no lab content and no student data</strong>: not the cases you build, not rosters, not answers, not evidence. Deactivating a seat removes that machine from your active list; its record stays with your license, marked inactive. Air-gapped machines can complete the same activation by exchanging a request and response file, with no direct connection. The request file carries your key's ID, the machine identifier, the hostname and a hash of the key.</p>
 
       <h2 id="cookies">6. Cookies &amp; the website</h2>
-      <p>This marketing site doesn't set advertising or tracking cookies. It counts visits with GoatCounter, which doesn't use cookies. The pages that load it send GoatCounter their address and title, the page you came from, your screen size, and which buttons you click, and GoatCounter sees your IP address and browser like any web request. The site's pages, and the account pages at account.redherrings.app, load their fonts from Google Fonts, so Google sees your IP address and browser too. Our hosting provider keeps standard, short-lived server logs (such as IP address and request time) to operate and secure the site.</p>
+      <p>This marketing site doesn't set advertising or tracking cookies. It counts visits with GoatCounter, which doesn't use cookies. The pages that load it send GoatCounter their address and title, the page you came from, your screen size, and which buttons you click, and GoatCounter sees your IP address and browser like any web request. The site's pages, and the account pages at account.redherrings.app, load their fonts from Google Fonts, so Google sees your IP address and browser too. The cases page remembers which featured case to show next in your browser's local storage; that value never leaves your browser. Our hosting provider keeps standard, short-lived server logs (such as IP address and request time) to operate and secure the site.</p>
       <p>When you sign in at account.redherrings.app, it sets two cookies: one keeps you signed in, and one protects your requests against forgery. Neither is used for tracking.</p>
 
       <h2 id="retention">7. Retention</h2>
@@ -195,7 +195,7 @@
     </div>
   </div>
 </footer>
-<!-- Analytics: GoatCounter (cookieless, no personal data). Activate by registering the "redherrings" code at goatcounter.com. -->
+<!-- Analytics: GoatCounter (cookieless; the "redherrings" site code is registered). Privacy policy section 6 describes what it sends. -->
 <script data-goatcounter="https://redherrings.goatcounter.com/count" async src="https://gc.zgo.at/count.v5.js" crossorigin="anonymous" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ"></script>
 <script src="nav.js" defer></script>
 </body>
