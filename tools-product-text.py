@@ -56,6 +56,10 @@ FIXES = {
              "handed out as a ZIP each week, with a private portal link to answer in."),
             ("hand out the student ZIPs or the private portal links.",
              "hand out the student ZIPs and the private portal links."),
+            # The syllabi are CC BY-NC-SA 4.0 (the CLARK .docx footers say so).
+            ("Syllabus text, policies and the rubric may be copied into institutional templates without attribution.",
+             "Syllabus text, policies and the rubric are licensed CC BY-NC-SA 4.0. You may copy them into "
+             "institutional templates with attribution to The Competence Collective, LLC."),
         ],
     },
     "pathway-note": {
