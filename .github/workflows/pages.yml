@@ -31,12 +31,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       # Publish the tracked site files only: the writers' notes (AGENTS.md),
-      # the README, the tools-* generators and the PDF renderer stay in the repo.
+      # the README, the tools-* generators, the PDF renderer and the cloud
+      # session settings (.claude) stay in the repo.
       - name: Stage the public files
         run: |
           mkdir _site
           git ls-files -z \
-            | grep -zvE '^(AGENTS\.md|README\.md|tools-[^/]*|print/render\.py|\.github/.*)$' \
+            | grep -zvE '^(AGENTS\.md|README\.md|tools-[^/]*|print/render\.py|\.github/.*|\.claude/.*)$' \
             | tar --null -T - -cf - | tar -xf - -C _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
