@@ -41,6 +41,9 @@ PUBLISHER = "The Competence Collective, LLC"
 SIGNED_SINCE = "v1.7.0"
 # First release tag whose macOS zips were notarized in CI (see docs/CODE_SIGNING.md). None = not yet.
 MAC_NOTARIZED_SINCE = None
+# The last release with macOS builds. Later releases are Windows and Linux only;
+# the page keeps this release's Mac zips in a card marked as the last for macOS.
+MAC_LAST = "v1.17.1"
 
 E = lambda s: html.escape(str(s or ""), quote=True)
 
@@ -70,6 +73,17 @@ def fetch_releases():
             "url": rel.get("html_url"),
         }
     return out
+
+
+MAC_ZIPS = ("RedHerrings-macos-arm64.zip", "RedHerrings-macos-intel.zip")
+
+
+def mac_release(latest, releases):
+    """The release whose Mac zips the page offers: the latest if it has them,
+    else MAC_LAST (the last release built for macOS)."""
+    if any(a in latest["assets"] for a in MAC_ZIPS) or not MAC_LAST:
+        return latest
+    return releases.get(vt(MAC_LAST)) or {"tag": MAC_LAST, "assets": {}}
 
 
 def fetch_sums(tag):
@@ -141,7 +155,7 @@ def mb(n):
     return f"{n / 1_000_000:.0f} MB" if n else ""
 
 
-def page(latest, releases, notes, sums):
+def page(latest, releases, notes, sums, mac_sums=None):
     tag, date = latest["tag"], latest["date"]
     DL = f"https://github.com/{REPO}/releases/download/{tag}"
     nice_date = dt.date.fromisoformat(date).strftime("%B %-d, %Y") if date else ""
@@ -157,8 +171,11 @@ def page(latest, releases, notes, sums):
     setup_name = next((a for a in latest["assets"] if a.startswith("RedHerrings-Setup-") and a.endswith(".exe")), None)
     setup_size = mb(latest["assets"].get(setup_name)) if setup_name else ""
     setup_sha = sums.get(setup_name, "") if setup_name else ""
-    mac_assets = [a for a in ("RedHerrings-macos-arm64.zip", "RedHerrings-macos-intel.zip") if a in latest["assets"]]
-    mac_notarized = bool(MAC_NOTARIZED_SINCE) and vt(tag) >= vt(MAC_NOTARIZED_SINCE)
+    mac_rel = mac_release(latest, releases)
+    mac_assets = [a for a in MAC_ZIPS if a in mac_rel["assets"]]
+    mac_sums = sums if mac_rel is latest else (mac_sums or {})
+    mac_DL = f"https://github.com/{REPO}/releases/download/{mac_rel['tag']}"
+    mac_notarized = bool(MAC_NOTARIZED_SINCE) and vt(mac_rel["tag"]) >= vt(MAC_NOTARIZED_SINCE)
 
     def sha_block(sha, label):
         if not sha:
@@ -214,15 +231,17 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
     mac_card = ""
     if mac_assets:
         links = "".join(
-            f'<a class="btn primary" href="{DL}/{a}" data-goatcounter-click="download-{a[len("RedHerrings-"):-4]}">'
-            f'Download for {"Apple silicon" if "arm64" in a else "Intel Mac"}{(" · " + mb(latest["assets"].get(a))) if latest["assets"].get(a) else ""}</a>'
+            f'<a class="btn" href="{mac_DL}/{a}" data-goatcounter-click="download-{a[len("RedHerrings-"):-4]}">'
+            f'Download {E(mac_rel["tag"])} for {"Apple silicon" if "arm64" in a else "Intel Mac"}{(" · " + mb(mac_rel["assets"].get(a))) if mac_rel["assets"].get(a) else ""}</a>'
             for a in mac_assets)
-        shas = "".join(sha_block(sums.get(a, ""), a) for a in mac_assets)
+        shas = "".join(sha_block(mac_sums.get(a, ""), a) for a in mac_assets)
+        later = "Later versions are" if mac_rel is latest else f"{E(tag)} and later are"
         gate = ('<p class="dl-signed">&#10003; Signed with a Developer ID certificate and notarized by Apple.</p>' if mac_notarized else
                 '<p class="dl-muted">Not yet notarized, so macOS warns on first launch. Control-click <code>RedHerrings</code> inside the folder and choose <strong>Open</strong>, then <strong>Open</strong> again. <a href="/help.html#gatekeeper">Still blocked on a newer Mac?</a></p>')
         mac_card = f'''
       <div class="dl-card">
         <div class="dl-os">macOS</div>
+        <p class="dl-req"><strong>{E(mac_rel["tag"])} is the last version for macOS.</strong> {later} for Windows and Linux; this one keeps working.</p>
         <p class="dl-req">macOS 12 or newer. Pick the build for your Mac (Apple menu &rarr; About This Mac shows the chip). Unzip, open the <code>RedHerrings</code> folder and double-click <code>RedHerrings</code> inside it; it opens Terminal and your browser.</p>
         <div class="dl-row">{links}</div>
         {shas}
@@ -254,8 +273,8 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Download Red Herrings {E(tag)} for Windows, macOS and Linux</title>
-<meta name="description" content="Download Red Herrings {E(tag)} for Windows, macOS or Linux. First Look cases free with no key, and a 30-day trial key by email. No card. Checksums and system requirements.">
+<title>Download Red Herrings {E(tag)} for Windows and Linux</title>
+<meta name="description" content="Download Red Herrings {E(tag)} for Windows or Linux. First Look cases free with no key, and a 30-day trial key by email. No card. Checksums and system requirements.">
 <link rel="canonical" href="https://redherrings.app/download.html">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#D42A2A">
@@ -264,18 +283,18 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:title" content="Download Red Herrings {E(tag)}">
-<meta property="og:description" content="Windows, macOS and Linux. Runs on your machine, nothing leaves it. First Look cases free; a 30-day trial key by email.">
+<meta property="og:description" content="Windows and Linux. Runs on your machine, nothing leaves it. First Look cases free; a 30-day trial key by email.">
 <meta property="og:url" content="https://redherrings.app/download.html">
 <meta property="og:image" content="https://redherrings.app/img/og/download-22f28bbe.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Download Red Herrings for Windows, macOS and Linux. Runs on your machine, nothing leaves it.">
+<meta property="og:image:alt" content="Download Red Herrings for Windows and Linux. Runs on your machine, nothing leaves it.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://redherrings.app/img/og/download-22f28bbe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, macOS 12 or newer, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"}},"downloadUrl":"{DL}/{setup_name or 'RedHerrings-windows.zip'}","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
+{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Red Herrings","softwareVersion":"{E(tag.lstrip('v'))}","datePublished":"{E(date)}","operatingSystem":"Windows 10, Windows 11, Linux","applicationCategory":"EducationalApplication","offers":{{"@type":"Offer","price":"0","priceCurrency":"USD","description":"30-day free trial"}},"downloadUrl":"{DL}/{setup_name or 'RedHerrings-windows.zip'}","publisher":{{"@type":"Organization","name":"{E(PUBLISHER)}"}}}}
 </script>
 <style>
   .dl-head{{margin:8px 0 22px;text-align:center}}
@@ -333,7 +352,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing</code></pre>
       <div class="dl-ver"><span class="chip">{E(tag)}</span></div>
     </div>
 
-    <div class="dl-grid">{win_card}{mac_card}{lin_card}
+    <div class="dl-grid">{win_card}{lin_card}{mac_card}
     </div>
 
     <div class="dl-lead" id="dl-lead">
@@ -409,9 +428,11 @@ def main():
     notes = sorted((e for e in parse_release_notes(NOTES_MD) if e[0] <= max(releases)),
                    key=lambda e: e[0], reverse=True)
     sums = fetch_sums(latest["tag"])
+    mac_rel = mac_release(latest, releases)
+    mac_sums = fetch_sums(mac_rel["tag"]) if mac_rel is not latest and mac_rel["assets"] else None
     out = os.path.join(ROOT, "download.html")
     with open(out, "w", encoding="utf-8") as fh:
-        fh.write(page(latest, releases, notes, sums))
+        fh.write(page(latest, releases, notes, sums, mac_sums))
     print(f"wrote download.html: {latest['tag']} ({latest['date']}), {len(notes)} release-notes entries, sums={'yes' if sums else 'no'}, signed={bool(SIGNED_SINCE) and max(releases) >= vt(SIGNED_SINCE)}")
     # Keep the homepage's version mention in sync.
     idx = os.path.join(ROOT, "index.html")

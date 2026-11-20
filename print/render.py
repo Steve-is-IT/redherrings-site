@@ -7,7 +7,7 @@ OUT = os.path.join(os.path.dirname(D), "files")
 async def main(names):
     srcs = [os.path.join(D, n + ".html") for n in names] if names else sorted(glob.glob(os.path.join(D, "*.html")))
     async with async_playwright() as p:
-        b = await p.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome')
+        b = await p.chromium.launch(executable_path='/opt/pw-browsers/chromium')
         for src in srcs:
             name = os.path.basename(src)[:-5]
             pg = await b.new_page()
